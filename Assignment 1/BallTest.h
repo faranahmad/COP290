@@ -3,7 +3,7 @@
 
 bool RunAllBallTests();
 bool InitialisationTests();
-// bool GetValueTests();
-// bool UpdateBallTests();
+bool SettingBallTests();
+bool UpdateBallTests();
 
 #endif
