@@ -22,6 +22,8 @@ class Ball
 		void SetVelocity(float,float);
 		void SetColor(string);
 
+		void UpdateBall(float);
+
 	private:
 		float radius;
 		float coord_x;

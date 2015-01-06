@@ -22,6 +22,8 @@ class Board
 		void SetBallFromId(int,Ball);
 
 		void AddBallToBoard(Ball);
+		
+		void UpdateBoard(float);
 
 	private:
 		float dimension_x;
