@@ -1,4 +1,4 @@
-#include "ball.h"
+#include "Ball.h"
 
 Ball::Ball(float x,float y)
 {
@@ -35,7 +35,7 @@ float Ball::GetVelocityX()
 float Ball::GetVelocityY()
 {
 	// Returns Velocity Y of the ball
-	return coord_y;
+	return velocity_y;
 }
 
 float Ball::GetRadius()

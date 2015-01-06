@@ -1,7 +1,7 @@
 #ifndef BOARD_H
 #define BOARD_H
 
-#include "ball.h"
+#include "Ball.h"
 #include <vector>
 
 class Board

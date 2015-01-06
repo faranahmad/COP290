@@ -1,4 +1,4 @@
-#include "board.h"
+#include "Board.h"
 
 Board::Board(float x,float y)
 {
@@ -37,10 +37,11 @@ vector<Ball> Board::GetVectorBalls()
 Ball Board::GetBallFromId(int position)
 {
 	// Returns the position id ball from the vector of balls if the position id is less than the number of balls on the board
+	// TODO: Add Exception
 	if (position < number_balls)
 		return vector_of_balls[position];
 	else
-		return NULL;
+		return Ball(1.0,1.0);
 }
 
 void Board::SetDimensionX(float x)
@@ -72,12 +73,11 @@ void Board::SetVectorBalls(vector<Ball> newvector)
 void Board::SetBallFromId(int id, Ball newBall)
 {
 	// Updates the ball at position id if id < number of balls with the new ball
+	// TODO: Add exception
 	if (id<number_balls)
 	{
 		vector_of_balls[id]=newBall;
 	}
-	else
-		return NULL;
 }
 
 void Board::AddBallToBoard(Ball newBall)
@@ -92,6 +92,6 @@ void Board::UpdateBoard(float time_elapsed)
 	// Updates the situation of the board after a time time_elapsed has passed using the updae ball function
 	for (int i=0; i<number_balls; i++)
 	{
-		vector_of_balls[i]=vector_of_balls[i].UpdateBall(time_elapsed);
+		vector_of_balls[i].UpdateBall(time_elapsed);
 	}
 }
