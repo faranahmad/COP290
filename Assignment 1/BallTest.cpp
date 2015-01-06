@@ -1,10 +1,10 @@
-#include <iostream>
+// #include <iostream>
 #include "BallTest.h"
 #include "Test.h"
 #include "Ball.h"
 #include "Board.h"
 
-bool RunAllTests()
+bool RunAllBallTests()
 {
 	// GetValueTests();
 	InitialisationTests();
@@ -23,10 +23,4 @@ bool InitialisationTests()
 	t.VerifyTrue(ball1.GetColor()=="blue", "Color should be blue");
 	
 	return t.isPassed();
-}
-
-int main()
-{
-	RunAllTests();
-	return 0;
 }

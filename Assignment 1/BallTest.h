@@ -1,7 +1,7 @@
 #ifndef BALLTEST_H
 #define BALLTEST_H
 
-bool RunAllTests();
+bool RunAllBallTests();
 bool InitialisationTests();
 // bool GetValueTests();
 // bool UpdateBallTests();
