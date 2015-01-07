@@ -50,6 +50,13 @@ string Ball::GetColor()
 	return color;
 }
 
+string Ball::GetBallInformation()
+{
+	// Returns the information about the ball
+	// Format is "radius \t coord_x \t coord_y \t velocity_x \t velocity_y \t color"
+	return "radius:"+std::to_string(radius)+"  xcoord:"+std::to_string(coord_x)+"  ycoord:"+std::to_string(coord_y)+"  velocityx:"+std::to_string(velocity_x)+"  velocityy:"+std::to_string(velocity_y)+"  color:"+color;	
+}
+
 void Ball::SetRadius(float radius_value)
 {
 	// Updates the Radius of the ball

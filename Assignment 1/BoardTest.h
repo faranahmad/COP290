@@ -4,5 +4,6 @@
 bool RunAllBoardTests();
 bool BoardInitialisationTests();
 bool SettingBoardTests();
+bool BoardAddRemoveBallTests();
 
 #endif

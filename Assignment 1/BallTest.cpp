@@ -13,6 +13,7 @@ bool RunAllBallTests()
 bool BallInitialisationTests()
 {
 	Ball ball1=Ball(4.2,5.3);
+	// cout <<ball1.GetBallInformation()<<endl;
 	Test t("Testing the Initialisation of Ball");
 	t.VerifyTrue(ball1.GetX()==4.2f,"X should be 4.2");
 	t.VerifyTrue(ball1.GetY()==5.3f,"Y should be 5.3");
@@ -37,6 +38,7 @@ bool SettingBallTests()
 	t.VerifyTrue(ball1.GetVelocityY()==13.760f,"Velocity Y should be 13.760");
 	t.VerifyTrue(ball1.GetRadius()==3.76f,"Radius should be 3.76");
 	t.VerifyTrue(ball1.GetColor()=="yellow", "Color should be yellow");
+
 	return t.isPassed();
 }
 
@@ -50,8 +52,7 @@ bool UpdateBallTests()
 	t.VerifyTrue(ball1.GetVelocityX()==4.5f,"Vx should be 4.5");
 	t.VerifyTrue(ball1.GetVelocityY()==-6.7f,"Vy should be -6.7");
 	t.VerifyTrue(ball1.GetX()==-3.05,"X should be -5.3+2.25");
-	// cout <<ball1.GetX()<<"\n";
-	// cout <<ball1.GetY()<<"\n";
 	t.VerifyTrue(ball1.GetY()==0.05,"Y should be 3.4-3.35");
+	cout <<ball1.GetBallInformation()<<"\n";
 	return t.isPassed();
 }

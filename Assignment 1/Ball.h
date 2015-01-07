@@ -17,6 +17,8 @@ class Ball
 		float GetRadius();
 		string GetColor();
 
+		string GetBallInformation();
+
 		void SetRadius(float);
 		void SetPosition(float,float);
 		void SetVelocity(float,float);
