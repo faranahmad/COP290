@@ -7,6 +7,7 @@ bool RunAllBoardTests()
 {
 	BoardInitialisationTests();
 	SettingBoardTests();
+	BoardAddRemoveBallTests();
 }
 
 bool BoardInitialisationTests()
@@ -62,5 +63,11 @@ bool SettingBoardTests()
 	t.VerifyTrue(obtained.GetRadius()==1.0,"Radius should be 0.0");
 	t.VerifyTrue(obtained.GetColor()=="blue", "Color should be blue");
 
+	return t.isPassed();	
+}
+
+bool BoardAddRemoveBallTests()
+{
+	Test t("Testing the addition and removal of balls on the board");
 	return t.isPassed();	
 }

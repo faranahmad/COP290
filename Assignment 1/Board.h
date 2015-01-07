@@ -15,6 +15,8 @@ class Board
 		vector<Ball> GetVectorBalls();
 		Ball GetBallFromId (int);
 
+		string GetBoardInformation();
+
 		void SetDimensionX(float);
 		void SetDimensionY(float);
 		void SetNumberOfBalls(int);
