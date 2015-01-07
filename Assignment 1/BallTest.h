@@ -2,7 +2,7 @@
 #define BALLTEST_H
 
 bool RunAllBallTests();
-bool InitialisationTests();
+bool BallInitialisationTests();
 bool SettingBallTests();
 bool UpdateBallTests();
 

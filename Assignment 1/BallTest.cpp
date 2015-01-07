@@ -2,16 +2,15 @@
 #include "BallTest.h"
 #include "Test.h"
 #include "Ball.h"
-#include "Board.h"
 
 bool RunAllBallTests()
 {
-	InitialisationTests();
+	BallInitialisationTests();
 	SettingBallTests();
 	UpdateBallTests();
 }
 
-bool InitialisationTests()
+bool BallInitialisationTests()
 {
 	Ball ball1=Ball(4.2,5.3);
 	Test t("Testing the Initialisation of Ball");

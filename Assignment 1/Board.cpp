@@ -87,6 +87,17 @@ void Board::AddBallToBoard(Ball newBall)
 	vector_of_balls.push_back(newBall);
 }
 
+void Board::RemoveBallFromBoard()
+{
+	// Removes the last ball from the vector of balls and decrements the counter
+	// TODO: Add Exception
+	if (number_balls>0)
+	{
+		number_balls -=1;
+		vector_of_balls.pop_back();
+	}
+}
+
 void Board::UpdateBoard(float time_elapsed)
 {
 	// Updates the situation of the board after a time time_elapsed has passed using the updae ball function

@@ -22,6 +22,7 @@ class Board
 		void SetBallFromId(int,Ball);
 
 		void AddBallToBoard(Ball);
+		void RemoveBallFromBoard();
 		
 		void UpdateBoard(float);
 
