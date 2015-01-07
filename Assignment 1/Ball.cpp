@@ -89,3 +89,5 @@ void Ball::UpdateBall(float time_elapsed)
 	coord_x += time_elapsed*velocity_x;
 	coord_y += time_elapsed*velocity_y;
 }
+
+// GL GLU glut

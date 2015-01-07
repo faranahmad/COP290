@@ -44,6 +44,19 @@ Ball Board::GetBallFromId(int position)
 		return Ball(1.0,1.0);
 }
 
+string Board::GetBoardInformation()
+{
+	string BoardInfo="Board\n";
+	BoardInfo += "Dimension x:"+to_string(dimension_x)+"  Dimension y:" +to_string(dimension_y)+"  Number of Balls:" + to_string(number_balls)+"\n";
+	for (int i=0;i<number_balls;i++)
+	{
+		BoardInfo+="Ball Number: "+to_string(i)+vector_of_balls[i].GetBallInformation();
+	}
+	BoardInfo+="\n";
+	return BoardInfo;
+}
+
+
 void Board::SetDimensionX(float x)
 {
 	// Updates the x dimension of the board
