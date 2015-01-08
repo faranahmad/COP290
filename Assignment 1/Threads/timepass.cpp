@@ -4,7 +4,7 @@
 using namespace std;
 #define N 2  /* # of thread */
 
-int arr[] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};  /* target array */
+int arr [10000];  /* target array */
 // int arr[] ={1,2};
 
 int globalsum;
@@ -37,7 +37,7 @@ struct Arr {
 void * sum(void *a)
 {
     Arr *pa =(Arr *)a;
-    cout <<(pa->low)<<"\t"<<(pa->high)<<"\n";
+    // cout <<(pa->low)<<"\t"<<(pa->high)<<"\n";
     if (pa->low +1 == pa->high)
     {   
         globalsum+=arr[pa->low];
@@ -81,14 +81,23 @@ void * sum(void *a)
 
 int main()
 {
+    for (int i=0; i<10000; i++)
+    {
+        arr[i]=1;
+    }
     globalsum=0;
     Arr ai;
     ai.low = 0;
     ai.high = sizeof(arr)/sizeof(arr[0]);
-    pthread_t thread;
-    pthread_create(&thread, NULL, sum, &ai);
-    pthread_join(thread, NULL);
+    // pthread_t thread;
+    // pthread_create(&thread, NULL, sum, &ai);
+    // pthread_join(thread, NULL);
+    for (int i=0; i<10000;i++)
+    {
+        globalsum+=arr[i];
+    }
     cout <<globalsum<<" this is the answer\n";
-    pthread_exit(NULL);
+    // pthread_exit(NULL);
+
     return 0;
 }
