@@ -117,5 +117,13 @@ void Board::UpdateBoard(float time_elapsed)
 	for (int i=0; i<number_balls; i++)
 	{
 		vector_of_balls[i].UpdateBall(time_elapsed);
+		if (vector_of_balls[i].GetX() > dimension_x)
+		{
+			vector_of_balls[i].SetX(vector_of_balls[i].GetX()-dimension_x);
+		}
+		if (vector_of_balls[i].GetY() > dimension_y)
+		{
+			vector_of_balls[i].SetY(vector_of_balls[i].GetY()-dimension_y);
+		}
 	}
 }

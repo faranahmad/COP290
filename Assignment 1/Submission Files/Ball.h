@@ -23,6 +23,10 @@ class Ball
 		void SetPosition(float,float);
 		void SetVelocity(float,float);
 		void SetColor(string);
+		void SetX(float);
+		void SetY(float);
+		void SetVelocityX(float);
+		void SetVelocityY(float);
 
 		void UpdateBall(float);
 

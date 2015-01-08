@@ -83,6 +83,30 @@ void Ball::SetColor(string color_new)
 	color=color_new;
 }
 
+void Ball::SetX(float x_new)
+{
+	// Updates the x coordinate of a ball
+	coord_x=x_new;
+}
+
+void Ball::SetY(float y_new)
+{
+	// Updates the y coordinate of a ball
+	coord_y=y_new;
+}
+
+void Ball::SetVelocityX(float vx_new)
+{
+	// Updates the X velocity of the ball
+	velocity_x=vx_new;
+}
+
+void Ball::SetVelocityY(float vy_new)
+{
+	// Updates the Y velocity of the ball
+	velocity_y=vy_new;
+}
+
 void Ball::UpdateBall(float time_elapsed)
 {
 	// Updates the position of the ball after a time time_elapsed has elapsed using the velocity of the ball
