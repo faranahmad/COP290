@@ -8,34 +8,35 @@ using namespace std;
 class Ball
 {
 	public:
-		Ball(float,float);
+		Ball(int,int);
+		Ball(int,int,int);
 
-		float GetX();
-		float GetY();
-		float GetVelocityX();
-		float GetVelocityY();
-		float GetRadius();
+		int GetX();
+		int GetY();
+		int GetVelocityX();
+		int GetVelocityY();
+		int GetRadius();
 		string GetColor();
 
 		string GetBallInformation();
 
-		void SetRadius(float);
-		void SetPosition(float,float);
-		void SetVelocity(float,float);
+		void SetRadius(int);
+		void SetPosition(int,int);
+		void SetVelocity(int,int);
 		void SetColor(string);
-		void SetX(float);
-		void SetY(float);
-		void SetVelocityX(float);
-		void SetVelocityY(float);
+		void SetX(int);
+		void SetY(int);
+		void SetVelocityX(int);
+		void SetVelocityY(int);
 
-		void UpdateBall(float);
+		void UpdateBall(int);
 
 	private:
-		float radius;
-		float coord_x;
-		float coord_y;
-		float velocity_x;
-		float velocity_y;
+		int radius;
+		int coord_x;
+		int coord_y;
+		int velocity_x;
+		int velocity_y;
 		string color;
 };
 

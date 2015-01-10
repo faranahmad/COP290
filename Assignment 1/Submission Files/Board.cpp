@@ -1,22 +1,33 @@
 #include "Board.h"
 
-Board::Board(float x,float y)
+Board::Board()
+{
+	dimension_x=1000;
+	dimension_y=1000;
+	number_balls=0;
+}
+
+Board::Board(int x,int y, int n)
 {
 	// Constructs a new Board
 	// Default number of balls is 0
 	// Default vector of balls is empty
 	dimension_x=x;
 	dimension_y=y;
-	number_balls=0;
+	number_balls=n;
+	for (int i=0; i<n;i++)
+	{
+		vector_of_balls.push_back(Ball(x,y,1));
+	}
 }
 
-float Board::GetDimensionX()
+int Board::GetDimensionX()
 {
 	// Returns the x dimension of the board
 	return dimension_x;
 }
 
-float Board::GetDimensionY()
+int Board::GetDimensionY()
 {
 	// Returns the y dimension of the board
 	return dimension_y;
@@ -57,13 +68,13 @@ string Board::GetBoardInformation()
 }
 
 
-void Board::SetDimensionX(float x)
+void Board::SetDimensionX(int x)
 {
 	// Updates the x dimension of the board
 	dimension_x=x;
 }
 
-void Board::SetDimensionY(float y)
+void Board::SetDimensionY(int y)
 {
 	// Updates teh y dimension of the board
 	dimension_y=y;
@@ -111,7 +122,7 @@ void Board::RemoveBallFromBoard()
 	}
 }
 
-void Board::UpdateBoard(float time_elapsed)
+void Board::UpdateBoard(int time_elapsed)
 {
 	// Updates the situation of the board after a time time_elapsed has passed using the updae ball function
 	for (int i=0; i<number_balls; i++)

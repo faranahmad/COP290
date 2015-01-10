@@ -1,8 +1,9 @@
 #include <iostream>
-#include<stdio.h>
 #include <pthread.h>
-#include <unistd.h>
+// #include <unistd.h>
+
 using namespace std;
+
 pthread_mutex_t mutexsum;
 int gCount=0;
 
@@ -23,17 +24,18 @@ while(gCount<=10)
 
 void *even(void* ptr)
 {
-while(gCount<10)
-{
-   if(gCount%2==0) //If even
-   {
-        pthread_mutex_lock (&mutexsum);
-        gCount++;
-        std::cout<<"kartikeya is domestic violence ka shikaar"<<endl;
-        sleep(1);
-        pthread_mutex_unlock (&mutexsum);
-   }
-}
+  while(gCount<10)
+  {
+     if(gCount%2==0) //If even
+     {
+          pthread_mutex_lock (&mutexsum);
+          gCount++;
+          std::cout<<"kartikeya is domestic violence ka shikaar"<<endl;
+          sleep(1);
+          pthread_mutex_unlock (&mutexsum);
+     }
+  }
+
 }
 
 int main()
