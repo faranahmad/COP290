@@ -1,6 +1,7 @@
 #include "Ball.h"
+#include <cstdlib>
 
-Ball::Ball(float x,float y)
+Ball::Ball(int x,int y)
 {
 	// Constructor for Ball Data Type
 	// Default Radius is 1.0
@@ -8,37 +9,48 @@ Ball::Ball(float x,float y)
 	// Default Velocity is 0
 	coord_x=x;
 	coord_y=y;
-	radius=1.0;
-	velocity_x=0.0;
-	velocity_y=0.0;
+	radius=1;
+	velocity_x=0;
+	velocity_y=0;
 	color="blue";
 }
 
-float Ball::GetX()
+Ball::Ball(int limx,int limy,int random)
+{
+	// Gives a random ball within  -limx to +limx and -limy to +limy
+	coord_x = (rand() % (2*limx)) -limx;
+	coord_y = (rand() % (2*limx)) -limx;
+	radius = 10;
+	velocity_x=(rand() % 10) -20;
+	velocity_y=(rand() % 10) -20;
+	color = "blue";
+}
+
+int Ball::GetX()
 {
 	// Returns the X coordinate of the ball
 	return coord_x;
 }
 
-float Ball::GetY()
+int Ball::GetY()
 {
 	// Returns the Y coordinate of the ball
 	return coord_y;
 }
 
-float Ball::GetVelocityX()
+int Ball::GetVelocityX()
 {
 	// Returns Velocity X of the ball
 	return velocity_x;
 }
 
-float Ball::GetVelocityY()
+int Ball::GetVelocityY()
 {
 	// Returns Velocity Y of the ball
 	return velocity_y;
 }
 
-float Ball::GetRadius()
+int Ball::GetRadius()
 {
 	// Returns the Radius of the Ball
 	return radius;
@@ -57,20 +69,20 @@ string Ball::GetBallInformation()
 	return "radius:"+std::to_string(radius)+"  xcoord:"+std::to_string(coord_x)+"  ycoord:"+std::to_string(coord_y)+"  velocityx:"+std::to_string(velocity_x)+"  velocityy:"+std::to_string(velocity_y)+"  color:"+color;	
 }
 
-void Ball::SetRadius(float radius_value)
+void Ball::SetRadius(int radius_value)
 {
 	// Updates the Radius of the ball
 	radius=radius_value;
 }
 
-void Ball::SetPosition(float x_value,float y_value)
+void Ball::SetPosition(int x_value,int y_value)
 {
 	// Updates the position of the ball
 	coord_x=x_value;
 	coord_y=y_value;
 }
 
-void Ball::SetVelocity(float velocityx,float velocityy)
+void Ball::SetVelocity(int velocityx,int velocityy)
 {
 	// Updates the velocity of the ball
 	velocity_x=velocityx;
@@ -83,31 +95,31 @@ void Ball::SetColor(string color_new)
 	color=color_new;
 }
 
-void Ball::SetX(float x_new)
+void Ball::SetX(int x_new)
 {
 	// Updates the x coordinate of a ball
 	coord_x=x_new;
 }
 
-void Ball::SetY(float y_new)
+void Ball::SetY(int y_new)
 {
 	// Updates the y coordinate of a ball
 	coord_y=y_new;
 }
 
-void Ball::SetVelocityX(float vx_new)
+void Ball::SetVelocityX(int vx_new)
 {
 	// Updates the X velocity of the ball
 	velocity_x=vx_new;
 }
 
-void Ball::SetVelocityY(float vy_new)
+void Ball::SetVelocityY(int vy_new)
 {
 	// Updates the Y velocity of the ball
 	velocity_y=vy_new;
 }
 
-void Ball::UpdateBall(float time_elapsed)
+void Ball::UpdateBall(int time_elapsed)
 {
 	// Updates the position of the ball after a time time_elapsed has elapsed using the velocity of the ball
 	coord_x += time_elapsed*velocity_x;

@@ -7,18 +7,19 @@
 class Board
 {
 	public:
-		Board(float,float);
+		Board();
+		Board(int,int,int);
 
-		float GetDimensionX();
-		float GetDimensionY();
+		int GetDimensionX();
+		int GetDimensionY();
 		int GetNumberBalls ();
 		vector<Ball> GetVectorBalls();
 		Ball GetBallFromId (int);
 
 		string GetBoardInformation();
 
-		void SetDimensionX(float);
-		void SetDimensionY(float);
+		void SetDimensionX(int);
+		void SetDimensionY(int);
 		void SetNumberOfBalls(int);
 		void SetVectorBalls(vector<Ball>);
 		void SetBallFromId(int,Ball);
@@ -26,11 +27,11 @@ class Board
 		void AddBallToBoard(Ball);
 		void RemoveBallFromBoard();
 		
-		void UpdateBoard(float);
+		void UpdateBoard(int);
 
 	private:
-		float dimension_x;
-		float dimension_y;
+		int dimension_x;
+		int dimension_y;
 		int number_balls;
 		vector<Ball> vector_of_balls;
 };
