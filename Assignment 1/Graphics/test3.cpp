@@ -1,16 +1,19 @@
 #include <GL/glut.h>
 #include <GL/gl.h>
 #include <list>
+#include <iostream>
+using namespace std;
+
 
 int x=0;
 int y=0;
 
 void display(void)
 {
-      int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
-      int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
+    int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
+    int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
     float const window_aspect = (float)window_width / (float)window_height;
-
+    cout<<window_width<<"   "<<window_height<<endl;
     glClearColor(0.5, 0.5, 1.0, 1.0);
     glClearDepth(1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -43,12 +46,11 @@ void display(void)
     glEnable(GL_DEPTH_TEST);
 
     glPushMatrix();
-        glTranslatef(x/(float)window_width, y/(float)window_height, 0);
+        glTranslatef(x/(float)window_height, y/(float)window_height, 0);
         glutSolidSphere(0.1, 31, 10);
         glPopMatrix();
-    // for( v2flist_t::iterator sc = sphere_centers.begin();
-    //      sc != sphere_centers.end();
-    //      sc++ ) {
+    // for(  ) 
+    // {
 
     //     glPushMatrix();
     //     glTranslatef(sc->x, sc->y, 0);
@@ -88,8 +90,8 @@ int main(int argc,char *argv[] )
     y=atoi(argv[2]);
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-    glutInitWindowSize(1280,720);
-    glutCreateWindow("Team BabeMagents");
+    glutInitWindowSize(1200,600);
+    glutCreateWindow("Yo");
     
     glutDisplayFunc(display);
     // glutMouseFunc(mouseclick);
