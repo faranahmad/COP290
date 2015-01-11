@@ -47,6 +47,8 @@ void display(void)
 
     glPushMatrix();
         glTranslatef(x/(float)window_height, y/(float)window_height, 0);
+        x+=1;
+        y+=1;
         glutSolidSphere(0.1, 31, 10);
         glPopMatrix();
     // for(  ) 
@@ -59,6 +61,7 @@ void display(void)
     // }
 
     glutSwapBuffers();
+    glutPostRedisplay();
 }
 
 // void mouseclick(

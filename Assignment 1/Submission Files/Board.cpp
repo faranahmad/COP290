@@ -61,7 +61,7 @@ string Board::GetBoardInformation()
 	BoardInfo += "Dimension x:"+to_string(dimension_x)+"  Dimension y:" +to_string(dimension_y)+"  Number of Balls:" + to_string(number_balls)+"\n";
 	for (int i=0;i<number_balls;i++)
 	{
-		BoardInfo+="Ball Number: "+to_string(i)+vector_of_balls[i].GetBallInformation();
+		BoardInfo+="Ball Number: "+to_string(i)+vector_of_balls[i].GetBallInformation() +"\n";
 	}
 	BoardInfo+="\n";
 	return BoardInfo;

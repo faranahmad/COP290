@@ -3,7 +3,7 @@
 #include <GL/gl.h>
 #include <list>
 #include "Ball.h"
-#include "test4.h"
+#include "Graphics.h"
 #include <iostream>
 using namespace std;
 

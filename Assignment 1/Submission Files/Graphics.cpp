@@ -3,7 +3,7 @@
 #include <list>
 #include "Ball.h"
 #include "Graphics.h"
-
+#include <iostream>
 
 std::vector<Ball> vballs;
 
@@ -52,8 +52,9 @@ void display(void)
     for( int i=0;i<vballs.size();i++ ) 
     {
         glPushMatrix();
-        glTranslatef(vballs[i].GetX()/(float)window_width, vballs[i].GetY()/(float)window_height, 0);
-        glutSolidSphere(vballs[i].GetRadius()/100.0, 31, 10);
+        // cout<<vballs[i].GetX()<<"  "<<vballs[i].GetY()<<endl;
+        glTranslatef(vballs[i].GetX()/(float)window_height, vballs[i].GetY()/(float)window_height, 0);
+        glutSolidSphere(vballs[i].GetRadius()/1000.0, 31, 10);
         glPopMatrix();
     }
 
