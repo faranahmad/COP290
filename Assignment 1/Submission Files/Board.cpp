@@ -2,18 +2,22 @@
 
 Board::Board()
 {
-	dimension_x=1000;
-	dimension_y=1000;
+	dimension_x=1000.0;
+	dimension_y=1000.0;
 	number_balls=0;
 }
 
 bool CheckCorrect(std::vector<Ball> v,Ball n1)
 {
 	bool sofar=true;
+	for (int i=0; (i< v.size()) && sofar; i++)
+	{
+
+	}
 	return sofar;
 }
 
-Board::Board(int x,int y, int n)
+Board::Board(double x,double y, int n)
 {
 	// Constructs a new Board
 	// Default number of balls is 0
@@ -32,13 +36,13 @@ Board::Board(int x,int y, int n)
 	}
 }
 
-int Board::GetDimensionX()
+double Board::GetDimensionX()
 {
 	// Returns the x dimension of the board
 	return dimension_x;
 }
 
-int Board::GetDimensionY()
+double Board::GetDimensionY()
 {
 	// Returns the y dimension of the board
 	return dimension_y;
@@ -79,13 +83,13 @@ string Board::GetBoardInformation()
 }
 
 
-void Board::SetDimensionX(int x)
+void Board::SetDimensionX(double x)
 {
 	// Updates the x dimension of the board
 	dimension_x=x;
 }
 
-void Board::SetDimensionY(int y)
+void Board::SetDimensionY(double y)
 {
 	// Updates teh y dimension of the board
 	dimension_y=y;
@@ -133,7 +137,7 @@ void Board::RemoveBallFromBoard()
 	}
 }
 
-void Board::UpdateBoard(int time_elapsed)
+void Board::UpdateBoard(double time_elapsed)
 {
 	// Updates the situation of the board after a time time_elapsed has passed using the updae ball function
 	for (int i=0; i<number_balls; i++)
