@@ -7,6 +7,12 @@ Board::Board()
 	number_balls=0;
 }
 
+bool CheckCorrect(std::vector<Ball> v,Ball n1)
+{
+	bool sofar=true;
+	return sofar;
+}
+
 Board::Board(int x,int y, int n)
 {
 	// Constructs a new Board
@@ -17,6 +23,11 @@ Board::Board(int x,int y, int n)
 	number_balls=n;
 	for (int i=0; i<n;i++)
 	{
+		Ball newball=Ball(x,y,1);
+		while (!CheckCorrect(vector_of_balls,newball))
+		{
+			newball=Ball(x,y,1);	
+		}
 		vector_of_balls.push_back(Ball(x,y,1));
 	}
 }
