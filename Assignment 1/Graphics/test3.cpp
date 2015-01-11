@@ -39,14 +39,15 @@ void display(void)
     glLightfv(GL_LIGHT0, GL_POSITION, light_pos),
     glLightfv(GL_LIGHT0, GL_DIFFUSE, light_color);
     glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, light_color);
 
-
-    GLfloat const light_pos2[4]     = {-1200, -600,  0  , 1.0  };
+        GLfloat const light_pos2[4]     = {-1200, -600,  0  , 1.0  };
     GLfloat const light_color2[4]   = { 1,  0,  0, 1.};
     GLfloat const light_ambient2[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT1, GL_POSITION, light_pos2),
     glLightfv(GL_LIGHT1, GL_DIFFUSE, light_color2);
     glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient2);
+    glLightfv(GL_LIGHT1, GL_SPECULAR, light_color2);
 
     GLfloat const light_pos3[4]     = {0, 600,  0  , 1.0  };
     GLfloat const light_color3[4]   = { 0,  1,  0, 1.};
@@ -54,25 +55,34 @@ void display(void)
     glLightfv(GL_LIGHT2, GL_POSITION, light_pos3),
     glLightfv(GL_LIGHT2, GL_DIFFUSE, light_color3);
     glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient3);
+    glLightfv(GL_LIGHT2, GL_SPECULAR, light_color3);
+
+    
 
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
     glEnable(GL_LIGHT1);
     glEnable(GL_LIGHT2);
 
+
     glEnable(GL_DEPTH_TEST);
 
     glPushMatrix();
         glTranslatef(x, y, 0);
-         glColor3f(0.75, 0.5, 0); 
-
+        // glColor3f(0.75, 0.5, 0); 
+        GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
+        GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
+        // glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, cyan);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
+        GLfloat shininess[] = {50};
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
         // x+=1;
-        // y+=1;
-        glutSolidSphere(100, 100, 100);
+        // y+=1; 
+glutSolidSphere(100.4, 100, 100);
         glPopMatrix();
 
     glPushMatrix();
-        glTranslatef(300, 0, 0);
+        glTranslatef(300.3, 400.3, 0);
         // x+=1;
         // y+=1;
         glColor3f(0.2,0.8,0.3);
