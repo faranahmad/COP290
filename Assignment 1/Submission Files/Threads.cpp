@@ -3,17 +3,9 @@
 #include <unistd.h>
 #include <iostream>
 #include "Graphics.h"
-
-
-
-
-
 #include <GL/glut.h>
 #include <GL/gl.h>
-#include <list>
-#include "Ball.h"
-#include "Graphics.h"
-#include <iostream>
+#include <algorithm>
 
 
 struct Graph {
@@ -23,8 +15,6 @@ struct Graph {
 
 pthread_mutex_t UpdateLock;
 Board FinalBoard;
-
-
 
 
 void display(void)
@@ -43,17 +33,20 @@ void display(void)
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
 
-    if(window_aspect > 1.) {
-        glOrtho(-window_aspect, window_aspect, -1, 1, -1, 1);
-    }
-    else {
-        glOrtho(-1, 1, -1/window_aspect, 1/window_aspect, -1, 1);
-    }
+    // if(window_aspect > 1.) {
+    // glOrtho(0-FinalBoard.GetDimensionX(), FinalBoard.GetDimensionX(), 0-FinalBoard.GetDimensionY(),+FinalBoard.GetDimensionY(), -1, 1);
+    glOrtho(0-FinalBoard.GetDimensionX(), FinalBoard.GetDimensionX(), 0-FinalBoard.GetDimensionY(),+FinalBoard.GetDimensionY(),
+     0-min(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY()), min(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY()));
+    
+    // }
+    // else {
+        // glOrtho(-1, 1, -1/window_aspect, 1/window_aspect, -1, 1);
+    // }
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    GLfloat const light_pos[4]     = {-1.00,  1.00,  1.00, 0.};
+    GLfloat const light_pos[4]     = { 0.50,  0.50,  0.50, 0.};
     GLfloat const light_color[4]   = { 0.85,  0.90,  0.70, 1.};
     GLfloat const light_ambient[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT0, GL_POSITION, light_pos),
@@ -65,44 +58,18 @@ void display(void)
 
     glEnable(GL_DEPTH_TEST);
 
-    // glPushMatrix();
-    //     glTranslatef(x/(float)window_width, y/(float)window_height, 0);
-    //     glutSolidSphere(0.2, 31, 10);
-    //     glPopMatrix();
-    
     for( int i=0;i<FinalBoard.GetNumberBalls();i++ ) 
     {
         glPushMatrix();
         // cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
-        glTranslatef(FinalBoard.GetBallFromId(i).GetX()/(float)window_height, FinalBoard.GetBallFromId(i).GetY()/(float)window_height, 0);
-        glutSolidSphere(FinalBoard.GetBallFromId(i).GetRadius()/1000.0, 31, 10);
+        glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(), 0);
+        glColor3f(FinalBoard.GetBallFromId(i).GetColor()[0],FinalBoard.GetBallFromId(i).GetColor()[1],FinalBoard.GetBallFromId(i).GetColor()[2]);
+        glutSolidSphere(FinalBoard.GetBallFromId(i).GetRadius(), 31, 10);
         glPopMatrix();
     }
     glutSwapBuffers();
     glutPostRedisplay();
 }
-
-// void mouseclick(
-//     int button,
-//     int state,
-//     int mouse_x,
-//     int mouse_y )
-// {
-//       int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
-//       int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
-//     float const window_aspect = (float)window_width / (float)window_height;
-
-//     v2f_t const sc = {
-//         (window_aspect > 1.0 ? window_aspect : 1.) *
-//         (  ((float)mouse_x / (float)window_width )*2. - 1.),
-
-//         (window_aspect < 1.0 ? 1./window_aspect : 1.) *
-//         ( -((float)mouse_y / (float)window_height)*2. + 1.)
-//     };
-//     sphere_centers.push_back(sc);
-
-//     glutPostRedisplay();
-// }
 
 
 int graphics(int argc,char *argv[])
@@ -134,12 +101,42 @@ void *UpdateBoardThread(void* id)
 		Ball BallConsidered = FinalBoard.GetBallFromId(ballid);
 		int BallConsidered_Coordx = BallConsidered.GetX();
 		int BallConsidered_Coordy = BallConsidered.GetY();
+		double BallConsidered_Radius = BallConsidered.GetRadius();
 		// cout <<BallConsidered_Coordx<<"\t"<<BallConsidered_Coordy<<"\n";
 		int BallConsidered_VelocityX=BallConsidered.GetVelocityX();
 		int BallConsidered_VelocityY=BallConsidered.GetVelocityY();
 		// BallConsidered.SetX(((BallConsidered_Coordx+BallConsidered_VelocityX)%(2*FinalBoard.GetDimensionX())) -FinalBoard.GetDimensionX());
-		BallConsidered.SetX((BallConsidered_Coordx+BallConsidered_VelocityX) % (FinalBoard.GetDimensionX()));
-		// BallConsidered.SetY(((BallConsidered_Coordy+BallConsidered_VelocityY)%(2*FinalBoard.GetDimensionY())) -FinalBoard.GetDimensionY());
+		if (BallConsidered_Coordx+BallConsidered_VelocityX +BallConsidered_Radius> FinalBoard.GetDimensionX())
+		{
+			BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
+		}
+		else if (BallConsidered_Coordx+BallConsidered_VelocityX + FinalBoard.GetDimensionX() -BallConsidered_Radius<0)
+		{
+			BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());	
+		}
+		else
+		{
+			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
+		}
+		
+		if (BallConsidered_Coordy+BallConsidered_VelocityY +BallConsidered_Radius> FinalBoard.GetDimensionY())
+		{
+			BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());
+		}
+		else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionY() -BallConsidered_Radius <0)
+		{
+			BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());	
+		}
+		else
+		{
+			BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
+		}
+
+		// BallConsidered.SetY((BallConsidered_Coordy+BallConsidered_VelocityY)%FinalBoard.GetDimensionY());
+
+		// BallConsidered.SetX((BallConsidered_Coordx+BallConsidered_VelocityX +4*FinalBoard.GetDimensionX()) % 2*(FinalBoard.GetDimensionX()) -FinalBoard.GetDimensionX());
+		// BallConsidered.SetY((BallConsidered_Coordy+BallConsidered_VelocityY +4*FinalBoard.GetDimensionY()) % 2*(FinalBoard.GetDimensionY()) -FinalBoard.GetDimensionY());
+		// cout <<FinalBoard.GetBoardInformation()<<"\n";
 		FinalBoard.SetBallFromId(ballid,BallConsidered);
 		pthread_mutex_unlock (&UpdateLock);	
 		usleep(10000);
@@ -156,12 +153,14 @@ void *DisplayUpdate(void* id)
 
 int main(int argc, char **argv)
 {
+	srand(time(NULL));
 	const int NumberOfBalls = atoi(argv[1]);
 	pthread_mutex_init(&UpdateLock,NULL);
 	FinalBoard=Board(800,600,NumberOfBalls);
+	// cout <<FinalBoard.Get
 	pthread_t BallThreads [NumberOfBalls];
 	pthread_t DisplayThread;
-
+	cout <<"Starting\n";
 
 	cout<<FinalBoard.GetBoardInformation()<<"\n";
 

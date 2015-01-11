@@ -12,7 +12,7 @@ Ball::Ball(int x,int y)
 	radius=1;
 	velocity_x=0;
 	velocity_y=0;
-	color="blue";
+	color = std::vector<float> (3,0.5f);
 }
 
 Ball::Ball(int limx,int limy,int random)
@@ -23,7 +23,10 @@ Ball::Ball(int limx,int limy,int random)
 	radius = (rand() % 100) +100;
 	velocity_x=(rand() % 20) -10;
 	velocity_y=(rand() % 20) -10;
-	color = "blue";
+	color = std::vector<float> (3,0.5f);
+	color[0] = (rand() %256) /255.0;
+	color[1] = (rand() %256) /255.0;
+	color[2] = (rand() %256) /255.0;
 }
 
 int Ball::GetX()
@@ -56,7 +59,7 @@ int Ball::GetRadius()
 	return radius;
 }
 
-string Ball::GetColor()
+std::vector<float> Ball::GetColor()
 {
 	// Returns the color of the ball
 	return color;
@@ -66,7 +69,7 @@ string Ball::GetBallInformation()
 {
 	// Returns the information about the ball
 	// Format is "radius \t coord_x \t coord_y \t velocity_x \t velocity_y \t color"
-	return "radius:"+std::to_string(radius)+"  xcoord:"+std::to_string(coord_x)+"  ycoord:"+std::to_string(coord_y)+"  velocityx:"+std::to_string(velocity_x)+"  velocityy:"+std::to_string(velocity_y)+"  color:"+color;	
+	return "radius:"+std::to_string(radius)+"  xcoord:"+std::to_string(coord_x)+"  ycoord:"+std::to_string(coord_y)+"  velocityx:"+std::to_string(velocity_x)+"  velocityy:"+std::to_string(velocity_y)+"  color:"+ std::to_string(color[0])+" "+std::to_string(color[1]) +" " +std::to_string(color[2]);	
 }
 
 void Ball::SetRadius(int radius_value)
@@ -89,7 +92,7 @@ void Ball::SetVelocity(int velocityx,int velocityy)
 	velocity_y=velocityy;
 }
 
-void Ball::SetColor(string color_new)
+void Ball::SetColor(std::vector<float> color_new)
 {
 	// Updates the color of the ball
 	color=color_new;
@@ -125,5 +128,3 @@ void Ball::UpdateBall(int time_elapsed)
 	coord_x += time_elapsed*velocity_x;
 	coord_y += time_elapsed*velocity_y;
 }
-
-// GL GLU glut

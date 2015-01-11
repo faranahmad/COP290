@@ -2,6 +2,7 @@
 #define BALL_H
 
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -16,14 +17,14 @@ class Ball
 		int GetVelocityX();
 		int GetVelocityY();
 		int GetRadius();
-		string GetColor();
+		vector<float> GetColor();
 
 		string GetBallInformation();
 
 		void SetRadius(int);
 		void SetPosition(int,int);
 		void SetVelocity(int,int);
-		void SetColor(string);
+		void SetColor(vector<float>);
 		void SetX(int);
 		void SetY(int);
 		void SetVelocityX(int);
@@ -37,7 +38,7 @@ class Ball
 		int coord_y;
 		int velocity_x;
 		int velocity_y;
-		string color;
+		vector<float> color;
 };
 
 #endif
