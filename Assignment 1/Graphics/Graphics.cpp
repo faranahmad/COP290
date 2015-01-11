@@ -52,7 +52,7 @@ void display(void)
     for( int i=0;i<vballs.size();i++ ) 
     {
         glPushMatrix();
-        cout<<vballs[i].GetX()<<"  "<<vballs[i].GetY()<<endl;
+        // cout<<vballs[i].GetX()<<"  "<<vballs[i].GetY()<<endl;
         glTranslatef(vballs[i].GetX()/(float)window_height, vballs[i].GetY()/(float)window_height, 0);
         glutSolidSphere(vballs[i].GetRadius()/100.0, 31, 10);
         glPopMatrix();
