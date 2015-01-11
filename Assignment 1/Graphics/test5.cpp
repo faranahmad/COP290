@@ -146,37 +146,39 @@ Image* loadBMP(const char* filename) {
     int headerSize = readInt(input);
     int width;
     int height;
-    switch(headerSize) {
-        case 40:
-            //V3
-            width = readInt(input);
-            height = readInt(input);
-            input.ignore(2);
-            assert(readShort(input) == 24 || !"Image is not 24 bits per pixel");
-            assert(readShort(input) == 0 || !"Image is compressed");
-            break;
-        case 12:
-            //OS/2 V1
-            width = readShort(input);
-            height = readShort(input);
-            input.ignore(2);
-            assert(readShort(input) == 24 || !"Image is not 24 bits per pixel");
-            break;
-        case 64:
-            //OS/2 V2
-            assert(!"Can't load OS/2 V2 bitmaps");
-            break;
-        case 108:
-            //Windows V4
-            assert(!"Can't load Windows V4 bitmaps");
-            break;
-        case 124:
-            //Windows V5
-            assert(!"Can't load Windows V5 bitmaps");
-            break;
-        default:
-            assert(!"Unknown bitmap format");
-    }
+    width = readInt(input);
+    height = readInt(input);
+    // switch(headerSize) {
+    //     case 40:
+    //         //V3
+    //         width = readInt(input);
+    //         height = readInt(input);
+    //         input.ignore(2);
+    //         assert(readShort(input) == 24 || !"Image is not 24 bits per pixel");
+    //         assert(readShort(input) == 0 || !"Image is compressed");
+    //         break;
+    //     case 12:
+    //         //OS/2 V1
+    //         width = readShort(input);
+    //         height = readShort(input);
+    //         input.ignore(2);
+    //         assert(readShort(input) == 24 || !"Image is not 24 bits per pixel");
+    //         break;
+    //     case 64:
+    //         //OS/2 V2
+    //         assert(!"Can't load OS/2 V2 bitmaps");
+    //         break;
+    //     case 108:
+    //         //Windows V4
+    //         assert(!"Can't load Windows V4 bitmaps");
+    //         break;
+    //     case 124:
+    //         //Windows V5
+    //         assert(!"Can't load Windows V5 bitmaps");
+    //         break;
+    //     default:
+    //         assert(!"Unknown bitmap format");
+    // }
     
     //Read the data
     int bytesPerRow = ((width * 3 + 3) / 4) * 4 - (width * 3 % 4);
@@ -330,17 +332,17 @@ void display(void)
     glEnd();
 
     glPushMatrix();
-        glTranslatef(x, y, 0);
-        // glColor3f(0.75, 0.5, 0); 
-        GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
-        GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
-        glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, cyan);
-        glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
-        GLfloat shininess[] = {50};
-        glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
-        // x+=1;
-        // y+=1; 
-glutSolidSphere(100, 100, 100);
+    glTranslatef(x, y, 0);
+    // glColor3f(0.75, 0.5, 0); 
+    GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
+    GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, cyan);
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
+    GLfloat shininess[] = {50};
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
+    // x+=1;
+    // y+=1; 
+    glutSolidSphere(100, 100, 100);
         glPopMatrix();
 
 //     glPushMatrix();
@@ -408,7 +410,7 @@ void initRendering() {
     // glEnable(GL_NORMALIZE);
     // glEnable(GL_COLOR_MATERIAL);
     
-    Image* image = loadBMP("BrickWall.bmp");
+    Image* image = loadBMP("lena.bmp");
     _textureId = loadTexture(image);
     delete image;
 }
