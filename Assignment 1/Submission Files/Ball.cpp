@@ -18,11 +18,11 @@ Ball::Ball(int x,int y)
 Ball::Ball(int limx,int limy,int random)
 {
 	// Gives a random ball within  -limx to +limx and -limy to +limy
-	coord_x = (rand() % (2* limx)) -limx;
-	coord_y = (rand() % (2* limy)) -limy;
-	radius = (rand() % 100) +100;
-	velocity_x=(rand() % 20) -10;
-	velocity_y=(rand() % 20) -10;
+	radius = (rand() % 100) + 100;
+	coord_x = (rand() % (2* (limx-radius))) - (limx-radius);
+	coord_y = (rand() % (2* (limy-radius))) - (limy-radius);
+	velocity_x=(rand() % 50) -25;
+	velocity_y=(rand() % 50) -25;
 	color = std::vector<float> (3,0.5f);
 	color[0] = (rand() %256) /255.0;
 	color[1] = (rand() %256) /255.0;

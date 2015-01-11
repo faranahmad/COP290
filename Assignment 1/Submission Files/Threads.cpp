@@ -46,15 +46,15 @@ void display(void)
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    GLfloat const light_pos[4]     = { 0.50,  0.50,  0.50, 0.};
-    GLfloat const light_color[4]   = { 0.85,  0.90,  0.70, 1.};
-    GLfloat const light_ambient[4] = { 0.10,  0.10,  0.30, 1.};
-    glLightfv(GL_LIGHT0, GL_POSITION, light_pos),
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, light_color);
-    glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+    // GLfloat const light_pos[4]     = { 0,  0,  500, 1.0};
+    // GLfloat const light_color[4]   = { 0.85,  0.90,  0.70, 1.};
+    // GLfloat const light_ambient[4] = { 0.10,  0.10,  0.30, 1.};
+    // glLightfv(GL_LIGHT0, GL_POSITION, light_pos),
+    // glLightfv(GL_LIGHT0, GL_DIFFUSE, light_color);
+    // glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
 
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
+    // glEnable(GL_LIGHTING);
+    // glEnable(GL_LIGHT0);
 
     glEnable(GL_DEPTH_TEST);
 
