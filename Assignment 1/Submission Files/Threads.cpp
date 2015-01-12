@@ -211,7 +211,7 @@ void mouseclick(int button,int state,int x,int y )
         int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
         int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
         float const window_aspect = (float)window_width / (float)window_height;
-        cout<<x<<'\t'<<y<<endl;
+        // cout<<x<<'\t'<<y<<endl;
         float f1=window_width/1000.0;
         float f2=window_height/500.0;
         // cout<<(x>920*f1)<<"     "<<(x<998*f2)<<endl;
