@@ -109,6 +109,10 @@ void reshape(int x, int y)
 	int w=glutGet(GLUT_WINDOW_WIDTH);
     int h=glutGet(GLUT_WINDOW_HEIGHT);
 
+    FinalBoard.SetDimensionX(w);
+    FinalBoard.SetDimensionY(h);
+
+
     glViewport(0, 0, w, h);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
