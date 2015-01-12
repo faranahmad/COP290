@@ -7,6 +7,25 @@
 
 std::vector<Ball> vballs;
 
+void reshape(int x, int y)
+{
+    int w=glutGet(GLUT_WINDOW_WIDTH);
+    int h=glutGet(GLUT_WINDOW_HEIGHT);
+
+    glViewport(0, 0, w, h);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    // gluOrtho2D(-600,600,-1200,1200);
+    // if(window_aspect > 1.) {
+    glOrtho(0-w,w,0-h,h,-200,200;
+    // }
+    
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+
+}
 void display(void)
 {
       int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
@@ -21,13 +40,13 @@ void display(void)
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-
-    if(window_aspect > 1.) {
-        glOrtho(-window_aspect, window_aspect, -1, 1, -1, 1);
-    }
-    else {
-        glOrtho(-1, 1, -1/window_aspect, 1/window_aspect, -1, 1);
-    }
+    glOrtho(0-window_width,window_width,0-window_height,window_height,-200,200);
+    // if(window_aspect > 1.) {
+    //     glOrtho(-window_aspect, window_aspect, -1, 1, -1, 1);
+    // }
+    // else {
+    //     glOrtho(-1, 1, -1/window_aspect, 1/window_aspect, -1, 1);
+    // }
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -93,6 +112,7 @@ int graphics(int argc,char *argv[], Board board)
     glutCreateWindow("Team BabeMagents");
     
     glutDisplayFunc(display);
+    glutReshapeFunc(reshape);
     // glutMouseFunc(mouseclick);
 
     glutMainLoop();

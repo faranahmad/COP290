@@ -30,20 +30,9 @@ void display(void)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glViewport(0, 0, window_width, window_height);
-
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-
-    // if(window_aspect > 1.) {
-    // glOrtho(0-FinalBoard.GetDimensionX(), FinalBoard.GetDimensionX(), 0-FinalBoard.GetDimensionY(),+FinalBoard.GetDimensionY(), -1, 1);
-    glOrtho(0-FinalBoard.GetDimensionX(), FinalBoard.GetDimensionX(), 0-FinalBoard.GetDimensionY(),+FinalBoard.GetDimensionY(),
-     0-min(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY()), min(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY()));
-    
-    // }
-    // else {
-        // glOrtho(-1, 1, -1/window_aspect, 1/window_aspect, -1, 1);
-    // }
-
+    glOrtho(0-window_width, window_width,0- window_height,window_height,-200,200);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
@@ -115,6 +104,20 @@ void display(void)
     glutPostRedisplay();
 }
 
+void reshape(int x, int y)
+{
+	int w=glutGet(GLUT_WINDOW_WIDTH);
+    int h=glutGet(GLUT_WINDOW_HEIGHT);
+
+    glViewport(0, 0, w, h);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(0-w,w,0-h,h,-200,200);
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+}
 
 int graphics(int argc,char *argv[])
 {
@@ -124,6 +127,7 @@ int graphics(int argc,char *argv[])
     glutCreateWindow("Team BabeMagents");
     
     glutDisplayFunc(display);
+    glutReshapeFunc(reshape);
     // glutMouseFunc(mouseclick);
 
     glutMainLoop();
