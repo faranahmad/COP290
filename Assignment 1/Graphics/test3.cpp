@@ -2,6 +2,7 @@
 #include <GL/gl.h>
 #include <list>
 #include <iostream>
+#include <SFML/Audio.hpp>
 using namespace std;
 
 
@@ -63,29 +64,39 @@ void display(void)
     glEnable(GL_LIGHT0);
     glEnable(GL_LIGHT1);
     glEnable(GL_LIGHT2);
+    glEnable(GL_COLOR_MATERIAL);
+    glEnable(GL_NORMALIZE);
 
 
     glEnable(GL_DEPTH_TEST);
 
     glPushMatrix();
         glTranslatef(x, y, 0);
-        // glColor3f(0.75, 0.5, 0); 
+        glColor3f(0, 0, 1); 
         GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
         GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
-        // glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, cyan);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, cyan);
         glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
         GLfloat shininess[] = {50};
         glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
-        // x+=1;
-        // y+=1; 
+        x+=1;
+        y+=1; 
+        sf::SoundBuffer buffer;
+if (!buffer.loadFromFile("sound.wav")){
+    return -1;
+}
+sf::Sound sound;
+sound.setBuffer(buffer);
+sound.play();
+        // PlaySound("sound.wav", NULL, SND_ASYNC|SND_FILENAME|SND_LOOP);
 glutSolidSphere(100.4, 100, 100);
         glPopMatrix();
 
     glPushMatrix();
-        glTranslatef(300.3, 400.3, 0);
+        glTranslatef(0-x, 0-y, 0);
         // x+=1;
         // y+=1;
-        glColor3f(0.2,0.8,0.3);
+        glColor3f(1,0,0);
         glutSolidSphere(100, 31, 10);
         glPopMatrix();
     // for(  ) 

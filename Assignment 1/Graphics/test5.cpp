@@ -205,6 +205,32 @@ Image* loadBMP(const char* filename) {
 int x=0;
 int y=0;
     
+void reshape(int x, int y)
+{
+    glViewport(0, 0, glutGet(GLUT_WINDOW_WIDTH), glutGet(GLUT_WINDOW_HEIGHT));
+    int w=glutGet(GLUT_WINDOW_WIDTH);
+    int h=glutGet(GLUT_WINDOW_HEIGHT);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    // gluOrtho2D(-600,600,-1200,1200);
+    // if(window_aspect > 1.) {
+    glOrtho(0-w,w,0-h,h,-2000,2000);
+    // }
+    
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+
+
+
+    // if (y == 0 || x == 0) return;   
+    // glMatrixMode(GL_PROJECTION);  
+    // glLoadIdentity(); 
+    // gluPerspective(39.0,(GLdouble)x/(GLdouble)y,0.6,21.0);
+    // glMatrixMode(GL_MODELVIEW);
+    // glViewport(0,0,x,y);  //Use the whole window for rendering
+}
 
 
 
@@ -230,13 +256,13 @@ void display(void)
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    // gluOrtho2D(-600,600,-1200,1200);
-    if(window_aspect > 1.) {
-        glOrtho(-1200, 1200, -600, 600, -1200, 1200);
-    }
-    else {
-        glOrtho(-1, 1, -1/window_aspect, 1/window_aspect, -1, 1);
-    }
+      glOrtho(0-window_width,window_width,0-window_height,window_height,-2000,2000);
+    // if(window_aspect > 1.) {
+        // glOrtho(-1200, 1200, -600, 600, -1200, 1200);
+    // }
+    // else {
+    //     glOrtho(-1, 1, -1/window_aspect, 1/window_aspect, -1, 1);
+    // }
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -332,14 +358,14 @@ void display(void)
     glEnd();
 
     glPushMatrix();
-    glTranslatef(x, y, 0);
+    glTranslatef(x/100, y/100, 1);
     // glColor3f(0.75, 0.5, 0); 
-    GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
-    GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, cyan);
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
-    GLfloat shininess[] = {50};
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
+    // GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
+    // GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
+    // glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, cyan);
+    // glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
+    // GLfloat shininess[] = {50};
+    // glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
     // x+=1;
     // y+=1; 
     glutSolidSphere(100, 100, 100);
@@ -362,8 +388,11 @@ void display(void)
     // }
 
     glutSwapBuffers();
+
+    // reshape(window_width,window_height);
     glutPostRedisplay();
 }
+
 
 // void mouseclick(
 //     int button,
@@ -410,7 +439,7 @@ void initRendering() {
     // glEnable(GL_NORMALIZE);
     // glEnable(GL_COLOR_MATERIAL);
     
-    Image* image = loadBMP("lena.bmp");
+    Image* image = loadBMP("new.bmp");
     _textureId = loadTexture(image);
     delete image;
 }
@@ -427,6 +456,8 @@ int main(int argc,char *argv[] )
     
     glutDisplayFunc(display);
     glutKeyboardFunc(handleKeypress);
+
+    glutReshapeFunc(reshape);
     initRendering();
     // glutMouseFunc(mouseclick);
 
