@@ -4,6 +4,8 @@
 #include "Ball.h"
 #include <vector>
 
+bool CheckCorrect(std::vector<Ball>,Ball);
+
 class Board
 {
 	public:

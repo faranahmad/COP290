@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stdio.h>
 #include "Graphics.h"
+#include "Image.h"
 #include <GL/glut.h>
 #include <GL/gl.h>
 #include <algorithm>
@@ -21,29 +22,7 @@ Board FinalBoard;
 bool PauseBoard;
 
 GLuint _textureId;
-class Image {
-    public:
-        Image(char* ps, int w, int h);
-        ~Image();
-        
-        /* An array of the form (R1, G1, B1, R2, G2, B2, ...) indicating the
-         * color of each pixel in image.  Color components range from 0 to 255.
-         * The array starts the bottom-left pixel, then moves right to the end
-         * of the row, then moves up to the next column, and so on.  This is the
-         * format in which OpenGL likes images.
-         */
-        char* pixels;
-        int width;
-        int height;
-};
-
-//Reads a bitmap image from file.
-Image* loadBMP(const char* filename);   
-Image::Image(char* ps, int w, int h) : pixels(ps), width(w), height(h) {}
-
-Image::~Image() {
-    delete[] pixels;
-}
+ 
 
 namespace {
     //Converts a four-character array to an integer, using little-endian form
@@ -123,12 +102,12 @@ namespace {
                 return array;
             }
             
-            void reset(T* array_ = NULL) {
-                if (!isReleased && array != NULL) {
-                    delete[] array;
-                }
-                array = array_;
-            }
+            // void reset(T* array_ = NULL) {
+            //     if (!isReleased && array != NULL) {
+            //         delete[] array;
+            //     }
+            //     array = array_;
+            // }
             
             T* operator+(int i) {
                 return array + i;
@@ -184,16 +163,16 @@ GLuint loadTexture(Image* image) {
     glGenTextures(1, &textureId); //Make room for our texture
     glBindTexture(GL_TEXTURE_2D, textureId); //Tell OpenGL which texture to edit
     //Map the image to the texture
-    glTexImage2D(GL_TEXTURE_2D,                //Always GL_TEXTURE_2D
-                 0,                            //0 for now
-                 GL_RGB,                       //Format OpenGL uses for image
-                 image->width, image->height,  //Width and height
-                 0,                            //The border of the image
-                 GL_RGB, //GL_RGB, because pixels are stored in RGB format
-                 GL_UNSIGNED_BYTE, //GL_UNSIGNED_BYTE, because pixels are stored
-                                   //as unsigned numbers
-                 image->pixels);               //The actual pixel data
-    return textureId; //Returns the id of the texture
+    glTexImage2D(GL_TEXTURE_2D,                 //Always GL_TEXTURE_2D
+                 0,                             //0 for now
+                 GL_RGB,                        //Format OpenGL uses for image
+                 image->width, image->height,   //Width and height
+                 0,                             //The border of the image
+                 GL_RGB,                        //GL_RGB, because pixels are stored in RGB format
+                 GL_UNSIGNED_BYTE,              //GL_UNSIGNED_BYTE, because pixels are stored
+                                                //as unsigned numbers
+                 image->pixels);                //The actual pixel data
+    return textureId;                           //Returns the id of the texture
 }
 
 
@@ -227,6 +206,14 @@ void mouseclick(int button,int state,int x,int y )
         }
         if(x>615*f1 && x<835*f1 && y>435*f2 && y<498*f2)
         {
+            PauseBoard=true;
+            Ball newBalltoAdd= Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(),1);
+            while (!CheckCorrect(FinalBoard.GetVectorBalls(), newBalltoAdd))
+            {
+                newBalltoAdd=Ball(FinalBoard.GetDimensionX(), FinalBoard.GetDimensionY(),1);
+            }
+            FinalBoard.AddBallToBoard(newBalltoAdd);
+            PauseBoard=false;
             cout<<"Add Button"<<endl;
         }
         if(x>80*f1 && x<155*f1 && y>435*f2 && y<498*f2)
@@ -549,7 +536,7 @@ int main(int argc, char **argv)
 	srand(time(NULL));
 	const int NumberOfBalls = atoi(argv[1]);
 	pthread_mutex_init(&UpdateLock,NULL);
-	FinalBoard=Board(400,400,NumberOfBalls);
+	FinalBoard=Board(800,600,NumberOfBalls);
 	// cout <<FinalBoard.Get
 	pthread_t BallThreads [NumberOfBalls];
 	pthread_t DisplayThread;
