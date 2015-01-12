@@ -47,7 +47,7 @@ void display(void)
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    GLfloat const light_pos[4]     = {FinalBoard.GetDimensionX(), 0-FinalBoard.GetDimensionY(), 0    , 1.0  };
+    GLfloat const light_pos[4]     = {float(FinalBoard.GetDimensionX()), float(0-FinalBoard.GetDimensionY()), 0    , 1.0  };
     GLfloat const light_color[4]   = { 0,  0,  1, 1.};
     GLfloat const light_ambient[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT0, GL_POSITION, light_pos),
@@ -55,7 +55,7 @@ void display(void)
     glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
     glLightfv(GL_LIGHT0, GL_SPECULAR, light_color);
 
-    GLfloat const light_pos2[4]     = {0-FinalBoard.GetDimensionX(), 0-FinalBoard.GetDimensionY(),  0  , 1.0  };
+    GLfloat const light_pos2[4]     = {float(0-FinalBoard.GetDimensionX()), float(0-FinalBoard.GetDimensionY()),  0  , 1.0  };
     GLfloat const light_color2[4]   = { 1,  0,  0, 1.};
     GLfloat const light_ambient2[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT1, GL_POSITION, light_pos2),
@@ -63,7 +63,7 @@ void display(void)
     glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient2);
     glLightfv(GL_LIGHT1, GL_SPECULAR, light_color2);
 
-    GLfloat const light_pos3[4]     = {FinalBoard.GetDimensionX(), FinalBoard.GetDimensionY(),  0  , 1.0  };
+    GLfloat const light_pos3[4]     = {float(FinalBoard.GetDimensionX()),float(FinalBoard.GetDimensionY()),  0  , 1.0  };
     GLfloat const light_color3[4]   = { 0,  1,  0, 1.};
     GLfloat const light_ambient3[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT2, GL_POSITION, light_pos3),
@@ -71,7 +71,7 @@ void display(void)
     glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient3);
     glLightfv(GL_LIGHT2, GL_SPECULAR, light_color3);
 
-    GLfloat const light_pos4[4]     = {0-FinalBoard.GetDimensionX(), FinalBoard.GetDimensionY(),  0  , 1.0  };
+    GLfloat const light_pos4[4]     = {float(0-FinalBoard.GetDimensionX()), float(FinalBoard.GetDimensionY()),  0  , 1.0  };
     GLfloat const light_color4[4]   = { 1,  1,  0, 1.};
     GLfloat const light_ambient4[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT3, GL_POSITION, light_pos4),
