@@ -3,7 +3,14 @@
 \setlength{\topmargin}{-.5in}
 \setlength{\textheight}{9in}
 \setlength{\oddsidemargin}{.125in}
+\usepackage{listings}
+\usepackage{color} % for setting colors
+
 \setlength{\textwidth}{6.25in}
+
+\usepackage{listings}
+\usepackage{color} 
+
 \begin{document}
 \title
 {DESIGN DOCUMENT}
@@ -20,74 +27,17 @@ This document contains information about all common aspects to the screen saver
 % %this answer is not at all clear
 %   At any instant in the game the state that is communicated must contain  sufficient information about the gameplay so as to make it possible for each
 %   receiver to display the present game state to the player and also make the  necessay changes in the data that it stores.  Each client involved vin the gameplay already has some information about  each of the variables thata determine the game state at time t.  For the communication at $t +  \Delta t$ from computer 1 to computer 2 just the diff is sent.
-Our overall design consists of a board(intialised by a board class) with n number of balls(intialised by a ball class) on it.Each ball is controlled by a thread and also a separate thread display the overall state of the board with balls.Initially, the color and the positions where the balls would be placed would be random.Also the respective velocities of the balls would be in random directions.But the initial state can also be controlled by using the functions defined in the ball and the board class.The board class consists of a vector of balls(vector is used for random access of the balls) using which the state of each of the balls would be updated after every small interval of time.This is done by using a updatefunction that is called by each of the thread controlling the balls.The updatefunction also consists of the mutex lock so that only one of the threads would be able to call the function at one point synchronously one after another.
-So in normal scenario ie without collision each ball would call the update function one after another that would further update the state of that particular ball in the vector containing the balls.
-However,when collision takes place between two balls the updatefunction called by anyone of the threads controlling the balls invoving collision updates the state of both the balls in the vector.
+Our overall design consists of a board(intialised by a board class) with n number of balls(intialised by a ball class) on it. Each ball is controlled by a thread and also a separate thread displays the overall state of the board with balls. Initially, the color and the positions where the balls would be placed would be random. Also the respective velocities of the balls would be in random directions. But the initial state can also be controlled by using the functions defined in the ball and the board class. The board class consists of a vector of balls(vector is used for random access of the balls) using which the state of each of the balls would be present. Initially all threads are in active state. Each attempts to pick up the mutex_lock to modify its own position and perform collisions. 
+
+% So in normal scenario ie without collision each ball would call the update function one after another that would further update the state of that particular ball in the vector containing the balls.
+% However,when collision takes place between two balls the updatefunction called by anyone of the threads controlling the balls invoving collision updates the state of both the balls in the vector.
 \section{SubComponents}
 The following are the subcomponents of our projects :-
 \subsection{Classes defined}
 The following are the classes used by us :-
 \begin{itemize}
-\item \textit{Board}:-The board class provides information about the background its dimensions, color, number of balls placed on it etc.
+\item \textit{Board}:-The board class provides information about the background its dimensions, number of balls placed on it and the information about the balls .
 %\documentclass{article}
-\usepackage{listings}
-\usepackage{color} % for setting colors
-\lstset{
-    frame=tb, % draw a frame at the top and bottom of the code block
-    tabsize=4, % tab space width
-    showstringspaces=false, % don't mark spaces in strings
-    numbers=left, % display line numbers on the left
-    commentstyle=\color{green}, % comment color
-    keywordstyle=\color{blue}, % keyword color
-    stringstyle=\color{red} % string color
-}
-
-%\begin{document}
-
-\begin{lstlisting}[language=C++, caption={C++ code using listings}]
-#ifndef BOARD_H
-#define BOARD_H
-
-#include "Ball.h"
-#include <vector>
-
-class Board
-{
-	public:
-		Board(float,float);
-
-		float GetDimensionX();
-		float GetDimensionY();
-		int GetNumberBalls ();
-		vector<Ball> GetVectorBalls();
-		Ball GetBallFromId (int);
-
-		string GetBoardInformation();
-
-		void SetDimensionX(float);
-		void SetDimensionY(float);
-		void SetNumberOfBalls(int);
-		void SetVectorBalls(vector<Ball>);
-		void SetBallFromId(int,Ball);
-
-		void AddBallToBoard(Ball);
-		void RemoveBallFromBoard();
-		
-		void UpdateBoard(float);
-
-	private:
-		float dimension_x;
-		float dimension_y;
-		int number_balls;
-		vector<Ball> vector_of_balls;
-};
-
-#endif
-\end{lstlisting}
-%\end{document}
-\item \textit{Ball}:-The ball class consists of information about the balls; their color, radius, velocity etc.
-\item\textit{}
-\end{itemize}
 % \begin{enumerate}
 %  \item Initial State: When the server begins a session for the client,and assigns him a player id ,conveys basic information about the gameplay etc.
 %  \item Active State: When the client is playing the game on the server and so is ``active``.
