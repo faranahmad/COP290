@@ -394,27 +394,41 @@ void display(void)
 }
 
 
-// void mouseclick(
-//     int button,
-//     int state,
-//     int mouse_x,
-//     int mouse_y )
-// {
-//       int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
-//       int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
-//     float const window_aspect = (float)window_width / (float)window_height;
-
-//     v2f_t const sc = {
-//         (window_aspect > 1.0 ? window_aspect : 1.) *
-//         (  ((float)mouse_x / (float)window_width )*2. - 1.),
-
-//         (window_aspect < 1.0 ? 1./window_aspect : 1.) *
-//         ( -((float)mouse_y / (float)window_height)*2. + 1.)
-//     };
-//     sphere_centers.push_back(sc);
-
-//     glutPostRedisplay();
-// }
+void mouseclick(int button,int state,int x,int y )
+{
+    if(state== GLUT_UP )
+    {
+        int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
+        int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
+        float const window_aspect = (float)window_width / (float)window_height;
+        cout<<x<<'\t'<<y<<endl;
+        float f1=window_width/1000.0;
+        float f2=window_height/500.0;
+        // cout<<(x>920*f1)<<"     "<<(x<998*f2)<<endl;
+        if(x>920*f1 && x<998*f1 && y>435*f2 && y<498*f2)
+        {
+            cout<<"Play Button"<<endl;
+        }
+        if(x>840*f1 && x<920*f1 && y>435*f2 && y<498*f2)
+        {
+            cout<<"Pause Button"<<endl;
+        }
+        if(x>615*f1 && x<835*f1 && y>435*f2 && y<498*f2)
+        {
+            cout<<"Add Button"<<endl;
+        }
+        if(x>80*f1 && x<155*f1 && y>435*f2 && y<498*f2)
+        {
+            cout<<"SpeedUp Button"<<endl;
+        }
+        if(x>0*f1 && x<80*f1 && y>435*f2 && y<498*f2)
+        {
+            cout<<"SlowDown Button"<<endl;
+        }
+    
+        glutPostRedisplay();
+    }
+}
 GLuint loadTexture(Image* image) {
     GLuint textureId;
     glGenTextures(1, &textureId); //Make room for our texture
@@ -451,7 +465,7 @@ int main(int argc,char *argv[] )
     y=atoi(argv[2]);
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-    glutInitWindowSize(1200,600);
+    glutInitWindowSize(1000,500);
     glutCreateWindow("Yo");
     
     glutDisplayFunc(display);
@@ -459,7 +473,7 @@ int main(int argc,char *argv[] )
 
     glutReshapeFunc(reshape);
     initRendering();
-    // glutMouseFunc(mouseclick);
+    glutMouseFunc(mouseclick);
 
     glutMainLoop();
 
