@@ -2,7 +2,8 @@
 #include <GL/gl.h>
 #include <list>
 #include <iostream>
-#include <SFML/Audio.hpp>
+#include <stdlib.h>
+// #include <SFML/Audio.hpp>
 using namespace std;
 
 
@@ -81,13 +82,14 @@ void display(void)
         glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
         x+=1;
         y+=1; 
-        sf::SoundBuffer buffer;
-if (!buffer.loadFromFile("sound.wav")){
-    return -1;
-}
-sf::Sound sound;
-sound.setBuffer(buffer);
-sound.play();
+        system("canberra-gtk-play -f sound.wav");
+//         sf::SoundBuffer buffer;
+// if (!buffer.loadFromFile("sound.wav")){
+//     return -1;
+// }
+// // sf::Sound sound;
+// // sound.setBuffer(buffer);
+// // sound.play();
         // PlaySound("sound.wav", NULL, SND_ASYNC|SND_FILENAME|SND_LOOP);
 glutSolidSphere(100.4, 100, 100);
         glPopMatrix();
