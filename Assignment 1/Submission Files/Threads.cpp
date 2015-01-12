@@ -47,15 +47,52 @@ void display(void)
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    // GLfloat const light_pos[4]     = { 0,  0,  500, 1.0};
-    // GLfloat const light_color[4]   = { 0.85,  0.90,  0.70, 1.};
-    // GLfloat const light_ambient[4] = { 0.10,  0.10,  0.30, 1.};
-    // glLightfv(GL_LIGHT0, GL_POSITION, light_pos),
-    // glLightfv(GL_LIGHT0, GL_DIFFUSE, light_color);
-    // glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+    GLfloat const light_pos[4]     = {float(FinalBoard.GetDimensionX()), float(0-FinalBoard.GetDimensionY()), 0    , 1.0  };
+    GLfloat const light_color[4]   = { 0,  0,  1, 1.};
+    GLfloat const light_ambient[4] = { 0.10,  0.10,  0.30, 1.};
+    glLightfv(GL_LIGHT0, GL_POSITION, light_pos),
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, light_color);
+    glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, light_color);
 
-    // glEnable(GL_LIGHTING);
-    // glEnable(GL_LIGHT0);
+    GLfloat const light_pos2[4]     = {float(0-FinalBoard.GetDimensionX()), float(0-FinalBoard.GetDimensionY()),  0  , 1.0  };
+    GLfloat const light_color2[4]   = { 1,  0,  0, 1.};
+    GLfloat const light_ambient2[4] = { 0.10,  0.10,  0.30, 1.};
+    glLightfv(GL_LIGHT1, GL_POSITION, light_pos2),
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, light_color2);
+    glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient2);
+    glLightfv(GL_LIGHT1, GL_SPECULAR, light_color2);
+
+    GLfloat const light_pos3[4]     = {float(FinalBoard.GetDimensionX()),float(FinalBoard.GetDimensionY()),  0  , 1.0  };
+    GLfloat const light_color3[4]   = { 0,  1,  0, 1.};
+    GLfloat const light_ambient3[4] = { 0.10,  0.10,  0.30, 1.};
+    glLightfv(GL_LIGHT2, GL_POSITION, light_pos3),
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, light_color3);
+    glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient3);
+    glLightfv(GL_LIGHT2, GL_SPECULAR, light_color3);
+
+    GLfloat const light_pos4[4]     = {float(0-FinalBoard.GetDimensionX()), float(FinalBoard.GetDimensionY()),  0  , 1.0  };
+    GLfloat const light_color4[4]   = { 1,  1,  0, 1.};
+    GLfloat const light_ambient4[4] = { 0.10,  0.10,  0.30, 1.};
+    glLightfv(GL_LIGHT3, GL_POSITION, light_pos4),
+    glLightfv(GL_LIGHT3, GL_DIFFUSE, light_color4);
+    glLightfv(GL_LIGHT3, GL_AMBIENT, light_ambient4);
+    glLightfv(GL_LIGHT3, GL_SPECULAR, light_color4);
+
+    // GLfloat const light_pos5[4]     = {0,0, 300  , 1.0  };
+    // GLfloat const light_color5[4]   = { 1,  1,  1, 1.};
+    // GLfloat const light_ambient5[4] = { 0.10,  0.10,  0.30, 1.};
+    // glLightfv(GL_LIGHT4, GL_POSITION, light_pos5),
+    // glLightfv(GL_LIGHT4, GL_DIFFUSE, light_color5);
+    // glLightfv(GL_LIGHT4, GL_AMBIENT, light_ambient5);
+    // glLightfv(GL_LIGHT4, GL_SPECULAR, light_color5);
+
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+    glEnable(GL_LIGHT1);
+    glEnable(GL_LIGHT2);
+    glEnable(GL_LIGHT3);
+    // glEnable(GL_LIGHT4);
 
     glEnable(GL_DEPTH_TEST);
 
@@ -64,7 +101,13 @@ void display(void)
         glPushMatrix();
         // cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
         glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(), 0);
-        glColor3f(FinalBoard.GetBallFromId(i).GetColor()[0],FinalBoard.GetBallFromId(i).GetColor()[1],FinalBoard.GetBallFromId(i).GetColor()[2]);
+        // glColor3f(FinalBoard.GetBallFromId(i).GetColor()[0],FinalBoard.GetBallFromId(i).GetColor()[1],FinalBoard.GetBallFromId(i).GetColor()[2]);
+        GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
+		GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
+		GLfloat shininess[] = {50};
+		// glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, white);
+		glMaterialfv(GL_FRONT, GL_SHININESS, shininess);
         glutSolidSphere(FinalBoard.GetBallFromId(i).GetRadius(), 31, 10);
         glPopMatrix();
     }
@@ -96,81 +139,135 @@ void *UpdateBoardThread(void* id)
 {
 	while (true)
 	{
-		long ballid = (long) id;
 		pthread_mutex_lock (&UpdateLock);
+		long ballid = (long) id;
 		// cout <<"Starting for ball " <<ballid<<"\n";
+		
 		Ball BallConsidered = FinalBoard.GetBallFromId(ballid);
-		int BallConsidered_Coordx = BallConsidered.GetX();
+
+		int BallConsidered_Coordx = BallConsidered.GetX(); 
 		int BallConsidered_Coordy = BallConsidered.GetY();
 		double BallConsidered_Radius = BallConsidered.GetRadius();
-		// cout <<BallConsidered_Coordx<<"\t"<<BallConsidered_Coordy<<"\n";
 		int BallConsidered_VelocityX=BallConsidered.GetVelocityX();
 		int BallConsidered_VelocityY=BallConsidered.GetVelocityY();
 		// BallConsidered.SetX(((BallConsidered_Coordx+BallConsidered_VelocityX)%(2*FinalBoard.GetDimensionX())) -FinalBoard.GetDimensionX());
-		if (BallConsidered_Coordx+BallConsidered_VelocityX +BallConsidered_Radius> FinalBoard.GetDimensionX())
+		if (BallConsidered_Coordx + BallConsidered_VelocityX + BallConsidered_Radius> FinalBoard.GetDimensionX())
 		{
+			BallConsidered.SetX(FinalBoard.GetDimensionX() -BallConsidered_Radius);
+			BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
 			BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
 		}
 		else if (BallConsidered_Coordx+BallConsidered_VelocityX + FinalBoard.GetDimensionX() -BallConsidered_Radius<0)
 		{
+			BallConsidered.SetX(0-FinalBoard.GetDimensionX()+BallConsidered_Radius);
+			BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
 			BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());	
 		}
 		else
 		{
 			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
 		}
-		
+
 		if (BallConsidered_Coordy+BallConsidered_VelocityY +BallConsidered_Radius> FinalBoard.GetDimensionY())
 		{
+			BallConsidered.SetY(FinalBoard.GetDimensionY()-BallConsidered_Radius);
+			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
 			BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());
 		}
 		else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionY() -BallConsidered_Radius <0)
 		{
+			BallConsidered.SetY(0-FinalBoard.GetDimensionY() + BallConsidered_Radius);
+			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);	
 			BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());	
 		}
 		else
 		{
 			BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
 		}
-		vector<Ball> Vector_Of_Balls = FinalBoard.GetVectorBalls()
+		
+
+
+
+		vector<Ball> Vector_Of_Balls = FinalBoard.GetVectorBalls();
+		double mass1 = BallConsidered.GetRadius()*BallConsidered.GetRadius()*BallConsidered.GetRadius();
+		// double mass1=1.0;
+		bool needforupdate=true;
+		// double uy1=0.0;
+		double ux1 =  BallConsidered.GetVelocityX();
+		double uy1 =  BallConsidered.GetVelocityY();
+		
 		for(int i=0;i<FinalBoard.GetNumberBalls();i++)
 		{
-			if (Vector_Of_Balls[i]=!BallConsidered)
+			if (i != ballid)
 			{
-				if(BallConsidered.GetRadius()+Vector_Of_Balls[i].GetRadius()>=(sqrt(double((BallConsidered.GetX()-Vector_Of_Balls[i].GetX())*(BallConsidered.GetX()-Vector_Of_Balls[i].GetX())+(BallConsidered.GetY()-Vector_Of_Balls[i].GetY())*(BallConsidered.GetY()-Vector_Of_Balls[i].GetY())))))
+				// double dx = Vector_Of_Balls[i].GetX()+Vector_Of_Balls[i].GetVelocityX()-BallConsidered.GetX()-BallConsidered.GetVelocityX();
+				// double dy = Vector_Of_Balls[i].GetY()+Vector_Of_Balls[i].GetVelocityY()-BallConsidered.GetY()-BallConsidered.GetVelocityY();
+				ux1 =  BallConsidered.GetVelocityX();
+				uy1 =  BallConsidered.GetVelocityY();
+		
+				double dx = Vector_Of_Balls[i].GetX()-BallConsidered.GetX();
+				double dy = Vector_Of_Balls[i].GetY()-BallConsidered.GetY();
+				double distance = sqrt(dx*dx+dy*dy);
+				if(BallConsidered.GetRadius()+Vector_Of_Balls[i].GetRadius()>=distance)
 				{
-					int mass1 = BallConsidered.GetRadius()*BallConsidered.GetRadius()*BallConsidered.GetRadius();
-					int mass2 = Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius(); 
-					int vx1 = BallConsidered.GetVelocityX();
-					int vx2 = Vector_Of_Balls[i].GetVelocityX();
-					int vy1 =  BallConsidered.GetVelocityY();
-					int vy2 =  Vector_Of_Balls[i].GetVelocityY();
-					int  dx = BallConsidered.GetX()-Vector_Of_Balls[i].GetX();
-					int dy = BallConsidered.GetY()-Vector_Of_Balls[i].GetY();
-					double distance = sqrt(double(dx*dx+dy*dy));
-					double ax = dx/distance;
-					double ay = dy/distance;
-					double va1 = (vx1*ax+vy1*ay),vb1 =(-vx1*ay+vy1*ax);
-					double va2=(vx2*ax+vy2*ay), vb2=(-vx2*ay+vy2*ax);
-					double vaP1=va1 + 2*(va2-va1)/(1+double(mass1)/mass2);
-					double vaP2=va2 + 2*(va1-va2)/(1+double(mass2)/mass1);
-					vx1=int(vaP1*ax-vb1*ay);  vy1=int(vaP1*ay+vb1*ax);// new vx,vy for ball 1 after collision
-					vx2=int(vaP2*ax-vb2*ay);  vy2=int(vaP2*ay+vb2*ax);// new vx,vy for ball 2 after collision
-					BallConsidered.setVelocity(vx1,vy1);
-					Vector_Of_Balls[i].setVelocity(vx2,vy2);
-				}			
+					needforupdate=false;
+					cout <<BallConsidered.GetRadius() <<"\t" <<Vector_Of_Balls[i].GetRadius()<<"\t"<<distance<<"\n";
+					double l=(BallConsidered.GetRadius()+Vector_Of_Balls[i].GetRadius() -distance)/2;
+
+					double costheta = (dx/distance);
+					double sintheta = (dy/distance);
+					
+					double mass2 = Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius(); 
+					// double mass2=1.0;
+					double ux2 = Vector_Of_Balls[i].GetVelocityX();
+					double uy2 = Vector_Of_Balls[i].GetVelocityY();
+					// double uy2=0.0;
+
+					//Along tangent
+					double u3=uy1*costheta - ux1*sintheta;
+					double u4=uy2*costheta - ux2*sintheta;
+
+					// Along radial
+					double u1=ux1*costheta + uy1*sintheta;
+					double u2=ux2*costheta + uy2*sintheta;
+
+					//After collision radial
+					double v1=(mass1*u1 + 2*mass2*u2 - mass2*u1)/(mass1+mass2);
+					double v2=(mass2*u2 + 2*mass1*u1 - mass1*u2)/(mass1+mass2);
+
+
+					double vx1=v1*costheta - u3*sintheta;
+					double vx2=v2*costheta - u4*sintheta;
+
+					double vy1=u3*costheta + v1*sintheta;
+					double vy2=u4*costheta + v2*sintheta;
+
+					BallConsidered.SetX(BallConsidered.GetX() - l*costheta);
+					BallConsidered.SetY(BallConsidered.GetY() - l*sintheta);
+					
+
+					Vector_Of_Balls[i].SetX(Vector_Of_Balls[i].GetX() + l*costheta);
+					Vector_Of_Balls[i].SetY(Vector_Of_Balls[i].GetY() + l*sintheta);
+
+					BallConsidered.SetVelocity(vx1,vy1);
+					// BallConsidered.SetX(BallConsidered.GetX()+vx2*vx1/(vx2+vx1));
+					// BallConsidered.SetY(BallConsidered.GetY()+;
+					Vector_Of_Balls[i].SetVelocity(vx2,vy2);
+					// Vector_Of_Balls[i].SetX(Vector_Of_Balls[i].GetX()+vx2);
+					// Vector_Of_Balls[i].SetY(Vector_Of_Balls[i].GetY()+vy2);
+				}	
 			}
 		}
+		FinalBoard.SetVectorBalls(Vector_Of_Balls);
 
+		FinalBoard.SetBallFromId(ballid,BallConsidered);	
+		
 		// BallConsidered.SetY((BallConsidered_Coordy+BallConsidered_VelocityY)%FinalBoard.GetDimensionY());
-
 		// BallConsidered.SetX((BallConsidered_Coordx+BallConsidered_VelocityX +4*FinalBoard.GetDimensionX()) % 2*(FinalBoard.GetDimensionX()) -FinalBoard.GetDimensionX());
 		// BallConsidered.SetY((BallConsidered_Coordy+BallConsidered_VelocityY +4*FinalBoard.GetDimensionY()) % 2*(FinalBoard.GetDimensionY()) -FinalBoard.GetDimensionY());
 		// cout <<FinalBoard.GetBoardInformation()<<"\n";
-		FinalBoard.SetVectorBalls(SetVectorBalls(Vector_Of_Balls);
-		FinalBoard.SetBallFromId(ballid,BallConsidered);
 		pthread_mutex_unlock (&UpdateLock);	
-		usleep(10000);
+		usleep(50000);
 	}
 }	
 
@@ -187,7 +284,7 @@ int main(int argc, char **argv)
 	srand(time(NULL));
 	const int NumberOfBalls = atoi(argv[1]);
 	pthread_mutex_init(&UpdateLock,NULL);
-	FinalBoard=Board(800,600,NumberOfBalls);
+	FinalBoard=Board(400,400,NumberOfBalls);
 	// cout <<FinalBoard.Get
 	pthread_t BallThreads [NumberOfBalls];
 	pthread_t DisplayThread;

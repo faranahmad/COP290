@@ -1,13 +1,30 @@
 #include "Board.h"
+#include <cmath>
+#include <iostream>
 
 Board::Board()
 {
-	dimension_x=1000;
-	dimension_y=1000;
+	dimension_x=1000.0;
+	dimension_y=1000.0;
 	number_balls=0;
 }
 
-Board::Board(int x,int y, int n)
+bool CheckCorrect(std::vector<Ball> v,Ball n1)
+{
+	bool sofar=true;
+	for (int i=0; (i< v.size()) && sofar; i++)
+	{
+		double dx=v[i].GetX()-n1.GetX();
+		double dy=v[i].GetY()-n1.GetY();
+		if (n1.GetRadius()+v[i].GetRadius()>=sqrt(dx*dx + dy*dy))
+		{
+			sofar=false;
+		}
+	}
+	return sofar;
+}
+
+Board::Board(double x,double y, int n)
 {
 	// Constructs a new Board
 	// Default number of balls is 0
@@ -17,17 +34,23 @@ Board::Board(int x,int y, int n)
 	number_balls=n;
 	for (int i=0; i<n;i++)
 	{
-		vector_of_balls.push_back(Ball(x,y,1));
+		Ball newball=Ball(x,y,1);
+		while (!CheckCorrect(vector_of_balls,newball))
+		{
+			std::cout <<"In here for: " <<i<<"\n";
+			newball=Ball(x,y,1);	
+		}
+		vector_of_balls.push_back(newball);
 	}
 }
 
-int Board::GetDimensionX()
+double Board::GetDimensionX()
 {
 	// Returns the x dimension of the board
 	return dimension_x;
 }
 
-int Board::GetDimensionY()
+double Board::GetDimensionY()
 {
 	// Returns the y dimension of the board
 	return dimension_y;
@@ -68,13 +91,13 @@ string Board::GetBoardInformation()
 }
 
 
-void Board::SetDimensionX(int x)
+void Board::SetDimensionX(double x)
 {
 	// Updates the x dimension of the board
 	dimension_x=x;
 }
 
-void Board::SetDimensionY(int y)
+void Board::SetDimensionY(double y)
 {
 	// Updates teh y dimension of the board
 	dimension_y=y;
@@ -122,7 +145,7 @@ void Board::RemoveBallFromBoard()
 	}
 }
 
-void Board::UpdateBoard(int time_elapsed)
+void Board::UpdateBoard(double time_elapsed)
 {
 	// Updates the situation of the board after a time time_elapsed has passed using the updae ball function
 	for (int i=0; i<number_balls; i++)
