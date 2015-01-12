@@ -3,6 +3,9 @@
 \setlength{\topmargin}{-.5in}
 \setlength{\textheight}{9in}
 \setlength{\oddsidemargin}{.125in}
+\usepackage{listings}
+\usepackage{color} % for setting colors
+
 \setlength{\textwidth}{6.25in}
 \begin{document}
 \title
@@ -30,8 +33,6 @@ The following are the classes used by us :-
 \begin{itemize}
 \item \textit{Board}:-The board class provides information about the background its dimensions, color, number of balls placed on it etc.
 %\documentclass{article}
-\usepackage{listings}
-\usepackage{color} % for setting colors
 \lstset{
     frame=tb, % draw a frame at the top and bottom of the code block
     tabsize=4, % tab space width
@@ -86,6 +87,7 @@ class Board
 \end{lstlisting}
 %\end{document}
 \item \textit{Ball}:-The ball class consists of information about the balls; their color, radius, velocity etc.
+\item\textit{GUI}
 \item\textit{}
 \end{itemize}
 % \begin{enumerate}
