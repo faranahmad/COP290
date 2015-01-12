@@ -1,4 +1,6 @@
 #include "Board.h"
+#include <cmath>
+#include <iostream>
 
 Board::Board()
 {
@@ -12,7 +14,12 @@ bool CheckCorrect(std::vector<Ball> v,Ball n1)
 	bool sofar=true;
 	for (int i=0; (i< v.size()) && sofar; i++)
 	{
-
+		double dx=v[i].GetX()-n1.GetX();
+		double dy=v[i].GetY()-n1.GetY();
+		if (n1.GetRadius()+v[i].GetRadius()>=sqrt(dx*dx + dy*dy))
+		{
+			sofar=false;
+		}
 	}
 	return sofar;
 }
@@ -30,9 +37,10 @@ Board::Board(double x,double y, int n)
 		Ball newball=Ball(x,y,1);
 		while (!CheckCorrect(vector_of_balls,newball))
 		{
+			std::cout <<"In here for: " <<i<<"\n";
 			newball=Ball(x,y,1);	
 		}
-		vector_of_balls.push_back(Ball(x,y,1));
+		vector_of_balls.push_back(newball);
 	}
 }
 

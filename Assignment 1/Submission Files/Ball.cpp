@@ -18,7 +18,7 @@ Ball::Ball(double x,double y)
 Ball::Ball(double limx,double limy,double random)
 {
 	// Gives a random ball within  -limx to +limx and -limy to +limy
-	radius = (rand() % 100) + 100;
+	radius = (rand() % 50) + 50;
 	coord_x = (rand() % (int) (2* (limx-radius))) - (limx-radius);
 	coord_y = (rand() % (int) (2* (limy-radius))) - (limy-radius);
 	velocity_x=(rand() % 50) -25;
