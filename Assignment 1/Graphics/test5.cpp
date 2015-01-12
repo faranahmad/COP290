@@ -358,7 +358,7 @@ void display(void)
     glEnd();
 
     glPushMatrix();
-    glTranslatef(x/100, y/100, 1);
+    glTranslatef(x, y, 1);
     // glColor3f(0.75, 0.5, 0); 
     // GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
     // GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
@@ -368,7 +368,7 @@ void display(void)
     // glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
     // x+=1;
     // y+=1; 
-    // glutSolidSphere(100, 100, 100);
+    glutSolidSphere(100, 100, 100);
         glPopMatrix();
 
 //     glPushMatrix();
@@ -426,8 +426,9 @@ void mouseclick(int button,int state,int x,int y )
             cout<<"SlowDown Button"<<endl;
         }
     
-        glutPostRedisplay();
+        
     }
+    glutPostRedisplay();
 }
 GLuint loadTexture(Image* image) {
     GLuint textureId;

@@ -2,12 +2,14 @@
 #include <pthread.h>
 #include <unistd.h>
 #include <iostream>
+#include <stdio.h>
 #include "Graphics.h"
 #include <GL/glut.h>
 #include <GL/gl.h>
 #include <algorithm>
 #include <cmath>
-
+#include <assert.h>
+#include <fstream>
 
 struct Graph {
 	int x1;
@@ -17,6 +19,233 @@ struct Graph {
 pthread_mutex_t UpdateLock;
 Board FinalBoard;
 
+GLuint _textureId;
+class Image {
+    public:
+        Image(char* ps, int w, int h);
+        ~Image();
+        
+        /* An array of the form (R1, G1, B1, R2, G2, B2, ...) indicating the
+         * color of each pixel in image.  Color components range from 0 to 255.
+         * The array starts the bottom-left pixel, then moves right to the end
+         * of the row, then moves up to the next column, and so on.  This is the
+         * format in which OpenGL likes images.
+         */
+        char* pixels;
+        int width;
+        int height;
+};
+
+//Reads a bitmap image from file.
+Image* loadBMP(const char* filename);   
+Image::Image(char* ps, int w, int h) : pixels(ps), width(w), height(h) {
+    
+}
+
+Image::~Image() {
+    delete[] pixels;
+}
+
+namespace {
+    //Converts a four-character array to an integer, using little-endian form
+    int toInt(const char* bytes) {
+        return (int)(((unsigned char)bytes[3] << 24) |
+                     ((unsigned char)bytes[2] << 16) |
+                     ((unsigned char)bytes[1] << 8) |
+                     (unsigned char)bytes[0]);
+    }
+    
+    //Converts a two-character array to a short, using little-endian form
+    short toShort(const char* bytes) {
+        return (short)(((unsigned char)bytes[1] << 8) |
+                       (unsigned char)bytes[0]);
+    }
+    
+    //Reads the next four bytes as an integer, using little-endian form
+    int readInt(ifstream &input) {
+        char buffer[4];
+        input.read(buffer, 4);
+        return toInt(buffer);
+    }
+    
+    //Reads the next two bytes as a short, using little-endian form
+    short readShort(ifstream &input) {
+        char buffer[2];
+        input.read(buffer, 2);
+        return toShort(buffer);
+    }
+    
+    //Just like auto_ptr, but for arrays
+    template<class T>
+    class auto_array {
+        private:
+            T* array;
+            mutable bool isReleased;
+        public:
+            explicit auto_array(T* array_ = NULL) :
+                array(array_), isReleased(false) {
+            }
+            
+            auto_array(const auto_array<T> &aarray) {
+                array = aarray.array;
+                isReleased = aarray.isReleased;
+                aarray.isReleased = true;
+            }
+            
+            ~auto_array() {
+                if (!isReleased && array != NULL) {
+                    delete[] array;
+                }
+            }
+            
+            T* get() const {
+                return array;
+            }
+            
+            T &operator*() const {
+                return *array;
+            }
+            
+            void operator=(const auto_array<T> &aarray) {
+                if (!isReleased && array != NULL) {
+                    delete[] array;
+                }
+                array = aarray.array;
+                isReleased = aarray.isReleased;
+                aarray.isReleased = true;
+            }
+            
+            T* operator->() const {
+                return array;
+            }
+            
+            T* release() {
+                isReleased = true;
+                return array;
+            }
+            
+            void reset(T* array_ = NULL) {
+                if (!isReleased && array != NULL) {
+                    delete[] array;
+                }
+                array = array_;
+            }
+            
+            T* operator+(int i) {
+                return array + i;
+            }
+            
+            T &operator[](int i) {
+                return array[i];
+            }
+    };
+}
+
+Image* loadBMP(const char* filename) {
+    ifstream input;
+    input.open(filename, ifstream::binary);
+    assert(!input.fail() || !"Could not find file");
+    char buffer[2];
+    input.read(buffer, 2);
+    assert(buffer[0] == 'B' && buffer[1] == 'M' || !"Not a bitmap file");
+    input.ignore(8);
+    int dataOffset = readInt(input);
+    
+    //Read the header
+    int headerSize = readInt(input);
+    int width;
+    int height;
+    width = readInt(input);
+    height = readInt(input);
+    
+    //Read the data
+    int bytesPerRow = ((width * 3 + 3) / 4) * 4 - (width * 3 % 4);
+    int size = bytesPerRow * height;
+    auto_array<char> pixels(new char[size]);
+    input.seekg(dataOffset, ios_base::beg);
+    input.read(pixels.get(), size);
+    
+    //Get the data into the right format
+    auto_array<char> pixels2(new char[width * height * 3]);
+    for(int y = 0; y < height; y++) {
+        for(int x = 0; x < width; x++) {
+            for(int c = 0; c < 3; c++) {
+                pixels2[3 * (width * y + x) + c] =
+                    pixels[bytesPerRow * y + 3 * x + (2 - c)];
+            }
+        }
+    }
+    
+    input.close();
+    return new Image(pixels2.release(), width, height);
+}
+
+GLuint loadTexture(Image* image) {
+    GLuint textureId;
+    glGenTextures(1, &textureId); //Make room for our texture
+    glBindTexture(GL_TEXTURE_2D, textureId); //Tell OpenGL which texture to edit
+    //Map the image to the texture
+    glTexImage2D(GL_TEXTURE_2D,                //Always GL_TEXTURE_2D
+                 0,                            //0 for now
+                 GL_RGB,                       //Format OpenGL uses for image
+                 image->width, image->height,  //Width and height
+                 0,                            //The border of the image
+                 GL_RGB, //GL_RGB, because pixels are stored in RGB format
+                 GL_UNSIGNED_BYTE, //GL_UNSIGNED_BYTE, because pixels are stored
+                                   //as unsigned numbers
+                 image->pixels);               //The actual pixel data
+    return textureId; //Returns the id of the texture
+}
+
+
+void initRendering() 
+{
+   	Image* image = loadBMP("Water-4.bmp");
+  	_textureId = loadTexture(image);
+    delete image;
+}
+void mouseclick(int button,int state,int x,int y )
+{
+    if(state== GLUT_UP )
+    {
+        int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
+        int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
+        float const window_aspect = (float)window_width / (float)window_height;
+        cout<<x<<'\t'<<y<<endl;
+        float f1=window_width/1000.0;
+        float f2=window_height/500.0;
+        // cout<<(x>920*f1)<<"     "<<(x<998*f2)<<endl;
+        if(x>920*f1 && x<998*f1 && y>435*f2 && y<498*f2)
+        {
+            cout<<"Play Button"<<endl;
+        }
+        if(x>840*f1 && x<920*f1 && y>435*f2 && y<498*f2)
+        {
+            cout<<"Pause Button"<<endl;
+        }
+        if(x>615*f1 && x<835*f1 && y>435*f2 && y<498*f2)
+        {
+            cout<<"Add Button"<<endl;
+        }
+        if(x>80*f1 && x<155*f1 && y>435*f2 && y<498*f2)
+        {
+            cout<<"SpeedUp Button"<<endl;
+        }
+        if(x>0*f1 && x<80*f1 && y>435*f2 && y<498*f2)
+        {
+            cout<<"SlowDown Button"<<endl;
+        }
+    
+    }
+    glutPostRedisplay();
+}
+
+void handleKeypress(unsigned char key, int x, int y) {
+    switch (key) {
+        case 27: //Escape key
+            exit(0);
+    }
+}
 
 void display(void)
 {
@@ -85,6 +314,27 @@ void display(void)
 
     glEnable(GL_DEPTH_TEST);
 
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureId);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glColor3f(1.0f, 1.0f, 1.0f);
+
+    glBegin(GL_QUADS);
+
+    glNormal3f(0.0, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-window_width, window_height, 1);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(window_width,window_height, 1);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(window_width, -window_height, 1);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-window_width, -window_height, 1);
+    
+    glEnd();
+
     for( int i=0;i<FinalBoard.GetNumberBalls();i++ ) 
     {
         glPushMatrix();
@@ -128,11 +378,13 @@ int graphics(int argc,char *argv[])
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
     glutInitWindowSize(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY());
-    glutCreateWindow("Team BabeMagents");
+    glutCreateWindow("Team BabeMagnets");
     
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
-    // glutMouseFunc(mouseclick);
+    glutMouseFunc(mouseclick);
+    glutKeyboardFunc(handleKeypress);
+    initRendering();
 
     glutMainLoop();
 
