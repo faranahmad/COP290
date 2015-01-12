@@ -18,6 +18,7 @@ struct Graph {
 
 pthread_mutex_t UpdateLock;
 Board FinalBoard;
+bool PauseBoard;
 
 GLuint _textureId;
 class Image {
@@ -38,9 +39,7 @@ class Image {
 
 //Reads a bitmap image from file.
 Image* loadBMP(const char* filename);   
-Image::Image(char* ps, int w, int h) : pixels(ps), width(w), height(h) {
-    
-}
+Image::Image(char* ps, int w, int h) : pixels(ps), width(w), height(h) {}
 
 Image::~Image() {
     delete[] pixels;
@@ -204,6 +203,7 @@ void initRendering()
   	_textureId = loadTexture(image);
     delete image;
 }
+
 void mouseclick(int button,int state,int x,int y )
 {
     if(state== GLUT_UP )
@@ -217,10 +217,12 @@ void mouseclick(int button,int state,int x,int y )
         // cout<<(x>920*f1)<<"     "<<(x<998*f2)<<endl;
         if(x>920*f1 && x<998*f1 && y>435*f2 && y<498*f2)
         {
+            PauseBoard=false;
             cout<<"Play Button"<<endl;
         }
         if(x>840*f1 && x<920*f1 && y>435*f2 && y<498*f2)
         {
+            PauseBoard=true;
             cout<<"Pause Button"<<endl;
         }
         if(x>615*f1 && x<835*f1 && y>435*f2 && y<498*f2)
@@ -305,11 +307,11 @@ void display(void)
     // glLightfv(GL_LIGHT4, GL_AMBIENT, light_ambient5);
     // glLightfv(GL_LIGHT4, GL_SPECULAR, light_color5);
 
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-    glEnable(GL_LIGHT1);
-    glEnable(GL_LIGHT2);
-    glEnable(GL_LIGHT3);
+    // glEnable(GL_LIGHTING);
+    // glEnable(GL_LIGHT0);
+    // glEnable(GL_LIGHT1);
+    // glEnable(GL_LIGHT2);
+    // glEnable(GL_LIGHT3);
     // glEnable(GL_LIGHT4);
 
     glEnable(GL_DEPTH_TEST);
@@ -340,7 +342,7 @@ void display(void)
         glPushMatrix();
         // cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
         glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(), 0);
-        // glColor3f(FinalBoard.GetBallFromId(i).GetColor()[0],FinalBoard.GetBallFromId(i).GetColor()[1],FinalBoard.GetBallFromId(i).GetColor()[2]);
+        glColor3f(FinalBoard.GetBallFromId(i).GetColor()[0],FinalBoard.GetBallFromId(i).GetColor()[1],FinalBoard.GetBallFromId(i).GetColor()[2]);
         GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
 		GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
 		GLfloat shininess[] = {50};
@@ -399,136 +401,139 @@ void *UpdateBoardThread(void* id)
 {
 	while (true)
 	{
-		pthread_mutex_lock (&UpdateLock);
-		long ballid = (long) id;
-		// cout <<"Starting for ball " <<ballid<<"\n";
-		
-		Ball BallConsidered = FinalBoard.GetBallFromId(ballid);
-
-		int BallConsidered_Coordx = BallConsidered.GetX(); 
-		int BallConsidered_Coordy = BallConsidered.GetY();
-		double BallConsidered_Radius = BallConsidered.GetRadius();
-		int BallConsidered_VelocityX=BallConsidered.GetVelocityX();
-		int BallConsidered_VelocityY=BallConsidered.GetVelocityY();
-		// BallConsidered.SetX(((BallConsidered_Coordx+BallConsidered_VelocityX)%(2*FinalBoard.GetDimensionX())) -FinalBoard.GetDimensionX());
-		if (BallConsidered_Coordx + BallConsidered_VelocityX + BallConsidered_Radius> FinalBoard.GetDimensionX())
-		{
-			BallConsidered.SetX(FinalBoard.GetDimensionX() -BallConsidered_Radius);
-			BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
-			BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
-		}
-		else if (BallConsidered_Coordx+BallConsidered_VelocityX + FinalBoard.GetDimensionX() -BallConsidered_Radius<0)
-		{
-			BallConsidered.SetX(0-FinalBoard.GetDimensionX()+BallConsidered_Radius);
-			BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
-			BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());	
-		}
-		else
-		{
-			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
-		}
-
-		if (BallConsidered_Coordy+BallConsidered_VelocityY +BallConsidered_Radius> FinalBoard.GetDimensionY())
-		{
-			BallConsidered.SetY(FinalBoard.GetDimensionY()-BallConsidered_Radius);
-			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
-			BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());
-		}
-		else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionY() -BallConsidered_Radius <0)
-		{
-			BallConsidered.SetY(0-FinalBoard.GetDimensionY() + BallConsidered_Radius);
-			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);	
-			BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());	
-		}
-		else
-		{
-			BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
-		}
-		
-
-
-
-		vector<Ball> Vector_Of_Balls = FinalBoard.GetVectorBalls();
-		double mass1 = BallConsidered.GetRadius()*BallConsidered.GetRadius()*BallConsidered.GetRadius();
-		// double mass1=1.0;
-		bool needforupdate=true;
-		// double uy1=0.0;
-		double ux1 =  BallConsidered.GetVelocityX();
-		double uy1 =  BallConsidered.GetVelocityY();
-		
-		for(int i=0;i<FinalBoard.GetNumberBalls();i++)
-		{
-			if (i != ballid)
-			{
-				// double dx = Vector_Of_Balls[i].GetX()+Vector_Of_Balls[i].GetVelocityX()-BallConsidered.GetX()-BallConsidered.GetVelocityX();
-				// double dy = Vector_Of_Balls[i].GetY()+Vector_Of_Balls[i].GetVelocityY()-BallConsidered.GetY()-BallConsidered.GetVelocityY();
-				ux1 =  BallConsidered.GetVelocityX();
-				uy1 =  BallConsidered.GetVelocityY();
-		
-				double dx = Vector_Of_Balls[i].GetX()-BallConsidered.GetX();
-				double dy = Vector_Of_Balls[i].GetY()-BallConsidered.GetY();
-				double distance = sqrt(dx*dx+dy*dy);
-				if(BallConsidered.GetRadius()+Vector_Of_Balls[i].GetRadius()>=distance)
-				{
-					needforupdate=false;
-					cout <<BallConsidered.GetRadius() <<"\t" <<Vector_Of_Balls[i].GetRadius()<<"\t"<<distance<<"\n";
-					double l=(BallConsidered.GetRadius()+Vector_Of_Balls[i].GetRadius() -distance)/2;
-
-					double costheta = (dx/distance);
-					double sintheta = (dy/distance);
-					
-					double mass2 = Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius(); 
-					// double mass2=1.0;
-					double ux2 = Vector_Of_Balls[i].GetVelocityX();
-					double uy2 = Vector_Of_Balls[i].GetVelocityY();
-					// double uy2=0.0;
-
-					//Along tangent
-					double u3=uy1*costheta - ux1*sintheta;
-					double u4=uy2*costheta - ux2*sintheta;
-
-					// Along radial
-					double u1=ux1*costheta + uy1*sintheta;
-					double u2=ux2*costheta + uy2*sintheta;
-
-					//After collision radial
-					double v1=(mass1*u1 + 2*mass2*u2 - mass2*u1)/(mass1+mass2);
-					double v2=(mass2*u2 + 2*mass1*u1 - mass1*u2)/(mass1+mass2);
-
-
-					double vx1=v1*costheta - u3*sintheta;
-					double vx2=v2*costheta - u4*sintheta;
-
-					double vy1=u3*costheta + v1*sintheta;
-					double vy2=u4*costheta + v2*sintheta;
-
-					BallConsidered.SetX(BallConsidered.GetX() - l*costheta);
-					BallConsidered.SetY(BallConsidered.GetY() - l*sintheta);
-					
-
-					Vector_Of_Balls[i].SetX(Vector_Of_Balls[i].GetX() + l*costheta);
-					Vector_Of_Balls[i].SetY(Vector_Of_Balls[i].GetY() + l*sintheta);
-
-					BallConsidered.SetVelocity(vx1,vy1);
-					// BallConsidered.SetX(BallConsidered.GetX()+vx2*vx1/(vx2+vx1));
-					// BallConsidered.SetY(BallConsidered.GetY()+;
-					Vector_Of_Balls[i].SetVelocity(vx2,vy2);
-					// Vector_Of_Balls[i].SetX(Vector_Of_Balls[i].GetX()+vx2);
-					// Vector_Of_Balls[i].SetY(Vector_Of_Balls[i].GetY()+vy2);
-				}	
-			}
-		}
-		FinalBoard.SetVectorBalls(Vector_Of_Balls);
-
-		FinalBoard.SetBallFromId(ballid,BallConsidered);	
-		
-		// BallConsidered.SetY((BallConsidered_Coordy+BallConsidered_VelocityY)%FinalBoard.GetDimensionY());
-		// BallConsidered.SetX((BallConsidered_Coordx+BallConsidered_VelocityX +4*FinalBoard.GetDimensionX()) % 2*(FinalBoard.GetDimensionX()) -FinalBoard.GetDimensionX());
-		// BallConsidered.SetY((BallConsidered_Coordy+BallConsidered_VelocityY +4*FinalBoard.GetDimensionY()) % 2*(FinalBoard.GetDimensionY()) -FinalBoard.GetDimensionY());
-		// cout <<FinalBoard.GetBoardInformation()<<"\n";
-		pthread_mutex_unlock (&UpdateLock);	
-		usleep(50000);
-	}
+        if (!PauseBoard)
+        {
+    		pthread_mutex_lock (&UpdateLock);
+    		long ballid = (long) id;
+    		// cout <<"Starting for ball " <<ballid<<"\n";
+    		
+    		Ball BallConsidered = FinalBoard.GetBallFromId(ballid);
+    
+    		int BallConsidered_Coordx = BallConsidered.GetX(); 
+    		int BallConsidered_Coordy = BallConsidered.GetY();
+    		double BallConsidered_Radius = BallConsidered.GetRadius();
+    		int BallConsidered_VelocityX=BallConsidered.GetVelocityX();
+    		int BallConsidered_VelocityY=BallConsidered.GetVelocityY();
+    		// BallConsidered.SetX(((BallConsidered_Coordx+BallConsidered_VelocityX)%(2*FinalBoard.GetDimensionX())) -FinalBoard.GetDimensionX());
+    		if (BallConsidered_Coordx + BallConsidered_VelocityX + BallConsidered_Radius> FinalBoard.GetDimensionX())
+    		{
+    			BallConsidered.SetX(FinalBoard.GetDimensionX() -BallConsidered_Radius);
+    			BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
+    			BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
+    		}
+    		else if (BallConsidered_Coordx+BallConsidered_VelocityX + FinalBoard.GetDimensionX() -BallConsidered_Radius<0)
+    		{
+    			BallConsidered.SetX(0-FinalBoard.GetDimensionX()+BallConsidered_Radius);
+    			BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
+    			BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());	
+    		}
+    		else
+    		{
+    			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
+    		}
+    
+    		if (BallConsidered_Coordy+BallConsidered_VelocityY +BallConsidered_Radius> FinalBoard.GetDimensionY())
+    		{
+    			BallConsidered.SetY(FinalBoard.GetDimensionY()-BallConsidered_Radius);
+    			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
+    			BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());
+    		}
+    		else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionY() -BallConsidered_Radius <0)
+    		{
+    			BallConsidered.SetY(0-FinalBoard.GetDimensionY() + BallConsidered_Radius);
+    			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);	
+    			BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());	
+    		}
+    		else
+    		{
+    			BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
+    		}
+    		
+    
+    
+    
+    		vector<Ball> Vector_Of_Balls = FinalBoard.GetVectorBalls();
+    		double mass1 = BallConsidered.GetRadius()*BallConsidered.GetRadius()*BallConsidered.GetRadius();
+    		// double mass1=1.0;
+    		bool needforupdate=true;
+    		// double uy1=0.0;
+    		double ux1 =  BallConsidered.GetVelocityX();
+    		double uy1 =  BallConsidered.GetVelocityY();
+    		
+    		for(int i=0;i<FinalBoard.GetNumberBalls();i++)
+    		{
+    			if (i != ballid)
+    			{
+    				// double dx = Vector_Of_Balls[i].GetX()+Vector_Of_Balls[i].GetVelocityX()-BallConsidered.GetX()-BallConsidered.GetVelocityX();
+    				// double dy = Vector_Of_Balls[i].GetY()+Vector_Of_Balls[i].GetVelocityY()-BallConsidered.GetY()-BallConsidered.GetVelocityY();
+    				ux1 =  BallConsidered.GetVelocityX();
+    				uy1 =  BallConsidered.GetVelocityY();
+    		
+    				double dx = Vector_Of_Balls[i].GetX()-BallConsidered.GetX();
+    				double dy = Vector_Of_Balls[i].GetY()-BallConsidered.GetY();
+    				double distance = sqrt(dx*dx+dy*dy);
+    				if(BallConsidered.GetRadius()+Vector_Of_Balls[i].GetRadius()>=distance)
+    				{
+    					needforupdate=false;
+    					cout <<BallConsidered.GetRadius() <<"\t" <<Vector_Of_Balls[i].GetRadius()<<"\t"<<distance<<"\n";
+    					double l=(BallConsidered.GetRadius()+Vector_Of_Balls[i].GetRadius() -distance)/2;
+    
+    					double costheta = (dx/distance);
+    					double sintheta = (dy/distance);
+    					
+    					double mass2 = Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius(); 
+    					// double mass2=1.0;
+    					double ux2 = Vector_Of_Balls[i].GetVelocityX();
+    					double uy2 = Vector_Of_Balls[i].GetVelocityY();
+    					// double uy2=0.0;
+    
+    					//Along tangent
+    					double u3=uy1*costheta - ux1*sintheta;
+    					double u4=uy2*costheta - ux2*sintheta;
+    
+    					// Along radial
+    					double u1=ux1*costheta + uy1*sintheta;
+    					double u2=ux2*costheta + uy2*sintheta;
+    
+    					//After collision radial
+    					double v1=(mass1*u1 + 2*mass2*u2 - mass2*u1)/(mass1+mass2);
+    					double v2=(mass2*u2 + 2*mass1*u1 - mass1*u2)/(mass1+mass2);
+    
+    
+    					double vx1=v1*costheta - u3*sintheta;
+    					double vx2=v2*costheta - u4*sintheta;
+    
+    					double vy1=u3*costheta + v1*sintheta;
+    					double vy2=u4*costheta + v2*sintheta;
+    
+    					BallConsidered.SetX(BallConsidered.GetX() - l*costheta);
+    					BallConsidered.SetY(BallConsidered.GetY() - l*sintheta);
+    					
+    
+    					Vector_Of_Balls[i].SetX(Vector_Of_Balls[i].GetX() + l*costheta);
+    					Vector_Of_Balls[i].SetY(Vector_Of_Balls[i].GetY() + l*sintheta);
+    
+    					BallConsidered.SetVelocity(vx1,vy1);
+    					// BallConsidered.SetX(BallConsidered.GetX()+vx2*vx1/(vx2+vx1));
+    					// BallConsidered.SetY(BallConsidered.GetY()+;
+    					Vector_Of_Balls[i].SetVelocity(vx2,vy2);
+    					// Vector_Of_Balls[i].SetX(Vector_Of_Balls[i].GetX()+vx2);
+    					// Vector_Of_Balls[i].SetY(Vector_Of_Balls[i].GetY()+vy2);
+    				}	
+    			}
+    		}
+    		FinalBoard.SetVectorBalls(Vector_Of_Balls);
+    
+    		FinalBoard.SetBallFromId(ballid,BallConsidered);	
+    		
+    		// BallConsidered.SetY((BallConsidered_Coordy+BallConsidered_VelocityY)%FinalBoard.GetDimensionY());
+    		// BallConsidered.SetX((BallConsidered_Coordx+BallConsidered_VelocityX +4*FinalBoard.GetDimensionX()) % 2*(FinalBoard.GetDimensionX()) -FinalBoard.GetDimensionX());
+    		// BallConsidered.SetY((BallConsidered_Coordy+BallConsidered_VelocityY +4*FinalBoard.GetDimensionY()) % 2*(FinalBoard.GetDimensionY()) -FinalBoard.GetDimensionY());
+    		// cout <<FinalBoard.GetBoardInformation()<<"\n";
+    		pthread_mutex_unlock (&UpdateLock);	
+    		usleep(50000);
+    	}
+    }
 }	
 
 void *DisplayUpdate(void* id)
@@ -549,6 +554,7 @@ int main(int argc, char **argv)
 	pthread_t BallThreads [NumberOfBalls];
 	pthread_t DisplayThread;
 	cout <<"Starting\n";
+    PauseBoard=false;
 
 	cout<<FinalBoard.GetBoardInformation()<<"\n";
 
