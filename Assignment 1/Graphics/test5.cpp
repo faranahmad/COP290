@@ -256,7 +256,7 @@ void display(void)
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-      glOrtho(0-window_width,window_width,0-window_height,window_height,-2000,2000);
+    glOrtho(0-window_width,window_width,0-window_height,window_height,-2000,2000);
     // if(window_aspect > 1.) {
         // glOrtho(-1200, 1200, -600, 600, -1200, 1200);
     // }
@@ -293,10 +293,10 @@ void display(void)
 
     
 
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-    glEnable(GL_LIGHT1);
-    glEnable(GL_LIGHT2);
+    // glEnable(GL_LIGHTING);
+    // glEnable(GL_LIGHT0);
+    // glEnable(GL_LIGHT1);
+    // glEnable(GL_LIGHT2);
 
 
     glEnable(GL_DEPTH_TEST);
@@ -334,13 +334,13 @@ void display(void)
     
     glNormal3f(0.0, 1.0f, 0.0f);
     glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-1200, 600, 1);
+    glVertex3f(-window_width, window_height, 1);
     glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(1200,600, 1);
+    glVertex3f(window_width,window_height, 1);
     glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(1200, -600, 1);
+    glVertex3f(window_width, -window_height, 1);
     glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-1200, -600, 1);
+    glVertex3f(-window_width, -window_height, 1);
     
     glEnd();
     
@@ -368,7 +368,7 @@ void display(void)
     // glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
     // x+=1;
     // y+=1; 
-    glutSolidSphere(100, 100, 100);
+    // glutSolidSphere(100, 100, 100);
         glPopMatrix();
 
 //     glPushMatrix();
@@ -439,7 +439,7 @@ void initRendering() {
     // glEnable(GL_NORMALIZE);
     // glEnable(GL_COLOR_MATERIAL);
     
-    Image* image = loadBMP("new.bmp");
+    Image* image = loadBMP("Water-4.bmp");
     _textureId = loadTexture(image);
     delete image;
 }
