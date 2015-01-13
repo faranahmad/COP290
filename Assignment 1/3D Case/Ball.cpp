@@ -1,7 +1,7 @@
 #include "Ball.h"
 #include <cstdlib>
 
-Ball::Ball(double x,double y)
+Ball::Ball(double x,double y,double z)
 {
 	// Constructor for Ball Data Type
 	// Default Radius is 1.0
@@ -9,20 +9,24 @@ Ball::Ball(double x,double y)
 	// Default Velocity is 0
 	coord_x=x;
 	coord_y=y;
+	coord_z=z;
 	radius=1;
 	velocity_x=0;
 	velocity_y=0;
+	velocity_z=0;
 	color = std::vector<float> (3,0.5f);
 }
 
-Ball::Ball(double limx,double limy,double random)
+Ball::Ball(double limx,double limy,double limz,double random)
 {
 	// Gives a random ball within  -limx to +limx and -limy to +limy
 	radius = (rand() % 50) + 50;
 	coord_x = (rand() % (int) (2* (limx-radius))) - (limx-radius);
 	coord_y = (rand() % (int) (2* (limy-radius))) - (limy-radius);
+	coord_z = (rand() % (int) (2* (limz-radius))) - (limz-radius);
 	velocity_x=(rand() % 50) -25;
 	velocity_y=(rand() % 50) -25;
+	velocity_z=(rand() % 50) -25;
 	color = std::vector<float> (3,0.5f);
 	color[0] = (rand() %256) /255.0;
 	color[1] = (rand() %256) /255.0;

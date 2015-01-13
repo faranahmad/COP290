@@ -536,39 +536,35 @@ int main(int argc, char **argv)
 	srand(time(NULL));
 	const int NumberOfBalls = atoi(argv[1]);
 	pthread_mutex_init(&UpdateLock,NULL);
-	FinalBoard=Board(800,600,NumberOfBalls);
-	// cout <<FinalBoard.Get
-	pthread_t BallThreads [NumberOfBalls];
+	FinalBoard=Board(800,600,600,NumberOfBalls);
+	
+    pthread_t BallThreads [NumberOfBalls];
 	pthread_t DisplayThread;
-	cout <<"Starting\n";
+	
+    cout <<"Starting\n";
     PauseBoard=false;
-
 	cout<<FinalBoard.GetBoardInformation()<<"\n";
-
 
 	Graph graphics1;
 	graphics1.x1=argc;
 	graphics1.s1=argv;
 
-	std::cout <<"Ball threas" <<NumberOfBalls <<"\n";
+	std::cout <<"Ball threads" <<NumberOfBalls <<"\n";
 	for (long i=0; i<NumberOfBalls ;i++)
 	{
-		cout <<"Creating thread i: " <<i <<"\n";
+		cout <<"Creating thread : " <<i <<"\n";
 		pthread_create(&BallThreads[i],NULL,UpdateBoardThread,(void *)i);
 	
 	}
-	cout <<"out of for loop\n";
 
 	pthread_create(&DisplayThread,NULL,DisplayUpdate,&graphics1);
 	
-
 	for (int i=0; i<NumberOfBalls ;i++)
 	{
 		pthread_join(BallThreads[i],NULL);
 	}
 
-
-	pthread_join(DisplayThread,NULL);
+    pthread_join(DisplayThread,NULL);
 	// create a display thread 
 	// run the threads 
 	pthread_exit(NULL);

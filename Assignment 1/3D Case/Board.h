@@ -14,6 +14,7 @@ class Board
 
 		double GetDimensionX();
 		double GetDimensionY();
+		double GetDimensionZ();
 		int GetNumberBalls ();
 		vector<Ball> GetVectorBalls();
 		Ball GetBallFromId (int);
@@ -22,6 +23,7 @@ class Board
 
 		void SetDimensionX(double);
 		void SetDimensionY(double);
+		void SetDimensionZ(double);
 		void SetNumberOfBalls(int);
 		void SetVectorBalls(vector<Ball>);
 		void SetBallFromId(int,Ball);
@@ -34,6 +36,7 @@ class Board
 	private:
 		double dimension_x;
 		double dimension_y;
+		double dimension_z;
 		int number_balls;
 		vector<Ball> vector_of_balls;
 };
