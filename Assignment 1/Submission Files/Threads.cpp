@@ -407,11 +407,11 @@ void *UpdateBoardThread(void* id)
     		
     		Ball BallConsidered = FinalBoard.GetBallFromId(ballid);
     
-    		int BallConsidered_Coordx = BallConsidered.GetX(); 
-    		int BallConsidered_Coordy = BallConsidered.GetY();
+    		double BallConsidered_Coordx = BallConsidered.GetX(); 
+    		double BallConsidered_Coordy = BallConsidered.GetY();
     		double BallConsidered_Radius = BallConsidered.GetRadius();
-    		int BallConsidered_VelocityX=BallConsidered.GetVelocityX();
-    		int BallConsidered_VelocityY=BallConsidered.GetVelocityY();
+    		double BallConsidered_VelocityX=BallConsidered.GetVelocityX();
+    		double BallConsidered_VelocityY=BallConsidered.GetVelocityY();
     		// BallConsidered.SetX(((BallConsidered_Coordx+BallConsidered_VelocityX)%(2*FinalBoard.GetDimensionX())) -FinalBoard.GetDimensionX());
     		if (BallConsidered_Coordx + BallConsidered_VelocityX + BallConsidered_Radius> FinalBoard.GetDimensionX())
     		{
@@ -452,10 +452,10 @@ void *UpdateBoardThread(void* id)
     
     		vector<Ball> Vector_Of_Balls = FinalBoard.GetVectorBalls();
     		double mass1 = BallConsidered.GetRadius()*BallConsidered.GetRadius()*BallConsidered.GetRadius();
-    		// double mass1=1.0;
-    		bool needforupdate=true;
-    		// double uy1=0.0;
-    		double ux1 =  BallConsidered.GetVelocityX();
+    		
+            bool needforupdate=true;
+    		
+            double ux1 =  BallConsidered.GetVelocityX();
     		double uy1 =  BallConsidered.GetVelocityY();
     		
     		for(int i=0;i<FinalBoard.GetNumberBalls();i++)
