@@ -34,7 +34,8 @@ Board::Board(double x, double posy, double negy, int n)
 	dimension_x=x;
 	dimension_pos_y=posy;
 	dimension_neg_y=negy;
-	
+	dimension_y=posy+negy;
+
 	number_balls=n;
 	for (int i=0; i<n;i++)
 	{
@@ -122,11 +123,13 @@ void Board::SetDimensionPosY(double posy)
 {
 	//Updates the posititve y dimension of the board
 	dimension_pos_y = posy;
+	dimension_y=dimension_neg_y + dimension_pos_y;
 }
 void Board::SetDimensionNegY(double negy)
 {
 	//Updates the posititve y dimension of the board
 	dimension_neg_y = negy;
+	dimension_y=dimension_pos_y+dimension_neg_y;
 }
 
 void Board::SetNumberOfBalls(int number)

@@ -12,7 +12,8 @@ execute: Ball.cpp Board.cpp Image.cpp Threads.cpp
 	./a.out $(num_thread)
 
 test: Ball.cpp Board.cpp Test.cpp BallTest.cpp BoardTest.cpp AllTests.cpp  
-	$(Compiler) $(Arguments)  Ball.cpp Board.cpp Test.cpp BallTest.cpp BoardTest.cpp AllTests.cpp 
+	$(Compiler) $(Arguments) Ball.cpp Board.cpp Test.cpp BallTest.cpp BoardTest.cpp AllTests.cpp 
+	./a.out
 
 clean:
 	rm a.out
