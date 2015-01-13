@@ -396,12 +396,14 @@ void *UpdateBoardThread(void* id)
     		
     		Ball BallConsidered = FinalBoard.GetBallFromId(ballid);
     
-    		int BallConsidered_Coordx = BallConsidered.GetX(); 
-    		int BallConsidered_Coordy = BallConsidered.GetY();
-    		double BallConsidered_Radius = BallConsidered.GetRadius();
-    		int BallConsidered_VelocityX=BallConsidered.GetVelocityX();
-    		int BallConsidered_VelocityY=BallConsidered.GetVelocityY();
-    		// BallConsidered.SetX(((BallConsidered_Coordx+BallConsidered_VelocityX)%(2*FinalBoard.GetDimensionX())) -FinalBoard.GetDimensionX());
+    		double BallConsidered_Coordx = BallConsidered.GetX(); 
+    		double BallConsidered_Coordy = BallConsidered.GetY();
+    		double BallConsidered_Coordz = BallConsidered.GetZ();
+            double BallConsidered_Radius = BallConsidered.GetRadius();
+    		double BallConsidered_VelocityX=BallConsidered.GetVelocityX();
+    		double BallConsidered_VelocityY=BallConsidered.GetVelocityY();
+    		double BallConsidered_VelocityZ=BallConsidered.GetVelocityZ();
+            // BallConsidered.SetX(((BallConsidered_Coordx+BallConsidered_VelocityX)%(2*FinalBoard.GetDimensionX())) -FinalBoard.GetDimensionX());
     		if (BallConsidered_Coordx + BallConsidered_VelocityX + BallConsidered_Radius> FinalBoard.GetDimensionX())
     		{
     			BallConsidered.SetX(FinalBoard.GetDimensionX() -BallConsidered_Radius);
@@ -419,91 +421,111 @@ void *UpdateBoardThread(void* id)
     			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
     		}
     
-    		if (BallConsidered_Coordy+BallConsidered_VelocityY +BallConsidered_Radius> FinalBoard.GetDimensionY())
-    		{
-    			BallConsidered.SetY(FinalBoard.GetDimensionY()-BallConsidered_Radius);
-    			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
-    			BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());
-    		}
-    		else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionY() -BallConsidered_Radius <0)
-    		{
-    			BallConsidered.SetY(0-FinalBoard.GetDimensionY() + BallConsidered_Radius);
-    			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);	
-    			BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());	
-    		}
-    		else
-    		{
-    			BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
-    		}
-    		
+            if (BallConsidered_Coordy+BallConsidered_VelocityY +BallConsidered_Radius> FinalBoard.GetDimensionY())
+            {
+                BallConsidered.SetY(FinalBoard.GetDimensionY()-BallConsidered_Radius);
+                BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
+                BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());
+            }
+            else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionY() -BallConsidered_Radius <0)
+            {
+                BallConsidered.SetY(0-FinalBoard.GetDimensionY() + BallConsidered_Radius);
+                BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);    
+                BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());   
+            }
+            else
+            {
+                BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
+            }
+            
     
-    
+            if (BallConsidered_Coordz+BallConsidered_VelocityZ +BallConsidered_Radius> FinalBoard.GetDimensionZ())
+            {
+                BallConsidered.SetZ(FinalBoard.GetDimensionZ()-BallConsidered_Radius);
+                BallConsidered.SetZ(BallConsidered_Coordz+BallConsidered_VelocityZ);
+                BallConsidered.SetVelocityZ(0-BallConsidered.GetVelocityZ());
+            }
+            else if (BallConsidered_Coordz+BallConsidered_VelocityZ + FinalBoard.GetDimensionZ() -BallConsidered_Radius <0)
+            {
+                BallConsidered.SetZ(0-FinalBoard.GetDimensionZ() + BallConsidered_Radius);
+                BallConsidered.SetZ(BallConsidered_Coordz+BallConsidered_VelocityZ);    
+                BallConsidered.SetVelocityZ(0-BallConsidered.GetVelocityZ());   
+            }
+            else
+            {
+                BallConsidered.SetZ(BallConsidered_Coordz+BallConsidered_VelocityZ);
+            }
+            
     
     		vector<Ball> Vector_Of_Balls = FinalBoard.GetVectorBalls();
     		double mass1 = BallConsidered.GetRadius()*BallConsidered.GetRadius()*BallConsidered.GetRadius();
-    		// double mass1=1.0;
-    		bool needforupdate=true;
-    		// double uy1=0.0;
-    		double ux1 =  BallConsidered.GetVelocityX();
-    		double uy1 =  BallConsidered.GetVelocityY();
-    		
+    		double ux1,uy1,uz1; 
+
     		for(int i=0;i<FinalBoard.GetNumberBalls();i++)
     		{
     			if (i != ballid)
     			{
-    				// double dx = Vector_Of_Balls[i].GetX()+Vector_Of_Balls[i].GetVelocityX()-BallConsidered.GetX()-BallConsidered.GetVelocityX();
-    				// double dy = Vector_Of_Balls[i].GetY()+Vector_Of_Balls[i].GetVelocityY()-BallConsidered.GetY()-BallConsidered.GetVelocityY();
     				ux1 =  BallConsidered.GetVelocityX();
-    				uy1 =  BallConsidered.GetVelocityY();
+                    uy1 =  BallConsidered.GetVelocityY();
+                    uz1 =  BallConsidered.GetVelocityZ();
     		
     				double dx = Vector_Of_Balls[i].GetX()-BallConsidered.GetX();
     				double dy = Vector_Of_Balls[i].GetY()-BallConsidered.GetY();
-    				double distance = sqrt(dx*dx+dy*dy);
+                    double dz = Vector_Of_Balls[i].GetZ()-BallConsidered.GetZ();
+
+                    double distance = sqrt(dx*dx + dy*dy + dz*dz);
+
     				if(BallConsidered.GetRadius()+Vector_Of_Balls[i].GetRadius()>=distance)
     				{
-    					needforupdate=false;
     					cout <<BallConsidered.GetRadius() <<"\t" <<Vector_Of_Balls[i].GetRadius()<<"\t"<<distance<<"\n";
-    					double l=(BallConsidered.GetRadius()+Vector_Of_Balls[i].GetRadius() -distance)/2;
-    
-    					double costheta = (dx/distance);
-    					double sintheta = (dy/distance);
     					
-    					double mass2 = Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius(); 
-    					// double mass2=1.0;
-    					double ux2 = Vector_Of_Balls[i].GetVelocityX();
-    					double uy2 = Vector_Of_Balls[i].GetVelocityY();
-    					// double uy2=0.0;
+                        double l=(BallConsidered.GetRadius()+Vector_Of_Balls[i].GetRadius() -distance)/2;
     
-    					//Along tangent
-    					double u3=uy1*costheta - ux1*sintheta;
-    					double u4=uy2*costheta - ux2*sintheta;
+    					double mass2 = Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius(); 
+    					
+                        double ux2 = Vector_Of_Balls[i].GetVelocityX();
+    					double uy2 = Vector_Of_Balls[i].GetVelocityY();
+                        double uz2 = Vector_Of_Balls[i].GetVelocityZ();
     
     					// Along radial
-    					double u1=ux1*costheta + uy1*sintheta;
-    					double u2=ux2*costheta + uy2*sintheta;
-    
+    					double u1=(ux1*dx + uy1*dy + uz1*dz)/distance;
+    					double u2=(ux2*dx + uy2*dy + uz2*dz)/distance;
+                        
+                        // //Along XYZ unchanged (tangential)
+                        // double vx1=ux1 - (u1*dx)/distance;
+                        // double vy1=uy1 - (u1*dy)/distance;
+                        // double vz1=uz1 - (u1*dz)/distance;
+                        // double vx2=ux2 - (u2*dx)/distance;
+                        // double vy2=uy2 - (u2*dy)/distance;
+                        // double vz2=uz2 - (u2*dz)/distance;
+
     					//After collision radial
     					double v1=(mass1*u1 + 2*mass2*u2 - mass2*u1)/(mass1+mass2);
     					double v2=(mass2*u2 + 2*mass1*u1 - mass1*u2)/(mass1+mass2);
+                        
+                        //Along XYZ unchanged (tangential)
+                        double vx1=ux1 - ((v1-u1) *dx)/distance;
+                        double vy1=uy1 - ((v1-u1) *dy)/distance;
+                        double vz1=uz1 - ((v1-u1) *dz)/distance;
+                        double vx2=ux2 - ((v2-u2) *dx)/distance;
+                        double vy2=uy2 - ((v2-u2) *dy)/distance;
+                        double vz2=uz2 - ((v2-u2) *dz)/distance;
+
+
+    					BallConsidered.SetX(BallConsidered.GetX() - (l*dx)/distance;
+    					BallConsidered.SetY(BallConsidered.GetY() - (l*dy)/distance);
+                        BallConsidered.SetZ(BallConsidered.GetZ() - (l*dz)/distance);
+                        
     
+    					Vector_Of_Balls[i].SetX(Vector_Of_Balls[i].GetX() + (l*dx)/distance);
+                        Vector_Of_Balls[i].SetY(Vector_Of_Balls[i].GetY() + (l*dy)/distance);
+                        Vector_Of_Balls[i].SetZ(Vector_Of_Balls[i].GetZ() + (l*dz)/distance);
     
-    					double vx1=v1*costheta - u3*sintheta;
-    					double vx2=v2*costheta - u4*sintheta;
-    
-    					double vy1=u3*costheta + v1*sintheta;
-    					double vy2=u4*costheta + v2*sintheta;
-    
-    					BallConsidered.SetX(BallConsidered.GetX() - l*costheta);
-    					BallConsidered.SetY(BallConsidered.GetY() - l*sintheta);
-    					
-    
-    					Vector_Of_Balls[i].SetX(Vector_Of_Balls[i].GetX() + l*costheta);
-    					Vector_Of_Balls[i].SetY(Vector_Of_Balls[i].GetY() + l*sintheta);
-    
-    					BallConsidered.SetVelocity(vx1,vy1,0);
+
+    					BallConsidered.SetVelocity(vx1,vy1,vz1);
     					// BallConsidered.SetX(BallConsidered.GetX()+vx2*vx1/(vx2+vx1));
     					// BallConsidered.SetY(BallConsidered.GetY()+;
-    					Vector_Of_Balls[i].SetVelocity(vx2,vy2,0);
+    					Vector_Of_Balls[i].SetVelocity(vx2,vy2,vz2);
     					// Vector_Of_Balls[i].SetX(Vector_Of_Balls[i].GetX()+vx2);
     					// Vector_Of_Balls[i].SetY(Vector_Of_Balls[i].GetY()+vy2);
     				}	
@@ -512,11 +534,7 @@ void *UpdateBoardThread(void* id)
     		FinalBoard.SetVectorBalls(Vector_Of_Balls);
     
     		FinalBoard.SetBallFromId(ballid,BallConsidered);	
-    		
-    		// BallConsidered.SetY((BallConsidered_Coordy+BallConsidered_VelocityY)%FinalBoard.GetDimensionY());
-    		// BallConsidered.SetX((BallConsidered_Coordx+BallConsidered_VelocityX +4*FinalBoard.GetDimensionX()) % 2*(FinalBoard.GetDimensionX()) -FinalBoard.GetDimensionX());
-    		// BallConsidered.SetY((BallConsidered_Coordy+BallConsidered_VelocityY +4*FinalBoard.GetDimensionY()) % 2*(FinalBoard.GetDimensionY()) -FinalBoard.GetDimensionY());
-    		// cout <<FinalBoard.GetBoardInformation()<<"\n";
+
     		pthread_mutex_unlock (&UpdateLock);	
     		usleep(50000);
     	}
