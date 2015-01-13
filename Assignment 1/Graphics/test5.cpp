@@ -405,25 +405,29 @@ void mouseclick(int button,int state,int x,int y )
         float f1=window_width/1000.0;
         float f2=window_height/500.0;
         // cout<<(x>920*f1)<<"     "<<(x<998*f2)<<endl;
-        if(x>920*f1 && x<998*f1 && y>435*f2 && y<498*f2)
+        if(x>453*f1 && x<501*f1 && y>462*f2 && y<499*f2)
         {
             cout<<"Play Button"<<endl;
         }
-        if(x>840*f1 && x<920*f1 && y>435*f2 && y<498*f2)
+        if(x>505*f1 && x<552*f1 && y>462*f2 && y<499*f2)
         {
             cout<<"Pause Button"<<endl;
         }
-        if(x>615*f1 && x<835*f1 && y>435*f2 && y<498*f2)
+        if(x>952*f1 && x<998*f1 && y>462*f2 && y<499*f2)
         {
             cout<<"Add Button"<<endl;
         }
-        if(x>80*f1 && x<155*f1 && y>435*f2 && y<498*f2)
+        if(x>50*f1 && x<97*f1 && y>462*f2 && y<499*f2)
         {
             cout<<"SpeedUp Button"<<endl;
         }
-        if(x>0*f1 && x<80*f1 && y>435*f2 && y<498*f2)
+        if(x>0*f1 && x<47*f1 && y>462*f2 && y<499*f2)
         {
             cout<<"SlowDown Button"<<endl;
+        }
+        if(x>901*f1 && x<950*f1 && y>462*f2 && y<499*f2)
+        {
+            cout<<"Remove Button"<<endl;
         }
     
         
