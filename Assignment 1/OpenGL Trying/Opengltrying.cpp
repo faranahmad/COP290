@@ -37,55 +37,59 @@ void display()
 	float f=(4.0/6.0)*min(w,h);
 	glBegin(GL_POLYGON);
 	
-	glColor3f( 1.0, 1.0, 0.0 );    
-	glVertex3f( f , -f, -100); 
-	glColor3f( 0.5, 1.0, 0.0 );
-	glVertex3f(  f,  f, -100 );
-	glColor3f( 0.0, 0.5, 1.0 );    
-	glVertex3f( -f,  f, -100 );       
-	glColor3f( 1.0, 0.0, 0.5 );     
-	glVertex3f( -f, -f, -100);      
+	glColor3f( 1.0, 0, 0.0 );    
+	glVertex3f( f , -f, -f); 
+	// glColor3f( 0.5, 1.0, 0.0 );
+	glVertex3f(  f,  f, -f );
+	// glColor3f( 0.0, 0.5, 1.0 );    
+	glVertex3f( -f,  f, -f );       
+	// glColor3f( 1.0, 0.0, 0.5 );     
+	glVertex3f( -f, -f, -f);      
 	
 	glEnd();
 	
-	glBegin(GL_POLYGON);
-	glColor3f(   1.0,  1.0, 1.0 );
-	glVertex3f(  f, -f, f );
-	glVertex3f(  f,  f, f);
-	glVertex3f( -f,  f, f);
-	glVertex3f( -f, -f, f );
-	glEnd();
+	// glBegin(GL_POLYGON);
+	// glColor3f(   1.0,  1.0, 1.0 );
+	// glVertex3f(  f, -f, f );
+	// glVertex3f(  f,  f, f);
+	// glVertex3f( -f,  f, f);
+	// glVertex3f( -f, -f, f );
+	// glEnd();
 	
 	// Purple side - RIGHT
 	glBegin(GL_POLYGON);
-	glColor3f(  0.0,    1.0,  1.0 );
+	glColor3f(  0.0,    1.0,  0 );
 	glVertex3f( f, -f, -f );
 	glVertex3f( f,  f, -f );
 	glVertex3f( f,  f,  f );
 	glVertex3f( f, -f,  f );
 	glEnd();
 	
+	glPushMatrix();
+    glTranslatef(0, 0, 0);	
+    glutSolidSphere(100, 100, 100);
+        glPopMatrix();
 	// Green side - LEFT
-	glBegin(GL_POLYGON);
-	glColor3f(   0.0,  1.0,  0.0 );
-	glVertex3f( -f, -f,  f );
-	glVertex3f( -f,  f,  f );
-	glVertex3f( -f,  f, -f );
-	glVertex3f( -f, -f, -f );
-	glEnd();
+	// glBegin(GL_POLYGON);
+	// glColor3f(   0.0,  1.0,  0.0 );
+	// glVertex3f( -f, -f,  f );
+	// glVertex3f( -f,  f,  f );
+	// glVertex3f( -f,  f, -f );
+	// glVertex3f( -f, -f, -f );
+	// glEnd();
 	
 	// Blue side - TOP
-	glBegin(GL_POLYGON);
-	glColor3f(   0.0,  0.0,  1.0 );
-	glVertex3f(  f,  f,  f );
-	glVertex3f(  f,  f, -f );
-	glVertex3f( -f,  f, -f );
-	glVertex3f( -f,  f,  f );
-	glEnd();
+	// glBegin(GL_POLYGON);
+	// glColor3f(   0.0,  0.0,  1.0 );
+	// glVertex3f(  f,  f,  f );
+	// glVertex3f(  f,  f, -f );
+	// glVertex3f( -f,  f, -f );
+	// glVertex3f( -f,  f,  f );
+	// glEnd();
 	
 	// Red side - BOTTOM
 	glBegin(GL_POLYGON);
-	glColor3f(   1.0,  1.0,  0.0 );
+	glColor3f(   0,  0,  1 );
 	glVertex3f(  f, -f, -f );
 	glVertex3f(  f, -f,  f );
 	glVertex3f( -f, -f,  f );
