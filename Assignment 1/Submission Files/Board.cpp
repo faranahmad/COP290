@@ -34,14 +34,15 @@ Board::Board(double x, double posy, double negy, int n)
 	dimension_x=x;
 	dimension_pos_y=posy;
 	dimension_neg_y=negy;
+	
 	number_balls=n;
 	for (int i=0; i<n;i++)
 	{
-		Ball newball=Ball(x,y,1);
+		Ball newball=Ball(x,posy,negy,1);
 		while (!CheckCorrect(vector_of_balls,newball))
 		{
 			std::cout <<"In here for: " <<i<<"\n";
-			newball=Ball(x,y,1);	
+			newball=Ball(x,posy,negy,1);	
 		}
 		vector_of_balls.push_back(newball);
 	}
@@ -180,7 +181,7 @@ void Board::UpdateBoard(double time_elapsed)
 		{
 			vector_of_balls[i].SetX(vector_of_balls[i].GetX()-dimension_x);
 		}
-		else if (abs(vector_of_balls[i].GetX() > dimension_x))
+		else if (abs(vector_of_balls[i].GetX()) > dimension_x)
 		{
 			vector_of_balls[i].SetX(vector_of_balls[i].GetX()+dimension_x);	
 		}
@@ -188,7 +189,7 @@ void Board::UpdateBoard(double time_elapsed)
 		{
 			vector_of_balls[i].SetY(vector_of_balls[i].GetY()-dimension_pos_y);
 		}
-		else if (abs(vector_of_balls[i].GetY() > dimension_neg_y)
+		else if (abs(vector_of_balls[i].GetY()) > dimension_neg_y)
 		{
 			vector_of_balls[i].SetY(vector_of_balls[i].GetY()+dimension_neg_y);	
 		}

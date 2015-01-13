@@ -194,35 +194,39 @@ void mouseclick(int button,int state,int x,int y )
         float f1=window_width/1000.0;
         float f2=window_height/500.0;
         // cout<<(x>920*f1)<<"     "<<(x<998*f2)<<endl;
-        if(x>920*f1 && x<998*f1 && y>435*f2 && y<498*f2)
+        if(x>453*f1 && x<501*f1 && y>462*f2 && y<499*f2)
         {
             PauseBoard=false;
             cout<<"Play Button"<<endl;
         }
-        if(x>840*f1 && x<920*f1 && y>435*f2 && y<498*f2)
+        if(x>505*f1 && x<552*f1 && y>462*f2 && y<499*f2)
         {
             PauseBoard=true;
             cout<<"Pause Button"<<endl;
         }
-        if(x>615*f1 && x<835*f1 && y>435*f2 && y<498*f2)
+        if(x>952*f1 && x<998*f1 && y>462*f2 && y<499*f2)
         {
             PauseBoard=true;
-            Ball newBalltoAdd= Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(),1);
+            Ball newBalltoAdd= Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionPosY(),FinalBoard.GetDimensionNegY(),1);
             while (!CheckCorrect(FinalBoard.GetVectorBalls(), newBalltoAdd))
             {
-                newBalltoAdd=Ball(FinalBoard.GetDimensionX(), FinalBoard.GetDimensionY(),1);
+                newBalltoAdd=Ball(FinalBoard.GetDimensionX(), FinalBoard.GetDimensionPosY(),FinalBoard.GetDimensionNegY(),1);
             }
             FinalBoard.AddBallToBoard(newBalltoAdd);
             PauseBoard=false;
             cout<<"Add Button"<<endl;
         }
-        if(x>80*f1 && x<155*f1 && y>435*f2 && y<498*f2)
+        if(x>50*f1 && x<97*f1 && y>462*f2 && y<499*f2)
         {
             cout<<"SpeedUp Button"<<endl;
         }
-        if(x>0*f1 && x<80*f1 && y>435*f2 && y<498*f2)
+        if(x>0*f1 && x<47*f1 && y>462*f2 && y<499*f2)
         {
             cout<<"SlowDown Button"<<endl;
+        }
+        if(x>901*f1 && x<950*f1 && y>462*f2 && y<499*f2)
+        {
+            cout<<"Remove Button"<<endl;
         }
     
     }
@@ -348,8 +352,10 @@ void reshape(int x, int y)
 	int w=glutGet(GLUT_WINDOW_WIDTH);
     int h=glutGet(GLUT_WINDOW_HEIGHT);
 
-    FinalBoard.SetDimensionX(w);
+    FinalBoard.SetDimensionX(0.949*w);
     FinalBoard.SetDimensionY(h);
+    FinalBoard.SetDimensionPosY(0.940*h);
+    FinalBoard.SetDimensionNegY(0.780*h);
 
 
     glViewport(0, 0, w, h);
@@ -419,15 +425,15 @@ void *UpdateBoardThread(void* id)
     			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
     		}
     
-    		if (BallConsidered_Coordy+BallConsidered_VelocityY +BallConsidered_Radius> FinalBoard.GetDimensionY())
+    		if (BallConsidered_Coordy+BallConsidered_VelocityY +BallConsidered_Radius> FinalBoard.GetDimensionPosY())
     		{
-    			BallConsidered.SetY(FinalBoard.GetDimensionY()-BallConsidered_Radius);
+    			BallConsidered.SetY(FinalBoard.GetDimensionPosY()-BallConsidered_Radius);
     			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
     			BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());
     		}
-    		else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionY() -BallConsidered_Radius <0)
+    		else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionNegY() -BallConsidered_Radius <0)
     		{
-    			BallConsidered.SetY(0-FinalBoard.GetDimensionY() + BallConsidered_Radius);
+    			BallConsidered.SetY(0-FinalBoard.GetDimensionNegY() + BallConsidered_Radius);
     			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);	
     			BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());	
     		}
@@ -536,7 +542,7 @@ int main(int argc, char **argv)
 	srand(time(NULL));
 	const int NumberOfBalls = atoi(argv[1]);
 	pthread_mutex_init(&UpdateLock,NULL);
-	FinalBoard=Board(800,600,NumberOfBalls);
+	FinalBoard=Board(1000,500,100,NumberOfBalls);
 	// cout <<FinalBoard.Get
 	pthread_t BallThreads [NumberOfBalls];
 	pthread_t DisplayThread;

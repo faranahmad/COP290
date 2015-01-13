@@ -15,12 +15,23 @@ Ball::Ball(double x,double y)
 	color = std::vector<float> (3,0.5f);
 }
 
-Ball::Ball(double limx,double limy,double random)
+Ball::Ball(double limx,double limposy,double limnegy,double random)
 {
 	// Gives a random ball within  -limx to +limx and -limy to +limy
 	radius = (rand() % 50) + 50;
 	coord_x = (rand() % (int) (2* (limx-radius))) - (limx-radius);
-	coord_y = (rand() % (int) (2* (limy-radius))) - (limy-radius);
+	double coord_y_1 = rand() % (int) (limposy-radius);
+	double coord_y_2 = rand() % (int) (limnegy-radius);
+	int x = rand() % (int) (2);
+	if(x == 0)
+	{
+		coord_y = coord_y_1;
+	}
+	else 
+	{
+		coord_y = coord_y_2;	
+	}
+	//coord_y = (rand() % (int) (2* (limy-radius))) - (limy-radius);
 	velocity_x=(rand() % 50) -25;
 	velocity_y=(rand() % 50) -25;
 	color = std::vector<float> (3,0.5f);

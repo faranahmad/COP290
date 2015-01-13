@@ -10,7 +10,7 @@ class Ball
 {
 	public:
 		Ball(double,double);
-		Ball(double,double,double);
+		Ball(double,double,double,double);
 
 		double GetX();
 		double GetY();
