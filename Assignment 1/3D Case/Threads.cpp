@@ -500,10 +500,10 @@ void *UpdateBoardThread(void* id)
     					Vector_Of_Balls[i].SetX(Vector_Of_Balls[i].GetX() + l*costheta);
     					Vector_Of_Balls[i].SetY(Vector_Of_Balls[i].GetY() + l*sintheta);
     
-    					BallConsidered.SetVelocity(vx1,vy1);
+    					BallConsidered.SetVelocity(vx1,vy1,0);
     					// BallConsidered.SetX(BallConsidered.GetX()+vx2*vx1/(vx2+vx1));
     					// BallConsidered.SetY(BallConsidered.GetY()+;
-    					Vector_Of_Balls[i].SetVelocity(vx2,vy2);
+    					Vector_Of_Balls[i].SetVelocity(vx2,vy2,0);
     					// Vector_Of_Balls[i].SetX(Vector_Of_Balls[i].GetX()+vx2);
     					// Vector_Of_Balls[i].SetY(Vector_Of_Balls[i].GetY()+vy2);
     				}	

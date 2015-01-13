@@ -21,6 +21,9 @@ pthread_mutex_t UpdateLock;
 Board FinalBoard;
 bool PauseBoard;
 
+void *UpdateBoardThread(void*);
+
+
 GLuint _textureId;
  
 
@@ -212,7 +215,9 @@ void mouseclick(int button,int state,int x,int y )
             {
                 newBalltoAdd=Ball(FinalBoard.GetDimensionX(), FinalBoard.GetDimensionPosY(),FinalBoard.GetDimensionNegY(),1);
             }
+            pthread_t newthread;
             FinalBoard.AddBallToBoard(newBalltoAdd);
+            pthread_create(&newthread,NULL,UpdateBoardThread,(void *) (FinalBoard.GetNumberBalls() -1));
             PauseBoard=false;
             cout<<"Add Button"<<endl;
         }

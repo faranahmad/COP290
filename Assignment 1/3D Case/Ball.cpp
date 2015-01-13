@@ -41,6 +41,12 @@ double Ball::GetY()
 	return coord_y;
 }
 
+double Ball::GetZ()
+{
+	// Returns the Z coordinate of the ball
+	return coord_z;
+}
+
 double Ball::GetVelocityX()
 {
 	// Returns Velocity X of the ball
@@ -51,6 +57,12 @@ double Ball::GetVelocityY()
 {
 	// Returns Velocity Y of the ball
 	return velocity_y;
+}
+
+double Ball::GetVelocityZ()
+{
+	// Returns Velocity Y of the ball
+	return velocity_z;
 }
 
 double Ball::GetRadius()
@@ -68,8 +80,8 @@ std::vector<float> Ball::GetColor()
 string Ball::GetBallInformation()
 {
 	// Returns the information about the ball
-	// Format is "radius \t coord_x \t coord_y \t velocity_x \t velocity_y \t color"
-	return "radius:"+std::to_string(radius)+"  xcoord:"+std::to_string(coord_x)+"  ycoord:"+std::to_string(coord_y)+"  velocityx:"+std::to_string(velocity_x)+"  velocityy:"+std::to_string(velocity_y)+"  color:"+ std::to_string(color[0])+" "+std::to_string(color[1]) +" " +std::to_string(color[2]);	
+	// Format is "coord_x coord_y coord_z velocity_x velocity_y velocity_z color"
+	return "radius:"+std::to_string(radius)+"  xcoord:"+std::to_string(coord_x)+"  ycoord:"+std::to_string(coord_y)+"  zcoord:"+std::to_string(coord_z)+"   velocityx:"+std::to_string(velocity_x)+"  velocityy:"+std::to_string(velocity_y)+"  velocityz:"+std::to_string(velocity_z)+"  color:"+ std::to_string(color[0])+" "+std::to_string(color[1]) +" " +std::to_string(color[2]);	
 }
 
 void Ball::SetRadius(double radius_value)
@@ -78,18 +90,20 @@ void Ball::SetRadius(double radius_value)
 	radius=radius_value;
 }
 
-void Ball::SetPosition(double x_value,double y_value)
+void Ball::SetPosition(double x_value,double y_value,double z_value)
 {
 	// Updates the position of the ball
 	coord_x=x_value;
 	coord_y=y_value;
+	coord_z=z_value;
 }
 
-void Ball::SetVelocity(double velocityx,double velocityy)
+void Ball::SetVelocity(double velocityx,double velocityy,double velocityz)
 {
 	// Updates the velocity of the ball
 	velocity_x=velocityx;
 	velocity_y=velocityy;
+	velocity_z=velocityz;
 }
 
 void Ball::SetColor(std::vector<float> color_new)
@@ -110,6 +124,12 @@ void Ball::SetY(double y_new)
 	coord_y=y_new;
 }
 
+void Ball::SetZ(double z_new)
+{
+	// Updates the y coordinate of a ball
+	coord_z=z_new;
+}
+
 void Ball::SetVelocityX(double vx_new)
 {
 	// Updates the X velocity of the ball
@@ -120,6 +140,12 @@ void Ball::SetVelocityY(double vy_new)
 {
 	// Updates the Y velocity of the ball
 	velocity_y=vy_new;
+}
+
+void Ball::SetVelocityZ(double vz_new)
+{
+	// Updates the Y velocity of the ball
+	velocity_z=vz_new;
 }
 
 void Ball::UpdateBall(double time_elapsed)
