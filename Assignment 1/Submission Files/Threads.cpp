@@ -207,10 +207,10 @@ void mouseclick(int button,int state,int x,int y )
         if(x>615*f1 && x<835*f1 && y>435*f2 && y<498*f2)
         {
             PauseBoard=true;
-            Ball newBalltoAdd= Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(),1);
+            Ball newBalltoAdd= Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionPosY(),FinalBoard.GetDimensionNegY(),1);
             while (!CheckCorrect(FinalBoard.GetVectorBalls(), newBalltoAdd))
             {
-                newBalltoAdd=Ball(FinalBoard.GetDimensionX(), FinalBoard.GetDimensionY(),1);
+                newBalltoAdd=Ball(FinalBoard.GetDimensionX(), FinalBoard.GetDimensionPosY(),FinalBoard.GetDimensionNegY(),1);
             }
             FinalBoard.AddBallToBoard(newBalltoAdd);
             PauseBoard=false;
@@ -536,7 +536,7 @@ int main(int argc, char **argv)
 	srand(time(NULL));
 	const int NumberOfBalls = atoi(argv[1]);
 	pthread_mutex_init(&UpdateLock,NULL);
-	FinalBoard=Board(800,600,NumberOfBalls);
+	FinalBoard=Board(800,500,100,NumberOfBalls);
 	// cout <<FinalBoard.Get
 	pthread_t BallThreads [NumberOfBalls];
 	pthread_t DisplayThread;

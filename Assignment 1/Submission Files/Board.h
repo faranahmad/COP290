@@ -26,7 +26,7 @@ class Board
 		void SetDimensionX(double);
 		void SetDimensionY(double);
 		void SetDimensionPosY(double);
-		void SetDimensionPosY(double);
+		void SetDimensionNegY(double);
 		void SetNumberOfBalls(int);
 		void SetVectorBalls(vector<Ball>);
 		void SetBallFromId(int,Ball);
@@ -38,6 +38,7 @@ class Board
 
 	private:
 		double dimension_x;
+		double dimension_y;
 		double dimension_pos_y;
 		double dimension_neg_y;
 		int number_balls;
