@@ -3,7 +3,6 @@
 
 #include "Ball.h"
 #include <vector>
-#include <algorithm>
 
 bool CheckCorrect(std::vector<Ball>,Ball);
 
@@ -11,13 +10,11 @@ class Board
 {
 	public:
 		Board();
-		Board(double,double,double,int);
+		Board(double,double,int);
 
 		double GetDimensionX();
 		double GetDimensionY();
-		double GetDimensionPosY();
-		double GetDimensionNegY();
-		int GetNumberBalls();
+		int GetNumberBalls ();
 		vector<Ball> GetVectorBalls();
 		Ball GetBallFromId (int);
 
@@ -25,8 +22,6 @@ class Board
 
 		void SetDimensionX(double);
 		void SetDimensionY(double);
-		void SetDimensionPosY(double);
-		void SetDimensionPosY(double);
 		void SetNumberOfBalls(int);
 		void SetVectorBalls(vector<Ball>);
 		void SetBallFromId(int,Ball);
@@ -38,8 +33,7 @@ class Board
 
 	private:
 		double dimension_x;
-		double dimension_pos_y;
-		double dimension_neg_y;
+		double dimension_y;
 		int number_balls;
 		vector<Ball> vector_of_balls;
 };

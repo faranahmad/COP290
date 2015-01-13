@@ -5,9 +5,7 @@
 Board::Board()
 {
 	dimension_x=1000.0;
-	dimension_pos_y=500.0;
-	dimension_neg_y=500.0;
-	dimension_y = (dimension_neg_y+dimension_pos_y)/2;
+	dimension_y=1000.0;
 	number_balls=0;
 }
 
@@ -26,14 +24,13 @@ bool CheckCorrect(std::vector<Ball> v,Ball n1)
 	return sofar;
 }
 
-Board::Board(double x, double posy, double negy, int n)
+Board::Board(double x,double y, int n)
 {
 	// Constructs a new Board
 	// Default number of balls is 0
 	// Default vector of balls is empty
 	dimension_x=x;
-	dimension_pos_y=posy;
-	dimension_neg_y=negy;
+	dimension_y=y;
 	number_balls=n;
 	for (int i=0; i<n;i++)
 	{
@@ -57,18 +54,6 @@ double Board::GetDimensionY()
 {
 	// Returns the y dimension of the board
 	return dimension_y;
-}
-
-double Board::GetDimensionPosY()
-{
-	// Returns the y dimension of the board
-	return dimension_pos_y;
-}
-
-double Board::GetDimensionNegY()
-{
-	// Returns the y dimension of the board
-	return dimension_neg_y;
 }
 
 int Board::GetNumberBalls()
@@ -116,16 +101,6 @@ void Board::SetDimensionY(double y)
 {
 	// Updates teh y dimension of the board
 	dimension_y=y;
-}
-void Board::SetDimensionPosY(double posy)
-{
-	//Updates the posititve y dimension of the board
-	dimension_pos_y = posy;
-}
-void Board::SetDimensionNegY(double negy)
-{
-	//Updates the posititve y dimension of the board
-	dimension_neg_y = negy;
 }
 
 void Board::SetNumberOfBalls(int number)
@@ -180,17 +155,9 @@ void Board::UpdateBoard(double time_elapsed)
 		{
 			vector_of_balls[i].SetX(vector_of_balls[i].GetX()-dimension_x);
 		}
-		else if (abs(vector_of_balls[i].GetX() > dimension_x))
+		if (vector_of_balls[i].GetY() > dimension_y)
 		{
-			vector_of_balls[i].SetX(vector_of_balls[i].GetX()+dimension_x);	
-		}
-		if (vector_of_balls[i].GetY() > dimension_pos_y)
-		{
-			vector_of_balls[i].SetY(vector_of_balls[i].GetY()-dimension_pos_y);
-		}
-		else if (abs(vector_of_balls[i].GetY() > dimension_neg_y)
-		{
-			vector_of_balls[i].SetY(vector_of_balls[i].GetY()+dimension_neg_y);	
+			vector_of_balls[i].SetY(vector_of_balls[i].GetY()-dimension_y);
 		}
 	}
 }
