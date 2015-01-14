@@ -81,10 +81,10 @@ Ball Board::GetBallFromId(int position)
 {
 	// Returns the position id ball from the vector of balls if the position id is less than the number of balls on the board
 	// TODO: Add Exception
-	if (position < number_balls)
+	// if (position < number_balls)
 		return vector_of_balls[position];
-	else
-		return Ball(1.0,1.0);
+	// else
+		// return Ball(1.0,1.0);
 }
 
 string Board::GetBoardInformation()

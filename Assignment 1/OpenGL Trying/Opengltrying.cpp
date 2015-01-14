@@ -66,7 +66,13 @@ void display()
 	glEnd();
 	
 	glPushMatrix();
-    glTranslatef(0, 0, 0);	
+    glTranslatef(0, 0, 0);
+    glColor3f(  1,    1.0,  0 );	
+    glutSolidSphere(100, 100, 100);
+        glPopMatrix();
+    glPushMatrix();
+    glColor3f(  0.0,    1.0,  1 );
+    glTranslatef(200, 200, 200);	
     glutSolidSphere(100, 100, 100);
         glPopMatrix();
 	// Green side - LEFT

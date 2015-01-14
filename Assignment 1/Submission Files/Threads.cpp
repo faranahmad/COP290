@@ -333,6 +333,8 @@ void display(void)
     
     glEnd();
 
+
+
     for( int i=0;i<FinalBoard.GetNumberBalls();i++ ) 
     {
         glPushMatrix();
@@ -462,7 +464,7 @@ void *UpdateBoardThread(void* id)
     		{
     			if (i != ballid)
     			{
-    				// double dx = Vector_Of_Balls[i].GetX()+Vector_Of_Balls[i].GetVelocityX()-BallConsidered.GetX()-BallConsidered.GetVelocityX();
+    				// double dx = glVertex3fector_Of_Balls[i].GetX()+Vector_Of_Balls[i].GetVelocityX()-BallConsidered.GetX()-BallConsidered.GetVelocityX();
     				// double dy = Vector_Of_Balls[i].GetY()+Vector_Of_Balls[i].GetVelocityY()-BallConsidered.GetY()-BallConsidered.GetVelocityY();
     				ux1 =  BallConsidered.GetVelocityX();
     				uy1 =  BallConsidered.GetVelocityY();

@@ -10,7 +10,7 @@ class Board
 {
 	public:
 		Board();
-		Board(double,double,int);
+		Board(double,double,double,int);
 
 		double GetDimensionX();
 		double GetDimensionY();

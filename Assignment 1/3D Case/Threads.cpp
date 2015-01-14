@@ -12,18 +12,26 @@
 #include <assert.h>
 #include <fstream>
 
-struct Graph {
-	int x1;
-	char **s1;
-};
-
 pthread_mutex_t UpdateLock;
 Board FinalBoard;
 bool PauseBoard;
 
 GLuint _textureId;
  
+double rotate_y=0; 
+double rotate_x=0;
 
+
+struct Graph {
+    int x1;
+    char **s1;
+};
+
+//TODO: (still not gonna use TODOIST :P)
+ //     glutMotionFunc( ) for rotating
+//      glScalef() for zooming in and out
+//      give texture to the walls
+//      give thickness to the walls
 namespace {
     //Converts a four-character array to an integer, using little-endian form
     int toInt(const char* bytes) {
@@ -178,13 +186,14 @@ GLuint loadTexture(Image* image) {
 
 void initRendering() 
 {
-   	Image* image = loadBMP("Water-4.bmp");
+   	Image* image = loadBMP("BrickWall.bmp");
   	_textureId = loadTexture(image);
     delete image;
 }
 
 void mouseclick(int button,int state,int x,int y )
 {
+     // glutMotionFunc( )
     if(state== GLUT_UP )
     {
         int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
@@ -235,6 +244,25 @@ void handleKeypress(unsigned char key, int x, int y) {
             exit(0);
     }
 }
+void specialKeys( int key, int x, int y ) 
+{
+ 
+  if (key == GLUT_KEY_RIGHT)
+    rotate_y += 2;
+ 
+  else if (key == GLUT_KEY_LEFT)
+    rotate_y -= 2;
+ 
+  else if (key == GLUT_KEY_UP)
+    rotate_x += 2;
+ 
+  else if (key == GLUT_KEY_DOWN)
+    rotate_x -= 2;
+ 
+  glutPostRedisplay();
+ 
+}
+
 
 void display(void)
 {
@@ -250,12 +278,12 @@ void display(void)
     glViewport(0, 0, window_width, window_height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0-window_width, window_width,0- window_height,window_height,-200,200);
+    glOrtho(0-window_width, window_width,0- window_height,window_height,-2000,2000);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    GLfloat const light_pos[4]     = {float(FinalBoard.GetDimensionX()), float(0-FinalBoard.GetDimensionY()), 0    , 1.0  };
-    GLfloat const light_color[4]   = { 0,  0,  1, 1.};
+    GLfloat const light_pos[4]     = {0.0f, 0, 0    , 1.0  };
+    GLfloat const light_color[4]   = { 1,  1,  1, 1.};
     GLfloat const light_ambient[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT0, GL_POSITION, light_pos),
     glLightfv(GL_LIGHT0, GL_DIFFUSE, light_color);
@@ -294,13 +322,19 @@ void display(void)
     // glLightfv(GL_LIGHT4, GL_AMBIENT, light_ambient5);
     // glLightfv(GL_LIGHT4, GL_SPECULAR, light_color5);
 
-    // glEnable(GL_LIGHTING);
-    // glEnable(GL_LIGHT0);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
     // glEnable(GL_LIGHT1);
     // glEnable(GL_LIGHT2);
     // glEnable(GL_LIGHT3);
     // glEnable(GL_LIGHT4);
 
+   
+
+    glRotatef( rotate_x, 200, 0.0, 0.0 );
+    glRotatef( rotate_y, 0.0, 200, 0.0 );
+    // glScalef( 1.0+rotate_x/100.0,1.0+rotate_x/100.0,1.0f ); 
+    float f=(4.0/6.0)*min(window_width,window_height);
     glEnable(GL_DEPTH_TEST);
 
     glEnable(GL_TEXTURE_2D);
@@ -308,27 +342,39 @@ void display(void)
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glColor3f(1.0f, 1.0f, 1.0f);
-
     glBegin(GL_QUADS);
+    glNormal3f(0.0, 1.0f, 0.0f); 
+    glTexCoord2f(1.0f, 0.0f);  
+    glVertex3f( f , -f, -f);
+    glTexCoord2f(1.0f, 1.0f); 
+    glVertex3f(  f,  f, -f ); 
+    glTexCoord2f(0.0f, 1.0f);   
+    glVertex3f( -f,  f, -f ); 
+    glTexCoord2f(0.0f, 0.0f);  
+    glVertex3f( -f, -f, -f);      
+    glEnd();
 
-    glNormal3f(0.0, 1.0f, 0.0f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-window_width, window_height, 1);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(window_width,window_height, 1);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(window_width, -window_height, 1);
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-window_width, -window_height, 1);
-    
+    glBegin(GL_POLYGON);
+    glColor3f(  0.0,    1.0,  0 );
+    glVertex3f( f, -f, -f );
+    glVertex3f( f,  f, -f );
+    glVertex3f( f,  f,  f );
+    glVertex3f( f, -f,  f );
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3f(   0,  0,  1 );
+    glVertex3f(  f, -f, -f );
+    glVertex3f(  f, -f,  f );
+    glVertex3f( -f, -f,  f );
+    glVertex3f( -f, -f, -f );
     glEnd();
 
     for( int i=0;i<FinalBoard.GetNumberBalls();i++ ) 
     {
         glPushMatrix();
         // cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
-        glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(), 0);
+        glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(),FinalBoard.GetBallFromId(i).GetZ());
         glColor3f(FinalBoard.GetBallFromId(i).GetColor()[0],FinalBoard.GetBallFromId(i).GetColor()[1],FinalBoard.GetBallFromId(i).GetColor()[2]);
         GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
 		GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
@@ -372,6 +418,7 @@ int graphics(int argc,char *argv[])
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
     glutMouseFunc(mouseclick);
+    glutSpecialFunc(specialKeys);
     glutKeyboardFunc(handleKeypress);
     initRendering();
 
@@ -512,7 +559,7 @@ void *UpdateBoardThread(void* id)
                         double vz2=uz2 - ((v2-u2) *dz)/distance;
 
 
-    					BallConsidered.SetX(BallConsidered.GetX() - (l*dx)/distance;
+    					BallConsidered.SetX(BallConsidered.GetX() - (l*dx)/distance);
     					BallConsidered.SetY(BallConsidered.GetY() - (l*dy)/distance);
                         BallConsidered.SetZ(BallConsidered.GetZ() - (l*dz)/distance);
                         
@@ -554,7 +601,7 @@ int main(int argc, char **argv)
 	srand(time(NULL));
 	const int NumberOfBalls = atoi(argv[1]);
 	pthread_mutex_init(&UpdateLock,NULL);
-	FinalBoard=Board(800,600,600,NumberOfBalls);
+	FinalBoard=Board(800.0,600.0,600.0,NumberOfBalls);
 	
     pthread_t BallThreads [NumberOfBalls];
 	pthread_t DisplayThread;
