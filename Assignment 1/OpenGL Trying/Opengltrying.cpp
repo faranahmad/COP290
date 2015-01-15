@@ -70,11 +70,11 @@ void display()
 	
 	glPushMatrix();
     glTranslatef(0, 0, 0);
-    glColor3f(  1,    1.0,  0 );	
+    glColor3f(  0.2,    0.8,  0.2 );	
     glutSolidSphere(100, 100, 100);
         glPopMatrix();
     glPushMatrix();
-    glColor3f(  0.0,    1.0,  1 );
+    glColor3f(  0.55,    0.3,  0.41 );
     glTranslatef(200, 200, 200);	
     glutSolidSphere(100, 100, 100);
         glPopMatrix();
@@ -151,8 +151,7 @@ int prevx=0;
 int prevy=0;
 int mx=0;
 int my=0;
-bool first=true;
-
+int buttonpressed=false;
 int state=0;
 void mouseclick(int button,int state,int x,int y )
 {	if(button==GLUT_LEFT_BUTTON)
@@ -163,12 +162,8 @@ void mouseclick(int button,int state,int x,int y )
     	    int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
     	    float const window_aspect = (float)window_width / (float)window_height;
     	    cout<<x<<'\t'<<y<<endl;
-    	
-    	    mx=x;
-    	    my=y;
-    	    prevx=x;
-    	    prevy=y;
-    	    state=0;
+    		buttonpressed=false;
+    	    
     	}
 	}
 	if(button==3)
@@ -186,38 +181,51 @@ void mouseclick(int button,int state,int x,int y )
 			zoom-=0.03;
 		}
 	}
+	if(state=GLUT_UP)
+	{
+		mx=x;
+    	    my=y;
+    	    prevx=x;
+    	    prevy=y;
+    	    state=0;
+	}
+
     glutPostRedisplay();
 
 }
 
 
-// void mousemotion(int x, int y)
-//  {	
-//  	if(abs(mx-x)>40)
-//  		state=1;
+void mousemotion(int x, int y)
+ {	
+ 	if(abs(mx-x)>10&& !buttonpressed)
+	{
+	state=1;
+	buttonpressed=true;
+	}
  	
- 		
-//  	if(abs(my-y)>40)
-//  			state=2;
- 
-//  	if(state==2)
-//  	{
-//  		if(x>prevx)
-//  			rotate_x+=0.2;
-//  		else
-//  			rotate_x+=-0.2;
-//  	}
-//  	if(state==1)
-//  		if(x>prevx)
-//  			rotate_y+=0.2;
-//  		else
-//  			rotate_y+=-0.2;
-//  	prevx=x;
-//  	prevy=y;
-//  	cout<<x<<"\t"<<prevx<<endl;
-//  	cout<<y<<"\t"<<prevy<<endl<<endl;
-//  	glutPostRedisplay();
-//  }
+ 	if(abs(my-y)>10 && !buttonpressed)
+ 			{
+ 				state=2;
+ 				buttonpressed=true;
+ 	}
+ 	if(state==1)
+ 	{
+ 		if(x>prevx)
+ 			rotate_y+=0.75;
+ 		else
+ 			rotate_y+=-0.75;
+ 	}
+ 	if(state==2)
+ 		if(y>prevy)
+ 			rotate_x+=0.75;
+ 		else
+ 			rotate_x+=-0.75;
+ 	prevx=x;
+ 	prevy=y;
+ 	// cout<<x<<"\t"<<prevx<<"\t"<<mx<<"\t"<<endl;
+ 	// cout<<y<<"\t"<<prevy<<"\t"<<my<<endl<<endl;
+ 	glutPostRedisplay();
+ }
 int main(int argc, char* argv[])
 {
  
@@ -234,7 +242,7 @@ int main(int argc, char* argv[])
   glutReshapeFunc(reshape);
  
   glutMouseFunc(mouseclick);
-  // glutMotionFunc(mousemotion);
+  glutMotionFunc(mousemotion);
   glutMainLoop();
  
   return 0;
