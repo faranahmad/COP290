@@ -9,9 +9,9 @@ class Color
 		Color();
 		Color(int,int,int);
 
-		double GetR();
-		double GetG();
-		double GetB();
+		float GetR();
+		float GetG();
+		float GetB();
 
 		void SetR(int);
 		void SetG(int);
@@ -20,9 +20,9 @@ class Color
 		void SetRGB(int,int,int);
 				
 	private:
-		double R;
-		double G;
-		double B;
+		float R;
+		float G;
+		float B;
 };
 
 // std::vector<Color> GoodColors;

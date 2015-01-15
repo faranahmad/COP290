@@ -9,47 +9,47 @@ Color::Color()
 
 Color::Color(int r,int g,int b)
 {
-	R=((double) r)/255.0;
-	G=((double) g)/255.0;
-	B=((double) b)/255.0;
+	R=((float) r)/255.0;
+	G=((float) g)/255.0;
+	B=((float) b)/255.0;
 }
 
 
-double Color::GetR()
+float Color::GetR()
 {
 	return R;
 }
 
-double Color::GetG()
+float Color::GetG()
 {
 	return G;
 }
 
-double Color::GetB()
+float Color::GetB()
 {
 	return B;
 }
 
 void Color::SetR(int r)
 {
-	R=((double) r)/255.0;
+	R=((float) r)/255.0;
 }
 
 void Color::SetG(int g)
 {
-	G=((double) g)/255.0;
+	G=((float) g)/255.0;
 }
 
 void Color::SetB(int b)
 {
-	B=((double) b)/255.0;
+	B=((float) b)/255.0;
 }
 
 void Color::SetRGB(int r,int g,int b)
 {
-	R=((double) r)/255.0;
-	G=((double) g)/255.0;
-	B=((double) b)/255.0;
+	R=((float) r)/255.0;
+	G=((float) g)/255.0;
+	B=((float) b)/255.0;
 }
 
 // std::vector<Color> GoodColors;

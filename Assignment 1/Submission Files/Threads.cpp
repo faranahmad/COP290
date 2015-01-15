@@ -248,6 +248,7 @@ void mouseclick(int button,int state,int x,int y )
             //cout <<"i m here"<<endl;
             int no_of_balls=FinalBoard.GetNumberBalls();
             vector<Ball> vector_balls = FinalBoard.GetVectorBalls();
+            double factor=1.5;
             for(int i=0;i<no_of_balls;i++)
             {
                 //cout<<"reached here"<< endl;
@@ -270,14 +271,16 @@ void mouseclick(int button,int state,int x,int y )
                 if(x>50*f1 && x<97*f1 && y>462*f2 && y<499*f2)
                 {
                     Ball Ball_Selected = vector_balls[Ballid_From_Selection];
-                    Ball_Selected.SetVelocityX(10*Ball_Selected.GetVelocityX());
-                    Ball_Selected.SetVelocityY(10*Ball_Selected.GetVelocityY());
+                    Ball_Selected.SetVelocityX(factor*Ball_Selected.GetVelocityX());
+                    Ball_Selected.SetVelocityY(factor*Ball_Selected.GetVelocityY());
+                    FinalBoard.SetBallFromId(Ballid_From_Selection,Ball_Selected);
                 }
                 else if(x>0*f1 && x<47*f1 && y>462*f2 && y<499*f2)       
                 {
                     Ball Ball_Selected = vector_balls[Ballid_From_Selection];
-                    Ball_Selected.SetVelocityX(Ball_Selected.GetVelocityX()/10);
-                    Ball_Selected.SetVelocityY(Ball_Selected.GetVelocityY()/10);
+                    Ball_Selected.SetVelocityX(Ball_Selected.GetVelocityX()/factor);
+                    Ball_Selected.SetVelocityY(Ball_Selected.GetVelocityY()/factor);
+                    FinalBoard.SetBallFromId(Ballid_From_Selection,Ball_Selected);    
                 }
                 
             }
@@ -309,45 +312,46 @@ void display(void)
     glEnable(GL_COLOR_MATERIAL);
 
     // glDisable(GL_COLOR_MATERIAL);
-    glEnable(GL_NORMALIZE);
+    // glEnable(GL_NORMALIZE);
     glViewport(0, 0, window_width, window_height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0-window_width, window_width,0- window_height,window_height,-200,200);
+    glOrtho(0-window_width, window_width,0- window_height,window_height,-2000,2000);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
     GLfloat const light_pos[4]     = {0, 0, 1000    , 1.0  };
-    GLfloat const light_color[4]   = { 0,  0,  1, 1.};
-    GLfloat const light_ambient[4] = { 100,  100,  300, 1.};
+    GLfloat const light_color[4]   = { 1,  1,  1, 1.};
+    GLfloat const light_ambient[4] = { 0.,  0., 0., 1.};
+    GLfloat const light_specular[4] = { 1,  1, 1, 1};
+
     glLightfv(GL_LIGHT0, GL_POSITION, light_pos),
     glLightfv(GL_LIGHT0, GL_DIFFUSE, light_color);
     glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, light_color);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
 
-    GLfloat const light_pos2[4]     = {float(0-FinalBoard.GetDimensionX()), float(0-FinalBoard.GetDimensionY()),  0  , 1.0  };
-    GLfloat const light_color2[4]   = { 1,  0,  0, 1.};
-    GLfloat const light_ambient2[4] = { 0.10,  0.10,  0.30, 1.};
+
+    GLfloat const light_pos2[4]     = {float(0-FinalBoard.GetDimensionX()), float(0-FinalBoard.GetDimensionY()),  -200  , 1.0  };
     glLightfv(GL_LIGHT1, GL_POSITION, light_pos2),
-    glLightfv(GL_LIGHT1, GL_DIFFUSE, light_color2);
-    glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient2);
-    glLightfv(GL_LIGHT1, GL_SPECULAR, light_color2);
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, light_color);
+    // glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient);
+    // glLightfv(GL_LIGHT1, GL_SPECULAR, light_specular);
 
-    GLfloat const light_pos3[4]     = {float(FinalBoard.GetDimensionX()),float(FinalBoard.GetDimensionY()),  0  , 1.0  };
+    GLfloat const light_pos3[4]     = {float(FinalBoard.GetDimensionX()),float(FinalBoard.GetDimensionY()),  -200  , 1.0  };
     GLfloat const light_color3[4]   = { 0,  1,  0, 1.};
     GLfloat const light_ambient3[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT2, GL_POSITION, light_pos3),
-    glLightfv(GL_LIGHT2, GL_DIFFUSE, light_color3);
-    glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient3);
-    glLightfv(GL_LIGHT2, GL_SPECULAR, light_color3);
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, light_color);
+    // glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient);
+    // glLightfv(GL_LIGHT2, GL_SPECULAR, light_specular);
 
-    GLfloat const light_pos4[4]     = {float(0-FinalBoard.GetDimensionX()), float(FinalBoard.GetDimensionY()),  0  , 1.0  };
+    GLfloat const light_pos4[4]     = {float(0-FinalBoard.GetDimensionX()), float(FinalBoard.GetDimensionY()),  -200  , 1.0  };
     GLfloat const light_color4[4]   = { 1,  1,  0, 1.};
     GLfloat const light_ambient4[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT3, GL_POSITION, light_pos4),
-    glLightfv(GL_LIGHT3, GL_DIFFUSE, light_color4);
-    glLightfv(GL_LIGHT3, GL_AMBIENT, light_ambient4);
-    glLightfv(GL_LIGHT3, GL_SPECULAR, light_color4);
+    glLightfv(GL_LIGHT3, GL_DIFFUSE, light_color);
+    // glLightfv(GL_LIGHT3, GL_AMBIENT, light_ambient4);
+    // glLightfv(GL_LIGHT3, GL_SPECULAR, light_color4);
 
     // GLfloat const light_pos5[4]     = {0,0, 300  , 1.0  };
     // GLfloat const light_color5[4]   = { 1,  1,  1, 1.};
@@ -364,48 +368,50 @@ void display(void)
     glEnable(GL_LIGHT3);
     // glEnable(GL_LIGHT4);
 
-    // glEnable(GL_DEPTH_TEST);
+    glEnable(GL_DEPTH_TEST);
 
-    // glEnable(GL_TEXTURE_2D);
-    // glBindTexture(GL_TEXTURE_2D, _textureId);
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _textureId);
     
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    // glColor3f(1.0f, 1.0f, 1.0f);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glColor3f(1.0f, 1.0f, 1.0f);
 
-    // glBegin(GL_QUADS);
+    glBegin(GL_QUADS);
 
-    // glNormal3f(0.0, 1.0f, 0.0f);
-    // glTexCoord2f(0.0f, 1.0f);
-    // glVertex3f(-window_width, window_height, 1);
-    // glTexCoord2f(1.0f, 1.0f);
-    // glVertex3f(window_width,window_height, 1);
-    // glTexCoord2f(1.0f, 0.0f);
-    // glVertex3f(window_width, -window_height, 1);
-    // glTexCoord2f(0.0f, 0.0f);
-    // glVertex3f(-window_width, -window_height, 1);
+    glNormal3f(0.0, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-window_width, window_height, -1000);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(window_width,window_height, -1000);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(window_width, -window_height, -1000);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-window_width, -window_height, -1000);
     
-    // glEnd();
+    glEnd();
 
 
-    // glDisable(GL_TEXTURE_2D);
+    glDisable(GL_TEXTURE_2D);
     for( int i=0;i<FinalBoard.GetNumberBalls();i++ ) 
     {
         glPushMatrix();
         // cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
-        glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(), 0);
+        glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(), 500);
         // glEnable(GL_COLOR_MATERIAL);
         glColor3f(FinalBoard.GetBallFromId(i).GetColor().GetR(),FinalBoard.GetBallFromId(i).GetColor().GetG(),FinalBoard.GetBallFromId(i).GetColor().GetB());
         // cout <<FinalBoard.GetBallFromId(i).GetColor().GetR()<<"\t"<<FinalBoard.GetBallFromId(i).GetColor().GetG()<<"\t"<<FinalBoard.GetBallFromId(i).GetColor().GetB()<<"\n";
         // glColor3f(0.9,0.5,0.5);
 
 
-        // GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
-        // // GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
-        // GLfloat shininess[] = {50};
-        // // glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
-        // glMaterialfv(GL_FRONT, GL_SPECULAR, white);
-        // glMaterialfv(GL_FRONT, GL_SHININESS, shininess);
+        GLfloat white[] = {1.f, 1.f, 1.f, 1.0f};
+        GLfloat ambient[] = {0.7f,0.7f,0.7f,1.0f};
+        GLfloat cyan[] = {0.8,0.8,0.8,1};
+        GLfloat shininess[] = {100};
+        glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient);
         glutSolidSphere(FinalBoard.GetBallFromId(i).GetRadius(), 31, 10);
         glPopMatrix();
     }
@@ -427,7 +433,7 @@ void reshape(int x, int y)
     glViewport(0, 0, w, h);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0-w,w,0-h,h,-200,200);
+    glOrtho(0-w,w,0-h,h,-2000,2000);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -609,7 +615,7 @@ int main(int argc, char **argv)
     const int NumberOfBalls = atoi(argv[1]);
     BallThreads=std::vector<pthread_t> (NumberOfBalls);
     pthread_mutex_init(&UpdateLock,NULL);
-    FinalBoard=Board(1000,500,100,NumberOfBalls);
+    FinalBoard=Board(1000,300,300,NumberOfBalls);
     // cout <<FinalBoard.Get
     //pthread_t BallThreads [NumberOfBalls];
     pthread_t DisplayThread;
@@ -626,7 +632,7 @@ int main(int argc, char **argv)
     std::cout <<"Ball threas" <<NumberOfBalls <<"\n";
     for (long i=0; i<NumberOfBalls ;i++)
     {
-        cout <<"Creating thread i: " <<i <<"\n";
+        // cout <<"Creating thread i: " <<i <<"\n";
         pthread_create(&BallThreads[i],NULL,UpdateBoardThread,(void *)i);
     
     }
