@@ -370,6 +370,8 @@ void display(void)
     glVertex3f( -f, -f, -f );
     glEnd();
 
+    glDisable(GL_TEXTURE_2D);
+
     for( int i=0;i<FinalBoard.GetNumberBalls();i++ ) 
     {
         glPushMatrix();

@@ -26,9 +26,11 @@ Ball::Ball(double limx,double limposy,double limnegy,double random)
 	GoodColors.push_back(Color(0,255,0));
 	GoodColors.push_back(Color(0,0,255));
 	GoodColors.push_back(Color(0,255,125));
+	GoodColors.push_back(Color(255,125,0));
+
 	// GoodColors.push_back(Color(0,0,255));
-	// GoodColors.push_back(Color(241,196,15));
-	// GoodColors.push_back(Color(192, 57, 43));
+	GoodColors.push_back(Color(241,196,15));
+	GoodColors.push_back(Color(192, 57, 43));
 
 	radius = (rand() % 50) + 50;
 	coord_x = (rand() % (int) (2* (limx-radius))) - (limx-radius);

@@ -364,31 +364,31 @@ void display(void)
     glEnable(GL_LIGHT3);
     // glEnable(GL_LIGHT4);
 
-    glEnable(GL_DEPTH_TEST);
+    // glEnable(GL_DEPTH_TEST);
 
-    glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, _textureId);
+    // glEnable(GL_TEXTURE_2D);
+    // glBindTexture(GL_TEXTURE_2D, _textureId);
     
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glColor3f(1.0f, 1.0f, 1.0f);
+    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    // glColor3f(1.0f, 1.0f, 1.0f);
 
-    glBegin(GL_QUADS);
+    // glBegin(GL_QUADS);
 
-    glNormal3f(0.0, 1.0f, 0.0f);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-window_width, window_height, 1);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(window_width,window_height, 1);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(window_width, -window_height, 1);
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-window_width, -window_height, 1);
+    // glNormal3f(0.0, 1.0f, 0.0f);
+    // glTexCoord2f(0.0f, 1.0f);
+    // glVertex3f(-window_width, window_height, 1);
+    // glTexCoord2f(1.0f, 1.0f);
+    // glVertex3f(window_width,window_height, 1);
+    // glTexCoord2f(1.0f, 0.0f);
+    // glVertex3f(window_width, -window_height, 1);
+    // glTexCoord2f(0.0f, 0.0f);
+    // glVertex3f(-window_width, -window_height, 1);
     
-    glEnd();
+    // glEnd();
 
 
-    glDisable(GL_TEXTURE_2D);
+    // glDisable(GL_TEXTURE_2D);
     for( int i=0;i<FinalBoard.GetNumberBalls();i++ ) 
     {
         glPushMatrix();
@@ -396,7 +396,7 @@ void display(void)
         glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(), 0);
         // glEnable(GL_COLOR_MATERIAL);
         glColor3f(FinalBoard.GetBallFromId(i).GetColor().GetR(),FinalBoard.GetBallFromId(i).GetColor().GetG(),FinalBoard.GetBallFromId(i).GetColor().GetB());
-        cout <<FinalBoard.GetBallFromId(i).GetColor().GetR()<<"\t"<<FinalBoard.GetBallFromId(i).GetColor().GetG()<<"\t"<<FinalBoard.GetBallFromId(i).GetColor().GetB()<<"\n";
+        // cout <<FinalBoard.GetBallFromId(i).GetColor().GetR()<<"\t"<<FinalBoard.GetBallFromId(i).GetColor().GetG()<<"\t"<<FinalBoard.GetBallFromId(i).GetColor().GetB()<<"\n";
         // glColor3f(0.9,0.5,0.5);
 
 
