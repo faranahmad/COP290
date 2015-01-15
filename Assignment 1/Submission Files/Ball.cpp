@@ -23,10 +23,10 @@ Ball::Ball(double limx,double limposy,double limnegy,double random)
 
 	GoodColors.push_back(Color());
 	GoodColors.push_back(Color(46,204,113));
-	GoodColors.push_back(Color(0,255,0));
-	GoodColors.push_back(Color(0,0,255));
+	// GoodColors.push_back(Color(0,255,0));
+	// GoodColors.push_back(Color(0,0,255));
 	GoodColors.push_back(Color(241,196,15));
-	
+	GoodColors.push_back(Color(192, 57, 43));
 
 	radius = (rand() % 50) + 50;
 	coord_x = (rand() % (int) (2* (limx-radius))) - (limx-radius);
@@ -44,8 +44,7 @@ Ball::Ball(double limx,double limposy,double limnegy,double random)
 	//coord_y = (rand() % (int) (2* (limy-radius))) - (limy-radius);
 	velocity_x=(rand() % 50) -25;
 	velocity_y=(rand() % 50) -25;
-	color =GoodColors[rand() %GoodColors.size()];
-	
+	color =GoodColors[rand() % GoodColors.size()];
 }
 
 double Ball::GetX()
