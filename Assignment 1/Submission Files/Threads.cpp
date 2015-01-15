@@ -25,6 +25,9 @@ int Ballid_From_Selection;
 // bool 
 
 
+void *UpdateBoardThread(void*);
+
+
 GLuint _textureId;
  
 void *UpdateBoardThread(void *);
@@ -219,8 +222,12 @@ void mouseclick(int button,int state,int x,int y )
             {
                 newBalltoAdd=Ball(FinalBoard.GetDimensionX(), FinalBoard.GetDimensionPosY(),FinalBoard.GetDimensionNegY(),1);
             }
-            FinalBoard.AddBallToBoard(newBalltoAdd);
             pthread_t newthread;
+            FinalBoard.AddBallToBoard(newBalltoAdd);
+<<<<<<< HEAD
+            pthread_t newthread;
+=======
+>>>>>>> f01bfe346fb96b37306ad5d36bddbf8bec742e75
             pthread_create(&newthread,NULL,UpdateBoardThread,(void *) (FinalBoard.GetNumberBalls() -1));
             PauseBoard=false;
             cout<<"Add Button"<<endl;
@@ -370,6 +377,8 @@ void display(void)
     
     glEnd();
 
+
+
     for( int i=0;i<FinalBoard.GetNumberBalls();i++ ) 
     {
         glPushMatrix();
@@ -444,11 +453,11 @@ void *UpdateBoardThread(void* id)
     		
     		Ball BallConsidered = FinalBoard.GetBallFromId(ballid);
     
-    		int BallConsidered_Coordx = BallConsidered.GetX(); 
-    		int BallConsidered_Coordy = BallConsidered.GetY();
+    		double BallConsidered_Coordx = BallConsidered.GetX(); 
+    		double BallConsidered_Coordy = BallConsidered.GetY();
     		double BallConsidered_Radius = BallConsidered.GetRadius();
-    		int BallConsidered_VelocityX=BallConsidered.GetVelocityX();
-    		int BallConsidered_VelocityY=BallConsidered.GetVelocityY();
+    		double BallConsidered_VelocityX=BallConsidered.GetVelocityX();
+    		double BallConsidered_VelocityY=BallConsidered.GetVelocityY();
     		// BallConsidered.SetX(((BallConsidered_Coordx+BallConsidered_VelocityX)%(2*FinalBoard.GetDimensionX())) -FinalBoard.GetDimensionX());
     		if (BallConsidered_Coordx + BallConsidered_VelocityX + BallConsidered_Radius> FinalBoard.GetDimensionX())
     		{
@@ -489,17 +498,17 @@ void *UpdateBoardThread(void* id)
     
     		vector<Ball> Vector_Of_Balls = FinalBoard.GetVectorBalls();
     		double mass1 = BallConsidered.GetRadius()*BallConsidered.GetRadius()*BallConsidered.GetRadius();
-    		// double mass1=1.0;
-    		bool needforupdate=true;
-    		// double uy1=0.0;
-    		double ux1 =  BallConsidered.GetVelocityX();
+    		
+            bool needforupdate=true;
+    		
+            double ux1 =  BallConsidered.GetVelocityX();
     		double uy1 =  BallConsidered.GetVelocityY();
     		
     		for(int i=0;i<FinalBoard.GetNumberBalls();i++)
     		{
     			if (i != ballid)
     			{
-    				// double dx = Vector_Of_Balls[i].GetX()+Vector_Of_Balls[i].GetVelocityX()-BallConsidered.GetX()-BallConsidered.GetVelocityX();
+    				// double dx = glVertex3fector_Of_Balls[i].GetX()+Vector_Of_Balls[i].GetVelocityX()-BallConsidered.GetX()-BallConsidered.GetVelocityX();
     				// double dy = Vector_Of_Balls[i].GetY()+Vector_Of_Balls[i].GetVelocityY()-BallConsidered.GetY()-BallConsidered.GetVelocityY();
     				ux1 =  BallConsidered.GetVelocityX();
     				uy1 =  BallConsidered.GetVelocityY();

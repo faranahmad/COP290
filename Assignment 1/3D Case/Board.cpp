@@ -6,6 +6,7 @@ Board::Board()
 {
 	dimension_x=1000.0;
 	dimension_y=1000.0;
+	dimension_z=1000.0;
 	number_balls=0;
 }
 
@@ -16,7 +17,8 @@ bool CheckCorrect(std::vector<Ball> v,Ball n1)
 	{
 		double dx=v[i].GetX()-n1.GetX();
 		double dy=v[i].GetY()-n1.GetY();
-		if (n1.GetRadius()+v[i].GetRadius()>=sqrt(dx*dx + dy*dy))
+		double dz=v[i].GetZ()-n1.GetZ();
+		if (n1.GetRadius()+v[i].GetRadius()>=sqrt(dx*dx + dy*dy +dz*dz))
 		{
 			sofar=false;
 		}
@@ -24,21 +26,22 @@ bool CheckCorrect(std::vector<Ball> v,Ball n1)
 	return sofar;
 }
 
-Board::Board(double x,double y, int n)
+Board::Board(double x,double y, double z, int n)
 {
 	// Constructs a new Board
 	// Default number of balls is 0
 	// Default vector of balls is empty
 	dimension_x=x;
 	dimension_y=y;
+	dimension_z=z;
 	number_balls=n;
 	for (int i=0; i<n;i++)
 	{
-		Ball newball=Ball(x,y,1);
+		Ball newball=Ball(x,y,z,1);
 		while (!CheckCorrect(vector_of_balls,newball))
 		{
 			std::cout <<"In here for: " <<i<<"\n";
-			newball=Ball(x,y,1);	
+			newball=Ball(x,y,z,1);	
 		}
 		vector_of_balls.push_back(newball);
 	}
@@ -54,6 +57,12 @@ double Board::GetDimensionY()
 {
 	// Returns the y dimension of the board
 	return dimension_y;
+}
+
+double Board::GetDimensionZ()
+{
+	// Returns the z dimension of the board
+	return dimension_z;
 }
 
 int Board::GetNumberBalls()
@@ -72,16 +81,16 @@ Ball Board::GetBallFromId(int position)
 {
 	// Returns the position id ball from the vector of balls if the position id is less than the number of balls on the board
 	// TODO: Add Exception
-	if (position < number_balls)
+	// if (position < number_balls)
 		return vector_of_balls[position];
-	else
-		return Ball(1.0,1.0);
+	// else
+		// return Ball(1.0,1.0);
 }
 
 string Board::GetBoardInformation()
 {
 	string BoardInfo="Board\n";
-	BoardInfo += "Dimension x:"+to_string(dimension_x)+"  Dimension y:" +to_string(dimension_y)+"  Number of Balls:" + to_string(number_balls)+"\n";
+	BoardInfo += "Dimension x:"+to_string(dimension_x)+"  Dimension y:" +to_string(dimension_y)+"  Dimension z:" +to_string(dimension_z)+ "  Number of Balls:" + to_string(number_balls)+"\n";
 	for (int i=0;i<number_balls;i++)
 	{
 		BoardInfo+="Ball Number: "+to_string(i)+vector_of_balls[i].GetBallInformation() +"\n";
@@ -101,6 +110,12 @@ void Board::SetDimensionY(double y)
 {
 	// Updates teh y dimension of the board
 	dimension_y=y;
+}
+
+void Board::SetDimensionZ(double z)
+{
+	// Updates the z dimension of the board
+	dimension_z=z;
 }
 
 void Board::SetNumberOfBalls(int number)
@@ -158,6 +173,10 @@ void Board::UpdateBoard(double time_elapsed)
 		if (vector_of_balls[i].GetY() > dimension_y)
 		{
 			vector_of_balls[i].SetY(vector_of_balls[i].GetY()-dimension_y);
+		}
+		if (vector_of_balls[i].GetZ() > dimension_z)
+		{
+			vector_of_balls[i].SetZ(vector_of_balls[i].GetZ()-dimension_z);
 		}
 	}
 }

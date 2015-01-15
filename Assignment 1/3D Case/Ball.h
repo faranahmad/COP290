@@ -3,32 +3,37 @@
 
 #include <string>
 #include <vector>
+#include "Color.h"
 
 using namespace std;
 
 class Ball
 {
 	public:
-		Ball(double,double);
 		Ball(double,double,double);
+		Ball(double,double,double,double);
 
 		double GetX();
 		double GetY();
+		double GetZ();
 		double GetVelocityX();
 		double GetVelocityY();
+		double GetVelocityZ();
 		double GetRadius();
-		vector<float> GetColor();
+		Color GetColor();
 
 		string GetBallInformation();
 
 		void SetRadius(double);
-		void SetPosition(double,double);
-		void SetVelocity(double,double);
-		void SetColor(vector<float>);
+		void SetPosition(double,double,double);
+		void SetVelocity(double,double,double);
+		void SetColor(Color);
 		void SetX(double);
 		void SetY(double);
+		void SetZ(double);
 		void SetVelocityX(double);
 		void SetVelocityY(double);
+		void SetVelocityZ(double);
 
 		void UpdateBall(double);
 
@@ -36,9 +41,11 @@ class Ball
 		double radius;
 		double coord_x;
 		double coord_y;
+		double coord_z;
 		double velocity_x;
 		double velocity_y;
-		vector<float> color;
+		double velocity_z;
+		Color color;
 };
 
 #endif

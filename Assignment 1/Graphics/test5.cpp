@@ -11,6 +11,10 @@
 using namespace std;
 
 GLuint _textureId;
+GLuint _textureId2;
+int z=5;
+bool help=true;
+bool help2=true;
 class Image {
     public:
         Image(char* ps, int w, int h);
@@ -240,6 +244,22 @@ void handleKeypress(unsigned char key, int x, int y) {
             exit(0);
     }
 }
+GLuint loadTexture(Image* image) {
+    GLuint textureId;
+    glGenTextures(1, &textureId); //Make room for our texture
+    glBindTexture(GL_TEXTURE_2D, textureId); //Tell OpenGL which texture to edit
+    //Map the image to the texture
+    glTexImage2D(GL_TEXTURE_2D,                //Always GL_TEXTURE_2D
+                 0,                            //0 for now
+                 GL_RGB,                       //Format OpenGL uses for image
+                 image->width, image->height,  //Width and height
+                 0,                            //The border of the image
+                 GL_RGB, //GL_RGB, because pixels are stored in RGB format
+                 GL_UNSIGNED_BYTE, //GL_UNSIGNED_BYTE, because pixels are stored
+                                   //as unsigned numbers
+                 image->pixels);               //The actual pixel data
+    return textureId; //Returns the id of the texture
+}
 
 void display(void)
 {
@@ -267,12 +287,12 @@ void display(void)
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    GLfloat const light_pos[4]     = {1200, 0, 200   , 1.0  };
-    GLfloat const light_color[4]   = { 0,  0,  1, 1.};
+    GLfloat const light_pos[4]     = {0, 0, 200   , 1.0  };
+    GLfloat const light_color[4]   = { 1,  1,  1, 1.};
     GLfloat const light_ambient[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT0, GL_POSITION, light_pos),
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, light_color);
-    glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+    // glLightfv(GL_LIGHT0, GL_DIFFUSE, light_color);
+    // glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
     glLightfv(GL_LIGHT0, GL_SPECULAR, light_color);
 
         GLfloat const light_pos2[4]     = {-1200, 0, 200  , 1.0  };
@@ -357,9 +377,9 @@ void display(void)
     
     glEnd();
 
-    glPushMatrix();
-    glTranslatef(x, y, 1);
-    // glColor3f(0.75, 0.5, 0); 
+    
+    glTranslatef(x, y, 0);
+     glColor3f(0, 0.5, 1); 
     // GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
     // GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
     // glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, cyan);
@@ -370,7 +390,57 @@ void display(void)
     // y+=1; 
     glutSolidSphere(100, 100, 100);
         glPopMatrix();
+        glPushMatrix();
+    glTranslatef(100, 0, 100);
+    glColor3f(1, 1,1); 
+    // GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
+    // GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
+    // glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, cyan);
+    // glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
+    // GLfloat shininess[] = {50};
+    // glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
+    // x+=1;
+    // y+=1; 
+    if(help2)
+    {if(z<12 && help)
+    {z++;}
+    else 
+    {   help=false;
+        if(z>0){z--;} } 
+        }
+    help2=not(help2); 
+    glutSolidSphere(z, 100, 100);
 
+        glPopMatrix();
+
+    // glPushMatrix();
+
+  //   Image* image2 = loadBMP("glow.bmp");
+  //   _textureId2 = loadTexture(image2);
+  //   delete image2;
+  //   glEnable(GL_TEXTURE_2D);
+  //   glBindTexture(GL_TEXTURE_2D, _textureId2);
+    
+  //   //Bottom
+  //   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+  //   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    
+  //   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+  //   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+  // glColor3f(1.0f, 1.0f, 1.0f);
+  //   glBegin(GL_QUADS);
+    
+  //   glNormal3f(0.0, 1.0f, 0.0f);
+  //   glTexCoord2f(0.0f, 1.0f);
+  //   glVertex3f(-window_width/2, window_height/2, 2);
+  //   glTexCoord2f(1.0f, 1.0f);
+  //   glVertex3f(window_width/2,window_height/2, 2);
+  //   glTexCoord2f(1.0f, 0.0f);
+  //   glVertex3f(window_width/2, -window_height/2, 2);
+  //   glTexCoord2f(0.0f, 0.0f);
+  //   glVertex3f(-window_width/2, -window_height/2, 2);
+    
+  //   glEnd();
 //     glPushMatrix();
 //         glTranslatef(300, 0, 0);
 //         // x+=1;
@@ -434,22 +504,7 @@ void mouseclick(int button,int state,int x,int y )
     }
     glutPostRedisplay();
 }
-GLuint loadTexture(Image* image) {
-    GLuint textureId;
-    glGenTextures(1, &textureId); //Make room for our texture
-    glBindTexture(GL_TEXTURE_2D, textureId); //Tell OpenGL which texture to edit
-    //Map the image to the texture
-    glTexImage2D(GL_TEXTURE_2D,                //Always GL_TEXTURE_2D
-                 0,                            //0 for now
-                 GL_RGB,                       //Format OpenGL uses for image
-                 image->width, image->height,  //Width and height
-                 0,                            //The border of the image
-                 GL_RGB, //GL_RGB, because pixels are stored in RGB format
-                 GL_UNSIGNED_BYTE, //GL_UNSIGNED_BYTE, because pixels are stored
-                                   //as unsigned numbers
-                 image->pixels);               //The actual pixel data
-    return textureId; //Returns the id of the texture
-}
+
 
 void initRendering() {
     // glEnable(GL_DEPTH_TEST);
