@@ -517,7 +517,7 @@ void initRendering() {
     _textureId = loadTexture(image);
     delete image;
 }
-
+ 
 
 int main(int argc,char *argv[] )
 {
@@ -534,7 +534,6 @@ int main(int argc,char *argv[] )
     glutReshapeFunc(reshape);
     initRendering();
     glutMouseFunc(mouseclick);
-
     glutMainLoop();
 
     return 0;
