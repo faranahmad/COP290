@@ -20,7 +20,7 @@ GLuint _textureId;
  
 double rotate_y=0; 
 double rotate_x=0;
-
+double zoom=0.0;
 
 struct Graph {
     int x1;
@@ -191,49 +191,84 @@ void initRendering()
     delete image;
 }
 
+int prevx=0;
+int prevy=0;
+int mx=0;
+int my=0;
+int buttonPressed=false;
+int state=0;
+
 void mouseclick(int button,int state,int x,int y )
 {
-     // glutMotionFunc( )
-    if(state== GLUT_UP )
+    if(button==GLUT_LEFT_BUTTON)
     {
-        int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
-        int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
-        float const window_aspect = (float)window_width / (float)window_height;
-        // cout<<x<<'\t'<<y<<endl;
-        float f1=window_width/1000.0;
-        float f2=window_height/500.0;
-        // cout<<(x>920*f1)<<"     "<<(x<998*f2)<<endl;
-        if(x>920*f1 && x<998*f1 && y>435*f2 && y<498*f2)
+        if(state== GLUT_UP )
         {
-            PauseBoard=false;
-            cout<<"Play Button"<<endl;
+            buttonPressed=false;
         }
-        if(x>840*f1 && x<920*f1 && y>435*f2 && y<498*f2)
+    }
+    if(button==3)
+    {
+        if(state==0)
         {
-            PauseBoard=true;
-            cout<<"Pause Button"<<endl;
+            zoom+=0.03;
         }
-        if(x>615*f1 && x<835*f1 && y>435*f2 && y<498*f2)
+    }
+
+    if(button==4)
+    {
+        if(state==0)
         {
-            PauseBoard=true;
-            Ball newBalltoAdd= Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(),1);
-            while (!CheckCorrect(FinalBoard.GetVectorBalls(), newBalltoAdd))
+            zoom-=0.03;
+        }
+    }
+    if(state== GLUT_UP )
+    {    if(state== GLUT_UP )
+        {
+            buttonPressed=false;
+            int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
+            int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
+            float const window_aspect = (float)window_width / (float)window_height;
+            // cout<<x<<'\t'<<y<<endl;
+            float f1=window_width/1000.0;
+            float f2=window_height/500.0;
+            // cout<<(x>920*f1)<<"     "<<(x<998*f2)<<endl;
+            if(x>920*f1 && x<998*f1 && y>435*f2 && y<498*f2)
             {
-                newBalltoAdd=Ball(FinalBoard.GetDimensionX(), FinalBoard.GetDimensionY(),1);
+                PauseBoard=false;
+                cout<<"Play Button"<<endl;
             }
-            FinalBoard.AddBallToBoard(newBalltoAdd);
-            PauseBoard=false;
-            cout<<"Add Button"<<endl;
+            if(x>840*f1 && x<920*f1 && y>435*f2 && y<498*f2)
+            {
+                PauseBoard=true;
+                cout<<"Pause Button"<<endl;
+            }
+            if(x>615*f1 && x<835*f1 && y>435*f2 && y<498*f2)
+            {
+                PauseBoard=true;
+                Ball newBalltoAdd= Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(),1);
+                while (!CheckCorrect(FinalBoard.GetVectorBalls(), newBalltoAdd))
+                {
+                    newBalltoAdd=Ball(FinalBoard.GetDimensionX(), FinalBoard.GetDimensionY(),1);
+                }
+                FinalBoard.AddBallToBoard(newBalltoAdd);
+                PauseBoard=false;
+                cout<<"Add Button"<<endl;
+            }
+            if(x>80*f1 && x<155*f1 && y>435*f2 && y<498*f2)
+            {
+                cout<<"SpeedUp Button"<<endl;
+            }
+            if(x>0*f1 && x<80*f1 && y>435*f2 && y<498*f2)
+            {
+                cout<<"SlowDown Button"<<endl;
+            }
+            mx=x;
+            my=y;
+            prevx=x;
+            prevy=y;
+            state=0;
         }
-        if(x>80*f1 && x<155*f1 && y>435*f2 && y<498*f2)
-        {
-            cout<<"SpeedUp Button"<<endl;
-        }
-        if(x>0*f1 && x<80*f1 && y>435*f2 && y<498*f2)
-        {
-            cout<<"SlowDown Button"<<endl;
-        }
-    
     }
     glutPostRedisplay();
 }
@@ -244,6 +279,36 @@ void handleKeypress(unsigned char key, int x, int y) {
             exit(0);
     }
 }
+
+void mousemotion(int x, int y)
+ {  
+    if(abs(mx-x)>10&& !buttonPressed)
+    {
+    state=1;
+    buttonPressed=true;
+    }
+    
+    if(abs(my-y)>10 && !buttonPressed)
+            {
+                state=2;
+                buttonPressed=true;
+    }
+    if(state==1)
+    {
+        if(x>prevx)
+            rotate_y+=0.75;
+        else
+            rotate_y+=-0.75;
+    }
+    if(state==2)
+        if(y>prevy)
+            rotate_x+=0.75;
+        else
+            rotate_x+=-0.75;
+    prevx=x;
+    prevy=y;
+    glutPostRedisplay();
+ }
 void specialKeys( int key, int x, int y ) 
 {
  
@@ -333,6 +398,7 @@ void display(void)
 
     glRotatef( rotate_x, 200, 0.0, 0.0 );
     glRotatef( rotate_y, 0.0, 200, 0.0 );
+    glScalef(zoom,zoom,zoom);
     // glScalef( 1.0+rotate_x/100.0,1.0+rotate_x/100.0,1.0f ); 
     float f=(4.0/6.0)*min(window_width,window_height);
     glEnable(GL_DEPTH_TEST);
