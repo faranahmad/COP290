@@ -243,9 +243,10 @@ void mouseclick(int button,int state,int x,int y )
             // BallThreads.pop_back();
             cout<<"Remove Button  "<< BallThreads.size()<<endl;
         }
-        if(PauseBoard==true)
+         if(PauseBoard==true)
         {
             //cout <<"i m here"<<endl;
+            double Multiplying_Factor = 10;
             int no_of_balls=FinalBoard.GetNumberBalls();
             vector<Ball> vector_balls = FinalBoard.GetVectorBalls();
             for(int i=0;i<no_of_balls;i++)
@@ -270,19 +271,24 @@ void mouseclick(int button,int state,int x,int y )
                 if(x>50*f1 && x<97*f1 && y>462*f2 && y<499*f2)
                 {
                     Ball Ball_Selected = vector_balls[Ballid_From_Selection];
-                    Ball_Selected.SetVelocityX(10*Ball_Selected.GetVelocityX());
-                    Ball_Selected.SetVelocityY(10*Ball_Selected.GetVelocityY());
+                    Ball_Selected.SetVelocityX(Multiplying_Factor*Ball_Selected.GetVelocityX());
+                    Ball_Selected.SetVelocityY(Multiplying_Factor*Ball_Selected.GetVelocityY());
+                    vector_balls[Ballid_From_Selection] = Ball_Selected;
+                    FinalBoard.SetVectorBalls(vector_balls);
+                    //FinalBoard.GetVectorBalls[Ballid_From_Selection]
+
                 }
                 else if(x>0*f1 && x<47*f1 && y>462*f2 && y<499*f2)       
                 {
                     Ball Ball_Selected = vector_balls[Ballid_From_Selection];
-                    Ball_Selected.SetVelocityX(Ball_Selected.GetVelocityX()/10);
-                    Ball_Selected.SetVelocityY(Ball_Selected.GetVelocityY()/10);
+                    Ball_Selected.SetVelocityX(Ball_Selected.GetVelocityX()/Multiplying_Factor);
+                    Ball_Selected.SetVelocityY(Ball_Selected.GetVelocityY()/Multiplying_Factor);
+                    vector_balls[Ballid_From_Selection] = Ball_Selected;
+                    FinalBoard.SetVectorBalls(vector_balls);
                 }
                 
             }
         }
-
     }
     glutPostRedisplay();
 }
