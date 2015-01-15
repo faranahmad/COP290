@@ -199,8 +199,8 @@ void mouseclick(int button,int state,int x,int y )
         int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
         float const window_aspect = (float)window_width / (float)window_height;
         // cout<<x<<'\t'<<y<<endl;
-        cout << window_width<<endl;
-        cout << window_height<<endl;
+        // cout << window_width<<endl;
+        // cout << window_height<<endl;
         float f1=window_width/1000.0;
         float f2=window_height/500.0;
         // cout<<(x>920*f1)<<"     "<<(x<998*f2)<<endl;
@@ -224,10 +224,6 @@ void mouseclick(int button,int state,int x,int y )
             }
             pthread_t newthread;
             FinalBoard.AddBallToBoard(newBalltoAdd);
-<<<<<<< HEAD
-            pthread_t newthread;
-=======
->>>>>>> f01bfe346fb96b37306ad5d36bddbf8bec742e75
             pthread_create(&newthread,NULL,UpdateBoardThread,(void *) (FinalBoard.GetNumberBalls() -1));
             PauseBoard=false;
             cout<<"Add Button"<<endl;
@@ -259,21 +255,10 @@ void mouseclick(int button,int state,int x,int y )
                 double y_modified = height_of_window - y;
                 double coordi_x=vector_balls[i].GetX()/2;
                 double coordi_y=vector_balls[i].GetY()/2;
-                // cout << "------"<< endl;
-                // cout << width_of_window<<endl;
-                // cout << height_of_window<<endl;
-                // cout<<x<<endl;
-                // cout <<y<<endl;
-                // cout<<x_modified<<endl;
-                // cout << y_modified<< endl;
-                // cout <<coordi_x<< endl;
-                // cout<<coordi_y<<endl;
-                // cout<<vector_balls[i].GetRadius()<<endl;
-                // cout <<"--------"<<endl;
                 if(sqrt(double((coordi_x-x_modified)*(coordi_x-x_modified)+(coordi_y-y_modified)*(coordi_y-y_modified)))<=vector_balls[i].GetRadius()/2.0)
                 {
                     Ballid_From_Selection=i;
-                    //cout << i << endl;
+                    cout << i << endl;
                     break;
                 }                    
             }
@@ -384,9 +369,9 @@ void display(void)
         glPushMatrix();
         // cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
         glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(), 0);
-        glColor3f(FinalBoard.GetBallFromId(i).GetColor()[0],FinalBoard.GetBallFromId(i).GetColor()[1],FinalBoard.GetBallFromId(i).GetColor()[2]);
+        glColor3f(FinalBoard.GetBallFromId(i).GetColor().GetR()/255.0,FinalBoard.GetBallFromId(i).GetColor().GetG()/255.0,FinalBoard.GetBallFromId(i).GetColor().GetB()/255.0);
         GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
-		GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
+		// GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
 		GLfloat shininess[] = {50};
 		// glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
 		glMaterialfv(GL_FRONT, GL_SPECULAR, white);

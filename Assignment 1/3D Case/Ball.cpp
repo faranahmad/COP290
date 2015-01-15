@@ -20,6 +20,14 @@ Ball::Ball(double x,double y,double z)
 
 Ball::Ball(double limx,double limy,double limz,double random)
 {
+	std::vector<Color> GoodColors;
+
+	GoodColors.push_back(Color());
+	GoodColors.push_back(Color(46,204,113));
+	GoodColors.push_back(Color(0,255,0));
+	GoodColors.push_back(Color(0,0,255));
+	GoodColors.push_back(Color(241,196,15));
+	
 	// Gives a random ball within  -limx to +limx and -limy to +limy
 	radius = (rand() % 50) + 50;
 	coord_x = (rand() % (int) (2* (limx-radius))) - (limx-radius);
@@ -28,7 +36,7 @@ Ball::Ball(double limx,double limy,double limz,double random)
 	velocity_x=(rand() % 50) -25;
 	velocity_y=(rand() % 50) -25;
 	velocity_z=(rand() % 50) -25;
-	color = Color();
+	color =GoodColors[rand() %GoodColors.size()];
 	// color[0] = (rand() %256) /255.0;
 	// color[1] = (rand() %256) /255.0;
 	// color[2] = (rand() %256) /255.0;

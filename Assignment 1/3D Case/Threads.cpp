@@ -374,10 +374,11 @@ void display(void)
     {
         glPushMatrix();
         // cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
-        glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(),FinalBoard.GetBallFromId(i).GetZ());
         glColor3f((FinalBoard.GetBallFromId(i).GetColor().GetR())/255.0,(FinalBoard.GetBallFromId(i).GetColor().GetG())/255.0,(FinalBoard.GetBallFromId(i).GetColor().GetB())/255.0);
+        glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(),FinalBoard.GetBallFromId(i).GetZ());
+        // cout <<FinalBoard.GetBallFromId(i).GetColor().GetR()/255.0<<"\n";
         GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
-		GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
+		// GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
 		GLfloat shininess[] = {50};
 		// glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
 		glMaterialfv(GL_FRONT, GL_SPECULAR, white);
