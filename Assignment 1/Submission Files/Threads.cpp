@@ -292,9 +292,9 @@ void display(void)
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    GLfloat const light_pos[4]     = {float(FinalBoard.GetDimensionX()), float(0-FinalBoard.GetDimensionY()), 0    , 1.0  };
+    GLfloat const light_pos[4]     = {0, 0, 1000    , 1.0  };
     GLfloat const light_color[4]   = { 0,  0,  1, 1.};
-    GLfloat const light_ambient[4] = { 0.10,  0.10,  0.30, 1.};
+    GLfloat const light_ambient[4] = { 100,  100,  300, 1.};
     glLightfv(GL_LIGHT0, GL_POSITION, light_pos),
     glLightfv(GL_LIGHT0, GL_DIFFUSE, light_color);
     glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
@@ -332,16 +332,20 @@ void display(void)
     // glLightfv(GL_LIGHT4, GL_AMBIENT, light_ambient5);
     // glLightfv(GL_LIGHT4, GL_SPECULAR, light_color5);
 
-    // glEnable(GL_LIGHTING);
-    // glEnable(GL_LIGHT0);
-    // glEnable(GL_LIGHT1);
-    // glEnable(GL_LIGHT2);
-    // glEnable(GL_LIGHT3);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+    glEnable(GL_LIGHT1);
+    glEnable(GL_LIGHT2);
+    glEnable(GL_LIGHT3);
     // glEnable(GL_LIGHT4);
 
     glEnable(GL_DEPTH_TEST);
 
     glEnable(GL_TEXTURE_2D);
+    glEnable(GL_COLOR_MATERIAL);
+    
+    // glDisable(GL_COLOR_MATERIAL);
+    glEnable(GL_NORMALIZE);
     glBindTexture(GL_TEXTURE_2D, _textureId);
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -369,13 +373,14 @@ void display(void)
         glPushMatrix();
         // cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
         glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(), 0);
+    // glEnable(GL_COLOR_MATERIAL);
         glColor3f(FinalBoard.GetBallFromId(i).GetColor().GetR()/255.0,FinalBoard.GetBallFromId(i).GetColor().GetG()/255.0,FinalBoard.GetBallFromId(i).GetColor().GetB()/255.0);
-        GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
-		// GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
-		GLfloat shininess[] = {50};
-		// glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
-		glMaterialfv(GL_FRONT, GL_SPECULAR, white);
-		glMaterialfv(GL_FRONT, GL_SHININESS, shininess);
+  //       GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
+		// // GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
+		// GLfloat shininess[] = {50};
+		// // glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
+		// glMaterialfv(GL_FRONT, GL_SPECULAR, white);
+		// glMaterialfv(GL_FRONT, GL_SHININESS, shininess);
         glutSolidSphere(FinalBoard.GetBallFromId(i).GetRadius(), 31, 10);
         glPopMatrix();
     }
