@@ -20,7 +20,7 @@ GLuint _textureId;
  
 double rotate_y=0.0; 
 double rotate_x=0.0;
-double zoom=0.0;
+double zoom=1.0;
 
 struct Graph {
     int x1;
@@ -458,8 +458,11 @@ void reshape(int x, int y)
 	int w=glutGet(GLUT_WINDOW_WIDTH);
     int h=glutGet(GLUT_WINDOW_HEIGHT);
 
-    FinalBoard.SetDimensionX(w);
-    FinalBoard.SetDimensionY(h);
+    int dimension=2.0/3.0*min(w,h);
+
+    FinalBoard.SetDimensionX(dimension);
+    FinalBoard.SetDimensionY(dimension);
+    FinalBoard.SetDimensionZ(dimension);
 
 
     glViewport(0, 0, w, h);
