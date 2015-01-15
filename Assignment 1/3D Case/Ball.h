@@ -3,13 +3,13 @@
 
 #include <string>
 #include <vector>
+#include "Color.h"
 
 using namespace std;
 
 class Ball
 {
 	public:
-		Ball(double,double);
 		Ball(double,double,double);
 		Ball(double,double,double,double);
 
@@ -20,14 +20,14 @@ class Ball
 		double GetVelocityY();
 		double GetVelocityZ();
 		double GetRadius();
-		vector<float> GetColor();
+		Color GetColor();
 
 		string GetBallInformation();
 
 		void SetRadius(double);
 		void SetPosition(double,double,double);
 		void SetVelocity(double,double,double);
-		void SetColor(vector<float>);
+		void SetColor(Color);
 		void SetX(double);
 		void SetY(double);
 		void SetZ(double);
@@ -45,7 +45,7 @@ class Ball
 		double velocity_x;
 		double velocity_y;
 		double velocity_z;
-		vector<float> color;
+		Color color;
 };
 
 #endif

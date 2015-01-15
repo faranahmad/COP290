@@ -14,8 +14,9 @@ Ball::Ball(double x,double y,double z)
 	velocity_x=0;
 	velocity_y=0;
 	velocity_z=0;
-	color = std::vector<float> (3,0.5f);
+	color = Color();
 }
+
 
 Ball::Ball(double limx,double limy,double limz,double random)
 {
@@ -27,10 +28,10 @@ Ball::Ball(double limx,double limy,double limz,double random)
 	velocity_x=(rand() % 50) -25;
 	velocity_y=(rand() % 50) -25;
 	velocity_z=(rand() % 50) -25;
-	color = std::vector<float> (3,0.5f);
-	color[0] = (rand() %256) /255.0;
-	color[1] = (rand() %256) /255.0;
-	color[2] = (rand() %256) /255.0;
+	color = Color();
+	// color[0] = (rand() %256) /255.0;
+	// color[1] = (rand() %256) /255.0;
+	// color[2] = (rand() %256) /255.0;
 }
 
 double Ball::GetX()
@@ -75,7 +76,7 @@ double Ball::GetRadius()
 	return radius;
 }
 
-std::vector<float> Ball::GetColor()
+Color Ball::GetColor()
 {
 	// Returns the color of the ball
 	return color;
@@ -85,7 +86,7 @@ string Ball::GetBallInformation()
 {
 	// Returns the information about the ball
 	// Format is "coord_x coord_y coord_z velocity_x velocity_y velocity_z color"
-	return "radius:"+std::to_string(radius)+"  xcoord:"+std::to_string(coord_x)+"  ycoord:"+std::to_string(coord_y)+"  zcoord:"+std::to_string(coord_z)+"   velocityx:"+std::to_string(velocity_x)+"  velocityy:"+std::to_string(velocity_y)+"  velocityz:"+std::to_string(velocity_z)+"  color:"+ std::to_string(color[0])+" "+std::to_string(color[1]) +" " +std::to_string(color[2]);	
+	return "radius:"+std::to_string(radius)+"  xcoord:"+std::to_string(coord_x)+"  ycoord:"+std::to_string(coord_y)+"  zcoord:"+std::to_string(coord_z)+"   velocityx:"+std::to_string(velocity_x)+"  velocityy:"+std::to_string(velocity_y)+"  velocityz:"+std::to_string(velocity_z)+"  color:"+ std::to_string(color.GetR())+" "+std::to_string(color.GetG()) +" " +std::to_string(color.GetB());	
 }
 
 void Ball::SetRadius(double radius_value)
@@ -110,7 +111,7 @@ void Ball::SetVelocity(double velocityx,double velocityy,double velocityz)
 	velocity_z=velocityz;
 }
 
-void Ball::SetColor(std::vector<float> color_new)
+void Ball::SetColor(Color color_new)
 {
 	// Updates the color of the ball
 	color=color_new;

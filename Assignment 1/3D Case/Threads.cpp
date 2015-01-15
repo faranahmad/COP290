@@ -375,7 +375,7 @@ void display(void)
         glPushMatrix();
         // cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
         glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(),FinalBoard.GetBallFromId(i).GetZ());
-        glColor3f(FinalBoard.GetBallFromId(i).GetColor()[0],FinalBoard.GetBallFromId(i).GetColor()[1],FinalBoard.GetBallFromId(i).GetColor()[2]);
+        glColor3f((FinalBoard.GetBallFromId(i).GetColor().GetR())/255.0,(FinalBoard.GetBallFromId(i).GetColor().GetG())/255.0,(FinalBoard.GetBallFromId(i).GetColor().GetB())/255.0);
         GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
 		GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
 		GLfloat shininess[] = {50};
@@ -393,9 +393,11 @@ void reshape(int x, int y)
 {
 	int w=glutGet(GLUT_WINDOW_WIDTH);
     int h=glutGet(GLUT_WINDOW_HEIGHT);
+    double dim=(2.0*min(w,h))/3.0;
 
-    FinalBoard.SetDimensionX(w);
-    FinalBoard.SetDimensionY(h);
+    FinalBoard.SetDimensionX(dim);
+    FinalBoard.SetDimensionY(dim);
+    FinalBoard.SetDimensionZ(dim);
 
 
     glViewport(0, 0, w, h);
@@ -412,7 +414,7 @@ int graphics(int argc,char *argv[])
 {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-    glutInitWindowSize(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY());
+    glutInitWindowSize(1280,720);
     glutCreateWindow("Team BabeMagnets");
     
     glutDisplayFunc(display);
@@ -454,13 +456,14 @@ void *UpdateBoardThread(void* id)
     		if (BallConsidered_Coordx + BallConsidered_VelocityX + BallConsidered_Radius> FinalBoard.GetDimensionX())
     		{
     			BallConsidered.SetX(FinalBoard.GetDimensionX() -BallConsidered_Radius);
-    			BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
-    			BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
+    			// BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
+    			// BallConsidered.SetZ(BallConsidered)
+                BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
     		}
     		else if (BallConsidered_Coordx+BallConsidered_VelocityX + FinalBoard.GetDimensionX() -BallConsidered_Radius<0)
     		{
     			BallConsidered.SetX(0-FinalBoard.GetDimensionX()+BallConsidered_Radius);
-    			BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
+    			// BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
     			BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());	
     		}
     		else
@@ -471,13 +474,13 @@ void *UpdateBoardThread(void* id)
             if (BallConsidered_Coordy+BallConsidered_VelocityY +BallConsidered_Radius> FinalBoard.GetDimensionY())
             {
                 BallConsidered.SetY(FinalBoard.GetDimensionY()-BallConsidered_Radius);
-                BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
+                // BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
                 BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());
             }
             else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionY() -BallConsidered_Radius <0)
             {
                 BallConsidered.SetY(0-FinalBoard.GetDimensionY() + BallConsidered_Radius);
-                BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);    
+                // BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);    
                 BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());   
             }
             else
@@ -489,13 +492,13 @@ void *UpdateBoardThread(void* id)
             if (BallConsidered_Coordz+BallConsidered_VelocityZ +BallConsidered_Radius> FinalBoard.GetDimensionZ())
             {
                 BallConsidered.SetZ(FinalBoard.GetDimensionZ()-BallConsidered_Radius);
-                BallConsidered.SetZ(BallConsidered_Coordz+BallConsidered_VelocityZ);
+                // BallConsidered.SetZ(BallConsidered_Coordz+BallConsidered_VelocityZ);
                 BallConsidered.SetVelocityZ(0-BallConsidered.GetVelocityZ());
             }
             else if (BallConsidered_Coordz+BallConsidered_VelocityZ + FinalBoard.GetDimensionZ() -BallConsidered_Radius <0)
             {
                 BallConsidered.SetZ(0-FinalBoard.GetDimensionZ() + BallConsidered_Radius);
-                BallConsidered.SetZ(BallConsidered_Coordz+BallConsidered_VelocityZ);    
+                // BallConsidered.SetZ(BallConsidered_Coordz+BallConsidered_VelocityZ);    
                 BallConsidered.SetVelocityZ(0-BallConsidered.GetVelocityZ());   
             }
             else
@@ -551,12 +554,12 @@ void *UpdateBoardThread(void* id)
     					double v2=(mass2*u2 + 2*mass1*u1 - mass1*u2)/(mass1+mass2);
                         
                         //Along XYZ unchanged (tangential)
-                        double vx1=ux1 - ((v1-u1) *dx)/distance;
-                        double vy1=uy1 - ((v1-u1) *dy)/distance;
-                        double vz1=uz1 - ((v1-u1) *dz)/distance;
-                        double vx2=ux2 - ((v2-u2) *dx)/distance;
-                        double vy2=uy2 - ((v2-u2) *dy)/distance;
-                        double vz2=uz2 - ((v2-u2) *dz)/distance;
+                        double vx1=ux1 + ((v1-u1) *dx)/distance;
+                        double vy1=uy1 + ((v1-u1) *dy)/distance;
+                        double vz1=uz1 + ((v1-u1) *dz)/distance;
+                        double vx2=ux2 + ((v2-u2) *dx)/distance;
+                        double vy2=uy2 + ((v2-u2) *dy)/distance;
+                        double vz2=uz2 + ((v2-u2) *dz)/distance;
 
 
     					BallConsidered.SetX(BallConsidered.GetX() - (l*dx)/distance);
