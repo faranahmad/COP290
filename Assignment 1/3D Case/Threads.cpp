@@ -18,8 +18,8 @@ bool PauseBoard;
 
 GLuint _textureId;
  
-double rotate_y=0; 
-double rotate_x=0;
+double rotate_y=0.0; 
+double rotate_x=0.0;
 double zoom=0.0;
 
 struct Graph {
@@ -28,8 +28,6 @@ struct Graph {
 };
 
 //TODO: (still not gonna use TODOIST :P)
- //     glutMotionFunc( ) for rotating
-//      glScalef() for zooming in and out
 //      give texture to the walls
 //      give thickness to the walls
 namespace {
