@@ -394,10 +394,13 @@ void display(void)
         glPushMatrix();
         // cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
         glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(), 0);
-    // glEnable(GL_COLOR_MATERIAL);
+        // glEnable(GL_COLOR_MATERIAL);
         glColor3f(FinalBoard.GetBallFromId(i).GetColor().GetR(),FinalBoard.GetBallFromId(i).GetColor().GetG(),FinalBoard.GetBallFromId(i).GetColor().GetB());
-        // glColor3f(0.0,1.0,0.5);
-  //       GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
+        cout <<FinalBoard.GetBallFromId(i).GetColor().GetR()<<"\t"<<FinalBoard.GetBallFromId(i).GetColor().GetG()<<"\t"<<FinalBoard.GetBallFromId(i).GetColor().GetB()<<"\n";
+        // glColor3f(0.9,0.5,0.5);
+
+
+        // GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
         // // GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
         // GLfloat shininess[] = {50};
         // // glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
