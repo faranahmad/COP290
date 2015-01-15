@@ -18,11 +18,16 @@ struct Graph {
 };
 
 pthread_mutex_t UpdateLock;
+std::vector<pthread_t> BallThreads; //[NumberOfBalls];
 Board FinalBoard;
 bool PauseBoard;
+int Ballid_From_Selection;
+// bool 
+
 
 GLuint _textureId;
  
+void *UpdateBoardThread(void *);
 
 namespace {
     //Converts a four-character array to an integer, using little-endian form
@@ -191,6 +196,8 @@ void mouseclick(int button,int state,int x,int y )
         int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
         float const window_aspect = (float)window_width / (float)window_height;
         // cout<<x<<'\t'<<y<<endl;
+        cout << window_width<<endl;
+        cout << window_height<<endl;
         float f1=window_width/1000.0;
         float f2=window_height/500.0;
         // cout<<(x>920*f1)<<"     "<<(x<998*f2)<<endl;
@@ -199,12 +206,12 @@ void mouseclick(int button,int state,int x,int y )
             PauseBoard=false;
             cout<<"Play Button"<<endl;
         }
-        if(x>505*f1 && x<552*f1 && y>462*f2 && y<499*f2)
+        else if(x>505*f1 && x<552*f1 && y>462*f2 && y<499*f2)
         {
             PauseBoard=true;
             cout<<"Pause Button"<<endl;
         }
-        if(x>952*f1 && x<998*f1 && y>462*f2 && y<499*f2)
+        else if(x>952*f1 && x<998*f1 && y>462*f2 && y<499*f2)
         {
             PauseBoard=true;
             Ball newBalltoAdd= Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionPosY(),FinalBoard.GetDimensionNegY(),1);
@@ -213,22 +220,57 @@ void mouseclick(int button,int state,int x,int y )
                 newBalltoAdd=Ball(FinalBoard.GetDimensionX(), FinalBoard.GetDimensionPosY(),FinalBoard.GetDimensionNegY(),1);
             }
             FinalBoard.AddBallToBoard(newBalltoAdd);
+            pthread_t newthread;
+            pthread_create(&newthread,NULL,UpdateBoardThread,(void *) (FinalBoard.GetNumberBalls() -1));
             PauseBoard=false;
             cout<<"Add Button"<<endl;
         }
-        if(x>50*f1 && x<97*f1 && y>462*f2 && y<499*f2)
+        else if(x>50*f1 && x<97*f1 && y>462*f2 && y<499*f2)
         {
             cout<<"SpeedUp Button"<<endl;
         }
-        if(x>0*f1 && x<47*f1 && y>462*f2 && y<499*f2)
+        else if(x>0*f1 && x<47*f1 && y>462*f2 && y<499*f2)
         {
             cout<<"SlowDown Button"<<endl;
         }
-        if(x>901*f1 && x<950*f1 && y>462*f2 && y<499*f2)
+        else if(x>901*f1 && x<950*f1 && y>462*f2 && y<499*f2)
         {
-            cout<<"Remove Button"<<endl;
+            // BallThreads.pop_back();
+            cout<<"Remove Button  "<< BallThreads.size()<<endl;
         }
-    
+        if(PauseBoard==true)
+        {
+            //cout <<"i m here"<<endl;
+            int no_of_balls=FinalBoard.GetNumberBalls();
+            vector<Ball> vector_balls = FinalBoard.GetVectorBalls();
+            for(int i=0;i<no_of_balls;i++)
+            {
+                //cout<<"reached here"<< endl;
+                double width_of_window = (2*(1/0.949)*FinalBoard.GetDimensionX()/4.0);
+                double height_of_window = ((1/0.940)*FinalBoard.GetDimensionPosY()+(1/0.780)*FinalBoard.GetDimensionNegY())/4.0;
+                double x_modified = x - width_of_window;
+                double y_modified = height_of_window - y;
+                double coordi_x=vector_balls[i].GetX()/2;
+                double coordi_y=vector_balls[i].GetY()/2;
+                // cout << "------"<< endl;
+                // cout << width_of_window<<endl;
+                // cout << height_of_window<<endl;
+                // cout<<x<<endl;
+                // cout <<y<<endl;
+                // cout<<x_modified<<endl;
+                // cout << y_modified<< endl;
+                // cout <<coordi_x<< endl;
+                // cout<<coordi_y<<endl;
+                // cout<<vector_balls[i].GetRadius()<<endl;
+                // cout <<"--------"<<endl;
+                if(sqrt(double((coordi_x-x_modified)*(coordi_x-x_modified)+(coordi_y-y_modified)*(coordi_y-y_modified)))<=vector_balls[i].GetRadius()/2.0)
+                {
+                    Ballid_From_Selection=i;
+                    //cout << i << endl;
+                    break;
+                }                    
+            }
+        }
     }
     glutPostRedisplay();
 }
@@ -541,10 +583,11 @@ int main(int argc, char **argv)
 {
 	srand(time(NULL));
 	const int NumberOfBalls = atoi(argv[1]);
+    BallThreads=std::vector<pthread_t> (NumberOfBalls);
 	pthread_mutex_init(&UpdateLock,NULL);
 	FinalBoard=Board(1000,500,100,NumberOfBalls);
 	// cout <<FinalBoard.Get
-	pthread_t BallThreads [NumberOfBalls];
+	//pthread_t BallThreads [NumberOfBalls];
 	pthread_t DisplayThread;
 	cout <<"Starting\n";
     PauseBoard=false;
