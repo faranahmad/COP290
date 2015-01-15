@@ -490,6 +490,7 @@ int graphics(int argc,char *argv[])
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
     glutMouseFunc(mouseclick);
+    glutMotionFunc(mousemotion);
     glutSpecialFunc(specialKeys);
     glutKeyboardFunc(handleKeypress);
     initRendering();
