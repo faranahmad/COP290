@@ -20,7 +20,9 @@ struct Graph {
 pthread_mutex_t UpdateLock;
 std::vector<pthread_t> BallThreads; //[NumberOfBalls];
 Board FinalBoard;
+
 bool PauseBoard;
+
 int Ballid_From_Selection;
 bool If_Ball_Selected;
 // bool 
@@ -408,6 +410,7 @@ void display(void)
         GLfloat ambient[] = {0.7f,0.7f,0.7f,1.0f};
         GLfloat cyan[] = {0.8,0.8,0.8,1};
         GLfloat shininess[] = {100};
+
         glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
         glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
         glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
