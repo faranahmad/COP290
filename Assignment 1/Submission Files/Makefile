@@ -10,6 +10,7 @@ all: Ball.cpp Board.cpp Threads.cpp
 execute: Color.cpp Ball.cpp Board.cpp Image.cpp Threads.cpp
 	$(Compiler) $(Arguments) Color.cpp Ball.cpp Board.cpp Image.cpp Threads.cpp $(Including) $(IncludingGraphics)
 	./a.out $(num_thread)
+	rm a.out
 
 test: Ball.cpp Board.cpp Test.cpp BallTest.cpp BoardTest.cpp AllTests.cpp  
 	$(Compiler) $(Arguments) Ball.cpp Board.cpp Test.cpp BallTest.cpp BoardTest.cpp AllTests.cpp 
