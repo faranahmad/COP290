@@ -498,6 +498,13 @@ void *UpdateBoardThread(void* id)
                 MessageVector[ballid].pop();
                 VectorBallsConsidered[current.GetId()]=current.GetBall();
             }
+            BallConsidered=VectorBallsConsidered[ballid];
+            BallConsidered_Coordx = BallConsidered.GetX(); 
+            BallConsidered_Coordy = BallConsidered.GetY();
+            BallConsidered_Radius = BallConsidered.GetRadius();
+            BallConsidered_VelocityX=BallConsidered.GetVelocityX();
+            BallConsidered_VelocityY=BallConsidered.GetVelocityY();
+            
 
             if (BallConsidered_Coordx + BallConsidered_VelocityX + BallConsidered_Radius> FinalBoard.GetDimensionX())
             {
