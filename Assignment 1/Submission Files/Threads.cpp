@@ -20,6 +20,7 @@ struct Graph {
 pthread_mutex_t UpdateLock;
 std::vector<pthread_t> BallThreads; //[NumberOfBalls];
 Board FinalBoard;
+std::vector<Ball> CollisionBalls;
 
 bool PauseBoard;
 
@@ -549,6 +550,11 @@ void *UpdateBoardThread(void* id)
                         double costheta = (dx/distance);
                         double sintheta = (dy/distance);
                         
+                        double CollisionX=BallConsidered.GetX()+BallConsidered.GetRadius()*costheta;
+                        double CollisionY=BallConsidered.GetY() +BallConsidered.GetRadius()*sintheta;
+                        CollisionBalls.push_back(Ball(CollisionX,CollisionY));
+                        
+
                         double mass2 = Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius(); 
                         // double mass2=1.0;
                         double ux2 = Vector_Of_Balls[i].GetVelocityX();
