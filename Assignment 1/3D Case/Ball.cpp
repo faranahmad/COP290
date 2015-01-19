@@ -20,14 +20,23 @@ Ball::Ball(double x,double y,double z)
 
 Ball::Ball(double limx,double limy,double limz,double random)
 {
-	std::vector<Color> GoodColors;
-
-	GoodColors.push_back(Color());
-	GoodColors.push_back(Color(46,204,113));
-	GoodColors.push_back(Color(0,255,0));
-	GoodColors.push_back(Color(0,0,255));
-	GoodColors.push_back(Color(241,196,15));
-	
+std::vector<Color> GoodColors;
+	GoodColors.push_back(Color(26,188,156));
+	GoodColors.push_back(Color(rand()%256,rand()%256,rand()%256));
+	GoodColors.push_back(Color(192, 57, 43));
+	GoodColors.push_back(Color(142, 68, 173));
+	GoodColors.push_back(Color(243, 156, 18));
+	GoodColors.push_back(Color(25,25,112));
+	GoodColors.push_back(Color(139,0,0));
+	GoodColors.push_back(Color(0,100,0));
+	GoodColors.push_back(Color(0,139,69));
+	GoodColors.push_back(Color(225, 215,0));
+	GoodColors.push_back(Color(0, 0, 238));
+	GoodColors.push_back(Color(85, 26, 139));
+	GoodColors.push_back(Color(176, 23,21));
+	GoodColors.push_back(Color(128, 0,0));
+	GoodColors.push_back(Color(2, 2, 2));
+		
 	// Gives a random ball within  -limx to +limx and -limy to +limy
 	radius = (rand() % 50) + 50;
 	coord_x = (rand() % (int) (2* (limx-radius))) - (limx-radius);

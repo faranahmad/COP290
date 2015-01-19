@@ -2,6 +2,7 @@
 #include <stdarg.h>
 #include <math.h>
 #include <algorithm>
+#include <iostream>
 #define GL_GLEXT_PROTOTYPES
 #ifdef __APPLE__
 #include <GLUT/glut.h>
@@ -15,6 +16,7 @@ void display();
 void specialKeys();
 double rotate_y=0; 
 double rotate_x=0;
+double zoom=1;
 void display()
 {
 	int const w  = glutGet(GLUT_WINDOW_WIDTH);
@@ -33,6 +35,7 @@ void display()
 
 	glRotatef( rotate_x, 200, 0.0, 0.0 );
 	glRotatef( rotate_y, 0.0, 200, 0.0 );
+	glScalef(zoom,zoom,zoom);
 	
 	float f=(4.0/6.0)*min(w,h);
 	glBegin(GL_POLYGON);
@@ -67,11 +70,11 @@ void display()
 	
 	glPushMatrix();
     glTranslatef(0, 0, 0);
-    glColor3f(  1,    1.0,  0 );	
+    glColor3f(  0.2,    0.8,  0.2 );	
     glutSolidSphere(100, 100, 100);
         glPopMatrix();
     glPushMatrix();
-    glColor3f(  0.0,    1.0,  1 );
+    glColor3f(  0.55,    0.3,  0.41 );
     glTranslatef(200, 200, 200);	
     glutSolidSphere(100, 100, 100);
         glPopMatrix();
@@ -144,7 +147,85 @@ void reshape(int x, int y)
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 }
+int prevx=0;
+int prevy=0;
+int mx=0;
+int my=0;
+int buttonpressed=false;
+int state=0;
+void mouseclick(int button,int state,int x,int y )
+{	if(button==GLUT_LEFT_BUTTON)
+	{
+    	if(state== GLUT_UP )
+    	{
+    	    int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
+    	    int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
+    	    float const window_aspect = (float)window_width / (float)window_height;
+    	    cout<<x<<'\t'<<y<<endl;
+    		buttonpressed=false;
+    	    
+    	}
+	}
+	if(button==3)
+	{
+		if(state==0)
+		{
+			zoom+=0.03;
+		}
+	}
 
+	if(button==4)
+	{
+		if(state==0)
+		{
+			zoom-=0.03;
+		}
+	}
+	if(state=GLUT_UP)
+	{
+		mx=x;
+    	    my=y;
+    	    prevx=x;
+    	    prevy=y;
+    	    state=0;
+	}
+
+    glutPostRedisplay();
+
+}
+
+
+void mousemotion(int x, int y)
+ {	
+ 	if(abs(mx-x)>10&& !buttonpressed)
+	{
+	state=1;
+	buttonpressed=true;
+	}
+ 	
+ 	if(abs(my-y)>10 && !buttonpressed)
+ 			{
+ 				state=2;
+ 				buttonpressed=true;
+ 	}
+ 	if(state==1)
+ 	{
+ 		if(x>prevx)
+ 			rotate_y+=0.75;
+ 		else
+ 			rotate_y+=-0.75;
+ 	}
+ 	if(state==2)
+ 		if(y>prevy)
+ 			rotate_x+=0.75;
+ 		else
+ 			rotate_x+=-0.75;
+ 	prevx=x;
+ 	prevy=y;
+ 	// cout<<x<<"\t"<<prevx<<"\t"<<mx<<"\t"<<endl;
+ 	// cout<<y<<"\t"<<prevy<<"\t"<<my<<endl<<endl;
+ 	glutPostRedisplay();
+ }
 int main(int argc, char* argv[])
 {
  
@@ -160,6 +241,8 @@ int main(int argc, char* argv[])
   glutSpecialFunc(specialKeys);
   glutReshapeFunc(reshape);
  
+  glutMouseFunc(mouseclick);
+  glutMotionFunc(mousemotion);
   glutMainLoop();
  
   return 0;

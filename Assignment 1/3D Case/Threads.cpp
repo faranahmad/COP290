@@ -18,9 +18,9 @@ bool PauseBoard;
 
 GLuint _textureId;
  
-double rotate_y=0; 
-double rotate_x=0;
-
+double rotate_y=0.0; 
+double rotate_x=0.0;
+double zoom=1.0;
 
 struct Graph {
     int x1;
@@ -28,8 +28,6 @@ struct Graph {
 };
 
 //TODO: (still not gonna use TODOIST :P)
- //     glutMotionFunc( ) for rotating
-//      glScalef() for zooming in and out
 //      give texture to the walls
 //      give thickness to the walls
 namespace {
@@ -191,49 +189,84 @@ void initRendering()
     delete image;
 }
 
+int prevx=0;
+int prevy=0;
+int mx=0;
+int my=0;
+int buttonPressed=false;
+int state=0;
+
 void mouseclick(int button,int state,int x,int y )
 {
-     // glutMotionFunc( )
-    if(state== GLUT_UP )
+    if(button==GLUT_LEFT_BUTTON)
     {
-        int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
-        int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
-        float const window_aspect = (float)window_width / (float)window_height;
-        // cout<<x<<'\t'<<y<<endl;
-        float f1=window_width/1000.0;
-        float f2=window_height/500.0;
-        // cout<<(x>920*f1)<<"     "<<(x<998*f2)<<endl;
-        if(x>920*f1 && x<998*f1 && y>435*f2 && y<498*f2)
+        if(state== GLUT_UP )
         {
-            PauseBoard=false;
-            cout<<"Play Button"<<endl;
+            buttonPressed=false;
         }
-        if(x>840*f1 && x<920*f1 && y>435*f2 && y<498*f2)
+    }
+    if(button==3)
+    {
+        if(state==0)
         {
-            PauseBoard=true;
-            cout<<"Pause Button"<<endl;
+            zoom+=0.03;
         }
-        if(x>615*f1 && x<835*f1 && y>435*f2 && y<498*f2)
+    }
+
+    if(button==4)
+    {
+        if(state==0)
         {
-            PauseBoard=true;
-            Ball newBalltoAdd= Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(),1);
-            while (!CheckCorrect(FinalBoard.GetVectorBalls(), newBalltoAdd))
+            zoom-=0.03;
+        }
+    }
+    if(state== GLUT_UP )
+    {    if(state== GLUT_UP )
+        {
+            buttonPressed=false;
+            int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
+            int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
+            float const window_aspect = (float)window_width / (float)window_height;
+            // cout<<x<<'\t'<<y<<endl;
+            float f1=window_width/1000.0;
+            float f2=window_height/500.0;
+            // cout<<(x>920*f1)<<"     "<<(x<998*f2)<<endl;
+            if(x>920*f1 && x<998*f1 && y>435*f2 && y<498*f2)
             {
-                newBalltoAdd=Ball(FinalBoard.GetDimensionX(), FinalBoard.GetDimensionY(),1);
+                PauseBoard=false;
+                cout<<"Play Button"<<endl;
             }
-            FinalBoard.AddBallToBoard(newBalltoAdd);
-            PauseBoard=false;
-            cout<<"Add Button"<<endl;
+            if(x>840*f1 && x<920*f1 && y>435*f2 && y<498*f2)
+            {
+                PauseBoard=true;
+                cout<<"Pause Button"<<endl;
+            }
+            if(x>615*f1 && x<835*f1 && y>435*f2 && y<498*f2)
+            {
+                PauseBoard=true;
+                Ball newBalltoAdd= Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(),1);
+                while (!CheckCorrect(FinalBoard.GetVectorBalls(), newBalltoAdd))
+                {
+                    newBalltoAdd=Ball(FinalBoard.GetDimensionX(), FinalBoard.GetDimensionY(),1);
+                }
+                FinalBoard.AddBallToBoard(newBalltoAdd);
+                PauseBoard=false;
+                cout<<"Add Button"<<endl;
+            }
+            if(x>80*f1 && x<155*f1 && y>435*f2 && y<498*f2)
+            {
+                cout<<"SpeedUp Button"<<endl;
+            }
+            if(x>0*f1 && x<80*f1 && y>435*f2 && y<498*f2)
+            {
+                cout<<"SlowDown Button"<<endl;
+            }
+            mx=x;
+            my=y;
+            prevx=x;
+            prevy=y;
+            state=0;
         }
-        if(x>80*f1 && x<155*f1 && y>435*f2 && y<498*f2)
-        {
-            cout<<"SpeedUp Button"<<endl;
-        }
-        if(x>0*f1 && x<80*f1 && y>435*f2 && y<498*f2)
-        {
-            cout<<"SlowDown Button"<<endl;
-        }
-    
     }
     glutPostRedisplay();
 }
@@ -244,6 +277,36 @@ void handleKeypress(unsigned char key, int x, int y) {
             exit(0);
     }
 }
+
+void mousemotion(int x, int y)
+ {  
+    if(abs(mx-x)>10&& !buttonPressed)
+    {
+    state=1;
+    buttonPressed=true;
+    }
+    
+    if(abs(my-y)>10 && !buttonPressed)
+            {
+                state=2;
+                buttonPressed=true;
+    }
+    if(state==1)
+    {
+        if(x>prevx)
+            rotate_y+=0.75;
+        else
+            rotate_y+=-0.75;
+    }
+    if(state==2)
+        if(y>prevy)
+            rotate_x+=0.75;
+        else
+            rotate_x+=-0.75;
+    prevx=x;
+    prevy=y;
+    glutPostRedisplay();
+ }
 void specialKeys( int key, int x, int y ) 
 {
  
@@ -287,14 +350,14 @@ void display(void)
     GLfloat const light_ambient[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT0, GL_POSITION, light_pos),
     glLightfv(GL_LIGHT0, GL_DIFFUSE, light_color);
-    glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, light_color);
+    // glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+    // glLightfv(GL_LIGHT0, GL_SPECULAR, light_color);
 
     GLfloat const light_pos2[4]     = {float(0-FinalBoard.GetDimensionX()), float(0-FinalBoard.GetDimensionY()),  0  , 1.0  };
     GLfloat const light_color2[4]   = { 1,  0,  0, 1.};
     GLfloat const light_ambient2[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT1, GL_POSITION, light_pos2),
-    glLightfv(GL_LIGHT1, GL_DIFFUSE, light_color2);
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, light_color);
     glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient2);
     glLightfv(GL_LIGHT1, GL_SPECULAR, light_color2);
 
@@ -302,17 +365,17 @@ void display(void)
     GLfloat const light_color3[4]   = { 0,  1,  0, 1.};
     GLfloat const light_ambient3[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT2, GL_POSITION, light_pos3),
-    glLightfv(GL_LIGHT2, GL_DIFFUSE, light_color3);
-    glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient3);
-    glLightfv(GL_LIGHT2, GL_SPECULAR, light_color3);
-
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, light_color);
+    // glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient3);
+    // glLightfv(GL_LIGHT2, GL_SPECULAR, light_color3);
+ 
     GLfloat const light_pos4[4]     = {float(0-FinalBoard.GetDimensionX()), float(FinalBoard.GetDimensionY()),  0  , 1.0  };
     GLfloat const light_color4[4]   = { 1,  1,  0, 1.};
     GLfloat const light_ambient4[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT3, GL_POSITION, light_pos4),
-    glLightfv(GL_LIGHT3, GL_DIFFUSE, light_color4);
-    glLightfv(GL_LIGHT3, GL_AMBIENT, light_ambient4);
-    glLightfv(GL_LIGHT3, GL_SPECULAR, light_color4);
+    glLightfv(GL_LIGHT3, GL_DIFFUSE, light_color);
+    // glLightfv(GL_LIGHT3, GL_AMBIENT, light_ambient4);
+    // glLightfv(GL_LIGHT3, GL_SPECULAR, light_color4);
 
     // GLfloat const light_pos5[4]     = {0,0, 300  , 1.0  };
     // GLfloat const light_color5[4]   = { 1,  1,  1, 1.};
@@ -324,19 +387,21 @@ void display(void)
 
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
-    // glEnable(GL_LIGHT1);
-    // glEnable(GL_LIGHT2);
-    // glEnable(GL_LIGHT3);
+    glEnable(GL_LIGHT1);
+    glEnable(GL_LIGHT2);
+    glEnable(GL_LIGHT3);
     // glEnable(GL_LIGHT4);
 
    
 
     glRotatef( rotate_x, 200, 0.0, 0.0 );
     glRotatef( rotate_y, 0.0, 200, 0.0 );
+    glScalef(zoom,zoom,zoom);
     // glScalef( 1.0+rotate_x/100.0,1.0+rotate_x/100.0,1.0f ); 
     float f=(4.0/6.0)*min(window_width,window_height);
     glEnable(GL_DEPTH_TEST);
 
+ 
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, _textureId);
     
@@ -352,15 +417,31 @@ void display(void)
     glVertex3f( -f,  f, -f ); 
     glTexCoord2f(0.0f, 0.0f);  
     glVertex3f( -f, -f, -f);      
+    glDisable(GL_TEXTURE_2D);
     glEnd();
-
-    glBegin(GL_POLYGON);
-    glColor3f(  0.0,    1.0,  0 );
-    glVertex3f( f, -f, -f );
-    glVertex3f( f,  f, -f );
-    glVertex3f( f,  f,  f );
-    glVertex3f( f, -f,  f );
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glBegin(GL_QUADS);
+    glNormal3f(0.0, 1.0f, 0.0f); 
+    glTexCoord2f(1.0f, 0.0f);  
+    glVertex3f( f , -f, -f);
+    glTexCoord2f(1.0f, 1.0f); 
+    glVertex3f(  f,  f, -f ); 
+    glTexCoord2f(0.0f, 1.0f);   
+    glVertex3f( f,  f, f ); 
+    glTexCoord2f(0.0f, 0.0f);  
+    glVertex3f( f, -f, f);      
+    glDisable(GL_TEXTURE_2D);
     glEnd();
+    
+    // glBegin(GL_POLYGON);
+    // glColor3f(  0.0,    1.0,  0 );
+    // glVertex3f( f, -f, -f );
+    // glVertex3f( f,  f, -f );
+    // glVertex3f( f,  f,  f );
+    // glVertex3f( f, -f,  f );
+    // glEnd();
 
     glBegin(GL_POLYGON);
     glColor3f(   0,  0,  1 );
@@ -369,20 +450,21 @@ void display(void)
     glVertex3f( -f, -f,  f );
     glVertex3f( -f, -f, -f );
     glEnd();
-
+ glEnable(GL_COLOR_MATERIAL);
     for( int i=0;i<FinalBoard.GetNumberBalls();i++ ) 
     {
         glPushMatrix();
         // cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
-        glColor3f((FinalBoard.GetBallFromId(i).GetColor().GetR())/255.0,(FinalBoard.GetBallFromId(i).GetColor().GetG())/255.0,(FinalBoard.GetBallFromId(i).GetColor().GetB())/255.0);
         glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(),FinalBoard.GetBallFromId(i).GetZ());
-        // cout <<FinalBoard.GetBallFromId(i).GetColor().GetR()/255.0<<"\n";
-        GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
-		// GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
-		GLfloat shininess[] = {50};
-		// glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
-		glMaterialfv(GL_FRONT, GL_SPECULAR, white);
-		glMaterialfv(GL_FRONT, GL_SHININESS, shininess);
+        glColor3f(FinalBoard.GetBallFromId(i).GetColor().GetR(),FinalBoard.GetBallFromId(i).GetColor().GetG(),FinalBoard.GetBallFromId(i).GetColor().GetB());
+        GLfloat white[] = {1.f, 1.f, 1.f, 1.0f};
+        GLfloat ambient[] = {0.7f,0.7f,0.7f,1.0f};
+        GLfloat cyan[] = {0.8,0.8,0.8,1};
+        GLfloat shininess[] = {100};
+        glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient);
         glutSolidSphere(FinalBoard.GetBallFromId(i).GetRadius(), 31, 10);
         glPopMatrix();
     }
@@ -394,11 +476,12 @@ void reshape(int x, int y)
 {
 	int w=glutGet(GLUT_WINDOW_WIDTH);
     int h=glutGet(GLUT_WINDOW_HEIGHT);
-    double dim=(2.0*min(w,h))/3.0;
 
-    FinalBoard.SetDimensionX(dim);
-    FinalBoard.SetDimensionY(dim);
-    FinalBoard.SetDimensionZ(dim);
+    int dimension=2.0/3.0*min(w,h);
+
+    FinalBoard.SetDimensionX(dimension);
+    FinalBoard.SetDimensionY(dimension);
+    FinalBoard.SetDimensionZ(dimension);
 
 
     glViewport(0, 0, w, h);
@@ -416,11 +499,17 @@ int graphics(int argc,char *argv[])
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
     glutInitWindowSize(1280,720);
+    FinalBoard.SetDimensionX(480);
+    FinalBoard.SetDimensionY(480);
+    FinalBoard.SetDimensionZ(480);
+
+
     glutCreateWindow("Team BabeMagnets");
     
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
     glutMouseFunc(mouseclick);
+    glutMotionFunc(mousemotion);
     glutSpecialFunc(specialKeys);
     glutKeyboardFunc(handleKeypress);
     initRendering();
@@ -458,8 +547,7 @@ void *UpdateBoardThread(void* id)
     		{
     			BallConsidered.SetX(FinalBoard.GetDimensionX() -BallConsidered_Radius);
     			// BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
-    			// BallConsidered.SetZ(BallConsidered)
-                BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
+    			BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
     		}
     		else if (BallConsidered_Coordx+BallConsidered_VelocityX + FinalBoard.GetDimensionX() -BallConsidered_Radius<0)
     		{
