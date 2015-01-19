@@ -22,7 +22,7 @@ Ball::Ball(double limx,double limy,double limz,double random)
 {
 std::vector<Color> GoodColors;
 	GoodColors.push_back(Color(26,188,156));
-	GoodColors.push_back(Color(rand()%256,rand()%256,rand()%256));
+	// GoodColors.push_back(Color(rand()%256,rand()%256,rand()%256));
 	GoodColors.push_back(Color(192, 57, 43));
 	GoodColors.push_back(Color(142, 68, 173));
 	GoodColors.push_back(Color(243, 156, 18));
