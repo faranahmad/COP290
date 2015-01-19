@@ -350,14 +350,14 @@ void display(void)
     GLfloat const light_ambient[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT0, GL_POSITION, light_pos),
     glLightfv(GL_LIGHT0, GL_DIFFUSE, light_color);
-    glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, light_color);
+    // glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+    // glLightfv(GL_LIGHT0, GL_SPECULAR, light_color);
 
     GLfloat const light_pos2[4]     = {float(0-FinalBoard.GetDimensionX()), float(0-FinalBoard.GetDimensionY()),  0  , 1.0  };
     GLfloat const light_color2[4]   = { 1,  0,  0, 1.};
     GLfloat const light_ambient2[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT1, GL_POSITION, light_pos2),
-    glLightfv(GL_LIGHT1, GL_DIFFUSE, light_color2);
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, light_color);
     glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient2);
     glLightfv(GL_LIGHT1, GL_SPECULAR, light_color2);
 
@@ -365,17 +365,17 @@ void display(void)
     GLfloat const light_color3[4]   = { 0,  1,  0, 1.};
     GLfloat const light_ambient3[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT2, GL_POSITION, light_pos3),
-    glLightfv(GL_LIGHT2, GL_DIFFUSE, light_color3);
-    glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient3);
-    glLightfv(GL_LIGHT2, GL_SPECULAR, light_color3);
-
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, light_color);
+    // glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient3);
+    // glLightfv(GL_LIGHT2, GL_SPECULAR, light_color3);
+ 
     GLfloat const light_pos4[4]     = {float(0-FinalBoard.GetDimensionX()), float(FinalBoard.GetDimensionY()),  0  , 1.0  };
     GLfloat const light_color4[4]   = { 1,  1,  0, 1.};
     GLfloat const light_ambient4[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT3, GL_POSITION, light_pos4),
-    glLightfv(GL_LIGHT3, GL_DIFFUSE, light_color4);
-    glLightfv(GL_LIGHT3, GL_AMBIENT, light_ambient4);
-    glLightfv(GL_LIGHT3, GL_SPECULAR, light_color4);
+    glLightfv(GL_LIGHT3, GL_DIFFUSE, light_color);
+    // glLightfv(GL_LIGHT3, GL_AMBIENT, light_ambient4);
+    // glLightfv(GL_LIGHT3, GL_SPECULAR, light_color4);
 
     // GLfloat const light_pos5[4]     = {0,0, 300  , 1.0  };
     // GLfloat const light_color5[4]   = { 1,  1,  1, 1.};
@@ -387,9 +387,9 @@ void display(void)
 
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
-    // glEnable(GL_LIGHT1);
-    // glEnable(GL_LIGHT2);
-    // glEnable(GL_LIGHT3);
+    glEnable(GL_LIGHT1);
+    glEnable(GL_LIGHT2);
+    glEnable(GL_LIGHT3);
     // glEnable(GL_LIGHT4);
 
    
@@ -401,6 +401,7 @@ void display(void)
     float f=(4.0/6.0)*min(window_width,window_height);
     glEnable(GL_DEPTH_TEST);
 
+ 
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, _textureId);
     
@@ -416,15 +417,31 @@ void display(void)
     glVertex3f( -f,  f, -f ); 
     glTexCoord2f(0.0f, 0.0f);  
     glVertex3f( -f, -f, -f);      
+    glDisable(GL_TEXTURE_2D);
     glEnd();
-
-    glBegin(GL_POLYGON);
-    glColor3f(  0.0,    1.0,  0 );
-    glVertex3f( f, -f, -f );
-    glVertex3f( f,  f, -f );
-    glVertex3f( f,  f,  f );
-    glVertex3f( f, -f,  f );
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glBegin(GL_QUADS);
+    glNormal3f(0.0, 1.0f, 0.0f); 
+    glTexCoord2f(1.0f, 0.0f);  
+    glVertex3f( f , -f, -f);
+    glTexCoord2f(1.0f, 1.0f); 
+    glVertex3f(  f,  f, -f ); 
+    glTexCoord2f(0.0f, 1.0f);   
+    glVertex3f( f,  f, f ); 
+    glTexCoord2f(0.0f, 0.0f);  
+    glVertex3f( f, -f, f);      
+    glDisable(GL_TEXTURE_2D);
     glEnd();
+    
+    // glBegin(GL_POLYGON);
+    // glColor3f(  0.0,    1.0,  0 );
+    // glVertex3f( f, -f, -f );
+    // glVertex3f( f,  f, -f );
+    // glVertex3f( f,  f,  f );
+    // glVertex3f( f, -f,  f );
+    // glEnd();
 
     glBegin(GL_POLYGON);
     glColor3f(   0,  0,  1 );
@@ -433,19 +450,21 @@ void display(void)
     glVertex3f( -f, -f,  f );
     glVertex3f( -f, -f, -f );
     glEnd();
-
+ glEnable(GL_COLOR_MATERIAL);
     for( int i=0;i<FinalBoard.GetNumberBalls();i++ ) 
     {
         glPushMatrix();
         // cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
         glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(),FinalBoard.GetBallFromId(i).GetZ());
         glColor3f(FinalBoard.GetBallFromId(i).GetColor().GetR(),FinalBoard.GetBallFromId(i).GetColor().GetG(),FinalBoard.GetBallFromId(i).GetColor().GetB());
-        GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
-		GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
-		GLfloat shininess[] = {50};
-		// glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
-		glMaterialfv(GL_FRONT, GL_SPECULAR, white);
-		glMaterialfv(GL_FRONT, GL_SHININESS, shininess);
+        GLfloat white[] = {1.f, 1.f, 1.f, 1.0f};
+        GLfloat ambient[] = {0.7f,0.7f,0.7f,1.0f};
+        GLfloat cyan[] = {0.8,0.8,0.8,1};
+        GLfloat shininess[] = {100};
+        glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient);
         glutSolidSphere(FinalBoard.GetBallFromId(i).GetRadius(), 31, 10);
         glPopMatrix();
     }
