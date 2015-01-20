@@ -62,8 +62,8 @@ Ball::Ball(double limx,double limposy,double limnegy,double random)
 		std::cout <<"In neg case\t"<<coord_y<<"\t"<<limnegy<<"\n";
 	}
 	//coord_y = (rand() % (int) (2* (limy-radius))) - (limy-radius);
-	velocity_x=(rand() % 50) -25;
-	velocity_y=(rand() % 50) -25;
+	velocity_x=(rand() % 30) -15;
+	velocity_y=(rand() % 30) -15;
 	color =GoodColors[rand() % GoodColors.size()];
 }
 
