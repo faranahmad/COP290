@@ -199,18 +199,12 @@ int prevx=0;
 int prevy=0;
 int mx=0;
 int my=0;
-int buttonPressed=false;
+bool buttonPressed=false;
 int state=0;
+bool click=false;
 
-void mouseclick(int button,int state,int x,int y )
+void mouseclick(int button,int s,int x,int y )
 {
-    if(button==GLUT_LEFT_BUTTON)
-    {
-        if(state== GLUT_UP )
-        {
-            buttonPressed=false;
-        }
-    }
     if(button==3)
     {
         if(state==0)
@@ -226,54 +220,24 @@ void mouseclick(int button,int state,int x,int y )
             zoom-=0.03;
         }
     }
-    if(state== GLUT_UP )
-    {    if(state== GLUT_UP )
-        {
-            buttonPressed=false;
-            int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
-            int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
-            float const window_aspect = (float)window_width / (float)window_height;
-            // cout<<x<<'\t'<<y<<endl;
-            float f1=window_width/1000.0;
-            float f2=window_height/500.0;
-            // cout<<(x>920*f1)<<"     "<<(x<998*f2)<<endl;
-            if(x>920*f1 && x<998*f1 && y>435*f2 && y<498*f2)
-            {
-                PauseBoard=false;
-                cout<<"Play Button"<<endl;
-            }
-            if(x>840*f1 && x<920*f1 && y>435*f2 && y<498*f2)
-            {
-                PauseBoard=true;
-                cout<<"Pause Button"<<endl;
-            }
-            if(x>615*f1 && x<835*f1 && y>435*f2 && y<498*f2)
-            {
-                PauseBoard=true;
-                Ball newBalltoAdd= Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(),1);
-                while (!CheckCorrect(FinalBoard.GetVectorBalls(), newBalltoAdd))
-                {
-                    newBalltoAdd=Ball(FinalBoard.GetDimensionX(), FinalBoard.GetDimensionY(),1);
-                }
-                FinalBoard.AddBallToBoard(newBalltoAdd);
-                PauseBoard=false;
-                cout<<"Add Button"<<endl;
-            }
-            if(x>80*f1 && x<155*f1 && y>435*f2 && y<498*f2)
-            {
-                cout<<"SpeedUp Button"<<endl;
-            }
-            if(x>0*f1 && x<80*f1 && y>435*f2 && y<498*f2)
-            {
-                cout<<"SlowDown Button"<<endl;
-            }
-            mx=x;
-            my=y;
-            prevx=x;
-            prevy=y;
-            state=0;
-        }
+    if(s== GLUT_DOWN)
+    {
+        
+        mx=x;
+        my=y;
+        prevx=x;
+        prevy=y;
+        click=true;
     }
+    if(s== GLUT_UP )
+        {
+            prevx=0;
+            prevy=0;
+            mx=0;
+            my=0;
+            state=0;
+            click=false;          
+        }
     glutPostRedisplay();
 }
 
@@ -286,32 +250,40 @@ void handleKeypress(unsigned char key, int x, int y) {
 
 void mousemotion(int x, int y)
  {  
-    if(abs(mx-x)>10&& !buttonPressed)
+    if(click)
     {
-    state=1;
-    buttonPressed=true;
-    }
-    
-    if(abs(my-y)>10 && !buttonPressed)
+        if(state==0)
+         {
+            if(abs(mx-x)>50 && state!=2)
+            {
+                state=1;
+            }
+            
+            if(abs(my-y)>50 && state!=1)
             {
                 state=2;
-                buttonPressed=true;
+            }
+        }
+    
+        if(state==1)
+        {
+            if(x>prevx)
+                rotate_y+=0.75;
+            else
+                rotate_y+=-0.75;    
+        }
+        if(state==2)
+        { 
+            if(y>prevy)
+                rotate_x+=0.75;
+            else
+                rotate_x+=-0.75;
+        }
+        prevx=x;
+        prevy=y;
     }
-    if(state==1)
-    {
-        if(x>prevx)
-            rotate_y+=0.75;
-        else
-            rotate_y+=-0.75;
-    }
-    if(state==2)
-        if(y>prevy)
-            rotate_x+=0.75;
-        else
-            rotate_x+=-0.75;
-    prevx=x;
-    prevy=y;
     glutPostRedisplay();
+
  }
 void specialKeys( int key, int x, int y ) 
 {
@@ -353,27 +325,29 @@ void display(void)
 
     GLfloat const light_pos[4]     = {0.0f, 0, 0    , 1.0  };
     GLfloat const light_color[4]   = { 1,  1,  1, 1.};
-    GLfloat const light_ambient[4] = { 0.10,  0.10,  0.30, 1.};
+    GLfloat const light_ambient[4] = { 0.,  0., 0., 1.};
+    GLfloat const light_specular[4] = { 1,  1, 1, 1};
+
     glLightfv(GL_LIGHT0, GL_POSITION, light_pos),
     glLightfv(GL_LIGHT0, GL_DIFFUSE, light_color);
-    // glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
-    // glLightfv(GL_LIGHT0, GL_SPECULAR, light_color);
+    glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
 
-    GLfloat const light_pos2[4]     = {float(0-FinalBoard.GetDimensionX()), float(0-FinalBoard.GetDimensionY()),  0  , 1.0  };
+    GLfloat const light_pos2[4]     = {FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(),FinalBoard.GetDimensionZ() , 1.0  };
     GLfloat const light_color2[4]   = { 1,  0,  0, 1.};
     GLfloat const light_ambient2[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT1, GL_POSITION, light_pos2),
     glLightfv(GL_LIGHT1, GL_DIFFUSE, light_color);
-    glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient2);
-    glLightfv(GL_LIGHT1, GL_SPECULAR, light_color2);
+    glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient);
+    glLightfv(GL_LIGHT1, GL_SPECULAR, light_specular);
 
-    GLfloat const light_pos3[4]     = {float(FinalBoard.GetDimensionX()),float(FinalBoard.GetDimensionY()),  0  , 1.0  };
+    GLfloat const light_pos3[4]     = {FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(),FinalBoard.GetDimensionZ(), 1.0  };
     GLfloat const light_color3[4]   = { 0,  1,  0, 1.};
     GLfloat const light_ambient3[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT2, GL_POSITION, light_pos3),
     glLightfv(GL_LIGHT2, GL_DIFFUSE, light_color);
-    // glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient3);
-    // glLightfv(GL_LIGHT2, GL_SPECULAR, light_color3);
+    glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient);
+    glLightfv(GL_LIGHT2, GL_SPECULAR, light_specular);
  
     GLfloat const light_pos4[4]     = {float(0-FinalBoard.GetDimensionX()), float(FinalBoard.GetDimensionY()),  0  , 1.0  };
     GLfloat const light_color4[4]   = { 1,  1,  0, 1.};
@@ -395,7 +369,7 @@ void display(void)
     glEnable(GL_LIGHT0);
     glEnable(GL_LIGHT1);
     glEnable(GL_LIGHT2);
-    glEnable(GL_LIGHT3);
+    // glEnable(GL_LIGHT3);
     // glEnable(GL_LIGHT4);
 
    
@@ -415,8 +389,13 @@ void display(void)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glBegin(GL_QUADS);
+<<<<<<< HEAD
     glNormal3f(0.0, 1.0f, 0.0f);
     glColor3f(1,1,1); 
+=======
+    glNormal3f(0.0, 1.0f, 0.0f); 
+    glColor3f(1,1,1);
+>>>>>>> c991a4e250f6b9fecd430511f06b6c139e077485
     glTexCoord2f(1.0f, 0.0f);  
     glVertex3f( f , -f, -f);
     glTexCoord2f(1.0f, 1.0f); 
@@ -480,6 +459,7 @@ void display(void)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glBegin(GL_QUADS);
     glColor3f(1,1,1);
+<<<<<<< HEAD
     glNormal3f(0.0, 1.0f, 0.0f); 
     glTexCoord2f(1.0f, 0.0f);  
     glVertex3f( -f , f, -f);
@@ -513,6 +493,8 @@ void display(void)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glBegin(GL_QUADS);
     glColor3f(1,1,1);
+=======
+>>>>>>> c991a4e250f6b9fecd430511f06b6c139e077485
     glNormal3f(0.0, 1.0f, 0.0f); 
     glTexCoord2f(1.0f, 0.0f);  
     glVertex3f( f , -f, -f);
@@ -650,13 +632,17 @@ void display(void)
     glDisable(GL_TEXTURE_2D);
     glEnd();
 
+<<<<<<< HEAD
     glEnable(GL_COLOR_MATERIAL);
+=======
+ glEnable(GL_COLOR_MATERIAL);
+>>>>>>> c991a4e250f6b9fecd430511f06b6c139e077485
     for( int i=0;i<FinalBoard.GetNumberBalls();i++ ) 
     {
         glPushMatrix();
         // cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
         glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(),FinalBoard.GetBallFromId(i).GetZ());
-        glColor3f(FinalBoard.GetBallFromId(i).GetColor().GetR(),FinalBoard.GetBallFromId(i).GetColor().GetG(),FinalBoard.GetBallFromId(i).GetColor().GetB());
+        glColor3f(FinalBoard.GetBallFromId(i).GetColor().GetR()/256.0,FinalBoard.GetBallFromId(i).GetColor().GetG()/256.0,FinalBoard.GetBallFromId(i).GetColor().GetB()/256.0);
         GLfloat white[] = {1.f, 1.f, 1.f, 1.0f};
         GLfloat ambient[] = {0.7f,0.7f,0.7f,1.0f};
         GLfloat cyan[] = {0.8,0.8,0.8,1};
@@ -669,6 +655,7 @@ void display(void)
         glPopMatrix();
     }
     glutSwapBuffers();
+
     glutPostRedisplay();
 }
 
