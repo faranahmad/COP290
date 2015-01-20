@@ -3,8 +3,8 @@
 Color::Color()
 {
 	R=1.0;
-	G=0.0;
-	B=0.0;
+	G=1.0;		
+	B=1.0;
 }
 
 Color::Color(int r,int g,int b)
