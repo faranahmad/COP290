@@ -625,6 +625,58 @@ void display(void)
     glVertex3f( -f, -f, -f );
     glDisable(GL_TEXTURE_2D);
     glEnd();
+    //grass ke saamne waala
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    glBegin(GL_POLYGON);
+    glColor3f(   5/256.0,  5/256.0,  5/256.0 );
+    glNormal3f(0.0,1.0f,0.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(  -f, -f, f );
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(  1.1*f, -f,  f );
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f( 1.1*f, -1.1*f,  f );
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f( -f, -1.1*f, f );
+    glDisable(GL_TEXTURE_2D);
+    glEnd();
+    //poore ka base
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    glBegin(GL_POLYGON);
+    glColor3f(   1,  1,  1 );
+    glNormal3f(0.0,1.0f,0.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(  -f, -1.1*f, -1.1*f );
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(  1.1*f, -1.1*f,  -1.1*f );
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f( 1.1*f, -1.1*f,  f );
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f( -f, -1.1*f, f );
+    glDisable(GL_TEXTURE_2D);
+    glEnd();
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    glBegin(GL_POLYGON);
+    glColor3f(   1,  1,  1 );
+    glNormal3f(0.0,1.0f,0.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f( -f, -1.1*f, -1.1*f );
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f( -f, -f,  -1.1*f );
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f( -f, -f,  f );
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f( -f, -1.1*f, f );
+    glDisable(GL_TEXTURE_2D);
+    glEnd();
+
 
 
     glEnable(GL_COLOR_MATERIAL);
