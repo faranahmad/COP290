@@ -580,7 +580,7 @@ void *UpdateBoardThread(void* id)
 
             for(int i=0;i<VectorBallsConsidered.size();i++)
             {
-                if ((i != ballid) && (BallInBoard[i]))
+                if ((i != ballid) && (BallInBoard[i]) && (BallInBoard[ballid]))
                 {
                     ux1 =  BallConsidered.GetVelocityX();
                     uy1 =  BallConsidered.GetVelocityY();
@@ -672,7 +672,6 @@ int main(int argc, char **argv)
 
     cout<<FinalBoard.GetBoardInformation()<<"\n";
 
-
     Graph graphics1;
     graphics1.x1=argc;
     graphics1.s1=argv;
@@ -696,8 +695,6 @@ int main(int argc, char **argv)
 
 
     pthread_join(DisplayThread,NULL);
-    // create a display thread 
-    // run the threads 
     pthread_exit(NULL);
     return 0;
 }
