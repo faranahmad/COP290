@@ -10,7 +10,7 @@ Ball::Ball(double x,double y)
 	// Default Velocity is 0
 	coord_x=x;
 	coord_y=y;
-	radius=1;
+	radius=5;
 	velocity_x=0;
 	velocity_y=0;
 	color = Color();

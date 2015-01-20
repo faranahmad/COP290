@@ -21,6 +21,8 @@ pthread_mutex_t UpdateLock;
 std::vector<pthread_t> BallThreads; //[NumberOfBalls];
 Board FinalBoard;
 std::vector<Ball> CollisionBalls;
+std::vector<bool> TrackCollision;
+int MaxCollRad=15;
 
 bool PauseBoard;
 
@@ -328,14 +330,14 @@ void display(void)
     GLfloat const light_ambient[4] = { 0.,  0., 0., 1.};
     GLfloat const light_specular[4] = { 1,  1, 1, 1};
 
-    glLightfv(GL_LIGHT0, GL_POSITION, light_pos),
+    glLightfv(GL_LIGHT0, GL_POSITION, light_pos);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, light_color);
-    glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+    // glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
     glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
 
 
     GLfloat const light_pos2[4]     = {float(0-FinalBoard.GetDimensionX()), float(0-FinalBoard.GetDimensionY()),  -200  , 1.0  };
-    glLightfv(GL_LIGHT1, GL_POSITION, light_pos2),
+    glLightfv(GL_LIGHT1, GL_POSITION, light_pos2);
     glLightfv(GL_LIGHT1, GL_DIFFUSE, light_color);
     // glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient);
     // glLightfv(GL_LIGHT1, GL_SPECULAR, light_specular);
@@ -343,7 +345,7 @@ void display(void)
     GLfloat const light_pos3[4]     = {float(FinalBoard.GetDimensionX()),float(FinalBoard.GetDimensionY()),  -200  , 1.0  };
     GLfloat const light_color3[4]   = { 0,  1,  0, 1.};
     GLfloat const light_ambient3[4] = { 0.10,  0.10,  0.30, 1.};
-    glLightfv(GL_LIGHT2, GL_POSITION, light_pos3),
+    glLightfv(GL_LIGHT2, GL_POSITION, light_pos3);
     glLightfv(GL_LIGHT2, GL_DIFFUSE, light_color);
     // glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient);
     // glLightfv(GL_LIGHT2, GL_SPECULAR, light_specular);
@@ -351,7 +353,7 @@ void display(void)
     GLfloat const light_pos4[4]     = {float(0-FinalBoard.GetDimensionX()), float(FinalBoard.GetDimensionY()),  -200  , 1.0  };
     GLfloat const light_color4[4]   = { 1,  1,  0, 1.};
     GLfloat const light_ambient4[4] = { 0.10,  0.10,  0.30, 1.};
-    glLightfv(GL_LIGHT3, GL_POSITION, light_pos4),
+    glLightfv(GL_LIGHT3, GL_POSITION, light_pos4);
     glLightfv(GL_LIGHT3, GL_DIFFUSE, light_color);
     // glLightfv(GL_LIGHT3, GL_AMBIENT, light_ambient4);
     // glLightfv(GL_LIGHT3, GL_SPECULAR, light_color4);
@@ -419,6 +421,50 @@ void display(void)
         glutSolidSphere(FinalBoard.GetBallFromId(i).GetRadius(), 31, 10);
         glPopMatrix();
     }
+    glDisable(GL_LIGHTING);
+    for(int i=0;i<CollisionBalls.size();i++)
+    {
+        if(CollisionBalls[i].GetRadius()<=0)
+        {
+            CollisionBalls.erase(CollisionBalls.begin()+i);
+            TrackCollision.erase(TrackCollision.begin()+i);
+        }
+        if(TrackCollision[i] && CollisionBalls[i].GetRadius()<MaxCollRad)
+        {
+            CollisionBalls[i].SetRadius(CollisionBalls[i].GetRadius()+1);
+        }
+        else
+        {
+           if(CollisionBalls[i].GetRadius()>=MaxCollRad)
+           {
+            TrackCollision[i]=false;
+           }
+           CollisionBalls[i].SetRadius(CollisionBalls[i].GetRadius()-1);
+        }
+    }
+
+
+    for( int i=0;i<CollisionBalls.size();i++ ) 
+    {
+        cout<<CollisionBalls[i].GetBallInformation()<<endl;
+        glPushMatrix();
+        glTranslatef(CollisionBalls[i].GetX(), CollisionBalls[i].GetY(), 1000);
+        glColor3f(CollisionBalls[i].GetColor().GetR(),CollisionBalls[i].GetColor().GetG(),CollisionBalls[i].GetColor().GetB());
+     
+        GLfloat white[] = {1.f, 1.f, 1.f, 1.0f};
+        GLfloat ambient[] = {1,1,1,1};
+        GLfloat cyan[] = {1,1,1,1};
+        GLfloat shininess[] = {100000};
+
+        glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient);
+
+        glutSolidSphere(CollisionBalls[i].GetRadius(), 31, 10);
+        glPopMatrix();
+    }
+
     glutSwapBuffers();
     glutPostRedisplay();
 }
@@ -553,7 +599,7 @@ void *UpdateBoardThread(void* id)
                         double CollisionX=BallConsidered.GetX()+BallConsidered.GetRadius()*costheta;
                         double CollisionY=BallConsidered.GetY() +BallConsidered.GetRadius()*sintheta;
                         CollisionBalls.push_back(Ball(CollisionX,CollisionY));
-                        
+                        TrackCollision.push_back(true);
 
                         double mass2 = Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius(); 
                         // double mass2=1.0;
