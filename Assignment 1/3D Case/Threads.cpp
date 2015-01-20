@@ -454,7 +454,6 @@ void display(void)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glBegin(GL_QUADS);
     glColor3f(1,1,1);
-<<<<<<< HEAD
     glNormal3f(0.0, 1.0f, 0.0f); 
     glTexCoord2f(1.0f, 0.0f);  
     glVertex3f( -f , f, -f);
@@ -488,8 +487,6 @@ void display(void)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glBegin(GL_QUADS);
     glColor3f(1,1,1);
-=======
->>>>>>> c991a4e250f6b9fecd430511f06b6c139e077485
     glNormal3f(0.0, 1.0f, 0.0f); 
     glTexCoord2f(1.0f, 0.0f);  
     glVertex3f( f , -f, -f);

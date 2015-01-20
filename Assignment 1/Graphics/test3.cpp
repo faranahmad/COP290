@@ -3,12 +3,21 @@
 #include <list>
 #include <iostream>
 #include <stdlib.h>
+#include <pthread.h>
+#include <unistd.h>
 // #include <SFML/Audio.hpp>
 using namespace std;
 
-
+pthread_mutex_t mutexsum;
 int x=0;
 int y=0;
+
+void *sound_play(void *x)
+{
+     pthread_mutex_lock (&mutexsum);
+     system("canberra-gtk-play -f sound.wav");
+     pthread_mutex_unlock (&mutexsum);
+}
 
 void display(void)
 {
@@ -82,7 +91,10 @@ void display(void)
         glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
         x+=1;
         y+=1; 
-        system("canberra-gtk-play -f sound.wav");
+
+        
+
+        //system("canberra-gtk-play -f sound.wav");
 //         sf::SoundBuffer buffer;
 // if (!buffer.loadFromFile("sound.wav")){
 //     return -1;
@@ -139,6 +151,15 @@ glutSolidSphere(100.4, 100, 100);
 
 int main(int argc,char *argv[] )
 {
+    pthread_t newthread[2];
+        for (int i=0;i<2;i++)
+        {
+            pthread_create(&newthread[i],NULL,sound_play,NULL);
+        }
+        for (int i=0;i<2;i++)
+        {
+            pthread_join(newthread[i],NULL);
+        }
     x=atoi(argv[1]);
     y=atoi(argv[2]);
     glutInit(&argc, argv);
