@@ -30,7 +30,7 @@ bool If_Ball_Selected;
 
 int NumberOfBalls;
 std::vector<queue<Message>> MessageVector;
-
+std::vector<bool> BallInBoard;
 // bool
 
 void *UpdateBoardThread(void*);
@@ -226,13 +226,22 @@ void mouseclick(int button,int state,int x,int y )
         else if(x>952*f1 && x<998*f1 && y>462*f2 && y<499*f2)
         {
             PauseBoard=true;
+            NumberOfBalls+=1;
             Ball newBalltoAdd= Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionPosY(),FinalBoard.GetDimensionNegY(),1);
             while (!CheckCorrect(FinalBoard.GetVectorBalls(), newBalltoAdd))
             {
                 newBalltoAdd=Ball(FinalBoard.GetDimensionX(), FinalBoard.GetDimensionPosY(),FinalBoard.GetDimensionNegY(),1);
             }
             pthread_t newthread;
+            BallThreads.push_back(newthread);
             FinalBoard.AddBallToBoard(newBalltoAdd);
+            queue<Message> newqueue;
+            MessageVector.push_back(newqueue);
+            for (int k=0; k<FinalBoard.GetNumberBalls() ; k++)
+            {
+                MessageVector[k].push(Message(newBalltoAdd,0,FinalBoard.GetNumberBalls()-1));
+            }
+            BallInBoard.push_back(true);
             pthread_create(&newthread,NULL,UpdateBoardThread,(void *) ((long) (FinalBoard.GetNumberBalls() -1)));
             PauseBoard=false;
             cout<<"Add Button"<<endl;
@@ -247,7 +256,25 @@ void mouseclick(int button,int state,int x,int y )
         }
         else if(x>901*f1 && x<950*f1 && y>462*f2 && y<499*f2)
         {
-            // BallThreads.pop_back();
+            cout <<"In remove  button\n";
+            if (If_Ball_Selected)
+            {
+                cout <<"id: "<<Ballid_From_Selection<<"\n";
+                BallInBoard[Ballid_From_Selection]=false;
+                
+                cout <<"id: "<<Ballid_From_Selection<<"\n";
+                Ball ballcons=FinalBoard.GetBallFromId(Ballid_From_Selection);
+                
+                cout <<"id: "<<Ballid_From_Selection<<"\n";
+                ballcons.SetRadius(0.0);
+
+                for (int k=0;k<NumberOfBalls;k++)
+                {
+                    cout <<"push for message" <<k<<"\n";
+                    MessageVector[k].push(Message(ballcons,1,Ballid_From_Selection));
+                }
+            }
+            // BallThreads.pop_back()
             cout<<"Remove Button  "<< BallThreads.size()<<endl;
         }
         if(PauseBoard==true)
@@ -280,14 +307,24 @@ void mouseclick(int button,int state,int x,int y )
                     Ball Ball_Selected = vector_balls[Ballid_From_Selection];
                     Ball_Selected.SetVelocityX(factor*Ball_Selected.GetVelocityX());
                     Ball_Selected.SetVelocityY(factor*Ball_Selected.GetVelocityY());
-                    FinalBoard.SetBallFromId(Ballid_From_Selection,Ball_Selected);
+                    for (int k=0;k<NumberOfBalls;k++)
+                    {
+                    cout <<"push for message" <<k<<"\n";
+                    MessageVector[k].push(Message(Ball_Selected,1,Ballid_From_Selection));
+                    }
+                    // FinalBoard.SetBallFromId(Ballid_From_Selection,Ball_Selected);
                 }
                 else if(x>0*f1 && x<47*f1 && y>462*f2 && y<499*f2)       
                 {
                     Ball Ball_Selected = vector_balls[Ballid_From_Selection];
                     Ball_Selected.SetVelocityX(Ball_Selected.GetVelocityX()/factor);
                     Ball_Selected.SetVelocityY(Ball_Selected.GetVelocityY()/factor);
-                    FinalBoard.SetBallFromId(Ballid_From_Selection,Ball_Selected);    
+                    for (int k=0;k<NumberOfBalls;k++)
+                    {
+                    cout <<"push for message" <<k<<"\n";
+                    MessageVector[k].push(Message(Ball_Selected,1,Ballid_From_Selection));
+                    }
+                    // FinalBoard.SetBallFromId(Ballid_From_Selection,Ball_Selected);    
                 }
                 
             }
@@ -485,6 +522,7 @@ void *UpdateBoardThread(void* id)
     {
         if (!PauseBoard)
         {
+            // cout <<ballid<<endl;
             pthread_mutex_lock (&UpdateLock);
             BallConsidered_Coordx = BallConsidered.GetX(); 
             BallConsidered_Coordy = BallConsidered.GetY();
@@ -496,6 +534,14 @@ void *UpdateBoardThread(void* id)
             {
                 Message current=MessageVector[ballid].front();
                 MessageVector[ballid].pop();
+                while (current.GetId()>=VectorBallsConsidered.size())
+                {
+                    VectorBallsConsidered.push_back(Ball());   
+                }
+                // if ((current.GetId()==ballid)  && (current.GetType()==1))
+                // {
+                //     break;    
+                // }
                 VectorBallsConsidered[current.GetId()]=current.GetBall();
             }
             BallConsidered=VectorBallsConsidered[ballid];
@@ -544,7 +590,7 @@ void *UpdateBoardThread(void* id)
 
             for(int i=0;i<VectorBallsConsidered.size();i++)
             {
-                if (i != ballid)
+                if ((i != ballid) && (BallInBoard[i]) && (BallInBoard[ballid]))
                 {
                     ux1 =  BallConsidered.GetVelocityX();
                     uy1 =  BallConsidered.GetVelocityY();
@@ -621,6 +667,10 @@ int main(int argc, char **argv)
     srand(time(NULL));
     NumberOfBalls = atoi(argv[1]);
     BallThreads=std::vector<pthread_t> (NumberOfBalls);
+    for (int k=0;k<NumberOfBalls;k++)
+    {
+        BallInBoard.push_back(true);
+    }
     pthread_mutex_init(&UpdateLock,NULL);
     FinalBoard=Board(1000,300,300,NumberOfBalls);
     MessageVector=std::vector<queue<Message>> (NumberOfBalls);
@@ -631,7 +681,6 @@ int main(int argc, char **argv)
     PauseBoard=false;
 
     cout<<FinalBoard.GetBoardInformation()<<"\n";
-
 
     Graph graphics1;
     graphics1.x1=argc;
@@ -656,8 +705,6 @@ int main(int argc, char **argv)
 
 
     pthread_join(DisplayThread,NULL);
-    // create a display thread 
-    // run the threads 
     pthread_exit(NULL);
     return 0;
 }

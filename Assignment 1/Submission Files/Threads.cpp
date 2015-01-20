@@ -16,6 +16,38 @@ struct Graph {
     int x1;
     char **s1;
 };
+bool Is_Sound1;
+bool Is_Sound2;
+
+void *sound_play1(void *x)
+{
+    while (true)
+    {
+        if (Is_Sound1)
+        {
+            //pthread_mutex_lock (&mutexsum);
+            system("canberra-gtk-play -f sound1.wav");
+            //pthread_mutex_unlock (&mutexsum);       
+            Is_Sound1=false;
+        }
+    }
+     
+}
+
+void *sound_play2(void *x)
+{
+    while (true)
+    {
+        if (Is_Sound2)
+        {
+            //pthread_mutex_lock (&mutexsum);
+            system("canberra-gtk-play -f sound2.wav");
+            //pthread_mutex_unlock (&mutexsum);       
+            Is_Sound2=false;
+        }
+    }
+     
+}
 
 pthread_mutex_t UpdateLock;
 std::vector<pthread_t> BallThreads; //[NumberOfBalls];
@@ -446,7 +478,6 @@ void display(void)
 
     for( int i=0;i<CollisionBalls.size();i++ ) 
     {
-        cout<<CollisionBalls[i].GetBallInformation()<<endl;
         glPushMatrix();
         glTranslatef(CollisionBalls[i].GetX(), CollisionBalls[i].GetY(), 1000);
         glColor3f(CollisionBalls[i].GetColor().GetR(),CollisionBalls[i].GetColor().GetG(),CollisionBalls[i].GetColor().GetB());
@@ -458,7 +489,7 @@ void display(void)
 
         glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
         glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
-        glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);   
         glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient);
 
         glutSolidSphere(CollisionBalls[i].GetRadius(), 31, 10);
@@ -535,12 +566,14 @@ void *UpdateBoardThread(void* id)
                 BallConsidered.SetX(FinalBoard.GetDimensionX() -BallConsidered_Radius);
                 BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
                 BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
+                Is_Sound2=true;
             }
             else if (BallConsidered_Coordx+BallConsidered_VelocityX + FinalBoard.GetDimensionX() -BallConsidered_Radius<0)
             {
                 BallConsidered.SetX(0-FinalBoard.GetDimensionX()+BallConsidered_Radius);
                 BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
-                BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());   
+                BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
+                Is_Sound2=true;   
             }
             else
             {
@@ -552,12 +585,14 @@ void *UpdateBoardThread(void* id)
                 BallConsidered.SetY(FinalBoard.GetDimensionPosY()-BallConsidered_Radius);
                 BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
                 BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());
+                Is_Sound2=true;
             }
             else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionNegY() -BallConsidered_Radius <0)
             {
                 BallConsidered.SetY(0-FinalBoard.GetDimensionNegY() + BallConsidered_Radius);
                 BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);    
                 BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());   
+                Is_Sound2=true;
             }
             else
             {
@@ -600,7 +635,8 @@ void *UpdateBoardThread(void* id)
                         double CollisionY=BallConsidered.GetY() +BallConsidered.GetRadius()*sintheta;
                         CollisionBalls.push_back(Ball(CollisionX,CollisionY));
                         TrackCollision.push_back(true);
-
+                        Is_Sound1=true;
+                        //pthread_cancel(newthread);
                         double mass2 = Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius(); 
                         // double mass2=1.0;
                         double ux2 = Vector_Of_Balls[i].GetVelocityX();
@@ -666,6 +702,8 @@ void *DisplayUpdate(void* id)
 
 int main(int argc, char **argv)
 {
+    Is_Sound1=false;
+    Is_Sound2=false;
     srand(time(NULL));
     const int NumberOfBalls = atoi(argv[1]);
     BallThreads=std::vector<pthread_t> (NumberOfBalls);
@@ -693,6 +731,10 @@ int main(int argc, char **argv)
     }
     cout <<"out of for loop\n";
 
+    pthread_t soundthread1;
+    pthread_t soundthread2;
+    pthread_create(&soundthread1,NULL,sound_play1,NULL);
+    pthread_create(&soundthread2,NULL,sound_play2,NULL);
     pthread_create(&DisplayThread,NULL,DisplayUpdate,&graphics1);
     
 
@@ -703,6 +745,9 @@ int main(int argc, char **argv)
 
 
     pthread_join(DisplayThread,NULL);
+
+    pthread_join(soundthread1,NULL);
+    pthread_join(soundthread2,NULL);
     // create a display thread 
     // run the threads 
     pthread_exit(NULL);
