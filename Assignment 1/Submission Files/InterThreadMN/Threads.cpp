@@ -22,7 +22,6 @@ struct Graph {
 pthread_mutex_t UpdateLock;
 std::vector<pthread_t> BallThreads; //[NumberOfBalls];
 Board FinalBoard;
-std::vector<Ball> CollisionBalls;
 
 bool PauseBoard;
 int Ballid_From_Selection;
@@ -33,6 +32,43 @@ std::vector<queue<Message>> MessageVector;
 std::vector<bool> BallInBoard;
 std::vector<int> BallsPerThread;
 // bool
+
+bool Is_Sound1;
+bool Is_Sound2;
+
+void *sound_play1(void *x)
+{
+    while (true)
+    {
+        if (Is_Sound1)
+        {
+            //pthread_mutex_lock (&mutexsum);
+            system("canberra-gtk-play -f sound1.wav");
+            //pthread_mutex_unlock (&mutexsum);       
+            Is_Sound1=false;
+        }
+    }
+     
+}
+
+void *sound_play2(void *x)
+{
+    while (true)
+    {
+        if (Is_Sound2)
+        {
+            //pthread_mutex_lock (&mutexsum);
+            system("canberra-gtk-play -f sound2.wav");
+            //pthread_mutex_unlock (&mutexsum);       
+            Is_Sound2=false;
+        }
+    }
+     
+}
+
+std::vector<Ball> CollisionBalls;
+std::vector<bool> TrackCollision;
+int MaxCollRad=15;
 
 void *UpdateBoardThread(void*);
 
@@ -458,6 +494,48 @@ void display(void)
         glutSolidSphere(FinalBoard.GetBallFromId(i).GetRadius(), 31, 10);
         glPopMatrix();
     }
+     glDisable(GL_LIGHTING);
+    for(int i=0;i<CollisionBalls.size();i++)
+    {
+        if(CollisionBalls[i].GetRadius()<=0)
+        {
+            CollisionBalls.erase(CollisionBalls.begin()+i);
+            TrackCollision.erase(TrackCollision.begin()+i);
+        }
+        if(TrackCollision[i] && CollisionBalls[i].GetRadius()<MaxCollRad)
+        {
+            CollisionBalls[i].SetRadius(CollisionBalls[i].GetRadius()+1);
+        }
+        else
+        {
+           if(CollisionBalls[i].GetRadius()>=MaxCollRad)
+           {
+            TrackCollision[i]=false;
+           }
+           CollisionBalls[i].SetRadius(CollisionBalls[i].GetRadius()-1);
+        }
+    }
+
+
+    for( int i=0;i<CollisionBalls.size();i++ ) 
+    {
+        glPushMatrix();
+        glTranslatef(CollisionBalls[i].GetX(), CollisionBalls[i].GetY(), 1000);
+        glColor3f(CollisionBalls[i].GetColor().GetR(),CollisionBalls[i].GetColor().GetG(),CollisionBalls[i].GetColor().GetB());
+     
+        GLfloat white[] = {1.f, 1.f, 1.f, 1.0f};
+        GLfloat ambient[] = {1,1,1,1};
+        GLfloat cyan[] = {1,1,1,1};
+        GLfloat shininess[] = {100000};
+
+        glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);   
+        glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient);
+
+        glutSolidSphere(CollisionBalls[i].GetRadius(), 31, 10);
+        glPopMatrix();
+    }
     glutSwapBuffers();
     glutPostRedisplay();
 }
@@ -556,11 +634,14 @@ void *UpdateBoardThread(void* id)
                 {
                     BallConsidered.SetX(FinalBoard.GetDimensionX() -BallConsidered_Radius);
                     BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
+                    Is_Sound2=true;
                 }
                 else if (BallConsidered_Coordx+BallConsidered_VelocityX + FinalBoard.GetDimensionX() -BallConsidered_Radius<0)
                 {
                     BallConsidered.SetX(0-FinalBoard.GetDimensionX()+BallConsidered_Radius);
-                    BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());   
+                    BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
+                    Is_Sound2=true;
+   
                 }
                 else
                 {
@@ -571,11 +652,15 @@ void *UpdateBoardThread(void* id)
                 {
                     BallConsidered.SetY(FinalBoard.GetDimensionPosY()-BallConsidered_Radius);
                     BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());
+                    Is_Sound2=true;
+
                 }
                 else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionNegY() -BallConsidered_Radius <0)
                 {
                     BallConsidered.SetY(0-FinalBoard.GetDimensionNegY() + BallConsidered_Radius);
-                    BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());   
+                    BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY()); 
+                    Is_Sound2=true;
+  
                 }
                 else
                 {
@@ -632,6 +717,15 @@ void *UpdateBoardThread(void* id)
                             BallConsidered.SetVelocity(vx1,vy1);
                             VectorBallsConsidered[i].SetVelocity(vx2,vy2);
                             VectorBallsConsidered[ballcounter]=BallConsidered;
+
+                            double costheta = (dx/distance);
+                            double sintheta = (dy/distance);
+                            double CollisionX=BallConsidered.GetX()+BallConsidered.GetRadius()*costheta;
+                            double CollisionY=BallConsidered.GetY() +BallConsidered.GetRadius()*sintheta;
+                            CollisionBalls.push_back(Ball(CollisionX,CollisionY));
+                            TrackCollision.push_back(true);
+                            Is_Sound1=true;
+
                             for (int k=0;k<NumberOfBallsM;k++)
                             {
                                 MessageVector[k].push(Message(VectorBallsConsidered[i],0,i));
@@ -706,6 +800,10 @@ int main(int argc, char **argv)
     }
     cout <<"out of for loop\n";
 
+    pthread_t soundthread1;
+    pthread_t soundthread2;
+    pthread_create(&soundthread1,NULL,sound_play1,NULL);
+    pthread_create(&soundthread2,NULL,sound_play2,NULL);
     pthread_create(&DisplayThread,NULL,DisplayUpdate,&graphics1);
     
 
@@ -716,6 +814,9 @@ int main(int argc, char **argv)
 
 
     pthread_join(DisplayThread,NULL);
+
+    pthread_join(soundthread1,NULL);
+    pthread_join(soundthread2,NULL);
     pthread_exit(NULL);
     return 0;
 }
