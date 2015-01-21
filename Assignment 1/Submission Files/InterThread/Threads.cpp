@@ -325,11 +325,9 @@ void mouseclick(int button,int state,int x,int y )
                     MessageVector[k].push(Message(Ball_Selected,1,Ballid_From_Selection));
                     }
                     // FinalBoard.SetBallFromId(Ballid_From_Selection,Ball_Selected);    
-                }
-                
+                }  
             }
         }
-
     }
     glutPostRedisplay();
 }
@@ -340,7 +338,6 @@ void handleKeypress(unsigned char key, int x, int y) {
             exit(0);
     }
 }
-
 
 void display(void)
 {
