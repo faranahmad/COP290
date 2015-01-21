@@ -676,9 +676,12 @@ void display(void)
     glEnd();
 
 
+<<<<<<< HEAD
 
     glEnable(GL_COLOR_MATERIAL);
 
+=======
+>>>>>>> 2754e55647b6310bc855c10ace66222fe70ab4b2
     for( int i=0;i<FinalBoard.GetNumberBalls();i++ ) 
     {
         glPushMatrix();
