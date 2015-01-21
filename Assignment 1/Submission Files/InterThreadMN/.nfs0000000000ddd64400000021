@@ -603,7 +603,7 @@ void *UpdateBoardThread(void* id)
                         if(BallConsidered.GetRadius()+VectorBallsConsidered[i].GetRadius()>=distance)
                         {
                             double l=(BallConsidered.GetRadius()+VectorBallsConsidered[i].GetRadius() -distance)/2;
-                            cout <<l<<endl;
+    
                             double mass2 = VectorBallsConsidered[i].GetRadius()*VectorBallsConsidered[i].GetRadius()*VectorBallsConsidered[i].GetRadius(); 
     
                             double ux2 = VectorBallsConsidered[i].GetVelocityX();
