@@ -687,8 +687,8 @@ void *UpdateBoardThread(void* id)
                     
                         if(BallConsidered.GetRadius()+VectorBallsConsidered[i].GetRadius()>=distance)
                         {
-                            double l=(BallConsidered.GetRadius()+VectorBallsConsidered[i].GetRadius() -distance)/2;
-                            cout <<l<<endl;
+                            double l=(BallConsidered.GetRadius()+VectorBallsConsidered[i].GetRadius() -distance);
+                            // cout <<l<<endl;
                             double mass2 = VectorBallsConsidered[i].GetRadius()*VectorBallsConsidered[i].GetRadius()*VectorBallsConsidered[i].GetRadius(); 
     
                             double ux2 = VectorBallsConsidered[i].GetVelocityX();
@@ -708,6 +708,21 @@ void *UpdateBoardThread(void* id)
                             double vx2=ux2 + ((v2-u2) *dx)/distance;
                             double vy2=uy2 + ((v2-u2) *dy)/distance;
                     
+                            // while (l>0)
+                            // {
+                            //     BallConsidered.SetX(BallConsidered.GetX() - ux1/sqrt(ux1*ux1 + uy1*uy1));
+                            //     BallConsidered.SetY(BallConsidered.GetY() - uy1/sqrt(ux1*ux1 + uy1*uy1));
+
+                            //     VectorBallsConsidered[i].SetX(VectorBallsConsidered[i].GetX() - (ux2)/sqrt(ux2*ux2 +uy2*uy2));
+                            //     VectorBallsConsidered[i].SetY(VectorBallsConsidered[i].GetY() - (uy2)/sqrt(ux2*ux2 +uy2*uy2));
+                                
+                            //     dx = VectorBallsConsidered[i].GetX()-BallConsidered.GetX();
+                            //     dy = VectorBallsConsidered[i].GetY()-BallConsidered.GetY();
+                            //     distance = sqrt(dx*dx + dy*dy);
+                                
+                            //     l=(BallConsidered.GetRadius()+VectorBallsConsidered[i].GetRadius() -distance);
+                            // }
+
                             BallConsidered.SetX(BallConsidered.GetX() - (l*dx)/distance);
                             BallConsidered.SetY(BallConsidered.GetY() - (l*dy)/distance);
                                                
