@@ -243,8 +243,21 @@ void mouseclick(int button,int s,int x,int y )
 
 void handleKeypress(unsigned char key, int x, int y) {
     switch (key) {
+
+        case 32: //SpaceBar
+                PauseBoard=not(PauseBoard);
+                break;
+
+        case 43: //+ key
+               {    
+                    PauseBoard=true;
+                    //TODO: Adding a ball
+                    PauseBoard=false;
+                    break; 
+                }      
+
         case 27: //Escape key
-            exit(0);
+                exit(0);
     }
 }
 
