@@ -626,7 +626,7 @@ void *UpdateBoardThread(void* id)
                     {
                         needforupdate=false;
                         cout <<BallConsidered.GetRadius() <<"\t" <<Vector_Of_Balls[i].GetRadius()<<"\t"<<distance<<"\n";
-                        double l=(BallConsidered.GetRadius()+Vector_Of_Balls[i].GetRadius() -distance)/2;
+                        double l=(BallConsidered.GetRadius()+Vector_Of_Balls[i].GetRadius() -distance);
     
                         double costheta = (dx/distance);
                         double sintheta = (dy/distance);
@@ -661,7 +661,22 @@ void *UpdateBoardThread(void* id)
     
                         double vy1=u3*costheta + v1*sintheta;
                         double vy2=u4*costheta + v2*sintheta;
-    
+                        // cout <<l<<"\n";
+                        // while (l>0)
+                        // {
+                        //     BallConsidered.SetX(BallConsidered.GetX() - ux1/sqrt(ux1*ux1 + uy1*uy1));
+                        //     BallConsidered.SetY(BallConsidered.GetY() - uy1/sqrt(ux1*ux1 + uy1*uy1));
+                        //     Vector_Of_Balls[i].SetX(Vector_Of_Balls[i].GetX() - (ux2)/sqrt(ux2*ux2 +uy2*uy2));
+                        //     Vector_Of_Balls[i].SetY(Vector_Of_Balls[i].GetY() - (uy2)/sqrt(ux2*ux2 +uy2*uy2));
+                            
+                        //     dx = Vector_Of_Balls[i].GetX()-BallConsidered.GetX();
+                        //     dy = Vector_Of_Balls[i].GetY()-BallConsidered.GetY();
+                        //     distance = sqrt(dx*dx + dy*dy);
+                            
+                        //     l=(BallConsidered.GetRadius()+Vector_Of_Balls[i].GetRadius() -distance);
+                        // }
+                        // cout <<l<<"\n";
+
                         BallConsidered.SetX(BallConsidered.GetX() - l*costheta);
                         BallConsidered.SetY(BallConsidered.GetY() - l*sintheta);
                         
