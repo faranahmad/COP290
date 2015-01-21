@@ -27,10 +27,12 @@ bool PauseBoard;
 int Ballid_From_Selection;
 bool If_Ball_Selected;
 
-int NumberOfBalls;
+int NumberOfBalls,NumberOfBallsM,NumberOfBallsN;
 std::vector<queue<Message>> MessageVector;
 std::vector<bool> BallInBoard;
+std::vector<int> BallsPerThread;
 // bool
+
 bool Is_Sound1;
 bool Is_Sound2;
 
@@ -267,17 +269,17 @@ void mouseclick(int button,int state,int x,int y )
             {
                 newBalltoAdd=Ball(FinalBoard.GetDimensionX(), FinalBoard.GetDimensionPosY(),FinalBoard.GetDimensionNegY(),1);
             }
-            pthread_t newthread;
-            BallThreads.push_back(newthread);
+            // pthread_t newthread;
+            // BallThreads.push_back(newthread);
             FinalBoard.AddBallToBoard(newBalltoAdd);
-            queue<Message> newqueue;
-            MessageVector.push_back(newqueue);
-            for (int k=0; k<FinalBoard.GetNumberBalls() ; k++)
+            // queue<Message> newqueue;
+            // MessageVector.push_back(newqueue);
+            for (int k=0; k<NumberOfBallsM ; k++)
             {
                 MessageVector[k].push(Message(newBalltoAdd,0,FinalBoard.GetNumberBalls()-1));
             }
+            BallsPerThread[NumberOfBallsM-1]+=1;
             BallInBoard.push_back(true);
-            pthread_create(&newthread,NULL,UpdateBoardThread,(void *) ((long) (FinalBoard.GetNumberBalls() -1)));
             PauseBoard=false;
             cout<<"Add Button"<<endl;
         }
@@ -303,13 +305,12 @@ void mouseclick(int button,int state,int x,int y )
                 cout <<"id: "<<Ballid_From_Selection<<"\n";
                 ballcons.SetRadius(0.0);
 
-                for (int k=0;k<NumberOfBalls;k++)
+                for (int k=0;k<NumberOfBallsM;k++)
                 {
                     cout <<"push for message" <<k<<"\n";
                     MessageVector[k].push(Message(ballcons,1,Ballid_From_Selection));
                 }
             }
-            glutPostRedisplay();
             // BallThreads.pop_back()
             cout<<"Remove Button  "<< BallThreads.size()<<endl;
         }
@@ -586,24 +587,20 @@ void *UpdateBoardThread(void* id)
 {
     vector<Ball> VectorBallsConsidered (NumberOfBalls);
     long ballid = (long) id;
+    
     Ball BallConsidered = FinalBoard.GetBallFromId(ballid);
     double BallConsidered_Coordx = BallConsidered.GetX(); 
     double BallConsidered_Coordy = BallConsidered.GetY();
     double BallConsidered_Radius = BallConsidered.GetRadius();
     double BallConsidered_VelocityX=BallConsidered.GetVelocityX();
     double BallConsidered_VelocityY=BallConsidered.GetVelocityY();
+    
     VectorBallsConsidered=FinalBoard.GetVectorBalls();
     while (true)
     {
         if (!PauseBoard)
         {
-            // cout <<ballid<<endl;
             pthread_mutex_lock (&UpdateLock);
-            BallConsidered_Coordx = BallConsidered.GetX(); 
-            BallConsidered_Coordy = BallConsidered.GetY();
-            BallConsidered_Radius = BallConsidered.GetRadius();
-            BallConsidered_VelocityX=BallConsidered.GetVelocityX();
-            BallConsidered_VelocityY=BallConsidered.GetVelocityY();
             
             while (!MessageVector[ballid].empty())
             {
@@ -613,127 +610,135 @@ void *UpdateBoardThread(void* id)
                 {
                     VectorBallsConsidered.push_back(Ball());   
                 }
-                // if ((current.GetId()==ballid)  && (current.GetType()==1))
-                // {
-                //     break;    
-                // }
                 VectorBallsConsidered[current.GetId()]=current.GetBall();
             }
-            BallConsidered=VectorBallsConsidered[ballid];
-            BallConsidered_Coordx = BallConsidered.GetX(); 
-            BallConsidered_Coordy = BallConsidered.GetY();
-            BallConsidered_Radius = BallConsidered.GetRadius();
-            BallConsidered_VelocityX=BallConsidered.GetVelocityX();
-            BallConsidered_VelocityY=BallConsidered.GetVelocityY();
+
+            int starting=0;
+            for (int x=0;x<ballid;x++)
+            {
+                starting+=BallsPerThread[x];
+            }
+            int ending=starting+BallsPerThread[ballid];
+
+            for (int ballcounter=starting;ballcounter<ending; ballcounter++)
+            {
+                BallConsidered= VectorBallsConsidered[ballcounter];
             
-
-            if (BallConsidered_Coordx + BallConsidered_VelocityX + BallConsidered_Radius> FinalBoard.GetDimensionX())
-            {
-                BallConsidered.SetX(FinalBoard.GetDimensionX() -BallConsidered_Radius);
-                BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
-                Is_Sound2=true;
-            }
-            else if (BallConsidered_Coordx+BallConsidered_VelocityX + FinalBoard.GetDimensionX() -BallConsidered_Radius<0)
-            {
-                BallConsidered.SetX(0-FinalBoard.GetDimensionX()+BallConsidered_Radius);
-                BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
-                Is_Sound2=true;
-   
-            }
-            else
-            {
-                BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
-            }
-    
-            if (BallConsidered_Coordy+BallConsidered_VelocityY +BallConsidered_Radius> FinalBoard.GetDimensionPosY())
-            {
-                BallConsidered.SetY(FinalBoard.GetDimensionPosY()-BallConsidered_Radius);
-                BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());
-                Is_Sound2=true;
-
-            }
-            else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionNegY() -BallConsidered_Radius <0)
-            {
-                BallConsidered.SetY(0-FinalBoard.GetDimensionNegY() + BallConsidered_Radius);
-                BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY()); 
-                Is_Sound2=true;
-  
-            }
-            else
-            {
-                BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
-            }
-
-            VectorBallsConsidered[ballid]=BallConsidered;
-
-
-            double mass1 = BallConsidered.GetRadius()*BallConsidered.GetRadius()*BallConsidered.GetRadius();
-            double ux1,uy1,uz1; 
-
-            for(int i=0;i<VectorBallsConsidered.size();i++)
-            {
-                if ((i != ballid) && (BallInBoard[i]) && (BallInBoard[ballid]))
+                BallConsidered_Coordx = BallConsidered.GetX(); 
+                BallConsidered_Coordy = BallConsidered.GetY();
+                BallConsidered_Radius = BallConsidered.GetRadius();
+                BallConsidered_VelocityX=BallConsidered.GetVelocityX();
+                BallConsidered_VelocityY=BallConsidered.GetVelocityY();
+                
+                if (BallConsidered_Coordx + BallConsidered_VelocityX + BallConsidered_Radius> FinalBoard.GetDimensionX())
                 {
-                    ux1 =  BallConsidered.GetVelocityX();
-                    uy1 =  BallConsidered.GetVelocityY();
+                    BallConsidered.SetX(FinalBoard.GetDimensionX() -BallConsidered_Radius);
+                    BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
+                    Is_Sound2=true;
+                }
+                else if (BallConsidered_Coordx+BallConsidered_VelocityX + FinalBoard.GetDimensionX() -BallConsidered_Radius<0)
+                {
+                    BallConsidered.SetX(0-FinalBoard.GetDimensionX()+BallConsidered_Radius);
+                    BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
+                    Is_Sound2=true;
+   
+                }
+                else
+                {
+                    BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
+                }
+        
+                if (BallConsidered_Coordy+BallConsidered_VelocityY +BallConsidered_Radius> FinalBoard.GetDimensionPosY())
+                {
+                    BallConsidered.SetY(FinalBoard.GetDimensionPosY()-BallConsidered_Radius);
+                    BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());
+                    Is_Sound2=true;
 
-                    double dx = VectorBallsConsidered[i].GetX()-BallConsidered.GetX();
-                    double dy = VectorBallsConsidered[i].GetY()-BallConsidered.GetY();
-                    
-                    double distance = sqrt(dx*dx + dy*dy);
+                }
+                else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionNegY() -BallConsidered_Radius <0)
+                {
+                    BallConsidered.SetY(0-FinalBoard.GetDimensionNegY() + BallConsidered_Radius);
+                    BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY()); 
+                    Is_Sound2=true;
+  
+                }
+                else
+                {
+                    BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
+                }
+                
+                VectorBallsConsidered[ballcounter]=BallConsidered;
 
-                    if(BallConsidered.GetRadius()+VectorBallsConsidered[i].GetRadius()>=distance)
+                double mass1 = BallConsidered.GetRadius()*BallConsidered.GetRadius()*BallConsidered.GetRadius();
+                double ux1,uy1,uz1; 
+
+                
+                for(int i=0;i<VectorBallsConsidered.size();i++)
+                {
+                    if ((i != ballcounter) && (BallInBoard[i]) && (BallInBoard[ballcounter]))
                     {
-                        double l=(BallConsidered.GetRadius()+VectorBallsConsidered[i].GetRadius() -distance)/2;
-    
-                        double mass2 = VectorBallsConsidered[i].GetRadius()*VectorBallsConsidered[i].GetRadius()*VectorBallsConsidered[i].GetRadius(); 
+                        ux1 =  BallConsidered.GetVelocityX();
+                        uy1 =  BallConsidered.GetVelocityY();
+                    
+                        double dx = VectorBallsConsidered[i].GetX()-BallConsidered.GetX();
+                        double dy = VectorBallsConsidered[i].GetY()-BallConsidered.GetY();
                         
-                        double ux2 = VectorBallsConsidered[i].GetVelocityX();
-                        double uy2 = VectorBallsConsidered[i].GetVelocityY();
-
-                        // Along radial
-                        double u1=(ux1*dx + uy1*dy)/distance;
-                        double u2=(ux2*dx + uy2*dy)/distance;
-                        
-                        //After collision radial
-                        double v1=(mass1*u1 + 2*mass2*u2 - mass2*u1)/(mass1+mass2);
-                        double v2=(mass2*u2 + 2*mass1*u1 - mass1*u2)/(mass1+mass2);
-                        
-                        //Along XYZ unchanged (tangential)
-                        double vx1=ux1 + ((v1-u1) *dx)/distance;
-                        double vy1=uy1 + ((v1-u1) *dy)/distance;
-                        double vx2=ux2 + ((v2-u2) *dx)/distance;
-                        double vy2=uy2 + ((v2-u2) *dy)/distance;
-
-                        BallConsidered.SetX(BallConsidered.GetX() - (l*dx)/distance);
-                        BallConsidered.SetY(BallConsidered.GetY() - (l*dy)/distance);
-                           
-                        VectorBallsConsidered[i].SetX(VectorBallsConsidered[i].GetX() + (l*dx)/distance);
-                        VectorBallsConsidered[i].SetY(VectorBallsConsidered[i].GetY() + (l*dy)/distance);
-                       
-                        BallConsidered.SetVelocity(vx1,vy1);
-                        VectorBallsConsidered[i].SetVelocity(vx2,vy2);
-
-                        double costheta = (dx/distance);
-                        double sintheta = (dy/distance);
-                        double CollisionX=BallConsidered.GetX()+BallConsidered.GetRadius()*costheta;
-                        double CollisionY=BallConsidered.GetY() +BallConsidered.GetRadius()*sintheta;
-                        CollisionBalls.push_back(Ball(CollisionX,CollisionY));
-                        TrackCollision.push_back(true);
-                        Is_Sound1=true;
-
-                        for (int k=0;k<NumberOfBalls;k++)
+                        double distance = sqrt(dx*dx + dy*dy);
+                    
+                        if(BallConsidered.GetRadius()+VectorBallsConsidered[i].GetRadius()>=distance)
                         {
-                            MessageVector[k].push(Message(VectorBallsConsidered[i],0,i));
-                        }
-                    }   
+                            double l=(BallConsidered.GetRadius()+VectorBallsConsidered[i].GetRadius() -distance)/2;
+    
+                            double mass2 = VectorBallsConsidered[i].GetRadius()*VectorBallsConsidered[i].GetRadius()*VectorBallsConsidered[i].GetRadius(); 
+    
+                            double ux2 = VectorBallsConsidered[i].GetVelocityX();
+                            double uy2 = VectorBallsConsidered[i].GetVelocityY();
+    
+                            // Along radial
+                            double u1=(ux1*dx + uy1*dy)/distance;
+                            double u2=(ux2*dx + uy2*dy)/distance;
+                                            
+                            //After collision radial
+                            double v1=(mass1*u1 + 2*mass2*u2 - mass2*u1)/(mass1+mass2);
+                            double v2=(mass2*u2 + 2*mass1*u1 - mass1*u2)/(mass1+mass2);
+                                            
+                            //Along XYZ unchanged (tangential)
+                            double vx1=ux1 + ((v1-u1) *dx)/distance;
+                            double vy1=uy1 + ((v1-u1) *dy)/distance;
+                            double vx2=ux2 + ((v2-u2) *dx)/distance;
+                            double vy2=uy2 + ((v2-u2) *dy)/distance;
+                    
+                            BallConsidered.SetX(BallConsidered.GetX() - (l*dx)/distance);
+                            BallConsidered.SetY(BallConsidered.GetY() - (l*dy)/distance);
+                                               
+                            VectorBallsConsidered[i].SetX(VectorBallsConsidered[i].GetX() + (l*dx)/distance);
+                            VectorBallsConsidered[i].SetY(VectorBallsConsidered[i].GetY() + (l*dy)/distance);
+                                           
+                            BallConsidered.SetVelocity(vx1,vy1);
+                            VectorBallsConsidered[i].SetVelocity(vx2,vy2);
+                            VectorBallsConsidered[ballcounter]=BallConsidered;
+
+                            double costheta = (dx/distance);
+                            double sintheta = (dy/distance);
+                            double CollisionX=BallConsidered.GetX()+BallConsidered.GetRadius()*costheta;
+                            double CollisionY=BallConsidered.GetY() +BallConsidered.GetRadius()*sintheta;
+                            CollisionBalls.push_back(Ball(CollisionX,CollisionY));
+                            TrackCollision.push_back(true);
+                            Is_Sound1=true;
+
+                            for (int k=0;k<NumberOfBallsM;k++)
+                            {
+                                MessageVector[k].push(Message(VectorBallsConsidered[i],0,i));
+                            }
+                        }   
+                    }
+                }
+                for (int k=0;k<NumberOfBallsM;k++)
+                {
+                    MessageVector[k].push(Message(BallConsidered,0,ballcounter));
                 }
             }
-
-            for (int k=0;k<NumberOfBalls;k++)
-            {
-                MessageVector[k].push(Message(BallConsidered,0,ballid));
-            }
+            
 
             pthread_mutex_unlock (&UpdateLock);
             if (ballid==0)
@@ -756,15 +761,24 @@ void *DisplayUpdate(void* id)
 int main(int argc, char **argv)
 {
     srand(time(NULL));
-    NumberOfBalls = atoi(argv[1]);
-    BallThreads=std::vector<pthread_t> (NumberOfBalls);
+    NumberOfBallsM =atoi(argv[1]);
+    NumberOfBallsN=atoi(argv[2]);
+    NumberOfBalls = NumberOfBallsM*NumberOfBallsN;
+    BallThreads=std::vector<pthread_t> (NumberOfBallsM);
+    cout <<"Created Vector for M"<<"\n";
+    for (int k=0; k<NumberOfBallsM;k++)
+    {
+        BallsPerThread.push_back(NumberOfBallsN);
+    }
+
     for (int k=0;k<NumberOfBalls;k++)
     {
         BallInBoard.push_back(true);
     }
+
     pthread_mutex_init(&UpdateLock,NULL);
     FinalBoard=Board(1000,300,300,NumberOfBalls);
-    MessageVector=std::vector<queue<Message>> (NumberOfBalls);
+    MessageVector=std::vector<queue<Message>> (NumberOfBallsM);
     // cout <<FinalBoard.Get
     //pthread_t BallThreads [NumberOfBalls];
     pthread_t DisplayThread;
@@ -777,8 +791,8 @@ int main(int argc, char **argv)
     graphics1.x1=argc;
     graphics1.s1=argv;
 
-    std::cout <<"Ball threas" <<NumberOfBalls <<"\n";
-    for (long i=0; i<NumberOfBalls ;i++)
+    std::cout <<"Ball threas" <<NumberOfBallsM <<"\n";
+    for (long i=0; i<NumberOfBallsM ;i++)
     {
         // cout <<"Creating thread i: " <<i <<"\n";
         pthread_create(&BallThreads[i],NULL,UpdateBoardThread,(void *)i);
@@ -793,7 +807,7 @@ int main(int argc, char **argv)
     pthread_create(&DisplayThread,NULL,DisplayUpdate,&graphics1);
     
 
-    for (int i=0; i<NumberOfBalls ;i++)
+    for (int i=0; i<NumberOfBallsM ;i++)
     {
         pthread_join(BallThreads[i],NULL);
     }
