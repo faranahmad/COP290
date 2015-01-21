@@ -20,6 +20,7 @@ GLuint _textureId;
 GLuint _textureId_2;
 GLuint _textureId_3;
 GLuint _textureId_4;
+GLuint _textureId_5;
 
  
 double rotate_y=0.0; 
@@ -30,10 +31,38 @@ struct Graph {
     int x1;
     char **s1;
 };
+bool Is_Sound1;
+bool Is_Sound2;
 
-//TODO: (still not gonna use TODOIST :P)
-//      give texture to the walls
-//      give thickness to the walls
+void *sound_play1(void *x)
+{
+    while (true)
+    {
+        if (Is_Sound1)
+        {
+            //pthread_mutex_lock (&mutexsum);
+            system("canberra-gtk-play -f sound1.wav");
+            //pthread_mutex_unlock (&mutexsum);       
+            Is_Sound1=false;
+        }
+    }
+     
+}
+
+void *sound_play2(void *x)
+{
+    while (true)
+    {
+        if (Is_Sound2)
+        {
+            //pthread_mutex_lock (&mutexsum);
+            system("canberra-gtk-play -f sound2.wav");
+            //pthread_mutex_unlock (&mutexsum);       
+            Is_Sound2=false;
+        }
+    }
+     
+}
 namespace {
     //Converts a four-character array to an integer, using little-endian form
     int toInt(const char* bytes) {
@@ -198,10 +227,17 @@ void initRendering()
     Image* image2 = loadBMP("grass.bmp");
     _textureId_3 = loadTexture(image2);
 
-    Image* image3 = loadBMP("download.bmp");
+    Image* image3 = loadBMP("soil.bmp");
     _textureId_4 = loadTexture(image3);
+
+    Image* image4 = loadBMP("bottom.bmp");
+    _textureId_5 = loadTexture(image4);
     
     delete image;
+    delete image1;
+    delete image2;
+    delete image3;
+    delete image4;
 }
 
 int prevx=0;
@@ -642,24 +678,23 @@ void display(void)
     glVertex3f( -f, -f, -f );
     glEnd();
 
-    glBindTexture(GL_TEXTURE_2D, _textureId_3);
-    //grass ke saamne waala
+
+    glBindTexture(GL_TEXTURE_2D, _textureId_4);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
     glBegin(GL_POLYGON);
     glColor3f( 1, 1, 1);
     glNormal3f(0.0,1.0f,0.0f);
-    glTexCoord2f(1.0f, 0.0f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f(  -f, -f, f );
-    glTexCoord2f(1.0f, 0.0f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f(  1.1*f, -f,  f );
-    glTexCoord2f(1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f( 1.1*f, -1.1*f,  f );
     glTexCoord2f(1.0f, 0.0f);
     glVertex3f( -f, -1.1*f, f );
     glEnd();
-    //poore ka base
 
     glBindTexture(GL_TEXTURE_2D, _textureId_4);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -669,61 +704,68 @@ void display(void)
     glColor3f( 1,  1,  1 );
     glNormal3f(0.0,1.0f,0.0f);
     glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(  -f, -1.1*f, -1.1*f );
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(  1.1*f, -1.1*f,  -1.1*f );
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f( 1.1*f, -1.1*f,  f );
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f( -f, -1.1*f, f );
-    glEnd();
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-    glBegin(GL_POLYGON);
-    glColor3f( 1,  1,  1 );
-    glNormal3f(0.0,1.0f,0.0f);
-    glTexCoord2f(1.0f, 0.0f);
     glVertex3f( -f, -1.1*f, -1.1*f );
-    glTexCoord2f(1.0f, 0.0f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f( -f, -f,  -1.1*f );
-    glTexCoord2f(1.0f, 0.0f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f( -f, -f,  f );
-    glTexCoord2f(1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f( -f, -1.1*f, f );
     glEnd();
 
+
+    glBindTexture(GL_TEXTURE_2D, _textureId_4);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
     glBegin(GL_POLYGON);
     glColor3f( 1,  1,  1 );
     glNormal3f(0.0,1.0f,0.0f);
-    glTexCoord2f(1.0f, 0.0f);
+    glTexCoord2f(0.0f, 1.0f);
     glVertex3f( 1.1*f, -f, f );
-    glTexCoord2f(1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
     glVertex3f( 1.1*f, -1.1*f, f );
     glTexCoord2f(1.0f, 0.0f);
     glVertex3f( 1.1*f, -1.1*f, -1.1*f );
-    glTexCoord2f(1.0f, 0.0f);
+    glTexCoord2f(1.0f, 1.0f);
     glVertex3f( 1.1*f, -f, -1.1*f );
     glEnd();
 
+
+    glBindTexture(GL_TEXTURE_2D, _textureId_4);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
     glBegin(GL_POLYGON);
     glColor3f( 1,  1,  1 );
     glNormal3f(0.0,1.0f,0.0f);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f( -f, -f, -1.1*f );
     glTexCoord2f(1.0f, 1.0f);
-    glVertex3f( 1.1*f, -f, -1.1*f );
+    glVertex3f( -f, -f, -1.1*f );
     glTexCoord2f(0.0f, 1.0f);
-    glVertex3f( 1.1*f, -1.1*f, -1.1*f );
+    glVertex3f( 1.1*f, -f, -1.1*f );
     glTexCoord2f(0.0f, 0.0f);
+    glVertex3f( 1.1*f, -1.1*f, -1.1*f );
+    glTexCoord2f(1.0f, 0.0f);
     glVertex3f( -f, -1.1*f,-1.1*f );
+    glEnd();
+
+
+    //poore ka base
+    glBindTexture(GL_TEXTURE_2D, _textureId_5);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    glBegin(GL_POLYGON);
+    glColor3f( 1,  1,  1 );
+    glNormal3f(0.0,1.0f,0.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(  -f, -1.1*f, -1.1*f );
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(  1.1*f, -1.1*f,  -1.1*f );
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f( 1.1*f, -1.1*f,  f );
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f( -f, -1.1*f, f );
     glEnd();
 
     glDisable(GL_TEXTURE_2D);
@@ -841,12 +883,14 @@ void *UpdateBoardThread(void* id)
     			BallConsidered.SetX(FinalBoard.GetDimensionX() -BallConsidered_Radius);
     			// BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
     			BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
+                Is_Sound2=true;
     		}
     		else if (BallConsidered_Coordx+BallConsidered_VelocityX + FinalBoard.GetDimensionX() -BallConsidered_Radius<0)
     		{
     			BallConsidered.SetX(0-FinalBoard.GetDimensionX()+BallConsidered_Radius);
     			// BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
     			BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());	
+                Is_Sound2=true;
     		}
     		else
     		{
@@ -858,12 +902,14 @@ void *UpdateBoardThread(void* id)
                 BallConsidered.SetY(FinalBoard.GetDimensionY()-BallConsidered_Radius);
                 // BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
                 BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());
+                Is_Sound2=true;
             }
             else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionY() -BallConsidered_Radius <0)
             {
                 BallConsidered.SetY(0-FinalBoard.GetDimensionY() + BallConsidered_Radius);
                 // BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);    
                 BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());   
+                Is_Sound2=true;
             }
             else
             {
@@ -876,12 +922,14 @@ void *UpdateBoardThread(void* id)
                 BallConsidered.SetZ(FinalBoard.GetDimensionZ()-BallConsidered_Radius);
                 // BallConsidered.SetZ(BallConsidered_Coordz+BallConsidered_VelocityZ);
                 BallConsidered.SetVelocityZ(0-BallConsidered.GetVelocityZ());
+                Is_Sound2=true;
             }
             else if (BallConsidered_Coordz+BallConsidered_VelocityZ + FinalBoard.GetDimensionZ() -BallConsidered_Radius <0)
             {
                 BallConsidered.SetZ(0-FinalBoard.GetDimensionZ() + BallConsidered_Radius);
                 // BallConsidered.SetZ(BallConsidered_Coordz+BallConsidered_VelocityZ);    
-                BallConsidered.SetVelocityZ(0-BallConsidered.GetVelocityZ());   
+                BallConsidered.SetVelocityZ(0-BallConsidered.GetVelocityZ());
+                Is_Sound2=true;   
             }
             else
             {
@@ -953,7 +1001,8 @@ void *UpdateBoardThread(void* id)
                         Vector_Of_Balls[i].SetY(Vector_Of_Balls[i].GetY() + (l*dy)/distance);
                         Vector_Of_Balls[i].SetZ(Vector_Of_Balls[i].GetZ() + (l*dz)/distance);
     
-
+                        Is_Sound1=true;
+                        
     					BallConsidered.SetVelocity(vx1,vy1,vz1);
     					// BallConsidered.SetX(BallConsidered.GetX()+vx2*vx1/(vx2+vx1));
     					// BallConsidered.SetY(BallConsidered.GetY()+;
@@ -1006,7 +1055,10 @@ int main(int argc, char **argv)
 		pthread_create(&BallThreads[i],NULL,UpdateBoardThread,(void *)i);
 	
 	}
-
+    pthread_t soundthread1;
+    pthread_t soundthread2;
+    pthread_create(&soundthread1,NULL,sound_play1,NULL);
+    pthread_create(&soundthread2,NULL,sound_play2,NULL);
 	pthread_create(&DisplayThread,NULL,DisplayUpdate,&graphics1);
 	
 	for (int i=0; i<NumberOfBalls ;i++)
@@ -1015,6 +1067,9 @@ int main(int argc, char **argv)
 	}
 
     pthread_join(DisplayThread,NULL);
+
+    pthread_join(soundthread1,NULL);
+    pthread_join(soundthread2,NULL);
 	// create a display thread 
 	// run the threads 
 	pthread_exit(NULL);
