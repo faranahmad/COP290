@@ -34,6 +34,8 @@ struct Graph {
 bool Is_Sound1;
 bool Is_Sound2;
 
+void *UpdateBoardThread(void* id);
+
 void *sound_play1(void *x)
 {
     while (true)
@@ -296,7 +298,14 @@ void handleKeypress(unsigned char key, int x, int y) {
         case 43: //+ key
                {    
                     PauseBoard=true;
-                    //TODO: Adding a ball
+                    Ball newballtoadd =Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(), FinalBoard.GetDimensionZ(),0);
+                    while (!CheckCorrect(FinalBoard.GetVectorBalls(), newballtoadd))
+                    {
+                        newballtoadd =Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(), FinalBoard.GetDimensionZ(),0);
+                    }
+                    pthread_t newthread;
+                    FinalBoard.AddBallToBoard(newballtoadd);
+                    pthread_create(&newthread,NULL, UpdateBoardThread, (void *) (FinalBoard.GetNumberBalls()-1));
                     PauseBoard=false;
                     break; 
                 }      
