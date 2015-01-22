@@ -520,7 +520,12 @@ void initRendering() {
  
 
 int main(int argc,char *argv[] )
-{
+{   
+    #ifdef DEBUG
+        cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!"<<endl;
+    #else
+        cout<<"#########################"<<endl;
+    #endif
     x=atoi(argv[1]);
     y=atoi(argv[2]);
     glutInit(&argc, argv);

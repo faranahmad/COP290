@@ -241,12 +241,12 @@ void mouseclick(int button,int state,int x,int y )
         int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
         int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
         float const window_aspect = (float)window_width / (float)window_height;
-        // cout<<x<<'\t'<<y<<endl;
-        // cout << window_width<<endl;
-        // cout << window_height<<endl;
+        #ifdef DEBUG
+        cout<<x<<'\t'<<y<<endl;
+        cout << window_width<<"\t"<<window_height<<endl;
+        #endif
         float f1=window_width/1000.0;
         float f2=window_height/500.0;
-        // cout<<(x>920*f1)<<"     "<<(x<998*f2)<<endl;
         if(x>453*f1 && x<501*f1 && y>462*f2 && y<499*f2)
         {
             PauseBoard=false;

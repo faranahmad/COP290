@@ -7,7 +7,7 @@ all: Ball.cpp Board.cpp Threads.cpp
 	$(Compiler) $(Arguments) Ball.cpp Board.cpp Threads.cpp  $(Including)
 
 execute: Color.cpp Ball.cpp Board.cpp Image.cpp Threads.cpp
-	$(Compiler) $(Arguments) Color.cpp Ball.cpp Board.cpp Image.cpp Threads.cpp $(Including) $(IncludingGraphics)
+	$(Compiler) -DDEBUG $(Arguments) Color.cpp Ball.cpp Board.cpp Image.cpp Threads.cpp $(Including) $(IncludingGraphics)
 	./a.out $(num_thread)
 	rm a.out
 
