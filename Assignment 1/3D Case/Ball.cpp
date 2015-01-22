@@ -15,6 +15,7 @@ Ball::Ball(double x,double y,double z)
 	velocity_y=0;
 	velocity_z=0;
 	color = Color();
+	
 }
 
 

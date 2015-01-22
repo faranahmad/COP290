@@ -719,6 +719,11 @@ int main(int argc, char **argv)
 {
     Is_Sound1=false;
     Is_Sound2=false;
+    #ifdef DEBUG
+        cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!"<<endl;
+    #else
+        cout<<"#########################"<<endl;
+    #endif
     srand(time(NULL));
     const int NumberOfBalls = atoi(argv[1]);
     BallThreads=std::vector<pthread_t> (NumberOfBalls);
