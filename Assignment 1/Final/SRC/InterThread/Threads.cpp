@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <iostream>
 #include <stdio.h>
-#include "Graphics.h"
+// #include "Graphics.h"
 #include "Image.h"
 #include <GL/glut.h>
 #include <GL/gl.h>
@@ -684,7 +684,7 @@ void *UpdateBoardThread(void* id)
 
                     if(BallConsidered.GetRadius()+VectorBallsConsidered[i].GetRadius()>=distance)
                     {
-                        double l=(BallConsidered.GetRadius()+VectorBallsConsidered[i].GetRadius() -distance)/2;
+                        double l=(BallConsidered.GetRadius()+VectorBallsConsidered[i].GetRadius() -distance);
     
                         double mass2 = VectorBallsConsidered[i].GetRadius()*VectorBallsConsidered[i].GetRadius()*VectorBallsConsidered[i].GetRadius(); 
                         

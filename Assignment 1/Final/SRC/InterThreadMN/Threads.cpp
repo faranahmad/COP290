@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <iostream>
 #include <stdio.h>
-#include "Graphics.h"
+// #include "Graphics.h"
 #include "Image.h"
 #include <GL/glut.h>
 #include <GL/gl.h>
