@@ -310,6 +310,7 @@ void mouseclick(int button,int state,int x,int y )
                     cout <<"push for message" <<k<<"\n";
                     MessageVector[k].push(Message(ballcons,1,Ballid_From_Selection));
                 }
+                FinalBoard.SetBallFromId(Ballid_From_Selection,ballcons);
             }
             // BallThreads.pop_back()
             cout<<"Remove Button  "<< BallThreads.size()<<endl;
@@ -634,13 +635,15 @@ void *UpdateBoardThread(void* id)
                 {
                     BallConsidered.SetX(FinalBoard.GetDimensionX() -BallConsidered_Radius);
                     BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
-                    Is_Sound2=true;
+                    if (BallInBoard[ballcounter])
+                        Is_Sound2=true;
                 }
                 else if (BallConsidered_Coordx+BallConsidered_VelocityX + FinalBoard.GetDimensionX() -BallConsidered_Radius<0)
                 {
                     BallConsidered.SetX(0-FinalBoard.GetDimensionX()+BallConsidered_Radius);
                     BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
-                    Is_Sound2=true;
+                    if (BallInBoard[ballcounter])
+                        Is_Sound2=true;
    
                 }
                 else
@@ -652,14 +655,16 @@ void *UpdateBoardThread(void* id)
                 {
                     BallConsidered.SetY(FinalBoard.GetDimensionPosY()-BallConsidered_Radius);
                     BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());
-                    Is_Sound2=true;
+                    if (BallInBoard[ballcounter])
+                        Is_Sound2=true;
 
                 }
                 else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionNegY() -BallConsidered_Radius <0)
                 {
                     BallConsidered.SetY(0-FinalBoard.GetDimensionNegY() + BallConsidered_Radius);
                     BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY()); 
-                    Is_Sound2=true;
+                    if (BallInBoard[ballcounter])
+                        Is_Sound2=true;
   
                 }
                 else

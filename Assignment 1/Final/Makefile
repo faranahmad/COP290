@@ -64,7 +64,6 @@ Message.o: $(FolderCommon)Message.cpp
 	$(Compiler) $(Arguments) -o 2DMN $(FolderObj)Color.o $(FolderObj)Ball.o $(FolderObj)Board.o $(FolderObj)Image.o  $(FolderObj)Message.o $(FolderObj)2DThreadsMN.o $(IncludeThread) $(IncludeGraphics) 
 	mv 2DMN $(FolderExec)2DMN
 
-
 Run3D: 3D
 	cd $(FolderExec) ; ./3D $(num_thread)  
 
@@ -79,7 +78,6 @@ test: Ball.cpp Board.cpp Test.cpp BallTest.cpp BoardTest.cpp AllTests.cpp
 	rm a.out 
 	
 clean:
-	rm -rf $(FolderObj)*.o 3D
 	rm -rf $(FolderObj)*.o
 	rm -rf $(FolderExec)3D
 	rm -rf $(FolderExec)2D
