@@ -391,7 +391,7 @@ void display(void)
     glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
     glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
 
-    GLfloat const light_pos2[4]     = {FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(),FinalBoard.GetDimensionZ() , 1.0  };
+    GLfloat const light_pos2[4]     = {float(FinalBoard.GetDimensionX()),float(FinalBoard.GetDimensionY()),float(FinalBoard.GetDimensionZ()) , 1.0  };
     GLfloat const light_color2[4]   = { 1,  0,  0, 1.};
     GLfloat const light_ambient2[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT1, GL_POSITION, light_pos2),
@@ -399,7 +399,7 @@ void display(void)
     glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient);
     glLightfv(GL_LIGHT1, GL_SPECULAR, light_specular);
 
-    GLfloat const light_pos3[4]     = {FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(),FinalBoard.GetDimensionZ(), 1.0  };
+    GLfloat const light_pos3[4]     = {float(FinalBoard.GetDimensionX()),float(FinalBoard.GetDimensionY()),float(FinalBoard.GetDimensionZ()), 1.0  };
     GLfloat const light_color3[4]   = { 0,  1,  0, 1.};
     GLfloat const light_ambient3[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT2, GL_POSITION, light_pos3),
@@ -407,7 +407,7 @@ void display(void)
     glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient);
     glLightfv(GL_LIGHT2, GL_SPECULAR, light_specular);
  
-    GLfloat const light_pos4[4]     = {float(0-FinalBoard.GetDimensionX()), -float(FinalBoard.GetDimensionY()), FinalBoard.GetDimensionZ()  , 1.0  };
+    GLfloat const light_pos4[4]     = {float(0-FinalBoard.GetDimensionX()), -float(FinalBoard.GetDimensionY()), float(FinalBoard.GetDimensionZ())  , 1.0  };
     GLfloat const light_color4[4]   = { 1,  1,  0, 1.};
     GLfloat const light_ambient4[4] = { 0.10,  0.10,  0.30, 1.};
     glLightfv(GL_LIGHT3, GL_POSITION, light_pos4),
