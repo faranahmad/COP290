@@ -243,22 +243,30 @@ void mouseclick(int button,int state,int x,int y )
         int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
         int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
         float const window_aspect = (float)window_width / (float)window_height;
-        // cout<<x<<'\t'<<y<<endl;
-        // cout << window_width<<endl;
-        // cout << window_height<<endl;
+        #ifdef DEBUG
+            cout<<x<<'\t'<<y<<endl;
+            cout << window_width<<endl;
+            cout << window_height<<endl;
+        #endif
         float f1=window_width/1000.0;
         float f2=window_height/500.0;
-        // cout<<(x>920*f1)<<"     "<<(x<998*f2)<<endl;
+        #ifdef DEBUG
+            cout<<(x>920*f1)<<"     "<<(x<998*f2)<<endl;
+        #endif
         if(x>453*f1 && x<501*f1 && y>462*f2 && y<499*f2)
         {
             PauseBoard=false;
             If_Ball_Selected=false;
-            cout<<"Play Button"<<endl;
+            #ifdef DEBUG
+                cout<<"Play Button"<<endl;
+            #endif
         }
         else if(x>505*f1 && x<552*f1 && y>462*f2 && y<499*f2)
         {
             PauseBoard=true;
-            cout<<"Pause Button"<<endl;
+            #ifdef DEBUG
+                cout<<"Pause Button"<<endl;
+            #endif
         }
         else if(x>952*f1 && x<998*f1 && y>462*f2 && y<499*f2)
         {
@@ -281,49 +289,63 @@ void mouseclick(int button,int state,int x,int y )
             BallsPerThread[NumberOfBallsM-1]+=1;
             BallInBoard.push_back(true);
             PauseBoard=false;
-            cout<<"Add Button"<<endl;
+            #ifdef DEBUG
+                cout<<"Add Button"<<endl;
+            #endif
         }
         else if(x>50*f1 && x<97*f1 && y>462*f2 && y<499*f2)
         {
-            cout<<"SpeedUp Button"<<endl;
+            #ifdef DEBUG
+                cout<<"SpeedUp Button"<<endl;
+            #endif
         }
         else if(x>0*f1 && x<47*f1 && y>462*f2 && y<499*f2)
         {
-            cout<<"SlowDown Button"<<endl;
+            #ifdef DEBUG
+                cout<<"SlowDown Button"<<endl;
+            #endif
         }
         else if(x>901*f1 && x<950*f1 && y>462*f2 && y<499*f2)
         {
-            cout <<"In remove  button\n";
+            #ifdef DEBUG
+                cout <<"In remove  button\n";
+            #endif
             if (If_Ball_Selected)
             {
-                cout <<"id: "<<Ballid_From_Selection<<"\n";
+                #ifdef DEBUG
+                    cout <<"id: "<<Ballid_From_Selection<<"\n";
+                #endif
                 BallInBoard[Ballid_From_Selection]=false;
-                
-                cout <<"id: "<<Ballid_From_Selection<<"\n";
+                #ifdef DEBUG
+                    cout <<"id: "<<Ballid_From_Selection<<"\n";
+                #endif
                 Ball ballcons=FinalBoard.GetBallFromId(Ballid_From_Selection);
-                
-                cout <<"id: "<<Ballid_From_Selection<<"\n";
+                #ifdef DEBUG
+                    cout <<"id: "<<Ballid_From_Selection<<"\n";
+                #endif
                 ballcons.SetRadius(0.0);
 
                 for (int k=0;k<NumberOfBallsM;k++)
                 {
-                    cout <<"push for message" <<k<<"\n";
+                    #ifdef DEBUG
+                        cout <<"push for message" <<k<<"\n";
+                    #endif
                     MessageVector[k].push(Message(ballcons,1,Ballid_From_Selection));
                 }
                 FinalBoard.SetBallFromId(Ballid_From_Selection,ballcons);
             }
             // BallThreads.pop_back()
-            cout<<"Remove Button  "<< BallThreads.size()<<endl;
+            #ifdef DEBUG
+                cout<<"Remove Button  "<< BallThreads.size()<<endl;
+            #endif
         }
         if(PauseBoard==true)
         {
-            //cout <<"i m here"<<endl;
             int no_of_balls=FinalBoard.GetNumberBalls();
             vector<Ball> vector_balls = FinalBoard.GetVectorBalls();
             double factor=1.5;
             for(int i=0;i<no_of_balls;i++)
             {
-                //cout<<"reached here"<< endl;
                 double width_of_window = (2*(1/0.949)*FinalBoard.GetDimensionX()/4.0);
                 double height_of_window = ((1/0.940)*FinalBoard.GetDimensionPosY()+(1/0.780)*FinalBoard.GetDimensionNegY())/4.0;
                 double x_modified = x - width_of_window;
@@ -334,7 +356,9 @@ void mouseclick(int button,int state,int x,int y )
                 {
                     If_Ball_Selected = true;
                     Ballid_From_Selection=i;
-                    cout << i << endl;
+                    #ifdef DEBUG
+                        cout << i << endl;
+                    #endif
                     break;
                 }                    
             }
@@ -349,7 +373,9 @@ void mouseclick(int button,int state,int x,int y )
                         Ball_Selected.SetVelocityY(factor*Ball_Selected.GetVelocityY());
                     for (int k=0;k<NumberOfBalls;k++)
                     {
-                    cout <<"push for message" <<k<<"\n";
+                    #ifdef DEBUG    
+                        cout <<"push for message" <<k<<"\n";
+                    #endif
                     MessageVector[k].push(Message(Ball_Selected,1,Ballid_From_Selection));
                     }
                     FinalBoard.SetBallFromId(Ballid_From_Selection,Ball_Selected);
@@ -361,7 +387,9 @@ void mouseclick(int button,int state,int x,int y )
                     Ball_Selected.SetVelocityY(Ball_Selected.GetVelocityY()/factor);
                     for (int k=0;k<NumberOfBalls;k++)
                     {
-                    cout <<"push for message" <<k<<"\n";
+                    #ifdef DEBUG    
+                        cout <<"push for message" <<k<<"\n";
+                    #endif
                     MessageVector[k].push(Message(Ball_Selected,1,Ballid_From_Selection));
                     }
                     FinalBoard.SetBallFromId(Ballid_From_Selection,Ball_Selected);    
@@ -381,7 +409,9 @@ void handleKeypress(unsigned char key, int x, int y) {
 
 void display(void)
 {
-    // cout<<"In display\n";
+    #ifdef DEBUG
+        cout<<"In display\n";
+    #endif
     int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
     int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
     float const window_aspect = (float)window_width / (float)window_height;
@@ -477,11 +507,15 @@ void display(void)
     for( int i=0;i<FinalBoard.GetNumberBalls();i++ ) 
     {
         glPushMatrix();
-        // cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
+        #ifdef DEBUG
+            cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
+        #endif
         glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(), 500);
         // glEnable(GL_COLOR_MATERIAL);
         glColor3f(FinalBoard.GetBallFromId(i).GetColor().GetR(),FinalBoard.GetBallFromId(i).GetColor().GetG(),FinalBoard.GetBallFromId(i).GetColor().GetB());
-        // cout <<FinalBoard.GetBallFromId(i).GetColor().GetR()<<"\t"<<FinalBoard.GetBallFromId(i).GetColor().GetG()<<"\t"<<FinalBoard.GetBallFromId(i).GetColor().GetB()<<"\n";
+        #ifdef DEBUG
+            cout <<FinalBoard.GetBallFromId(i).GetColor().GetR()<<"\t"<<FinalBoard.GetBallFromId(i).GetColor().GetG()<<"\t"<<FinalBoard.GetBallFromId(i).GetColor().GetB()<<"\n";
+        #endif
         // glColor3f(0.9,0.5,0.5);
 
 
@@ -569,7 +603,7 @@ int graphics(int argc,char *argv[])
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
     glutInitWindowSize(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY());
-    glutCreateWindow("Team BabeMagnets");
+    glutCreateWindow("Team Wolfpack");
     
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
@@ -695,7 +729,9 @@ void *UpdateBoardThread(void* id)
                         if(BallConsidered.GetRadius()+VectorBallsConsidered[i].GetRadius()>=distance)
                         {
                             double l=(BallConsidered.GetRadius()+VectorBallsConsidered[i].GetRadius() -distance);
-                            // cout <<l<<endl;
+                            #ifdef DEBUG
+                                cout <<l<<endl;
+                            #endif
                             double mass2 = VectorBallsConsidered[i].GetRadius()*VectorBallsConsidered[i].GetRadius()*VectorBallsConsidered[i].GetRadius(); 
     
                             double ux2 = VectorBallsConsidered[i].GetVelocityX();
@@ -775,7 +811,9 @@ void *UpdateBoardThread(void* id)
 void *DisplayUpdate(void* id)
 {
     Graph  *pa= (Graph *)id;
-    // cout <<"Updating diaply\n";
+    #ifdef DEBUG
+        cout <<"Updating diaply\n";
+    #endif
     graphics(pa->x1,pa->s1);
     // usleep(10000);
 }
@@ -787,7 +825,9 @@ int main(int argc, char **argv)
     NumberOfBallsN=atoi(argv[2]);
     NumberOfBalls = NumberOfBallsM*NumberOfBallsN;
     BallThreads=std::vector<pthread_t> (NumberOfBallsM);
-    cout <<"Created Vector for M"<<"\n";
+    #ifdef DEBUG
+        cout <<"Created Vector for M"<<"\n";
+    #endif
     for (int k=0; k<NumberOfBallsM;k++)
     {
         BallsPerThread.push_back(NumberOfBallsN);
@@ -801,27 +841,35 @@ int main(int argc, char **argv)
     pthread_mutex_init(&UpdateLock,NULL);
     FinalBoard=Board(1000,300,300,NumberOfBalls);
     MessageVector=std::vector<queue<Message>> (NumberOfBallsM);
-    // cout <<FinalBoard.Get
+    #ifdef DEBUG    
+        cout <<FinalBoard.Get
+    #endif
     //pthread_t BallThreads [NumberOfBalls];
     pthread_t DisplayThread;
-    cout <<"Starting\n";
+    #ifdef DEBUG
+        cout <<"Starting\n";
+    #endif
     PauseBoard=false;
-
-    cout<<FinalBoard.GetBoardInformation()<<"\n";
-
+    #ifdef DEBUG
+        cout<<FinalBoard.GetBoardInformation()<<"\n";
+    #endif
     Graph graphics1;
     graphics1.x1=argc;
     graphics1.s1=argv;
-
-    std::cout <<"Ball threas" <<NumberOfBallsM <<"\n";
+    #ifdef DEBUG
+        std::cout <<"Ball threas" <<NumberOfBallsM <<"\n";
+    #endif
     for (long i=0; i<NumberOfBallsM ;i++)
     {
-        // cout <<"Creating thread i: " <<i <<"\n";
+        #ifdef DEBUG
+            cout <<"Creating thread i: " <<i <<"\n";
+        #endif
         pthread_create(&BallThreads[i],NULL,UpdateBoardThread,(void *)i);
     
     }
-    cout <<"out of for loop\n";
-
+    #ifdef DEBUG
+        cout <<"out of for loop\n";
+    #endif
     pthread_t soundthread1;
     pthread_t soundthread2;
     pthread_create(&soundthread1,NULL,sound_play1,NULL);
