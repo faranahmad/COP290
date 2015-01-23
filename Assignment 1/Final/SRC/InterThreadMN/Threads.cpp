@@ -367,8 +367,10 @@ void mouseclick(int button,int state,int x,int y )
                 if(x>50*f1 && x<97*f1 && y>462*f2 && y<499*f2)
                 {
                     Ball Ball_Selected = vector_balls[Ballid_From_Selection];
-                    Ball_Selected.SetVelocityX(factor*Ball_Selected.GetVelocityX());
-                    Ball_Selected.SetVelocityY(factor*Ball_Selected.GetVelocityY());
+                    if (abs(factor*Ball_Selected.GetVelocityX()) <=50)
+                        Ball_Selected.SetVelocityX(factor*Ball_Selected.GetVelocityX());
+                    if (abs(factor*Ball_Selected.GetVelocityY()) <=50)
+                        Ball_Selected.SetVelocityY(factor*Ball_Selected.GetVelocityY());
                     for (int k=0;k<NumberOfBalls;k++)
                     {
                     #ifdef DEBUG    
@@ -376,7 +378,7 @@ void mouseclick(int button,int state,int x,int y )
                     #endif
                     MessageVector[k].push(Message(Ball_Selected,1,Ballid_From_Selection));
                     }
-                    // FinalBoard.SetBallFromId(Ballid_From_Selection,Ball_Selected);
+                    FinalBoard.SetBallFromId(Ballid_From_Selection,Ball_Selected);
                 }
                 else if(x>0*f1 && x<47*f1 && y>462*f2 && y<499*f2)       
                 {
@@ -390,7 +392,7 @@ void mouseclick(int button,int state,int x,int y )
                     #endif
                     MessageVector[k].push(Message(Ball_Selected,1,Ballid_From_Selection));
                     }
-                    // FinalBoard.SetBallFromId(Ballid_From_Selection,Ball_Selected);    
+                    FinalBoard.SetBallFromId(Ballid_From_Selection,Ball_Selected);    
                 }  
             }
         }

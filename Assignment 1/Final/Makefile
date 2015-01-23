@@ -103,22 +103,26 @@ MessagePrintDebug.o: $(FolderCommon)Message.cpp
 2DMN: Image.o Color.o Ball.o Board.o Message.o 2DThreadsMN.o
 	$(Compiler) $(Arguments) -o 2DMN $(FolderObj)Color.o $(FolderObj)Ball.o $(FolderObj)Board.o $(FolderObj)Image.o  $(FolderObj)Message.o $(FolderObj)2DThreadsMN.o $(IncludeThread) $(IncludeGraphics) 
 	mv 2DMN $(FolderExec)2DMN
+
 2DMNPrintDebug: ImagePrintDebug.o ColorPrintDebug.o BallPrintDebug.o BoardPrintDebug.o MessagePrintDebug.o 2DThreadsMNPrintDebug.o
 	$(Compiler) $(DebugDefine) $(Arguments) -o 2DMNPrintDebug $(FolderObj)ColorPrintDebug.o $(FolderObj)BallPrintDebug.o $(FolderObj)BoardPrintDebug.o $(FolderObj)ImagePrintDebug.o  $(FolderObj)MessagePrintDebug.o $(FolderObj)2DThreadsMNPrintDebug.o $(IncludeThread) $(IncludeGraphics)
 	mv 2DMNPrintDebug $(FolderExec)2DMNPrintDebug
 
 Run3D: 3D
 	cd $(FolderExec) ; ./3D $(num_thread)  
+
 Run3DPrintDebug: 3DPrintDebug
 	cd $(FolderExec) ; ./3DPrintDebug $(num_thread)  
 
 Run2D: 2D
 	cd $(FolderExec) ; ./2D $(num_thread)
+
 Run2DPrintDebug: 2DPrintDebug
 	cd $(FolderExec) ; ./2DPrintDebug $(num_thread)
 
 Run2DMN: 2DMN
 	cd $(FolderExec) ; ./2DMN $(m) $(n)
+
 Run2DMNPrintDebug: 2DMNPrintDebug
 	cd $(FolderExec) ; ./2DMNPrintDebug $(m) $(n)
 
