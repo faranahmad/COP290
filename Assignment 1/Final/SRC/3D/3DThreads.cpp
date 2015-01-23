@@ -928,9 +928,9 @@ void *UpdateBoardThread(void* id)
             }
             else
             {
+                BallConsidered.SetVelocityY(BallConsidered.GetVelocityY() -9.8);
                 BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
             }
-            BallConsidered.SetVelocityY(BallConsidered.GetVelocityY() -9.8);
             
             if (BallConsidered_Coordz+BallConsidered_VelocityZ +BallConsidered_Radius> FinalBoard.GetDimensionZ())
             {
