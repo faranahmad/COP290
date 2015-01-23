@@ -42,7 +42,9 @@ Board::Board(double x, double posy, double negy, int n)
 		Ball newball=Ball(x,posy,negy,1);
 		while (!CheckCorrect(vector_of_balls,newball))
 		{
-			std::cout <<"In here for: " <<i<<"\n";
+			#ifdef DEBUG
+				std::cout <<"In here for: " <<i<<"\n";
+			#endif
 			newball=Ball(x,posy,negy,1);	
 		}
 		vector_of_balls.push_back(newball);
