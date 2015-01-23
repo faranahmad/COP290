@@ -59,7 +59,9 @@ Ball::Ball(double limx,double limposy,double limnegy,double random)
 	else 
 	{
 		coord_y = 0-coord_y_2;	
-		std::cout <<"In neg case\t"<<coord_y<<"\t"<<limnegy<<"\n";
+		#ifdef DEBUG
+			std::cout <<"In neg case\t"<<coord_y<<"\t"<<limnegy<<"\n";
+		#endif
 	}
 	//coord_y = (rand() % (int) (2* (limy-radius))) - (limy-radius);
 	velocity_x=(rand() % 30) -15;
