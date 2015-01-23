@@ -373,8 +373,10 @@ void specialKeys( int key, int x, int y )
 
 
 void display(void)
-{
-	// cout<<"In display\n";
+{   
+    #ifdef DEBUG
+	   cout<<"In display\n";
+    #endif
     int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
     int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
     float const window_aspect = (float)window_width / (float)window_height;
@@ -797,7 +799,9 @@ void display(void)
     for( int i=0;i<FinalBoard.GetNumberBalls();i++ ) 
     {
         glPushMatrix();
-        // cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
+        #ifdef DEBUG
+            cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
+        #endif
         glTranslatef(FinalBoard.GetBallFromId(i).GetX(), FinalBoard.GetBallFromId(i).GetY(),FinalBoard.GetBallFromId(i).GetZ());
         glColor3f(FinalBoard.GetBallFromId(i).GetColor().GetR(),FinalBoard.GetBallFromId(i).GetColor().GetG(),FinalBoard.GetBallFromId(i).GetColor().GetB());
         GLfloat white[] = {1.f, 1.f, 1.f, 1.0f};
@@ -875,8 +879,9 @@ void *UpdateBoardThread(void* id)
         {
     		pthread_mutex_lock (&UpdateLock);
     		long ballid = (long) id;
-    		// cout <<"Starting for ball " <<ballid<<"\n";
-    		
+    		#ifdef DEBUG
+                cout <<"Starting for ball " <<ballid<<"\n";
+    		#endif
     		Ball BallConsidered = FinalBoard.GetBallFromId(ballid);
     
     		double BallConsidered_Coordx = BallConsidered.GetX(); 
@@ -966,8 +971,9 @@ void *UpdateBoardThread(void* id)
 
     				if(BallConsidered.GetRadius()+Vector_Of_Balls[i].GetRadius()>=distance)
     				{
-    					cout <<BallConsidered.GetRadius() <<"\t" <<Vector_Of_Balls[i].GetRadius()<<"\t"<<distance<<"\n";
-    					
+                        #ifdef DEBUG
+    					   cout <<BallConsidered.GetRadius() <<"\t" <<Vector_Of_Balls[i].GetRadius()<<"\t"<<distance<<"\n";
+    					#endif
                         double l=(BallConsidered.GetRadius()+Vector_Of_Balls[i].GetRadius() -distance)/2;
     
     					double mass2 = Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius()*Vector_Of_Balls[i].GetRadius(); 
@@ -1034,8 +1040,10 @@ void *UpdateBoardThread(void* id)
 void *DisplayUpdate(void* id)
 {
 	Graph  *pa= (Graph *)id;
-	// cout <<"Updating diaply\n";
-	graphics(pa->x1,pa->s1);
+	#ifdef DEBUG 
+        cout <<"Updating diaply\n";
+	#endif
+    graphics(pa->x1,pa->s1);
 	// usleep(10000);
 }
 
@@ -1048,20 +1056,25 @@ int main(int argc, char **argv)
 	
     pthread_t BallThreads [NumberOfBalls];
 	pthread_t DisplayThread;
-	
-    cout <<"Starting\n";
+    #ifdef DEBUG
+        cout <<"Starting\n";
+    #endif
     PauseBoard=false;
-	cout<<FinalBoard.GetBoardInformation()<<"\n";
-
+	#ifdef DEBUG
+        cout<<FinalBoard.GetBoardInformation()<<"\n";
+    #endif
 	Graph graphics1;
 	graphics1.x1=argc;
 	graphics1.s1=argv;
-
-	std::cout <<"Ball threads" <<NumberOfBalls <<"\n";
-	for (long i=0; i<NumberOfBalls ;i++)
+    #ifdef DEBUG
+	   std::cout <<"Ball threads" <<NumberOfBalls <<"\n";
+	#endif
+    for (long i=0; i<NumberOfBalls ;i++)
 	{
-		cout <<"Creating thread : " <<i <<"\n";
-		pthread_create(&BallThreads[i],NULL,UpdateBoardThread,(void *)i);
+        #ifdef DEBUG
+		  cout <<"Creating thread : " <<i <<"\n";
+		#endif
+        pthread_create(&BallThreads[i],NULL,UpdateBoardThread,(void *)i);
 	
 	}
     pthread_t soundthread1;
