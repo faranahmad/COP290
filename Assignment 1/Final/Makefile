@@ -127,7 +127,7 @@ MessageGDBDebug.o: $(FolderCommon)Message.cpp
 	mv Threads.o $(FolderObj)2DThreadsMNPrintDebug.o
 2DThreadsMNGDBDebug.o: ImageGDBDebug.o ColorGDBDebug.o BallGDBDebug.o BoardGDBDebug.o MessageGDBDebug.o $(FolderIndterMN2d)Threads.cpp
 	$(Compiler) $(DebugMode) $(Mode) $(Arguments) $(Including) $(IncludingGraphics)  $(FolderObj)ImageGDBDebug.o $(FolderObj)ColorGDBDebug.o $(FolderObj)BallGDBDebug.o $(FolderObj)BoardGDBDebug.o  $(FolderObj)MessageGDBDebug.o $(FolderIndterMN2d)Threads.cpp
-	mv Threads.o $(FolderObj)2DThreadsGDBDebug.o
+	mv Threads.o $(FolderObj)2DThreadsMNGDBDebug.o
 
 2D: Image.o Color.o Ball.o Board.o Message.o 2DThreads.o
 	$(Compiler) $(Arguments) -o 2D $(FolderObj)Color.o $(FolderObj)Ball.o $(FolderObj)Board.o $(FolderObj)Image.o  $(FolderObj)Message.o $(FolderObj)2DThreads.o $(IncludeThread) $(IncludeGraphics) 
