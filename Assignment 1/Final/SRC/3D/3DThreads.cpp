@@ -906,6 +906,7 @@ void *UpdateBoardThread(void* id)
     			BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
     		}
     
+
             if (BallConsidered_Coordy+BallConsidered_VelocityY +BallConsidered_Radius> FinalBoard.GetDimensionY())
             {
                 BallConsidered.SetY(FinalBoard.GetDimensionY()-BallConsidered_Radius);
@@ -924,8 +925,8 @@ void *UpdateBoardThread(void* id)
             {
                 BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
             }
+            BallConsidered.SetVelocityY(BallConsidered.GetVelocityY() -9.8);
             
-    
             if (BallConsidered_Coordz+BallConsidered_VelocityZ +BallConsidered_Radius> FinalBoard.GetDimensionZ())
             {
                 BallConsidered.SetZ(FinalBoard.GetDimensionZ()-BallConsidered_Radius);
