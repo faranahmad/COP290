@@ -85,19 +85,6 @@ Message.o: $(FolderCommon)Message.cpp
 	mv 2DGDBDebug $(FolderExec)2DGDBDebug.out
 
 2DMN: Image.o Color.o Ball.o Board.o Message.o 2DThreadsMN.o
-<<<<<<< HEAD
-	$(Compiler) $(Arguments) -o 2DMN $(FolderObj)Color.o $(FolderObj)Ball.o $(FolderObj)Board.o $(FolderObj)Image.o  $(FolderObj)Message.o $(FolderObj)2DThreadsMN.o $(IncludeThread) $(IncludeGraphics) 
-	mv 2DMN $(FolderExec)2DMN
-2DMNPrintDebug: ImagePrintDebug.o ColorPrintDebug.o BallPrintDebug.o BoardPrintDebug.o MessagePrintDebug.o 2DThreadsMNPrintDebug.o
-	$(Compiler) $(DebugDefine) $(Arguments) -o 2DMNPrintDebug $(FolderObj)ColorPrintDebug.o $(FolderObj)BallPrintDebug.o $(FolderObj)BoardPrintDebug.o $(FolderObj)ImagePrintDebug.o  $(FolderObj)MessagePrintDebug.o $(FolderObj)2DThreadsMNPrintDebug.o $(IncludeThread) $(IncludeGraphics)
-	mv 2DMNPrintDebug $(FolderExec)2DMNPrintDebug
-2DMNGDBDebug: ImageGDBDebug.o ColorGDBDebug.o BallGDBDebug.o BoardGDBDebug.o MessageGDBDebug.o 2DThreadsMNGDBDebug.o
-	$(Compiler) $(DebugMode) $(Arguments) -o 2DMNGDBDebug $(FolderObj)ColorGDBDebug.o $(FolderObj)BallGDBDebug.o $(FolderObj)BoardGDBDebug.o $(FolderObj)ImageGDBDebug.o  $(FolderObj)MessageGDBDebug.o $(FolderObj)2DThreadsMNGDBDebug.o $(IncludeThread) $(IncludeGraphics)
-	mv 2DMNGDBDebug $(FolderExec)2DMNGDBDebug
-
-Run3D: 3D
-	cd $(FolderExec) ; ./3D $(num_thread)  
-=======
 	$(Compiler) $(Arguments) -o 2DMN Color.o Ball.o Board.o Image.o  Message.o 2DThreadsMN.o $(IncludeThread) $(IncludeGraphics) 
 	mv 2DMN $(FolderExec)2DMN.out
 2DMNPrintDebug: Image.o Color.o Ball.o Board.o Message.o 2DThreadsMN.o
@@ -109,29 +96,20 @@ Run3D: 3D
 
 Run3D: 3D
 	cd $(FolderExec) ; ./3D.out $(num_thread)  
->>>>>>> 0fbb300c990b9af2bfb42b8102281f12367b1a6f
 Run3DPrintDebug: 3DPrintDebug
 	cd $(FolderExec) ; ./3DPrintDebug.out $(num_thread)  
 Run3DGDBDebug: 3DGDBDebug
 	cd $(FolderExec) ; gdb ./3DGDBDebug.out $(num_thread)  
 
 Run2D: 2D
-<<<<<<< HEAD
-	cd $(FolderExec) ; ./2D $(num_thread)
-=======
 	cd $(FolderExec) ; ./2D.out $(num_thread)
->>>>>>> 0fbb300c990b9af2bfb42b8102281f12367b1a6f
 Run2DPrintDebug: 2DPrintDebug
 	cd $(FolderExec) ; ./2DPrintDebug.out $(num_thread)
 Run2DGDBDebug: 2DGDBDebug
 	cd $(FolderExec) ; gdb ./2DGDBDebug.out $(num_thread)
 
 Run2DMN: 2DMN
-<<<<<<< HEAD
-	cd $(FolderExec) ; ./2DMN $(m) $(n)
-=======
 	cd $(FolderExec) ; ./2DMN.out $(m) $(n)
->>>>>>> 0fbb300c990b9af2bfb42b8102281f12367b1a6f
 Run2DMNPrintDebug: 2DMNPrintDebug
 	cd $(FolderExec) ; ./2DMNPrintDebug.out $(m) $(n)
 Run2DMNGDBDebug: 2DMNGDBDebug
