@@ -19,7 +19,7 @@ printDebug: 3DPrintDebug 2DPrintDebug 2DMNPrintDebug
 
 GDBDebug: 3DGDBDebug 2DGDBDebug 2DMNGDBDebug
 
-doc:Doc/Design\ Document.tex
+doc:Doc/DesignDocument.tex
 	pdflatex Doc/DesignDocument.tex
 
 3D: Color.o 3DBall.o 3DBoard.o Image.o 3DThreads.o
