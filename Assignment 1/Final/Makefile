@@ -19,6 +19,9 @@ printDebug: 3DPrintDebug 2DPrintDebug 2DMNPrintDebug
 
 GDBDebug: 3DGDBDebug 2DGDBDebug 2DMNGDBDebug
 
+doc:Doc/Design\ Document.tex
+	pdflatex Doc/Design\ Document.tex
+
 3D: Color.o 3DBall.o 3DBoard.o Image.o 3DThreads.o
 	$(Compiler) $(Arguments) -o 3D Color.o 3DBall.o 3DBoard.o Image.o 3DThreads.o $(IncludeThread) $(IncludeGraphics) 
 	mv 3D $(FolderExec)3D.out
@@ -117,6 +120,9 @@ test: Ball.cpp Board.cpp Test.cpp BallTest.cpp BoardTest.cpp AllTests.cpp
 	rm a.out 
 	
 clean:
+	rm -rf Design\ document.pdf
+	rm -rf Design\ document.log
+	rm -rf Design\ document.aux
 	rm -rf *.o
 	rm -rf *.out
 	rm -rf $(FolderObj)*.o
