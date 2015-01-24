@@ -305,7 +305,7 @@ void handleKeypress(unsigned char key, int x, int y) {
                     }
                     pthread_t newthread;
                     FinalBoard.AddBallToBoard(newballtoadd);
-                    pthread_create(&newthread,NULL, UpdateBoardThread, (void *) (FinalBoard.GetNumberBalls()-1));
+                    pthread_create(&newthread,NULL, UpdateBoardThread, (void *) ((long) (FinalBoard.GetNumberBalls()-1)));
                     PauseBoard=false;
                     break; 
                 }      
@@ -891,8 +891,8 @@ void *UpdateBoardThread(void* id)
     		double BallConsidered_VelocityX=BallConsidered.GetVelocityX();
     		double BallConsidered_VelocityY=BallConsidered.GetVelocityY();
     		double BallConsidered_VelocityZ=BallConsidered.GetVelocityZ();
-            // BallConsidered.SetX(((BallConsidered_Coordx+BallConsidered_VelocityX)%(2*FinalBoard.GetDimensionX())) -FinalBoard.GetDimensionX());
-    		if (BallConsidered_Coordx + BallConsidered_VelocityX + BallConsidered_Radius> FinalBoard.GetDimensionX())
+            
+            if (BallConsidered_Coordx + BallConsidered_VelocityX + BallConsidered_Radius> FinalBoard.GetDimensionX())
     		{
     			BallConsidered.SetX(FinalBoard.GetDimensionX() -BallConsidered_Radius);
     			// BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
@@ -915,21 +915,19 @@ void *UpdateBoardThread(void* id)
             if (BallConsidered_Coordy+BallConsidered_VelocityY +BallConsidered_Radius> FinalBoard.GetDimensionY())
             {
                 BallConsidered.SetY(FinalBoard.GetDimensionY()-BallConsidered_Radius);
-                // BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);
                 BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());
                 Is_Sound2=true;
             }
             else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionY() -BallConsidered_Radius <0)
             {
                 BallConsidered.SetY(0-FinalBoard.GetDimensionY() + BallConsidered_Radius);
-                // BallConsidered.SetX(BallConsidered_Coordx+BallConsidered_VelocityX);    
                 BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());   
                 Is_Sound2=true;
             }
             else
             {
-                BallConsidered.SetVelocityY(BallConsidered.GetVelocityY() -9.8);
                 BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
+                BallConsidered.SetVelocityY(BallConsidered.GetVelocityY() -9.8);
             }
             
             if (BallConsidered_Coordz+BallConsidered_VelocityZ +BallConsidered_Radius> FinalBoard.GetDimensionZ())
