@@ -26,7 +26,7 @@ doc:Doc/Design\ Document.tex
 	$(Compiler) $(Arguments) -o 3D Color.o 3DBall.o 3DBoard.o Image.o 3DThreads.o $(IncludeThread) $(IncludeGraphics) 
 	mv 3D $(FolderExec)3D.out
 3DPrintDebug:Color.o 3DBall.o 3DBoard.o Image.o 3DThreads.o
-	$(Compiler) $(DebugDefine) $(Arguments) -o 3DPrintDebug Color.o 3DBall.o 3DBoard.o Image.o 3DThreads.o $(IncludeThread) $(IncludeGraphics)
+	$(Compiler) $(DebugDefine) $(Arguments) -o 3DPrintDebug $(FolderCommon)Image.cpp $(FolderCommon)Color.cpp $(Folder3d)3DBall.cpp $(Folder3d)3DBoard.cpp $(Folder3d)3DThreads.cpp $(IncludeThread) $(IncludeGraphics)
 	mv 3DPrintDebug $(FolderExec)3DPrintDebug.out
 3DGDBDebug:Color.o 3DBall.o 3DBoard.o Image.o 3DThreads.o
 	$(Compiler) $(DebugMode) $(Arguments) -o 3DGDBDebug Color.o 3DBall.o 3DBoard.o Image.o 3DThreads.o $(IncludeThread) $(IncludeGraphics)
@@ -78,7 +78,7 @@ Message.o: $(FolderCommon)Message.cpp
 	$(Compiler) $(Arguments) -o 2D Color.o Ball.o Board.o Image.o  Message.o 2DThreads.o $(IncludeThread) $(IncludeGraphics) 
 	mv 2D $(FolderExec)2D.out
 2DPrintDebug: Image.o Color.o Ball.o Board.o Message.o 2DThreads.o
-	$(Compiler) $(DebugDefine) $(Arguments) -o 2DPrintDebug Color.o Ball.o Board.o Image.o  Message.o 2DThreads.o $(IncludeThread) $(IncludeGraphics)
+	$(Compiler) $(DebugDefine) $(Arguments) -o 2DPrintDebug $(FolderCommon)Image.cpp $(FolderCommon)Color.cpp $(FolderCommon)Ball.cpp $(FolderCommon)Board.cpp  $(FolderCommon)Message.cpp $(FolderInter2D)2DThreads.cpp $(IncludeThread) $(IncludeGraphics)
 	mv 2DPrintDebug $(FolderExec)2DPrintDebug.out
 2DGDBDebug: Image.o Color.o Ball.o Board.o Message.o 2DThreads.o
 	$(Compiler) $(DebugMode) $(Arguments) -o 2DGDBDebug Color.o Ball.o Board.o Image.o  Message.o 2DThreads.o $(IncludeThread) $(IncludeGraphics)
@@ -88,7 +88,7 @@ Message.o: $(FolderCommon)Message.cpp
 	$(Compiler) $(Arguments) -o 2DMN Color.o Ball.o Board.o Image.o  Message.o 2DThreadsMN.o $(IncludeThread) $(IncludeGraphics) 
 	mv 2DMN $(FolderExec)2DMN.out
 2DMNPrintDebug: Image.o Color.o Ball.o Board.o Message.o 2DThreadsMN.o
-	$(Compiler) $(DebugDefine) $(Arguments) -o 2DMNPrintDebug Color.o Ball.o Board.o Image.o  Message.o 2DThreadsMN.o $(IncludeThread) $(IncludeGraphics)
+	$(Compiler) $(DebugDefine) $(Arguments) -o 2DMNPrintDebug $(FolderCommon)Image.cpp $(FolderCommon)Color.cpp $(FolderCommon)Ball.cpp $(FolderCommon)Board.cpp  $(FolderCommon)Message.cpp $(FolderIndterMN2d)2DThreadsMN.cpp $(IncludeThread) $(IncludeGraphics)
 	mv 2DMNPrintDebug $(FolderExec)2DMNPrintDebug.out
 2DMNGDBDebug: Image.o Color.o Ball.o Board.o Message.o 2DThreadsMN.o
 	$(Compiler) $(DebugMode) $(Arguments) -o 2DMNGDBDebug Color.o Ball.o Board.o Image.o  Message.o 2DThreadsMN.o $(IncludeThread) $(IncludeGraphics)

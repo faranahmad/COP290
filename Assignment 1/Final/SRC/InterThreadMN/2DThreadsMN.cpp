@@ -842,7 +842,7 @@ int main(int argc, char **argv)
     FinalBoard=Board(1000,300,300,NumberOfBalls);
     MessageVector=std::vector<queue<Message>> (NumberOfBallsM);
     #ifdef DEBUG    
-        cout <<FinalBoard.Get
+        cout <<FinalBoard.GetBoardInformation()<<"\n";
     #endif
     //pthread_t BallThreads [NumberOfBalls];
     pthread_t DisplayThread;
