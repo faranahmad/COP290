@@ -14,12 +14,13 @@
 #include "Message.h"
 
 struct Graph {
+    // Struct used for passing data via thread
     int x1;
     char **s1;
 };
 
 pthread_mutex_t UpdateLock;
-std::vector<pthread_t> BallThreads; //[NumberOfBalls];
+std::vector<pthread_t> BallThreads;
 Board FinalBoard;
 
 bool PauseBoard;
@@ -29,7 +30,7 @@ bool If_Ball_Selected;
 int NumberOfBalls;
 std::vector<queue<Message>> MessageVector;
 std::vector<bool> BallInBoard;
-// bool
+
 bool Is_Sound1;
 bool Is_Sound2;
 
@@ -68,7 +69,6 @@ std::vector<bool> TrackCollision;
 int MaxCollRad=15;
 
 void *UpdateBoardThread(void*);
-
 
 GLuint _textureId;
  
@@ -170,6 +170,7 @@ namespace {
 }
 
 Image* loadBMP(const char* filename) {
+    // Loads an image from a file location
     ifstream input;
     input.open(filename, ifstream::binary);
     assert(!input.fail() || !"Could not find file");
@@ -209,6 +210,7 @@ Image* loadBMP(const char* filename) {
 }
 
 GLuint loadTexture(Image* image) {
+    // Loads texture from image
     GLuint textureId;
     glGenTextures(1, &textureId); //Make room for our texture
     glBindTexture(GL_TEXTURE_2D, textureId); //Tell OpenGL which texture to edit
@@ -228,6 +230,7 @@ GLuint loadTexture(Image* image) {
 
 void initRendering() 
 {
+    // Initialises the rendering of all textures
     Image* image = loadBMP("Water-4.bmp");
     _textureId = loadTexture(image);
     delete image;
@@ -235,6 +238,7 @@ void initRendering()
 
 void mouseclick(int button,int state,int x,int y )
 {
+    // Functions for the mouse click locations
     if(state== GLUT_UP )
     {
         int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
@@ -402,6 +406,7 @@ void mouseclick(int button,int state,int x,int y )
 }
 
 void handleKeypress(unsigned char key, int x, int y) {
+    // Keyboard key based functions
     switch (key) {
         case 27: //Escape key
             exit(0);
@@ -410,6 +415,7 @@ void handleKeypress(unsigned char key, int x, int y) {
 
 void display(void)
 {
+    // Displays everything on the screen
     #ifdef DEBUG
         cout<<"In display\n";
     #endif
@@ -580,6 +586,7 @@ void display(void)
 
 void reshape(int x, int y)
 {
+    // Reshaping of the window
     int w=glutGet(GLUT_WINDOW_WIDTH);
     int h=glutGet(GLUT_WINDOW_HEIGHT);
 
@@ -601,6 +608,7 @@ void reshape(int x, int y)
 
 int graphics(int argc,char *argv[])
 {
+    // Wrapper function for graphics
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
     glutInitWindowSize(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY());
@@ -618,11 +626,9 @@ int graphics(int argc,char *argv[])
 }
 
 
-
-// int counter=0
-
 void *UpdateBoardThread(void* id)
 {
+    // Entire physics of the game
     vector<Ball> VectorBallsConsidered (NumberOfBalls);
     long ballid = (long) id;
     Ball BallConsidered = FinalBoard.GetBallFromId(ballid);
@@ -654,10 +660,6 @@ void *UpdateBoardThread(void* id)
                 {
                     VectorBallsConsidered.push_back(Ball());   
                 }
-                // if ((current.GetId()==ballid)  && (current.GetType()==1))
-                // {
-                //     break;    
-                // }
                 VectorBallsConsidered[current.GetId()]=current.GetBall();
             }
             BallConsidered=VectorBallsConsidered[ballid];

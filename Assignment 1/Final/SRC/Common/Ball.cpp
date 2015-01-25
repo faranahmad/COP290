@@ -4,6 +4,7 @@
 
 Ball::Ball()
 {
+	// Default constructor of ball
 	coord_x=0;
 	coord_y=0;
 	radius=1;
@@ -32,7 +33,6 @@ Ball::Ball(double limx,double limposy,double limnegy,double random)
 
 	std::vector<Color> GoodColors;
 	GoodColors.push_back(Color(26,188,156));
-	// GoodColors.push_back(Color(rand()%256,rand()%256,rand()%256));
 	GoodColors.push_back(Color(192, 57, 43));
 	GoodColors.push_back(Color(142, 68, 173));
 	GoodColors.push_back(Color(243, 156, 18));
@@ -63,7 +63,6 @@ Ball::Ball(double limx,double limposy,double limnegy,double random)
 			std::cout <<"In neg case\t"<<coord_y<<"\t"<<limnegy<<"\n";
 		#endif
 	}
-	//coord_y = (rand() % (int) (2* (limy-radius))) - (limy-radius);
 	velocity_x=(rand() % 30) -15;
 	velocity_y=(rand() % 30) -15;
 	color =GoodColors[rand() % GoodColors.size()];
