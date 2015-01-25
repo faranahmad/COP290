@@ -115,10 +115,20 @@ Run2DMNPrintDebug: 2DMNPrintDebug
 Run2DMNGDBDebug: 2DMNGDBDebug
 	cd $(FolderExec) ; gdb ./2DMNGDBDebug.out $(m) $(n)
 
-test: Ball.cpp Board.cpp Test.cpp BallTest.cpp BoardTest.cpp AllTests.cpp  
-	$(Compiler) $(Arguments)  Ball.cpp Board.cpp Test.cpp BallTest.cpp BoardTest.cpp AllTests.cpp 
-	rm a.out 
-	
+Test.o: $(FolderCommon)Test.cpp
+	$(Compiler) $(Arguments) $(Mode) $(FolderCommon)Test.cpp
+BallTest.o: Test.o Ball.o Color.o $(FolderCommon)BallTest.cpp
+	$(Compiler) $(Arguments) $(Mode) $(FolderCommon)Test.cpp  $(FolderCommon)Color.cpp $(FolderCommon)Ball.cpp $(FolderCommon)BallTest.cpp
+BoardTest.o: Test.o Ball.o Color.o Board.o $(FolderCommon)BoardTest.cpp
+	$(Compiler) $(Arguments) $(Mode) $(FolderCommon)Test.cpp  $(FolderCommon)Color.cpp $(FolderCommon)Ball.cpp $(FolderCommon)Board.cpp  $(FolderCommon)BoardTest.cpp
+AllTests.o: BallTest.o BoardTest.o $(FolderCommon)AllTests.cpp
+	$(Compiler) $(Arguments) $(Mode) $(FolderCommon)Test.cpp  $(FolderCommon)Color.cpp $(FolderCommon)Ball.cpp $(FolderCommon)Board.cpp  $(FolderCommon)BoardTest.cpp $(FolderCommon)AllTests.cpp
+Test: Test.o Ball.o Color.o Board.o BallTest.o BoardTest.o AllTests.o 
+	$(Compiler) $(Arguments)  -o Test.out Color.o Ball.o Board.o Test.o BallTest.o BoardTest.o AllTests.o
+	mv Test.out $(FolderExec)Test.out
+RunTest: Test
+	cd $(FolderExec) ; ./Test.out
+
 clean:
 	rm -rf DesignDocument.pdf
 	rm -rf DesignDocument.log
