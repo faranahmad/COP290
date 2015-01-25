@@ -25,6 +25,9 @@ doc:Doc/DesignDocument.tex
 execute: 2D
 	cd $(FolderExec) ; ./2D.out $(num_thread)
 
+DEBUG: 2DGDBDebug
+	cd $(FolderExec) ; gdb ./2DGDBDebug.out
+
 3D: Color.o 3DBall.o 3DBoard.o Image.o 3DThreads.o
 	$(Compiler) $(Arguments) -o 3D Color.o 3DBall.o 3DBoard.o Image.o 3DThreads.o $(IncludeThread) $(IncludeGraphics) 
 	mv 3D $(FolderExec)3D.out
@@ -124,9 +127,6 @@ clean:
 	rm -rf DesignDocument.pdf
 	rm -rf DesignDocument.log
 	rm -rf DesignDocument.aux
-	rm -rf Doc/DesignDocument.pdf
-	rm -rf Doc/DesignDocument.log
-	rm -rf Doc/DesignDocument.aux
 	rm -rf *.o
 	rm -rf *.out
 	rm -rf $(FolderExec)*.out
