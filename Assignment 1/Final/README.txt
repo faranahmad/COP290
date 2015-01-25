@@ -22,11 +22,15 @@ $ make RUN3DGDBDebug num_thread = n
 
 --To run 2D screensaver application, type the following command in the terminal. 
 $ make RUN2D num_thread = n 
+Or
+$ make execute num_thread = n 
 where 'n' is the input given by the user and represents total number of balls to be displayed on the screen.
 --To print the 'cout' statements used in the program for debugging purposes, type the following command in the terminal.
 $ make RUN2DPrintDebug num_thread = n
 --To use GDB debugger, type the following command in the terminal.
 $ make RUN2DGDBDebug num_thread = n
+or 
+$ make DEBUG
 
 ###### 2D screensaver with different number of balls and threads ######
 
