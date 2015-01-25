@@ -59,7 +59,7 @@ There are six buttons at the bottom of the screen that can be used to customize 
 --Pause button-- The button is used to pause the movement of all the balls on the screen.
 --Play button-- The button is used to continue the movement of all the balls in the direction and with the velocity as they were before the screen was paused.
 --(+) button-- The button is used to increase the total number of balls on the screen. The new balls would start from random positions having random velocities.
---(-) button-- The button can only be used when the screen is in the paused state. Once in the paused state, the balls to be deleted are selected one by one by the user, using the left mouse click. The (-) button can be used to remove the selected ball.
+--(-) button-- The button can only be used when the screen is in the paused state. Once in the paused state, the ball to be deleted are selected by the user, using the left mouse click. The (-) button can be used to remove the selected ball.
 --(Up Arrow button)-- The button can only be used in the paused state of the application. It is used to increase the velocity of the selected ball. The ball whose velocity is to be increased is selected by using the left mouse click. The up arrow button can be used to increase its velocity as many fold as we want. NOTE: The velocity has an upper limit.
 --(Down Arrow button)--The button can only be used in the paused state of the machine. It is used to decrease the velocity of the selected ball. The ball whose velocity is to be decreased is selected by using the left mouse click. The down arrow button can be used to decrease its velocity as many fold as we want. 
 --ESC key-- The button can be used to exit the application.
