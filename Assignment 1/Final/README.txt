@@ -28,15 +28,15 @@ $ make RUN2DPrintDebug num_thread=n
 --To use GDB debugger type
 $ make RUN2DGDBDebug num_thread=n
 
-######2Dscren saver with different number of balls and threads######
+######2D screen saver with different number of balls and threads######
 
---To run 3D screen saver application type the following command in terminal 
-$ make RUN3D num_thread=n 
-where n is the input given by the user and represents total number of balls to be displayed on the screen.
---To print the cout statements used in the program type the following command in the terminal
-$ make RUN3DPrintDebug num_thread=n
+--To run the application type the following command in terminal 
+$ make RUN2DMN m="number of threads" n="number of balls per thread" 
+where "number of threads" and "number of balls per thread" are natural numbers to be given as input.
+--To print the cout statements in used in the program type the following command in the terminal
+$ make RUN2DMNPrintDebug m="number of threads" n="number of balls per thread"
 --To use GDB debugger type
-$ make RUN3DGDBDebug num_thread=n
+$ make RUN2DMNGDBDebug m="number of threads" n="number of balls per thread"
 
 --------------------
 General Usage Notes
