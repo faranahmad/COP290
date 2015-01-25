@@ -4,6 +4,7 @@
 
 Board::Board()
 {
+	// Constructor for board
 	dimension_x=1000.0;
 	dimension_y=1000.0;
 	dimension_z=1000.0;
@@ -12,6 +13,7 @@ Board::Board()
 
 bool CheckCorrect(std::vector<Ball> v,Ball n1)
 {
+	// Verifies if the ball overlaps with any ball on the board
 	bool sofar=true;
 	for (int i=0; (i< v.size()) && sofar; i++)
 	{
@@ -80,15 +82,12 @@ vector<Ball> Board::GetVectorBalls()
 Ball Board::GetBallFromId(int position)
 {
 	// Returns the position id ball from the vector of balls if the position id is less than the number of balls on the board
-	// TODO: Add Exception
-	// if (position < number_balls)
-		return vector_of_balls[position];
-	// else
-		// return Ball(1.0,1.0);
+	return vector_of_balls[position];
 }
 
 string Board::GetBoardInformation()
 {
+	// Returns the info of the board. Needed for debugging
 	string BoardInfo="Board\n";
 	BoardInfo += "Dimension x:"+std::to_string(dimension_x)+"  Dimension y:" +std::to_string(dimension_y)+"  Dimension z:" +std::to_string(dimension_z)+ "  Number of Balls:" + std::to_string(number_balls)+"\n";
 	for (int i=0;i<number_balls;i++)

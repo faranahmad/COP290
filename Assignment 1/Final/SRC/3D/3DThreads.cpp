@@ -3,7 +3,6 @@
 #include <unistd.h>
 #include <iostream>
 #include <stdio.h>
-// #include "3DGraphics.h"
 #include "Image.h"
 #include <GL/glut.h>
 #include <GL/gl.h>
@@ -38,13 +37,12 @@ void *UpdateBoardThread(void* id);
 
 void *sound_play1(void *x)
 {
+    // Plays sound1 when the variable is set to true
     while (true)
     {
         if (Is_Sound1)
         {
-            //pthread_mutex_lock (&mutexsum);
             system("canberra-gtk-play -f sound1.wav");
-            //pthread_mutex_unlock (&mutexsum);       
             Is_Sound1=false;
         }
     }
@@ -53,13 +51,12 @@ void *sound_play1(void *x)
 
 void *sound_play2(void *x)
 {
+    // Plays sound when the variable is set to true
     while (true)
     {
         if (Is_Sound2)
         {
-            //pthread_mutex_lock (&mutexsum);
             system("canberra-gtk-play -f sound2.wav");
-            //pthread_mutex_unlock (&mutexsum);       
             Is_Sound2=false;
         }
     }
@@ -143,13 +140,6 @@ namespace {
                 return array;
             }
             
-            // void reset(T* array_ = NULL) {
-            //     if (!isReleased && array != NULL) {
-            //         delete[] array;
-            //     }
-            //     array = array_;
-            // }
-            
             T* operator+(int i) {
                 return array + i;
             }
@@ -161,6 +151,7 @@ namespace {
 }
 
 Image* loadBMP(const char* filename) {
+    // Loads a bitmap image from a disk location
     ifstream input;
     input.open(filename, ifstream::binary);
     assert(!input.fail() || !"Could not find file");
@@ -200,6 +191,7 @@ Image* loadBMP(const char* filename) {
 }
 
 GLuint loadTexture(Image* image) {
+    // Loads texture of an image to the display
     GLuint textureId;
     glGenTextures(1, &textureId); //Make room for our texture
     glBindTexture(GL_TEXTURE_2D, textureId); //Tell OpenGL which texture to edit
@@ -220,6 +212,7 @@ GLuint loadTexture(Image* image) {
 
 void initRendering() 
 {
+    // Initialises loading of all the required images
    	Image* image = loadBMP("BrickWall.bmp");
   	_textureId = loadTexture(image);
 
@@ -252,8 +245,10 @@ bool click=false;
 
 void mouseclick(int button,int s,int x,int y )
 {
+    // Functions depicting actions on mouseclick
     if(button==3)
     {
+        // Zoom in
         if(state==0)
         {
             zoom+=0.03;
@@ -262,6 +257,7 @@ void mouseclick(int button,int s,int x,int y )
 
     if(button==4)
     {
+        // Zoom out
         if(state==0)
         {
             zoom-=0.03;
@@ -269,7 +265,6 @@ void mouseclick(int button,int s,int x,int y )
     }
     if(s== GLUT_DOWN)
     {
-        
         mx=x;
         my=y;
         prevx=x;
@@ -292,31 +287,32 @@ void handleKeypress(unsigned char key, int x, int y) {
     switch (key) {
 
         case 32: //SpaceBar
-                PauseBoard=not(PauseBoard);
-                break;
+            PauseBoard=not(PauseBoard);
+            break;
 
         case 43: //+ key
-               {    
-                    PauseBoard=true;
-                    Ball newballtoadd =Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(), FinalBoard.GetDimensionZ(),0);
-                    while (!CheckCorrect(FinalBoard.GetVectorBalls(), newballtoadd))
-                    {
-                        newballtoadd =Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(), FinalBoard.GetDimensionZ(),0);
-                    }
-                    pthread_t newthread;
-                    FinalBoard.AddBallToBoard(newballtoadd);
-                    pthread_create(&newthread,NULL, UpdateBoardThread, (void *) ((long) (FinalBoard.GetNumberBalls()-1)));
-                    PauseBoard=false;
-                    break; 
-                }      
+           {    
+                PauseBoard=true;
+                Ball newballtoadd =Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(), FinalBoard.GetDimensionZ(),0);
+                while (!CheckCorrect(FinalBoard.GetVectorBalls(), newballtoadd))
+                {
+                    newballtoadd =Ball(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY(), FinalBoard.GetDimensionZ(),0);
+                }
+                pthread_t newthread;
+                FinalBoard.AddBallToBoard(newballtoadd);
+                pthread_create(&newthread,NULL, UpdateBoardThread, (void *) ((long) (FinalBoard.GetNumberBalls()-1)));
+                PauseBoard=false;
+                break; 
+            }      
 
         case 27: //Escape key
-                exit(0);
+            exit(0);
     }
 }
 
 void mousemotion(int x, int y)
  {  
+    // Decides which kind of motion has taken place based on mouse input
     if(click)
     {
         if(state==0)
@@ -374,6 +370,7 @@ void specialKeys( int key, int x, int y )
 
 void display(void)
 {   
+    // Function for displaying the textures and the balls on the screen
     #ifdef DEBUG
 	   cout<<"In display\n";
     #endif
@@ -798,6 +795,7 @@ void display(void)
 
     for( int i=0;i<FinalBoard.GetNumberBalls();i++ ) 
     {
+        // Displaying the balls
         glPushMatrix();
         #ifdef DEBUG
             cout<<FinalBoard.GetVectorBalls()[i].GetX()<<"  "<<FinalBoard.GetVectorBalls()[i].GetY()<<endl;
@@ -822,6 +820,7 @@ void display(void)
 
 void reshape(int x, int y)
 {
+    // Function to change the dimensions when the window is resized
 	int w=glutGet(GLUT_WINDOW_WIDTH);
     int h=glutGet(GLUT_WINDOW_HEIGHT);
 
@@ -844,6 +843,7 @@ void reshape(int x, int y)
 
 int graphics(int argc,char *argv[])
 {
+    //Initialising graphics
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
     glutInitWindowSize(1280,720);
@@ -868,11 +868,9 @@ int graphics(int argc,char *argv[])
 }
 
 
-
-// int counter=0
-
 void *UpdateBoardThread(void* id)
 {
+    //Physics part of the screensaver
 	while (true)
 	{
         if (!PauseBoard)
@@ -895,16 +893,15 @@ void *UpdateBoardThread(void* id)
             if (BallConsidered_Coordx + BallConsidered_VelocityX + BallConsidered_Radius> FinalBoard.GetDimensionX())
     		{
     			BallConsidered.SetX(FinalBoard.GetDimensionX() -BallConsidered_Radius);
-    			// BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
     			BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());
-                Is_Sound2=true;
+                // Is_Sound2=true;
     		}
     		else if (BallConsidered_Coordx+BallConsidered_VelocityX + FinalBoard.GetDimensionX() -BallConsidered_Radius<0)
     		{
     			BallConsidered.SetX(0-FinalBoard.GetDimensionX()+BallConsidered_Radius);
     			// BallConsidered.SetY(BallConsidered_Coordy+BallConsidered_VelocityY);
     			BallConsidered.SetVelocityX(0-BallConsidered.GetVelocityX());	
-                Is_Sound2=true;
+                // Is_Sound2=true;
     		}
     		else
     		{
@@ -916,7 +913,7 @@ void *UpdateBoardThread(void* id)
             {
                 BallConsidered.SetY(FinalBoard.GetDimensionY()-BallConsidered_Radius);
                 BallConsidered.SetVelocityY(0-BallConsidered.GetVelocityY());
-                Is_Sound2=true;
+                // Is_Sound2=true;
             }
             else if (BallConsidered_Coordy+BallConsidered_VelocityY + FinalBoard.GetDimensionY() -BallConsidered_Radius <0)
             {
@@ -935,14 +932,14 @@ void *UpdateBoardThread(void* id)
                 BallConsidered.SetZ(FinalBoard.GetDimensionZ()-BallConsidered_Radius);
                 // BallConsidered.SetZ(BallConsidered_Coordz+BallConsidered_VelocityZ);
                 BallConsidered.SetVelocityZ(0-BallConsidered.GetVelocityZ());
-                Is_Sound2=true;
+                // Is_Sound2=true;
             }
             else if (BallConsidered_Coordz+BallConsidered_VelocityZ + FinalBoard.GetDimensionZ() -BallConsidered_Radius <0)
             {
                 BallConsidered.SetZ(0-FinalBoard.GetDimensionZ() + BallConsidered_Radius);
                 // BallConsidered.SetZ(BallConsidered_Coordz+BallConsidered_VelocityZ);    
                 BallConsidered.SetVelocityZ(0-BallConsidered.GetVelocityZ());
-                Is_Sound2=true;   
+                // Is_Sound2=true;   
             }
             else
             {
@@ -1038,12 +1035,12 @@ void *UpdateBoardThread(void* id)
 
 void *DisplayUpdate(void* id)
 {
+    //Functioning for calling the thread to update display
 	Graph  *pa= (Graph *)id;
 	#ifdef DEBUG 
         cout <<"Updating diaply\n";
 	#endif
     graphics(pa->x1,pa->s1);
-	// usleep(10000);
 }
 
 int main(int argc, char **argv)
