@@ -1,0 +1,235 @@
+\hypertarget{2DThreads_8cpp}{\section{2\+D\+Threads.cpp File Reference}
+\label{2DThreads_8cpp}\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+}
+{\ttfamily \#include \char`\"{}Board.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$pthread.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Image.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$G\+L/glut.\+h$>$}\\*
+{\ttfamily \#include $<$G\+L/gl.\+h$>$}\\*
+{\ttfamily \#include $<$algorithm$>$}\\*
+{\ttfamily \#include $<$cmath$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include $<$queue$>$}\\*
+{\ttfamily \#include \char`\"{}Message.\+h\char`\"{}}\\*
+Include dependency graph for 2\+D\+Threads.cpp\+:
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structGraph}{Graph}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{2DThreads_8cpp_add308eea0c1bcd20693e880d06e080ad}{sound\+\_\+play1} (void $\ast$x)
+\item 
+void $\ast$ \hyperlink{2DThreads_8cpp_a2e680a4731f04df1eccb24940d929077}{sound\+\_\+play2} (void $\ast$x)
+\item 
+void $\ast$ \hyperlink{2DThreads_8cpp_a99136a4c2d71337a6ce901c990113537}{Update\+Board\+Thread} (void $\ast$)
+\item 
+\hyperlink{classImage}{Image} $\ast$ \hyperlink{2DThreads_8cpp_ad4bf0ccd1bff2e08fce89273ef99316c}{load\+B\+M\+P} (const char $\ast$filename)
+\item 
+G\+Luint \hyperlink{2DThreads_8cpp_a00b9d31e0bf71cdb98bdbd3aa30b31b0}{load\+Texture} (\hyperlink{classImage}{Image} $\ast$image)
+\item 
+void \hyperlink{2DThreads_8cpp_a17a53fe9e683b81bdc7618f88b8b8502}{init\+Rendering} ()
+\item 
+void \hyperlink{2DThreads_8cpp_a1c7e2d01ef4aef43a00bfe4a4bd45c92}{mouseclick} (int button, int state, int x, int y)
+\item 
+void \hyperlink{2DThreads_8cpp_a7fccc9dc8048323648486d3414f55394}{handle\+Keypress} (unsigned char key, int x, int y)
+\item 
+void \hyperlink{2DThreads_8cpp_a4ea013001a5fb47853d0fab8f8de35cd}{display} (void)
+\item 
+void \hyperlink{2DThreads_8cpp_a9c6a000bb585e5a23a3d829dae9d1358}{reshape} (int x, int y)
+\item 
+int \hyperlink{2DThreads_8cpp_a15837cc603bf545dfdcfab1baeb0501b}{graphics} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void $\ast$ \hyperlink{2DThreads_8cpp_ad5e965f23a49c8ba78f4eb8c9d61c2f3}{Display\+Update} (void $\ast$id)
+\item 
+int \hyperlink{2DThreads_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+pthread\+\_\+mutex\+\_\+t \hyperlink{2DThreads_8cpp_a94926af5475a1e6d286a5ada18186549}{Update\+Lock}
+\item 
+std\+::vector$<$ pthread\+\_\+t $>$ \hyperlink{2DThreads_8cpp_ae8160808d511a05b3dd9f54ffaaa437d}{Ball\+Threads}
+\item 
+\hyperlink{classBoard}{Board} \hyperlink{2DThreads_8cpp_a9e85e836112af4c5e0d7c87ca0a644a6}{Final\+Board}
+\item 
+bool \hyperlink{2DThreads_8cpp_adb17ace99e1af5b06fb0d12b2282c838}{Pause\+Board}
+\item 
+int \hyperlink{2DThreads_8cpp_a15e53d6be919a2e4bd592112913d44e3}{Ballid\+\_\+\+From\+\_\+\+Selection}
+\item 
+bool \hyperlink{2DThreads_8cpp_ab5394a8afb591657ef5e0f4bd44ff9a1}{If\+\_\+\+Ball\+\_\+\+Selected}
+\item 
+int \hyperlink{2DThreads_8cpp_aa546327051085c17a25b306aedca388b}{Number\+Of\+Balls}
+\item 
+std\+::vector$<$ queue$<$ \hyperlink{classMessage}{Message} $>$ $>$ \hyperlink{2DThreads_8cpp_a0424c551cc7ff9278e666fbdc74819e7}{Message\+Vector}
+\item 
+std\+::vector$<$ bool $>$ \hyperlink{2DThreads_8cpp_acced5a64a746631fc1ddbbe53ff45143}{Ball\+In\+Board}
+\item 
+bool \hyperlink{2DThreads_8cpp_a5ddb97e9f6189576cf523437050b09eb}{Is\+\_\+\+Sound1}
+\item 
+bool \hyperlink{2DThreads_8cpp_adda709ac010fcaa9dee70a059b307232}{Is\+\_\+\+Sound2}
+\item 
+std\+::vector$<$ \hyperlink{classBall}{Ball} $>$ \hyperlink{2DThreads_8cpp_ad19d84b8e4f7da44d193532a53112f4f}{Collision\+Balls}
+\item 
+std\+::vector$<$ bool $>$ \hyperlink{2DThreads_8cpp_a2a74030234a7bc39545bc6094db3e4a9}{Track\+Collision}
+\item 
+int \hyperlink{2DThreads_8cpp_ab2303f423054309c3238d6d26c5172c6}{Max\+Coll\+Rad} =15
+\item 
+G\+Luint \hyperlink{2DThreads_8cpp_a52c13b1b02a8dc4f543da3796c0ae55c}{\+\_\+texture\+Id}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{2DThreads_8cpp_a4ea013001a5fb47853d0fab8f8de35cd}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!display@{display}}
+\index{display@{display}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{display}]{\setlength{\rightskip}{0pt plus 5cm}void display (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{2DThreads_8cpp_a4ea013001a5fb47853d0fab8f8de35cd}
+\hypertarget{2DThreads_8cpp_ad5e965f23a49c8ba78f4eb8c9d61c2f3}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!Display\+Update@{Display\+Update}}
+\index{Display\+Update@{Display\+Update}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{Display\+Update}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Display\+Update (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{id}
+\end{DoxyParamCaption}
+)}}\label{2DThreads_8cpp_ad5e965f23a49c8ba78f4eb8c9d61c2f3}
+\hypertarget{2DThreads_8cpp_a15837cc603bf545dfdcfab1baeb0501b}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!graphics@{graphics}}
+\index{graphics@{graphics}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{graphics}]{\setlength{\rightskip}{0pt plus 5cm}int graphics (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{2DThreads_8cpp_a15837cc603bf545dfdcfab1baeb0501b}
+\hypertarget{2DThreads_8cpp_a7fccc9dc8048323648486d3414f55394}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!handle\+Keypress@{handle\+Keypress}}
+\index{handle\+Keypress@{handle\+Keypress}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{handle\+Keypress}]{\setlength{\rightskip}{0pt plus 5cm}void handle\+Keypress (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{key, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{2DThreads_8cpp_a7fccc9dc8048323648486d3414f55394}
+\hypertarget{2DThreads_8cpp_a17a53fe9e683b81bdc7618f88b8b8502}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!init\+Rendering@{init\+Rendering}}
+\index{init\+Rendering@{init\+Rendering}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{init\+Rendering}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Rendering (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{2DThreads_8cpp_a17a53fe9e683b81bdc7618f88b8b8502}
+\hypertarget{2DThreads_8cpp_ad4bf0ccd1bff2e08fce89273ef99316c}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!load\+B\+M\+P@{load\+B\+M\+P}}
+\index{load\+B\+M\+P@{load\+B\+M\+P}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{load\+B\+M\+P}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Image}$\ast$ load\+B\+M\+P (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}}\label{2DThreads_8cpp_ad4bf0ccd1bff2e08fce89273ef99316c}
+\hypertarget{2DThreads_8cpp_a00b9d31e0bf71cdb98bdbd3aa30b31b0}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!load\+Texture@{load\+Texture}}
+\index{load\+Texture@{load\+Texture}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{load\+Texture}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint load\+Texture (
+\begin{DoxyParamCaption}
+\item[{{\bf Image} $\ast$}]{image}
+\end{DoxyParamCaption}
+)}}\label{2DThreads_8cpp_a00b9d31e0bf71cdb98bdbd3aa30b31b0}
+\hypertarget{2DThreads_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!main@{main}}
+\index{main@{main}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{2DThreads_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+\hypertarget{2DThreads_8cpp_a1c7e2d01ef4aef43a00bfe4a4bd45c92}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!mouseclick@{mouseclick}}
+\index{mouseclick@{mouseclick}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{mouseclick}]{\setlength{\rightskip}{0pt plus 5cm}void mouseclick (
+\begin{DoxyParamCaption}
+\item[{int}]{button, }
+\item[{int}]{state, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{2DThreads_8cpp_a1c7e2d01ef4aef43a00bfe4a4bd45c92}
+\hypertarget{2DThreads_8cpp_a9c6a000bb585e5a23a3d829dae9d1358}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!reshape@{reshape}}
+\index{reshape@{reshape}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{reshape}]{\setlength{\rightskip}{0pt plus 5cm}void reshape (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{2DThreads_8cpp_a9c6a000bb585e5a23a3d829dae9d1358}
+\hypertarget{2DThreads_8cpp_add308eea0c1bcd20693e880d06e080ad}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!sound\+\_\+play1@{sound\+\_\+play1}}
+\index{sound\+\_\+play1@{sound\+\_\+play1}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{sound\+\_\+play1}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ sound\+\_\+play1 (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{x}
+\end{DoxyParamCaption}
+)}}\label{2DThreads_8cpp_add308eea0c1bcd20693e880d06e080ad}
+\hypertarget{2DThreads_8cpp_a2e680a4731f04df1eccb24940d929077}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!sound\+\_\+play2@{sound\+\_\+play2}}
+\index{sound\+\_\+play2@{sound\+\_\+play2}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{sound\+\_\+play2}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ sound\+\_\+play2 (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{x}
+\end{DoxyParamCaption}
+)}}\label{2DThreads_8cpp_a2e680a4731f04df1eccb24940d929077}
+\hypertarget{2DThreads_8cpp_a99136a4c2d71337a6ce901c990113537}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!Update\+Board\+Thread@{Update\+Board\+Thread}}
+\index{Update\+Board\+Thread@{Update\+Board\+Thread}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{Update\+Board\+Thread}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Update\+Board\+Thread (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{id}
+\end{DoxyParamCaption}
+)}}\label{2DThreads_8cpp_a99136a4c2d71337a6ce901c990113537}
+
+
+\subsection{Variable Documentation}
+\hypertarget{2DThreads_8cpp_a52c13b1b02a8dc4f543da3796c0ae55c}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!\+\_\+texture\+Id@{\+\_\+texture\+Id}}
+\index{\+\_\+texture\+Id@{\+\_\+texture\+Id}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{\+\_\+texture\+Id}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint \+\_\+texture\+Id}}\label{2DThreads_8cpp_a52c13b1b02a8dc4f543da3796c0ae55c}
+\hypertarget{2DThreads_8cpp_a15e53d6be919a2e4bd592112913d44e3}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!Ballid\+\_\+\+From\+\_\+\+Selection@{Ballid\+\_\+\+From\+\_\+\+Selection}}
+\index{Ballid\+\_\+\+From\+\_\+\+Selection@{Ballid\+\_\+\+From\+\_\+\+Selection}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{Ballid\+\_\+\+From\+\_\+\+Selection}]{\setlength{\rightskip}{0pt plus 5cm}int Ballid\+\_\+\+From\+\_\+\+Selection}}\label{2DThreads_8cpp_a15e53d6be919a2e4bd592112913d44e3}
+\hypertarget{2DThreads_8cpp_acced5a64a746631fc1ddbbe53ff45143}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!Ball\+In\+Board@{Ball\+In\+Board}}
+\index{Ball\+In\+Board@{Ball\+In\+Board}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{Ball\+In\+Board}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$bool$>$ Ball\+In\+Board}}\label{2DThreads_8cpp_acced5a64a746631fc1ddbbe53ff45143}
+\hypertarget{2DThreads_8cpp_ae8160808d511a05b3dd9f54ffaaa437d}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!Ball\+Threads@{Ball\+Threads}}
+\index{Ball\+Threads@{Ball\+Threads}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{Ball\+Threads}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$pthread\+\_\+t$>$ Ball\+Threads}}\label{2DThreads_8cpp_ae8160808d511a05b3dd9f54ffaaa437d}
+\hypertarget{2DThreads_8cpp_ad19d84b8e4f7da44d193532a53112f4f}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!Collision\+Balls@{Collision\+Balls}}
+\index{Collision\+Balls@{Collision\+Balls}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{Collision\+Balls}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Ball}$>$ Collision\+Balls}}\label{2DThreads_8cpp_ad19d84b8e4f7da44d193532a53112f4f}
+\hypertarget{2DThreads_8cpp_a9e85e836112af4c5e0d7c87ca0a644a6}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!Final\+Board@{Final\+Board}}
+\index{Final\+Board@{Final\+Board}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{Final\+Board}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Board} Final\+Board}}\label{2DThreads_8cpp_a9e85e836112af4c5e0d7c87ca0a644a6}
+\hypertarget{2DThreads_8cpp_ab5394a8afb591657ef5e0f4bd44ff9a1}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!If\+\_\+\+Ball\+\_\+\+Selected@{If\+\_\+\+Ball\+\_\+\+Selected}}
+\index{If\+\_\+\+Ball\+\_\+\+Selected@{If\+\_\+\+Ball\+\_\+\+Selected}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{If\+\_\+\+Ball\+\_\+\+Selected}]{\setlength{\rightskip}{0pt plus 5cm}bool If\+\_\+\+Ball\+\_\+\+Selected}}\label{2DThreads_8cpp_ab5394a8afb591657ef5e0f4bd44ff9a1}
+\hypertarget{2DThreads_8cpp_a5ddb97e9f6189576cf523437050b09eb}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!Is\+\_\+\+Sound1@{Is\+\_\+\+Sound1}}
+\index{Is\+\_\+\+Sound1@{Is\+\_\+\+Sound1}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{Is\+\_\+\+Sound1}]{\setlength{\rightskip}{0pt plus 5cm}bool Is\+\_\+\+Sound1}}\label{2DThreads_8cpp_a5ddb97e9f6189576cf523437050b09eb}
+\hypertarget{2DThreads_8cpp_adda709ac010fcaa9dee70a059b307232}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!Is\+\_\+\+Sound2@{Is\+\_\+\+Sound2}}
+\index{Is\+\_\+\+Sound2@{Is\+\_\+\+Sound2}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{Is\+\_\+\+Sound2}]{\setlength{\rightskip}{0pt plus 5cm}bool Is\+\_\+\+Sound2}}\label{2DThreads_8cpp_adda709ac010fcaa9dee70a059b307232}
+\hypertarget{2DThreads_8cpp_ab2303f423054309c3238d6d26c5172c6}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!Max\+Coll\+Rad@{Max\+Coll\+Rad}}
+\index{Max\+Coll\+Rad@{Max\+Coll\+Rad}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{Max\+Coll\+Rad}]{\setlength{\rightskip}{0pt plus 5cm}int Max\+Coll\+Rad =15}}\label{2DThreads_8cpp_ab2303f423054309c3238d6d26c5172c6}
+\hypertarget{2DThreads_8cpp_a0424c551cc7ff9278e666fbdc74819e7}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!Message\+Vector@{Message\+Vector}}
+\index{Message\+Vector@{Message\+Vector}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{Message\+Vector}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$queue$<${\bf Message}$>$ $>$ Message\+Vector}}\label{2DThreads_8cpp_a0424c551cc7ff9278e666fbdc74819e7}
+\hypertarget{2DThreads_8cpp_aa546327051085c17a25b306aedca388b}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!Number\+Of\+Balls@{Number\+Of\+Balls}}
+\index{Number\+Of\+Balls@{Number\+Of\+Balls}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{Number\+Of\+Balls}]{\setlength{\rightskip}{0pt plus 5cm}int Number\+Of\+Balls}}\label{2DThreads_8cpp_aa546327051085c17a25b306aedca388b}
+\hypertarget{2DThreads_8cpp_adb17ace99e1af5b06fb0d12b2282c838}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!Pause\+Board@{Pause\+Board}}
+\index{Pause\+Board@{Pause\+Board}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{Pause\+Board}]{\setlength{\rightskip}{0pt plus 5cm}bool Pause\+Board}}\label{2DThreads_8cpp_adb17ace99e1af5b06fb0d12b2282c838}
+\hypertarget{2DThreads_8cpp_a2a74030234a7bc39545bc6094db3e4a9}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!Track\+Collision@{Track\+Collision}}
+\index{Track\+Collision@{Track\+Collision}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{Track\+Collision}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$bool$>$ Track\+Collision}}\label{2DThreads_8cpp_a2a74030234a7bc39545bc6094db3e4a9}
+\hypertarget{2DThreads_8cpp_a94926af5475a1e6d286a5ada18186549}{\index{2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}!Update\+Lock@{Update\+Lock}}
+\index{Update\+Lock@{Update\+Lock}!2\+D\+Threads.\+cpp@{2\+D\+Threads.\+cpp}}
+\subsubsection[{Update\+Lock}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t Update\+Lock}}\label{2DThreads_8cpp_a94926af5475a1e6d286a5ada18186549}

@@ -1,0 +1,242 @@
+\hypertarget{classBoard}{\section{Board Class Reference}
+\label{classBoard}\index{Board@{Board}}
+}
+
+
+{\ttfamily \#include $<$Board.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBoard_a9ee491d4fea680cf69b033374a9fdfcb}{Board} ()
+\item 
+\hyperlink{classBoard_af26e9eedabd3559a0a823594a9836a9c}{Board} (double, double, double, int)
+\item 
+double \hyperlink{classBoard_a6004dec19aa29da6fffee5ceec0a13ae}{Get\+Dimension\+X} ()
+\item 
+double \hyperlink{classBoard_a5d90ba60a138223ce0dc9679d50fbdb8}{Get\+Dimension\+Y} ()
+\item 
+double \hyperlink{classBoard_ab7819a7d8bbf610e55f6f231f18ff9a3}{Get\+Dimension\+Pos\+Y} ()
+\item 
+double \hyperlink{classBoard_a8926b3f18919d74e27f0b1e5f83575aa}{Get\+Dimension\+Neg\+Y} ()
+\item 
+int \hyperlink{classBoard_a626fb9f489b8bdf89d08c6b49b3e7555}{Get\+Number\+Balls} ()
+\item 
+vector$<$ \hyperlink{classBall}{Ball} $>$ \hyperlink{classBoard_a3b6346e52d69e15ddba100248cfe4789}{Get\+Vector\+Balls} ()
+\item 
+\hyperlink{classBall}{Ball} \hyperlink{classBoard_ad7661f151aa307b5cf3c4a7aa809ced4}{Get\+Ball\+From\+Id} (int)
+\item 
+string \hyperlink{classBoard_a4963e139df9b877cdd57770e01d26d7a}{Get\+Board\+Information} ()
+\item 
+void \hyperlink{classBoard_a770d11a85df68916f931e457028be6eb}{Set\+Dimension\+X} (double)
+\item 
+void \hyperlink{classBoard_ac370e9c8e7abcdc0be8d9f4e0e5a3306}{Set\+Dimension\+Y} (double)
+\item 
+void \hyperlink{classBoard_aa8ba59ef5749feffbab76cff0c87827a}{Set\+Dimension\+Pos\+Y} (double)
+\item 
+void \hyperlink{classBoard_a71d25a54a0c1fe932e1bbebb85364b16}{Set\+Dimension\+Neg\+Y} (double)
+\item 
+void \hyperlink{classBoard_abf2f2750ff34813b72a3b7642ad592d2}{Set\+Number\+Of\+Balls} (int)
+\item 
+void \hyperlink{classBoard_adc03b83ba8b8a268f5e5498f65f18e0d}{Set\+Vector\+Balls} (vector$<$ \hyperlink{classBall}{Ball} $>$)
+\item 
+void \hyperlink{classBoard_aef6af921107ced16387ae844eaee7cf6}{Set\+Ball\+From\+Id} (int, \hyperlink{classBall}{Ball})
+\item 
+void \hyperlink{classBoard_ae6bdd398db4c50fb6b6598aedb267dc4}{Add\+Ball\+To\+Board} (\hyperlink{classBall}{Ball})
+\item 
+void \hyperlink{classBoard_ac1e5115cbbf774b92c68c1dc1b1ffb45}{Remove\+Ball\+From\+Board} ()
+\item 
+void \hyperlink{classBoard_af19eeae45cb4bf01b8e65f5c242d151e}{Update\+Board} (double)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classBoard_a0999b31427ac9b9cf2444bc73d2a4c79}{dimension\+\_\+x}
+\item 
+double \hyperlink{classBoard_a7133e5c99e2ed0b9ec6d28c8ec8d783d}{dimension\+\_\+y}
+\item 
+double \hyperlink{classBoard_af370b0cf956d4a5d1e38250d21c29dfb}{dimension\+\_\+pos\+\_\+y}
+\item 
+double \hyperlink{classBoard_ac36d9ad3798ef9d45d464efcbc2c5694}{dimension\+\_\+neg\+\_\+y}
+\item 
+int \hyperlink{classBoard_a3f5f80a78c7925c8e33d8e08d4799b9d}{number\+\_\+balls}
+\item 
+vector$<$ \hyperlink{classBall}{Ball} $>$ \hyperlink{classBoard_a2f3f6dcb96ea6cd77d7c6b3305f8a5d3}{vector\+\_\+of\+\_\+balls}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classBoard_a9ee491d4fea680cf69b033374a9fdfcb}{\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\subsubsection[{Board}]{\setlength{\rightskip}{0pt plus 5cm}Board\+::\+Board (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a9ee491d4fea680cf69b033374a9fdfcb}
+\hypertarget{classBoard_af26e9eedabd3559a0a823594a9836a9c}{\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\subsubsection[{Board}]{\setlength{\rightskip}{0pt plus 5cm}Board\+::\+Board (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{posy, }
+\item[{double}]{negy, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{classBoard_af26e9eedabd3559a0a823594a9836a9c}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classBoard_ae6bdd398db4c50fb6b6598aedb267dc4}{\index{Board@{Board}!Add\+Ball\+To\+Board@{Add\+Ball\+To\+Board}}
+\index{Add\+Ball\+To\+Board@{Add\+Ball\+To\+Board}!Board@{Board}}
+\subsubsection[{Add\+Ball\+To\+Board}]{\setlength{\rightskip}{0pt plus 5cm}void Board\+::\+Add\+Ball\+To\+Board (
+\begin{DoxyParamCaption}
+\item[{{\bf Ball}}]{new\+Ball}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ae6bdd398db4c50fb6b6598aedb267dc4}
+\hypertarget{classBoard_ad7661f151aa307b5cf3c4a7aa809ced4}{\index{Board@{Board}!Get\+Ball\+From\+Id@{Get\+Ball\+From\+Id}}
+\index{Get\+Ball\+From\+Id@{Get\+Ball\+From\+Id}!Board@{Board}}
+\subsubsection[{Get\+Ball\+From\+Id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ball} Board\+::\+Get\+Ball\+From\+Id (
+\begin{DoxyParamCaption}
+\item[{int}]{position}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ad7661f151aa307b5cf3c4a7aa809ced4}
+\hypertarget{classBoard_a4963e139df9b877cdd57770e01d26d7a}{\index{Board@{Board}!Get\+Board\+Information@{Get\+Board\+Information}}
+\index{Get\+Board\+Information@{Get\+Board\+Information}!Board@{Board}}
+\subsubsection[{Get\+Board\+Information}]{\setlength{\rightskip}{0pt plus 5cm}string Board\+::\+Get\+Board\+Information (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a4963e139df9b877cdd57770e01d26d7a}
+\hypertarget{classBoard_a8926b3f18919d74e27f0b1e5f83575aa}{\index{Board@{Board}!Get\+Dimension\+Neg\+Y@{Get\+Dimension\+Neg\+Y}}
+\index{Get\+Dimension\+Neg\+Y@{Get\+Dimension\+Neg\+Y}!Board@{Board}}
+\subsubsection[{Get\+Dimension\+Neg\+Y}]{\setlength{\rightskip}{0pt plus 5cm}double Board\+::\+Get\+Dimension\+Neg\+Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a8926b3f18919d74e27f0b1e5f83575aa}
+\hypertarget{classBoard_ab7819a7d8bbf610e55f6f231f18ff9a3}{\index{Board@{Board}!Get\+Dimension\+Pos\+Y@{Get\+Dimension\+Pos\+Y}}
+\index{Get\+Dimension\+Pos\+Y@{Get\+Dimension\+Pos\+Y}!Board@{Board}}
+\subsubsection[{Get\+Dimension\+Pos\+Y}]{\setlength{\rightskip}{0pt plus 5cm}double Board\+::\+Get\+Dimension\+Pos\+Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ab7819a7d8bbf610e55f6f231f18ff9a3}
+\hypertarget{classBoard_a6004dec19aa29da6fffee5ceec0a13ae}{\index{Board@{Board}!Get\+Dimension\+X@{Get\+Dimension\+X}}
+\index{Get\+Dimension\+X@{Get\+Dimension\+X}!Board@{Board}}
+\subsubsection[{Get\+Dimension\+X}]{\setlength{\rightskip}{0pt plus 5cm}double Board\+::\+Get\+Dimension\+X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a6004dec19aa29da6fffee5ceec0a13ae}
+\hypertarget{classBoard_a5d90ba60a138223ce0dc9679d50fbdb8}{\index{Board@{Board}!Get\+Dimension\+Y@{Get\+Dimension\+Y}}
+\index{Get\+Dimension\+Y@{Get\+Dimension\+Y}!Board@{Board}}
+\subsubsection[{Get\+Dimension\+Y}]{\setlength{\rightskip}{0pt plus 5cm}double Board\+::\+Get\+Dimension\+Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a5d90ba60a138223ce0dc9679d50fbdb8}
+\hypertarget{classBoard_a626fb9f489b8bdf89d08c6b49b3e7555}{\index{Board@{Board}!Get\+Number\+Balls@{Get\+Number\+Balls}}
+\index{Get\+Number\+Balls@{Get\+Number\+Balls}!Board@{Board}}
+\subsubsection[{Get\+Number\+Balls}]{\setlength{\rightskip}{0pt plus 5cm}int Board\+::\+Get\+Number\+Balls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a626fb9f489b8bdf89d08c6b49b3e7555}
+\hypertarget{classBoard_a3b6346e52d69e15ddba100248cfe4789}{\index{Board@{Board}!Get\+Vector\+Balls@{Get\+Vector\+Balls}}
+\index{Get\+Vector\+Balls@{Get\+Vector\+Balls}!Board@{Board}}
+\subsubsection[{Get\+Vector\+Balls}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Ball} $>$ Board\+::\+Get\+Vector\+Balls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a3b6346e52d69e15ddba100248cfe4789}
+\hypertarget{classBoard_ac1e5115cbbf774b92c68c1dc1b1ffb45}{\index{Board@{Board}!Remove\+Ball\+From\+Board@{Remove\+Ball\+From\+Board}}
+\index{Remove\+Ball\+From\+Board@{Remove\+Ball\+From\+Board}!Board@{Board}}
+\subsubsection[{Remove\+Ball\+From\+Board}]{\setlength{\rightskip}{0pt plus 5cm}void Board\+::\+Remove\+Ball\+From\+Board (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ac1e5115cbbf774b92c68c1dc1b1ffb45}
+\hypertarget{classBoard_aef6af921107ced16387ae844eaee7cf6}{\index{Board@{Board}!Set\+Ball\+From\+Id@{Set\+Ball\+From\+Id}}
+\index{Set\+Ball\+From\+Id@{Set\+Ball\+From\+Id}!Board@{Board}}
+\subsubsection[{Set\+Ball\+From\+Id}]{\setlength{\rightskip}{0pt plus 5cm}void Board\+::\+Set\+Ball\+From\+Id (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{{\bf Ball}}]{new\+Ball}
+\end{DoxyParamCaption}
+)}}\label{classBoard_aef6af921107ced16387ae844eaee7cf6}
+\hypertarget{classBoard_a71d25a54a0c1fe932e1bbebb85364b16}{\index{Board@{Board}!Set\+Dimension\+Neg\+Y@{Set\+Dimension\+Neg\+Y}}
+\index{Set\+Dimension\+Neg\+Y@{Set\+Dimension\+Neg\+Y}!Board@{Board}}
+\subsubsection[{Set\+Dimension\+Neg\+Y}]{\setlength{\rightskip}{0pt plus 5cm}void Board\+::\+Set\+Dimension\+Neg\+Y (
+\begin{DoxyParamCaption}
+\item[{double}]{negy}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a71d25a54a0c1fe932e1bbebb85364b16}
+\hypertarget{classBoard_aa8ba59ef5749feffbab76cff0c87827a}{\index{Board@{Board}!Set\+Dimension\+Pos\+Y@{Set\+Dimension\+Pos\+Y}}
+\index{Set\+Dimension\+Pos\+Y@{Set\+Dimension\+Pos\+Y}!Board@{Board}}
+\subsubsection[{Set\+Dimension\+Pos\+Y}]{\setlength{\rightskip}{0pt plus 5cm}void Board\+::\+Set\+Dimension\+Pos\+Y (
+\begin{DoxyParamCaption}
+\item[{double}]{posy}
+\end{DoxyParamCaption}
+)}}\label{classBoard_aa8ba59ef5749feffbab76cff0c87827a}
+\hypertarget{classBoard_a770d11a85df68916f931e457028be6eb}{\index{Board@{Board}!Set\+Dimension\+X@{Set\+Dimension\+X}}
+\index{Set\+Dimension\+X@{Set\+Dimension\+X}!Board@{Board}}
+\subsubsection[{Set\+Dimension\+X}]{\setlength{\rightskip}{0pt plus 5cm}void Board\+::\+Set\+Dimension\+X (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a770d11a85df68916f931e457028be6eb}
+\hypertarget{classBoard_ac370e9c8e7abcdc0be8d9f4e0e5a3306}{\index{Board@{Board}!Set\+Dimension\+Y@{Set\+Dimension\+Y}}
+\index{Set\+Dimension\+Y@{Set\+Dimension\+Y}!Board@{Board}}
+\subsubsection[{Set\+Dimension\+Y}]{\setlength{\rightskip}{0pt plus 5cm}void Board\+::\+Set\+Dimension\+Y (
+\begin{DoxyParamCaption}
+\item[{double}]{y}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ac370e9c8e7abcdc0be8d9f4e0e5a3306}
+\hypertarget{classBoard_abf2f2750ff34813b72a3b7642ad592d2}{\index{Board@{Board}!Set\+Number\+Of\+Balls@{Set\+Number\+Of\+Balls}}
+\index{Set\+Number\+Of\+Balls@{Set\+Number\+Of\+Balls}!Board@{Board}}
+\subsubsection[{Set\+Number\+Of\+Balls}]{\setlength{\rightskip}{0pt plus 5cm}void Board\+::\+Set\+Number\+Of\+Balls (
+\begin{DoxyParamCaption}
+\item[{int}]{number}
+\end{DoxyParamCaption}
+)}}\label{classBoard_abf2f2750ff34813b72a3b7642ad592d2}
+\hypertarget{classBoard_adc03b83ba8b8a268f5e5498f65f18e0d}{\index{Board@{Board}!Set\+Vector\+Balls@{Set\+Vector\+Balls}}
+\index{Set\+Vector\+Balls@{Set\+Vector\+Balls}!Board@{Board}}
+\subsubsection[{Set\+Vector\+Balls}]{\setlength{\rightskip}{0pt plus 5cm}void Board\+::\+Set\+Vector\+Balls (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Ball} $>$}]{newvector}
+\end{DoxyParamCaption}
+)}}\label{classBoard_adc03b83ba8b8a268f5e5498f65f18e0d}
+\hypertarget{classBoard_af19eeae45cb4bf01b8e65f5c242d151e}{\index{Board@{Board}!Update\+Board@{Update\+Board}}
+\index{Update\+Board@{Update\+Board}!Board@{Board}}
+\subsubsection[{Update\+Board}]{\setlength{\rightskip}{0pt plus 5cm}void Board\+::\+Update\+Board (
+\begin{DoxyParamCaption}
+\item[{double}]{time\+\_\+elapsed}
+\end{DoxyParamCaption}
+)}}\label{classBoard_af19eeae45cb4bf01b8e65f5c242d151e}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classBoard_ac36d9ad3798ef9d45d464efcbc2c5694}{\index{Board@{Board}!dimension\+\_\+neg\+\_\+y@{dimension\+\_\+neg\+\_\+y}}
+\index{dimension\+\_\+neg\+\_\+y@{dimension\+\_\+neg\+\_\+y}!Board@{Board}}
+\subsubsection[{dimension\+\_\+neg\+\_\+y}]{\setlength{\rightskip}{0pt plus 5cm}double Board\+::dimension\+\_\+neg\+\_\+y\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoard_ac36d9ad3798ef9d45d464efcbc2c5694}
+\hypertarget{classBoard_af370b0cf956d4a5d1e38250d21c29dfb}{\index{Board@{Board}!dimension\+\_\+pos\+\_\+y@{dimension\+\_\+pos\+\_\+y}}
+\index{dimension\+\_\+pos\+\_\+y@{dimension\+\_\+pos\+\_\+y}!Board@{Board}}
+\subsubsection[{dimension\+\_\+pos\+\_\+y}]{\setlength{\rightskip}{0pt plus 5cm}double Board\+::dimension\+\_\+pos\+\_\+y\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoard_af370b0cf956d4a5d1e38250d21c29dfb}
+\hypertarget{classBoard_a0999b31427ac9b9cf2444bc73d2a4c79}{\index{Board@{Board}!dimension\+\_\+x@{dimension\+\_\+x}}
+\index{dimension\+\_\+x@{dimension\+\_\+x}!Board@{Board}}
+\subsubsection[{dimension\+\_\+x}]{\setlength{\rightskip}{0pt plus 5cm}double Board\+::dimension\+\_\+x\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoard_a0999b31427ac9b9cf2444bc73d2a4c79}
+\hypertarget{classBoard_a7133e5c99e2ed0b9ec6d28c8ec8d783d}{\index{Board@{Board}!dimension\+\_\+y@{dimension\+\_\+y}}
+\index{dimension\+\_\+y@{dimension\+\_\+y}!Board@{Board}}
+\subsubsection[{dimension\+\_\+y}]{\setlength{\rightskip}{0pt plus 5cm}double Board\+::dimension\+\_\+y\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoard_a7133e5c99e2ed0b9ec6d28c8ec8d783d}
+\hypertarget{classBoard_a3f5f80a78c7925c8e33d8e08d4799b9d}{\index{Board@{Board}!number\+\_\+balls@{number\+\_\+balls}}
+\index{number\+\_\+balls@{number\+\_\+balls}!Board@{Board}}
+\subsubsection[{number\+\_\+balls}]{\setlength{\rightskip}{0pt plus 5cm}int Board\+::number\+\_\+balls\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoard_a3f5f80a78c7925c8e33d8e08d4799b9d}
+\hypertarget{classBoard_a2f3f6dcb96ea6cd77d7c6b3305f8a5d3}{\index{Board@{Board}!vector\+\_\+of\+\_\+balls@{vector\+\_\+of\+\_\+balls}}
+\index{vector\+\_\+of\+\_\+balls@{vector\+\_\+of\+\_\+balls}!Board@{Board}}
+\subsubsection[{vector\+\_\+of\+\_\+balls}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Ball}$>$ Board\+::vector\+\_\+of\+\_\+balls\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoard_a2f3f6dcb96ea6cd77d7c6b3305f8a5d3}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Board_8h}{Board.\+h}\item 
+\hyperlink{Board_8cpp}{Board.\+cpp}\end{DoxyCompactItemize}

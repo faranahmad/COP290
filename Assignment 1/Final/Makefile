@@ -22,6 +22,21 @@ GDBDebug: 3DGDBDebug 2DGDBDebug 2DMNGDBDebug
 doc:Doc/DesignDocument.tex
 	pdflatex Doc/DesignDocument.tex
 
+Documentation: 3Ddoxygendoc 2Ddoxygendoc 2DMNdoxygendoc
+
+3Ddoxygendoc:
+	cd Doc/3Dlatex ; make 
+	mv Doc/3Dlatex/refman.pdf 3DDocument.pdf
+
+2Ddoxygendoc:
+	cd Doc/2Dlatex ; make 
+	mv Doc/2Dlatex/refman.pdf 2DDocument.pdf
+
+2DMNdoxygendoc:
+	cd Doc/2DMNlatex ; make 
+	mv Doc/2DMNlatex/refman.pdf 2DMNDocument.pdf
+
+
 execute: 2D
 	cd $(FolderExec) ; ./2D.out $(num_thread)
 
@@ -124,7 +139,10 @@ RunTest: Test
 	cd $(FolderExec) ; ./Test.out
 
 clean:
-	rm -rf DesignDocument.pdf
+	cd Doc/3Dlatex ; make clean
+	cd Doc/2Dlatex ; make clean
+	cd Doc/2DMNlatex ; make clean
+	rm -rf *.pdf
 	rm -rf DesignDocument.log
 	rm -rf DesignDocument.aux
 	rm -rf *.o

@@ -42,6 +42,12 @@ $ make RUN2DMNPrintDebug m = "number of threads" n = "number of balls per thread
 --To use GDB debugger, type the following command in the terminal.
 $ make RUN2DMNGDBDebug m = "number of threads" n = "number of balls per thread"
 
+###### Documentation for all the code ######
+--To generate documentation for all the codes in the program.
+$make Documentation
+Now in the folder 3 pdf files will be generated for the documentation of the 3D, 2D and 2DMN case
+
+
 --------------------
 General Usage Notes
 --------------------
