@@ -2,6 +2,7 @@
 
 Message::Message()
 {
+	// Creates a message having a default ball
 	type=0;
 	message_ball=Ball();
 	id=0;
@@ -16,6 +17,7 @@ Message::Message(Ball b1)
 
 Message::Message(Ball b1, int type1, int ballid1)
 {
+	// Creates a message based on the ball, id and type
 	type=type1;
 	message_ball=b1;
 	id=ballid1;

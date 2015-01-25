@@ -4,6 +4,7 @@
 
 Board::Board()
 {
+	// Default constructor for board
 	dimension_x=1000.0;
 	dimension_pos_y=500.0;
 	dimension_neg_y=500.0;
@@ -13,6 +14,7 @@ Board::Board()
 
 bool CheckCorrect(std::vector<Ball> v,Ball n1)
 {
+	// Verifies if the new ball overlaps with any ball on the screen.
 	bool sofar=true;
 	for (int i=0; (i< v.size()) && sofar; i++)
 	{
@@ -99,6 +101,7 @@ Ball Board::GetBallFromId(int position)
 
 string Board::GetBoardInformation()
 {
+	// Returns the entire info of the board. Needed for debugging purposes
 	string BoardInfo="Board\n";
 	BoardInfo += "Dimension x:"+to_string(dimension_x)+"  Dimension y:" +to_string(dimension_y)+"  Number of Balls:" + to_string(number_balls)+"\n";
 	for (int i=0;i<number_balls;i++)
