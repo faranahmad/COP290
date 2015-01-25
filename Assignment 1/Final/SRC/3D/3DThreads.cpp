@@ -852,7 +852,7 @@ int graphics(int argc,char *argv[])
     FinalBoard.SetDimensionZ(480);
 
 
-    glutCreateWindow("Team BabeMagnets");
+    glutCreateWindow("3D Screen Saver");
     
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);

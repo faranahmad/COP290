@@ -603,7 +603,7 @@ int graphics(int argc,char *argv[])
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
     glutInitWindowSize(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY());
-    glutCreateWindow("Team Wolfpack");
+    glutCreateWindow("2D Screen Saver MN");
     
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);

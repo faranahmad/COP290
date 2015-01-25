@@ -66,15 +66,3 @@ The following keyboard keys and mouse buttons can be used to customize the scree
 --ESC key-- The button is used to quit the application.
 
 =========================================================================================================================================
-
-The application can be reached at:
-
-voice: 7838539597
-website: www.cse.iitd.ac.in/~cs1130231
-E-mail: pratverma@outlook.com
-
-Feel free to contact us in case of any difficulty.
-If you have new ideas, come and be a part of our team, we accept below 50 rank ones too cheers!
-
-Copyright Kartikeya Gupta and THE Legend Faran. All rights reserved.
-This screen saver application and its use are subject to license agreement and ae also subject to copyright, trademark, patent and other laws.

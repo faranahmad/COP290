@@ -22,6 +22,9 @@ GDBDebug: 3DGDBDebug 2DGDBDebug 2DMNGDBDebug
 doc:Doc/DesignDocument.tex
 	pdflatex Doc/DesignDocument.tex
 
+execute: 2D
+	cd $(FolderExec) ; ./2D.out $(num_thread)
+
 3D: Color.o 3DBall.o 3DBoard.o Image.o 3DThreads.o
 	$(Compiler) $(Arguments) -o 3D Color.o 3DBall.o 3DBoard.o Image.o 3DThreads.o $(IncludeThread) $(IncludeGraphics) 
 	mv 3D $(FolderExec)3D.out
@@ -34,46 +37,34 @@ doc:Doc/DesignDocument.tex
 	
 Color.o: $(FolderCommon)Color.cpp
 	$(Compiler) $(Mode) $(Arguments)  $(FolderCommon)Color.cpp 
-	# mv Color.o $(FolderObj)Color.o
 
 3DBall.o: Color.o $(Folder3d)3DBall.cpp 
 	$(Compiler) $(Mode) $(Arguments)  $(FolderCommon)Color.cpp $(Folder3d)3DBall.cpp 
-	# mv 3DBall.o $(FolderObj)3DBall.o
 
 3DBoard.o: 3DBall.o $(Folder3d)3DBoard.cpp 
 	$(Compiler) $(Mode) $(Arguments)  $(FolderCommon)Color.cpp $(Folder3d)3DBall.cpp  $(Folder3d)3DBoard.cpp 
-	# mv 3DBoard.o $(FolderObj)3DBoard.o
 
 Image.o: $(FolderCommon)Image.cpp
 	$(Compiler) $(Mode) $(Arguments) $(IncludingGraphics) $(FolderCommon)Image.cpp
-	# mv Image.o $(FolderObj)Image.o
 
 3DThreads.o: Image.o Color.o 3DBall.o 3DBoard.o $(Folder3d)3DThreads.cpp
 	$(Compiler) $(Mode) $(Arguments) $(Including) $(IncludingGraphics)  $(FolderCommon)Image.cpp $(FolderCommon)Color.cpp $(Folder3d)3DBall.cpp $(Folder3d)3DBoard.cpp $(Folder3d)3DThreads.cpp
-	# mv 3DThreads.o $(FolderObj)3DThreads.o
 
 Ball.o: $(FolderCommon)Ball.cpp Color.o
 	$(Compiler) $(Mode) $(Arguments)  $(FolderCommon)Color.cpp $(FolderCommon)Ball.cpp 
-	# mv Ball.o $(FolderObj)Ball.o
 
 Board.o: Ball.o $(FolderCommon)Board.cpp 
 	$(Compiler) $(Mode) $(Arguments)  $(FolderCommon)Color.cpp $(FolderCommon)Ball.cpp $(FolderCommon)Board.cpp 
-	# mv Board.o $(FolderObj)Board.o
-
+	
 Message.o: $(FolderCommon)Message.cpp
 	$(Compiler) $(Mode) $(Arguments)  $(FolderCommon)Message.cpp
-	# mv Message.o $(FolderObj)Message.o
 
 2DThreads.o: Image.o Color.o Ball.o Board.o Message.o  $(FolderInter2D)2DThreads.cpp
 	$(Compiler) $(Mode) $(Arguments) $(Including) $(IncludingGraphics)  $(FolderCommon)Image.cpp $(FolderCommon)Color.cpp $(FolderCommon)Ball.cpp $(FolderCommon)Board.cpp  $(FolderCommon)Message.cpp $(FolderInter2D)2DThreads.cpp
-	# mv Threads.o 2DThreads.o
-	# mv 2DThreads.o $(FolderObj)2DThreads.o
-
+	
 2DThreadsMN.o: Image.o Color.o Ball.o Board.o Message.o $(FolderIndterMN2d)2DThreadsMN.cpp
 	$(Compiler) $(Mode) $(Arguments) $(Including) $(IncludingGraphics)  $(FolderCommon)Image.cpp $(FolderCommon)Color.cpp $(FolderCommon)Ball.cpp $(FolderCommon)Board.cpp  $(FolderCommon)Message.cpp $(FolderIndterMN2d)2DThreadsMN.cpp
-	# mv Threads.o 2DThreadsMN.o
-	# mv Threads.o $(FolderObj)2DThreadsMN.o
-
+	
 2D: Image.o Color.o Ball.o Board.o Message.o 2DThreads.o
 	$(Compiler) $(Arguments) -o 2D Color.o Ball.o Board.o Image.o  Message.o 2DThreads.o $(IncludeThread) $(IncludeGraphics) 
 	mv 2D $(FolderExec)2D.out
@@ -133,7 +124,9 @@ clean:
 	rm -rf DesignDocument.pdf
 	rm -rf DesignDocument.log
 	rm -rf DesignDocument.aux
+	rm -rf Doc/DesignDocument.pdf
+	rm -rf Doc/DesignDocument.log
+	rm -rf Doc/DesignDocument.aux
 	rm -rf *.o
 	rm -rf *.out
-	rm -rf $(FolderObj)*.o
 	rm -rf $(FolderExec)*.out

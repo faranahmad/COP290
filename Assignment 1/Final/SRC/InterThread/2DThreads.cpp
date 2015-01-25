@@ -612,7 +612,7 @@ int graphics(int argc,char *argv[])
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
     glutInitWindowSize(FinalBoard.GetDimensionX(),FinalBoard.GetDimensionY());
-    glutCreateWindow("Team BabeMagnets");
+    glutCreateWindow("2D Screen Saver");
     
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
