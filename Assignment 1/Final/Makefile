@@ -21,6 +21,7 @@ GDBDebug: 3DGDBDebug 2DGDBDebug 2DMNGDBDebug
 
 doc:Doc/DesignDocument.tex
 	pdflatex Doc/DesignDocument.tex
+	mv DesignDocument.pdf design.pdf
 
 Documentation: 3Ddoxygendoc 2Ddoxygendoc 2DMNdoxygendoc
 
@@ -38,7 +39,7 @@ Documentation: 3Ddoxygendoc 2Ddoxygendoc 2DMNdoxygendoc
 
 
 execute: 2D
-	cd $(FolderExec) ; ./2D.out $(num_thread)
+	cd $(FolderExec) ; ./2D.out $(NUM_THREAD)
 
 DEBUG: 2DGDBDebug
 	cd $(FolderExec) ; gdb ./2DGDBDebug.out
