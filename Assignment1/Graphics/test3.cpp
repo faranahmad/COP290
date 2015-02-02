@@ -68,7 +68,7 @@ void display(void)
     glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient3);
     glLightfv(GL_LIGHT2, GL_SPECULAR, light_color3);
 
-    
+
 
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
@@ -82,7 +82,7 @@ void display(void)
 
     glPushMatrix();
         glTranslatef(x, y, 0);
-        glColor3f(0, 0, 1); 
+        glColor3f(0, 0, 1);
         GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
         GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
         glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, cyan);
@@ -90,9 +90,9 @@ void display(void)
         GLfloat shininess[] = {50};
         glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
         x+=1;
-        y+=1; 
+        y+=1;
 
-        
+
 
         //system("canberra-gtk-play -f sound.wav");
 //         sf::SoundBuffer buffer;
@@ -113,7 +113,7 @@ glutSolidSphere(100.4, 100, 100);
         glColor3f(1,0,0);
         glutSolidSphere(100, 31, 10);
         glPopMatrix();
-    // for(  ) 
+    // for(  )
     // {
 
     //     glPushMatrix();
@@ -166,7 +166,7 @@ int main(int argc,char *argv[] )
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
     glutInitWindowSize(1200,600);
     glutCreateWindow("Yo");
-    
+
     glutDisplayFunc(display);
     // glutMouseFunc(mouseclick);
 

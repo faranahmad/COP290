@@ -19,7 +19,7 @@ class Image {
     public:
         Image(char* ps, int w, int h);
         ~Image();
-        
+
         /* An array of the form (R1, G1, B1, R2, G2, B2, ...) indicating the
          * color of each pixel in image.  Color components range from 0 to 255.
          * The array starts the bottom-left pixel, then moves right to the end
@@ -32,9 +32,9 @@ class Image {
 };
 
 //Reads a bitmap image from file.
-Image* loadBMP(const char* filename);   
+Image* loadBMP(const char* filename);
 Image::Image(char* ps, int w, int h) : pixels(ps), width(w), height(h) {
-    
+
 }
 
 Image::~Image() {
@@ -49,27 +49,27 @@ namespace {
                      ((unsigned char)bytes[1] << 8) |
                      (unsigned char)bytes[0]);
     }
-    
+
     //Converts a two-character array to a short, using little-endian form
     short toShort(const char* bytes) {
         return (short)(((unsigned char)bytes[1] << 8) |
                        (unsigned char)bytes[0]);
     }
-    
+
     //Reads the next four bytes as an integer, using little-endian form
     int readInt(ifstream &input) {
         char buffer[4];
         input.read(buffer, 4);
         return toInt(buffer);
     }
-    
+
     //Reads the next two bytes as a short, using little-endian form
     short readShort(ifstream &input) {
         char buffer[2];
         input.read(buffer, 2);
         return toShort(buffer);
     }
-    
+
     //Just like auto_ptr, but for arrays
     template<class T>
     class auto_array {
@@ -80,27 +80,27 @@ namespace {
             explicit auto_array(T* array_ = NULL) :
                 array(array_), isReleased(false) {
             }
-            
+
             auto_array(const auto_array<T> &aarray) {
                 array = aarray.array;
                 isReleased = aarray.isReleased;
                 aarray.isReleased = true;
             }
-            
+
             ~auto_array() {
                 if (!isReleased && array != NULL) {
                     delete[] array;
                 }
             }
-            
+
             T* get() const {
                 return array;
             }
-            
+
             T &operator*() const {
                 return *array;
             }
-            
+
             void operator=(const auto_array<T> &aarray) {
                 if (!isReleased && array != NULL) {
                     delete[] array;
@@ -109,27 +109,27 @@ namespace {
                 isReleased = aarray.isReleased;
                 aarray.isReleased = true;
             }
-            
+
             T* operator->() const {
                 return array;
             }
-            
+
             T* release() {
                 isReleased = true;
                 return array;
             }
-            
+
             void reset(T* array_ = NULL) {
                 if (!isReleased && array != NULL) {
                     delete[] array;
                 }
                 array = array_;
             }
-            
+
             T* operator+(int i) {
                 return array + i;
             }
-            
+
             T &operator[](int i) {
                 return array[i];
             }
@@ -145,7 +145,7 @@ Image* loadBMP(const char* filename) {
     assert(buffer[0] == 'B' && buffer[1] == 'M' || !"Not a bitmap file");
     input.ignore(8);
     int dataOffset = readInt(input);
-    
+
     //Read the header
     int headerSize = readInt(input);
     int width;
@@ -183,14 +183,14 @@ Image* loadBMP(const char* filename) {
     //     default:
     //         assert(!"Unknown bitmap format");
     // }
-    
+
     //Read the data
     int bytesPerRow = ((width * 3 + 3) / 4) * 4 - (width * 3 % 4);
     int size = bytesPerRow * height;
     auto_array<char> pixels(new char[size]);
     input.seekg(dataOffset, ios_base::beg);
     input.read(pixels.get(), size);
-    
+
     //Get the data into the right format
     auto_array<char> pixels2(new char[width * height * 3]);
     for(int y = 0; y < height; y++) {
@@ -201,14 +201,14 @@ Image* loadBMP(const char* filename) {
             }
         }
     }
-    
+
     input.close();
     return new Image(pixels2.release(), width, height);
 }
 
 int x=0;
 int y=0;
-    
+
 void reshape(int x, int y)
 {
     glViewport(0, 0, glutGet(GLUT_WINDOW_WIDTH), glutGet(GLUT_WINDOW_HEIGHT));
@@ -220,7 +220,7 @@ void reshape(int x, int y)
     // if(window_aspect > 1.) {
     glOrtho(0-w,w,0-h,h,-2000,2000);
     // }
-    
+
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -228,9 +228,9 @@ void reshape(int x, int y)
 
 
 
-    // if (y == 0 || x == 0) return;   
-    // glMatrixMode(GL_PROJECTION);  
-    // glLoadIdentity(); 
+    // if (y == 0 || x == 0) return;
+    // glMatrixMode(GL_PROJECTION);
+    // glLoadIdentity();
     // gluPerspective(39.0,(GLdouble)x/(GLdouble)y,0.6,21.0);
     // glMatrixMode(GL_MODELVIEW);
     // glViewport(0,0,x,y);  //Use the whole window for rendering
@@ -266,8 +266,8 @@ void display(void)
     int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
     int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
     float const window_aspect = (float)window_width / (float)window_height;
-    
-      
+
+
     glClearColor(0.5, 0.5, 1.0, 1.0);
     glClearDepth(1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -311,7 +311,7 @@ void display(void)
     glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient3);
     glLightfv(GL_LIGHT2, GL_SPECULAR, light_color3);
 
-    
+
 
     // glEnable(GL_LIGHTING);
     // glEnable(GL_LIGHT0);
@@ -325,7 +325,7 @@ void display(void)
 
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, _textureId);
-    
+
     //Bottom
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -333,7 +333,7 @@ void display(void)
     //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     // glColor3f(1.0f, 0.2f, 0.2f);
     // glBegin(GL_QUADS);
-    
+
     // glNormal3f(0, 1.0f, 0.0f);
     // glTexCoord2f(0.0f, 0.0f);
     // glVertex3f(-250, -250, 250);
@@ -343,15 +343,15 @@ void display(void)
     // glVertex3f(250, -250, -250);
     // glTexCoord2f(0.0f, 1.0f);
     // glVertex3f(-250, -250, -250);
-    
+
     // glEnd();
-    
+
     //Back
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glColor3f(1.0f, 1.0f, 1.0f);
     glBegin(GL_QUADS);
-    
+
     glNormal3f(0.0, 1.0f, 0.0f);
     glTexCoord2f(0.0f, 1.0f);
     glVertex3f(-window_width, window_height, 1);
@@ -361,25 +361,25 @@ void display(void)
     glVertex3f(window_width, -window_height, 1);
     glTexCoord2f(0.0f, 0.0f);
     glVertex3f(-window_width, -window_height, 1);
-    
+
     glEnd();
-    
+
     // //Left
     // glDisable(GL_TEXTURE_2D);
     // glColor3f(1.0f, 0.7f, 0.3f);
     // glBegin(GL_QUADS);
-    
+
     // glNormal3f(1.0f, 0.0f, 0.0f);
     // glVertex3f(-2.5f, -2.5f, 2.5f);
     // glVertex3f(-2.5f, -2.5f, -2.5f);
     // glVertex3f(-2.5f, 2.5f, -2.5f);
     // glVertex3f(-2.5f, 2.5f, 2.5f);
-    
+
     glEnd();
 
-    
+
     glTranslatef(x, y, 0);
-     glColor3f(0, 0.5, 1); 
+     glColor3f(0, 0.5, 1);
     // GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
     // GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
     // glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, cyan);
@@ -387,12 +387,12 @@ void display(void)
     // GLfloat shininess[] = {50};
     // glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
     // x+=1;
-    // y+=1; 
+    // y+=1;
     glutSolidSphere(100, 100, 100);
         glPopMatrix();
         glPushMatrix();
     glTranslatef(100, 0, 100);
-    glColor3f(1, 1,1); 
+    glColor3f(1, 1,1);
     // GLfloat white[] = {0.8f, 0.8f, 0.8f, 1.0f};
     // GLfloat cyan[] = {0.f, .8f, .8f, 1.f};
     // glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, cyan);
@@ -400,15 +400,15 @@ void display(void)
     // GLfloat shininess[] = {50};
     // glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
     // x+=1;
-    // y+=1; 
+    // y+=1;
     if(help2)
     {if(z<12 && help)
     {z++;}
-    else 
+    else
     {   help=false;
-        if(z>0){z--;} } 
+        if(z>0){z--;} }
         }
-    help2=not(help2); 
+    help2=not(help2);
     glutSolidSphere(z, 100, 100);
 
         glPopMatrix();
@@ -420,16 +420,16 @@ void display(void)
   //   delete image2;
   //   glEnable(GL_TEXTURE_2D);
   //   glBindTexture(GL_TEXTURE_2D, _textureId2);
-    
+
   //   //Bottom
   //   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
   //   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    
+
   //   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
   //   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
   // glColor3f(1.0f, 1.0f, 1.0f);
   //   glBegin(GL_QUADS);
-    
+
   //   glNormal3f(0.0, 1.0f, 0.0f);
   //   glTexCoord2f(0.0f, 1.0f);
   //   glVertex3f(-window_width/2, window_height/2, 2);
@@ -439,7 +439,7 @@ void display(void)
   //   glVertex3f(window_width/2, -window_height/2, 2);
   //   glTexCoord2f(0.0f, 0.0f);
   //   glVertex3f(-window_width/2, -window_height/2, 2);
-    
+
   //   glEnd();
 //     glPushMatrix();
 //         glTranslatef(300, 0, 0);
@@ -448,7 +448,7 @@ void display(void)
 //         glColor3f(0.2,0.8,0.3);
 //         glutSolidSphere(100, 31, 10);
 //         glPopMatrix();
-    // for(  ) 
+    // for(  )
     // {
 
     //     glPushMatrix();
@@ -499,8 +499,8 @@ void mouseclick(int button,int state,int x,int y )
         {
             cout<<"Remove Button"<<endl;
         }
-    
-        
+
+
     }
     glutPostRedisplay();
 }
@@ -512,15 +512,15 @@ void initRendering() {
     // glEnable(GL_LIGHT0);
     // glEnable(GL_NORMALIZE);
     // glEnable(GL_COLOR_MATERIAL);
-    
+
     Image* image = loadBMP("Water-4.bmp");
     _textureId = loadTexture(image);
     delete image;
 }
- 
+
 
 int main(int argc,char *argv[] )
-{   
+{
     #ifdef DEBUG
         cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!"<<endl;
     #else
@@ -532,7 +532,7 @@ int main(int argc,char *argv[] )
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
     glutInitWindowSize(1000,500);
     glutCreateWindow("Yo");
-    
+
     glutDisplayFunc(display);
     glutKeyboardFunc(handleKeypress);
 
