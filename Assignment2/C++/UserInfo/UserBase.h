@@ -1,8 +1,8 @@
 #ifndef USERBASE_H
 #define USERBASE_H
 
-#include "User.h";
-#include <vector>;
+#include "User.h"
+#include <unordered_map>
 
 class UserBase
 {
@@ -10,20 +10,20 @@ class UserBase
 		UserBase();
 
 		int GetNumberOfUsers();
-		std::vector<User> GetUsersList();
-		User GetNthUser(int);
+		std::unordered_map<std::string,std::string> GetUsersList();
 		
-		void SetUsersLists(std::vector<User>);
-		void SetNthUser(int,User);
+		void SetUsersLists(std::unordered_map<std::string, std::string>);
 
 		bool VerifyUserCredentials(User);
 		bool CheckUserExists(User);
 
 		void InsertUser(User);
 
+		void StoreToFile(std::string);
+		void LoadFromFile(std::string);
 	
 	private:
-		std::vector<User> UsersList;
+		std::unordered_map<std::string, std::string> UsersList;
 };
 
 
