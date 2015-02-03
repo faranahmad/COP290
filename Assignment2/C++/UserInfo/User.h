@@ -7,6 +7,7 @@ class User
 {
     public:
         User();
+        User(std::string);
         User(std::string,std::string);
 
         std::string GetUserName();
