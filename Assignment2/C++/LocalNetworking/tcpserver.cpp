@@ -69,39 +69,78 @@ int main()
     {
         cout << "Connection accepted. Using new socketfd : "  <<  new_sd << endl;
     }
-
-    while(1)
+    bool quit=false;
+    while(true)
     {
-    cout << "Waiting to recieve data..."  << endl;
-    ssize_t bytes_recieved;
-    char incomming_data_buffer[1000];
-    bytes_recieved = recv(new_sd, incomming_data_buffer,1000, 0);
-    // If no data arrives, the program will just wait here until some data arrives.
-    if (bytes_recieved == 0) cout << "host shut down." << endl ;
-    if (bytes_recieved == -1)cout << "recieve error!" << endl ;
-    cout << bytes_recieved << " bytes recieved :" << endl ;
-    incomming_data_buffer[bytes_recieved] = '\0';
-    cout << incomming_data_buffer;
+        cout << "Waiting to recieve data..."  << endl;
+        ssize_t bytes_recieved;
+        char incomming_data_buffer[1000];
+        bytes_recieved = recv(new_sd, incomming_data_buffer,1000, 0);
+        // If no data arrives, the program will just wait here until some data arrives.
+        if (bytes_recieved == 0) cout << "host shut down." << endl ;
+        if (bytes_recieved == -1)cout << "recieve error!" << endl ;
+        cout << bytes_recieved << " bytes recieved :" << endl ;
+        incomming_data_buffer[bytes_recieved] = '\0';
+        cout << incomming_data_buffer;
 
+        char *msg = "thank you.\n";
+        int len;
+        ssize_t bytes_sent;
+        len = strlen(msg);
+        bytes_sent = send(new_sd, msg, len, 0);
 
-    cout << "sending back a message..."  << endl;
-    char *msg = "thank you.\n";
-    int len;
-    ssize_t bytes_sent;
-    len = strlen(msg);
-    bytes_sent = send(new_sd, msg, len, 0);
+        switch(incomming_data_buffer[0])
+        {
+            case '0':
+            {
 
-    // cout << "Stopping server..." << endl;
-    // freeaddrinfo(host_info_list);
-    // close(new_sd);
-    // close(socketfd);
-    if(incomming_data_buffer[0]=='q')
-    {
-        freeaddrinfo(host_info_list);
-        close(new_sd);
-        close(socketfd);
-        break;
-    }
+                cout << "sending back a message..."  << endl;
+                char *msg2 = "Adding user....\nEnter Username\n";
+                int len2;
+                ssize_t bytes_sent2;
+                len2 = strlen(msg2);
+                bytes_sent2 = send(new_sd, msg2, len2, 0);
+
+                ssize_t bytes_recieved2;
+                char incomming_data_buffer2[1000];
+                bytes_recieved2 = recv(new_sd, incomming_data_buffer2,1000, 0);
+                // If no data arrives, the program will just wait here until some data arrives.
+                if (bytes_recieved2 == 0) cout << "host shut down." << endl ;
+                if (bytes_recieved2 == -1)cout << "recieve error!" << endl ;
+                cout << bytes_recieved2 << " bytes recieved :" << endl ;
+                incomming_data_buffer2[bytes_recieved2] = '\0';
+                cout << incomming_data_buffer2;
+    
+    
+                cout << "sending back a message..."  << endl;
+                msg2 = "Enter Password\n";
+                len2 = strlen(msg2);
+                bytes_sent2 = send(new_sd, msg2, len2, 0);
+
+                bytes_recieved2 = recv(new_sd, incomming_data_buffer2,1000, 0);
+                // If no data arrives, the program will just wait here until some data arrives.
+                if (bytes_recieved2 == 0) cout << "host shut down." << endl ;
+                if (bytes_recieved2 == -1)cout << "recieve error!" << endl ;
+                cout << bytes_recieved2 << " bytes recieved :" << endl ;
+                incomming_data_buffer2[bytes_recieved2] = '\0';
+                cout << incomming_data_buffer2;
+                break;
+
+            } 
+            case '3':
+            {
+                cout << "Stopping server..." << endl;
+                freeaddrinfo(host_info_list);
+                close(new_sd);
+                close(socketfd);
+                quit=true;
+                break;
+            }
+        }
+        if(quit)
+        {
+            break;
+        }
     }
 
 
