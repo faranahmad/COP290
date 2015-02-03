@@ -1,5 +1,8 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color} 
+\usepackage{titling}
 
 \title{\vspace*{\fill} My DropBox}
 \author{
@@ -24,18 +27,42 @@
 
 	\section{Overall Design}
 		\begin{enumerate}
-			\item We will begin with creating an offline version of this. We will sync files between folders for different users.
+			\item We will begin with creating different sub components like a File Transferring System, Credential Verifier, GUI part.
+			\item Once the components are ready, we will Link this to the network and get basic functionality working on the localhost.
 			\item Once the local interface is ready, we will take this to the web portal. We will use a server to store data and users will have to send queries to it
 			\item Once the web portal is ready we will link the offline and online parts.
-
 		\end{enumerate}
+
 	\section{Sub Components}
 		\begin{enumerate}
-			\item GUI interface
-			\item Data Syncing Part
-			\item Web Interface 
-		\end{enumerate}
-
+			\lstset{
+				frame=tb, % draw a frame at the top and bottom of the code block
+			   	tabsize=4, % tab space width
+			   	showstringspaces=false, % don't mark spaces in strings
+			    numbers=left, % display line numbers on the left
+			    commentstyle=\color{red}, % comment color
+			    keywordstyle=\color{blue}, % keyword color
+			    stringstyle=\color{green} % string color
+			}
+			\item User Verification
+			\begin{lstlisting}[language=C++, caption={Class Parameters for Ball}]
+			class Ball
+			{
+				private:
+					double radius;              //Radius of the ball
+					double coord_x;             //X coordinate of the center of ball
+					double coord_y;             //Y coordinate of the center of ball
+					double velocity_x;          //X component of the velocity of ball
+					double velocity_y;          //Y component of the velocity of ball
+					std::vector<float> color;   //Color in RGB format of ball
+			};
+			
+						\item GUI interface
+						\item Data Transferring
+						\item Network Managing Part
+						\item Data Syncing Part
+					\end{enumerate}
+			\end{lstlisting}
 	\section{Integration amongst Sub Components}
 
 	\section{Testing}

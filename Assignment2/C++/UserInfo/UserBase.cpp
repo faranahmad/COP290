@@ -80,23 +80,23 @@ void UserBase::LoadFromFile(std::string location)
   	}
 }
 
-int main()
-{
-	UserBase n1=UserBase();
-	std::cout<<n1.GetNumberOfUsers()<<"\n";
-	n1.InsertUser(User("kg","kgpassword"));
-	std::cout<<n1.GetNumberOfUsers()<<"\n";
-	n1.LoadFromFile("File.txt");
-	std::cout <<n1.VerifyUserCredentials(User("faran","kg"))<<"\n";
-	std::cout <<n1.VerifyUserCredentials(User("faran","soccer"))<<"\n";
-	n1.InsertUser(User("soccer","prats"));
-	n1.StoreToFile("File.txt");
-	std::string s1;
-	while (1)
-	{
-		std::cin >>s1;
-		std::cout <<"Verifying users : \n" << n1.CheckUserExists(User(s1)) <<"\n";	
-	}
-	// n1.StoreToFile("File.txt");
-	return 0;
-}
+// int main()
+// {
+// 	UserBase n1=UserBase();
+// 	std::cout<<n1.GetNumberOfUsers()<<"\n";
+// 	n1.InsertUser(User("kg","kgpassword"));
+// 	std::cout<<n1.GetNumberOfUsers()<<"\n";
+// 	n1.LoadFromFile("File.txt");
+// 	std::cout <<n1.VerifyUserCredentials(User("faran","kg"))<<"\n";
+// 	std::cout <<n1.VerifyUserCredentials(User("faran","soccer"))<<"\n";
+// 	n1.InsertUser(User("soccer","prats"));
+// 	n1.StoreToFile("File.txt");
+// 	std::string s1;
+// 	while (1)
+// 	{
+// 		std::cin >>s1;
+// 		std::cout <<"Verifying users : \n" << n1.CheckUserExists(User(s1)) <<"\n";	
+// 	}
+// 	// n1.StoreToFile("File.txt");
+// 	return 0;
+// }
