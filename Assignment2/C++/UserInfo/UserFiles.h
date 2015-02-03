@@ -1,6 +1,7 @@
 #ifndef USERFILES_H
 #define USERFILES_H
 
+#include <string>
 #include <vector>
 #include <utility>
 
@@ -9,7 +10,7 @@ class UserFiles
 	public:
 		UserFiles();
 	
-		std::vector<std::pair<std::string,std::string>> GetPathVector();
+		std::vector<std::pair<std::string,std::string> > GetPathVector();
 		// std::vector<std::string> GetGlobalPath();
 
 		int GetNumberOfFiles();
@@ -25,8 +26,13 @@ class UserFiles
 		void AddNewLocal(std::string);
 		void AddNewGlobal(std::string);
 
+		void LoadFileDataFromSRC(std::string);
+		void DumpFileDataToSRC(std::string);
+
+		void LoadFileDataFromDisc();
+
 	private:
-		std::vector<std::pair<std::string,std::string>> PathVector;
+		std::vector<std::pair<std::string,std::string> > PathVector;
 		//std::vector<std::string> GlobalPath;
 };
 

@@ -1,18 +1,19 @@
 #include "UserFiles.h"
+#include <fstream>
 
 UserFiles::UserFiles()
 {
-	PathVector = std::vector<std::pair<std::string,std::string>>;
+	PathVector = std::vector<std::pair<std::string,std::string> > ();
 }
 
-std::vector<std::pair<std::string,std::string>> UserFiles::GetPathVector()
+std::vector<std::pair<std::string,std::string> > UserFiles::GetPathVector()
 {
 	return PathVector;
 }
 
 int UserFiles::GetNumberOfFiles()
 {
-	return PathVector.size()
+	return PathVector.size();
 }
 
 std::string UserFiles::GetLocalNth(int n)
@@ -35,7 +36,7 @@ std::string UserFiles::GetGlobalNth(int n)
 	}
 	else
 	{
-		return "":
+		return "";
 	}
 }
 
@@ -88,4 +89,42 @@ void UserFiles::AddNewLocal(std::string localnew)
 void UserFiles::AddNewGlobal(std::string globalnew)
 {
 	PathVector.push_back(std::pair<std::string, std::string> ("",globalnew));
+}
+
+void UserFiles::DumpFileDataToSRC(std::string src)
+{
+	// TODO: Check for file existance
+	std::string data="";
+	for (int i=0; i<PathVector.size() ; i++) 
+	{
+    	data += PathVector[i].first + "\n" + PathVector[i].second + "\n";
+	}
+	data=data.substr(0,data.size() - 1);
+	const char * c = src.c_str();
+	std::ofstream out(c);
+	out << data;
+	out.close();
+}
+
+void UserFiles::LoadFileDataFromSRC(std::string src)
+{
+	// TODO: Check for file existance
+	std::string line1,line2;
+	const char * c = src.c_str();
+	std::ifstream myfile (c);
+  	PathVector =std::vector<std::pair<std::string, std::string> > ();
+  	if (myfile.is_open())
+  	{
+    	while ( getline (myfile,line1) )
+    	{	
+    		getline(myfile,line2);
+    		PathVector.push_back(std::pair<std::string, std::string > (line1,line2));
+    	}
+    	myfile.close();
+  	}
+}
+
+void UserFiles::LoadFileDataFromDisc()
+{
+	// TODO SOCCER
 }
