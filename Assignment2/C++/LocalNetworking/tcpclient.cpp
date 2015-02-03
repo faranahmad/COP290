@@ -50,6 +50,6 @@ int main()
     std::cout << "Receiving complete. Closing socket..." << std::endl;
     cout<<incomming_data_buffer<<endl;
     freeaddrinfo(host_info_list);
-    // close(socketfd);
+    close(socketfd);
 
 }

@@ -4,8 +4,8 @@
 #include <sys/socket.h> // Needed for the socket functions
 #include <netdb.h>      // Needed for the socket functions
 #include <unistd.h>     // Needed for closing the sockets
-
-int main2()
+using namespace std;
+int main()
 {
     int status;
     struct addrinfo host_info;       // The struct that getaddrinfo() fills up with data.
@@ -17,26 +17,26 @@ int main2()
     // empty. Therefor we use the memset function to make sure all fields are NULL.
     memset(&host_info, 0, sizeof host_info);
 
-    std::cout << "Setting up the structs..."  << std::endl;
+    cout << "Setting up the structs..."  << endl;
 
     host_info.ai_family = AF_UNSPEC;     // IP version not specified. Can be both.
     host_info.ai_socktype = SOCK_STREAM; // Use SOCK_STREAM for TCP or SOCK_DGRAM for UDP.
     host_info.ai_flags = AI_PASSIVE;     // IP Wildcard
 
     // Now fill up the linked list of host_info structs with google's address information.
-    status = getaddrinfo("10.192.10.192", "3468", &host_info, &host_info_list);
+    status = getaddrinfo("10.192.10.192", "5559", &host_info, &host_info_list);
     // getaddrinfo returns 0 on succes, or some other value when an error occured.
     // (translated into human readable text by the gai_gai_strerror function).
-    if (status != 0)  std::cout << "getaddrinfo error" << gai_strerror(status) ;
+    if (status != 0)  cout << "getaddrinfo error" << gai_strerror(status)<<endl ;
 
 
-    std::cout << "Creating a socket..."  << std::endl;
+    cout << "Creating a socket..."  << endl;
     int socketfd ; // The socket descripter
     socketfd = socket(host_info_list->ai_family, host_info_list->ai_socktype,
                       host_info_list->ai_protocol);
-    if (socketfd == -1)  std::cout << "socket error " ;
+    if (socketfd == -1)  cout << "socket error \n" ;
 
-    std::cout << "Binding socket..."  << std::endl;
+    cout << "Binding socket..."  << endl;
     // we use to make the setsockopt() function to make sure the port is not in use
     // by a previous execution of our code. (see man page for more information)
     int yes = 1;
@@ -44,15 +44,17 @@ int main2()
     status = bind(socketfd, host_info_list->ai_addr, host_info_list->ai_addrlen);
     if (status == -1)  
     {
-        std::cout << "bind error" << std::endl ;
-        close(socketfd);
-        status = setsockopt(socketfd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int));
-        status = bind(socketfd, host_info_list->ai_addr, host_info_list->ai_addrlen);
+        cout << "bind error" << endl ;
     }
-
-    std::cout << "Listen()ing for connections..."  << std::endl;
+    int reuse;
+    if (setsockopt(socketfd, SOL_SOCKET, SO_REUSEADDR, (char *)&reuse, sizeof(int)) == -1)
+    {
+     cout<<"Reuse port Error\n";
+    }
+    
+    cout << "Listening for connections..."  << endl;
     status =  listen(socketfd, 5);
-    if (status == -1)  std::cout << "listen error" << std::endl ;
+    if (status == -1)  cout << "listen error" << endl ;
 
 
     int new_sd;
@@ -61,48 +63,95 @@ int main2()
     new_sd = accept(socketfd, (struct sockaddr *)&their_addr, &addr_size);
     if (new_sd == -1)
     {
-        std::cout << "listen error" << std::endl ;
+        cout << "listen error" << endl ;
     }
     else
     {
-        std::cout << "Connection accepted. Using new socketfd : "  <<  new_sd << std::endl;
+        cout << "Connection accepted. Using new socketfd : "  <<  new_sd << endl;
     }
-
-
-    std::cout << "Waiting to recieve data..."  << std::endl;
-    ssize_t bytes_recieved;
-    char incomming_data_buffer[1000];
-    bytes_recieved = recv(new_sd, incomming_data_buffer,1000, 0);
-    // If no data arrives, the program will just wait here until some data arrives.
-    if (bytes_recieved == 0) std::cout << "host shut down." << std::endl ;
-    if (bytes_recieved == -1)std::cout << "recieve error!" << std::endl ;
-    std::cout << bytes_recieved << " bytes recieved :" << std::endl ;
-    incomming_data_buffer[bytes_recieved] = '\0';
-    std::cout << incomming_data_buffer << std::endl;
-
-
-    std::cout << "send()ing back a message..."  << std::endl;
-    char *msg = "thank you.";
-    int len;
-    ssize_t bytes_sent;
-    len = strlen(msg);
-    bytes_sent = send(new_sd, msg, len, 0);
-
-    std::cout << "Stopping server..." << std::endl;
-    freeaddrinfo(host_info_list);
-    close(new_sd);
-    close(socketfd);
-
-return 0 ;
-
-
-}
-
-
-int main()
-{
-    while (true)
+    bool quit=false;
+    while(true)
     {
-        main2();
+        cout << "Waiting to recieve data..."  << endl;
+        ssize_t bytes_recieved;
+        char incomming_data_buffer[1000];
+        bytes_recieved = recv(new_sd, incomming_data_buffer,1000, 0);
+        // If no data arrives, the program will just wait here until some data arrives.
+        if (bytes_recieved == 0) cout << "host shut down." << endl ;
+        if (bytes_recieved == -1)cout << "recieve error!" << endl ;
+        cout << bytes_recieved << " bytes recieved :" << endl ;
+        incomming_data_buffer[bytes_recieved] = '\0';
+        cout << incomming_data_buffer;
+
+        char *msg = "thank you.\n";
+        int len;
+        ssize_t bytes_sent;
+        len = strlen(msg);
+        bytes_sent = send(new_sd, msg, len, 0);
+
+        switch(incomming_data_buffer[0])
+        {
+            case '0':
+            {
+
+                cout << "sending back a message..."  << endl;
+                char *msg2 = "Adding user....\nEnter Username\n";
+                int len2;
+                ssize_t bytes_sent2;
+                len2 = strlen(msg2);
+                bytes_sent2 = send(new_sd, msg2, len2, 0);
+
+                ssize_t bytes_recieved2;
+                char incomming_data_buffer2[1000];
+                bytes_recieved2 = recv(new_sd, incomming_data_buffer2,1000, 0);
+                // If no data arrives, the program will just wait here until some data arrives.
+                if (bytes_recieved2 == 0) cout << "host shut down." << endl ;
+                if (bytes_recieved2 == -1)cout << "recieve error!" << endl ;
+                cout << bytes_recieved2 << " bytes recieved :" << endl ;
+                incomming_data_buffer2[bytes_recieved2] = '\0';
+                cout << incomming_data_buffer2;
+    
+    
+                cout << "sending back a message..."  << endl;
+                msg2 = "Enter Password\n";
+                len2 = strlen(msg2);
+                bytes_sent2 = send(new_sd, msg2, len2, 0);
+
+                bytes_recieved2 = recv(new_sd, incomming_data_buffer2,1000, 0);
+                // If no data arrives, the program will just wait here until some data arrives.
+                if (bytes_recieved2 == 0) cout << "host shut down." << endl ;
+                if (bytes_recieved2 == -1)cout << "recieve error!" << endl ;
+                cout << bytes_recieved2 << " bytes recieved :" << endl ;
+                incomming_data_buffer2[bytes_recieved2] = '\0';
+                cout << incomming_data_buffer2;
+                break;
+
+            } 
+            case '3':
+            {
+                cout << "Stopping server..." << endl;
+                freeaddrinfo(host_info_list);
+                close(new_sd);
+                close(socketfd);
+                quit=true;
+                break;
+            }
+        }
+        if(quit)
+        {
+            break;
+        }
     }
+
+
+
 }
+
+
+// int main()
+// {
+//     while (true)
+//     {
+//         main2();
+//     }
+// }
