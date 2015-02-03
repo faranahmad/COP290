@@ -6,6 +6,12 @@ User::User()
     Password="";
 }
 
+User::User(std::string usname)
+{
+	UserName=usname;
+	Password="";
+}
+
 User::User(std::string usname, std::string pwd)
 {
     UserName=usname;

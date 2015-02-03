@@ -1,9 +1,9 @@
 #include "UserBase.h"
 #include <fstream>
-
+#include <iostream>
 UserBase::UserBase()
 {
-	UsersList=std::unordered_map<std::string, std::string> ;
+	UsersList=std::unordered_map<std::string, std::string> ();
 }
 
 int UserBase::GetNumberOfUsers()
@@ -35,7 +35,7 @@ bool UserBase::CheckUserExists(User UserCons)
 
 bool UserBase::VerifyUserCredentials(User UserCons)
 {
-	if (this.CheckUserExists(UserCons))
+	if (CheckUserExists(UserCons))
 	{
 		return (UsersList[UserCons.GetUserName()]==UserCons.GetPassword()); 
 	}	
@@ -47,7 +47,7 @@ bool UserBase::VerifyUserCredentials(User UserCons)
 
 void UserBase::InsertUser(User UserCons)
 {
-	UsersList[UserCons.GetUserName()]=UsersList[UserCons.GetPassword()];
+	UsersList[UserCons.GetUserName()]=UserCons.GetPassword();
 }
 
 void UserBase::StoreToFile(std::string location)
@@ -66,8 +66,8 @@ void UserBase::StoreToFile(std::string location)
 void UserBase::LoadFromFile(std::string location)
 {
 	std::string line1,line2;
-	ifstream myfile (location);
-  	UsersList= std::unordered_map<std::string ,std::string>;
+	std::ifstream myfile (location);
+  	UsersList= std::unordered_map<std::string ,std::string> ();
   	if (myfile.is_open())
   	{
   		//TODO
@@ -78,4 +78,25 @@ void UserBase::LoadFromFile(std::string location)
     	}
     	myfile.close();
   	}
+}
+
+int main()
+{
+	UserBase n1=UserBase();
+	std::cout<<n1.GetNumberOfUsers()<<"\n";
+	n1.InsertUser(User("kg","kgpassword"));
+	std::cout<<n1.GetNumberOfUsers()<<"\n";
+	n1.LoadFromFile("File.txt");
+	std::cout <<n1.VerifyUserCredentials(User("faran","kg"))<<"\n";
+	std::cout <<n1.VerifyUserCredentials(User("faran","soccer"))<<"\n";
+	n1.InsertUser(User("soccer","prats"));
+	n1.StoreToFile("File.txt");
+	std::string s1;
+	while (1)
+	{
+		std::cin >>s1;
+		std::cout <<"Verifying users : \n" << n1.CheckUserExists(User(s1)) <<"\n";	
+	}
+	// n1.StoreToFile("File.txt");
+	return 0;
 }
