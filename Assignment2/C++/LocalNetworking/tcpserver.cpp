@@ -4,6 +4,7 @@
 #include <sys/socket.h> // Needed for the socket functions
 #include <netdb.h>      // Needed for the socket functions
 #include <unistd.h>     // Needed for closing the sockets
+#include "UserBase.h"
 using namespace std;
 int main()
 {
@@ -24,7 +25,7 @@ int main()
     host_info.ai_flags = AI_PASSIVE;     // IP Wildcard
 
     // Now fill up the linked list of host_info structs with google's address information.
-    status = getaddrinfo("10.192.10.192", "5559", &host_info, &host_info_list);
+    status = getaddrinfo("192.168.1.101", "5566", &host_info, &host_info_list);
     // getaddrinfo returns 0 on succes, or some other value when an error occured.
     // (translated into human readable text by the gai_gai_strerror function).
     if (status != 0)  cout << "getaddrinfo error" << gai_strerror(status)<<endl ;
@@ -70,6 +71,8 @@ int main()
         cout << "Connection accepted. Using new socketfd : "  <<  new_sd << endl;
     }
     bool quit=false;
+    UserBase base=UserBase();
+    base.LoadFromFile("Database.txt");
     while(true)
     {
         cout << "Waiting to recieve data..."  << endl;
@@ -81,13 +84,13 @@ int main()
         if (bytes_recieved == -1)cout << "recieve error!" << endl ;
         cout << bytes_recieved << " bytes recieved :" << endl ;
         incomming_data_buffer[bytes_recieved] = '\0';
-        cout << incomming_data_buffer;
+        cout << incomming_data_buffer<<endl;;
 
-        char *msg = "thank you.\n";
-        int len;
-        ssize_t bytes_sent;
-        len = strlen(msg);
-        bytes_sent = send(new_sd, msg, len, 0);
+        // char *msg = "thank you.\n";
+        // int len;
+        // ssize_t bytes_sent;
+        // len = strlen(msg);
+        // bytes_sent = send(new_sd, msg, len, 0);
 
         switch(incomming_data_buffer[0])
         {
@@ -103,33 +106,35 @@ int main()
 
                 ssize_t bytes_recieved2;
                 char incomming_data_buffer2[1000];
+                char incomming_data_buffer3[1000];
                 bytes_recieved2 = recv(new_sd, incomming_data_buffer2,1000, 0);
                 // If no data arrives, the program will just wait here until some data arrives.
                 if (bytes_recieved2 == 0) cout << "host shut down." << endl ;
                 if (bytes_recieved2 == -1)cout << "recieve error!" << endl ;
                 cout << bytes_recieved2 << " bytes recieved :" << endl ;
                 incomming_data_buffer2[bytes_recieved2] = '\0';
-                cout << incomming_data_buffer2;
-    
-    
+                cout << incomming_data_buffer2<<endl;
+                
                 cout << "sending back a message..."  << endl;
                 msg2 = "Enter Password\n";
                 len2 = strlen(msg2);
                 bytes_sent2 = send(new_sd, msg2, len2, 0);
 
-                bytes_recieved2 = recv(new_sd, incomming_data_buffer2,1000, 0);
+                bytes_recieved2 = recv(new_sd, incomming_data_buffer3,1000, 0);
                 // If no data arrives, the program will just wait here until some data arrives.
                 if (bytes_recieved2 == 0) cout << "host shut down." << endl ;
                 if (bytes_recieved2 == -1)cout << "recieve error!" << endl ;
                 cout << bytes_recieved2 << " bytes recieved :" << endl ;
-                incomming_data_buffer2[bytes_recieved2] = '\0';
-                cout << incomming_data_buffer2;
+                incomming_data_buffer3[bytes_recieved2] = '\0';
+                cout << incomming_data_buffer3<<endl;
+                base.InsertUser(User(incomming_data_buffer2,incomming_data_buffer3));
                 break;
 
             } 
             case '3':
             {
                 cout << "Stopping server..." << endl;
+                base.StoreToFile("Database.txt");
                 freeaddrinfo(host_info_list);
                 close(new_sd);
                 close(socketfd);
