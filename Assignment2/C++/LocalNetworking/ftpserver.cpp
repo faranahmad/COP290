@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
- 
+ #include <fstream>
 /*for getting file size using stat()*/
 #include<sys/stat.h>
  
@@ -43,7 +43,8 @@ int main(int argc,char *argv[])
       exit(1);
     }
   len = sizeof(client);
-  sock2 = accept(sock1,(struct sockaddr*)&client, &len);
+  socklen_t yo=(socklen_t)len;
+  sock2 = accept(sock1,(struct sockaddr*)&client, &yo);
   i = 1;
   while(1)
     {
@@ -69,7 +70,7 @@ int main(int argc,char *argv[])
 	      size = 0;
 	  send(sock2, &size, sizeof(int), 0);
 	  if(size)
-	  sendfile(sock2, filehandle, NULL, size);
+	  sendfile(sock2, filehandle, NULL, size);	
  
 	}
       else if(!strcmp(command, "put"))
@@ -89,10 +90,10 @@ int main(int argc,char *argv[])
 	      else
 		break;
 	    }
-	  f = malloc(size);
+	  f = (char*)malloc(size);
 	  recv(sock2, f, size, 0);
-	  c = write(filehandle, f, size);
-	  close(filehandle);
+	  c = 1;
+	  // close(filehandle);
 	  send(sock2, &c, sizeof(int), 0);
         }
       else if(!strcmp(command, "pwd"))
@@ -108,11 +109,6 @@ int main(int argc,char *argv[])
 	}
       else if(!strcmp(command, "cd"))
         {
-          if(chdir(buf+3) == 0)
-	    c = 1;
-	  else
-	    c = 0;
-          send(sock2, &c, sizeof(int), 0);
         }
  
  

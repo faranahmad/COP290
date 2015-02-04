@@ -5,21 +5,14 @@
 #include <netdb.h>      // Needed for the socket functions
 #include <unistd.h>     // Needed for closing the sockets
 #include "UserBase.h"
-#include <netinet/in.h>
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/sendfile.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+#include <fstream>
+#define SIZE 100000
 using namespace std;
 int main()
 {
     int status;
     struct addrinfo host_info;       // The struct that getaddrinfo() fills up with data.
-    struct addrinfo *host_info_list;
-    struct stat obj;
-    int size,filehandle; // Pointer to the to the linked list of host_info's.
+    struct addrinfo *host_info_list; // Pointer to the to the linked list of host_info's.
 
     // The MAN page of getaddrinfo() states "All  the other fields in the structure pointed
     // to by hints must contain either 0 or a null pointer, as appropriate." When a struct
@@ -34,7 +27,7 @@ int main()
     host_info.ai_flags = AI_PASSIVE;     // IP Wildcard
 
     // Now fill up the linked list of host_info structs with google's address information.
-    status = getaddrinfo("10.192.10.192", "5569", &host_info, &host_info_list);
+    status = getaddrinfo(NULL, "5578", &host_info, &host_info_list);
     // getaddrinfo returns 0 on succes, or some other value when an error occured.
     // (translated into human readable text by the gai_gai_strerror function).
     if (status != 0)  cout << "getaddrinfo error" << gai_strerror(status)<<endl ;
@@ -50,16 +43,18 @@ int main()
     // we use to make the setsockopt() function to make sure the port is not in use
     // by a previous execution of our code. (see man page for more information)
     int yes = 1;
-    status = setsockopt(socketfd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int));
+    status = setsockopt(socketfd, SOL_SOCKET, SO_REUSEPORT, &yes, sizeof(int));
     status = bind(socketfd, host_info_list->ai_addr, host_info_list->ai_addrlen);
     if (status == -1)  
     {
-        cout << "bind error" << endl ;
-    }
-    int reuse;
-    if (setsockopt(socketfd, SOL_SOCKET, SO_REUSEADDR, (char *)&reuse, sizeof(int)) == -1)
-    {
-     cout<<"Reuse port Error\n";
+        cout<<"Reuse port Error : "<< strerror(errno)<<endl;
+        close(socketfd);
+        socketfd = socket(host_info_list->ai_family, host_info_list->ai_socktype,
+                      host_info_list->ai_protocol);
+        cout << "Binding socket again..."  << endl;
+        setsockopt(socketfd, SOL_SOCKET, SO_REUSEPORT, &yes, sizeof(int));
+        status=bind(socketfd, host_info_list->ai_addr, host_info_list->ai_addrlen);
+        cout<<status<<endl;
     }
     
     cout << "Listening for connections..."  << endl;
@@ -79,25 +74,22 @@ int main()
     {
         cout << "Connection accepted. Using new socketfd : "  <<  new_sd << endl;
     }
-    stat("temp.txt",&obj);
-    size = obj.st_size;
-    send(socketfd, &size, sizeof(int),0);
-    filehandle = open("temp.txt", O_RDONLY);
-    sendfile(socketfd,filehandle,NULL,size);
-    // char send_buffer[1000]
-    // void* v;
-    // cout<<(long)v<<endl;
-    // recv(socketfd, &v, 1000, 0);
-    // cout<<(long)v<<endl;
 
-
+    cout << "Waiting to recieve data..."  << endl;
+    char m[SIZE];
+    int bytes_recieved;
+    bytes_recieved=recv(new_sd, m,SIZE, 0);
+    uint32_t ntohl(uint32_t netlong);
+    cout<<bytes_recieved<<endl;
+    m[bytes_recieved]='\0';
+    cout<<m<<endl;
+ //    FILE* file = fopen( "myfile.txt", "w" );
+	// fwrite( m, 1, 1000, file );
+	std::ofstream file("myfile.wav",ofstream::out);
+  	file.write(m, SIZE);
+  	file.close();
+    freeaddrinfo(host_info_list);
+    close(socketfd);
+    
+    return 0;
 }
-
-
-// int main()
-// {
-//     while (true)
-//     {
-//         main2();
-//     }
-// }

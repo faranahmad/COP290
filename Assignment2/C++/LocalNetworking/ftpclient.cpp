@@ -5,7 +5,8 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
- 
+#include <iostream>
+using namespace std;
 /*for getting file size using stat()*/
 #include<sys/stat.h>
  
@@ -58,7 +59,7 @@ int main(int argc,char *argv[])
 	      printf("No such file on the remote directory\n\n");
 	    break;
 	    }
-	  f = malloc(size);
+	  f = (char*)malloc(size);
 	  recv(sock, f, size, 0);
 	  while(1)
 	    {
@@ -69,8 +70,9 @@ int main(int argc,char *argv[])
 		}
 	      else break;
 	    }
-	  write(filehandle, f, size, 0);
-	  close(filehandle);
+	  // write(filehandle, f, size, 0);
+	  // close(filehandle);
+	  cout<<f<<endl;
 	  strcpy(buf, "cat ");
 	  strcat(buf, filename);
 	  system(buf);
@@ -107,11 +109,11 @@ int main(int argc,char *argv[])
 	  strcpy(buf, "ls");
           send(sock, buf, 100, 0);
 	  recv(sock, &size, sizeof(int), 0);
-          f = malloc(size);
+          f = (char*)malloc(size);
           recv(sock, f, size, 0);
 	  filehandle = creat("temp.txt", O_WRONLY);
-	  write(filehandle, f, size, 0);
-	  close(filehandle);
+	  // write(filehandle, f, size, 0);
+	  // close(filehandle);
           printf("The remote directory listing is as follows:\n");
 	  system("cat temp.txt");
 	  break;
