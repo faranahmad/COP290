@@ -30,12 +30,11 @@ class FileHistory
 		void LoadFileTimeBase();
 
 		void LoadFromFileBase(std::string);
-		void StoreToFileBase(std::string);		
+		void StoreToFileBase(std::string);
 
 	private:
 		std::string FolderLocation;
 		std::vector< std::pair<std::string, int> > FileTimeBase;
 };
-
 
 #endif
