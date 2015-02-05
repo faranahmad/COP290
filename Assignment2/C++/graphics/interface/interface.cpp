@@ -1,7 +1,8 @@
 #include "interface.h"
 #include "ui_interface.h"
-//#include <QlineEdit>
-#include "listoffiles.h"
+//#include "listoffiles.h"
+#include "filelist.h"
+#include "newuser.h"
 #include <iostream>
 
 interface::interface(QWidget *parent) :
@@ -29,7 +30,17 @@ void interface::on_loginbutton_clicked()
     QString x = ui->usernametext->text();
     std::string y = x.toUtf8().constData();
     std::cout << y<< std::endl;
-    QWidget listoffiles;
-    listoffiles.show();
-    hide();
+    this->hide();
+    filelist filelist1;
+    filelist1.setModal(true);
+    filelist1.exec();
+
+}
+
+void interface::on_signup_clicked()
+{
+    this->hide();
+    newuser newuser1;
+    newuser1.setModal(true);
+    newuser1.exec();
 }

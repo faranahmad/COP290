@@ -14,10 +14,16 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         interface.cpp \
-    listoffiles.cpp
+    listoffiles.cpp \
+    filelist.cpp \
+    newuser.cpp
 
 HEADERS  += interface.h \
-    listoffiles.h
+    listoffiles.h \
+    filelist.h \
+    newuser.h
 
 FORMS    += interface.ui \
-    listoffiles.ui
+    listoffiles.ui \
+    filelist.ui \
+    newuser.ui
