@@ -9,6 +9,12 @@
 #include <ctime>
 #include <fstream>
 
+struct Instruction
+{
+	int modification; //0 is no change, 1 is new, 2 is delete
+	std::string filename;
+};
+
 class FileHistory
 {
 	public:
@@ -20,7 +26,10 @@ class FileHistory
 		std::pair<std::string, int> GetNthInfo(int);
 		std::string GetNthName(int);
 		int GetNthTime(int);
+		int GetDataTime();
+		int GetNumberOfFiles();
 
+		void SetDataTime(int);
 		void SetFolderLocation(std::string);
 		void SetFileTimeBase(std::vector< std::pair<std::string, int> >);
 		void SetNthInfo(int,std::string, int);
@@ -32,9 +41,15 @@ class FileHistory
 		void LoadFromFileBase(std::string);
 		void StoreToFileBase(std::string);
 
+		// std::vector<Instruction> ChangeDetectionLocal();
+
 	private:
 		std::string FolderLocation;
+		int TimeOfData;
 		std::vector< std::pair<std::string, int> > FileTimeBase;
 };
+
+
+std::vector<Instruction> ChangeDetectionGlobal(FileHistory,FileHistory);
 
 #endif
