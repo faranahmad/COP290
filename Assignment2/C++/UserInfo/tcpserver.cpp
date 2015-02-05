@@ -25,7 +25,7 @@ int main()
     host_info.ai_flags = AI_PASSIVE;     // IP Wildcard
 
     // Now fill up the linked list of host_info structs with google's address information.
-    status = getaddrinfo("192.168.1.101", "5566", &host_info, &host_info_list);
+    status = getaddrinfo(NULL, "5576", &host_info, &host_info_list);
     // getaddrinfo returns 0 on succes, or some other value when an error occured.
     // (translated into human readable text by the gai_gai_strerror function).
     if (status != 0)  cout << "getaddrinfo error" << gai_strerror(status)<<endl ;
@@ -41,16 +41,18 @@ int main()
     // we use to make the setsockopt() function to make sure the port is not in use
     // by a previous execution of our code. (see man page for more information)
     int yes = 1;
-    status = setsockopt(socketfd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int));
+    status = setsockopt(socketfd, SOL_SOCKET, SO_REUSEPORT, &yes, sizeof(int));
     status = bind(socketfd, host_info_list->ai_addr, host_info_list->ai_addrlen);
     if (status == -1)  
     {
-        cout << "bind error" << endl ;
-    }
-    int reuse;
-    if (setsockopt(socketfd, SOL_SOCKET, SO_REUSEADDR, (char *)&reuse, sizeof(int)) == -1)
-    {
-     cout<<"Reuse port Error\n";
+        cout<<"Reuse port Error : "<< strerror(errno)<<endl;
+        close(socketfd);
+        socketfd = socket(host_info_list->ai_family, host_info_list->ai_socktype,
+                      host_info_list->ai_protocol);
+        cout << "Binding socket again..."  << endl;
+        setsockopt(socketfd, SOL_SOCKET, SO_REUSEPORT, &yes, sizeof(int));
+        status=bind(socketfd, host_info_list->ai_addr, host_info_list->ai_addrlen);
+        cout<<status<<endl;
     }
     
     cout << "Listening for connections..."  << endl;
@@ -84,7 +86,7 @@ int main()
         if (bytes_recieved == -1)cout << "recieve error!" << endl ;
         cout << bytes_recieved << " bytes recieved :" << endl ;
         incomming_data_buffer[bytes_recieved] = '\0';
-        cout << incomming_data_buffer<<endl;;
+        cout << incomming_data_buffer<<endl;
 
         // char *msg = "thank you.\n";
         // int len;
