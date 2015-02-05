@@ -3,11 +3,13 @@
 FileHistory::FileHistory()
 {
 	FolderLocation="";
+	TimeOfData=0;
 	FileTimeBase = std::vector< std::pair<std::string, int> > ();
 }
 
 FileHistory::FileHistory(std::string location)
 {
+	TimeOfData=0;
 	FolderLocation=location;
 	FileTimeBase = std::vector< std::pair<std::string, int> > ();
 }
@@ -15,6 +17,16 @@ FileHistory::FileHistory(std::string location)
 std::string FileHistory::GetFolder()
 {
 	return FolderLocation;
+}
+
+int FileHistory::GetDataTime()
+{
+	return TimeOfData;
+}
+
+int FileHistory::GetNumberOfFiles()
+{
+	return FileTimeBase.size();
 }
 
 std::vector< std::pair< std::string, int> > FileHistory::GetFileTimeBase()
@@ -58,6 +70,11 @@ int FileHistory::GetNthTime(int n)
 	}	
 }
 
+void FileHistory::SetDataTime(int newtime)
+{
+	TimeOfData=newtime;
+}
+
 void FileHistory::SetFolderLocation(std::string location)
 {
 	FolderLocation=location;
@@ -89,6 +106,7 @@ void FileHistory::LoadFileTimeBase()
 {
 	// TODO
 	boost::filesystem::path p (FolderLocation);   // p reads clearer than argv[1] in the following code
+	TimeOfData =std::time(0);
 	FileTimeBase = std::vector< std::pair<std::string, int> > ();
 	if (exists(p))    // does p actually exist?
 	{
@@ -115,6 +133,8 @@ void FileHistory::LoadFromFileBase(std::string location)
   		//TODO
   		getline (myfile, line1);
   		FolderLocation= line1;
+  		getline (myfile, line2);
+  		TimeOfData=std::stoi(line2);
     	while ( getline (myfile,line1) )
     	{	
     		getline(myfile,line2);
@@ -127,7 +147,7 @@ void FileHistory::LoadFromFileBase(std::string location)
 void FileHistory::StoreToFileBase(std::string location)
 {
 	std::string data="";
-	data = FolderLocation +"\n";
+	data = FolderLocation +"\n" + std::to_string(TimeOfData)+"\n";
 	for (int i=0; i<FileTimeBase.size() ; i++)
 	{
 		data += FileTimeBase[i].first +"\n"+std::to_string(FileTimeBase[i].second)+"\n";
@@ -137,6 +157,39 @@ void FileHistory::StoreToFileBase(std::string location)
 	out << data;
 	out.close();
 }
+
+std::vector<Instruction> FileHistory::ChangeDetectionGlobal(FileHistory client,FileHistory server)
+{
+	std::vector<Instruction> answer;
+	int numclient, numclienty;
+
+	bool fileclient [client.GetNumberOfFiles()];
+	bool fileserver [client.GetNumberOfFiles()];
+
+	for (int i=0; i<client.GetNumberOfFiles(); i++)
+	{
+		fileclient[i]=false;
+	}
+	
+	for (int i=0; i<server.GetNumberOfFiles(); i++)
+	{
+		fileserver[i]=false;
+	}
+
+	for (int i=0; i<client.GetNumberOfFiles(); i++)
+	{
+		for (int j=0; (j< server.GetNumberOfFiles()) && !(fileclient[i]) ; j++ )
+		{
+			if (client.GetNthName(i)==server.GetNthName(j))
+			{
+				fileclient[i]=true;
+				
+			}
+		}
+	}	
+}
+
+
 
 int main()
 {
