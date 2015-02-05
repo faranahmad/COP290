@@ -23,7 +23,7 @@
 	\newpage
 
 	\section{Objectives}
-	We have to build an online file management system \"MyDropBox\". A server machine maintains the files of multiple users. The user should use a simple desktop application to login into the system. The content of user's account should remain synced with the server. 
+	We have to build an online file management system \" MyDropBox \". A server machine maintains the files of multiple users. The user should use a simple desktop application to login into the system. The content of user's account should remain synced with the server. 
 
 	\section{Overall Design}
 		\begin{enumerate}
@@ -44,25 +44,41 @@
 			    keywordstyle=\color{blue}, % keyword color
 			    stringstyle=\color{green} % string color
 			}
-			\item User Verification
-			\begin{lstlisting}[language=C++, caption={Class Parameters for Ball}]
-			class Ball
-			{
-				private:
-					double radius;              //Radius of the ball
-					double coord_x;             //X coordinate of the center of ball
-					double coord_y;             //Y coordinate of the center of ball
-					double velocity_x;          //X component of the velocity of ball
-					double velocity_y;          //Y component of the velocity of ball
-					std::vector<float> color;   //Color in RGB format of ball
-			};
-			
-						\item GUI interface
-						\item Data Transferring
-						\item Network Managing Part
-						\item Data Syncing Part
-					\end{enumerate}
+			\item \textbf{User Verification}
+			\begin{lstlisting}[language=C++, caption={Class Parameters for User}]
+class User
+{
+	private:
+		std::string UserName;
+		std::string PassWord;	
+};
 			\end{lstlisting}
+			\begin{lstlisting}[language=C++, caption={Class Parameters for User}]
+class UserBase
+{
+private:
+	std::unordered_map<std::string, std::string> UsersList;
+};
+			\end{lstlisting}
+			The User Base is a hastable in which the keys are usernames and the stored values are passwords. When the credentials of the user are to be verified, the key is looked up in the table. Inserting users is also achieved easily using this model.
+			
+			\item \textbf{GUI interface} 
+				\newline
+				TODO: FARAN
+			\item \textbf{Network Managing Part}
+			\item \textbf{Data Syncing Part}
+				\newline
+				\begin{lstlisting}[language=C++, caption={Class Parameters for File History}]
+class FileHistory
+{
+	private:
+		std::string FolderLocation;
+		std::vector< std::pair<std::string, int> > FileTimeBase;
+};
+			\end{lstlisting}
+			
+
+		\end{enumerate}
 	\section{Integration amongst Sub Components}
 
 	\section{Testing}
