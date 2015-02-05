@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
 	{
 		data+=ans[i];
 	}
-	std::ofstream out("Anu2.mp4");
+	std::ofstream out("Anu2.wav");
 	out << data;
 	out.close();
 	return 0;

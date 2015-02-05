@@ -8,16 +8,27 @@
 #include <fstream>
 #define SIZE 100000
 using namespace std;
-int main()
+bool isEmpty(char* file)
 {
+    for(int i=0;i<sizeof(file);i++)
+    {
+        if(file[i]!='\0')
+            return false;
+    }
+    return true;
+}
+int main(int argc, char** argv)
+{
+    if(argc<3)
+    {
+        cout<<"Error. Usage: ./tserver portnumber extension\n";
+    }
+    else
+    {
     int status;
     struct addrinfo host_info;       // The struct that getaddrinfo() fills up with data.
     struct addrinfo *host_info_list; // Pointer to the to the linked list of host_info's.
 
-    // The MAN page of getaddrinfo() states "All  the other fields in the structure pointed
-    // to by hints must contain either 0 or a null pointer, as appropriate." When a struct
-    // is created in c++, it will be given a block of memory. This memory is not nessesary
-    // empty. Therefor we use the memset function to make sure all fields are NULL.
     memset(&host_info, 0, sizeof host_info);
 
     cout << "Setting up the structs..."  << endl;
@@ -26,10 +37,7 @@ int main()
     host_info.ai_socktype = SOCK_STREAM; // Use SOCK_STREAM for TCP or SOCK_DGRAM for UDP.
     host_info.ai_flags = AI_PASSIVE;     // IP Wildcard
 
-    // Now fill up the linked list of host_info structs with google's address information.
-    status = getaddrinfo(NULL, "5578", &host_info, &host_info_list);
-    // getaddrinfo returns 0 on succes, or some other value when an error occured.
-    // (translated into human readable text by the gai_gai_strerror function).
+    status = getaddrinfo(NULL, argv[1], &host_info, &host_info_list);
     if (status != 0)  cout << "getaddrinfo error" << gai_strerror(status)<<endl ;
 
 
@@ -40,9 +48,9 @@ int main()
     if (socketfd == -1)  cout << "socket error \n" ;
 
     cout << "Binding socket..."  << endl;
-    // we use to make the setsockopt() function to make sure the port is not in use
-    // by a previous execution of our code. (see man page for more information)
     int yes = 1;
+    int buffsize = 10000000;
+    setsockopt(socketfd, SOL_SOCKET, SO_RCVBUF, &buffsize, sizeof(buffsize));
     status = setsockopt(socketfd, SOL_SOCKET, SO_REUSEPORT, &yes, sizeof(int));
     status = bind(socketfd, host_info_list->ai_addr, host_info_list->ai_addrlen);
     if (status == -1)  
@@ -76,20 +84,55 @@ int main()
     }
 
     cout << "Waiting to recieve data..."  << endl;
-    char m[SIZE];
+    char len[20];
     int bytes_recieved;
-    bytes_recieved=recv(new_sd, m,SIZE, 0);
-    uint32_t ntohl(uint32_t netlong);
+    bytes_recieved=recv(new_sd, len,20,0);
+    cout<<"size rec\n";
+    char msg[4];
+    msg[0]='1';
+    // send(socketfd, msg,4, 0);
     cout<<bytes_recieved<<endl;
-    m[bytes_recieved]='\0';
-    cout<<m<<endl;
- //    FILE* file = fopen( "myfile.txt", "w" );
-	// fwrite( m, 1, 1000, file );
-	std::ofstream file("myfile.wav",ofstream::out);
-  	file.write(m, SIZE);
-  	file.close();
+    uint32_t ntohl(uint32_t netlong);
+    long long size=atoll(len);
+    cout<<size<<endl;
+    char *file=new char[SIZE];
+    string data="";
+    int counter=0;
+    int dataLen=0;
+    string filename="Anu.";
+    for(int i=0;i<sizeof(argv[2]);i++)
+    {
+        filename+=argv[2][i];
+    }
+    std::ofstream out(filename);
+    cout<<"FileCreated"<<endl;
+    while(1)
+    {
+        bytes_recieved=recv(new_sd, file,SIZE, 0);
+        
+        counter++;
+        cout<<"recieved "<<counter<<endl;    
+        if(isEmpty(file))
+        {
+            break;
+        }
+        for(int i=0;i<bytes_recieved && dataLen<size;i++)
+        {
+            data+=file[i];
+            dataLen++;
+        }
+        out << data;
+        data="";
+        send(new_sd, msg,4,  MSG_NOSIGNAL);
+        cout<<"conf sent\n";
+    }
+    
+    cout<<"file recv"<<endl;
+    
+    out.close();
     freeaddrinfo(host_info_list);
     close(socketfd);
-    
+    }
     return 0;
+
 }
