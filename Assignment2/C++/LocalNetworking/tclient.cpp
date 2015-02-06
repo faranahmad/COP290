@@ -21,7 +21,7 @@ int main(int argc, char** argv)
 {
   if(argc<3)
   {
-    cout<<"Error. Usage : ./tclient portnumber filename\n";
+    cout<<"Error. Usage : ./tclient ip portnumber filename\n";
   }
   else
   {
@@ -35,7 +35,7 @@ int main(int argc, char** argv)
     host_info.ai_family = AF_UNSPEC;     // IP version not specified. Can be both.
     host_info.ai_socktype = SOCK_STREAM; // Use SOCK_STREAM for TCP or SOCK_DGRAM for UDP.
 
-    status = getaddrinfo("127.0.0.1", argv[1], &host_info, &host_info_list);
+    status = getaddrinfo(argv[1], argv[2], &host_info, &host_info_list);
     if (status != 0)  std::cout << "getaddrinfo error" << gai_strerror(status) ;
 
     int socketfd ; // The socket descripter
@@ -54,7 +54,7 @@ int main(int argc, char** argv)
 
 
     //filereading
-    ifstream ifs(argv[2], ios::binary|ios::ate);
+    ifstream ifs(argv[3], ios::binary|ios::ate);
     ifstream::pos_type pos = ifs.tellg();
     std::vector<char>  ans(pos);
     ifs.seekg(0, ios::beg);
