@@ -86,7 +86,7 @@ int main(int argc, char** argv)
     cout << "Waiting to recieve data..."  << endl;
     char len[20];
     int bytes_recieved;
-    bytes_recieved=recv(new_sd, len,20,0);
+    bytes_recieved=recv(new_sd, len,20,MSG_WAITALL);
     cout<<"size rec\n";
     char msg[4];
     msg[0]='1';
@@ -108,7 +108,7 @@ int main(int argc, char** argv)
     cout<<"FileCreated"<<endl;
     while(1)
     {
-        bytes_recieved=recv(new_sd, file,SIZE, 0);
+        bytes_recieved=recv(new_sd, file,SIZE, MSG_WAITALL);
         
         counter++;
         cout<<"recieved "<<counter<<endl;    
@@ -123,7 +123,7 @@ int main(int argc, char** argv)
         }
         out << data;
         data="";
-        send(new_sd, msg,4,  MSG_NOSIGNAL);
+        send(new_sd, msg,4,  MSG_CONFIRM);
         cout<<"conf sent\n";
     }
     
