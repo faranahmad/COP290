@@ -11,7 +11,7 @@ extern bool contains;
 extern string usname,passwd;
 extern bool buttonclicked;
 
-int clientmain()
+int clientmain(int argc, char* argv[])
 {
 
     int status;
@@ -23,8 +23,9 @@ int clientmain()
     host_info.ai_family = AF_UNSPEC;     // IP version not specified. Can be both.
     host_info.ai_socktype = SOCK_STREAM; // Use SOCK_STREAM for TCP or SOCK_DGRAM for UDP.
 
-    status = getaddrinfo("10.192.17.10", "5599", &host_info, &host_info_list);
-    if (status != 0)  std::cout << "getaddrinfo error" << gai_strerror(status) ;
+    status = getaddrinfo(argv[1], argv[2], &host_info, &host_info_list);   // Get address info
+    if (status != 0)  
+    	std::cout << "getaddrinfo error" << gai_strerror(status) ;
 
     int socketfd ; // The socket descripter
     socketfd = socket(host_info_list->ai_family, host_info_list->ai_socktype,

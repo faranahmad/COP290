@@ -6,7 +6,8 @@
 
 void *StartBackend(void *xyz)
 {
-	int p1=clientmain();
+    Graph *ps=(graph *) xyz;
+	int p1=clientmain(xyz->argcx,xyz->argvy);
 }
 
 bool windowshow = true;
@@ -21,7 +22,11 @@ int main(int argc, char *argv[])
     usname="";
     passwd="";
 
-    pthread_create(&threads[0],NULL,StartBackend,NULL);
+    graph data;
+    data.argcx=argc;
+    data.argvy=argv;
+
+    pthread_create(&threads[0],NULL,StartBackend,&data);
 
     QApplication a(argc, argv);
     login w;

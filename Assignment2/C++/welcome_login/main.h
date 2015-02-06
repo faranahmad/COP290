@@ -5,10 +5,10 @@
 bool contains, buttonclicked;
 std::string usname,passwd; 
 
-// struct graph
-// {
-// 	int argcx;
-// 	char* argvy;
-// };
+struct graph
+{
+	int argcx;
+	char* argvy;
+};
 
 #endif
