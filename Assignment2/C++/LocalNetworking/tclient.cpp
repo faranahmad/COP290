@@ -19,7 +19,7 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-  if(argc<3)
+  if(argc<4)
   {
     cout<<"Error. Usage : ./tclient ip portnumber filename\n";
   }
@@ -67,8 +67,8 @@ int main(int argc, char** argv)
     // long long s=2189043569;
     cout<<s<<endl;
     sprintf(len,"%lld",s);
-    send(socketfd, len,20,  MSG_CONFIRM);
-    cout<<"\nsize sent"<<endl;
+    send(socketfd, len,20,  MSG_NOSIGNAL);
+    cout<<"size sent"<<endl;
     char msg[4];
     // recv(socketfd, msg,4, 0);
     char *file=new char[ans.size()];
@@ -88,17 +88,16 @@ int main(int argc, char** argv)
             file2[l]=file[j];
         }
         cout<<"sending"<<endl;
-        send(socketfd, file2,SIZE, MSG_CONFIRM);
+        send(socketfd, file2,SIZE, MSG_NOSIGNAL);
         counter++;
         cout<<"sent "<<counter<<endl;
 
-        recv(socketfd, msg,4, MSG_WAITALL);
+        recv(socketfd, msg,4,MSG_WAITALL);
         cout<<"conf recv\n";
         if(j==ans.size())
         {
-            for(int z=0;z<SIZE;z++)
-             {   file2[z]='\0';}
-            send(socketfd, file2,SIZE,MSG_CONFIRM);
+            char* file3;
+            send(socketfd, file2,0,MSG_NOSIGNAL);
             break;
         }
 

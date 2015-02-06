@@ -109,11 +109,12 @@ int main(int argc, char** argv)
     while(1)
     {
         bytes_recieved=recv(new_sd, file,SIZE, MSG_WAITALL);
-        
+        cout<<bytes_recieved<<endl;
         counter++;
         cout<<"recieved "<<counter<<endl;    
-        if(isEmpty(file))
+        if(bytes_recieved<=0)
         {
+            cout<<"breaking now"<<endl;
             break;
         }
         for(int i=0;i<bytes_recieved && dataLen<size;i++)
@@ -123,7 +124,7 @@ int main(int argc, char** argv)
         }
         out << data;
         data="";
-        send(new_sd, msg,4,  MSG_CONFIRM);
+        send(new_sd, msg,4,  MSG_NOSIGNAL);
         cout<<"conf sent\n";
     }
     
