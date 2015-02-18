@@ -84,28 +84,44 @@ class FileHistory
 			\end{lstlisting}
 
 			Folder Location is the path of the synced folder. The parameter ``TimeOfData'' contains the system time at which the data detection was done. This will be used to determine if the server or client side file is newer and then do changes accordingly. ``FileTimeBase'' is a vector of a string and an integer. The string is the path of the file and the time is the time at which the file was last modified.
-			
+	C		
 			\item \textbf{Network Managing Part}
 				\newline
 				TODO: SOCCER
 
 			\item \textbf{GUI interface} 
 				\newline
-				TODO: FARAN
+				The interface of the application would be designed using QtCreator. It would consists of the following mainwindows.
+				\begin{itemize}
+					\item User Login
+					\newline
+					Running the application would display a user login window. The users can access into their accounts by entering their user name and password in the respective fields. It also provides options for new user to signup for a new account in dead drop. In case, the user forgets his password, he can reset it using `forgot password' option. If the user name or password entered is wrong, a message box showing this message is displayed and the user can again enter the required informations to login to his account. 
+					 
+					\item USER FILES
+					\newline
+					Once the login procedure is complete, the user is directed to a new window. It contaitns the list of files of the user, both on the client and server side. The following buttons would be provided on the window for various functions
+					\begin{itemize}
+						\item \textit{sync :-} Clicking this button would sync the files on the user and the client side.
+						\item \textit{Share :-} This button allows the user to share files with other users. Once the user has selected the files, clicking on this button would open a new dialog box, where the user can enter the name of the ones, with whom he wants to share the selected files. It also provide users with the options to set permissions for the shared files and folders.
+						\item \textit{Delete from local :-} This button can be used to delete the selected files on the client side.
+						\item \textit{Move To Drive :-} It can be used to move the seleted files on the client side to the server.
+						\item \textit{Refresh :-} If there is some transfer of files between local data base on the client side, refresh button can be used to display the present ...
+						\item \textit{Get :-} This button can be used to transfer the selected files on the server to the client side.
+						\item \textit{Delete from Server :-} This button can be used to delete the selected files on the server.
+						\item \textit{Exit :-} This button can be used to exit the application.
+					\end{itemize}
+						
+					\item Server Side User Interface
+					\newline
+					The window on the server side displays the list of the online users. It also provides 
+				\end{itemize}
 
-				USER LOGIN
-
-				NEW USER
-
-				USER FILES
-
-				SERVER UI
 
 		\end{enumerate}
 	\section{Interaction amongst Sub Components}
 		\begin{enumerate}
 			\item \textbf{User Authentication}
-				% \newline
+				% \newline a
 				\begin{itemize}
 					\item Client
 						TODO soccer
@@ -136,7 +152,7 @@ class FileHistory
 			\item \textbf{Front End and Back End}
 				\begin{itemize}
 					\item User verification
-						TODO Faran
+						TODO 
 						TODO KG
 					\item Add User Part
 						TODO Faran

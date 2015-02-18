@@ -1,0 +1,14 @@
+here/faran.t
+3
+here/kg.pyc
+3
+here/pokemon.txt
+3
+here/soccer.pdf
+3
+here2/faran.t
+6
+here2/pokemon.cpp
+6
+here2/rona.cmd
+6

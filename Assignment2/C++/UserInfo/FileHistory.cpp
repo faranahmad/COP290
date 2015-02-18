@@ -104,7 +104,7 @@ void FileHistory::SetNthTime(int n, int newtime)
 
 void FileHistory::LoadFileTimeBase()
 {
-	// TODO
+	// Detects the files and their time from the folder
 	boost::filesystem::path p (FolderLocation);   // p reads clearer than argv[1] in the following code
 	TimeOfData =std::time(0);
 	FileTimeBase = std::vector< std::pair<std::string, int> > ();
@@ -158,7 +158,7 @@ void FileHistory::StoreToFileBase(std::string location)
 	out.close();
 }
 
-std::vector<Instruction> FileHistory::ChangeDetectionGlobal(FileHistory client,FileHistory server)
+std::vector<Instruction> ChangeDetectionGlobal(FileHistory client,FileHistory server)
 {
 	std::vector<Instruction> answer;
 	int numclient, numclienty;
@@ -183,21 +183,127 @@ std::vector<Instruction> FileHistory::ChangeDetectionGlobal(FileHistory client,F
 			if (client.GetNthName(i)==server.GetNthName(j))
 			{
 				fileclient[i]=true;
-				
+				fileserver[j]=true;
+				if (client.GetNthTime(i) < server.GetNthTime(j))
+				{
+					Instruction a;
+					a.modification = 2;
+					a.filename = client.GetNthName(i);
+					answer.push_back(a)	;
+				}
+				else if (client.GetNthTime(i) > server.GetNthTime(j))
+				{
+					Instruction a;
+					a.modification = 1;
+					a.filename = client.GetNthName(i);
+					answer.push_back(a);
+				}
+				else
+				{
+					// No change taking place
+					Instruction a;
+					a.modification = 0;
+					a.filename = client.GetNthName(i);
+					answer.push_back(a);
+				}
 			}
 		}
-	}	
+	}
+
+	for (int i=0; i<client.GetNumberOfFiles(); i++)
+	{
+		if (!fileclient[i])
+		{
+			if (client.GetDataTime() < server.GetDataTime())
+			{
+				Instruction a;
+				a.modification = 5;
+				a.filename = client.GetNthName(i);
+				answer.push_back(a);
+			}
+			else
+			{
+				Instruction a;
+				a.modification = 3;
+				a.filename = client.GetNthName(i);
+				answer.push_back(a);	
+			}		
+		}
+	}
+
+	
+	for (int i=0; i<server.GetNumberOfFiles(); i++)
+	{
+		if (!fileserver[i])
+		{
+			if (client.GetDataTime() < server.GetDataTime())
+			{
+				Instruction a;
+				a.modification = 4;
+				a.filename = server.GetNthName(i);
+				answer.push_back(a);
+			}		
+			else
+			{
+				Instruction a;
+				a.modification = 6;
+				a.filename = server.GetNthName(i);
+				answer.push_back(a);
+			}
+		}
+	}
+
+	return answer;
 }
 
+void SaveInstructionVectorToFile(std::vector<Instruction> InstructionVector, std::string location)
+{
+	std::string data="";
+	for (int i=0; i<InstructionVector.size() ; i++)
+	{
+		data += InstructionVector[i].filename +"\n"+std::to_string(InstructionVector[i].modification)+"\n";
+	}
+	data=data.substr(0,data.size()-1);
+	std::ofstream out(location);
+	out << data;
+	out.close();
+}
+
+
+std::vector<Instruction> LoadInstructionVectorFromFile(std::string location)
+{
+	// TODO File DNE
+	std::string line1,line2;
+	std::ifstream myfile (location);
+  	std::vector<Instruction> answer;
+  	if (myfile.is_open())
+  	{
+  		while ( getline (myfile,line1) )
+    	{	
+    		getline(myfile,line2);
+  			
+  			Instruction a;
+  			a.filename= line1;
+  			a.modification= std::stoi(line2);
+
+    		answer.push_back(a);
+    	}
+    	myfile.close();
+  	}	
+  	return answer;
+}
 
 
 int main()
 {
 	FileHistory x=FileHistory("here/");
+	FileHistory y=FileHistory("here2/");
 	x.LoadFileTimeBase();
+	y.LoadFileTimeBase();
+	std::vector<Instruction> v= ChangeDetectionGlobal(x,y);
+	SaveInstructionVectorToFile(v, "instructions.txt");
 	x.StoreToFileBase("datadump.txt");
-	x= FileHistory("yo/");
-	x.LoadFromFileBase("datadump.txt");
-	x.StoreToFileBase("datadump2.txt");
+	y.StoreToFileBase("datadump2.txt");
+
 	return 0;
 }

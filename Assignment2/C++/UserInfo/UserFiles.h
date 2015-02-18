@@ -33,7 +33,6 @@ class UserFiles
 
 	private:
 		std::vector<std::pair<std::string,std::string> > PathVector;
-		//std::vector<std::string> GlobalPath;
 };
 
 #endif
