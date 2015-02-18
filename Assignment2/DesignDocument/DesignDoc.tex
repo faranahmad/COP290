@@ -5,47 +5,52 @@
 \usepackage{titling}
 \usepackage{graphicx}
 
-\title{\vspace*{\fill} My DropBox \\
-	\vspace{3mm} \includegraphics[width=5cm]{logo.png}}
+\lstset{
+	frame=tb, % draw a frame at the top and bottom of the code block
+   	tabsize=4, % tab space width
+   	showstringspaces=false, % don't mark spaces in strings
+    numbers=left, % display line numbers on the left
+    commentstyle=\color{red}, % comment color
+    keywordstyle=\color{blue}, % keyword color
+    stringstyle=\color{green} % string color
+}
+
+\title{\vspace*{\fill} \textbf{DeadDrop} \\
+	\vspace{5mm} \includegraphics[width=7cm]{logo.png}}
+
 \author{
-	Faran Ahmad\\
-	2013CS10220
-	\and
-	Kartikeya Gupta\\ 
-	2013CS10231
-	\and
-	Prateek Kumar Verma\\ 
+	\textbf{Faran Ahmad}\\
+	2013CS10220 \vspace{2mm} \\
+	\textbf{Kartikeya Gupta}\\ 
+	2013CS10231 \vspace{2mm} \\
+	\textbf{Prateek Kumar Verma}\\ 
 	2013CS10246
 }
-\date{COP290: Design Practices \vspace*{\fill}}
+\date{\textbf{COP290: Design Practices} \vspace*{\fill}}
 
 \begin{document}
 	\maketitle
 
 	\newpage
 
+	\tableofcontents
+
+	\pagebreak
+
 	\section{Objectives}
-	We have to build an on-line file management system \" MyDropBox \". A server machine maintains the files of multiple users. The user should use a simple desktop application to login into the system. The content of user's account should remain synced with the server. 
+	We have to build an on-line file management system ``Dead Drop'' . A server machine maintains the files of multiple users. The user should use a simple desktop application to login into the system. The content of user's account should remain synced with the server. 
 
 	\section{Overall Design}
 		\begin{enumerate}
 			\item We will begin with creating different sub components like a File Transferring System, Credential Verifier, GUI part.
 			\item Once the components are ready, we will Link this to the network and get basic functionality working on the local-host.
 			\item Once the local interface is ready, we will take this to the web portal. We will use a server to store data and users will have to send queries to it
-			\item Once the web portal is ready we will link the off-line and on-line parts.
+			\item Once the backend and front end is complete, we will link the two together.
 		\end{enumerate}
 
 	\section{Sub Components}
 		\begin{enumerate}
-			\lstset{
-				frame=tb, % draw a frame at the top and bottom of the code block
-			   	tabsize=4, % tab space width
-			   	showstringspaces=false, % don't mark spaces in strings
-			    numbers=left, % display line numbers on the left
-			    commentstyle=\color{red}, % comment color
-			    keywordstyle=\color{blue}, % keyword color
-			    stringstyle=\color{green} % string color
-			}
+
 			\item \textbf{User Verification}
 			\begin{lstlisting}[language=C++, caption={Class Parameters for User}]
 class User
@@ -62,33 +67,121 @@ private:
 	std::unordered_map<std::string, std::string> UsersList;
 };
 			\end{lstlisting}
-			The User Base is a hash table in which the keys are user-names and the stored values are passwords. When the credentials of the user are to be verified, the key is looked up in the table. Inserting users is also achieved easily using this model.
+			The User Base is a hash table in which the keys are user-names and the stored values are passwords. When the credentials of the user are to be verified, the key is looked up in the table. Inserting users is also achieved easily using this model. The features which we will be provided to the user will be to verify credentials, add new users and change password.
 			
-			\item \textbf{GUI interface} 
-				\newline
-				TODO: FARAN
-			\item \textbf{Network Managing Part}
-			\item \textbf{Data Syncing Part}
-				\newline
-				\begin{lstlisting}[language=C++, caption={Class Parameters for File History}]
+			\item \textbf{Files of User}
+
+			We will use boost library to detect changes in files. For each file, the path of the file and last modified time of file is stored in a database.
+
+			\begin{lstlisting}[language=C++, caption={Class Parameters for File History}]
 class FileHistory
 {
 	private:
 		std::string FolderLocation;
+		int TimeOfData;
 		std::vector< std::pair<std::string, int> > FileTimeBase;
 };
 			\end{lstlisting}
+
+			Folder Location is the path of the synced folder. The parameter ``TimeOfData'' contains the system time at which the data detection was done. This will be used to determine if the server or client side file is newer and then do changes accordingly. ``FileTimeBase'' is a vector of a string and an integer. The string is the path of the file and the time is the time at which the file was last modified.
 			
+			\item \textbf{Network Managing Part}
+				\newline
+				TODO: SOCCER
+
+			\item \textbf{GUI interface} 
+				\newline
+				TODO: FARAN
+
+				USER LOGIN
+
+				NEW USER
+
+				USER FILES
+
+				SERVER UI
 
 		\end{enumerate}
-	\section{Integration amongst Sub Components}
-
-	\section{Testing}
+	\section{Interaction amongst Sub Components}
 		\begin{enumerate}
-			\item Off-line Testing
-			\item On-line Testing
+			\item \textbf{User Authentication}
+				% \newline
+				\begin{itemize}
+					\item Client
+						TODO soccer
+					\item Server
+						TODO soccer.
+						\newline
+						The network part mentioned above is linked with the user base file. The instruction to be performed is decoded to be a new user or credential verification. The data base of user names and passwords are accessed for this to take place and changes if needed are made accordingly to it.
+				\end{itemize}
+			\item \textbf{File Transfer}
+				\begin{itemize}
+					\item Files to Transfer
+						TODO KG
+					\item Transferring
+						TODO soccer
+				\end{itemize}	
+			\item \textbf{File Sharing and Syncing}
+				\begin{itemize}
+					\item File changes
+						TODO KG
+					\item File Sharing and Permissions
+						TODO KG
+					\item File Syncing
+						TODO KG
+					\item File Syncing over network
+						TODO KG
+						TODO Soccer
+				\end{itemize}
+			\item \textbf{Front End and Back End}
+				\begin{itemize}
+					\item User verification
+						TODO Faran
+						TODO KG
+					\item Add User Part
+						TODO Faran
+						TODO KG
+					\item File Managing Part
+						TODO Faran
+						TODO KG			
+				\end{itemize}
+		\end{enumerate}
+
+	\section{Testing Of Components}
+		\begin{enumerate}
+			\item \textbf{General Unit Tests}
+				\newline
+				\begin{lstlisting}[language=C++, caption={Class Parameters for Test}]
+class Test
+{
+	private:
+		bool verbose;               //Variable if test is to be conducted
+		std::string description;    //String description of the test
+		bool isPass;                //Boolean if the test has passed 
+		void PrintPassFail(bool);   //Prints the status of the test
+};
+				\end{lstlisting}
+
+				We will use the aformentioned class ``Test'' to perform unit tests on the different files created. This will ensure that all the functions work correctly against some tests.
+
+			\item \textbf{File Discovery}
+				\newline
+				To test file discovery, a folder with different files will be used. The program will be run on this to obtain the list of files with their modified time and verified to check if it is in accordance with expectations. This will involve new files being created, files being modified and removed.
+			\item \textbf{File Transferring}
+				\newline
+				TODO SOCCER
+			\item \textbf{UI Testing}
+				\newline
+				TODO FARAN write about individual components
+			\item \textbf{Overall Testing}
+				\newline
+				TODO KG once above 2 are done
 		\end{enumerate}
 
 	\section{Extra Features}
+		\begin{enumerate}
+			\item De-duplication
+			\item Server side UI
+		\end{enumerate}
 
 \end{document}
