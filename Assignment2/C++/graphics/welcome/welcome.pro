@@ -15,12 +15,15 @@ TEMPLATE = app
 SOURCES += main.cpp\
         login.cpp \
     newusersignup.cpp \
-    fileaccess.cpp
+    fileaccess.cpp \
+    file.cpp
 
 HEADERS  += login.h \
     newusersignup.h \
-    fileaccess.h
+    fileaccess.h \
+    file.h
 
 FORMS    += login.ui \
     newusersignup.ui \
-    fileaccess.ui
+    fileaccess.ui \
+    file.ui

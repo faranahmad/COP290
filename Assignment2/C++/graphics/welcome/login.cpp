@@ -1,6 +1,7 @@
 #include "login.h"
 #include "ui_login.h"
 #include "newusersignup.h"
+#include "file.h"
 #include <QtCore>
 #include <QtGui>
 login::login(QWidget *parent) :
@@ -24,13 +25,16 @@ void login::on_quitapp_clicked()
 
 void login::on_login_2_clicked()
 {
+    this->hide();
     QString x = ui->usernametext->text();
     std::string y = x.toUtf8().constData();
     //std::cout << y<< std::endl;
     QString b = ui->passwordtext->text();
     std::string a = b.toUtf8().constData();
 
-    this->hide();
+    file file1;
+    file1.setModal(true);
+    file1.exec();
     //NewUserSignup newusersignup1;
     //newusersignup1.setModal(true);
     //newusersignup1.exec();
