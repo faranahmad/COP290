@@ -3,10 +3,9 @@
 #include <sys/socket.h> // Needed for the socket functions
 #include <netdb.h>      // Needed for the socket functions
 #include <unistd.h>     // Needed for closing the sockets
-#include "UserBase.h"
+#include "UserBase.h"   
 #include <fstream>
 #include <string>
-#include "UserBase.h"
 
 #define SIZE 100000
 #define BUFFSIZE 10000000
@@ -14,7 +13,7 @@
 std::string toStr(char* arr)  //Convert array of characters to string
 {
     std::string ans="";
-    for(int i=0;i<sizeof(arr)&&arr[i]!='\0';i++)
+    for(int i=0;i<strlen(arr)&&arr[i]!='\0';i++)
     {
         ans+=arr[i];
     }
@@ -58,14 +57,14 @@ int main(int argc, char** argv)
     
         status = getaddrinfo(NULL, argv[1], &host_info, &host_info_list); 
         if (status != 0)  
-            std::cout << "getaddrinfo error" << gai_strerror(status)<<std::endl ;
+            std::cout << "Getaddrinfo error" << gai_strerror(status)<<std::endl ;
     
         std::cout << "Creating a socket..."  << std::endl;
     
-        int sockID ; // The socket descripter
+        int sockID ;                         // The socket descripter
             sockID = socket(host_info_list->ai_family, host_info_list->ai_socktype,host_info_list->ai_protocol); // Getting info on the server
         if (sockID == -1)  
-            std::cout << "socket error \n" ;
+            std::cout << "Socket error \n" ;
 
         std::cout << "Binding socket..."  << std::endl;
         
@@ -104,7 +103,7 @@ int main(int argc, char** argv)
         }
 
 
-        while(1)
+        while(!quit)
         {
             std::cout << "Waiting to recieve data..."  << std::endl;
             char command[2];
@@ -112,14 +111,13 @@ int main(int argc, char** argv)
             int bytes_sent;
             bytes_recieved=recv(acceptID, command,2,MSG_WAITALL);
             std::cout<<"Command recieved "<<atoi(command)<<std::endl;
-
+            char* msg;
             switch(atoi(command))
             {
                 case 1: // Adding username
                     {
-                        char *msg = toArr("Adding user....\nEnter Username\n");
-                        bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                        delete[] msg;
+                        msg = toArr("Adding user....\nEnter Username\n");
+                        bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
                         if(bytes_sent)
                         {
                             std::cout<<"Adding user...\n";
@@ -131,9 +129,8 @@ int main(int argc, char** argv)
                                 std::string username=toStr(cred);
                                 std::cout<<"Username:"<<username<<std::endl; //Username
     
-                                char *msg = toArr("Enter Password\n");
-                                bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                                delete[] msg;
+                                msg = toArr("Enter Password\n");
+                                bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
                                 if(bytes_sent>0)
                                 {
                                     bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
@@ -143,9 +140,8 @@ int main(int argc, char** argv)
                                         std::cout<<"Password:"<<toStr(cred)<<std::endl; //Password
                                         base.InsertUser(User(username,toStr(cred)));
                                     
-                                        char *msg = toArr("User successfully added\n");
+                                        msg = toArr("User successfully added\n");
                                         bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                                        delete[] msg;
                                     }
                                }
                             }   
@@ -155,9 +151,8 @@ int main(int argc, char** argv)
 
                 case 2: // Verifying Credentials
                     {
-                        char *msg=toArr("Verifying Credentials...\nEnter Username\n");
+                        msg=toArr("Verifying Credentials...\nEnter Username\n");
                         bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                        delete[] msg;
                         if(bytes_sent>0)
                         {
                             char* cred=new char[SIZE];
@@ -168,9 +163,8 @@ int main(int argc, char** argv)
                                 std::string username=toStr(cred);
                                 std::cout<<"Username:"<<username<<std::endl; //Username
     
-                                char *msg = toArr("Enter Password\n");
+                                msg = toArr("Enter Password\n");
                                 bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                                delete[] msg;
                                 if(bytes_sent>0)
                                 {
                                     bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
@@ -180,16 +174,13 @@ int main(int argc, char** argv)
                                         std::cout<<"Password:"<<toStr(cred)<<std::endl; //Password
                                         if(base.VerifyUserCredentials(User(username,toStr(cred))))
                                         {
-                                            char *msg = toArr("1");
+                                            msg = toArr("1");
                                             bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                                            delete[] msg;
-
                                         }
                                         else
                                         {
-                                            char *msg = toArr("0");
+                                            msg = toArr("0");
                                             bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                                            delete[] msg;
                                         }
                                     }
                                 }
@@ -199,9 +190,8 @@ int main(int argc, char** argv)
                     }
                 case 3: // Exists user.
                     {
-                        char *msg=toArr("Verifying username...\nEnter Username\n");
+                        msg=toArr("Verifying username...\nEnter Username\n");
                         bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                        delete[] msg;
                         if(bytes_sent>0)
                         {
                             char* cred=new char[SIZE];
@@ -214,16 +204,13 @@ int main(int argc, char** argv)
     
                                 if(base.CheckUserExists(User(username,toStr(cred))))
                                 {
-                                    char *msg = toArr("1");
+                                    msg = toArr("1");
                                     bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                                    delete[] msg;
-
                                 }
                                 else
                                 {
-                                    char *msg = toArr("0");
+                                    msg = toArr("0");
                                     bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                                    delete[] msg;
                                 }
                                 
                             }
@@ -234,10 +221,6 @@ int main(int argc, char** argv)
                     {
                         quit=true;
                     }
-            }
-            if(quit)
-            {
-                break;
             }
         }
     }

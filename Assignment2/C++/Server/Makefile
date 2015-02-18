@@ -6,8 +6,7 @@ Run: User.cpp UserBase.cpp
 	g++ -std=c++11 User.cpp UserBase.cpp
 	./a.out
 client: User.cpp UserBase.cpp Client.cpp
-	g++ -std=c++11 User.cpp UserBase.cpp Client.cpp
-	./a.out
+	g++ -std=c++11 User.cpp UserBase.cpp Client.cpp -o Client
 
 server: User.cpp UserBase.cpp Server.cpp
 	g++ -std=c++11 User.cpp UserBase.cpp Server.cpp -o Server
