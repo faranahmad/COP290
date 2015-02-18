@@ -67,7 +67,7 @@ int main(int argc, char** argv)
     // long long s=2189043569;
     cout<<s<<endl;
     sprintf(len,"%lld",s);
-    send(socketfd, len,20,  0);
+    send(socketfd, len,20,  MSG_NOSIGNAL);
     cout<<"size sent"<<endl;
     char msg[4];
     // recv(socketfd, msg,4, 0);
@@ -92,7 +92,7 @@ int main(int argc, char** argv)
         counter++;
         cout<<"sent "<<counter<<endl;
 
-        recv(socketfd, msg,4,0);
+        recv(socketfd, msg,4,MSG_WAITALL);
         cout<<"conf recv\n";
         if(j==ans.size())
         {
