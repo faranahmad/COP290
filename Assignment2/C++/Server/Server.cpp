@@ -6,8 +6,11 @@
 #include "UserBase.h"   
 #include <fstream>
 #include <string>
+#include <boost/filesystem/operations.hpp>
+#include <boost/filesystem.hpp>
 
-#define SIZE 1000
+#define SIZE 100000
+#define JOIN 100
 #define BUFFSIZE 10000000
 
 std::string toStr(char* arr)  //Convert array of characters to string
@@ -16,6 +19,19 @@ std::string toStr(char* arr)  //Convert array of characters to string
     for(int i=0;i<strlen(arr)&&arr[i]!='\0';i++)
     {
         ans+=arr[i];
+    }
+    return ans;
+}
+
+std::string FileName(std::string filename)
+{
+    std::string ans="";
+    for(int i=filename.size()-1;i>=0;i--)
+    {
+        if(filename[i]!='/')
+            ans=filename[i]+ans;
+        else
+            break;
     }
     return ans;
 }
@@ -101,6 +117,7 @@ int main(int argc, char** argv)
         {
             std::cout << "Connection accepted. Using new sockID : "  <<  acceptID << std::endl;
         }
+        uint32_t htonl(uint32_t hostlong);
 
 
         while(!quit)
@@ -117,38 +134,6 @@ int main(int argc, char** argv)
             {
                 case 1: // Adding username
                     {
-                        // msg = toArr("Adding user....\nEnter Username\n");
-                        // bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
-                        // if(bytes_sent)
-                        // {
-                        //     std::cout<<"Adding user...\n";
-                        //     char* cred=new char[SIZE];
-                        //     bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
-                        //     if(bytes_recieved>0)
-                        //     {
-                        //         cred[bytes_recieved]='\0';
-                        //         std::string username=toStr(cred);
-                        //         std::cout<<"Username:"<<username<<std::endl; //Username
-    
-                        //         msg = toArr("Enter Password\n");
-                        //         bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
-                        //         if(bytes_sent>0)
-                        //         {
-                        //             bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
-                        //             cred[bytes_recieved]='\0';
-                        //             std::cout<<bytes_recieved<<std::endl;
-                        //             if(bytes_recieved>0)
-                        //             {
-                        //                 std::cout<<"Password:"<<toStr(cred)<<std::endl; //Password
-                        //                 base.InsertUser(User(username,toStr(cred)));
-                                    
-                        //                 msg = toArr("User successfully added\n");
-                        //                 bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
-                        //             }
-                        //        }
-                        //     }
-                        //     delete[] cred;   
-                        // }
                         char len[20];
                         bytes_recieved=recv(acceptID,len,20,MSG_WAITALL);
                         len[bytes_recieved]='\0';
@@ -169,76 +154,7 @@ int main(int argc, char** argv)
                         std::cout<<toStr(msg2)<<std::endl;
                         break;
                     }
-
-                // case 2: // Verifying Credentials
-                //     {
-                //         msg=toArr("Verifying Credentials...\nEnter Username\n");
-                //         bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
-                //         if(bytes_sent>0)
-                //         {
-                //             char* cred=new char[SIZE];
-                //             bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
-                //             if(bytes_recieved>0)
-                //             {
-                //                 cred[bytes_recieved]='\0';
-                //                 std::string username=toStr(cred);
-                //                 std::cout<<"Username:"<<username<<std::endl; //Username
-    
-                //                 msg = toArr("Enter Password\n");
-                //                 bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
-                //                 if(bytes_sent>0)
-                //                 {
-                //                     bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
-                //                     cred[bytes_recieved]='\0';
-                //                     if(bytes_recieved>0)
-                //                     {
-                //                         std::cout<<"Password:"<<toStr(cred)<<std::endl; //Password
-                //                         if(base.VerifyUserCredentials(User(username,toStr(cred))))
-                //                         {
-                //                             msg = toArr("1");
-                //                             bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
-                //                         }
-                //                         else
-                //                         {
-                //                             msg = toArr("0");
-                //                             bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
-                //                         }
-                //                     }
-                //                 }
-                //             }
-                //         }
-                //         break;
-                //     }
-                // case 3: // Exists user.
-                //     {
-                //         msg=toArr("Verifying username...\nEnter Username\n");
-                //         bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
-                //         if(bytes_sent>0)
-                //         {
-                //             char* cred=new char[SIZE];
-                //             bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
-                //             if(bytes_recieved>0)
-                //             {
-                //                 cred[bytes_recieved]='\0';
-                //                 std::string username=toStr(cred);
-                //                 std::cout<<"Username:"<<username<<std::endl; //Username
-    
-                //                 if(base.CheckUserExists(User(username,toStr(cred))))
-                //                 {
-                //                     msg = toArr("1");
-                //                     bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
-                //                 }
-                //                 else
-                //                 {
-                //                     msg = toArr("0");
-                //                     bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
-                //                 }
-                                
-                //             }
-                //         }
-                //         break;
-                //     }
-                case 2:
+                case 2: // Verifying
                     {
                         std::cout<<"Case2\n";
                         char len[20];
@@ -264,7 +180,7 @@ int main(int argc, char** argv)
                         bytes_sent=send(acceptID,msg3,1,MSG_NOSIGNAL);
                         break;
                     }
-                case 3:
+                case 3: // Exist
                     {
                         std::cout<<"Case3\n";
                         char len[20];
@@ -284,49 +200,80 @@ int main(int argc, char** argv)
                         bytes_sent=send(acceptID,msg3,1,MSG_NOSIGNAL);
                         break;
                     }
-                case 4:
-                {
-                    char len[20];
-                    bytes_recieved=recv(new_sd, len,20,MSG_WAITALL);
-                    long long size=atoll(len);
-                    std::cout<<size<<std::endl;
-                    char *file=new char[SIZE];
-                    string data="";
-                    int counter=0;
-                    int dataLen=0;
-                    string filename="Anu.";
-                    for(int i=0;i<sizeof(argv[2]);i++)
+                case 4: // File transfer from client to server
                     {
-                        filename+=argv[2][i];
-                    }
-                    std::ofstream out(filename);
-                    cout<<"FileCreated"<<endl;
-                    while(1)
-                    {
-                        bytes_recieved=recv(new_sd, file,SIZE, MSG_WAITALL);
-                        cout<<bytes_recieved<<endl;
-                        counter++;
-                        cout<<"recieved "<<counter<<endl;    
-                        if(bytes_recieved<=0)
+                        char msg[4];
+                        msg[0]='1';
+                        char len[20];
+                        bytes_recieved=recv(acceptID, len,20,MSG_WAITALL);
+                        len[bytes_recieved]='\0';
+                        size=atoll(len);
+                        std::cout<<size<<std::endl;
+                        char filename[size];
+                        bytes_recieved=recv(acceptID,filename,size,MSG_WAITALL);
+                        filename[bytes_recieved]='\0';
+                        std::cout<<toStr(filename)<<std::endl;
+                        std::string name=FileName(toStr(filename));
+                        std::string filepath=toStr(filename).substr(0,strlen(filename)-name.size());
+                        std::cout<<"Filepath:"<<filepath<<std::endl;
+                        std::cout<<"Filename:"<<name<<std::endl;
+                        boost::filesystem::path dir(filepath);
+                        if(!(boost::filesystem::exists(dir)))
                         {
-                            cout<<"breaking now"<<endl;
-                            break;
+                            std::cout<<"Directory Doesn't Exists"<<std::endl;
+                            if (boost::filesystem::create_directory(dir))
+                                std::cout << "Directory Successfully Created !" << std::endl;
                         }
-                        for(int i=0;i<bytes_recieved && dataLen<size;i++)
-                        {
-                            data+=file[i];
-                            dataLen++;
-                        }
-                        out << data;
-                        data="";
-                        send(new_sd, msg,4,  MSG_NOSIGNAL);
-                        cout<<"conf sent\n";
-                    }
-                    
-                    cout<<"file recv"<<endl;
-                    out.close();
 
-                }
+                        bytes_recieved=recv(acceptID, len,20,MSG_WAITALL);
+                        len[bytes_recieved]='\0';
+                        size=atoll(len);
+                        std::cout<<size<<std::endl;
+                        
+                        std::string data="";
+                        int packetCounter=0;
+                        int dataLen=0;
+                        int partCounter=0;
+                        std::string part=std::to_string(partCounter);
+                        int joined=0;
+                        std::cout<<"FileCreated"<<std::endl;
+                        while(1)
+                        {
+                            std::ofstream out(filepath+name+part);
+                            while(joined<JOIN)
+                            {
+                                if(/*bytes_recieved<=0*/ dataLen==size)
+                                {
+                                    std::cout<<"breaking now"<<std::endl;
+                                    out.close();
+                                    goto NEXT;
+                                }
+                                char file[SIZE];
+                                bytes_recieved=recv(acceptID, file,SIZE, MSG_WAITALL);
+                                file[bytes_recieved]='\0';
+                                std::cout<<bytes_recieved<<std::endl;
+                                packetCounter++;
+                                for(int i=0;i<bytes_recieved && dataLen<size;i++)
+                                {
+                                    data+=file[i];
+                                    dataLen++;
+                                }
+                                out << data;
+                                data="";
+                                joined++;
+                                std::cout<<"recieved "<<packetCounter<<std::endl;
+                                send(acceptID, msg,4,  MSG_NOSIGNAL);
+                                std::cout<<"conf sent\n";    
+                            }
+                            std::cout<<"Out of loop\n";
+                            out.close();
+                            joined=0;
+                            partCounter++;
+                            part=std::to_string(partCounter);
+                        }
+                        NEXT:std::cout<<"file recv"<<std::endl;
+                        break;
+                    }
                 default:
                     {
                         quit=true;
