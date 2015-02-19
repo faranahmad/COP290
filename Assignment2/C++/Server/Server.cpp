@@ -7,7 +7,7 @@
 #include <fstream>
 #include <string>
 
-#define SIZE 100000
+#define SIZE 1000
 #define BUFFSIZE 10000000
 
 std::string toStr(char* arr)  //Convert array of characters to string
@@ -109,120 +109,200 @@ int main(int argc, char** argv)
             char command[2];
             int bytes_recieved;
             int bytes_sent;
+            long long size;
             bytes_recieved=recv(acceptID, command,2,MSG_WAITALL);
+            command[bytes_recieved]='\0';
             std::cout<<"Command recieved "<<atoi(command)<<std::endl;
-            char* msg;
             switch(atoi(command))
             {
                 case 1: // Adding username
                     {
-                        msg = toArr("Adding user....\nEnter Username\n");
-                        bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
-                        if(bytes_sent)
-                        {
-                            std::cout<<"Adding user...\n";
-                            char* cred=new char[SIZE];
-                            bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
-                            if(bytes_recieved>0)
-                            {
-                                cred[bytes_recieved]='\0';
-                                std::string username=toStr(cred);
-                                std::cout<<"Username:"<<username<<std::endl; //Username
+                        // msg = toArr("Adding user....\nEnter Username\n");
+                        // bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
+                        // if(bytes_sent)
+                        // {
+                        //     std::cout<<"Adding user...\n";
+                        //     char* cred=new char[SIZE];
+                        //     bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
+                        //     if(bytes_recieved>0)
+                        //     {
+                        //         cred[bytes_recieved]='\0';
+                        //         std::string username=toStr(cred);
+                        //         std::cout<<"Username:"<<username<<std::endl; //Username
     
-                                msg = toArr("Enter Password\n");
-                                bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
-                                if(bytes_sent>0)
-                                {
-                                    bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
-                                    cred[bytes_recieved]='\0';
-                                    if(bytes_recieved>0)
-                                    {
-                                        std::cout<<"Password:"<<toStr(cred)<<std::endl; //Password
-                                        base.InsertUser(User(username,toStr(cred)));
+                        //         msg = toArr("Enter Password\n");
+                        //         bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
+                        //         if(bytes_sent>0)
+                        //         {
+                        //             bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
+                        //             cred[bytes_recieved]='\0';
+                        //             std::cout<<bytes_recieved<<std::endl;
+                        //             if(bytes_recieved>0)
+                        //             {
+                        //                 std::cout<<"Password:"<<toStr(cred)<<std::endl; //Password
+                        //                 base.InsertUser(User(username,toStr(cred)));
                                     
-                                        msg = toArr("User successfully added\n");
-                                        bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                                    }
-                               }
-                            }   
-                        }
+                        //                 msg = toArr("User successfully added\n");
+                        //                 bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
+                        //             }
+                        //        }
+                        //     }
+                        //     delete[] cred;   
+                        // }
+                        char len[20];
+                        bytes_recieved=recv(acceptID,len,20,MSG_WAITALL);
+                        len[bytes_recieved]='\0';
+                        size=atoll(len);
+                        char msg1[size];
+                        bytes_recieved=recv(acceptID,msg1,size,MSG_WAITALL);
+                        msg1[bytes_recieved]='\0';
+                        std::string username=toStr(msg1);
+                        std::cout<<username<<std::endl;
+                        bytes_recieved=recv(acceptID,len,20,MSG_WAITALL);
+                        len[bytes_recieved]='\0';
+                        size=atoll(len);
+                        char msg2[size];
+                        bytes_recieved=recv(acceptID,msg2,size,MSG_WAITALL);
+                        msg2[bytes_recieved]='\0';
+                        base.InsertUser(User(username,toStr(msg2)));
+                        base.StoreToFile("Database.txt");
+                        std::cout<<toStr(msg2)<<std::endl;
                         break;
                     }
 
-                case 2: // Verifying Credentials
-                    {
-                        msg=toArr("Verifying Credentials...\nEnter Username\n");
-                        bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                        if(bytes_sent>0)
-                        {
-                            char* cred=new char[SIZE];
-                            bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
-                            if(bytes_recieved>0)
-                            {
-                                cred[bytes_recieved]='\0';
-                                std::string username=toStr(cred);
-                                std::cout<<"Username:"<<username<<std::endl; //Username
+                // case 2: // Verifying Credentials
+                //     {
+                //         msg=toArr("Verifying Credentials...\nEnter Username\n");
+                //         bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
+                //         if(bytes_sent>0)
+                //         {
+                //             char* cred=new char[SIZE];
+                //             bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
+                //             if(bytes_recieved>0)
+                //             {
+                //                 cred[bytes_recieved]='\0';
+                //                 std::string username=toStr(cred);
+                //                 std::cout<<"Username:"<<username<<std::endl; //Username
     
-                                msg = toArr("Enter Password\n");
-                                bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                                if(bytes_sent>0)
-                                {
-                                    bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
-                                    cred[bytes_recieved]='\0';
-                                    if(bytes_recieved>0)
-                                    {
-                                        std::cout<<"Password:"<<toStr(cred)<<std::endl; //Password
-                                        if(base.VerifyUserCredentials(User(username,toStr(cred))))
-                                        {
-                                            msg = toArr("1");
-                                            bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                                        }
-                                        else
-                                        {
-                                            msg = toArr("0");
-                                            bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        break;
-                    }
-                case 3: // Exists user.
-                    {
-                        msg=toArr("Verifying username...\nEnter Username\n");
-                        bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                        if(bytes_sent>0)
-                        {
-                            char* cred=new char[SIZE];
-                            bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
-                            if(bytes_recieved>0)
-                            {
-                                cred[bytes_recieved]='\0';
-                                std::string username=toStr(cred);
-                                std::cout<<"Username:"<<username<<std::endl; //Username
+                //                 msg = toArr("Enter Password\n");
+                //                 bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
+                //                 if(bytes_sent>0)
+                //                 {
+                //                     bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
+                //                     cred[bytes_recieved]='\0';
+                //                     if(bytes_recieved>0)
+                //                     {
+                //                         std::cout<<"Password:"<<toStr(cred)<<std::endl; //Password
+                //                         if(base.VerifyUserCredentials(User(username,toStr(cred))))
+                //                         {
+                //                             msg = toArr("1");
+                //                             bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
+                //                         }
+                //                         else
+                //                         {
+                //                             msg = toArr("0");
+                //                             bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
+                //                         }
+                //                     }
+                //                 }
+                //             }
+                //         }
+                //         break;
+                //     }
+                // case 3: // Exists user.
+                //     {
+                //         msg=toArr("Verifying username...\nEnter Username\n");
+                //         bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
+                //         if(bytes_sent>0)
+                //         {
+                //             char* cred=new char[SIZE];
+                //             bytes_recieved=recv(acceptID, cred,SIZE, MSG_WAITALL);
+                //             if(bytes_recieved>0)
+                //             {
+                //                 cred[bytes_recieved]='\0';
+                //                 std::string username=toStr(cred);
+                //                 std::cout<<"Username:"<<username<<std::endl; //Username
     
-                                if(base.CheckUserExists(User(username,toStr(cred))))
-                                {
-                                    msg = toArr("1");
-                                    bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                                }
-                                else
-                                {
-                                    msg = toArr("0");
-                                    bytes_sent=send(acceptID, msg, strlen(msg), MSG_NOSIGNAL);
-                                }
+                //                 if(base.CheckUserExists(User(username,toStr(cred))))
+                //                 {
+                //                     msg = toArr("1");
+                //                     bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
+                //                 }
+                //                 else
+                //                 {
+                //                     msg = toArr("0");
+                //                     bytes_sent=send(acceptID, msg, SIZE, MSG_NOSIGNAL);
+                //                 }
                                 
-                            }
-                        }
+                //             }
+                //         }
+                //         break;
+                //     }
+                case 2:
+                    {
+                        std::cout<<"Case2\n";
+                        char len[20];
+                        bytes_recieved=recv(acceptID,len,20,MSG_WAITALL);
+                        len[bytes_recieved]='\0';
+                        size=atoll(len);
+                        char msg1[size];
+                        bytes_recieved=recv(acceptID,msg1,size,MSG_WAITALL);
+                        msg1[bytes_recieved]='\0';
+                        std::string username=toStr(msg1);
+                        std::cout<<username<<std::endl;
+                        bytes_recieved=recv(acceptID,len,20,MSG_WAITALL);
+                        len[bytes_recieved]='\0';
+                        size=atoll(len);
+                        char msg2[size];
+                        bytes_recieved=recv(acceptID,msg2,size,MSG_WAITALL);
+                        msg2[bytes_recieved]='\0';
+                        char msg3[1];
+                        if(base.VerifyUserCredentials(User(username,toStr(msg2))))
+                            msg3[0]='1';
+                        else
+                            msg3[0]='0';
+                        bytes_sent=send(acceptID,msg3,1,MSG_NOSIGNAL);
                         break;
                     }
+                case 3:
+                    {
+                        std::cout<<"Case3\n";
+                        char len[20];
+                        bytes_recieved=recv(acceptID,len,20,MSG_WAITALL);
+                        len[bytes_recieved]='\0';
+                        size=atoll(len);
+                        char msg1[size];
+                        bytes_recieved=recv(acceptID,msg1,size,MSG_WAITALL);
+                        msg1[bytes_recieved]='\0';
+                        std::string username=toStr(msg1);
+                        std::cout<<username<<std::endl;
+                        char msg3[1];
+                        if(base.CheckUserExists(User(username)))
+                            msg3[0]='1';
+                        else
+                            msg3[0]='0';
+                        bytes_sent=send(acceptID,msg3,1,MSG_NOSIGNAL);
+                        break;
+                    }
+                case 4:
+                {
+
+                }
                 default:
                     {
                         quit=true;
+                        break;
                     }
+            }
+            if(quit)
+            {
+                freeaddrinfo(host_info_list);
+                close(acceptID);
+                close(sockID);
+                break;
             }
         }
     }
+    std::cout<<"Done!\n";
     return 0;
 }
