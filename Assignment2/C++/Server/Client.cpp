@@ -11,7 +11,7 @@
 #include <fcntl.h>
 #include <vector>
 
-#define SIZE 100000
+#define SIZE 1000
 #define BUFFSIZE 10000000
 
 using namespace std;
@@ -86,72 +86,130 @@ int main(int argc, char** argv)
 
     while(!quit)
     {
-        std::cout<<"Welcome!\nChoose from the following.\n";
+        std::cout<<"Choose from the following.\n";
         std::cout<<"1.Add User\n";
         std::cout<<"2.Verifying Credentials\n";
         std::cout<<"3.User Exist\n";
         std::cout<<"4.Quit\n";
-        int inp;
-        cin>>inp;
-        std::string temp = std::to_string(inp);
-        char const *num = temp.c_str();
+        std::string temp;
         int bytes_recieved;
         int bytes_sent;
-        char* msg=new char[SIZE];
+        int inp;
+        cin>>inp;
+        char num[2];
+        sprintf(num,"%lld",(long long)inp);
+        bytes_sent=send(sockID, num,2, MSG_NOSIGNAL);
         switch(inp)
         {
             case 1:
             {
-                bytes_sent=send(sockID, num,2, MSG_NOSIGNAL);
-                bytes_recieved=recv(sockID,msg,SIZE,MSG_WAITALL);
-                // std::cout<<strerror(errno)<<std::endl;
-                if(bytes_recieved)
+                // bytes_recieved=recv(sockID,msg,SIZE,MSG_WAITALL);
+                // // std::cout<<strerror(errno)<<std::endl;
+                // if(bytes_recieved)
+                // {
+                //     temp=toStr(msg);
+                //     std::cout<<temp<<endl;
+                //     cin>>temp;
+                //     msg=toArr(temp);
+                //     for(int i=0;i<strlen(msg);i++)
+                //     {
+                //         std::cout<<msg[i];
+                //     }
+                //     std::cout<<"\n";
+                //     bytes_sent=send(sockID,msg,SIZE,MSG_NOSIGNAL);
+                //     std::cout<<bytes_sent<<std::endl;
+                //     if(bytes_sent)
+                //     {
+                //         bytes_recieved=recv(sockID,msg,SIZE,MSG_WAITALL);
+                //         temp=toStr(msg);
+                //         cout<<temp;
+                //         if(bytes_recieved)
+                //         {
+                //             cin>>temp;
+                //             msg=toArr(temp);
+                //             bytes_sent=send(sockID,msg,SIZE,MSG_NOSIGNAL);
+                //             if(bytes_sent)
+                //             {
+                //                 bytes_recieved=recv(sockID,msg,SIZE,MSG_WAITALL);
+                //                 temp=toStr(msg);
+                //                 cout<<temp;
+                //             }
+                //         }
+
+                //     }
+
+                // }
+                std::cout<<"Enter Username\n";
+                cin>>temp;
+                char size1[20];
+                sprintf(size1,"%lld",(long long)temp.size());
+                char* msg1=toArr(temp);
+                std::cout<<temp.size()<<"   "<<strlen(msg1)<<std::endl;
+                bytes_sent=send(sockID, size1,20,  MSG_NOSIGNAL);
+                bytes_sent=send(sockID,msg1,temp.size(),MSG_NOSIGNAL);
+                std::cout<<"Enter Password\n";
+                cin>>temp;
+                char size2[20];
+                sprintf(size2,"%lld",(long long)temp.size());
+                char* msg2=toArr(temp);
+                bytes_sent=send(sockID, size2,20,  MSG_NOSIGNAL);
+                bytes_sent=send(sockID,msg2,temp.size(),MSG_NOSIGNAL);
+                std::cout<<"User Successfully added!\n";
+                break;
+            }
+            case 2:
                 {
-                    temp=toStr(msg);
-                    std::cout<<temp<<endl;
+                    std::cout<<"Enter Username\n";
                     cin>>temp;
-                    msg=toArr(temp);
-                    for(int i=0;i<strlen(msg);i++)
-                    {
-                        std::cout<<msg[i];
-                    }
-                    std::cout<<"\n";
-                    bytes_sent=send(sockID,msg,SIZE,MSG_NOSIGNAL);
-                    std::cout<<bytes_sent<<std::endl;
-                    if(bytes_sent)
-                    {
-                        bytes_recieved=recv(sockID,msg,SIZE,MSG_WAITALL);
-                        temp=toStr(msg);
-                        cout<<temp<<endl;
-                        if(bytes_recieved)
-                        {
-                            cin>>temp;
-                            msg=toArr(temp);
-                            bytes_sent=send(sockID,msg,SIZE,MSG_NOSIGNAL);
-                            if(bytes_sent)
-                            {
-                                bytes_recieved=recv(sockID,msg,SIZE,MSG_WAITALL);
-                                temp=toStr(msg);
-                                cout<<temp<<endl;
-                            }
-                        }
-
-                    }
-
+                    char size1[20];
+                    sprintf(size1,"%lld",(long long)temp.size());
+                    char* msg1=toArr(temp);
+                    bytes_sent=send(sockID, size1,20,  MSG_NOSIGNAL);
+                    bytes_sent=send(sockID,msg1,temp.size(),MSG_NOSIGNAL);
+                    std::cout<<"Enter Password\n";
+                    cin>>temp;
+                    char size2[20];
+                    sprintf(size2,"%lld",(long long)temp.size());
+                    char* msg2=toArr(temp);
+                    bytes_sent=send(sockID, size2,20,  MSG_NOSIGNAL);
+                    bytes_sent=send(sockID,msg2,temp.size(),MSG_NOSIGNAL);
+                    char msg3[1];
+                    bytes_recieved=recv(sockID,msg3,1,MSG_WAITALL);
+                    msg3[bytes_recieved]='\0';
+                    if(msg3[0]=='1')
+                        std::cout<<"Successfully logged in\n";
+                    else
+                        std::cout<<"Sorry. Please try again\n";
+                    break;
                 }
-    
+            case 3:
+            {
+                std::cout<<"Enter Username\n";
+                cin>>temp;
+                char size1[20];
+                sprintf(size1,"%lld",(long long)temp.size());
+                char* msg1=toArr(temp);
+                bytes_sent=send(sockID, size1,20,  MSG_NOSIGNAL);
+                bytes_sent=send(sockID,msg1,temp.size(),MSG_NOSIGNAL);
+                char msg3[1];
+                bytes_recieved=recv(sockID,msg3,1,MSG_WAITALL);
+                msg3[bytes_recieved]='\0';
+                if(msg3[0]=='1')
+                    std::cout<<"User Exists\n";
+                else
+                    std::cout<<"User Does not exist\n";
+                break;
             }
             default:
                 {
                     quit=true;
+                    freeaddrinfo(host_info_list);
+                    close(sockID);
+                    break;
                 }
         }
-
-
-
     }
-
-
+    std::cout<<"ThankYou!\n";
     return 0;
   }
 }
