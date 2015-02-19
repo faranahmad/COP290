@@ -1,6 +1,19 @@
 \contentsline {section}{\numberline {1}Objectives}{3}
 \contentsline {section}{\numberline {2}Overall Design}{3}
 \contentsline {section}{\numberline {3}Sub Components}{3}
+\contentsline {subsection}{\numberline {3.1}User Verification}{3}
+\contentsline {subsection}{\numberline {3.2}Files of User}{4}
+\contentsline {subsection}{\numberline {3.3}Network Managing Part}{4}
+\contentsline {subsection}{\numberline {3.4}GUI interface}{4}
 \contentsline {section}{\numberline {4}Interaction amongst Sub Components}{5}
+\contentsline {subsection}{\numberline {4.1}User Authentication}{5}
+\contentsline {subsection}{\numberline {4.2}File Transfer}{5}
+\contentsline {subsection}{\numberline {4.3}File Sharing and Syncing}{5}
+\contentsline {subsection}{\numberline {4.4}Front End and Back End}{6}
 \contentsline {section}{\numberline {5}Testing Of Components}{6}
-\contentsline {section}{\numberline {6}Extra Features}{6}
+\contentsline {subsection}{\numberline {5.1}General Unit Tests}{6}
+\contentsline {subsection}{\numberline {5.2}File Discovery}{6}
+\contentsline {subsection}{\numberline {5.3}File Transferring}{6}
+\contentsline {subsection}{\numberline {5.4}UI Testing}{6}
+\contentsline {subsection}{\numberline {5.5}Overall Testing}{7}
+\contentsline {section}{\numberline {6}Extra Features}{7}

@@ -35,7 +35,7 @@
 
 	\tableofcontents
 
-	\pagebreak
+	\newpage
 
 	\section{Objectives}
 	We have to build an on-line file management system ``Dead Drop'' . A server machine maintains the files of multiple users. The user should use a simple desktop application to login into the system. The content of user's account should remain synced with the server. 
@@ -49,9 +49,9 @@
 		\end{enumerate}
 
 	\section{Sub Components}
-		\begin{enumerate}
+		% \begin{enumerate}
 
-			\item \textbf{User Verification}
+			\subsection{User Verification}
 			\begin{lstlisting}[language=C++, caption={Class Parameters for User}]
 class User
 {
@@ -67,9 +67,9 @@ private:
 	std::unordered_map<std::string, std::string> UsersList;
 };
 			\end{lstlisting}
-			The User Base is a hash table in which the keys are user-names and the stored values are passwords. When the credentials of the user are to be verified, the key is looked up in the table. Inserting users is also achieved easily using this model. The features which we will be provided to the user will be to verify credentials, add new users and change password.
-			
-			\item \textbf{Files of User}
+			The User Base is a hash table in which the keys are user-names and the stored values are passwords. When the credentials of the user are to be verified, the key is looked up in the table. Inserting users is also achieved easily using this model. The features which we will be provided to the user will be to verify credentials, add new users and change password. On the server, the credentials will be stored in an encrypted file which will be decrypted by the server program.
+
+			\subsection{Files of User}
 
 			We will use boost library to detect changes in files. For each file, the path of the file and last modified time of file is stored in a database.
 
@@ -84,22 +84,21 @@ class FileHistory
 			\end{lstlisting}
 
 			Folder Location is the path of the synced folder. The parameter ``TimeOfData'' contains the system time at which the data detection was done. This will be used to determine if the server or client side file is newer and then do changes accordingly. ``FileTimeBase'' is a vector of a string and an integer. The string is the path of the file and the time is the time at which the file was last modified.
-	C		
-			\item \textbf{Network Managing Part}
-				\newline
-				TODO: SOCCER
+			
+			\newline
+			\subsection{Network Managing Part}
+				TODO: SOCCER  \newline
 
-			\item \textbf{GUI interface} 
-				\newline
+			\subsection{GUI interface} 
 				The interface of the application would be designed using QtCreator. It would consists of the following mainwindows.
 				\begin{itemize}
 					\item User Login
-					\newline
-					Running the application would display a user login window. The users can access into their accounts by entering their user name and password in the respective fields. It also provides options for new user to signup for a new account in dead drop. In case, the user forgets his password, he can reset it using `forgot password' option. If the user name or password entered is wrong, a message box showing this message is displayed and the user can again enter the required informations to login to his account. 
+						\newline
+						Running the application would display a user login window. The users can access into their accounts by entering their user name and password in the respective fields. It also provides options for new user to signup for a new account in dead drop. In case, the user forgets his password, he can reset it using `forgot password' option. If the user name or password entered is wrong, a message box showing this message is displayed and the user can again enter the required informations to login to his account. 
 					 
 					\item USER FILES
-					\newline
-					Once the login procedure is complete, the user is directed to a new window. It contaitns the list of files of the user, both on the client and server side. The following buttons would be provided on the window for various functions
+						\newline
+						Once the login procedure is complete, the user is directed to a new window. It contaitns the list of files of the user, both on the client and server side. The following buttons would be provided on the window for various functions
 					\begin{itemize}
 						\item \textit{sync :-} Clicking this button would sync the files on the user and the client side.
 						\item \textit{Share :-} This button allows the user to share files with other users. Once the user has selected the files, clicking on this button would open a new dialog box, where the user can enter the name of the ones, with whom he wants to share the selected files. It also provide users with the options to set permissions for the shared files and folders.
@@ -116,11 +115,10 @@ class FileHistory
 					The window on the server side displays the list of the online users. It also provides 
 				\end{itemize}
 
-
-		\end{enumerate}
+	% \newline
 	\section{Interaction amongst Sub Components}
-		\begin{enumerate}
-			\item \textbf{User Authentication}
+		% \subsection{enumerate}
+			\subsection{User Authentication}
 				% \newline a
 				\begin{itemize}
 					\item Client
@@ -130,14 +128,14 @@ class FileHistory
 						\newline
 						The network part mentioned above is linked with the user base file. The instruction to be performed is decoded to be a new user or credential verification. The data base of user names and passwords are accessed for this to take place and changes if needed are made accordingly to it.
 				\end{itemize}
-			\item \textbf{File Transfer}
+			\subsection{File Transfer}
 				\begin{itemize}
 					\item Files to Transfer
 						TODO KG
 					\item Transferring
 						TODO soccer
 				\end{itemize}	
-			\item \textbf{File Sharing and Syncing}
+			\subsection{File Sharing and Syncing}
 				\begin{itemize}
 					\item File changes
 						TODO KG
@@ -149,7 +147,7 @@ class FileHistory
 						TODO KG
 						TODO Soccer
 				\end{itemize}
-			\item \textbf{Front End and Back End}
+			\subsection{Front End and Back End}
 				\begin{itemize}
 					\item User verification
 						TODO 
@@ -161,11 +159,11 @@ class FileHistory
 						TODO Faran
 						TODO KG			
 				\end{itemize}
-		\end{enumerate}
+		% \end{enumerate
 
 	\section{Testing Of Components}
-		\begin{enumerate}
-			\item \textbf{General Unit Tests}
+		% \begin{enumerate}
+			\subsection{General Unit Tests}
 				\newline
 				\begin{lstlisting}[language=C++, caption={Class Parameters for Test}]
 class Test
@@ -180,19 +178,19 @@ class Test
 
 				We will use the aformentioned class ``Test'' to perform unit tests on the different files created. This will ensure that all the functions work correctly against some tests.
 
-			\item \textbf{File Discovery}
+			\subsection{File Discovery}
 				\newline
 				To test file discovery, a folder with different files will be used. The program will be run on this to obtain the list of files with their modified time and verified to check if it is in accordance with expectations. This will involve new files being created, files being modified and removed.
-			\item \textbf{File Transferring}
+			\subsection{File Transferring}
 				\newline
 				TODO SOCCER
-			\item \textbf{UI Testing}
+			\subsection{UI Testing}
 				\newline
 				TODO FARAN write about individual components
-			\item \textbf{Overall Testing}
+			\subsection{Overall Testing}
 				\newline
 				TODO KG once above 2 are done
-		\end{enumerate}
+		% \end{enumerate}
 
 	\section{Extra Features}
 		\begin{enumerate}
