@@ -286,6 +286,45 @@ int main(int argc, char** argv)
                     }
                 case 4:
                 {
+                    char len[20];
+                    bytes_recieved=recv(new_sd, len,20,MSG_WAITALL);
+                    long long size=atoll(len);
+                    std::cout<<size<<std::endl;
+                    char *file=new char[SIZE];
+                    string data="";
+                    int counter=0;
+                    int dataLen=0;
+                    string filename="Anu.";
+                    for(int i=0;i<sizeof(argv[2]);i++)
+                    {
+                        filename+=argv[2][i];
+                    }
+                    std::ofstream out(filename);
+                    cout<<"FileCreated"<<endl;
+                    while(1)
+                    {
+                        bytes_recieved=recv(new_sd, file,SIZE, MSG_WAITALL);
+                        cout<<bytes_recieved<<endl;
+                        counter++;
+                        cout<<"recieved "<<counter<<endl;    
+                        if(bytes_recieved<=0)
+                        {
+                            cout<<"breaking now"<<endl;
+                            break;
+                        }
+                        for(int i=0;i<bytes_recieved && dataLen<size;i++)
+                        {
+                            data+=file[i];
+                            dataLen++;
+                        }
+                        out << data;
+                        data="";
+                        send(new_sd, msg,4,  MSG_NOSIGNAL);
+                        cout<<"conf sent\n";
+                    }
+                    
+                    cout<<"file recv"<<endl;
+                    out.close();
 
                 }
                 default:
