@@ -60,7 +60,7 @@ class User
 		std::string PassWord;	
 };
 			\end{lstlisting}
-			\begin{lstlisting}[language=C++, caption={Class Parameters for User}]
+			\begin{lstlisting}[language=C++, caption={Class Parameters for UserBase}]
 class UserBase
 {
 private:
@@ -85,7 +85,7 @@ class FileHistory
 
 			Folder Location is the path of the synced folder. The parameter ``TimeOfData'' contains the system time at which the data detection was done. This will be used to determine if the server or client side file is newer and then do changes accordingly. ``FileTimeBase'' is a vector of a string and an integer. The string is the path of the file and the time is the time at which the file was last modified.
 			
-			\newline
+			% \newline
 			\subsection{Network Managing Part}
 				TODO: SOCCER  \newline
 
@@ -98,7 +98,7 @@ class FileHistory
 					 
 					\item USER FILES
 						\newline
-						Once the login procedure is complete, the user is directed to a new window. It contaitns the list of files of the user, both on the client and server side. The following buttons would be provided on the window for various functions
+						Once the login procedure is complete, the user is directed to a new window. It contains the list of files of the user, both on the client and server side. The following buttons would be provided on the window for various functions
 					\begin{itemize}
 						\item \textit{sync :-} Clicking this button would sync the files on the user and the client side.
 						\item \textit{Share :-} This button allows the user to share files with other users. Once the user has selected the files, clicking on this button would open a new dialog box, where the user can enter the name of the ones, with whom he wants to share the selected files. It also provide users with the options to set permissions for the shared files and folders.
@@ -164,7 +164,7 @@ class FileHistory
 	\section{Testing Of Components}
 		% \begin{enumerate}
 			\subsection{General Unit Tests}
-				\newline
+				% \newline
 				\begin{lstlisting}[language=C++, caption={Class Parameters for Test}]
 class Test
 {
@@ -176,26 +176,34 @@ class Test
 };
 				\end{lstlisting}
 
-				We will use the aformentioned class ``Test'' to perform unit tests on the different files created. This will ensure that all the functions work correctly against some tests.
+				We will use the aforementioned class ``Test'' to perform unit tests on the different files created. This will ensure that all the functions work correctly against some tests.
 
 			\subsection{File Discovery}
-				\newline
+				% \newline
 				To test file discovery, a folder with different files will be used. The program will be run on this to obtain the list of files with their modified time and verified to check if it is in accordance with expectations. This will involve new files being created, files being modified and removed.
 			\subsection{File Transferring}
-				\newline
+				% \newline
 				TODO SOCCER
 			\subsection{UI Testing}
-				\newline
+				% \newline
 				TODO FARAN write about individual components
 			\subsection{Overall Testing}
-				\newline
+				% \newline
 				TODO KG once above 2 are done
 		% \end{enumerate}
 
 	\section{Extra Features}
-		\begin{enumerate}
-			\item De-duplication
-			\item Server side UI
-		\end{enumerate}
+		% \begin{enumerate}
+		\subsection{Keeping Files On-line only.}
+				% \newline
+				We will give the user an option to keep a file on the cloud only and not on his PC so that lesser space will be used on the users PC. The user can get these files or remove them from the cloud if he wishes.
+		\subsection{Intelligent UI for server}
+			% \newline
+			TODO faran
+			Write about showing transfer speed and stuff
+		\subsection{Allowing Incomplete Downloads}
+			Allowing the user to resume downloads of files from where he left off if the connection with the server breaks in the middle.
+		\subsection{De-duplication}
+		% \end{enumerate}
 
 \end{document}

@@ -5,6 +5,7 @@ FileHistory::FileHistory()
 	FolderLocation="";
 	TimeOfData=0;
 	FileTimeBase = std::vector< std::pair<std::string, int> > ();
+	FileLinking = UserFiles();
 }
 
 FileHistory::FileHistory(std::string location)
@@ -12,6 +13,7 @@ FileHistory::FileHistory(std::string location)
 	TimeOfData=0;
 	FolderLocation=location;
 	FileTimeBase = std::vector< std::pair<std::string, int> > ();
+	FileLinking = UserFiles();
 }
 
 std::string FileHistory::GetFolder()
@@ -70,6 +72,11 @@ int FileHistory::GetNthTime(int n)
 	}	
 }
 
+UserFiles FileHistory::GetFileLinking()
+{
+	return FileLinking;
+}
+
 void FileHistory::SetDataTime(int newtime)
 {
 	TimeOfData=newtime;
@@ -100,6 +107,16 @@ void FileHistory::SetNthFile(int n,std::string s1)
 void FileHistory::SetNthTime(int n, int newtime)
 {
 	FileTimeBase[n].second=newtime;
+}
+
+void FileHistory::SetFileLinking(UserFiles newdb)
+{
+	FileLinking=newdb;
+}
+
+void FileHistory::StoreFileLinking(std::string location)
+{
+	FileLinking.DumpFileDataToSRC(location);	
 }
 
 void FileHistory::LoadFileTimeBase()

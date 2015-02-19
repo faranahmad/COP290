@@ -11,7 +11,6 @@ class UserFiles
 		UserFiles();
 	
 		std::vector<std::pair<std::string,std::string> > GetPathVector();
-		// std::vector<std::string> GetGlobalPath();
 
 		int GetNumberOfFiles();
 		std::string GetLocalNth(int);

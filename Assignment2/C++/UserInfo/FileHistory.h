@@ -8,6 +8,7 @@
 #include <string>
 #include <ctime>
 #include <fstream>
+#include "UserFiles.h"
 
 struct Instruction
 {
@@ -35,6 +36,8 @@ class FileHistory
 		int GetNthTime(int);
 		int GetDataTime(); 
 		int GetNumberOfFiles();
+		UserFiles GetFileLinking();
+
 
 		void SetDataTime(int);
 		void SetFolderLocation(std::string);
@@ -42,6 +45,9 @@ class FileHistory
 		void SetNthInfo(int,std::string, int);
 		void SetNthFile(int, std::string);
 		void SetNthTime(int, int);
+		void SetFileLinking(UserFiles);
+		void LoadFileLinking(std::string);
+		void StoreFileLinking(std::string);
 
 		void LoadFileTimeBase();
 
@@ -52,6 +58,7 @@ class FileHistory
 		std::string FolderLocation;
 		int TimeOfData;
 		std::vector< std::pair<std::string, int> > FileTimeBase;
+		UserFiles FileLinking;	
 };
 
 
