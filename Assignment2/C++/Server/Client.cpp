@@ -10,11 +10,12 @@
 #include <sys/sendfile.h>
 #include <fcntl.h>
 #include <vector>
+#include <boost/filesystem/operations.hpp>
+#include <boost/filesystem.hpp>
 
 #define SIZE 100000
 #define BUFFSIZE 10000000
 
-using namespace std;
 
 std::string toStr(char* arr)  //Convert array of characters to string
 {
@@ -22,6 +23,19 @@ std::string toStr(char* arr)  //Convert array of characters to string
     for(int i=0;i<strlen(arr)&&arr[i]!='\0';i++)
     {
         ans+=arr[i];
+    }
+    return ans;
+}
+
+std::string FileName(std::string filename)
+{
+    std::string ans="";
+    for(int i=filename.size()-1;i>=0;i--)
+    {
+        if(filename[i]!='/')
+            ans=filename[i]+ans;
+        else
+            break;
     }
     return ans;
 }
@@ -40,7 +54,7 @@ int main(int argc, char** argv)
 {
   if(argc<3)
   {
-    cout<<"Error. Usage : ./tclient ip portnumber\n";
+    std::cout<<"Error. Usage : ./tclient ip portnumber\n";
   }
   else
   {
@@ -68,7 +82,7 @@ int main(int argc, char** argv)
     std::cout << "Connecting..."  << std::endl;
     status = connect(sockID, host_info_list->ai_addr, host_info_list->ai_addrlen);
     if (status == -1)  
-        std::cout << "Connection error!"<<endl; 
+        std::cout << "Connection error!\n"; 
     else std::cout<<"Connected\n";
    
     uint32_t htonl(uint32_t hostlong);
@@ -83,12 +97,13 @@ int main(int argc, char** argv)
         std::cout<<"2.Verifying Credentials\n";
         std::cout<<"3.User Exist\n";
         std::cout<<"4.File transfer from client to server\n";
-        std::cout<<"5.Quit\n";
+        std::cout<<"5.File transfer from server to client\n";
+        std::cout<<"6.Quit\n";
         std::string temp;
         int bytes_recieved;
         int bytes_sent;
         int inp;
-        cin>>inp;
+        std::cin>>inp;
         char num[2];
         sprintf(num,"%lld",(long long)inp);
         bytes_sent=send(sockID, num,2, MSG_NOSIGNAL);
@@ -97,7 +112,7 @@ int main(int argc, char** argv)
             case 1:
             {
                 std::cout<<"Enter Username\n";
-                cin>>temp;
+                std::cin>>temp;
                 char size1[20];
                 sprintf(size1,"%lld",(long long)temp.size());
                 char* msg1=toArr(temp);
@@ -105,7 +120,7 @@ int main(int argc, char** argv)
                 bytes_sent=send(sockID, size1,20,  MSG_NOSIGNAL);
                 bytes_sent=send(sockID,msg1,temp.size(),MSG_NOSIGNAL);
                 std::cout<<"Enter Password\n";
-                cin>>temp;
+                std::cin>>temp;
                 char size2[20];
                 sprintf(size2,"%lld",(long long)temp.size());
                 char* msg2=toArr(temp);
@@ -117,14 +132,14 @@ int main(int argc, char** argv)
             case 2:
                 {
                     std::cout<<"Enter Username\n";
-                    cin>>temp;
+                    std::cin>>temp;
                     char size1[20];
                     sprintf(size1,"%lld",(long long)temp.size());
                     char* msg1=toArr(temp);
                     bytes_sent=send(sockID, size1,20,  MSG_NOSIGNAL);
                     bytes_sent=send(sockID,msg1,temp.size(),MSG_NOSIGNAL);
                     std::cout<<"Enter Password\n";
-                    cin>>temp;
+                    std::cin>>temp;
                     char size2[20];
                     sprintf(size2,"%lld",(long long)temp.size());
                     char* msg2=toArr(temp);
@@ -142,7 +157,7 @@ int main(int argc, char** argv)
             case 3:
                 {
                     std::cout<<"Enter Username\n";
-                    cin>>temp;
+                    std::cin>>temp;
                     char size1[20];
                     sprintf(size1,"%lld",(long long)temp.size());
                     char* msg1=toArr(temp);
@@ -162,16 +177,17 @@ int main(int argc, char** argv)
                     std::string temp1;
                     std::string temp2;
                     std::cout<<"Enter client address\n";
-                    cin>>temp1;
+                    std::cin>>temp1;
                     std::cout<<"Enter server address\n";
-                    cin>>temp2;
+                    std::cin>>temp2;
 
                     //filereading
-                    ifstream ifs(temp1, ios::binary|ios::ate);
-                    ifstream::pos_type pos = ifs.tellg();
+                    std::ifstream ifs(temp1, std::ios::binary|std::ios::ate);
+                    std::ifstream::pos_type pos = ifs.tellg();
                     std::vector<char>  ans(pos);
-                    ifs.seekg(0, ios::beg);
+                    ifs.seekg(0, std::ios::beg);
                     ifs.read(&ans[0], pos);
+                    ifs.close();
 
                     char msg[4];
                     char size1[20];
@@ -202,16 +218,80 @@ int main(int argc, char** argv)
                         std::cout<<"conf recv\n";
                         if(dataLen==ans.size())
                         {
-                            // char* file3;
-                            // send(sockID, file2,0,MSG_NOSIGNAL);
                             break;
                         }
                 
                     }
-                    vector<char> tempVector;
+                    std::vector<char> tempVector;
                     ans.swap(tempVector);
-                    cout<<"file sent"<<endl;
+                    std::cout<<"file sent"<<std::endl;
                     break;
+                }
+            case 5:
+                {
+                    std::string temp1;
+                    std::string temp2;
+                    std::cout<<"Enter client address\n";
+                    std::cin>>temp1;
+                    std::cout<<"Enter server address\n";
+                    std::cin>>temp2;
+
+                    char msg[4];
+                    msg[0]='1';
+                    char len[20];
+                    char size1[20];
+                    sprintf(size1,"%lld",(long long)temp2.size());
+                    bytes_sent=send(sockID, size1,20,  MSG_NOSIGNAL);
+                    char* filepath=toArr(temp2);
+                    bytes_sent=send(sockID,filepath,temp2.size(),MSG_NOSIGNAL);
+                    
+                    bytes_recieved=recv(sockID, len,20,MSG_WAITALL);    
+                    len[bytes_recieved]='\0';
+                    long long size=atoll(len);
+                    std::cout<<size<<std::endl;
+                    
+                    std::string data="";
+                    int packetCounter=0;
+                    int dataLen=0;
+
+                    std::string name=FileName(temp1);
+                    std::string filepath2=temp1.substr(0,temp1.size()-name.size());
+                    std::cout<<"Filepath:"<<filepath2<<std::endl;
+                    std::cout<<"Filename:"<<name<<std::endl;
+                    boost::filesystem::path dir(filepath2);
+                    if(!(boost::filesystem::exists(dir)))
+                    {
+                        std::cout<<"Directory Doesn't Exists"<<std::endl;
+                        if (boost::filesystem::create_directory(dir))
+                            std::cout << "Directory Successfully Created !" << std::endl;
+                    }
+                    std::ofstream out(filepath2+name);
+                    while(1)
+                    {
+                        char *file=new char[SIZE];
+                        bytes_recieved=recv(sockID, file,SIZE, MSG_WAITALL);
+                        std::cout<<bytes_recieved<<std::endl;
+                        packetCounter++;
+                        std::cout<<"recieved "<<packetCounter<<std::endl;    
+                        for(int i=0;i<bytes_recieved && dataLen<size;i++)
+                        {
+                            data+=file[i];
+                            dataLen++;
+                        }
+                        out << data;
+                        data="";
+                        send(sockID, msg,4,  MSG_NOSIGNAL);
+                        std::cout<<"conf sent\n";
+                        if(dataLen==size)
+                        {
+                            std::cout<<"breaking now"<<std::endl;
+                            break;
+                        }
+                    }
+                    out.close();
+                    std::cout<<"file recv"<<std::endl;
+                    break;
+                    
                 }
             default:
                 {

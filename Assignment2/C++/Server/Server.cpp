@@ -6,6 +6,7 @@
 #include "UserBase.h"   
 #include <fstream>
 #include <string>
+#include <vector>
 #include <boost/filesystem/operations.hpp>
 #include <boost/filesystem.hpp>
 
@@ -242,12 +243,6 @@ int main(int argc, char** argv)
                             std::ofstream out(filepath+name+part);
                             while(joined<JOIN)
                             {
-                                if(/*bytes_recieved<=0*/ dataLen==size)
-                                {
-                                    std::cout<<"breaking now"<<std::endl;
-                                    out.close();
-                                    goto NEXT;
-                                }
                                 char file[SIZE];
                                 bytes_recieved=recv(acceptID, file,SIZE, MSG_WAITALL);
                                 file[bytes_recieved]='\0';
@@ -264,6 +259,12 @@ int main(int argc, char** argv)
                                 std::cout<<"recieved "<<packetCounter<<std::endl;
                                 send(acceptID, msg,4,  MSG_NOSIGNAL);
                                 std::cout<<"conf sent\n";    
+                                if(/*bytes_recieved<=0*/ dataLen==size)
+                                {
+                                    std::cout<<"breaking now"<<std::endl;
+                                    out.close();
+                                    goto NEXT;
+                                }
                             }
                             std::cout<<"Out of loop\n";
                             out.close();
@@ -272,6 +273,89 @@ int main(int argc, char** argv)
                             part=std::to_string(partCounter);
                         }
                         NEXT:std::cout<<"file recv"<<std::endl;
+                        break;
+                    }
+                case 5: //File transfer from server client
+                    {
+                        char msg[4];
+                        msg[0]='1';
+                        char len[20];
+                        bytes_recieved=recv(acceptID, len,20,MSG_WAITALL);
+                        len[bytes_recieved]='\0';
+                        size=atoll(len);
+                        std::cout<<size<<std::endl;
+                        char filename[size];
+                        bytes_recieved=recv(acceptID,filename,size,MSG_WAITALL);
+                        filename[bytes_recieved]='\0';
+                        std::cout<<toStr(filename)<<std::endl;
+                        std::string name=FileName(toStr(filename));
+                        std::string filepath=toStr(filename).substr(0,strlen(filename)-name.size());
+                        std::cout<<"Filepath:"<<filepath<<std::endl;
+                        std::cout<<"Filename:"<<name<<std::endl;
+                        boost::filesystem::path dir(filepath);
+                        if(!(boost::filesystem::exists(dir)))
+                        {
+                            std::cout<<"Directory Doesn't Exists"<<std::endl;
+                            if (boost::filesystem::create_directory(dir))
+                                std::cout << "Directory Successfully Created !" << std::endl;
+                        }
+
+                        //filereading(all parts)-> stored in ans
+                        int part=0;
+                        std::string p=std::to_string(part);
+                        std::vector<char>  ans;
+                        int counter=0;
+
+                        while(1)
+                        {   std::string s=filepath+name+p;
+                            std::ifstream ifs(s, std::ios::binary|std::ios::ate);
+                            std::cout<<ifs.is_open()<<std::endl;
+                            if(!ifs.is_open())
+                            {
+                                ifs.close();
+                                break;
+                            }
+                            std::ifstream::pos_type pos = ifs.tellg();
+                            ans.resize(ans.size()+pos);
+                            ifs.seekg(0, std::ios::beg);
+                            ifs.read(&ans[counter], pos);
+                            part++;
+                            counter=ans.size();
+                            p=std::to_string(part);
+                        }
+
+                        std::cout<<"All files read Successfully\n";
+                        char size1[20];
+                        sprintf(size1,"%lld",(long long)ans.size());
+                        bytes_sent=send(acceptID, size1,20,  MSG_NOSIGNAL);
+                        std::cout<<"Initiating sending protocol\n";
+
+                        int dataLen=0;
+                        int packetCounter=0;
+                        while(1)
+                        {
+                            char *file2=new char[SIZE];
+                            for(int l=0 ;l<SIZE&&dataLen<ans.size();l++,dataLen++)
+                            {
+                                file2[l]=ans[dataLen];
+                            }
+                            std::cout<<"sending"<<std::endl;
+                            send(acceptID, file2,SIZE, MSG_NOSIGNAL);
+                            packetCounter++;
+                            std::cout<<"sent "<<packetCounter<<std::endl;
+    
+                            recv(acceptID, msg,4,MSG_WAITALL);
+                            std::cout<<"conf recv\n";
+                            if(dataLen==ans.size())
+                            {
+                                break;
+                            }
+                    
+                        }
+                        std::vector<char> tempVector;
+                        ans.swap(tempVector);
+                        std::cout<<"file sent"<<std::endl;
+
                         break;
                     }
                 default:
