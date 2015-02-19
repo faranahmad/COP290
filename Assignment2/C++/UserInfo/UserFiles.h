@@ -4,34 +4,38 @@
 #include <string>
 #include <vector>
 #include <utility>
+#include <unordered_map>
 
 class UserFiles
 {
 	public:
 		UserFiles();
 	
-		std::vector<std::pair<std::string,std::string> > GetPathVector();
+		std::unordered_map<std::string,std::string> GetClientServerLink();
+		std::unordered_map<std::string,std::string> GetServerClientLink();
+		int GetNumberOfFilesClient();
+		int GetNumberOfFilesServer();
 
-		int GetNumberOfFiles();
-		std::string GetLocalNth(int);
-		std::string GetGlobalNth(int);
-		std::pair<std::string,std::string> GetNth(int);
+		bool CheckExistsClientServer(std::string);
+		bool CheckExistsServerClient(std::string);
 
-		void UpdateNth(int,std::string, std::string);
-		void UpdateNthLocal(int, std::string);
-		void UpdateNthGlobal(int, std::string);
+		void UpdateClientServer(std::string, std::string);
+		void UpdateServerClient(std::string, std::string);
 
 		void AddNew(std::string,std::string);
-		void AddNewLocal(std::string);
-		void AddNewGlobal(std::string);
+		void AddNewClientServer(std::string,std::string);
+		void AddNewServerClient(std::string,std::string);
 
-		void LoadFileDataFromSRC(std::string);
-		void DumpFileDataToSRC(std::string);
+		void LoadClientServerFile(std::string);
+		void LoadServerClientFile(std::string);
 
-		void LoadFileDataFromDisc();
+		void StoreClientServerFile(std::string);
+		void StoreServerClientFile(std::string);
 
 	private:
-		std::vector<std::pair<std::string,std::string> > PathVector;
+
+		std::unordered_map<std::string, std::string> ClientServer;
+		std::unordered_map<std::string, std::string> ServerClient;
 };
 
 #endif
