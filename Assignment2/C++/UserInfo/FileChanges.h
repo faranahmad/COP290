@@ -34,7 +34,7 @@ class FileChanges
 		void StoreFileLinkingClient(std::string);
 		void StoreFileLinkingServer(std::string);
 
-		std::vector<Instruction> ChangeDetectionGlobal(FileHistory,FileHistory);
+		std::vector<Instruction> ChangeDetectionGlobal();
 
 		void SaveInstructionVectorToFile(std::vector<Instruction>, std::string);
 		std::vector<Instruction> LoadInstructionVectorFromFile(std::string);

@@ -19,6 +19,9 @@ class UserFiles
 		bool CheckExistsClientServer(std::string);
 		bool CheckExistsServerClient(std::string);
 
+		std::string GetClientFileName(std::string);
+		std::string GetServerFileName(std::string);
+
 		void UpdateClientServer(std::string, std::string);
 		void UpdateServerClient(std::string, std::string);
 

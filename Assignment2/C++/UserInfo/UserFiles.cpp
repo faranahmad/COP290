@@ -53,6 +53,16 @@ bool UserFiles::CheckExistsServerClient(std::string fname)
 	}	
 }
 
+std::string UserFiles::GetClientFileName(std::string clf)
+{
+	return ClientServer[clf];
+}
+
+std::string UserFiles::GetServerFileName(std::string clf)
+{
+	return ServerClient[clf];
+}
+
 void UserFiles::UpdateClientServer(std::string clfile, std::string serfile)
 {
 	ClientServer[clfile]=serfile;	
