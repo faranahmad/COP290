@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.18)  19 FEB 2015 15:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.24)  20 FEB 2015 20:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -325,7 +325,7 @@ Runaway argument?
 l.19 ...mm} \includegraphics[width=7cm]{logo.png}}
                                                   
 ? 
-No file DesignDoc.aux.
+(./DesignDoc.aux)
 \openout1 = `DesignDoc.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -341,7 +341,7 @@ LaTeX Font Info:    ... okay on input line 31.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
 \c@lstlisting=\count96
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count97
 \scratchdimen=\dimen109
@@ -463,54 +463,116 @@ Overfull \hbox (39.0039pt too wide) in paragraph at lines 82--83
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
-
- []
-
-[4] [5]
-Overfull \hbox (93.00446pt too wide) in paragraph at lines 168--169
+Overfull \hbox (135.00488pt too wide) in paragraph at lines 96--97
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (63.00415pt too wide) in paragraph at lines 169--170
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 97--98
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][] 
+][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (63.00415pt too wide) in paragraph at lines 170--171
+Overfull \hbox (165.00519pt too wide) in paragraph at lines 99--100
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 100--101
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][] 
+ []
+
+
+Overfull \hbox (93.00446pt too wide) in paragraph at lines 101--102
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (21.00372pt too wide) in paragraph at lines 102--104
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[4]
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 104--105
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][] 
  []
 
 
-Overfull \hbox (57.00409pt too wide) in paragraph at lines 171--172
+Overfull \hbox (21.00372pt too wide) in paragraph at lines 112--113
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (87.0044pt too wide) in paragraph at lines 143--144
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (13.40633pt too wide) in paragraph at lines 150--151
+[]\OT1/cmr/bx/n/10 addr \OT1/cmr/m/n/10 : The ad-dress we need to con-nect to. 
+In our case stored in `host[]info[]list-
+ []
+
+[5]
+Overfull \hbox (69.00421pt too wide) in paragraph at lines 158--159
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (9.0036pt too wide) in paragraph at lines 160--161
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[6] [7] [8]
+Overfull \hbox (93.00446pt too wide) in paragraph at lines 270--271
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 271--272
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][] 
+ []
+
+
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 272--273
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (57.00409pt too wide) in paragraph at lines 273--274
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][] 
  []
 
-[6] [7] (./DesignDoc.aux) ) 
+[9] [10] [11] (./DesignDoc.aux) ) 
 Here is how much of TeX's memory you used:
- 3651 strings out of 495028
- 49150 string characters out of 6181497
- 130865 words of memory out of 5000000
- 6819 multiletter control sequences out of 15000+600000
+ 3729 strings out of 495028
+ 50090 string characters out of 6181497
+ 138865 words of memory out of 5000000
+ 6895 multiletter control sequences out of 15000+600000
  8548 words of font info for 30 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,7n,60p,532b,1408s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on DesignDoc.pdf (7 pages, 324128 bytes).
+ 37i,7n,60p,836b,1616s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on DesignDoc.pdf (11 pages, 338860 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
+ 71 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
