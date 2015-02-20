@@ -11,16 +11,16 @@
 \contentsline {subsection}{\numberline {4.1}User Authentication}{9}
 \contentsline {subsection}{\numberline {4.2}File Transfer}{9}
 \contentsline {subsection}{\numberline {4.3}File Sharing and Syncing}{9}
-\contentsline {subsection}{\numberline {4.4}Front End and Back End}{9}
+\contentsline {subsection}{\numberline {4.4}Front End and Back End}{10}
 \contentsline {section}{\numberline {5}Testing Of Components}{10}
 \contentsline {subsection}{\numberline {5.1}General Unit Tests}{10}
 \contentsline {subsection}{\numberline {5.2}File Discovery}{10}
 \contentsline {subsection}{\numberline {5.3}File Transferring}{10}
-\contentsline {subsection}{\numberline {5.4}UI Testing}{10}
+\contentsline {subsection}{\numberline {5.4}UI Testing}{11}
 \contentsline {subsection}{\numberline {5.5}Overall Testing}{11}
 \contentsline {section}{\numberline {6}Extra Features}{11}
 \contentsline {subsection}{\numberline {6.1}Keeping Files On-line only.}{11}
 \contentsline {subsection}{\numberline {6.2}Intelligent UI for server}{11}
-\contentsline {subsection}{\numberline {6.3}Allowing Incomplete Downloads}{11}
-\contentsline {subsection}{\numberline {6.4}De-duplication}{11}
-\contentsline {subsection}{\numberline {6.5}MultiThreading}{11}
+\contentsline {subsection}{\numberline {6.3}Allowing Incomplete Downloads}{12}
+\contentsline {subsection}{\numberline {6.4}De-duplication}{12}
+\contentsline {subsection}{\numberline {6.5}MultiThreading}{12}

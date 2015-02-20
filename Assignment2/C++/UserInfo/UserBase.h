@@ -4,6 +4,8 @@
 #include "User.h"
 #include <unordered_map>
 
+std::string EncryptDecrypt(std::string);
+
 class UserBase
 {
 	public:

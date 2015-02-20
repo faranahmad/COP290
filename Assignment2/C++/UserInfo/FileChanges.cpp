@@ -33,22 +33,22 @@ void FileChanges::SetFileLinking(UserFiles usfiles)
 
 void FileChanges::LoadFileLinkingClient(std::string location)
 {
-	ClientHistory.LoadFromFileBase(location);
+	FileLinking.LoadClientServerFile(location);
 }
 
 void FileChanges::LoadFileLinkingServer(std::string location)
 {
-	ServerHistory.LoadFromFileBase(location);
+	FileLinking.LoadServerClientFile(location);
 }
 
 void FileChanges::StoreFileLinkingClient(std::string location)
 {
-	ClientHistory.StoreToFileBase(location);
+	FileLinking.StoreClientServerFile(location);
 }
 
 void FileChanges::StoreFileLinkingServer(std::string location)
 {
-	ServerHistory.StoreToFileBase(location);
+	FileLinking.StoreServerClientFile(location);
 }
 
 std::vector<Instruction> FileChanges::ChangeDetectionGlobal()
@@ -140,7 +140,10 @@ std::vector<Instruction> FileChanges::ChangeDetectionGlobal()
 				Instruction a;
 				a.modification=3;
 				a.clientfilename=ClientHistory.GetNthName(i);
-				a.serverfilename="TODOaddserverfilename";
+				std::string sname=a.clientfilename;
+				int lenpath= ClientHistory.GetFolder().size();
+				sname=sname.substr(lenpath);
+				a.serverfilename=ServerHistory.GetFolder()+sname;
 				answer.push_back(a);	
 				FileLinking.AddNew(a.clientfilename, a.serverfilename);
 			}
@@ -157,7 +160,10 @@ std::vector<Instruction> FileChanges::ChangeDetectionGlobal()
 				Instruction a;
 				a.modification=4;
 				a.serverfilename= ServerHistory.GetNthName(i);
-				a.clientfilename= "TODO add client file name";
+				int lenpath = ServerHistory.GetFolder().size();
+				std::string clname = a.serverfilename;
+				clname = clname.substr(lenpath);
+				a.clientfilename= ClientHistory.GetFolder() + clname ;
 				answer.push_back(a);
 				FileLinking.AddNew(a.clientfilename, a.serverfilename);
 			}
@@ -167,7 +173,7 @@ std::vector<Instruction> FileChanges::ChangeDetectionGlobal()
 				Instruction a;
 				a.modification= 6;
 				a.serverfilename= ServerHistory.GetNthName(i);
-				a.clientfilename= " ";
+				a.clientfilename= "TO delete file on server ";
 				answer.push_back(a);
 			}
 		}
@@ -213,5 +219,17 @@ std::vector<Instruction> FileChanges::LoadInstructionVectorFromFile(std::string 
 
 int main()
 {
-	
+	FileHistory x=FileHistory("here/");
+	FileHistory y=FileHistory("here2/");
+	x.LoadFileTimeBase();
+	y.LoadFileTimeBase();
+	FileChanges p= FileChanges(x,y);
+	p.LoadFileLinkingClient("ClientServer.txt");
+	p.LoadFileLinkingServer("ServerClient.txt");
+	std::vector<Instruction> v= p.ChangeDetectionGlobal();
+	p.StoreFileLinkingClient("ClientServer.txt");
+	p.StoreFileLinkingServer("ServerClient.txt");
+	p.SaveInstructionVectorToFile(v, "instructions.txt");
+	x.StoreToFileBase("datadump.txt");
+	y.StoreToFileBase("datadump2.txt");	
 }

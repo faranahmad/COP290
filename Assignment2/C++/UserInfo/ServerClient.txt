@@ -1,0 +1,8 @@
+here2/faran.t
+here/faran.t
+here2/pokemon.txt
+here/pokemon.txt
+here2/kg.pyc
+here/kg.pyc
+here2/soccer.pdf
+here/soccer.pdf

@@ -1,14 +1,18 @@
 here/faran.t
-3
+here2/faran.t
+2
 here/kg.pyc
+here2/kg.pyc
 3
 here/pokemon.txt
+here2/pokemon.txt
 3
 here/soccer.pdf
+here2/soccer.pdf
 3
-here2/faran.t
-6
+TO delete file on server 
 here2/pokemon.cpp
 6
+TO delete file on server 
 here2/rona.cmd
 6

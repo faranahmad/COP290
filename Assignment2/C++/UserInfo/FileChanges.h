@@ -9,7 +9,7 @@ struct Instruction
 	// 0 is no change,
 	// 1 is newer modification client,
 	// 2 is newer modification server, 
-	// 3 is new client file,
+	// 3 is new client file, 
 	// 4 is new server file,
 	// 5 is delete file on user
 	// 6 is remove file from server

@@ -27,5 +27,4 @@ server: User.cpp UserBase.cpp tcpserver.cpp
 
 clean:
 	rm -rf a.out
-	rm -rf ServerClient.txt
-	rm -rf ClientServer.txt
+	rm -rf Instruction.txt

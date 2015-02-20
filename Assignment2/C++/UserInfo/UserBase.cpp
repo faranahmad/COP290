@@ -1,6 +1,18 @@
 #include "UserBase.h"
 #include <fstream>
 #include <iostream>
+
+std::string EncryptDecrypt(std::string InputText)
+{
+	char key = 'P'; 
+    std::string output = InputText;
+    
+    for (int i = 0; i < InputText.size(); i++)
+        output[i] = InputText[i] ^ key;
+    
+    return output;
+}
+
 UserBase::UserBase()
 {
 	UsersList=std::unordered_map<std::string, std::string> ();
@@ -55,7 +67,7 @@ void UserBase::StoreToFile(std::string location)
 	std::string data="";
 	for (auto& x: UsersList) 
 	{
-    	data += x.first + "\n" +  x.second + "\n";
+    	data += EncryptDecrypt(x.first) + "\n" +  EncryptDecrypt(x.second) + "\n";
 	}
 	data=data.substr(0,data.size() - 1);
 	std::ofstream out(location);
@@ -74,7 +86,7 @@ void UserBase::LoadFromFile(std::string location)
     	while ( getline (myfile,line1) )
     	{	
     		getline(myfile,line2);
-    		UsersList[line1]=line2;
+    		UsersList[EncryptDecrypt(line1)]=EncryptDecrypt(line2);
     	}
     	myfile.close();
   	}
@@ -86,17 +98,19 @@ void UserBase::LoadFromFile(std::string location)
 // 	std::cout<<n1.GetNumberOfUsers()<<"\n";
 // 	n1.InsertUser(User("kg","kgpassword"));
 // 	std::cout<<n1.GetNumberOfUsers()<<"\n";
-// 	n1.LoadFromFile("File.txt");
+// 	// n1.LoadFromFile("File.txt");
 // 	std::cout <<n1.VerifyUserCredentials(User("faran","kg"))<<"\n";
 // 	std::cout <<n1.VerifyUserCredentials(User("faran","soccer"))<<"\n";
 // 	n1.InsertUser(User("soccer","prats"));
 // 	n1.StoreToFile("File.txt");
+// 	n1.LoadFromFile("File.txt");
 // 	std::string s1;
+	
 // 	while (1)
 // 	{
 // 		std::cin >>s1;
 // 		std::cout <<"Verifying users : \n" << n1.CheckUserExists(User(s1)) <<"\n";	
 // 	}
-// 	// n1.StoreToFile("File.txt");
+// 	n1.StoreToFile("File.txt");
 // 	return 0;
 // }

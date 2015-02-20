@@ -28,7 +28,7 @@ class UserFiles
 		void AddNew(std::string,std::string);
 		void AddNewClientServer(std::string,std::string);
 		void AddNewServerClient(std::string,std::string);
-
+ 
 		void LoadClientServerFile(std::string);
 		void LoadServerClientFile(std::string);
 
