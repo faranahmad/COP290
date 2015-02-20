@@ -4,6 +4,7 @@
 \usepackage{color} 
 \usepackage{titling}
 \usepackage{graphicx}
+\usepackage{titlepic}
 
 \lstset{
 	frame=tb, % draw a frame at the top and bottom of the code block
@@ -18,10 +19,11 @@
 
 \title{\vspace*{\fill} \textbf{COP 290 Assignment 2}
 	  \\ {\Large \textbf{DeadDrop}}
-	  \\  \vspace{3mm} \includegraphics[width=5cm]{ddlogo.png}}
-
+	  % \\  \vspace{3mm} \includegraphics{ddlogo.png}}
+}
 \author{
-	\textbf{Faran Ahmad}\\
+	\vspace{5mm} \includegraphics{ddlogo.png} \\
+	 \textbf{Faran Ahmad}\\
 	2013CS10220 \vspace{2mm} \\
 	\textbf{Kartikeya Gupta}\\ 
 	2013CS10231 \vspace{2mm} \\
@@ -96,15 +98,22 @@ class FileHistory
 
 				\begin{lstlisting}[language=C++, caption={The structure ``addrinfo''}]
 struct addrinfo {
-    int              ai_flags;     // This  field  specifies additional options.
-    int              ai_family;    // IPv4, IPv6 or IP agnostic.
-    int              ai_socktype;  // TCP or UDP.
-    int              ai_protocol;  // The protocol for the returned socket addresses.
-    size_t           ai_addrlen;   // Size of ai_addr in bytes
-    struct sockaddr *ai_addr;      // Containing the IP address and port.
-    char            *ai_canonname; // The Canonical hostname.
-
-    struct addrinfo *ai_next;      // linked list, next address.
+    int ai_flags;     
+    	// This  field  specifies additional options.
+    int ai_family;    
+    	// IPv4, IPv6 or IP agnostic.
+    int ai_socktype;  
+    	// TCP or UDP.
+    int ai_protocol;  
+    	// The protocol for the returned socket addresses.
+    size_t ai_addrlen;   
+    	// Size of ai_addr in bytes
+    struct sockaddr *ai_addr;      
+    	// Containing the IP address and port.
+    char *ai_canonname; 
+    	// The Canonical hostname.
+    struct addrinfo *ai_next;      
+    	// linked list, next address.
 };
 				\end{lstlisting}
 
@@ -150,7 +159,7 @@ int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
 
 				\begin{itemize}
 				\item \textbf{sockfd} : the socket descriptor the socket() call returns. 
-				\item \textbf{addr} : The address we need to connect to. In our case stored in `host\_info\_list->ai\_addr'. 
+				\item \textbf{addr} : The address we need to connect to. In our case stored in `host\_info\_list ai\_addr'. 
 				\item \textbf{addrlen} : The addrlen argument specifies the size of addr. In our case stored in `host\_info\_list->ai\_addrlen'. 
 				\item \textbf{return value} : If the connection succeeds, zero is returned. On error, -1 is returned, and errno is set appropriately.
 				\end{itemize}
@@ -199,10 +208,10 @@ SSL_CTX* InitServerCTX(void)
 {   
 	SSL_METHOD *method;
     SSL_CTX *ctx; 
-    OpenSSL_add_all_algorithms();  /* load & register all cryptos, etc. */
-    SSL_load_error_strings();   /* load all error messages */
-    method = SSLv3_server_method();  /* create new server-method instance */
-    ctx = SSL_CTX_new(method);   /* create new context from method */
+    OpenSSL_add_all_algorithms(); // load & register all cryptos, etc.
+    SSL_load_error_strings();    // load all error messages
+    method = SSLv3_server_method();  // create new server-method instance 
+    ctx = SSL_CTX_new(method);   // create new context from method 
     return ctx;
 }
 				\end{lstlisting}
@@ -215,7 +224,7 @@ void ShowCerts(SSL* ssl)
 				\end{lstlisting}
 
 			\subsection{GUI interface} 
-				The interface of the application would be designed using QtCreator. It would consists of the following mainwindows.
+				The interface of the application would be designed using QtCreator. It would consists of the following windows.
 				\begin{itemize}
 					\item \textbf{User Login}
 						\newline
@@ -229,9 +238,10 @@ void ShowCerts(SSL* ssl)
 						\item \textit{Share :-} This button allows the user to share files with other users. Once the user has selected the files, clicking on this button would open a new dialog box, where the user can enter the name of the ones, with whom he wants to share the selected files. It also provide users with the options to set permissions for the shared files and folders.
 						\item \textit{Delete from local :-} This button can be used to delete the selected files on the client side.
 						\item \textit{Move To Drive :-} It can be used to move the selected files on the client side to the server.
-						\item \textit{Refresh :-} If there is some transfer of files between local data base on the client side, refresh button can be used to display the present ...
 						\item \textit{Get :-} This button can be used to transfer the selected files on the server to the client side.
 						\item \textit{Delete from Server :-} This button can be used to delete the selected files on the server.
+						\item \textit{Open File :-} This button will allow the user to open the selected file or folder by the default application.
+						\item \textit{Add File :-} This button will allow the user to add a file from his PC to the syncing folder.
 						\item \textit{Exit :-} This button can be used to exit the application.
 					\end{itemize} 
 						
@@ -252,19 +262,19 @@ void ShowCerts(SSL* ssl)
 			\subsection{User Authentication}
 				% \newline a
 				\begin{itemize}
-					\item Client
+					\item \textbf{Client}
 						\newline
 						The user will enter their credentials in the provided text boxes. These text boxes belong to the class \textit{LineEdit}, which contains a function to extract \textit{QString} and then converted to \textit{string}. Now, this string is transfered from the client to the server over a secure connection using \textit{OpenSSL}.  
-					\item Server
+					\item \textbf{Server}
 						\newline
 						The server receives the credentials one by one over a secure connection using \textit{OpenSSL}. The network part mentioned above is linked with the user base file. The instruction to be performed is decoded to be a new user or credential verification. The data base of user names and passwords are accessed for this to take place and changes if needed are made accordingly to it.
 				\end{itemize}
 			\subsection{File Transfer}
 				\begin{itemize}
-					\item Files to Transfer
+					\item \textbf{Files to Transfer}
 						\newline
 						The files which have to be transferred can be new files created on the client, new files on the server, modifications on the client, server or file getting removed from the client or server. For each of these an instruction will be given to the transferring mechanism which will execute the instructions to perform the sync operation.
-					\item Transferring
+					\item \textbf{Transferring}
 						\newline
 						Using the absolute path of a file, the file is opened using \textit{ifstream class}. The file is opened in chunks of size 10 MB, thus file of any size can be opened and transfered.
 						Now, each of these chunks are split into 100 KB of \textit{char array} and transfered over a secure connection using the network part mentioned above.
@@ -273,15 +283,15 @@ void ShowCerts(SSL* ssl)
 				\end{itemize}	
 			\subsection{File Sharing and Syncing}
 				\begin{itemize}
-					\item File changes
+					\item \textbf{File changes}
 						\newline
 						To detect changes in files we will use the last modified time stamp of the file. If the files differ in time stamp and are linked together then the newer file is considered to be a more recent version. 
 						\newline 
 						Once this is done we will work on version control which will allow us to consider the differences in files and only sync them.
-					\item File Sharing and Permissions
+					\item \textbf{File Sharing and Permissions}
 						\newline
 						For each file on the server the default property is user only. If the user wishes to share a file with another user then he can give read or read and write permissions to him. 
-					\item File Syncing
+					\item \textbf{File Syncing}
 						This will involve use of all of the above mentioned properties. A set of instructions will be given to the network part which will then execute them to get the client and server in sync.
 					\end{itemize}
 			\subsection{Front End and Back End}
@@ -295,11 +305,11 @@ void ShowCerts(SSL* ssl)
 				\begin{lstlisting}[language=C++, caption={Class Parameters for Test}]
 class Test
 {
-	private:
-		bool verbose;               //Variable if test is to be conducted
-		std::string description;    //String description of the test
-		bool isPass;                //Boolean if the test has passed 
-		void PrintPassFail(bool);   //Prints the status of the test
+private:
+	bool verbose;               //If test is to be conducted
+	std::string description;    //String description of the test
+	bool isPass;                //Boolean if the test has passed 
+	void PrintPassFail(bool);   //Prints the status of the test
 };
 				\end{lstlisting}
 
@@ -317,7 +327,7 @@ class Test
 				\begin{itemize}
 					\item \textbf{User verification Testing}
 						\newline
-						To test user verification part, new users were created in the back end. Then, their validity would be tested by typing their user name and password in their respective fields to see if they are able to login to their account. The output of user name and password entered were also displayed on the terminal to check our input manually. 
+						To test user verification part, new users would be created in the back end. Then, their validity would be tested by typing their user name and password in their respective fields to see if they are able to login to their account. The output of user name and password entered would also displayed on the terminal to check our input manually. 
 					\item \textbf{New User Testing}
 						\newline
 						To test the new user sign-up part, new users would be added using sign-up button on the main window. The entered informations would then be checked in the back end by seeing the list of all the users and their informations. 
