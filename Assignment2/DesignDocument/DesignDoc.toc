@@ -4,20 +4,23 @@
 \contentsline {subsection}{\numberline {3.1}User Verification}{3}
 \contentsline {subsection}{\numberline {3.2}Files of User}{4}
 \contentsline {subsection}{\numberline {3.3}Network Managing Part}{4}
+\contentsline {subsubsection}{\numberline {3.3.1}Basic Networking}{4}
+\contentsline {subsubsection}{\numberline {3.3.2}Encryption of Data Transfer}{7}
 \contentsline {subsection}{\numberline {3.4}GUI interface}{7}
-\contentsline {section}{\numberline {4}Interaction amongst Sub Components}{8}
-\contentsline {subsection}{\numberline {4.1}User Authentication}{8}
-\contentsline {subsection}{\numberline {4.2}File Transfer}{8}
+\contentsline {section}{\numberline {4}Interaction amongst Sub Components}{9}
+\contentsline {subsection}{\numberline {4.1}User Authentication}{9}
+\contentsline {subsection}{\numberline {4.2}File Transfer}{9}
 \contentsline {subsection}{\numberline {4.3}File Sharing and Syncing}{9}
 \contentsline {subsection}{\numberline {4.4}Front End and Back End}{9}
-\contentsline {section}{\numberline {5}Testing Of Components}{9}
-\contentsline {subsection}{\numberline {5.1}General Unit Tests}{9}
-\contentsline {subsection}{\numberline {5.2}File Discovery}{9}
-\contentsline {subsection}{\numberline {5.3}File Transferring}{9}
+\contentsline {section}{\numberline {5}Testing Of Components}{10}
+\contentsline {subsection}{\numberline {5.1}General Unit Tests}{10}
+\contentsline {subsection}{\numberline {5.2}File Discovery}{10}
+\contentsline {subsection}{\numberline {5.3}File Transferring}{10}
 \contentsline {subsection}{\numberline {5.4}UI Testing}{10}
-\contentsline {subsection}{\numberline {5.5}Overall Testing}{10}
-\contentsline {section}{\numberline {6}Extra Features}{10}
-\contentsline {subsection}{\numberline {6.1}Keeping Files On-line only.}{10}
-\contentsline {subsection}{\numberline {6.2}Intelligent UI for server}{10}
-\contentsline {subsection}{\numberline {6.3}Allowing Incomplete Downloads}{10}
+\contentsline {subsection}{\numberline {5.5}Overall Testing}{11}
+\contentsline {section}{\numberline {6}Extra Features}{11}
+\contentsline {subsection}{\numberline {6.1}Keeping Files On-line only.}{11}
+\contentsline {subsection}{\numberline {6.2}Intelligent UI for server}{11}
+\contentsline {subsection}{\numberline {6.3}Allowing Incomplete Downloads}{11}
 \contentsline {subsection}{\numberline {6.4}De-duplication}{11}
+\contentsline {subsection}{\numberline {6.5}MultiThreading}{11}
