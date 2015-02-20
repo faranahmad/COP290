@@ -6,6 +6,8 @@
 #include <unistd.h>     // Needed for closing the sockets
 #include "UserBase.h"
 #include <fstream>
+#include <openssl/ssl.h>
+#include <openssl/err.h>
 #define SIZE 100000
 using namespace std;
 bool isEmpty(char* file)
