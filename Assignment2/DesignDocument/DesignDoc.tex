@@ -127,8 +127,8 @@ int getaddrinfo(const char *node, const char *service,
 				The parameters are:
 
 				\begin{itemize}
-					\item \textbf{node} : The host you want to connect to. This can be a hostname or IP address. 
-					\item \textbf{service} : This is the port number you want to connect to. Usually an integer, but can also be a known service name like `http'. 					
+					\item \textbf{node} : The host we want to connect to. This can be a hostname or IP address. 
+					\item \textbf{service} : This is the port number we want to connect to. Usually an integer, but can also be a known service name like `http'. 					
 					\item \textbf{host\_info} : Points to the addrinfo struct to fill. 					
 					\item \textbf{res} : Points to the linked list of filled addrinfo structs. 
 					\item \textbf{return value} : The function returns 0 if all succeeded or a non-zerro error code in case of an error.  
@@ -143,7 +143,7 @@ int socket(int domain, int type, int protocol);
 				The parameters are:
 
 				\begin{itemize}
-				\item \textbf{domain} : The domain argument specifies a communication domain. In our case this value is AF\_INET or AF\_INET6 (the internet using ip4 or ip6). 
+				\item \textbf{domain} : The domain argument specifies a communication domain. In our case this value is AF\_INET or AF\_INET6 (the Internet using ip4 or ip6). 
 				\item \textbf{type} : The type of socket. In our case it is SOCK\_STREAM (tcp). 
 				\item \textbf{protocol} : The protocol to be used with the socket-type. In our case the right protocol is automatically chosen. 
 				\item \textbf{return value} : The socket system call returns a socket descriptor. If the socket call fails, it returns -1. 
@@ -159,8 +159,8 @@ int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
 
 				\begin{itemize}
 				\item \textbf{sockfd} : the socket descriptor the socket() call returns. 
-				\item \textbf{addr} : The address we need to connect to. In our case stored in `host\_info\_list ai\_addr'. 
-				\item \textbf{addrlen} : The addrlen argument specifies the size of addr. In our case stored in `host\_info\_list->ai\_addrlen'. 
+				\item \textbf{addr} : The address we need to connect to. In our case stored in `host\_info\_list $\rightarrow$ ai\_addr'. 
+				\item \textbf{addrlen} : The addrlen argument specifies the size of addr. In our case stored in `host\_info\_list$\rightarrow$ai\_addrlen'. 
 				\item \textbf{return value} : If the connection succeeds, zero is returned. On error, -1 is returned, and errno is set appropriately.
 				\end{itemize}
 
@@ -178,7 +178,7 @@ accept(sockfd, (struct sockaddr *)&their_addr, &addr_size);
 				\item \textit{sockfd} : The socket descriptor the socket() call returns. 
 				\item \textit{addr} : The address we want to listen on (localhost). 
 				\item \textit{addrlen} : The lenght of this address.
-				\item \textit{backlog} : Our server can only handle 1 client at a time. What if more clients want to connect to your server at the same time? With backlog you can specify how many connections will be put in que. For example, if you set it to 5, and 7 connections to your server are made, 1 will fail, 1 will connect and the other 5 will be put``on hold".  
+				\item \textit{backlog} : Our server can only handle 1 client at a time. What if more clients want to connect to our server at the same time? With backlog we can specify how many connections will be put in que. For example, if we set it to 5, and 7 connections to our server are made, 1 will fail, 1 will connect and the other 5 will be put``on hold".  
 				\item \textit{their\_addr} : their\_addr will usually be a pointer to a local struct sockaddr\_storage. This is where the information about the incoming connection will be stored (Like the client's IP address and port). 
 				\item \textit{addr\_size} : addr\_size is the size of the their\_addr struct. 
 				\end{itemize}
@@ -196,11 +196,11 @@ recv(int sockfd, void *buf, size_t len, int flags);
 				\item \textit{sockfd} : The socket descriptor the socket() call returns. 
 				\item \textit{buf} : The message we want to send/receive. 
 				\item \textit{len} : The length of this message. Equals strlen(buf). 
-				\item \textit{flags} : Without this parameter, this call would be the same as the write() call. This parameter gives you some extra options. 
+				\item \textit{flags} : Without this parameter, this call would be the same as the write() call. This parameter gives us some extra options. 
 				\end{itemize}
 
 				\subsubsection{Encryption of Data Transfer}
-				We will use Secure Sockets Layer (SSL) to implement and design a secure connection transfer. It is a cryptographic protocols designed to provide communication security over a computer network. To implement this protocol, we shall use the \textit{OpenSSL} library, which is an open-source implementation. They use X.509 certificates and hence asymmetric cryptography to authenticate the counter-party with whom they are communicating,[2] and to exchange a symmetric key. This session key is then used to encrypt data flowing between the parties. 
+				We will use Secure Sockets Layer (SSL) to implement and design a secure connection transfer. It is a cryptographic protocols designed to provide communication security over a computer network. To implement this protocol, we shall use the \textit{OpenSSL} library, which is an open-source implementation. They use X.509 certificates and hence asymmetric cryptography to authenticate the counter-party with whom they are communicating, and to exchange a symmetric key. This session key is then used to encrypt data flowing between the parties. 
 				\newline
 				The initialization is done using the following:
 				\begin{lstlisting}[language=C++, caption={Initialization}]
