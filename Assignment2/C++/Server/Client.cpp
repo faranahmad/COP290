@@ -196,7 +196,7 @@ int main(int argc, char** argv)
                     bytes_recieved=SSL_read(ssl,msg3,1);
                     msg3[bytes_recieved]='\0';
                     if(msg3[0]=='1')
-                        std::cout<<"Successfully logged in\n";
+                        std::cout<<"Successfully\n";
                     else
                         std::cout<<"Sorry. Please try again\n";
                     break;
@@ -345,6 +345,7 @@ int main(int argc, char** argv)
                     quit=true;
                     freeaddrinfo(host_info_list);
                     close(sockID);
+                    SSL_free(ssl);
                     break;
                 }
         }
