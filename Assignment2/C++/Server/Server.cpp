@@ -9,10 +9,77 @@
 #include <vector>
 #include <boost/filesystem/operations.hpp>
 #include <boost/filesystem.hpp>
+#include <openssl/ssl.h>
+#include <openssl/err.h>
 
-#define SIZE 100000
-#define JOIN 100
+#define SIZE 10000
+#define JOIN 500
 #define BUFFSIZE 10000000
+
+int isRoot()
+{
+    if (getuid() != 0)
+        return 0;
+    else
+        return 1;
+}
+
+void LoadCertificates(SSL_CTX* ctx, char* CertFile, char* KeyFile)
+{
+    /* set the local certificate from CertFile */
+    if ( SSL_CTX_use_certificate_file(ctx, CertFile, SSL_FILETYPE_PEM) <= 0 )
+    {
+        ERR_print_errors_fp(stderr);
+        abort();
+    }
+    /* set the private key from KeyFile (may be the same as CertFile) */
+    if ( SSL_CTX_use_PrivateKey_file(ctx, KeyFile, SSL_FILETYPE_PEM) <= 0 )
+    {
+        ERR_print_errors_fp(stderr);
+        abort();
+    }
+    /* verify private key */
+    if ( !SSL_CTX_check_private_key(ctx) )
+    {
+        fprintf(stderr, "Private key does not match the public certificate\n");
+        abort();
+    }
+}
+
+void ShowCerts(SSL* ssl)
+{   X509 *cert;
+    char *line;
+ 
+    cert = SSL_get_peer_certificate(ssl); /* Get certificates (if available) */
+    if ( cert != NULL )
+    {
+        printf("Server certificates:\n");
+        line = X509_NAME_oneline(X509_get_subject_name(cert), 0, 0);
+        printf("Subject: %s\n", line);
+        free(line);
+        line = X509_NAME_oneline(X509_get_issuer_name(cert), 0, 0);
+        printf("Issuer: %s\n", line);
+        free(line);
+        X509_free(cert);
+    }
+    else
+        printf("No certificates.\n");
+}
+
+SSL_CTX* InitSSL()
+{
+    SSL_load_error_strings();   /* load all error messages */
+    SSL_library_init();
+    OpenSSL_add_all_algorithms();  /* load & register all cryptos, etc. */
+    SSL_CTX *ctx=SSL_CTX_new(SSLv3_server_method());
+    if ( ctx == NULL )
+    {
+        exit(0);
+    }
+
+    LoadCertificates(ctx, "Cert.pem", "Cert.pem");
+    return ctx;
+}
 
 std::string toStr(char* arr)  //Convert array of characters to string
 {
@@ -46,6 +113,7 @@ char* toArr(std::string str)  //Convert string to array of character
     }
     return ans;
 }
+
 int main(int argc, char** argv)
 {
     if(argc<2)
@@ -54,6 +122,15 @@ int main(int argc, char** argv)
     }
     else
     {
+        if(!isRoot())
+        {
+            printf("This program must be run as root/sudo user!!");
+            exit(0);
+        }
+
+        SSL_CTX *ctx=InitSSL();
+        SSL *ssl;
+
         int status;                      // Contains the status of the server
         int bindStatus;                  // Contains the status of the socket bind
         struct addrinfo host_info;       // The struct that getaddrinfo() fills up with data.
@@ -121,14 +198,25 @@ int main(int argc, char** argv)
         uint32_t htonl(uint32_t hostlong);
 
 
+        ssl = SSL_new(ctx);              /* get new SSL state with context */
+        SSL_set_fd(ssl, acceptID);
+
+        if ( SSL_accept(ssl)<0 )     /* do SSL-protocol accept */
+            ERR_print_errors_fp(stderr);
+        else
+        {
+            SSL_set_accept_state(ssl); 
+            ShowCerts(ssl);
         while(!quit)
         {
+             
+
             std::cout << "Waiting to recieve data..."  << std::endl;
             char command[2];
             int bytes_recieved;
             int bytes_sent;
             long long size;
-            bytes_recieved=recv(acceptID, command,2,MSG_WAITALL);
+            bytes_recieved=SSL_read(ssl, command,2);
             command[bytes_recieved]='\0';
             std::cout<<"Command recieved "<<atoi(command)<<std::endl;
             switch(atoi(command))
@@ -136,19 +224,19 @@ int main(int argc, char** argv)
                 case 1: // Adding username
                     {
                         char len[20];
-                        bytes_recieved=recv(acceptID,len,20,MSG_WAITALL);
+                        bytes_recieved=SSL_read(ssl,len,20);
                         len[bytes_recieved]='\0';
                         size=atoll(len);
                         char msg1[size];
-                        bytes_recieved=recv(acceptID,msg1,size,MSG_WAITALL);
+                        bytes_recieved=SSL_read(ssl,msg1,size);
                         msg1[bytes_recieved]='\0';
                         std::string username=toStr(msg1);
                         std::cout<<username<<std::endl;
-                        bytes_recieved=recv(acceptID,len,20,MSG_WAITALL);
+                        bytes_recieved=SSL_read(ssl,len,20);
                         len[bytes_recieved]='\0';
                         size=atoll(len);
                         char msg2[size];
-                        bytes_recieved=recv(acceptID,msg2,size,MSG_WAITALL);
+                        bytes_recieved=SSL_read(ssl,msg2,size);
                         msg2[bytes_recieved]='\0';
                         base.InsertUser(User(username,toStr(msg2)));
                         base.StoreToFile("Database.txt");
@@ -159,37 +247,37 @@ int main(int argc, char** argv)
                     {
                         std::cout<<"Case2\n";
                         char len[20];
-                        bytes_recieved=recv(acceptID,len,20,MSG_WAITALL);
+                        bytes_recieved=SSL_read(ssl,len,20);
                         len[bytes_recieved]='\0';
                         size=atoll(len);
                         char msg1[size];
-                        bytes_recieved=recv(acceptID,msg1,size,MSG_WAITALL);
+                        bytes_recieved=SSL_read(ssl,msg1,size);
                         msg1[bytes_recieved]='\0';
                         std::string username=toStr(msg1);
                         std::cout<<username<<std::endl;
-                        bytes_recieved=recv(acceptID,len,20,MSG_WAITALL);
+                        bytes_recieved=SSL_read(ssl,len,20);
                         len[bytes_recieved]='\0';
                         size=atoll(len);
                         char msg2[size];
-                        bytes_recieved=recv(acceptID,msg2,size,MSG_WAITALL);
+                        bytes_recieved=SSL_read(ssl,msg2,size);
                         msg2[bytes_recieved]='\0';
                         char msg3[1];
                         if(base.VerifyUserCredentials(User(username,toStr(msg2))))
                             msg3[0]='1';
                         else
                             msg3[0]='0';
-                        bytes_sent=send(acceptID,msg3,1,MSG_NOSIGNAL);
+                        bytes_sent=SSL_write(ssl,msg3,1);
                         break;
                     }
                 case 3: // Exist
                     {
                         std::cout<<"Case3\n";
                         char len[20];
-                        bytes_recieved=recv(acceptID,len,20,MSG_WAITALL);
+                        bytes_recieved=SSL_read(ssl,len,20);
                         len[bytes_recieved]='\0';
                         size=atoll(len);
                         char msg1[size];
-                        bytes_recieved=recv(acceptID,msg1,size,MSG_WAITALL);
+                        bytes_recieved=SSL_read(ssl,msg1,size);
                         msg1[bytes_recieved]='\0';
                         std::string username=toStr(msg1);
                         std::cout<<username<<std::endl;
@@ -198,7 +286,7 @@ int main(int argc, char** argv)
                             msg3[0]='1';
                         else
                             msg3[0]='0';
-                        bytes_sent=send(acceptID,msg3,1,MSG_NOSIGNAL);
+                        bytes_sent=SSL_write(ssl,msg3,1);
                         break;
                     }
                 case 4: // File transfer from client to server
@@ -206,12 +294,12 @@ int main(int argc, char** argv)
                         char msg[4];
                         msg[0]='1';
                         char len[20];
-                        bytes_recieved=recv(acceptID, len,20,MSG_WAITALL);
+                        bytes_recieved=SSL_read(ssl, len,20);
                         len[bytes_recieved]='\0';
                         size=atoll(len);
                         std::cout<<size<<std::endl;
                         char filename[size];
-                        bytes_recieved=recv(acceptID,filename,size,MSG_WAITALL);
+                        bytes_recieved=SSL_read(ssl,filename,size);
                         filename[bytes_recieved]='\0';
                         std::cout<<toStr(filename)<<std::endl;
                         std::string name=FileName(toStr(filename));
@@ -226,7 +314,7 @@ int main(int argc, char** argv)
                                 std::cout << "Directory Successfully Created !" << std::endl;
                         }
 
-                        bytes_recieved=recv(acceptID, len,20,MSG_WAITALL);
+                        bytes_recieved=SSL_read(ssl, len,20);
                         len[bytes_recieved]='\0';
                         size=atoll(len);
                         std::cout<<size<<std::endl;
@@ -244,7 +332,7 @@ int main(int argc, char** argv)
                             while(joined<JOIN)
                             {
                                 char file[SIZE];
-                                bytes_recieved=recv(acceptID, file,SIZE, MSG_WAITALL);
+                                bytes_recieved=SSL_read(ssl, file,SIZE);
                                 file[bytes_recieved]='\0';
                                 std::cout<<bytes_recieved<<std::endl;
                                 packetCounter++;
@@ -257,7 +345,7 @@ int main(int argc, char** argv)
                                 data="";
                                 joined++;
                                 std::cout<<"recieved "<<packetCounter<<std::endl;
-                                send(acceptID, msg,4,  MSG_NOSIGNAL);
+                                SSL_write(ssl, msg,4);
                                 std::cout<<"conf sent\n";    
                                 if(/*bytes_recieved<=0*/ dataLen==size)
                                 {
@@ -272,7 +360,7 @@ int main(int argc, char** argv)
                             partCounter++;
                             part=std::to_string(partCounter);
                         }
-                        NEXT:std::cout<<"file recv"<<std::endl;
+                        NEXT:std::cout<<"file SSL_read"<<std::endl;
                         break;
                     }
                 case 5: //File transfer from server client
@@ -280,12 +368,12 @@ int main(int argc, char** argv)
                         char msg[4];
                         msg[0]='1';
                         char len[20];
-                        bytes_recieved=recv(acceptID, len,20,MSG_WAITALL);
+                        bytes_recieved=SSL_read(ssl, len,20);
                         len[bytes_recieved]='\0';
                         size=atoll(len);
                         std::cout<<size<<std::endl;
                         char filename[size];
-                        bytes_recieved=recv(acceptID,filename,size,MSG_WAITALL);
+                        bytes_recieved=SSL_read(ssl,filename,size);
                         filename[bytes_recieved]='\0';
                         std::cout<<toStr(filename)<<std::endl;
                         std::string name=FileName(toStr(filename));
@@ -327,8 +415,8 @@ int main(int argc, char** argv)
                         std::cout<<"All files read Successfully\n";
                         char size1[20];
                         sprintf(size1,"%lld",(long long)ans.size());
-                        bytes_sent=send(acceptID, size1,20,  MSG_NOSIGNAL);
-                        std::cout<<"Initiating sending protocol\n";
+                        bytes_sent=SSL_write(ssl, size1,20);
+                        std::cout<<"Initiating SSL_writeing protocol\n";
 
                         int dataLen=0;
                         int packetCounter=0;
@@ -339,13 +427,13 @@ int main(int argc, char** argv)
                             {
                                 file2[l]=ans[dataLen];
                             }
-                            std::cout<<"sending"<<std::endl;
-                            send(acceptID, file2,SIZE, MSG_NOSIGNAL);
+                            std::cout<<"SSL_writeing"<<std::endl;
+                            SSL_write(ssl, file2,SIZE);
                             packetCounter++;
                             std::cout<<"sent "<<packetCounter<<std::endl;
     
-                            recv(acceptID, msg,4,MSG_WAITALL);
-                            std::cout<<"conf recv\n";
+                            SSL_read(ssl, msg,4);
+                            std::cout<<"conf SSL_read\n";
                             if(dataLen==ans.size())
                             {
                                 break;
@@ -369,8 +457,11 @@ int main(int argc, char** argv)
                 freeaddrinfo(host_info_list);
                 close(acceptID);
                 close(sockID);
+                SSL_free(ssl);         /* release SSL state */
+                SSL_CTX_free(ctx);
                 break;
             }
+        }
         }
     }
     std::cout<<"Done!\n";
