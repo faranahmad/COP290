@@ -23,6 +23,11 @@ SSL_CTX *ctx;
 bool closeServer=false;
 
 UserBase base=UserBase();        // Loading the database of users.
+int sockID ;                         // The socket descriptor
+
+struct addrinfo host_info;       // The struct that getaddrinfo() fills up with data.
+struct addrinfo *host_info_list; // Pointer to the to the linked list of host_info's.
+    
 
 
 int isRoot()
@@ -130,6 +135,10 @@ void *Input(void * data)
     if(input==0)
     {
         closeServer=true;
+        close(sockID);
+        freeaddrinfo(host_info_list);
+        SSL_CTX_free(ctx);   
+        // pthread_exit(NULL);  
         exit(0);
     }
     else
@@ -437,9 +446,7 @@ int main(int argc, char** argv)
 
         int status;                      // Contains the status of the server
         int bindStatus;                  // Contains the status of the socket bind
-        struct addrinfo host_info;       // The struct that getaddrinfo() fills up with data.
-        struct addrinfo *host_info_list; // Pointer to the to the linked list of host_info's.
-    
+        
         memset(&host_info, 0, sizeof host_info);
 
         std::cout << "Setting up the structures..."  << std::endl;
@@ -454,7 +461,6 @@ int main(int argc, char** argv)
     
         std::cout << "Creating a socket..."  << std::endl;
     
-        int sockID ;                         // The socket descripter
         sockID = socket(host_info_list->ai_family, host_info_list->ai_socktype,host_info_list->ai_protocol); // Getting info on the server
         if (sockID == -1)  
             std::cout << "Socket error \n" ;
@@ -498,15 +504,8 @@ int main(int argc, char** argv)
             pthread_create(&threads[threadCount],NULL,ClientService,(void *)id);
             threadCount=(threadCount+1)%THREADS;
         }
-        for (int i=0; i<THREADS ;i++)
-        {
-            pthread_join(threads[i],NULL);
-        }
         std::cout<<"All clients served\n";
-        // pthread_exit(NULL);
-        close(sockID);
-        freeaddrinfo(host_info_list);
-        SSL_CTX_free(ctx);        
+           
     }
     std::cout<<"Done!\n";
     return 0;
