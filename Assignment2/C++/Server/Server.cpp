@@ -138,7 +138,8 @@ void *Input(void * data)
         close(sockID);
         freeaddrinfo(host_info_list);
         SSL_CTX_free(ctx);   
-        // pthread_exit(NULL);  
+        // pthread_exit(NULL);
+        std::cout<<"Server Shutting Down\n";  
         exit(0);
     }
     else
