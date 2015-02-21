@@ -8,8 +8,23 @@
 #include <fstream>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
-#define SIZE 100000
+#define SIZE 10000
 using namespace std;
+
+int isRoot()
+{
+    if (getuid() != 0)
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+ 
+}
+
+
 bool isEmpty(char* file)
 {
     for(int i=0;i<sizeof(file);i++)
@@ -19,6 +34,65 @@ bool isEmpty(char* file)
     }
     return true;
 }
+
+
+
+void LoadCertificates(SSL_CTX* ctx, char* CertFile, char* KeyFile)
+{
+    /* set the local certificate from CertFile */
+    if ( SSL_CTX_use_certificate_file(ctx, CertFile, SSL_FILETYPE_PEM) <= 0 )
+    {
+        ERR_print_errors_fp(stderr);
+        abort();
+    }
+    /* set the private key from KeyFile (may be the same as CertFile) */
+    if ( SSL_CTX_use_PrivateKey_file(ctx, KeyFile, SSL_FILETYPE_PEM) <= 0 )
+    {
+        ERR_print_errors_fp(stderr);
+        abort();
+    }
+    /* verify private key */
+    if ( !SSL_CTX_check_private_key(ctx) )
+    {
+        fprintf(stderr, "Private key does not match the public certificate\n");
+        abort();
+    }
+}
+
+void ShowCerts(SSL* ssl)
+{   X509 *cert;
+    char *line;
+ 
+    cert = SSL_get_peer_certificate(ssl); /* Get certificates (if available) */
+    if ( cert != NULL )
+    {
+        printf("Server certificates:\n");
+        line = X509_NAME_oneline(X509_get_subject_name(cert), 0, 0);
+        printf("Subject: %s\n", line);
+        free(line);
+        line = X509_NAME_oneline(X509_get_issuer_name(cert), 0, 0);
+        printf("Issuer: %s\n", line);
+        free(line);
+        X509_free(cert);
+    }
+    else
+        printf("No certificates.\n");
+}
+
+SSL_CTX* InitSSL()
+{
+    SSL_load_error_strings();   /* load all error messages */
+    SSL_library_init();
+    OpenSSL_add_all_algorithms();  /* load & register all cryptos, etc. */
+    SSL_CTX *ctx=SSL_CTX_new(SSLv3_server_method());
+    if ( ctx == NULL )
+    {
+        exit(0);
+    }
+
+    LoadCertificates(ctx, "Cert.pem", "Cert.pem");
+    return ctx;
+}
 int main(int argc, char** argv)
 {
     if(argc<3)
@@ -27,6 +101,19 @@ int main(int argc, char** argv)
     }
     else
     {
+
+    if(!isRoot())
+    {
+        printf("This program must be run as root/sudo user!!");
+        exit(0);
+    }
+
+
+    SSL_CTX *ctx=InitSSL();
+
+
+
+    SSL *ssl;
     int status;
     struct addrinfo host_info;       // The struct that getaddrinfo() fills up with data.
     struct addrinfo *host_info_list; // Pointer to the to the linked list of host_info's.
@@ -85,10 +172,23 @@ int main(int argc, char** argv)
         cout << "Connection accepted. Using new socketfd : "  <<  new_sd << endl;
     }
 
+
+    ssl = SSL_new(ctx);              /* get new SSL state with context */
+    SSL_set_fd(ssl, new_sd);
+
+
+
+ if ( SSL_accept(ssl)<0 )     /* do SSL-protocol accept */
+        ERR_print_errors_fp(stderr);
+    else
+    {   
+        SSL_set_accept_state(ssl); 
+        ShowCerts(ssl); 
+
     cout << "Waiting to recieve data..."  << endl;
     char len[20];
     int bytes_recieved;
-    bytes_recieved=recv(new_sd, len,20,MSG_WAITALL);
+    bytes_recieved=SSL_read(ssl, len,20);
     cout<<"size rec\n";
     char msg[4];
     msg[0]='1';
@@ -110,7 +210,7 @@ int main(int argc, char** argv)
     cout<<"FileCreated"<<endl;
     while(1)
     {
-        bytes_recieved=recv(new_sd, file,SIZE, MSG_WAITALL);
+        bytes_recieved=SSL_read(ssl, file,SIZE);
         cout<<bytes_recieved<<endl;
         counter++;
         cout<<"recieved "<<counter<<endl;    
@@ -126,7 +226,7 @@ int main(int argc, char** argv)
         }
         out << data;
         data="";
-        send(new_sd, msg,4,  MSG_NOSIGNAL);
+        SSL_write(ssl, msg,4);
         cout<<"conf sent\n";
     }
     
@@ -135,7 +235,11 @@ int main(int argc, char** argv)
     out.close();
     freeaddrinfo(host_info_list);
     close(socketfd);
+    SSL_free(ssl);         /* release SSL state */
+    SSL_CTX_free(ctx);         /* release context */
+
     }
+}
     return 0;
 
 }
