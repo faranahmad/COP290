@@ -8,9 +8,13 @@
 #include <fstream>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
+#include <vector>
+#include <pthread.h>
 #define SIZE 10000
 using namespace std;
 
+
+SSL_CTX* ctx;
 int isRoot()
 {
     if (getuid() != 0)
@@ -93,6 +97,82 @@ SSL_CTX* InitSSL()
     LoadCertificates(ctx, "Cert.pem", "Cert.pem");
     return ctx;
 }
+
+
+
+
+    
+
+void *acceptor(void* data)
+{
+    long new_sd=(long)data;
+    if (new_sd == -1)
+    {
+        cout << "listen error" << endl ;
+    }
+    else
+    {
+        cout << "Connection accepted. Using new socketfd : "  <<  new_sd << endl;
+    }
+
+    SSL* ssl = SSL_new(ctx);;
+SSL_set_fd(ssl, new_sd);
+ if ( SSL_accept(ssl)<0 )     /* do SSL-protocol accept */
+        ERR_print_errors_fp(stderr);
+    else
+    {   
+        SSL_set_accept_state(ssl); 
+        ShowCerts(ssl); 
+
+    cout << "Waiting to recieve data..."  << endl;
+    char len[20];
+    int bytes_recieved;
+    bytes_recieved=SSL_read(ssl, len,20);
+    cout<<"size rec\n";
+    char msg[4];
+    msg[0]='1';
+    // send(socketfd, msg,4, 0);
+    cout<<bytes_recieved<<endl;
+    uint32_t ntohl(uint32_t netlong);
+    long long size=atoll(len);
+    cout<<size<<endl;
+    char *file=new char[SIZE];
+    string data="";
+    int counter=0;
+    int dataLen=0;
+    string filename="Anu.";
+    std::ofstream out(filename);
+    cout<<"FileCreated"<<endl;
+    while(1)
+    {
+        bytes_recieved=SSL_read(ssl, file,SIZE);
+        cout<<bytes_recieved<<endl;
+        counter++;
+        cout<<"recieved "<<counter<<endl;    
+        if(bytes_recieved<=0)
+        {
+            cout<<"breaking now"<<endl;
+            break;
+        }
+        for(int i=0;i<bytes_recieved && dataLen<size;i++)
+        {
+            data+=file[i];
+            dataLen++;
+        }
+        out << data;
+        data="";
+        SSL_write(ssl, msg,4);
+        cout<<"conf sent\n";
+    }
+    
+    cout<<"file recv"<<endl;
+    
+    out.close();
+    SSL_free(ssl);             /* release context */
+
+    }
+}
+
 int main(int argc, char** argv)
 {
     if(argc<3)
@@ -109,7 +189,7 @@ int main(int argc, char** argv)
     }
 
 
-    SSL_CTX *ctx=InitSSL();
+   ctx=InitSSL();
 
 
 
@@ -159,86 +239,22 @@ int main(int argc, char** argv)
     if (status == -1)  cout << "listen error" << endl ;
 
 
-    int new_sd;
+    std::vector<pthread_t> threads= std::vector<pthread_t>(10);              /* get new SSL state with context */
+    
+
+    int k=0;
+while(k<10)
+    {
+
+    long new_sd;
     struct sockaddr_storage their_addr;
     socklen_t addr_size = sizeof(their_addr);
+
     new_sd = accept(socketfd, (struct sockaddr *)&their_addr, &addr_size);
-    if (new_sd == -1)
-    {
-        cout << "listen error" << endl ;
-    }
-    else
-    {
-        cout << "Connection accepted. Using new socketfd : "  <<  new_sd << endl;
-    }
-
-
-    ssl = SSL_new(ctx);              /* get new SSL state with context */
-    SSL_set_fd(ssl, new_sd);
-
-
-
- if ( SSL_accept(ssl)<0 )     /* do SSL-protocol accept */
-        ERR_print_errors_fp(stderr);
-    else
-    {   
-        SSL_set_accept_state(ssl); 
-        ShowCerts(ssl); 
-
-    cout << "Waiting to recieve data..."  << endl;
-    char len[20];
-    int bytes_recieved;
-    bytes_recieved=SSL_read(ssl, len,20);
-    cout<<"size rec\n";
-    char msg[4];
-    msg[0]='1';
-    // send(socketfd, msg,4, 0);
-    cout<<bytes_recieved<<endl;
-    uint32_t ntohl(uint32_t netlong);
-    long long size=atoll(len);
-    cout<<size<<endl;
-    char *file=new char[SIZE];
-    string data="";
-    int counter=0;
-    int dataLen=0;
-    string filename="Anu.";
-    for(int i=0;i<sizeof(argv[2]);i++)
-    {
-        filename+=argv[2][i];
-    }
-    std::ofstream out(filename);
-    cout<<"FileCreated"<<endl;
-    while(1)
-    {
-        bytes_recieved=SSL_read(ssl, file,SIZE);
-        cout<<bytes_recieved<<endl;
-        counter++;
-        cout<<"recieved "<<counter<<endl;    
-        if(bytes_recieved<=0)
-        {
-            cout<<"breaking now"<<endl;
-            break;
-        }
-        for(int i=0;i<bytes_recieved && dataLen<size;i++)
-        {
-            data+=file[i];
-            dataLen++;
-        }
-        out << data;
-        data="";
-        SSL_write(ssl, msg,4);
-        cout<<"conf sent\n";
-    }
+    int l=pthread_create(&threads[k],NULL,acceptor,(void *)new_sd);
+    k++;
+}
     
-    cout<<"file recv"<<endl;
-    
-    out.close();
-    freeaddrinfo(host_info_list);
-    close(socketfd);
-    SSL_free(ssl);         /* release SSL state */
-    SSL_CTX_free(ctx);         /* release context */
-
-    }
 }
     return 0;
 

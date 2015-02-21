@@ -360,7 +360,7 @@ int main(int argc, char** argv)
                             partCounter++;
                             part=std::to_string(partCounter);
                         }
-                        NEXT:std::cout<<"file SSL_read"<<std::endl;
+                        NEXT:std::cout<<"file sent"<<std::endl;
                         break;
                     }
                 case 5: //File transfer from server client
@@ -416,7 +416,7 @@ int main(int argc, char** argv)
                         char size1[20];
                         sprintf(size1,"%lld",(long long)ans.size());
                         bytes_sent=SSL_write(ssl, size1,20);
-                        std::cout<<"Initiating SSL_writeing protocol\n";
+                        std::cout<<"Initiating SSL_writing protocol\n";
 
                         int dataLen=0;
                         int packetCounter=0;
@@ -427,7 +427,7 @@ int main(int argc, char** argv)
                             {
                                 file2[l]=ans[dataLen];
                             }
-                            std::cout<<"SSL_writeing"<<std::endl;
+                            std::cout<<"SSL_writing"<<std::endl;
                             SSL_write(ssl, file2,SIZE);
                             packetCounter++;
                             std::cout<<"sent "<<packetCounter<<std::endl;
