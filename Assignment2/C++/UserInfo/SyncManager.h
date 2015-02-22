@@ -7,10 +7,26 @@
 #include "FileHistory.h"
 #include "UserFiles.h"
 
+struct Instruction
+{
+	int modification; 
+	// 0 is no change,
+	// 1 is newer modification client,
+	// 2 is newer modification server, 
+	// 3 is new client file, 
+	// 4 is new server file,
+	// 5 is delete file on user
+	// 6 is remove file from server
+	std::string clientfilename;
+	std::string serverfilename;
+};
+
 struct SyncList
 {
 	std::vector<std::string> ListOfFiles;
 };
+
+bool SyncListContains(SyncList, std::string)
 
 class SyncManager
 {
@@ -31,6 +47,7 @@ class SyncManager
 		void SetFilesToSync(SyncList);
 
 		void AddFileToSync(std::string);
+		void RemoveFileFromSync(std::string);
 
 		void RefreshClientFolder();
 
@@ -52,6 +69,10 @@ class SyncManager
 
 		void LoadFromDiskDB(std::string);
 		void StoreToDiskDB(std::string);
+
+		std::vector<Instruction> GetSyncingInstructions();
+		void SaveInstructionVector(std::vector<Instruction>, std::string);
+		std::vector<Instruction> LoadInstructionVector(std::string);
 
 	private:
 		std::string Username;
