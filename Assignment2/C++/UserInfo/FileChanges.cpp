@@ -7,6 +7,12 @@ FileChanges::FileChanges()
 	ServerHistory=FileHistory();
 }
 
+FileChanges::FileChanges(std::string cl, std::string se)
+{
+	ClientHistory=FileHistory(cl);
+	ServerHistory=FileHistory(se);
+}
+
 FileChanges::FileChanges(FileHistory clhist, FileHistory sehist)
 {
 	ClientHistory=clhist;
@@ -50,6 +56,32 @@ void FileChanges::StoreFileLinkingServer(std::string location)
 {
 	FileLinking.StoreServerClientFile(location);
 }
+
+void FileChanges::LoadClientHistory(std::string location)
+{
+	ClientHistory.LoadFromFileBase(location);
+}
+
+void FileChanges::LoadServerHistory(std::string location)
+{
+	ServerHistory.LoadFromFileBase(location);
+}
+
+void FileChanges::StoreClientHistory(std::string location)
+{
+	ClientHistory.StoreToFileBase(location);
+}
+
+void FileChanges::StoreServerHistory(std::string location)
+{
+	ServerHistory.StoreToFileBase(location);
+}
+
+void FileChanges::RefreshClient()
+{
+	ClientHistory.LoadFileTimeBase();
+}
+
 
 std::vector<Instruction> FileChanges::ChangeDetectionGlobal()
 {
@@ -217,19 +249,19 @@ std::vector<Instruction> FileChanges::LoadInstructionVectorFromFile(std::string 
   	return answer;
 }
 
-int main()
-{
-	FileHistory x=FileHistory("here/");
-	FileHistory y=FileHistory("here2/");
-	x.LoadFileTimeBase();
-	y.LoadFileTimeBase();
-	FileChanges p= FileChanges(x,y);
-	p.LoadFileLinkingClient("ClientServer.txt");
-	p.LoadFileLinkingServer("ServerClient.txt");
-	std::vector<Instruction> v= p.ChangeDetectionGlobal();
-	p.StoreFileLinkingClient("ClientServer.txt");
-	p.StoreFileLinkingServer("ServerClient.txt");
-	p.SaveInstructionVectorToFile(v, "instructions.txt");
-	x.StoreToFileBase("datadump.txt");
-	y.StoreToFileBase("datadump2.txt");	
-}
+// int main()
+// {
+// 	FileHistory x=FileHistory("here/");
+// 	FileHistory y=FileHistory("here2/");
+// 	x.LoadFileTimeBase();
+// 	y.LoadFileTimeBase();
+// 	FileChanges p= FileChanges(x,y);
+// 	p.LoadFileLinkingClient("ClientServer.txt");
+// 	p.LoadFileLinkingServer("ServerClient.txt");
+// 	std::vector<Instruction> v= p.ChangeDetectionGlobal();
+// 	p.StoreFileLinkingClient("ClientServer.txt");
+// 	p.StoreFileLinkingServer("ServerClient.txt");
+// 	p.SaveInstructionVectorToFile(v, "instructions.txt");
+// 	x.StoreToFileBase("datadump.txt");
+// 	y.StoreToFileBase("datadump2.txt");	
+// }

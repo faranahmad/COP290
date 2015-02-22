@@ -21,11 +21,11 @@ class FileChanges
 {
 	public:
 		FileChanges();
+		FileChanges(std::string, std::string);
 		FileChanges(FileHistory,FileHistory);
 		FileChanges(FileHistory,FileHistory, UserFiles);
 
 		UserFiles GetFileLinking();
-
 
 		void SetFileLinking(UserFiles);
 
@@ -33,6 +33,14 @@ class FileChanges
 		void LoadFileLinkingServer(std::string);
 		void StoreFileLinkingClient(std::string);
 		void StoreFileLinkingServer(std::string);
+
+		void LoadClientHistory(std::string);
+		void LoadServerHistory(std::string);
+
+		void StoreClientHistory(std::string);
+		void StoreServerHistory(std::string);
+
+		void RefreshClient();
 
 		std::vector<Instruction> ChangeDetectionGlobal();
 

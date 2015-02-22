@@ -17,6 +17,11 @@ Files:UserFiles.cpp
 Run: User.cpp UserBase.cpp
 	g++ -std=c++11 User.cpp UserBase.cpp
 	./a.out
+
+Manager: SyncManager.cpp FileChanges.cpp UserFiles.cpp FileHistory.cpp FileSharing.cpp FileReceiving.cpp
+	g++ -std=c++11 UserFiles.cpp FileHistory.cpp FileChanges.cpp FileSharing.cpp FileReceiving.cpp SyncManager.cpp -lboost_system -lboost_filesystem
+	./a.out
+
 client: User.cpp UserBase.cpp Client.cpp
 	g++ -std=c++11 User.cpp UserBase.cpp Client.cpp
 	./a.out

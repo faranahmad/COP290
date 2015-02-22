@@ -143,6 +143,7 @@ void FileHistory::LoadFileTimeBase()
 	FileTimeBase = std::vector< std::pair<std::string, int> > ();
 	if (exists(p))    // does p actually exist?
 	{
+		std::cout <<"folder exists, refreshing\n";
 		std::vector<boost::filesystem::path> v;
         std::copy(boost::filesystem::directory_iterator(p), boost::filesystem::directory_iterator(), back_inserter(v));
         std::sort(v.begin(), v.end());
@@ -152,6 +153,11 @@ void FileHistory::LoadFileTimeBase()
         	FileTimeBase.push_back(std::pair<std::string, int> (v[i].string(), boost::filesystem::last_write_time( v[i] )));
         	// cout << "   " << *it << '\n';
         }
+    }
+    else
+    {
+    	std::cout <<FolderLocation <<"\n";
+	   	std::cout <<"folder dne \n";	 	
     }
 }
 
