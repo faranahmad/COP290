@@ -45,4 +45,7 @@ class FileHistory
 		std::vector< std::pair<std::string, int> > FileTimeBase;
 };
 
+std::vector< std::pair<std::string, int> > GetVectorFiles(std::string);
+FileHistory GetFilesOnDisc(std::string);
+
 #endif

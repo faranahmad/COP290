@@ -65,6 +65,13 @@ std::string SyncManager::GetUsername()
 	return Username;
 }
 
+FileHistory SyncManager::GetCurrentClientHistory()
+{
+	// TODO:
+	// Open folder
+	// Files discover kare le ao
+}
+
 void SyncManager::SetUsername(std::string n)
 {
 	Username=n;
@@ -226,6 +233,7 @@ void SyncManager::StoreToDiskDB(std::string location)
 
 std::vector<Instruction> SyncManager::GetSyncingInstructions()
 {
+	// TODO: Add current folder support
 	// TODO: SyncList include
 	// TODO: Consider current files on client
 	// TODO: Receiving and giving files

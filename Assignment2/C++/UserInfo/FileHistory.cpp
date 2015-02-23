@@ -140,25 +140,25 @@ void FileHistory::LoadFileTimeBase()
 	// Detects the files and their time from the folder
 	boost::filesystem::path p (FolderLocation);   // p reads clearer than argv[1] in the following code
 	TimeOfData =std::time(0);
-	FileTimeBase = std::vector< std::pair<std::string, int> > ();
-	if (exists(p))    // does p actually exist?
-	{
-		std::cout <<"folder exists, refreshing\n";
-		std::vector<boost::filesystem::path> v;
-        std::copy(boost::filesystem::directory_iterator(p), boost::filesystem::directory_iterator(), back_inserter(v));
-        std::sort(v.begin(), v.end());
-        for (int i=0; i<v.size() ; i++ )
-        // for (std::vector<boost::filesystem::path>::const_iterator it (v.begin()); it != v.end(); ++it)
-        {
-        	FileTimeBase.push_back(std::pair<std::string, int> (v[i].string(), boost::filesystem::last_write_time( v[i] )));
-        	// cout << "   " << *it << '\n';
-        }
-    }
-    else
-    {
-    	std::cout <<FolderLocation <<"\n";
-	   	std::cout <<"folder dne \n";	 	
-    }
+	FileTimeBase = GetVectorFiles(FolderLocation);
+	// if (exists(p))    // does p actually exist?
+	// {
+	// 	std::cout <<"folder exists, refreshing\n";
+	// 	std::vector<boost::filesystem::path> v;
+ //        std::copy(boost::filesystem::directory_iterator(p), boost::filesystem::directory_iterator(), back_inserter(v));
+ //        std::sort(v.begin(), v.end());
+ //        for (int i=0; i<v.size() ; i++ )
+ //        // for (std::vector<boost::filesystem::path>::const_iterator it (v.begin()); it != v.end(); ++it)
+ //        {
+ //        	FileTimeBase.push_back(std::pair<std::string, int> (v[i].string(), boost::filesystem::last_write_time( v[i] )));
+ //        	// cout << "   " << *it << '\n';
+ //        }
+ //    }
+ //    else
+ //    {
+ //    	std::cout <<FolderLocation <<"\n";
+	//    	std::cout <<"folder dne \n";	 	
+ //    }
 }
 
 void FileHistory::LoadFromFileBase(std::string location)
@@ -195,6 +195,69 @@ void FileHistory::StoreToFileBase(std::string location)
 	std::ofstream out(location);
 	out << data;
 	out.close();
+}
+
+std::vector< std::pair<std::string, int> > GetVectorFiles(std::string location)
+{
+	boost::filesystem::path p (location);
+	std::vector< std::pair<std::string, int> > ans= std::vector< std::pair<std::string, int> > ();		
+	if (exists(p))    // does p actually exist?
+	{
+		// std::cout <<"folder exists, loading\n";
+		std::vector<boost::filesystem::path> v;
+        std::copy(boost::filesystem::directory_iterator(p), boost::filesystem::directory_iterator(), back_inserter(v));
+        std::sort(v.begin(), v.end());
+        for (int i=0; i<v.size() ; i++ )
+        // for (std::vector<boost::filesystem::path>::const_iterator it (v.begin()); it != v.end(); ++it)
+        {
+        	if (is_regular_file(v[i]))
+        	{
+	        	ans.push_back(std::pair<std::string, int> (v[i].string(), boost::filesystem::last_write_time( v[i] )));
+        	}
+        	else
+        	{
+        		std::vector<std::pair<std::string,int > > Merged = ans;
+        		std::vector<std::pair<std::string,int > > Subset = GetVectorFiles(v[i].string());
+				Merged.insert(Merged.end(), Subset.begin(), Subset.end());
+        		ans = Merged;
+        	}
+        	// cout << "   " << *it << '\n';
+        }
+    }
+    else
+    {
+    	// std::cout <<FolderLocation <<"\n";
+	   	std::cout <<"folder dne \n";	 	
+    }
+    return ans;
+}
+
+
+FileHistory GetFilesOnDisc(std::string location)
+{
+	boost::filesystem::path p (location);   // p reads clearer than argv[1] in the following code
+	int TimeOfData =std::time(0);
+	std::vector< std::pair<std::string, int> > FileTimeBase = std::vector< std::pair<std::string, int> > ();
+	if (exists(p))    // does p actually exist?
+	{
+		FileTimeBase=GetVectorFiles(location);
+	}
+    else
+    {
+    	// std::cout <<FolderLocation <<"\n";
+	   	std::cout <<"folder dne \n";	 	
+    }
+    FileHistory answer= FileHistory(location);
+    answer.SetDataTime(TimeOfData);
+    answer.SetFileTimeBase(FileTimeBase);
+    return answer;
+}
+
+int main()
+{
+	FileHistory xyz= GetFilesOnDisc("/home/kartikeya/Desktop/");
+	xyz.StoreToFileBase("/home/kartikeya/Desktop/pokemon.txt");
+	return 0;
 }
 
 // std::vector<Instruction> ChangeDetectionGlobal(FileHistory client,FileHistory server)

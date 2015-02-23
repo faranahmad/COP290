@@ -46,6 +46,8 @@ class SyncManager
 		SyncList GetFilesToSync();
 		std::string GetUsername();
 
+		FileHistory GetCurrentClientHistory();
+
 		void SetUsername(std::string);
 		void SetMainFiles(FileChanges);
 		void SetReceivingFiles(FileReceiving);
