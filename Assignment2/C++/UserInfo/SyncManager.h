@@ -23,8 +23,8 @@ struct Instruction
 	// 9 is user exists
 	// 10 is exit
 	// 11 is GetServerFiles
-	std::string clientfilename;
-	std::string serverfilename;
+	std::string data1;
+	std::string data2;
 };
 
 struct SyncList
