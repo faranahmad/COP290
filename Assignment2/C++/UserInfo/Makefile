@@ -22,6 +22,10 @@ Manager: SyncManager.cpp FileChanges.cpp UserFiles.cpp FileHistory.cpp FileShari
 	g++ -std=c++11 UserFiles.cpp FileHistory.cpp FileChanges.cpp FileSharing.cpp FileReceiving.cpp SyncManager.cpp -lboost_system -lboost_filesystem -lssl -lcrypto -lpthread
 	./a.out
 
+Client:SyncManager.cpp FileChanges.cpp UserFiles.cpp FileHistory.cpp FileSharing.cpp FileReceiving.cpp ClientCombined.cpp
+	g++ -std=c++11 UserFiles.cpp FileHistory.cpp FileChanges.cpp FileSharing.cpp FileReceiving.cpp SyncManager.cpp ClientCombined.cpp -lboost_system -lboost_filesystem -lssl -lcrypto -lpthread
+	# ./a.out
+
 client: User.cpp UserBase.cpp Client.cpp
 	g++ -std=c++11 User.cpp UserBase.cpp Client.cpp
 	./a.out

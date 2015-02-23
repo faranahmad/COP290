@@ -1,6 +1,18 @@
 #include "UserBase.h"
 #include <fstream>
 #include <iostream>
+
+std::string EncryptDecrypt(std::string InputText)
+{
+	char key = 'P'; 
+    std::string output = InputText;
+    
+    for (int i = 0; i < InputText.size(); i++)
+        output[i] = InputText[i] ^ key;
+    
+    return output;
+}
+
 UserBase::UserBase()
 {
 	UsersList=std::unordered_map<std::string, std::string> ();
@@ -55,7 +67,7 @@ void UserBase::StoreToFile(std::string location)
 	std::string data="";
 	for (auto& x: UsersList) 
 	{
-    	data += x.first + "\n" +  x.second + "\n";
+    	data += EncryptDecrypt(x.first) + "\n" +  EncryptDecrypt(x.second) + "\n";
 	}
 	data=data.substr(0,data.size() - 1);
 	std::ofstream out(location);
@@ -74,7 +86,7 @@ void UserBase::LoadFromFile(std::string location)
     	while ( getline (myfile,line1) )
     	{	
     		getline(myfile,line2);
-    		UsersList[line1]=line2;
+    		UsersList[EncryptDecrypt(line1)]=EncryptDecrypt(line2);
     	}
     	myfile.close();
   	}
