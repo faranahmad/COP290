@@ -93,7 +93,11 @@ void SyncManager::AddFileToSync(std::string nfile)
 
 void SyncManager::RemoveFileFromSync(std::string nfile)
 {
-	// TODO: Remove nfile
+	std::vector<std::string>::iterator position = std::find(FilesToSync.ListOfFiles.begin(), FilesToSync.ListOfFiles.end(), nfile);
+	if (position != FilesToSync.ListOfFiles.end()) // == vector.end() means the element was not found
+	{
+ 	   FilesToSync.ListOfFiles.erase(position);
+	}
 }
 
 void SyncManager::RefreshClientFolder()
