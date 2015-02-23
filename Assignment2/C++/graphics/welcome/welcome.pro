@@ -16,14 +16,24 @@ SOURCES += main.cpp\
         login.cpp \
     newusersignup.cpp \
     fileaccess.cpp \
-    file.cpp
+    file.cpp \
+    share.cpp \
+    connecting.cpp \
+    filesonserver.cpp
 
 HEADERS  += login.h \
     newusersignup.h \
     fileaccess.h \
-    file.h
+    file.h \
+    share.h \
+    connecting.h \
+    filesonserver.h
 
 FORMS    += login.ui \
     newusersignup.ui \
     fileaccess.ui \
-    file.ui
+    file.ui \
+    share.ui \
+    connecting.ui
+
+CONFIG += c++11

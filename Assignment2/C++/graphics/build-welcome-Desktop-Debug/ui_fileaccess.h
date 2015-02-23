@@ -15,27 +15,23 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QTableWidget>
+#include <QtWidgets/QTreeView>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_fileaccess
 {
 public:
-    QTableWidget *tableWidget_2;
+    QTreeView *listoffiles;
 
     void setupUi(QDialog *fileaccess)
     {
         if (fileaccess->objectName().isEmpty())
             fileaccess->setObjectName(QStringLiteral("fileaccess"));
-        fileaccess->resize(676, 451);
-        tableWidget_2 = new QTableWidget(fileaccess);
-        if (tableWidget_2->columnCount() < 1)
-            tableWidget_2->setColumnCount(1);
-        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
-        tableWidget_2->setHorizontalHeaderItem(0, __qtablewidgetitem);
-        tableWidget_2->setObjectName(QStringLiteral("tableWidget_2"));
-        tableWidget_2->setGeometry(QRect(90, 170, 256, 192));
+        fileaccess->resize(1226, 701);
+        listoffiles = new QTreeView(fileaccess);
+        listoffiles->setObjectName(QStringLiteral("listoffiles"));
+        listoffiles->setGeometry(QRect(110, 70, 441, 511));
 
         retranslateUi(fileaccess);
 
@@ -45,8 +41,6 @@ public:
     void retranslateUi(QDialog *fileaccess)
     {
         fileaccess->setWindowTitle(QApplication::translate("fileaccess", "Dialog", 0));
-        QTableWidgetItem *___qtablewidgetitem = tableWidget_2->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QApplication::translate("fileaccess", "New Column", 0));
     } // retranslateUi
 
 };
