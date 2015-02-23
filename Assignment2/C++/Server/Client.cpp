@@ -38,17 +38,17 @@ void ShowCerts(SSL* ssl)
     cert = SSL_get_peer_certificate(ssl); /* get the server's certificate */
     if ( cert != NULL )
     {
-        printf("Server certificates:\n");
+        std::cout<<"Server certificates:\n";
         line = X509_NAME_oneline(X509_get_subject_name(cert), 0, 0);
-        printf("Subject: %s\n", line);
+        std::cout<<"Subject: "<<line<<std::endl;
         free(line);       /* free the malloc'ed string */
         line = X509_NAME_oneline(X509_get_issuer_name(cert), 0, 0);
-        printf("Issuer: %s\n", line);
+        std::cout<<"Issuer: "<<line<<std::endl;
         free(line);       /* free the malloc'ed string */
         X509_free(cert);     /* free the malloc'ed certificate copy */
     }
     else
-        printf("No certificates.\n");
+        std::cout<<"No certificates.\n";
 }
 
 
@@ -134,7 +134,7 @@ int main(int argc, char** argv)
     if ( SSL_connect(ssl) <0 )   /* perform the connection */
         ERR_print_errors_fp(stderr);
     else
-    { 
+    {   printf("Connected with %s encryption\n", SSL_get_cipher(ssl));
         ShowCerts(ssl);        /* get any certs */
         SSL_set_connect_state(ssl); 
     while(!quit)
@@ -154,8 +154,14 @@ int main(int argc, char** argv)
         char num[2];
         sprintf(num,"%lld",(long long)inp);
         bytes_sent=SSL_write(ssl, num,2);
+        
         switch(inp)
         {
+            case 0:
+            {
+                // #ignore
+                break;
+            }
             case 1:
             {
                 std::cout<<"Enter Username\n";

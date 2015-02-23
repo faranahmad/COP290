@@ -183,9 +183,10 @@ void *ClientService(void* data)
         bytes_recieved=SSL_read(ssl, command,2);
         command[bytes_recieved]='\0';
         std::cout<<"Command recieved "<<atoi(command)<<std::endl;
+
         switch(atoi(command))
         {
-            case 1: // Adding username
+            case 8: // Adding username
                 {
                     char len[20];
                     bytes_recieved=SSL_read(ssl,len,20);
@@ -207,9 +208,8 @@ void *ClientService(void* data)
                     std::cout<<ToStr(msg2)<<std::endl;
                     break;
                 }
-            case 2: // Verifying
+            case 7: // Login
                 {
-                    std::cout<<"Case2\n";
                     char len[20];
                     bytes_recieved=SSL_read(ssl,len,20);
                     len[bytes_recieved]='\0';
@@ -233,9 +233,8 @@ void *ClientService(void* data)
                     bytes_sent=SSL_write(ssl,msg3,1);
                     break;
                 }
-            case 3: // Exist
+            case 9: // Exist
                 {
-                    std::cout<<"Case3\n";
                     char len[20];
                     bytes_recieved=SSL_read(ssl,len,20);
                     len[bytes_recieved]='\0';
@@ -253,7 +252,7 @@ void *ClientService(void* data)
                     bytes_sent=SSL_write(ssl,msg3,1);
                     break;
                 }
-            case 4: // File transfer from client to server
+            case 1: // File transfer from client to server
                 {
                     char msg[4];
                     msg[0]='1';
@@ -327,7 +326,7 @@ void *ClientService(void* data)
                     NEXT:std::cout<<"file sent"<<std::endl;
                     break;
                 }
-            case 5: //File transfer from server client
+            case 2: //File transfer from server to client
                 {
                     char msg[4];
                     msg[0]='1';
@@ -410,11 +409,139 @@ void *ClientService(void* data)
 
                     break;
                 }
-            default:
+            case 6: // delete file on server
+                {
+                    char len[20];
+                    bytes_recieved=SSL_read(ssl, len,20);
+                    len[bytes_recieved]='\0';
+                    size=atoll(len);
+                    std::cout<<size<<std::endl;
+                    char filename[size];
+                    bytes_recieved=SSL_read(ssl,filename,size);
+                    filename[bytes_recieved]='\0';
+                    boost::filesystem::wpath file(ToStr(filename));
+                    if(boost::filesystem::exists(file))
+                        boost::filesystem::remove(file);
+                    break;
+                }
+            case 10:
                 {
                     close(acceptID);
                     SSL_free(ssl);         /* release SSL state */
                     quit=true;
+                    break;
+                }
+            case 11: // send serverlist
+                {
+                    char msg[4];
+                    msg[0]='1';
+                    char len[20];
+                    bytes_recieved=SSL_read(ssl, len,20);
+                    len[bytes_recieved]='\0';
+                    size=atoll(len);
+                    std::cout<<size<<std::endl;
+                    char filename[size];
+                    bytes_recieved=SSL_read(ssl,filename,size);
+                    filename[bytes_recieved]='\0';
+                    std::cout<<ToStr(filename)<<std::endl;
+
+                    int fileCount=0;
+                    while(fileCount<3)
+                    {
+                        std::string temp;
+                        switch(fileCount)
+                        {
+                            case 0:
+                            {
+                                temp="receiving.txt";
+                                break;
+                            }
+                            case 1:
+                            {
+                                temp="giving.txt";
+                            }
+                            case 2:
+                            {
+                                temp="sehistory.txt";
+                            }
+                            default:
+                            {
+                                break;
+                            }
+                        }
+                        std::string name=FileName(ToStr(filename)+temp);
+                        std::string filepath=ToStr(filename).substr(0,strlen(filename)-name.size());
+                        std::cout<<"Filepath:"<<filepath<<std::endl;
+                        std::cout<<"Filename:"<<name<<std::endl;
+                        boost::filesystem::path dir(filepath);
+                        if(!(boost::filesystem::exists(dir)))
+                        {
+                            std::cout<<"Directory Doesn't Exists"<<std::endl;
+                            if (boost::filesystem::create_directory(dir))
+                                std::cout << "Directory Successfully Created !" << std::endl;
+                        }
+
+                        //filereading(all parts)-> stored in ans
+                        int part=0;
+                        std::string p=std::to_string(part);
+                        std::vector<char>  ans;
+                        int counter=0;
+
+                        while(1)
+                        {   std::string s=filepath+name+p;
+                            std::ifstream ifs(s, std::ios::binary|std::ios::ate);
+                            std::cout<<ifs.is_open()<<std::endl;
+                            if(!ifs.is_open())
+                            {
+                                ifs.close();
+                                break;
+                            }
+                            std::ifstream::pos_type pos = ifs.tellg();
+                            ans.resize(ans.size()+pos);
+                            ifs.seekg(0, std::ios::beg);
+                            ifs.read(&ans[counter], pos);
+                            part++;
+                            counter=ans.size();
+                            p=std::to_string(part);
+                        }
+
+                        std::cout<<"All files read Successfully\n";
+                        char size1[20];
+                        sprintf(size1,"%lld",(long long)ans.size());
+                        bytes_sent=SSL_write(ssl, size1,20);
+                        std::cout<<"Initiating SSL_writing protocol\n";
+    
+                        int dataLen=0;
+                        int packetCounter=0;
+                        while(1)
+                        {
+                            char *file2=new char[SIZE];
+                            for(int l=0 ;l<SIZE&&dataLen<ans.size();l++,dataLen++)
+                            {
+                                file2[l]=ans[dataLen];
+                            }
+                            std::cout<<"SSL_writing"<<std::endl;
+                            SSL_write(ssl, file2,SIZE);
+                            packetCounter++;
+                            std::cout<<"sent "<<packetCounter<<std::endl;
+
+                            SSL_read(ssl, msg,4);
+                            std::cout<<"conf SSL_read\n";
+                            if(dataLen==ans.size())
+                            {
+                                break;
+                            }
+                    
+                        }
+                        std::vector<char> tempVector;
+                        ans.swap(tempVector);
+                        std::cout<<"file sent"<<std::endl;
+                        fileCount++;
+                    }
+                    break;
+                }
+            default:
+                {
                     break;
                 }
         }
