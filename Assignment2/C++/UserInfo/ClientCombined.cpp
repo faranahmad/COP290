@@ -466,7 +466,36 @@ void CreateNewUser(std::string usn, std::string pwd)
 	x= ExecuteInstruction(TransferClientToServer(foldername + "receiving.txt",serverfoldername +"receiving.txt"));
 }
 
+void UserLogin(std::string usn, std::string pwd)
+{
+	// Send login credentials
+	// Receive Confirmation
+	int x=ExecuteInstruction(DoLogin(usn,pwd));
+	if (x==0)
+		std::cout<"Incorrect credentials\n";
+	else
+		std::cout<<"Welcome to dead drop\n";
+}
 
+bool CheckUserExists(std::string usname)
+{
+	int x=ExecuteInstruction(UserExists(usname));
+	if (x==1)
+		return true;
+	else
+		return false;
+}
+
+void PerformSync(SyncManager UserSyncManager)
+{
+	std::std::vector<Instruction> insvect=UserSyncManager.GetSyncingInstructions();
+	for (int i=0; i<insvect.size(); i++)
+	{
+		int x=ExecuteInstruction(insvect[i]);
+	}
+	// TODO: Store db files on client
+	// TODO: Update server db file
+}
 
 int main(int argc, char const *argv[])
 {
@@ -522,11 +551,20 @@ int main(int argc, char const *argv[])
 			std::cout << "Connected with ____ encryption " << SSL_get_cipher(ssl) <<"\n";
 	        ShowCerts(ssl);        /* get any certs */
 	        SSL_set_connect_state(ssl); 
-	
+			std::string x;
+			std::cin >>x;
+
 			std::string usinp,uspwd;
 			std::cin >> usinp;
 			std::cin >> uspwd;
-			CreateNewUser(usinp,uspwd);
+			if (x=="0")
+				CreateNewUser(usinp,uspwd);
+			else if (x=="1")
+				UserLogin(usinp,uspwd);
+			else if (x=="2")
+				std::cout << CheckUserExists(usinp);
+			// std::cin >> usinp;
+			// std::cin >> uspwd;
 			// Instruction newus=NewUser(usinp,uspwd);
 			// int k=ExecuteInstruction(newus);
 			// std::cout<<k<<"\n";
