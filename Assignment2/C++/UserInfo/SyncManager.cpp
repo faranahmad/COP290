@@ -219,7 +219,8 @@ void SyncManager::StoreToDiskDB(std::string location)
 std::vector<Instruction> SyncManager::GetSyncingInstructions()
 {
 	// TODO: SyncList include
-	// TODO: Sharing and giving files
+	// TODO: Consider current files on client
+	// TODO: Receiving and giving files
 	std::vector<Instruction> answer;
 	FileHistory CLH = MainFiles.GetClientFiles();
 	FileHistory SEH = MainFiles.GetServerFiles();

@@ -6,6 +6,7 @@
 #include "FileChanges.h"
 #include "FileHistory.h"
 #include "UserFiles.h"
+#include <algorithm>
 
 struct Instruction
 {
@@ -17,6 +18,11 @@ struct Instruction
 	// 4 is new server file,
 	// 5 is delete file on user
 	// 6 is remove file from server
+	// 7 is UserLogin 
+	// 8 is New user
+	// 9 is user exists
+	// 10 is exit
+	// 11 is GetServerFiles
 	std::string clientfilename;
 	std::string serverfilename;
 };
