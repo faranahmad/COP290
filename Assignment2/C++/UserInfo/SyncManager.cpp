@@ -261,16 +261,16 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 						// newer file is there on cloud
 						Instruction a;
 						a.modification= 2;
-						a.serverfilename=servername;
-						a.clientfilename=CLH.GetNthName(i);
+						a.data2=servername;
+						a.data1=CLH.GetNthName(i);
 						answer.push_back(a);
 					}
 					else if (CLH.GetNthTime(i) > SEH.GetNthTime(j))
 					{
 						// newer file on client
 						Instruction a;
-						a.clientfilename=CLH.GetNthName(i);
-						a.serverfilename=servername;
+						a.data1=CLH.GetNthName(i);
+						a.data2=servername;
 						a.modification=1;
 						answer.push_back(a);
 					}
@@ -279,8 +279,8 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 						// No changes;
 						Instruction a;
 						a.modification=0;
-						a.clientfilename=CLH.GetNthName(i);
-						a.serverfilename=servername;
+						a.data1=CLH.GetNthName(i);
+						a.data2=servername;
 						answer.push_back(a);
 					}
 
@@ -301,8 +301,8 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 				// TODO: Remove from sync list
 				Instruction a;
 				a.modification=5;
-				a.clientfilename=CLH.GetNthName(i);
-				a.serverfilename=" ";
+				a.data1=CLH.GetNthName(i);
+				a.data2=" ";
 				answer.push_back(a);
 			}
 			else
@@ -311,13 +311,13 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 				FilesToSync.ListOfFiles.push_back(CLH.GetNthName(i));
 				Instruction a;
 				a.modification=3;
-				a.clientfilename=CLH.GetNthName(i);
-				std::string sname=a.clientfilename;
+				a.data1=CLH.GetNthName(i);
+				std::string sname=a.data1;
 				int lenpath= CLH.GetFolder().size();
 				sname=sname.substr(lenpath);
-				a.serverfilename=SEH.GetFolder()+sname;
+				a.data2=SEH.GetFolder()+sname;
 				answer.push_back(a);	
-				USF.AddNew(a.clientfilename, a.serverfilename);
+				USF.AddNew(a.data1, a.data2);
 			}
 		}
 	}
@@ -332,14 +332,14 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 				// TODO: Remove the always addition to sync list
 				Instruction a;
 				a.modification=4;
-				a.serverfilename= SEH.GetNthName(i);
+				a.data2= SEH.GetNthName(i);
 				int lenpath = SEH.GetFolder().size();
-				std::string clname = a.serverfilename;
+				std::string clname = a.data2;
 				clname = clname.substr(lenpath);
-				a.clientfilename= CLH.GetFolder() + clname ;
-				FilesToSync.ListOfFiles.push_back(a.clientfilename);
+				a.data1= CLH.GetFolder() + clname ;
+				FilesToSync.ListOfFiles.push_back(a.data1);
 				answer.push_back(a);
-				USF.AddNew(a.clientfilename, a.serverfilename);
+				USF.AddNew(a.data1, a.data2);
 			}
 			else
 			{
@@ -347,8 +347,8 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 				// TODO: Remove from sync list
 				Instruction a;
 				a.modification= 6;
-				a.serverfilename= SEH.GetNthName(i);
-				a.clientfilename= "TO delete file on server ";
+				a.data1= SEH.GetNthName(i);
+				a.data2= "TO delete file on server ";
 				answer.push_back(a);
 			}
 		}
@@ -365,7 +365,7 @@ void SyncManager::SaveInstructionVector(std::vector<Instruction> InstructionVect
 	std::string data="";
 	for (int i=0; i<InstructionVector.size() ; i++)
 	{
-		data += InstructionVector[i].clientfilename + "\n" + InstructionVector[i].serverfilename +"\n" + std::to_string(InstructionVector[i].modification)+"\n";
+		data += InstructionVector[i].data1 + "\n" + InstructionVector[i].data2 +"\n" + std::to_string(InstructionVector[i].modification)+"\n";
 	}
 	data=data.substr(0,data.size()-1);
 	std::ofstream out(location);
@@ -385,8 +385,8 @@ std::vector<Instruction> SyncManager::LoadInstructionVector(std::string location
     		getline(myfile,line2);
     		getline(myfile,line3);
   			Instruction a;
-  			a.clientfilename= line1;
-  			a.serverfilename= line2;
+  			a.data1= line1;
+  			a.data2= line2;
   			a.modification= std::stoi(line3);
     		answer.push_back(a);
     	}
@@ -394,8 +394,6 @@ std::vector<Instruction> SyncManager::LoadInstructionVector(std::string location
   	}	
   	return answer;
 }
-
-
 
 int main(int argc, char const *argv[])
 {

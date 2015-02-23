@@ -20,8 +20,8 @@ struct Instruction
 	// 6 is remove file from server 		data1=slpath
 	// 7 is UserLogin 						data1=usname data2=passwd
 	// 8 is New user						data1=usname data2=passwd
-	// 9 is user exists						data1=usname
-	// 10 is exit
+	// 9 is User Exists						data1=usname
+	// 10 is Exit
 	// 11 is GetServerFiles					data1=clfodlerpath data2=sefolderpath
 	std::string data1;
 	std::string data2;
@@ -32,7 +32,7 @@ struct SyncList
 	std::vector<std::string> ListOfFiles;
 };
 
-bool SyncListContains(SyncList, std::string)
+bool SyncListContains(SyncList, std::string);
 
 class SyncManager
 {
