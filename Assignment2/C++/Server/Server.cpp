@@ -627,7 +627,7 @@ int main(int argc, char** argv)
             long id;
             struct sockaddr_storage their_addr;
             socklen_t addr_size = sizeof(their_addr);
-
+            std::cout<<"Waiting for more clients..."<<std::endl;
             id = accept(sockID, (struct sockaddr *)&their_addr, &addr_size);
             pthread_create(&threads[threadCount],NULL,ClientService,(void *)id);
             threadCount=(threadCount+1)%THREADS;

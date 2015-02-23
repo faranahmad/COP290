@@ -167,6 +167,8 @@ int ExecuteInstruction(Instruction ins)
                 //filereading
                 // TODO : Read files in chunks
                 std::ifstream ifs(temp1, std::ios::binary|std::ios::ate);
+                if(!ifs.is_open())
+                    return 0;
                 std::ifstream::pos_type pos = ifs.tellg();
                 std::vector<char>  ans(pos);
                 ifs.seekg(0, std::ios::beg);
