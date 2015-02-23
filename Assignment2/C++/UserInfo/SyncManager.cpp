@@ -395,6 +395,95 @@ std::vector<Instruction> SyncManager::LoadInstructionVector(std::string location
   	return answer;
 }
 
+Instruction DoLogin(std::string us,std::string pwd)
+{
+	Instruction p;
+	p.modification=7;
+	p.data1=us;
+	p.data2=pwd;
+	return p;
+}
+
+Instruction NewUser(std::string us, std::string pwd)
+{
+	Instruction p;
+	p.modification=8;
+	p.data1=us;
+	p.data2=pwd;
+	return p;
+}
+
+Instruction Exit()
+{
+	Instruction p;
+	p.modification=10;
+	return p;
+}
+
+Instruction UserExists(std::string usname)
+{
+	Instruction p;
+	p.modification=9;
+	p.data1=usname;
+	p.data2="";
+	return p;
+}
+
+Instruction GetServerFiles(std::string clpath,std::string sepath)
+{
+	Instruction p;
+	p.modification=11;
+	p.data1=clpath;
+	p.data2=sepath;
+	return p;
+}
+
+Instruction TransferServerToClient(std::string clpath,std::string sepath)
+{
+	Instruction p;
+	p.modification=1;
+	p.data1=clpath;
+	p.data2=sepath;
+	return p;
+}
+
+Instruction TransferClientToServer(std::string clpath, std::string sepath)
+{
+	Instruction p;
+	p.modification=2;
+	p.data1=clpath;
+	p.data2=sepath;
+	return p;
+}
+
+Instruction DeleteFileOnServer(std::string location)
+{
+	Instruction p;
+	p.modification=6;
+	p.data1=location;
+	p.data2=location;
+	return p;	
+}
+
+Instruction DeleteFileOnClient(std::string location)
+{
+	Instruction p;
+	p.modification=5;
+	p.data1=location;
+	p.data2=location;
+	return p;	
+}
+
+Instruction DoNothing()
+{
+	Instruction p;
+	p.modification=0;
+	p.data1="";
+	p.data2="";
+	return p;
+}
+
+
 int main(int argc, char const *argv[])
 {
 	SyncManager p=SyncManager("kg");

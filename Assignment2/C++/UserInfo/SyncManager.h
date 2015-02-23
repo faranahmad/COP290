@@ -88,4 +88,22 @@ class SyncManager
 		FileSharing GivingFiles;
 };
 
+
+Instruction DoLogin(std::string, std::string);
+Instruction NewUser(std::string, std::string);
+Instruction Exit();
+Instruction UserExists(std::string);
+Instruction GetServerFiles(std::string, std::string);
+Instruction TransferServerToClient(std::string,std::string);
+Instruction TransferClientToServer(std::string,std::string);
+Instruction DeleteFileOnServer(std::string);
+Instruction DeleteFileOnClient(std::string);
+Instruction DoNothing();
+
+struct Client
+{
+	std::string UserName;
+	SyncManager mang;
+};
+
 #endif
