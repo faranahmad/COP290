@@ -252,7 +252,7 @@ void *ClientService(void* data)
                     bytes_sent=SSL_write(ssl,msg3,1);
                     break;
                 }
-            case 4 : // File transfer from client to server case 1
+            case 1 : // File transfer from client to server case 1
                 {
                     char msg[4];
                     msg[0]='1';

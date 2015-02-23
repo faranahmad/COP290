@@ -1,0 +1,58 @@
+std::ifstream ifs(temp1, std::ios::binary|std::ios::ate);
+std::ifstream::pos_type pos = ifs.tellg();
+ifs.seekg(0, std::ios::beg);
+long long counter=0;
+
+char msg[4];
+char size1[20];
+sprintf(size1,"%lld",(long long)temp2.size());
+bytes_sent=SSL_write(ssl, size1,20);
+char* filepath=ToArr(temp2);
+bytes_sent=SSL_write(ssl,filepath,temp2.size());
+
+char size2[20];
+sprintf(size2,"%lld",(long long)pos);
+bytes_sent=SSL_write(ssl, size2,20);
+
+int dataLen=0;
+int packetCounter=0;
+while(counter<=pos)
+{
+    counter+=SIZE;
+    std::vector<char> ans;
+    if(counter<pos)
+    {
+        ans.resize(SIZE);
+        ifs.read(&ans[0], SIZE);
+        ifs.seekg(counter, std::ios::beg);
+
+    }
+    else
+    {
+        ans.resize(SIZE-counter+pos);
+        ifs.read(&ans[0],SIZE-counter+pos);
+    }
+
+    
+    char *file2=new char[SIZE];
+    for(int l=0 ;l<SIZE&&dataLen<pos;l++,dataLen++)
+    {
+        file2[l]=ans[dataLen%SIZE];
+    }
+    std::cout<<"SSL_writeing"<<std::endl;
+    SSL_write(ssl, file2,SIZE);
+    packetCounter++;
+    std::cout<<"sent "<<packetCounter<<std::endl;
+
+    SSL_read(ssl, msg,4);
+    std::cout<<"conf SSL_read\n";
+    if(dataLen==pos)
+    {
+        break;
+    }
+
+    std::vector<char> tempVector;
+    ans.swap(tempVector);
+}
+ifs.close();
+std::cout<<"file sent"<<std::endl;
