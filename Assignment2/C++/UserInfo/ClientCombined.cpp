@@ -208,10 +208,8 @@ int ExecuteInstruction(Instruction ins)
                 // TODO : Read files in chunks
                 std::ifstream ifs(temp1, std::ios::binary|std::ios::ate);
                 std::ifstream::pos_type pos = ifs.tellg();
-                std::vector<char>  ans(pos);
                 ifs.seekg(0, std::ios::beg);
-                ifs.read(&ans[0], pos);
-                ifs.close();
+                long long counter=0;
 
                 char msg[4];
                 char size1[20];
@@ -221,17 +219,32 @@ int ExecuteInstruction(Instruction ins)
                 bytes_sent=SSL_write(ssl,filepath,temp2.size());
                 
                 char size2[20];
-                sprintf(size2,"%lld",(long long)ans.size());
+                sprintf(size2,"%lld",(long long)pos);
                 bytes_sent=SSL_write(ssl, size2,20);
 
                 int dataLen=0;
                 int packetCounter=0;
-                while(1)
+                while(counter<=pos)
                 {
-                    char *file2=new char[SIZE];
-                    for(int l=0 ;l<SIZE&&dataLen<ans.size();l++,dataLen++)
+                    counter+=SIZE;
+                    std::vector<char> ans;
+                    if(counter<pos)
                     {
-                        file2[l]=ans[dataLen];
+                        ans.resize(SIZE);
+                        ifs.read(&ans[0], SIZE);
+                        ifs.seekg(counter, std::ios::beg);
+
+                    }
+                    else
+                    {
+                        ans.resize(SIZE-counter+pos);
+                        ifs.read(&ans[0],SIZE-counter+pos);
+                    }
+
+                    char *file2=new char[SIZE];
+                    for(int l=0 ;l<SIZE&&dataLen<pos;l++,dataLen++)
+                    {
+                        file2[l]=ans[dataLen%SIZE];
                     }
                     std::cout<<"SSL_writeing"<<std::endl;
                     SSL_write(ssl, file2,SIZE);
@@ -240,14 +253,14 @@ int ExecuteInstruction(Instruction ins)
 
                     SSL_read(ssl, msg,4);
                     std::cout<<"conf SSL_read\n";
-                    if(dataLen==ans.size())
+                    if(dataLen==pos)
                     {
                         break;
                     }
-            
+                    std::vector<char> tempVector;
+                    ans.swap(tempVector);
                 }
-                std::vector<char> tempVector;
-                ans.swap(tempVector);
+                ifs.close();
                 std::cout<<"file sent"<<std::endl;
                 return 1;
             }
@@ -486,16 +499,16 @@ bool CheckUserExists(std::string usname)
 		return false;
 }
 
-void PerformSync(SyncManager UserSyncManager)
-{
-	std::std::vector<Instruction> insvect=UserSyncManager.GetSyncingInstructions();
-	for (int i=0; i<insvect.size(); i++)
-	{
-		int x=ExecuteInstruction(insvect[i]);
-	}
-	// TODO: Store db files on client
-	// TODO: Update server db file
-}
+// void PerformSync(SyncManager UserSyncManager)
+// {
+// 	std::std::vector<Instruction> insvect=UserSyncManager.GetSyncingInstructions();
+// 	for (int i=0; i<insvect.size(); i++)
+// 	{
+// 		int x=ExecuteInstruction(insvect[i]);
+// 	}
+// 	// TODO: Store db files on client
+// 	// TODO: Update server db file
+// }
 
 int main(int argc, char const *argv[])
 {

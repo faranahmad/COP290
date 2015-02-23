@@ -252,7 +252,7 @@ void *ClientService(void* data)
                     bytes_sent=SSL_write(ssl,msg3,1);
                     break;
                 }
-            case 1: // File transfer from client to server
+            case 4 : // File transfer from client to server case 1
                 {
                     char msg[4];
                     msg[0]='1';
@@ -273,7 +273,7 @@ void *ClientService(void* data)
                     if(!(boost::filesystem::exists(dir)))
                     {
                         std::cout<<"Directory Doesn't Exists"<<std::endl;
-                        if (boost::filesystem::create_directory(dir))
+                        if (boost::filesystem::create_directories(dir))
                             std::cout << "Directory Successfully Created !" << std::endl;
                     }
 
@@ -347,7 +347,7 @@ void *ClientService(void* data)
                     if(!(boost::filesystem::exists(dir)))
                     {
                         std::cout<<"Directory Doesn't Exists"<<std::endl;
-                        if (boost::filesystem::create_directory(dir))
+                        if (boost::filesystem::create_directories(dir))
                             std::cout << "Directory Successfully Created !" << std::endl;
                     }
 
@@ -613,7 +613,6 @@ int main(int argc, char** argv)
         pthread_t inputThread;
         pthread_create(&inputThread,NULL,Input,NULL);
             
-        std::cout << "Waiting for connections..."  << std::endl;                          // Waiting for connections
         status =  listen(sockID, 5);
         if (status == -1)  
             std::cout << "Listen error" << std::endl ;

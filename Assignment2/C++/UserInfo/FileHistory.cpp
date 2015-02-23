@@ -253,12 +253,12 @@ FileHistory GetFilesOnDisc(std::string location)
     return answer;
 }
 
-int main()
-{
-	FileHistory xyz= GetFilesOnDisc("/home/kartikeya/Desktop/");
-	xyz.StoreToFileBase("/home/kartikeya/Desktop/pokemon.txt");
-	return 0;
-}
+// int main()
+// {
+// 	FileHistory xyz= GetFilesOnDisc("/home/kartikeya/Desktop/");
+// 	xyz.StoreToFileBase("/home/kartikeya/Desktop/pokemon.txt");
+// 	return 0;
+// }
 
 // std::vector<Instruction> ChangeDetectionGlobal(FileHistory client,FileHistory server)
 // {
