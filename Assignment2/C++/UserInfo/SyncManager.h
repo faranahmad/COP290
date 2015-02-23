@@ -12,17 +12,17 @@ struct Instruction
 {
 	int modification; 
 	// 0 is no change,
-	// 1 is newer modification client,
-	// 2 is newer modification server, 
-	// 3 is new client file, 
-	// 4 is new server file,
-	// 5 is delete file on user
-	// 6 is remove file from server
-	// 7 is UserLogin 
-	// 8 is New user
-	// 9 is user exists
+	// 1 is newer modification client,		data1=clpath data2=sepath
+	// 2 is newer modification server, 		data1=clpath data2=sepath
+	// 3 is new client file, 				data1=clpath data2=sepath
+	// 4 is new server file,				data1=clpath data2=sepath
+	// 5 is delete file on user				data1=clpath 
+	// 6 is remove file from server 		data1=slpath
+	// 7 is UserLogin 						data1=usname data2=passwd
+	// 8 is New user						data1=usname data2=passwd
+	// 9 is user exists						data1=usname
 	// 10 is exit
-	// 11 is GetServerFiles
+	// 11 is GetServerFiles					data1=clfodlerpath data2=sefolderpath
 	std::string data1;
 	std::string data2;
 };
