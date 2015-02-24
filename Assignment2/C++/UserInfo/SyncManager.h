@@ -102,6 +102,7 @@ Instruction TransferServerToClient(std::string,std::string);
 Instruction TransferClientToServer(std::string,std::string);
 Instruction DeleteFileOnServer(std::string);
 Instruction DeleteFileOnClient(std::string);
+Instruction RefreshServerDB(std::string);
 Instruction DoNothing();
 
 struct Client

@@ -492,6 +492,15 @@ Instruction DeleteFileOnClient(std::string location)
 	return p;	
 }
 
+Instruction RefreshServerDB(std::string location)
+{
+	Instruction p;
+	p.modification=12;
+	p.data1=location;
+	p.data2=location;
+	return p;	
+}
+
 Instruction DoNothing()
 {
 	Instruction p;

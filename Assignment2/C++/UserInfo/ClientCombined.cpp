@@ -621,7 +621,7 @@ void PerformSync(SyncManager UserSyncManager)
     x= ExecuteInstruction(TransferClientToServer(foldername + "sehistory.txt",serverfoldername +"sehistory.txt"));
     x= ExecuteInstruction(TransferClientToServer(foldername + "giving.txt",serverfoldername +"giving.txt"));
     x= ExecuteInstruction(TransferClientToServer(foldername + "receiving.txt",serverfoldername +"receiving.txt"));
-    
+    x= ExecuteInstruction(RefreshServerDB(serverfoldername));
     // TODO: Get Server DB files
 	// TODO: Store DB files on client
 	// TODO: Update server DB file
@@ -715,7 +715,7 @@ int main(int argc, char const *argv[])
 	        ShowCerts(ssl);        /* get any certs */
 	        SSL_set_connect_state(ssl); 
 			std::string x;
-            std::cout << "0: NEWUSER \n 1: LOGIN \n 2: USER EXISTS \n 3: SYNC";
+            std::cout << "0: NEWUSER \n 1: LOGIN \n 2: USER EXISTS \n 3: SYNC\n";
 			std::cin >>x;
 
 			std::string usinp,uspwd;
