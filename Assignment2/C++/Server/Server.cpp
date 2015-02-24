@@ -29,7 +29,38 @@ int sockID ;                         // The socket descriptor
 struct addrinfo host_info;       // The struct that getaddrinfo() fills up with data.
 struct addrinfo *host_info_list; // Pointer to the to the linked list of host_info's.
     
+std::string ToStr(char* arr)  //Convert array of characters to string
+{
+    std::string ans="";
+    for(int i=0;i<strlen(arr)&&arr[i]!='\0';i++)
+    {
+        ans+=arr[i];
+    }
+    return ans;
+}
 
+std::string FileName(std::string filename)
+{
+    std::string ans="";
+    for(int i=filename.size()-1;i>=0;i--)
+    {
+        if(filename[i]!='/')
+            ans=filename[i]+ans;
+        else
+            break;
+    }
+    return ans;
+}
+
+char* ToArr(std::string str)  //Convert string to array of character
+{
+    char* ans=new char[str.size()];
+    for(int i=0;i<str.size();i++)
+    {
+        ans[i]=str[i];
+    }
+    return ans;
+}
 
 int isRoot()
 {
@@ -92,41 +123,8 @@ SSL_CTX* InitSSL()
         exit(0);
     }
 
-    LoadCertificates(ctx, "Cert.pem", "Cert.pem");
+    LoadCertificates(ctx, ToArr("Cert.pem"), ToArr("Cert.pem"));
     return ctx;
-}
-
-std::string ToStr(char* arr)  //Convert array of characters to string
-{
-    std::string ans="";
-    for(int i=0;i<strlen(arr)&&arr[i]!='\0';i++)
-    {
-        ans+=arr[i];
-    }
-    return ans;
-}
-
-std::string FileName(std::string filename)
-{
-    std::string ans="";
-    for(int i=filename.size()-1;i>=0;i--)
-    {
-        if(filename[i]!='/')
-            ans=filename[i]+ans;
-        else
-            break;
-    }
-    return ans;
-}
-
-char* ToArr(std::string str)  //Convert string to array of character
-{
-    char* ans=new char[str.size()];
-    for(int i=0;i<str.size();i++)
-    {
-        ans[i]=str[i];
-    }
-    return ans;
 }
 
 void *Input(void * data)
