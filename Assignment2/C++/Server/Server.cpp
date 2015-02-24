@@ -542,7 +542,19 @@ void *ClientService(void* data)
                     }
                     break;
                 }
-            case 12: // Receive serverlist
+            case 12: // Receive a random string
+                {
+                    char len[20];
+                    bytes_recieved=SSL_read(ssl, len,20);
+                    len[bytes_recieved]='\0';
+                    size=atoll(len);
+                    std::cout<<size<<std::endl;
+                    char data[size];
+                    bytes_recieved=SSL_read(ssl,data,size);
+                    data[bytes_recieved]='\0';
+                    std::cout<<ToStr(data)<<std::endl;
+                }
+            case 13: // Receive serverlist
                 {
                     char msg[4];
                     msg[0]='1';

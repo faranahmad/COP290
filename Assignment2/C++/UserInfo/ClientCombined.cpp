@@ -441,10 +441,21 @@ int ExecuteInstruction(Instruction ins)
                     std::cout<<"file SSL_read"<<std::endl;
                     fileCount++;
                 }
-                break;
+                return 1;
 
             }
-        case 12: //Send Serverlist
+        case 12:
+            {
+                std::string temp2=ins.data1;
+                char len[20];
+                char size1[20];
+                sprintf(size1,"%lld",(long long)temp2.size());
+                bytes_sent=SSL_write(ssl, size1,20);
+                char* filepath=ToArr(temp2);
+                bytes_sent=SSL_write(ssl,filepath,temp2.size());
+                return 1;
+            }
+        case 13: //Send Serverlist
             {
                 std::cout<<"Client address\n";
                 std::string temp1=ins.data1; // including '/'
@@ -535,7 +546,7 @@ int ExecuteInstruction(Instruction ins)
                     std::cout<<"file sent"<<std::endl;
                     fileCount++;
                 }
-                break;
+                return 1;
             }
         default:
             {
