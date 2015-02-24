@@ -3,7 +3,8 @@
 #include <sys/socket.h> // Needed for the socket functions
 #include <netdb.h>      // Needed for the socket functions
 #include <unistd.h>     // Needed for closing the sockets
-#include "UserBase.h"   
+#include "UserBase.h"
+#include "FileHistory.h"   
 #include <fstream>
 #include <string>
 #include <vector>
@@ -553,6 +554,13 @@ void *ClientService(void* data)
                     bytes_recieved=SSL_read(ssl,data,size);
                     data[bytes_recieved]='\0';
                     std::cout<<ToStr(data)<<std::endl;
+                    std::string Location = ToStr(data);
+                    FileHistory ServerFiles = GetFilesOnDisc(Location);
+                    ServerFiles.StoreToFileBase(Location+"/sehistory.txt");
+                    // Refresh the folder files 
+                    // Store the files
+
+                    break;
                 }
             case 13: // Receive serverlist
                 {
