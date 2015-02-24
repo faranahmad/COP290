@@ -233,7 +233,6 @@ void SyncManager::StoreToDiskDB(std::string location)
 
 std::vector<Instruction> SyncManager::GetSyncingInstructions()
 {
-	// TODO: Add current folder support
 	// TODO: SyncList include
 	// TODO: Consider current files on client
 	// TODO: Receiving and giving files
@@ -242,7 +241,10 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 	FileHistory SEH = MainFiles.GetServerFiles();
 	UserFiles USF = MainFiles.GetFileLinking();
 
+	FileHistory PresentFiles= GetFilesOnDisc(CLH.GetFolder());
+
 	int numclient = CLH.GetNumberOfFiles();
+	int numcpresent = PresentFiles.GetNumberOfFiles();
 	int numserver = SEH.GetNumberOfFiles();
 
 	bool fileClient [numclient];

@@ -26,7 +26,6 @@ class FileHistory
 		std::string GetNthName(int);
 		int GetNthTime(int);
 
-
 		void SetDataTime(int);
 		void SetFolderLocation(std::string);
 		void SetFileTimeBase(std::vector< std::pair<std::string, int> >);

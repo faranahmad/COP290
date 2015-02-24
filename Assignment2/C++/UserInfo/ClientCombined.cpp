@@ -479,15 +479,21 @@ void CreateNewUser(std::string usn, std::string pwd)
 	x= ExecuteInstruction(TransferClientToServer(foldername + "receiving.txt",serverfoldername +"receiving.txt"));
 }
 
-void UserLogin(std::string usn, std::string pwd)
+bool UserLogin(std::string usn, std::string pwd)
 {
 	// Send login credentials
 	// Receive Confirmation
 	int x=ExecuteInstruction(DoLogin(usn,pwd));
 	if (x==0)
+    {
 		std::cout<"Incorrect credentials\n";
+        return false;
+    }
 	else
+    {
 		std::cout<<"Welcome to dead drop\n";
+        return true;
+    }
 }
 
 bool CheckUserExists(std::string usname)
@@ -499,16 +505,66 @@ bool CheckUserExists(std::string usname)
 		return false;
 }
 
-// void PerformSync(SyncManager UserSyncManager)
-// {
-// 	std::std::vector<Instruction> insvect=UserSyncManager.GetSyncingInstructions();
-// 	for (int i=0; i<insvect.size(); i++)
-// 	{
-// 		int x=ExecuteInstruction(insvect[i]);
-// 	}
-// 	// TODO: Store db files on client
-// 	// TODO: Update server db file
-// }
+void PerformSync(SyncManager UserSyncManager)
+{
+	int x;
+    std::string foldername="/home/kartikeya/Desktop/DeadDrop/" + UserSyncManager.GetUsername() +"/";
+    std::string serverfoldername="/home/skipper/Desktop/DeadDropServer/" + UserSyncManager.GetUsername() +"/";
+
+    x= ExecuteInstruction(TransferServerToClient(foldername + "sehistory.txt",serverfoldername +"sehistory.txt"));
+    x= ExecuteInstruction(TransferServerToClient(foldername + "giving.txt",serverfoldername +"giving.txt"));
+    x= ExecuteInstruction(TransferServerToClient(foldername + "receiving.txt",serverfoldername +"receiving.txt"));
+
+    SyncManager.LoadFromDiskDB("/home/kartikeya/Desktop/Deadrop");
+
+    std::vector<Instruction> insvect=UserSyncManager.GetSyncingInstructions();
+    for (int i=0; i<insvect.size(); i++)
+    {
+        x=ExecuteInstruction(insvect[i]);
+    }
+    
+    UserSyncManager.StoreToDiskDB("/home/kartikeya/Desktop/DeadDrop");
+    x= ExecuteInstruction(TransferClientToServer(foldername + "sehistory.txt",serverfoldername +"sehistory.txt"));
+    x= ExecuteInstruction(TransferClientToServer(foldername + "giving.txt",serverfoldername +"giving.txt"));
+    x= ExecuteInstruction(TransferClientToServer(foldername + "receiving.txt",serverfoldername +"receiving.txt"));
+    
+    // TODO: Get Server DB files
+	// TODO: Store DB files on client
+	// TODO: Update server DB file
+}
+
+void DeleteFileServer(SyncManager UserSyncManager, std::string filenameclient)
+{
+
+    // TODO: Send delete instruction on cloud
+    // TODO: Send delete instruction local
+    // TODO: Remove file name from databases
+    // TODO: Store data bases
+
+}
+
+void GetFileFromServer(SyncManager UserSyncManager, std::string filename)
+{
+    // TODO: Add filename to sync list
+    // TODO: Perform getting instruction
+    // TODO: Store DB files on client
+}
+
+void DeleteFileClient(SyncManager UserSyncManager, std::string filename)
+{
+    // TODO: remove file from sync list
+    // TODO: send delete file client instruction
+    // TODO: send delete file server instruction
+    // TODO: Update server db files
+    // TODO: Update client db files
+}
+
+void KeepOnlineOnly(SyncManager UserSyncManager, std::string filename)
+{
+    // TODO: remove file from sync list
+    // TODO: send delete client file instruction
+    // TODO: Update client db files
+}
 
 int main(int argc, char const *argv[])
 {
@@ -565,18 +621,37 @@ int main(int argc, char const *argv[])
 	        ShowCerts(ssl);        /* get any certs */
 	        SSL_set_connect_state(ssl); 
 			std::string x;
+            std::cout << "0: NEWUSER \n 1: LOGIN \n 2: USER EXISTS \n 3: SYNC"
 			std::cin >>x;
 
 			std::string usinp,uspwd;
-			std::cin >> usinp;
-			std::cin >> uspwd;
-			if (x=="0")
-				CreateNewUser(usinp,uspwd);
+            if (x=="0")
+            {
+                std::cin >> usinp;
+                std::cin >> uspwd;
+            	CreateNewUser(usinp,uspwd);
+            }
 			else if (x=="1")
-				UserLogin(usinp,uspwd);
+			{
+                std::cin >> usinp;
+                std::cin >> uspwd;
+            	UserLogin(usinp,uspwd);
+            }
 			else if (x=="2")
-				std::cout << CheckUserExists(usinp);
-			// std::cin >> usinp;
+			{
+                std::cin >> usinp;
+            	std::cout << CheckUserExists(usinp);
+            }
+            else if (x=="3")
+            {
+                // TODO: Implement Syncing
+                std::cin >> usinp;
+                SyncManager l=SyncManager(usinp);
+                l.RefreshClientFolder();
+                PerformSync(l);
+            }
+
+    		// std::cin >> usinp;
 			// std::cin >> uspwd;
 			// Instruction newus=NewUser(usinp,uspwd);
 			// int k=ExecuteInstruction(newus);

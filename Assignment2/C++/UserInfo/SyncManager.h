@@ -23,6 +23,8 @@ struct Instruction
 	// 9 is User Exists						data1=usname
 	// 10 is Exit
 	// 11 is GetServerFiles					data1=clfodlerpath data2=sefolderpath
+	// 12 is UpdateServerDiskFiles			data1=sefolderpath
+	// 13 is SendServerFiles				data1=clfolderpath data2=sefolderpath
 	std::string data1;
 	std::string data2;
 };
