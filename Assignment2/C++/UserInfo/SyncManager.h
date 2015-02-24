@@ -29,6 +29,15 @@ struct Instruction
 	std::string data2;
 };
 
+// synclist.txt
+// receiving.txt
+// giving.txt
+// clserver.txt
+// seclient.txt
+// clhistory.txt
+// sehistory.txt		
+
+
 struct SyncList
 {
 	std::vector<std::string> ListOfFiles;
