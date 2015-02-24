@@ -616,23 +616,38 @@ void PerformSync(SyncManager UserSyncManager)
     std::string foldername="/home/kartikeya/Desktop/DeadDrop/" + UserSyncManager.GetUsername() +"/";
     std::string serverfoldername="/home/skipper/Desktop/DeadDropServer/" + UserSyncManager.GetUsername() +"/";
 
+    std::cout << "Transferring server info files to client\n";
+
     x= ExecuteInstruction(TransferServerToClient(foldername + "sehistory.txt",serverfoldername +"sehistory.txt"));
     x= ExecuteInstruction(TransferServerToClient(foldername + "giving.txt",serverfoldername +"giving.txt"));
     x= ExecuteInstruction(TransferServerToClient(foldername + "receiving.txt",serverfoldername +"receiving.txt"));
 
+    std::cout << "Transferred server info files to client\n";
+
     UserSyncManager.LoadFromDiskDB("/home/kartikeya/Desktop/Deadrop");
+
+    std::cout <<"Loaded files from disk\n";
 
     std::vector<Instruction> insvect=UserSyncManager.GetSyncingInstructions();
     for (int i=0; i<insvect.size(); i++)
     {
         x=ExecuteInstruction(insvect[i]);
     }
+
+    std::cout << "Executed sync instructions \n";
     
     UserSyncManager.StoreToDiskDB("/home/kartikeya/Desktop/DeadDrop");
+
+    std::cout << "Stored DB files to client\n";
+
     x= ExecuteInstruction(TransferClientToServer(foldername + "sehistory.txt",serverfoldername +"sehistory.txt"));
     x= ExecuteInstruction(TransferClientToServer(foldername + "giving.txt",serverfoldername +"giving.txt"));
     x= ExecuteInstruction(TransferClientToServer(foldername + "receiving.txt",serverfoldername +"receiving.txt"));
+    
     x= ExecuteInstruction(RefreshServerDB(serverfoldername));
+    
+    std::cout << "Updated server db files\n";
+
     // TODO: Get Server DB files
 	// TODO: Store DB files on client
 	// TODO: Update server DB file
@@ -650,6 +665,10 @@ void DeleteFileServer(SyncManager UserSyncManager, std::string filenameclient)
 
 void GetFileFromServer(SyncManager UserSyncManager, std::string filename)
 {
+    std::string foldername="/home/kartikeya/Desktop/DeadDrop/" + UserSyncManager.GetUsername() +"/";
+    UserSyncManager.AddFileToSync(filename);
+    PerformSync(UserSyncManager);
+           
     // TODO: Add filename to sync list
     // TODO: Perform getting instruction
     // TODO: Store DB files on client
@@ -666,6 +685,10 @@ void DeleteFileClient(SyncManager UserSyncManager, std::string filename)
 
 void KeepOnlineOnly(SyncManager UserSyncManager, std::string filename)
 {
+    std::string foldername="/home/kartikeya/Desktop/DeadDrop/" + UserSyncManager.GetUsername() +"/";
+    UserSyncManager.RemoveFileFromSync(filename);
+    UserSyncManager.StoreToDiskDB(foldername);
+    int x=ExecuteInstruction(DeleteFileOnClient(filename));
     // TODO: remove file from sync list
     // TODO: send delete client file instruction
     // TODO: Update client db files
@@ -751,8 +774,11 @@ int main(int argc, char const *argv[])
             {
                 // TODO: Implement Syncing
                 std::cin >> usinp;
+                std::cout <<"Starting\n";
                 SyncManager l=SyncManager(usinp);
-                l.RefreshClientFolder();
+                std::cout << "Initialised\n";
+                l.LoadFromDiskDB("/home/kartikeya/Desktop/DeadDrop/");
+                std::cout << "Got basic data\n";
                 PerformSync(l);
             }
 

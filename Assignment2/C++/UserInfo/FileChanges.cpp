@@ -86,6 +86,7 @@ void FileChanges::LoadClientHistory(std::string location)
 
 void FileChanges::LoadServerHistory(std::string location)
 {
+	std::cout << "Loading serve history\n";
 	ServerHistory.LoadFromFileBase(location);
 }
 

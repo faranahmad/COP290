@@ -158,6 +158,7 @@ void SyncManager::LoadClHistory(std::string location)
 
 void SyncManager::LoadSeHistory(std::string location)
 {
+	std::cout <<"Loading se history\n";
 	MainFiles.LoadServerHistory(location);
 }
 
@@ -209,13 +210,17 @@ void SyncManager::StoreSeHistory(std::string location)
 
 void SyncManager::LoadFromDiskDB(std::string location)
 {
+	std::cout <<"Loading db\n";
 	LoadSyncList(location+ "/" + Username+"/synclist.txt");
 	LoadReceiving(location+ "/" + Username+"/receiving.txt");
 	LoadGiving(location+ "/" + Username+"/giving.txt");
+	std::cout <<"Done giving\n";
 	LoadClServerMap(location+ "/" + Username+"/clserver.txt");
 	LoadSeClientMap(location+ "/" + Username+"/seclient.txt");
 	LoadClHistory(location+ "/" + Username+"/clhistory.txt");
-	LoadSeHistory(location+ "/" + Username+"/sehistory.txt");	
+	std::cout <<"Done giving\n";
+	LoadSeHistory(location+ "/" + Username + "/sehistory.txt");	
+	std::cout <<"Done giving\n";
 }
 
 void SyncManager::StoreToDiskDB(std::string location)
@@ -242,6 +247,7 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 	UserFiles USF = MainFiles.GetFileLinking();
 
 	FileHistory PresentFiles= GetFilesOnDisc(CLH.GetFolder());
+	CLH = PresentFiles;
 
 	int numclient = CLH.GetNumberOfFiles();
 	int numcpresent = PresentFiles.GetNumberOfFiles();
