@@ -459,10 +459,12 @@ void *ClientService(void* data)
                             case 1:
                             {
                                 temp="giving.txt";
+                                break;
                             }
                             case 2:
                             {
                                 temp="sehistory.txt";
+                                break;
                             }
                             default:
                             {
@@ -470,7 +472,7 @@ void *ClientService(void* data)
                             }
                         }
                         std::string name=FileName(ToStr(filename)+temp);
-                        std::string filepath=ToStr(filename).substr(0,strlen(filename)-name.size());
+                        std::string filepath=(ToStr(filename)+temp).substr(0,strlen(filename)-name.size());
                         std::cout<<"Filepath:"<<filepath<<std::endl;
                         std::cout<<"Filename:"<<name<<std::endl;
                         boost::filesystem::path dir(filepath);
@@ -536,6 +538,110 @@ void *ClientService(void* data)
                         std::vector<char> tempVector;
                         ans.swap(tempVector);
                         std::cout<<"file sent"<<std::endl;
+                        fileCount++;
+                    }
+                    break;
+                }
+            case 12: // Receive serverlist
+                {
+                    char msg[4];
+                    msg[0]='1';
+                    char len[20];
+                    bytes_recieved=SSL_read(ssl, len,20);
+                    len[bytes_recieved]='\0';
+                    size=atoll(len);
+                    std::cout<<size<<std::endl;
+                    char filename[size];
+                    bytes_recieved=SSL_read(ssl,filename,size);
+                    filename[bytes_recieved]='\0';
+                    std::cout<<ToStr(filename)<<std::endl;
+                    int fileCount=0;
+                    std::string temp3=ToStr(filename);
+                    std::string temp1;
+                    while(fileCount<3)
+                    {
+                        bytes_recieved=SSL_read(ssl, len,20);    
+                        len[bytes_recieved]='\0';
+                        long long size=atoll(len);
+                        std::cout<<size<<std::endl;
+                        
+                        switch(fileCount)
+                        {
+    
+                            case 0:
+                                {
+                                    temp1=(temp3+"receiving.txt");
+                                    break;
+                                }
+                            case 1:
+                                {
+                                    temp1=(temp3+"giving.txt");
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    temp1=(temp3+"sehistory.txt");
+                                    break;
+                                }
+                            default:
+                                {
+                                    break;
+                                }   
+                        }
+    
+                        std::string name=FileName(temp1);
+                        std::string filepath2=temp1.substr(0,temp1.size()-name.size());
+                        std::cout<<"Filepath:"<<filepath2<<std::endl;
+                        std::cout<<"Filename:"<<name<<std::endl;
+                        boost::filesystem::path dir(filepath2);
+                        if(!(boost::filesystem::exists(dir)))
+                        {
+                            std::cout<<"Directory Doesn't Exists"<<std::endl;
+                            if (boost::filesystem::create_directory(dir))
+                                std::cout << "Directory Successfully Created !" << std::endl;
+                        }
+                        std::string data="";
+                        int packetCounter=0;
+                        int dataLen=0;
+                        int partCounter=0;
+                        std::string part=std::to_string(partCounter);
+                        int joined=0;
+                        std::cout<<"FileCreated"<<std::endl;
+                        while(1)
+                        {
+                            std::ofstream out(filepath2+name+part);
+                            while(joined<JOIN)
+                            {
+                                char file[SIZE];
+                                bytes_recieved=SSL_read(ssl, file,SIZE);
+                                file[bytes_recieved]='\0';
+                                std::cout<<bytes_recieved<<std::endl;
+                                packetCounter++;
+                                for(int i=0;i<bytes_recieved && dataLen<size;i++)
+                                {
+                                    data+=file[i];
+                                    dataLen++;
+                                }
+                                out << data;
+                                data="";
+                                joined++;
+                                std::cout<<"recieved "<<packetCounter<<std::endl;
+                                SSL_write(ssl, msg,4);
+                                std::cout<<"conf sent\n";    
+                                if(/*bytes_recieved<=0*/ dataLen==size)
+                                {
+                                    std::cout<<"breaking now"<<std::endl;
+                                    out.close();
+                                    goto NEXT2;
+                                }
+                            }
+                            std::cout<<"Out of loop\n";
+                            out.close();
+                            joined=0;
+                            partCounter++;
+                            part=std::to_string(partCounter);
+                        }
+                        NEXT2:std::cout<<"file sent"<<std::endl;
                         fileCount++;
                     }
                     break;

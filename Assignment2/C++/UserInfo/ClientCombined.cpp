@@ -441,7 +441,101 @@ int ExecuteInstruction(Instruction ins)
                     std::cout<<"file SSL_read"<<std::endl;
                     fileCount++;
                 }
+                break;
 
+            }
+        case 12: //Send Serverlist
+            {
+                std::cout<<"Client address\n";
+                std::string temp1=ins.data1; // including '/'
+                std::cout<<"Server address\n";
+                std::string temp2=ins.data2; // including '/'
+                std::string temp3=temp1;
+
+                char msg[4];
+                char len[20];
+                char size1[20];
+                sprintf(size1,"%lld",(long long)temp2.size());
+                bytes_sent=SSL_write(ssl, size1,20);
+                char* filepath=ToArr(temp2);
+                bytes_sent=SSL_write(ssl,filepath,temp2.size());
+
+                int fileCount=0;
+                while(fileCount<3)
+                {
+                    std::string temp;
+                    switch(fileCount)
+                    {
+                        case 0:
+                        {
+                            temp="receiving.txt";
+                            break;
+                        }
+                        case 1:
+                        {
+                            temp="giving.txt";
+                            break;
+                        }
+                        case 2:
+                        {
+                            temp="sehistory.txt";
+                            break;
+                        }
+                        default:
+                        {
+                            break;
+                        }
+                    }
+                    std::string name=FileName(temp1+temp);
+                    std::string filepath=(temp1+temp).substr(0,temp1.size()+temp.size()-name.size());
+                    std::cout<<"Filepath:"<<filepath<<std::endl;
+                    std::cout<<"Filename:"<<name<<std::endl;
+                    boost::filesystem::path dir(filepath);
+                    if(!(boost::filesystem::exists(dir)))
+                    {
+                        std::cout<<"Directory Doesn't Exists"<<std::endl;
+                        if (boost::filesystem::create_directory(dir))
+                            std::cout << "Directory Successfully Created !" << std::endl;
+                    }
+                    std::ifstream ifs(temp1+temp, std::ios::binary|std::ios::ate);
+                    std::ifstream::pos_type pos = ifs.tellg();
+                    std::vector<char> ans(pos);
+                    ifs.seekg(0, std::ios::beg);
+                    ifs.read(&ans[0], pos);
+                    ifs.close();
+
+                    char size1[20];
+                    sprintf(size1,"%lld",(long long)ans.size());
+                    bytes_sent=SSL_write(ssl, size1,20);
+                    std::cout<<"Initiating SSL_writing protocol\n";
+
+                    int dataLen=0;
+                    int packetCounter=0;
+                    while(1)
+                    {
+                        char *file2=new char[SIZE];
+                        for(int l=0 ;l<SIZE&&dataLen<ans.size();l++,dataLen++)
+                        {
+                            file2[l]=ans[dataLen];
+                        }
+                        std::cout<<"SSL_writing"<<std::endl;
+                        SSL_write(ssl, file2,SIZE);
+                        packetCounter++;
+                        std::cout<<"sent "<<packetCounter<<std::endl;
+
+                        SSL_read(ssl, msg,4);
+                        std::cout<<"conf SSL_read\n";
+                        if(dataLen==ans.size())
+                        {
+                            break;
+                        }
+                    }
+                    std::vector<char> tempVector;
+                    ans.swap(tempVector);
+                    std::cout<<"file sent"<<std::endl;
+                    fileCount++;
+                }
+                break;
             }
         default:
             {
@@ -515,7 +609,7 @@ void PerformSync(SyncManager UserSyncManager)
     x= ExecuteInstruction(TransferServerToClient(foldername + "giving.txt",serverfoldername +"giving.txt"));
     x= ExecuteInstruction(TransferServerToClient(foldername + "receiving.txt",serverfoldername +"receiving.txt"));
 
-    SyncManager.LoadFromDiskDB("/home/kartikeya/Desktop/Deadrop");
+    UserSyncManager.LoadFromDiskDB("/home/kartikeya/Desktop/Deadrop");
 
     std::vector<Instruction> insvect=UserSyncManager.GetSyncingInstructions();
     for (int i=0; i<insvect.size(); i++)
@@ -621,7 +715,7 @@ int main(int argc, char const *argv[])
 	        ShowCerts(ssl);        /* get any certs */
 	        SSL_set_connect_state(ssl); 
 			std::string x;
-            std::cout << "0: NEWUSER \n 1: LOGIN \n 2: USER EXISTS \n 3: SYNC"
+            std::cout << "0: NEWUSER \n 1: LOGIN \n 2: USER EXISTS \n 3: SYNC";
 			std::cin >>x;
 
 			std::string usinp,uspwd;
