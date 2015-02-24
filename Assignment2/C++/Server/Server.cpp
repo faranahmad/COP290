@@ -59,6 +59,7 @@ char* ToArr(std::string str)  //Convert string to array of character
     {
         ans[i]=str[i];
     }
+    ans[str.size()]='\0';
     return ans;
 }
 
@@ -123,7 +124,8 @@ SSL_CTX* InitSSL()
         exit(0);
     }
 
-    LoadCertificates(ctx, ToArr("Cert.pem"), ToArr("Cert.pem"));
+    char* cert=ToArr("Cert.pem");
+    LoadCertificates(ctx, cert, cert);
     return ctx;
 }
 
@@ -225,6 +227,7 @@ void *ClientService(void* data)
                     bytes_recieved=SSL_read(ssl,msg2,size);
                     msg2[bytes_recieved]='\0';
                     char msg3[1];
+                    msg3[1]='\0';
                     if(base.VerifyUserCredentials(User(username,ToStr(msg2))))
                         msg3[0]='1';
                     else
@@ -244,6 +247,7 @@ void *ClientService(void* data)
                     std::string username=ToStr(msg1);
                     std::cout<<username<<std::endl;
                     char msg3[1];
+                    msg3[1]='\0';
                     if(base.CheckUserExists(User(username)))
                         msg3[0]='1';
                     else
@@ -254,6 +258,7 @@ void *ClientService(void* data)
             case 1 : // File transfer from client to server case 1
                 {
                     char msg[4];
+                    msg[4]='\0';
                     msg[0]='1';
                     char len[20];
                     bytes_recieved=SSL_read(ssl, len,20);
@@ -288,6 +293,8 @@ void *ClientService(void* data)
                     std::string part=std::to_string(partCounter);
                     int joined=0;
                     std::cout<<"FileCreated"<<std::endl;
+                                        std::ofstream o("/home/skipper/Desktop/yo/test4.txt");
+
                     while(1)
                     {
                         std::ofstream out(filepath+name+part);
@@ -304,6 +311,7 @@ void *ClientService(void* data)
                                 dataLen++;
                             }
                             out << data;
+                            o<<data;
                             data="";
                             joined++;
                             std::cout<<"recieved "<<packetCounter<<std::endl;
@@ -323,11 +331,13 @@ void *ClientService(void* data)
                         part=std::to_string(partCounter);
                     }
                     NEXT:std::cout<<"file sent"<<std::endl;
+                    o.close();
                     break;
                 }
-            case 2: //File transfer from server to client
+            case 2: //File transfer from server to client case 2
                 {
                     char msg[4];
+                    msg[4]='\0';
                     msg[0]='1';
                     char len[20];
                     bytes_recieved=SSL_read(ssl, len,20);
@@ -376,6 +386,7 @@ void *ClientService(void* data)
 
                     std::cout<<"All files read Successfully\n";
                     char size1[20];
+                    size1[20]='\0';
                     sprintf(size1,"%lld",(long long)ans.size());
                     bytes_sent=SSL_write(ssl, size1,20);
                     std::cout<<"Initiating SSL_writing protocol\n";
@@ -389,12 +400,14 @@ void *ClientService(void* data)
                         {
                             file2[l]=ans[dataLen];
                         }
+                        file2[SIZE]='\0';
                         std::cout<<"SSL_writing"<<std::endl;
                         SSL_write(ssl, file2,SIZE);
                         packetCounter++;
                         std::cout<<"sent "<<packetCounter<<std::endl;
 
-                        SSL_read(ssl, msg,4);
+                        bytes_recieved=SSL_read(ssl, msg,4);
+                        msg[bytes_recieved]='\0';
                         std::cout<<"conf SSL_read\n";
                         if(dataLen==ans.size())
                         {
@@ -434,6 +447,7 @@ void *ClientService(void* data)
                 {
                     char msg[4];
                     msg[0]='1';
+                    msg[4]='\0';
                     char len[20];
                     bytes_recieved=SSL_read(ssl, len,20);
                     len[bytes_recieved]='\0';
@@ -508,6 +522,7 @@ void *ClientService(void* data)
 
                         std::cout<<"All files read Successfully\n";
                         char size1[20];
+                        size1[20]='\0';
                         sprintf(size1,"%lld",(long long)ans.size());
                         bytes_sent=SSL_write(ssl, size1,20);
                         std::cout<<"Initiating SSL_writing protocol\n";
@@ -521,12 +536,14 @@ void *ClientService(void* data)
                             {
                                 file2[l]=ans[dataLen];
                             }
+                            file2[SIZE]='\0';
                             std::cout<<"SSL_writing"<<std::endl;
                             SSL_write(ssl, file2,SIZE);
                             packetCounter++;
                             std::cout<<"sent "<<packetCounter<<std::endl;
 
-                            SSL_read(ssl, msg,4);
+                            bytes_recieved=SSL_read(ssl, msg,4);
+                            msg[bytes_recieved]='\0';
                             std::cout<<"conf SSL_read\n";
                             if(dataLen==ans.size())
                             {
@@ -564,6 +581,7 @@ void *ClientService(void* data)
                 {
                     char msg[4];
                     msg[0]='1';
+                    msg[4]='\0';
                     char len[20];
                     bytes_recieved=SSL_read(ssl, len,20);
                     len[bytes_recieved]='\0';

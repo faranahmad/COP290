@@ -228,7 +228,7 @@ int ExecuteInstruction(Instruction ins)
                 {
                     counter+=SIZE;
                     std::vector<char> ans;
-                    if(counter<pos)
+                    if(counter<=pos)
                     {
                         ans.resize(SIZE);
                         ifs.read(&ans[0], SIZE);
@@ -244,7 +244,7 @@ int ExecuteInstruction(Instruction ins)
                     char *file2=new char[SIZE];
                     for(int l=0 ;l<SIZE&&dataLen<pos;l++,dataLen++)
                     {
-                        file2[l]=ans[dataLen%SIZE];
+                        file2[l]=ans[l];
                     }
                     std::cout<<"SSL_writeing"<<std::endl;
                     SSL_write(ssl, file2,SIZE);
