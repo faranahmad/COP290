@@ -4,8 +4,15 @@
 #include <cstdlib>
 #include <unistd.h>
 #include <iostream>
+#include <
 
+void connecting::valuechanged(int value)
+{
+    value = 0;
+    for (int i = 0;i<100;i++)
+        value = i;
 
+}
 
 connecting::connecting(QWidget *parent) :
     QDialog(parent),

@@ -13,6 +13,7 @@ class connecting : public QDialog
 
 public:
     explicit connecting(QWidget *parent = 0);
+
     ~connecting();
 
 private slots:
@@ -22,6 +23,9 @@ private slots:
 
 private:
     Ui::connecting *ui;
+
+signals:
+    void valuechanged(int value);
 };
 
 #endif // CONNECTING_H
