@@ -33,6 +33,8 @@ class FileHistory
 		void SetNthFile(int, std::string);
 		void SetNthTime(int, int);
 
+		bool ExistsFile(std::string);
+
 		void LoadFileTimeBase();
 
 		void LoadFromFileBase(std::string);

@@ -280,7 +280,7 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 	UserFiles USF = MainFiles.GetFileLinking();
 
 	FileHistory PresentFiles= GetFilesOnDisc(CLH.GetFolder());
-	CLH = PresentFiles;
+	// CLH = PresentFiles;
 
 	int numclient = CLH.GetNumberOfFiles();
 	int numcpresent = PresentFiles.GetNumberOfFiles();
@@ -290,9 +290,12 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 	bool filePresent [numcpresent];
 	bool fileServer [numserver];
 
+	int ClientPresent [numclient];
+
 	for (int i=0; i<numclient; i++)
 	{
 		fileClient[i]=false;
+		ClientPresent[i]= -1;
 	}
 	
 	for (int i=0; i<numserver; i++)
@@ -305,123 +308,314 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 		filePresent[i]=false;
 	}
 
-
-
-
-
-
-
-	for (int i=0; i<numclient; i++)
+	for (int i=0; i< numclient ; i++)
 	{
-		std::pair<std::string, int> ClData= CLH.GetNthInfo(i);
-		if (USF.CheckExistsClientServer(ClData.first) && (SyncListContains(FilesToSync,ClData.first)))
+		std::string ClData = CLH.GetNthName(i);
+		for (int j=0; (j<numcpresent) && !(fileClient[i]); j++)
 		{
-			std::string servername=USF.GetClientFileName(ClData.first);
+			if (ClData == PresentFiles.GetNthName(j))
+			{
+				filePresent[j]=true;
+				fileClient[i]=true;
+				ClientPresent[i]=j;
+			}
+		}
+	}
+
+	for (int i=0; i < numclient ; i++)
+	{
+		if (fileClient[i])
+		{
+			// File was there on last sync and now as well
+			// If change occured then do work
+			int positionlocal=ClientPresent[i];
+			// TODO make cases based on timestamp
+
+		}
+		else
+		{
+			// File was there at last sync but not anymore
+			// Delete this file from cloud
+			// Remove from db
+			// Remove file from synclist
+
+			Instruction a;
+			a.modification = 6;
+			a.data2 = PresentFiles.GetNthName(i);
+			int lenpath = CLH.GetFolder().size();
+			std::string sname = a.data2.substr(lenpath);
+			a.data1 = SEH.GetFolder() + sname;
+			answer.push_back(a);	
+			RemoveFileFromSync(a.data2);
+		}
+	}
+	for (int i=0; i < numcpresent ; i++)
+	{
+		if (!(filePresent[i]))
+		{
+			// New file has appeared on client
+			// Send this to the server
+			// TODO: Fix timestamp issue
+			FilesToSync.ListOfFiles.push_back(PresentFiles.GetNthName(i));
+			Instruction a;
+			a.modification=3;
+			a.data1= PresentFiles.GetNthName(i);
+			std::string sname=a.data1;
+			int lenpath= CLH.GetFolder().size();
+			sname=sname.substr(lenpath);
+			a.data2=SEH.GetFolder()+sname;
+			answer.push_back(a);	
+			USF.AddNew(a.data1, a.data2);
+			answer.push_back(a);
+		}
+	}
+
+	// File in prev sync, File in present, no change in TS, if change in server ts then pull else no change
+	// File in prev sync, File in present and newer TS, if change in server ts then decide and give pull/push
+	// File not in prev syn, File in present, if there on server then decide and give pull push
+	// File 
+
+	// for (int i=0; i<numclient; i++)
+	// {
+	// 	int PrevAndNow = 0;
+	// 	std::pair<std::string, int> ClData= CLH.GetNthInfo(i);
+	// 	for (int j=0; (j<numcpresent) && !fileClient[i] ; j++)
+	// 	{
+	// 		if (PresentFiles.GetNthInfo(j).first==ClData.first)
+	// 		{
+	// 			fileClient[i]=true;
+	// 			// filePresent[j]=true;
+	// 			previd=i;
+	// 			PrevAndNow = 3;
+	// 			// presentid=j;
+	// 			j -=1 ;
+	// 		}
+	// 	}
+	// 	if !(fileClient[i])
+	// 	{
+	// 		PrevAndNow = 2;
+	// 	}
+
+	// 	if (PrevAndNow == 3)
+	// 	{
+	// 		// File there at prev sync and now
+	// 		if (SyncListContains(FilesToSync,ClData.first))
+	// 		{	
+	// 			std::string servername = USF.GetClientFileName(ClData.first); 
+	// 			for (int k=0; (k<numserver) && !(filePresent[j]) ; k++)
+	// 			{
+	// 				if (servername == SEH.GetNthInfo(k).first)
+	// 				{
+	// 					if (PresentFiles.GetNthTime(j) < SEH.GetNthTime(k))
+	// 					{
+	// 						// TODO: fix client path
+	// 						// newer file is there on cloud
+	// 						Instruction a;
+	// 						a.modification= 2;
+	// 						a.data2=servername;
+	// 						a.data1=CLH.GetNthName(i);
+	// 						answer.push_back(a);
+	// 					}
+	// 					else if (PresentFiles.GetNthTime(j) > SEH.GetNthTime(k))
+	// 					{
+	// 						// TODO: Fix client path
+	// 						// newer file on client
+	// 						Instruction a;
+	// 						a.data1=CLH.GetNthName(i);
+	// 						a.data2=servername;
+	// 						a.modification=1;
+	// 						answer.push_back(a);
+	// 					}
+	// 					else
+	// 					{
+	// 						// No changes;
+	// 						Instruction a;
+	// 						a.modification=0;
+	// 						a.data1=CLH.GetNthName(i);
+	// 						a.data2=servername;
+	// 						answer.push_back(a);
+	// 					}
+	// 					fileServer[k]=true;
+	// 					filePresent[j]=true;
+	// 					k -=1 ;
+	// 				}
+	// 			}
+	// 			if !(fileServer[k])
+	// 			{
+	// 				// Delete file on client
+	// 				// TODO: Fix path
+	// 				Instruction a;
+	// 				a.modification = 5;
+	// 				a.data1 = CLH.GetNthName(i);
+	// 				a.data2 = "";
+	// 				answer.push_back(a);
+	// 			}
+	// 		}
+	// 		else
+	// 		{
+	// 			// Delete file on client
+	// 			// TODO: Fix path
+	// 			Instruction a;
+	// 			a.modification = 5;
+	// 			a.data1 = CLH.GetNthName(i);
+	// 			a.data2 = "";
+	// 			answer.push_back(a);	
+	// 		}
+	// 	}
+	// 	else if (PrevAndNow==2)
+	// 	{
+	// 		// File there previously but not now
+	// 		if (SyncListContains(FilesToSync,ClData.first))
+	// 		{
+	// 			std::string servername = USF.GetClientFileName(ClData.first);
+					
+	// 		}
+	// 		else
+	// 		{
+
+	// 		}
+	// 	}
+	// 		else if (PrevAndNow==1)
+	// 		{
+	// 			// File not there previously but there now
+
+	// 		}
+
+	// 	}
+	// 	else if (PrevAndNow == 2)
+	// 	{
+
+	// 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// 	if (USF.CheckExistsClientServer(ClData.first) && (SyncListContains(FilesToSync,ClData.first)))
+	// 	{
+	// 		std::string servername=USF.GetClientFileName(ClData.first);
 			
-			for (int j=0; (j<numserver) && !(fileClient[i]) ; j++ )
-			{
-				if (servername==SEH.GetNthName(j))
-				{
-					fileClient[i]=true;
-					fileServer[j]=true;
+	// 		for (int j=0; (j<numserver) && !(fileClient[i]) ; j++ )
+	// 		{
+	// 			if (servername==SEH.GetNthName(j))
+	// 			{
+	// 				fileClient[i]=true;
+	// 				fileServer[j]=true;
 
-					if (CLH.GetNthTime(i) < SEH.GetNthTime(j))
-					{
-						// newer file is there on cloud
-						Instruction a;
-						a.modification= 2;
-						a.data2=servername;
-						a.data1=CLH.GetNthName(i);
-						answer.push_back(a);
-					}
-					else if (CLH.GetNthTime(i) > SEH.GetNthTime(j))
-					{
-						// newer file on client
-						Instruction a;
-						a.data1=CLH.GetNthName(i);
-						a.data2=servername;
-						a.modification=1;
-						answer.push_back(a);
-					}
-					else
-					{
-						// No changes;
-						Instruction a;
-						a.modification=0;
-						a.data1=CLH.GetNthName(i);
-						a.data2=servername;
-						answer.push_back(a);
-					}
+	// 				if (CLH.GetNthTime(i) < SEH.GetNthTime(j))
+	// 				{
+	// 					// newer file is there on cloud
+	// 					Instruction a;
+	// 					a.modification= 2;
+	// 					a.data2=servername;
+	// 					a.data1=CLH.GetNthName(i);
+	// 					answer.push_back(a);
+	// 				}
+	// 				else if (CLH.GetNthTime(i) > SEH.GetNthTime(j))
+	// 				{
+	// 					// newer file on client
+	// 					Instruction a;
+	// 					a.data1=CLH.GetNthName(i);
+	// 					a.data2=servername;
+	// 					a.modification=1;
+	// 					answer.push_back(a);
+	// 				}
+	// 				else
+	// 				{
+	// 					// No changes;
+	// 					Instruction a;
+	// 					a.modification=0;
+	// 					a.data1=CLH.GetNthName(i);
+	// 					a.data2=servername;
+	// 					answer.push_back(a);
+	// 				}
 
 
-					// File found now detect changes based on time
-				}
-			}
-		}
-	}
+	// 				// File found now detect changes based on time
+	// 			}
+	// 		}
+	// 	}
+	// }
 
-	for (int i=0; i< numclient; i++)
-	{
-		if (!fileClient[i])
-		{
-			if (CLH.GetDataTime() < SEH.GetDataTime())
-			{
-				// File has to be deleted on client
-				// TODO: Remove from sync list
-				Instruction a;
-				a.modification=5;
-				a.data1=CLH.GetNthName(i);
-				a.data2=" ";
-				answer.push_back(a);
-			}
-			else
-			{
-				// File has been created on client
-				FilesToSync.ListOfFiles.push_back(CLH.GetNthName(i));
-				Instruction a;
-				a.modification=3;
-				a.data1=CLH.GetNthName(i);
-				std::string sname=a.data1;
-				int lenpath= CLH.GetFolder().size();
-				sname=sname.substr(lenpath);
-				a.data2=SEH.GetFolder()+sname;
-				answer.push_back(a);	
-				USF.AddNew(a.data1, a.data2);
-			}
-		}
-	}
+	// for (int i=0; i< numclient; i++)
+	// {
+	// 	if (!fileClient[i])
+	// 	{
+	// 		if (CLH.GetDataTime() < SEH.GetDataTime())
+	// 		{
+	// 			// File has to be deleted on client
+	// 			// TODO: Remove from sync list
+	// 			Instruction a;
+	// 			a.modification=5;
+	// 			a.data1=CLH.GetNthName(i);
+	// 			a.data2=" ";
+	// 			answer.push_back(a);
+	// 		}
+	// 		else
+	// 		{
+	// 			// File has been created on client
+	// 			FilesToSync.ListOfFiles.push_back(CLH.GetNthName(i));
+	// 			Instruction a;
+	// 			a.modification=3;
+	// 			a.data1=CLH.GetNthName(i);
+	// 			std::string sname=a.data1;
+	// 			int lenpath= CLH.GetFolder().size();
+	// 			sname=sname.substr(lenpath);
+	// 			a.data2=SEH.GetFolder()+sname;
+	// 			answer.push_back(a);	
+	// 			USF.AddNew(a.data1, a.data2);
+	// 		}
+	// 	}
+	// }
 
-	for (int i=0; i< numserver; i++)
-	{
-		if (!fileServer[i])
-		{
-			if (CLH.GetDataTime() < SEH.GetDataTime())
-			{
-				// File has to be transferred to client
-				// TODO: Remove the always addition to sync list
-				Instruction a;
-				a.modification=4;
-				a.data2= SEH.GetNthName(i);
-				int lenpath = SEH.GetFolder().size();
-				std::string clname = a.data2;
-				clname = clname.substr(lenpath);
-				a.data1= CLH.GetFolder() + clname ;
-				FilesToSync.ListOfFiles.push_back(a.data1);
-				answer.push_back(a);
-				USF.AddNew(a.data1, a.data2);
-			}
-			else
-			{
-				// File has to be deleted from server
-				// TODO: Remove from sync list
-				Instruction a;
-				a.modification= 6;
-				a.data1= SEH.GetNthName(i);
-				a.data2= "TO delete file on server ";
-				answer.push_back(a);
-			}
-		}
-	}
+	// for (int i=0; i< numserver; i++)
+	// {
+	// 	if (!fileServer[i])
+	// 	{
+	// 		if (CLH.GetDataTime() < SEH.GetDataTime())
+	// 		{
+	// 			// File has to be transferred to client
+	// 			// TODO: Remove the always addition to sync list
+	// 			Instruction a;
+	// 			a.modification=4;
+	// 			a.data2= SEH.GetNthName(i);
+	// 			int lenpath = SEH.GetFolder().size();
+	// 			std::string clname = a.data2;
+	// 			clname = clname.substr(lenpath);
+	// 			a.data1= CLH.GetFolder() + clname ;
+	// 			FilesToSync.ListOfFiles.push_back(a.data1);
+	// 			answer.push_back(a);
+	// 			USF.AddNew(a.data1, a.data2);
+	// 		}
+	// 		else
+	// 		{
+	// 			// File has to be deleted from server
+	// 			// TODO: Remove from sync list
+	// 			Instruction a;
+	// 			a.modification= 6;
+	// 			a.data1= SEH.GetNthName(i);
+	// 			a.data2= "TO delete file on server ";
+	// 			answer.push_back(a);
+	// 		}
+	// 	}
+	// }
 	MainFiles.SetFileLinking(USF);
 	MainFiles.SetClientFiles(CLH);
 	MainFiles.SetServerFiles(SEH);
