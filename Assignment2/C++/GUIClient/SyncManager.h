@@ -80,6 +80,12 @@ class SyncManager
 		void LoadFromDiskDB(std::string);
 		void StoreToDiskDB(std::string);
 
+		std::string GetClientMappingForFile(std::string);
+		std::string GetServerMappingForFile(std::string);
+
+		void RemoveFromServerBase(std::string);
+		void RemoveFromClientBase(std::string);
+
 		std::vector<Instruction> GetSyncingInstructions();
 		void SaveInstructionVector(std::vector<Instruction>, std::string);
 		std::vector<Instruction> LoadInstructionVector(std::string);

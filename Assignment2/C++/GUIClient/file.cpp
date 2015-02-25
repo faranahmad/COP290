@@ -12,6 +12,12 @@
 #include "filesonserver.h"
 #include <stack>
 
+
+extern std::string inst,datafield1,datafield2,datafield3;
+extern std::string reversedata1,reversedata2,reversedata3;
+extern bool InstructionStarted, InstructionCompleted;
+
+
 std::vector<Data> itemtobeadded;
 std::vector<Data> presentdata;
 std::stack<Data> fulldata;
@@ -21,11 +27,16 @@ file::file(QWidget *parent) :
     ui(new Ui::file)
 {
     ui->setupUi(this);
+    
+    std::string mainpath(getenv("HOME")); 
+    std::string foldername=mainpath + "/Desktop/DeadDrop/" + datafield2  + "/";
 
-    QString sPath = "/home/faran/Desktop";
+    // QString sPath = "/home/faran/Desktop";
+    QString sPath = foldername.c_str();
+
     dirmodel = new QFileSystemModel(this);
     dirmodel->setRootPath(sPath);
-    QModelIndex index1 = dirmodel->index("/home/faran/Desktop");
+    QModelIndex index1 = dirmodel->index(foldername.c_str());
     ui->treeView->setModel(dirmodel);
     dirmodel->setReadOnly(false);
     ui->treeView->setRootIndex(index1);

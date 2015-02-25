@@ -105,6 +105,26 @@ void FileChanges::RefreshClient()
 	ClientHistory.LoadFileTimeBase();
 }
 
+std::string FileChanges::GetCLMapping(std::string serverfilename)
+{
+	return FileLinking.GetClientFileName(serverfilename);
+}
+
+std::string FileChanges::GetSEMapping(std::string clientfilename)
+{
+	return FileLinking.GetServerFileName(clientfilename);
+}
+
+void FileChanges::RemoveFromClient(std::string location)
+{
+	ClientHistory.RemoveFile(location);
+}
+
+void FileChanges::RemoveFromServer(std::string location)
+{
+	ServerHistory.RemoveFile(location);
+}
+
 
 // std::vector<Instruction> FileChanges::ChangeDetectionGlobal()
 // {

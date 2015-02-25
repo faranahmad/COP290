@@ -693,16 +693,15 @@ void DeleteFileClient(SyncManager UserSyncManager, std::string filenameclient)
 	std::cout << "Transferred server info files to client\n";
 
 	UserSyncManager.LoadFromDiskDB(mainpath+"/Desktop/DeadDrop/");
+	
+	std::string filenameserver = UserSyncManager.GetServerMappingForFile(filenameclient);
 
 	instructionresult = ExecuteInstruction(DeleteFileOnClient(filenameclient));
-	// TODO: Get server mapping for file
-	std::string filenameserver = UserSyncManager.GetServerMappingForFile(filenameclient);
 	instructionresult = ExecuteInstruction(DeleteFileOnServer(filenameserver));
 
 	UserSyncManager.RemoveFileFromSync(filenameclient);
 
-	// TODO: Remove file from client base
-	UserSyncManager.RemoveFileFromClientBase(filenameserver);
+	UserSyncManager.RemoveFromClientBase(filenameclient);
 
 	UserSyncManager.StoreToDiskDB(mainpath+"/Desktop/DeadDrop/");
 
@@ -774,10 +773,15 @@ void GetFileFromServer(SyncManager UserSyncManager, std::string filename)
 	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + "giving.txt" , serverfoldername +"giving.txt"));
 	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + "receiving.txt", serverfoldername +"receiving.txt"));
 
+	// LOTS OF CHANGES
+
 	UserSyncManager.LoadFromDiskDB(mainpath+"/Desktop/DeadDrop/");
 	UserSyncManager.AddFileToSync(filename);
 	// TODO: Add file to main files server
-	UserSyncManager.AddFileToMainFilesServer(filename);
+
+
+
+	// UserSyncManager.AddFileToMainFilesClient(filenamecl,filename);
 	
 	std::string filenameclient = UserSyncManager.GetClientMappingForFile(filename);
 	instructionresult = ExecuteInstruction(TransferServerToClient(filenameclient,filename));

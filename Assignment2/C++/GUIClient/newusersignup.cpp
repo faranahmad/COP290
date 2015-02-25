@@ -8,10 +8,9 @@
 bool show1;
 bool xyz;
 
-extern std::string user_name_text;
-extern std::string password_text;
-extern std::string inst;
-
+extern std::string inst,datafield1,datafield2,datafield3;
+extern std::string reversedata1,reversedata2,reversedata3;
+extern bool InstructionStarted, InstructionCompleted;
 
 NewUserSignup::NewUserSignup(QWidget *parent) :
     QDialog(parent),
@@ -90,8 +89,9 @@ void NewUserSignup::on_toolButton_clicked()
         std::string Gotusername = gotusername.toUtf8().constData();
         QString gotpassword = ui->passwordtext->text();
         std::string Gotpassword = gotpassword.toUtf8().constData();
-        user_name_text=Gotusername;
-        password_text=Gotpassword;
+        
+        datafield1=Gotusername;
+        datafield2=Gotpassword;
         inst="0";
         QMessageBox::information(this,tr("successful"),tr("newusersuccessfully created"));
         // this->hide();

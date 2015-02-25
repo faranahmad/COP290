@@ -38,6 +38,8 @@ class FileHistory
 		void LoadFromFileBase(std::string);
 		void StoreToFileBase(std::string);
 
+		void RemoveFile(std::string);
+
 	private:
 		std::string FolderLocation;
 		int TimeOfData;

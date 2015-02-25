@@ -197,6 +197,19 @@ void FileHistory::StoreToFileBase(std::string location)
 	out.close();
 }
 
+void FileHistory::RemoveFile(std::string location)
+{
+	bool done=false;
+	for (int i=0; (i< FileTimeBase.size()) && !(done); i++ )	
+	{
+		if (FileTimeBase[i].first == location)
+		{
+			done = true;
+			FileTimeBase.erase(FileTimeBase.begin() + i);
+		}
+	}
+}
+
 std::vector< std::pair<std::string, int> > GetVectorFiles(std::string location)
 {
 	boost::filesystem::path p (location);

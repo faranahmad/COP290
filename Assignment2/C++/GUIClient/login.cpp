@@ -80,6 +80,9 @@ void login::on_login_2_clicked()
         if (reversedata1=="NO")
         {
         	QMessageBox::warning(this,tr("Please Re-Enter"),tr("Username or Password is Wrong"));
+        	reversedata1="";
+        	InstructionCompleted=false;
+			InstructionStarted=false;
         }
         else if (reversedata1=="YES")
         {

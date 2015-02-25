@@ -1,9 +1,5 @@
 #include "SyncManager.h"
 
-
-// KG part
-
-
 bool SyncListContains(SyncList cons, std::string tofind)
 {
 	bool found=false;
@@ -233,6 +229,37 @@ void SyncManager::StoreToDiskDB(std::string location)
 	StoreSeClientMap( location + "/" + Username + "/seclient.txt");
 	StoreClHistory( location + "/" + Username + "/clhistory.txt");
 	StoreSeHistory( location + "/" + Username + "/sehistory.txt");		
+}
+
+std::string SyncManager::GetClientMappingForFile(std::string serverfilename)
+{
+	return MainFiles.GetCLMapping(serverfilename);
+}
+
+std::string SyncManager::GetServerMappingForFile(std::string serverfilename)
+{
+	return MainFiles.GetSEMapping(serverfilename);
+}
+
+
+
+
+void SyncManager::RemoveFromServerBase(std::string serverfilename)
+{
+	// Remove from sehistory
+	// Remove from clhistory
+	MainFiles.RemoveFromServer(serverfilename);
+	std::string clientfilename = GetClientMappingForFile(serverfilename);
+	MainFiles.RemoveFromClient(clientfilename);
+}
+
+void SyncManager::RemoveFromClientBase(std::string clientfilename)
+{
+	// Remove from sehistory
+	// Remove from clhistory
+	MainFiles.RemoveFromClient(clientfilename);
+	std::string serverfilename = GetServerMappingForFile(clientfilename);
+	MainFiles.RemoveFromServer(serverfilename);
 }
 
 

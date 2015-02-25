@@ -34,6 +34,13 @@ class FileChanges
 
 		void RefreshClient();
 
+		std::string GetCLMapping(std::string);
+		std::string GetSEMapping(std::string);
+
+
+		void RemoveFromClient(std::string);
+		void RemoveFromServer(std::string);
+
 		// std::vector<Instruction> ChangeDetectionGlobal();
 
 		// void SaveInstructionVectorToFile(std::vector<Instruction>, std::string);

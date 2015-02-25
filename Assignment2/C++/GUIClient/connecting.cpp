@@ -6,6 +6,11 @@
 #include <iostream>
 
 
+extern std::string inst,datafield1,datafield2,datafield3;
+extern std::string reversedata1,reversedata2,reversedata3;
+extern bool InstructionStarted, InstructionCompleted;
+
+
 
 connecting::connecting(QWidget *parent) :
     QDialog(parent),
