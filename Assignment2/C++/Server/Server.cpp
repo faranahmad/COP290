@@ -29,6 +29,71 @@ int sockID ;                         // The socket descriptor
 struct addrinfo host_info;       // The struct that getaddrinfo() fills up with data.
 struct addrinfo *host_info_list; // Pointer to the to the linked list of host_info's.
     
+
+bool EqualVector(std::vector<char> file1, std::vector<char> file2)
+{
+    for(int i=0;i<file1.size();i++)
+    {
+        if(file1[i]!=file2[i])
+        {   
+            std::cout<<i<<"    "<<file1[i]<<"    "<<file2[i]<<std::endl;
+            return false;
+        }
+    }
+    return true;
+}
+
+int CompFiles(std::string file1,  std::string file2)
+{
+    std::ifstream ifs1(file1,std::ios::binary|std::ios::ate);
+    std::ifstream ifs2(file2,std::ios::binary|std::ios::ate);
+
+    ifs1.seekg(0, std::ios::end);
+    std::ifstream::pos_type pos = ifs1.tellg();
+    ifs2.seekg(0, std::ios::end);
+    std::ifstream::pos_type pos2 = ifs2.tellg();
+    long long counter=0;
+    std::vector<char> f1;
+    std::vector<char> f2;
+    if((long long)pos!=(long long)pos2)
+    {
+        std::cout<<"Sizes dont match"<<std::endl;
+        goto WRONG;
+    }
+    
+    while(counter<pos)
+    {
+        ifs1.seekg(counter,std::ios::beg);
+        ifs2.seekg(counter,std::ios::beg);
+        if(counter+SIZE>pos)
+        {   
+            int temp=(long long )pos - counter;
+            f1.resize(temp);
+            f2.resize(temp);
+            ifs1.read(&f1[0],temp);
+            ifs2.read(&f2[0],temp);
+        }
+        else
+        {
+            f1.resize(SIZE);
+            f2.resize(SIZE);
+            ifs1.read(&f1[0],SIZE);
+            ifs2.read(&f2[0],SIZE);
+        }
+        std::cout<<f1.size()<<f2.size()<<std::endl;
+        if (EqualVector(f1,f2))
+            std::cout << "success" << std::endl;
+        else
+        {   
+            WRONG:std::cout << "Not equal"<<std::endl;
+            return false;
+        }
+        counter+=SIZE;
+    }
+    std::cout<<"Equal"<<std::endl;
+    return true;
+}
+
 std::string ToStr(char* arr)  //Convert array of characters to string
 {
     std::string ans="";
@@ -255,7 +320,7 @@ void *ClientService(void* data)
                     bytes_sent=SSL_write(ssl,msg3,1);
                     break;
                 }
-            case 1 : // File transfer from client to server case 1
+            case 1 : // File transfer from client to server case 1 and return filepath
                 {
                     char msg[4];
                     msg[4]='\0';
@@ -289,49 +354,41 @@ void *ClientService(void* data)
                     std::string data="";
                     int packetCounter=0;
                     int dataLen=0;
-                    int partCounter=0;
-                    std::string part=std::to_string(partCounter);
-                    int joined=0;
+
+                    std::ofstream out(filepath+name);
                     std::cout<<"FileCreated"<<std::endl;
-                                        std::ofstream o("/home/skipper/Desktop/yo/test4.txt");
 
                     while(1)
                     {
-                        std::ofstream out(filepath+name+part);
-                        while(joined<JOIN)
+                        char file[SIZE];
+                        bytes_recieved=SSL_read(ssl, file,SIZE);
+                        file[bytes_recieved]='\0';
+                        std::cout<<bytes_recieved<<std::endl;
+                        packetCounter++;
+                        for(int i=0;i<bytes_recieved && dataLen<size;i++)
                         {
-                            char file[SIZE];
-                            bytes_recieved=SSL_read(ssl, file,SIZE);
-                            file[bytes_recieved]='\0';
-                            std::cout<<bytes_recieved<<std::endl;
-                            packetCounter++;
-                            for(int i=0;i<bytes_recieved && dataLen<size;i++)
-                            {
-                                data+=file[i];
-                                dataLen++;
-                            }
-                            out << data;
-                            o<<data;
-                            data="";
-                            joined++;
-                            std::cout<<"recieved "<<packetCounter<<std::endl;
-                            SSL_write(ssl, msg,4);
-                            std::cout<<"conf sent\n";    
-                            if(/*bytes_recieved<=0*/ dataLen==size)
-                            {
-                                std::cout<<"breaking now"<<std::endl;
-                                out.close();
-                                goto NEXT;
-                            }
+                            data+=file[i];
+                            dataLen++;
                         }
-                        std::cout<<"Out of loop\n";
-                        out.close();
-                        joined=0;
-                        partCounter++;
-                        part=std::to_string(partCounter);
+                        out << data;
+                        data="";
+                        std::cout<<"recieved "<<packetCounter<<std::endl;
+                        SSL_write(ssl, msg,4);
+                        std::cout<<"conf sent\n";    
+                        if(/*bytes_recieved<=0*/ dataLen==size)
+                        {
+                            std::cout<<"breaking now"<<std::endl;
+                            out.close();
+                            break;
+                        }
+                        
                     }
+                    std::cout<<"Out of loop\n";
+                    out.close();
                     NEXT:std::cout<<"file sent"<<std::endl;
-                    o.close();
+
+                    std::ifstream iFile(filepath+name);
+
                     break;
                 }
             case 2: //File transfer from server to client case 2
@@ -360,31 +417,16 @@ void *ClientService(void* data)
                             std::cout << "Directory Successfully Created !" << std::endl;
                     }
 
-                    //filereading(all parts)-> stored in ans
-                    int part=0;
-                    std::string p=std::to_string(part);
-                    std::vector<char>  ans;
-                    int counter=0;
+                    //filereading-> stored in ans
+                    std::ifstream ifs(filepath+name);
+                    ifs.seekg(0, std::ios::end);
+                    std::ifstream::pos_type pos = ifs.tellg();
+                    std::vector<char>  ans(pos);
+                    ifs.seekg(0, std::ios::beg);
+                    ifs.read(&ans[0], pos);
+                    
 
-                    while(1)
-                    {   std::string s=filepath+name+p;
-                        std::ifstream ifs(s, std::ios::binary|std::ios::ate);
-                        std::cout<<ifs.is_open()<<std::endl;
-                        if(!ifs.is_open())
-                        {
-                            ifs.close();
-                            break;
-                        }
-                        std::ifstream::pos_type pos = ifs.tellg();
-                        ans.resize(ans.size()+pos);
-                        ifs.seekg(0, std::ios::beg);
-                        ifs.read(&ans[counter], pos);
-                        part++;
-                        counter=ans.size();
-                        p=std::to_string(part);
-                    }
-
-                    std::cout<<"All files read Successfully\n";
+                    std::cout<<"File read Successfully\n";
                     char size1[20];
                     size1[20]='\0';
                     sprintf(size1,"%lld",(long long)ans.size());
