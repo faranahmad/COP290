@@ -265,9 +265,15 @@ void SyncManager::RemoveFromClientBase(std::string clientfilename)
 
 std::vector<Instruction> SyncManager::GetSyncingInstructions()
 {
-	// TODO: SyncList include
-	// TODO: Consider current files on client
+	// Get current client files in temp storage
+	// Reload client db files
+	// See for files in sync list which are no longer on disc
+	// See for files in sync list which are in disc and changed
+	// See for files in sync list which are not changed on disc
+	// See for files not in sync list but are in temp storage
+
 	// TODO: Receiving and giving files
+
 	std::vector<Instruction> answer;
 	FileHistory CLH = MainFiles.GetClientFiles();
 	FileHistory SEH = MainFiles.GetServerFiles();
@@ -281,6 +287,7 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 	int numserver = SEH.GetNumberOfFiles();
 
 	bool fileClient [numclient];
+	bool filePresent [numcpresent];
 	bool fileServer [numserver];
 
 	for (int i=0; i<numclient; i++)
@@ -292,6 +299,17 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 	{
 		fileServer[i]=false;
 	}
+
+	for (int i=0; i<numcpresent; i++)
+	{
+		filePresent[i]=false;
+	}
+
+
+
+
+
+
 
 	for (int i=0; i<numclient; i++)
 	{

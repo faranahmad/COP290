@@ -12,6 +12,7 @@ struct graph
 bool InstructionStarted, InstructionCompleted;
 std::string reversedata1,reversedata2,reversedata3;
 std::string inst, datafield1, datafield2, datafield3;
+SyncManager MergedSyncManager;
 
 void *StartBackend(void *xyz)
 {
@@ -33,6 +34,7 @@ int main(int argc, char *argv[])
 	reversedata2="";
 	reversedata3="";
 	inst="";
+	MergedSyncManager=SyncManager();
 
     graph data;
     data.argcx=argc;

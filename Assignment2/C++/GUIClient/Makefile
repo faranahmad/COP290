@@ -28,6 +28,9 @@ Client:SyncManager.cpp FileChanges.cpp UserFiles.cpp FileHistory.cpp FileSharing
 	g++ -std=c++11 UserFiles.cpp FileHistory.cpp FileChanges.cpp FileSharing.cpp FileReceiving.cpp SyncManager.cpp ClientCombined.cpp -lboost_system -lboost_filesystem -lssl -lcrypto -lpthread
 	# ./a.out
 
+QTUI: UserFiles.cpp FileHistory.cpp FileChanges.cpp FileSharing.cpp FileReceiving.cpp SyncManager.cpp ClientCombined.cpp main.o login.o newusersignup.o fileaccess.o file.o share.o connecting.o filesonserver.o moc_login.o moc_newusersignup.o moc_fileaccess.o moc_file.o moc_share.o moc_connecting.o 
+	g++ -std=c++11 -m64 -o welcome UserFiles.cpp FileHistory.cpp FileChanges.cpp FileSharing.cpp FileReceiving.cpp SyncManager.cpp ClientCombined.cpp main.o login.o newusersignup.o fileaccess.o file.o share.o connecting.o filesonserver.o moc_login.o moc_newusersignup.o moc_fileaccess.o moc_file.o moc_share.o moc_connecting.o   -L/usr/X11R6/lib64 -lQt5Widgets -L/usr/lib/x86_64-linux-gnu -lQt5Gui -lQt5Core -lGL -lpthread -lboost_system -lboost_filesystem -lssl -lcrypto
+
 main.o: main.cpp
 	g++ $(QTINC) -o main.o main.cpp
 	
@@ -70,8 +73,6 @@ moc_connecting.o: moc_connecting.cpp
 login.o: login.cpp
 	g++ $(QTINC) -o login.o login.cpp
 
-QTUI: UserFiles.cpp FileHistory.cpp FileChanges.cpp FileSharing.cpp FileReceiving.cpp SyncManager.cpp ClientCombined.cpp main.o login.o newusersignup.o fileaccess.o file.o share.o connecting.o filesonserver.o moc_login.o moc_newusersignup.o moc_fileaccess.o moc_file.o moc_share.o moc_connecting.o 
-	g++ -std=c++11 -m64 -o welcome UserFiles.cpp FileHistory.cpp FileChanges.cpp FileSharing.cpp FileReceiving.cpp SyncManager.cpp ClientCombined.cpp main.o login.o newusersignup.o fileaccess.o file.o share.o connecting.o filesonserver.o moc_login.o moc_newusersignup.o moc_fileaccess.o moc_file.o moc_share.o moc_connecting.o   -L/usr/X11R6/lib64 -lQt5Widgets -L/usr/lib/x86_64-linux-gnu -lQt5Gui -lQt5Core -lGL -lpthread -lboost_system -lboost_filesystem -lssl -lcrypto
 
 	# g++ -std=c++11 -c  UserFiles.cpp FileHistory.cpp FileChanges.cpp FileSharing.cpp FileReceiving.cpp SyncManager.cpp ClientCombined.cpp -lboost_system -lboost_filesystem -lssl -lcrypto -lpthread
 	# g++ -std=c++11 -m64 -o client  ClientCombined.o main.o login.o newusersignup.o fileaccess.o moc_login.o moc_newusersignup.o moc_fileaccess.o  -L/usr/X11R6/lib64 -lQt5Widgets -L/usr/lib/x86_64-linux-gnu -lQt5Gui -lQt5Core -lGL -lpthread

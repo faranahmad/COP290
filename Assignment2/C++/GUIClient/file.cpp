@@ -8,15 +8,17 @@
 #include <QTableWidgetItem>
 #include <iostream>
 #include <vector>
+#include <QMessageBox>
 #include <string>
 #include "filesonserver.h"
 #include <stack>
+#include <unistd.h>
 
 
 extern std::string inst,datafield1,datafield2,datafield3;
 extern std::string reversedata1,reversedata2,reversedata3;
 extern bool InstructionStarted, InstructionCompleted;
-
+extern SyncManager MergedSyncManager;
 
 std::vector<Data> itemtobeadded;
 std::vector<Data> presentdata;
@@ -29,7 +31,7 @@ file::file(QWidget *parent) :
     ui->setupUi(this);
     
     std::string mainpath(getenv("HOME")); 
-    std::string foldername=mainpath + "/Desktop/DeadDrop/" + datafield2  + "/";
+    std::string foldername=mainpath + "/Desktop/DeadDrop/" + reversedata2  + "/";
 
     // QString sPath = "/home/faran/Desktop";
     QString sPath = foldername.c_str();
@@ -120,6 +122,7 @@ file::~file()
 
 void file::on_pushButton_clicked()
 {
+	// Move file to drive
     QModelIndex index2 = ui->treeView->currentIndex();
 
         if(!index2.isValid()) return;
@@ -172,6 +175,7 @@ void file::on_pushButton_clicked()
 
 void file::on_pushButton_2_clicked()
 {
+	// display button
     QListWidgetItem* x = ui->listWidget->currentItem();
     QString y = x->text();
     std::string y1 = y.toUtf8().constData();
@@ -180,6 +184,7 @@ void file::on_pushButton_2_clicked()
 
 void file::on_pushButton_3_clicked()
 {
+	// Open file on client
     QModelIndex index2 = ui->treeView->currentIndex();
     QString filepath1;
         if(!index2.isValid()) return;
@@ -204,6 +209,7 @@ void file::on_pushButton_3_clicked()
 
 void file::on_pushButton_4_clicked()
 {
+	// Delete file from client
     QModelIndex index = ui->treeView->currentIndex();
        //if(!index.isValid()) return;
 
@@ -222,6 +228,7 @@ void file::on_pushButton_4_clicked()
 
 void file::on_pushButton_5_clicked()
 {
+	// share file 
     this->hide();
     share share1;
     share1.setModal(true);
@@ -231,6 +238,7 @@ void file::on_pushButton_5_clicked()
 
 void file::on_pushButton_8_clicked()
 {
+	// Add file from disk to client
     QString filename = QFileDialog::getOpenFileName(this,tr("open file"), "/home", "All files(*.*)");
     std::string filename1 = filename.toUtf8().constData();
     std::cout << filename1 << std::endl;
@@ -238,6 +246,7 @@ void file::on_pushButton_8_clicked()
 
 void file::on_pushButton_9_clicked()
 {
+	// Open files on server ui
     QListWidgetItem* x = (ui->listWidget->currentItem());
     QString y = x->text();
     if (y[1] == 'o')
@@ -253,6 +262,7 @@ void file::on_pushButton_9_clicked()
 
 void file::on_pushButton_10_clicked()
 {
+	// Back button to get up in the server files
     if(fulldata.size()-1 > 0)
     {
         path.pop();
@@ -277,13 +287,40 @@ void file::on_pushButton_10_clicked()
 
 void file::on_pushButton_6_clicked()
 {
+	// Get file from drive
     QListWidgetItem* gettingitem = ui->listWidget->currentItem();
     QString gettingtext = gettingitem->text();
     std::string path = (ui->label->text() + gettingtext).toUtf8().constData();
     std::cout << path << std::endl;
 }
 
+void file::on_pushButton_7_clicked()
+{
+	// Delete from drive
+	QMessageBox::information(this,tr("Deleted"),tr("Deleted File"));
+}
+
+
+void file::on_pushButton_11_clicked()
+{
+	// Sync button
+	QMessageBox::information(this,tr("Sync"),tr("Sync Complete"));
+}
+
 void file::on_pushButton_12_clicked()
 {
-    qApp->quit();
+	// LOGOUT BUTTON
+	inst = "e";
+	usleep(20);
+	if (InstructionStarted)
+	{
+		while (!InstructionCompleted)
+		{
+			// Keep waiting for the instruction to complete
+		}
+		InstructionCompleted=false;
+		InstructionStarted=false;
+	}
+	QMessageBox::warning(this,tr("Logout"),tr("Logging Out \n Exiting"));
+	qApp->quit();
 }

@@ -7,6 +7,7 @@
 extern std::string inst,datafield1,datafield2,datafield3;
 extern std::string reversedata1,reversedata2,reversedata3;
 extern bool InstructionStarted, InstructionCompleted;
+extern SyncManager MergedSyncManager;
 // Soccer part
 
 int sockID;
@@ -891,8 +892,9 @@ int clientmain(int argc, char *argv[])
                 }
 				else if (inst=="1")
 				{
-            		InstructionStarted=true;
             		// LOGIN INSTRUCTION
+
+            		InstructionStarted=true;
 
             		std::string usinp=datafield1;
 					std::string uspwd=datafield2;
