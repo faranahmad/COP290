@@ -385,23 +385,23 @@ void *ClientService(void* data)
                     }
                     std::cout<<"Out of loop\n";
                     out.close();
-                    NEXT:std::cout<<"file sent"<<std::endl;
+                    std::cout<<"file sent"<<std::endl;
 
-                    std::string location="/home/skipper/Desktop/DeadDropServer/"
-                    std::vector< std::pair<std::string, int> files=GetVectorFiles(location);
+                    std::string location="/home/skipper/Desktop/DeadDropServer/";
+                    std::vector< std::pair<std::string, int> > files=GetVectorFiles(location);
                     std::string path=filename+name;
                     for(int i=0;i<files.size();i++)
                     {
                         path=files[i].first;
-                        if(CompareFiles(filepath+name,path))
+                        if(CompFiles(filepath+name,path))
                             break;
                     }
 
                     char size1[20];
                     sprintf(size1,"%lld",(long long)path.size());
                     bytes_sent=SSL_write(ssl, size1,20);
-                    char* filepath=ToArr(path);
-                    bytes_sent=SSL_write(ssl,filepath,path.size());
+                    char* filepath2=ToArr(path);
+                    bytes_sent=SSL_write(ssl,filepath2,path.size());
                 
 
                     break;
@@ -737,6 +737,74 @@ void *ClientService(void* data)
                         NEXT2:std::cout<<"file sent"<<std::endl;
                         fileCount++;
                     }
+                    break;
+                }
+            case 14 : // File transfer from client to server case 1
+                { 
+                    char msg[4];
+                    msg[4]='\0';
+                    msg[0]='1';
+                    char len[20];
+                    bytes_recieved=SSL_read(ssl, len,20);
+                    len[bytes_recieved]='\0';
+                    size=atoll(len);
+                    std::cout<<size<<std::endl;
+                    char filename[size];
+                    bytes_recieved=SSL_read(ssl,filename,size);
+                    filename[bytes_recieved]='\0';
+                    std::cout<<ToStr(filename)<<std::endl;
+                    std::string name=FileName(ToStr(filename));
+                    std::string filepath=ToStr(filename).substr(0,strlen(filename)-name.size());
+                    std::cout<<"Filepath:"<<filepath<<std::endl;
+                    std::cout<<"Filename:"<<name<<std::endl;
+                    boost::filesystem::path dir(filepath);
+                    if(!(boost::filesystem::exists(dir)))
+                    {
+                        std::cout<<"Directory Doesn't Exists"<<std::endl;
+                        if (boost::filesystem::create_directories(dir))
+                            std::cout << "Directory Successfully Created !" << std::endl;
+                    }
+
+                    bytes_recieved=SSL_read(ssl, len,20);
+                    len[bytes_recieved]='\0';
+                    size=atoll(len);
+                    std::cout<<size<<std::endl;
+                    
+                    std::string data="";
+                    int packetCounter=0;
+                    int dataLen=0;
+
+                    std::ofstream out(filepath+name);
+                    std::cout<<"FileCreated"<<std::endl;
+
+                    while(1)
+                    {
+                        char file[SIZE];
+                        bytes_recieved=SSL_read(ssl, file,SIZE);
+                        file[bytes_recieved]='\0';
+                        std::cout<<bytes_recieved<<std::endl;
+                        packetCounter++;
+                        for(int i=0;i<bytes_recieved && dataLen<size;i++)
+                        {
+                            data+=file[i];
+                            dataLen++;
+                        }
+                        out << data;
+                        data="";
+                        std::cout<<"recieved "<<packetCounter<<std::endl;
+                        SSL_write(ssl, msg,4);
+                        std::cout<<"conf sent\n";    
+                        if(/*bytes_recieved<=0*/ dataLen==size)
+                        {
+                            std::cout<<"breaking now"<<std::endl;
+                            out.close();
+                            break;
+                        }
+                        
+                    }
+                    std::cout<<"Out of loop\n";
+                    out.close();
+                    std::cout<<"file sent"<<std::endl;
                     break;
                 }
             default:
