@@ -28,7 +28,9 @@ int sockID ;                         // The socket descriptor
 
 struct addrinfo host_info;       // The struct that getaddrinfo() fills up with data.
 struct addrinfo *host_info_list; // Pointer to the to the linked list of host_info's.
-    
+
+std::vector<std::string> usersLog;
+std::vector<std::string> allUsers;    
 
 bool EqualVector(std::vector<char> file1, std::vector<char> file2)
 {
@@ -227,6 +229,7 @@ void *ClientService(void* data)
         std::cout << "Connection accepted. Using new sockID : "  <<  acceptID << std::endl;
     }
 
+    std::string userID="";
 
     SSL* ssl = SSL_new(ctx);              /* get new SSL state with context */
     SSL_set_fd(ssl, acceptID);
@@ -240,7 +243,6 @@ void *ClientService(void* data)
     while(!quit)
     {
          
-
         std::cout << "Waiting to recieve data..."  << std::endl;
         char command[2];
         int bytes_recieved;
@@ -271,6 +273,7 @@ void *ClientService(void* data)
                     msg2[bytes_recieved]='\0';
                     base.InsertUser(User(username,ToStr(msg2)));
                     base.StoreToFile("Database.txt");
+                    allUsers.push_back(username);
                     std::cout<<ToStr(msg2)<<std::endl;
                     break;
                 }
@@ -294,9 +297,15 @@ void *ClientService(void* data)
                     char msg3[1];
                     msg3[1]='\0';
                     if(base.VerifyUserCredentials(User(username,ToStr(msg2))))
+                    {
                         msg3[0]='1';
+                        usersLog.push_back(username);
+                        userID=username;
+                    }
                     else
+                    {
                         msg3[0]='0';
+                    }
                     bytes_sent=SSL_write(ssl,msg3,1);
                     break;
                 }
@@ -385,25 +394,33 @@ void *ClientService(void* data)
                     }
                     std::cout<<"Out of loop\n";
                     out.close();
-                    std::cout<<"file sent"<<std::endl;
 
                     std::string location="/home/skipper/Desktop/DeadDropServer/";
                     std::vector< std::pair<std::string, int> > files=GetVectorFiles(location);
-                    std::string path=filename+name;
+                    std::string path=filepath+name;
                     for(int i=0;i<files.size();i++)
                     {
                         path=files[i].first;
+                        if(path.compare(filepath+name)==0)
+                            continue;
                         if(CompFiles(filepath+name,path))
                             break;
                     }
-
+                    if(path.compare(filepath+name)!=0)
+                    {
+                        if(boost::filesystem::exists(filepath+name))
+                        {
+                            boost::filesystem::remove(filepath+name);
+                            std::cout<<"Deleted"<<std::endl;
+                        }
+                    }
+                    std::cout<<path<<std::endl;
                     char size1[20];
                     sprintf(size1,"%lld",(long long)path.size());
                     bytes_sent=SSL_write(ssl, size1,20);
                     char* filepath2=ToArr(path);
                     bytes_sent=SSL_write(ssl,filepath2,path.size());
-                
-
+                    std::cout<<"file sent"<<std::endl;
                     break;
                 }
             case 2: //File transfer from server to client case 2
@@ -493,11 +510,18 @@ void *ClientService(void* data)
                         boost::filesystem::remove(file);
                     break;
                 }
-            case 10:
+            case 10: //logout
                 {
                     close(acceptID);
                     SSL_free(ssl);         /* release SSL state */
                     quit=true;
+                    int i=0;
+                    for(i=0;i<usersLog.size();i++)
+                    {
+                        if(usersLog[i].compare(userID)==0)
+                            break;
+                    }
+                    usersLog.erase (usersLog.begin()+i);
                     break;
                 }
             case 11: // send serverlist
@@ -739,7 +763,7 @@ void *ClientService(void* data)
                     }
                     break;
                 }
-            case 14 : // File transfer from client to server case 1
+            case 14 : // File transfer from client to server case 1 no path returned
                 { 
                     char msg[4];
                     msg[4]='\0';
