@@ -487,27 +487,6 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 
 	// 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	// 	if (USF.CheckExistsClientServer(ClData.first) && (SyncListContains(FilesToSync,ClData.first)))
 	// 	{
 	// 		std::string servername=USF.GetClientFileName(ClData.first);

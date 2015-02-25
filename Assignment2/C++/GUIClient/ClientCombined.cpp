@@ -255,7 +255,7 @@ std::string ExecuteInstruction(Instruction ins)
                 char len[20];
                 bytes_recieved=SSL_read(ssl, len,20);
                 len[bytes_recieved]='\0';
-                size=atoll(len);
+                long long size=atoll(len);
                 std::cout<<size<<std::endl;
                 char filename[size];
                 bytes_recieved=SSL_read(ssl,filename,size);
@@ -566,7 +566,7 @@ void CreateNewUser(std::string usn, std::string pwd)
 	// Touch files on server: 
 
 	Instruction Newuser= NewUser(usn,pwd);
-	int x= ExecuteInstruction(Newuser);
+	std::string x= ExecuteInstruction(Newuser);
     std::string mainpath(getenv("HOME")); 
 	std::string foldername=mainpath + "/Desktop/DeadDrop/" + usn  + "/";
 	std::string serverfoldername="/home/skipper/Desktop/DeadDropServer/" + usn + "/";
@@ -588,8 +588,9 @@ bool UserLogin(std::string usn, std::string pwd)
 {
 	// Send login credentials
 	// Receive Confirmation
-	int x=ExecuteInstruction(DoLogin(usn,pwd));
-	if (x==0)
+	std::string x=ExecuteInstruction(DoLogin(usn,pwd));
+	std::cout << "Got ins for login\n";
+	if (x=="0")
 	{
 		std::cout<"Incorrect credentials\n";
 		return false;
@@ -617,7 +618,7 @@ bool UserLogin(std::string usn, std::string pwd)
 			}
 		}
 		std::cout<<"Welcome to dead drop\n";
-		PerformSync(UserMan);
+		// PerformSync(UserMan);
 		// Perform Sync
 		return true;
     }
@@ -626,8 +627,8 @@ bool UserLogin(std::string usn, std::string pwd)
 bool CheckUserExists(std::string usname)
 {
 	// Send instruction to check if user is there in db
-	int x=ExecuteInstruction(UserExists(usname));
-	if (x==1)
+	std::string x=ExecuteInstruction(UserExists(usname));
+	if (x=="1")
 		return true;
 	else
 		return false;
@@ -641,10 +642,10 @@ void PerformSync(SyncManager UserSyncManager)
 	// Store DB files on client
 	// Update server DB file
 	
-	int instructionresult;
+	std::string instructionresult;
 	std::string mainpath(getenv("HOME")); 
 	std::string foldername=mainpath + "/Desktop/DeadDrop/" + UserSyncManager.GetUsername()  + "/";
-    std::string serverfoldername="/home/skipper/Desktop/DeadDropServer/" + UserSyncManager.GetUsername() +"/";
+	std::string serverfoldername="/home/skipper/Desktop/DeadDropServer/" + UserSyncManager.GetUsername() +"/";
 
     std::cout << "Transferring server info files to client\n";
 
@@ -690,7 +691,7 @@ void DeleteFileClient(SyncManager UserSyncManager, std::string filenameclient)
 	// TODO: Add support for shared files
 	// TODO: Add support for receiving files
 
-	int instructionresult;
+	std::string instructionresult;
 
 	std::string mainpath(getenv("HOME")); 
 	std::string foldername=mainpath + "/Desktop/DeadDrop/" + UserSyncManager.GetUsername()  + "/";
@@ -734,7 +735,7 @@ void DeleteFileServer(SyncManager UserSyncManager, std::string filenameserver)
 	// TODO: Add support for shared files
 	// TODO: Add support for receiving files
 
-	int instructionresult;
+	std::string instructionresult;
 
 	std::string mainpath(getenv("HOME")); 
 	std::string foldername=mainpath + "/Desktop/DeadDrop/" + UserSyncManager.GetUsername()  + "/";
@@ -773,7 +774,7 @@ void GetFileFromServer(SyncManager UserSyncManager, std::string filename)
 	// Store DB files to client
 	// Update db files on server
 
-	int instructionresult;
+	std::string instructionresult;
 
 	std::string mainpath(getenv("HOME")); 
 	std::string foldername=mainpath + "/Desktop/DeadDrop/" + UserSyncManager.GetUsername()  + "/";
@@ -818,7 +819,7 @@ void KeepOnlineOnly(SyncManager UserSyncManager, std::string filename)
 	UserSyncManager.LoadFromDiskDB(mainpath+"/Desktop/DeadDrop/");
 
 	UserSyncManager.RemoveFileFromSync(filename);
-    int instructionresult=ExecuteInstruction(DeleteFileOnClient(filename));
+    std::string instructionresult=ExecuteInstruction(DeleteFileOnClient(filename));
 	UserSyncManager.StoreToDiskDB(mainpath+"/Desktop/DeadDrop/");
 
 }
@@ -898,6 +899,7 @@ int clientmain(int argc, char *argv[])
                     datafield1="";
                     datafield2="";
                     InstructionCompleted=true;
+                    std::cout<<"Out of inst\n";
                 }
 				else if (inst=="1")
 				{
@@ -909,7 +911,7 @@ int clientmain(int argc, char *argv[])
 					std::string uspwd=datafield2;
             
                     std::cout <<"Login instruction to be executed\n";
-            
+            		// std::cout << ""
                 	bool result=UserLogin(usinp,uspwd);
 
                 	if (result)

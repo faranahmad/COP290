@@ -28,7 +28,7 @@ std::string ToStr(char*);
 std::string FileName(std::string);
 char* ToArr(std::string);
 
-int ExecuteInstruction(Instruction);
+std::string ExecuteInstruction(Instruction);
 
 void CreateNewUser(std::string, std::string);
 
