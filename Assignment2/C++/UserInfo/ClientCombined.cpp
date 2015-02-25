@@ -92,7 +92,7 @@ char* ToArr(std::string str)  //Convert string to array of character
     return ans;
 }
 
-int ExecuteInstruction(Instruction ins)
+std::string ExecuteInstruction(Instruction ins)
 {
     // 0 is no change,
     // 1 is newer modification client,
@@ -122,7 +122,7 @@ int ExecuteInstruction(Instruction ins)
         case 0:
             {
                 // #ignore
-                return 1;
+                return "1";
             }
         case 8: // Add user
             {
@@ -142,7 +142,7 @@ int ExecuteInstruction(Instruction ins)
                 bytes_sent=SSL_write(ssl, size2,20);
                 bytes_sent=SSL_write(ssl,msg2,temp.size());
                 std::cout<<"User Successfully added!\n";
-                return 1;
+                return "1";
             }
         case 7: // Login
             {
@@ -166,12 +166,12 @@ int ExecuteInstruction(Instruction ins)
                 if(msg3[0]=='1')
                 {
                     std::cout<<"Successfully\n";
-                    return 1;
+                    return "1";
                 }
                 else
                 {
                     std::cout<<"Sorry. Please try again\n";
-                    return 0;
+                    return "0";
                 }
             }
         case 9: //User exists
@@ -189,12 +189,12 @@ int ExecuteInstruction(Instruction ins)
                 if(msg3[0]=='1')
                 {
                     std::cout<<"User Exists\n";
-                    return 1;
+                    return "1";
                 }
                 else
                 {
                     std::cout<<"User Does not exist\n";
-                    return 0;
+                    return "0";
                 }
             }
         case 1: //client to server
@@ -262,7 +262,17 @@ int ExecuteInstruction(Instruction ins)
                 }
                 ifs.close();
                 std::cout<<"file sent"<<std::endl;
-                return 1;
+
+                char len[20];
+                bytes_recieved=SSL_read(ssl, len,20);
+                len[bytes_recieved]='\0';
+                size=atoll(len);
+                std::cout<<size<<std::endl;
+                char filename[size];
+                bytes_recieved=SSL_read(ssl,filename,size);
+                filename[bytes_recieved]='\0';
+
+                return ToStr(filename);
             }
         case 2: //server to client
             {
@@ -325,14 +335,14 @@ int ExecuteInstruction(Instruction ins)
                 }
                 out.close();
                 std::cout<<"file SSL_read"<<std::endl;
-                return 1;
+                return "1";
             }
         case 5: //Delete file on user.
             {
                 boost::filesystem::wpath file(ins.data1);
                 if(boost::filesystem::exists(file))
                     boost::filesystem::remove(file);
-                return 1;
+                return "1";
             }
         case 6: //Delete file on server.
             {
@@ -343,14 +353,14 @@ int ExecuteInstruction(Instruction ins)
                 bytes_sent=SSL_write(ssl, size1,20);
                 char* filepath=ToArr(temp2);
                 bytes_sent=SSL_write(ssl,filepath,temp2.size());
-                return 1;
+                return "1";
             }
         case 10: // quit
             {
                 freeaddrinfo(host_info_list);
                 close(sockID);
                 SSL_free(ssl);
-                return 1;
+                return "1";
             }
         case 11: // get serverlist
             {
@@ -441,7 +451,7 @@ int ExecuteInstruction(Instruction ins)
                     std::cout<<"file SSL_read"<<std::endl;
                     fileCount++;
                 }
-                return 1;
+                return "1";
 
             }
         case 12:
@@ -453,7 +463,7 @@ int ExecuteInstruction(Instruction ins)
                 bytes_sent=SSL_write(ssl, size1,20);
                 char* filepath=ToArr(temp2);
                 bytes_sent=SSL_write(ssl,filepath,temp2.size());
-                return 1;
+                return "1";
             }
         case 13: //Send Serverlist
             {
@@ -546,11 +556,11 @@ int ExecuteInstruction(Instruction ins)
                     std::cout<<"file sent"<<std::endl;
                     fileCount++;
                 }
-                return 1;
+                return "1";
             }
         default:
             {
-                return 0;
+                return "0";
             }
     }
     

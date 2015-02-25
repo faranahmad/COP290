@@ -387,7 +387,22 @@ void *ClientService(void* data)
                     out.close();
                     NEXT:std::cout<<"file sent"<<std::endl;
 
-                    std::ifstream iFile(filepath+name);
+                    std::string location="/home/skipper/Desktop/DeadDropServer/"
+                    std::vector< std::pair<std::string, int> files=GetVectorFiles(location);
+                    std::string path=filename+name;
+                    for(int i=0;i<files.size();i++)
+                    {
+                        path=files[i].first;
+                        if(CompareFiles(filepath+name,path))
+                            break;
+                    }
+
+                    char size1[20];
+                    sprintf(size1,"%lld",(long long)path.size());
+                    bytes_sent=SSL_write(ssl, size1,20);
+                    char* filepath=ToArr(path);
+                    bytes_sent=SSL_write(ssl,filepath,path.size());
+                
 
                     break;
                 }
