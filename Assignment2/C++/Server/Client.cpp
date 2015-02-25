@@ -250,14 +250,14 @@ int main(int argc, char** argv)
                     char size2[20];
                     sprintf(size2,"%lld",(long long)pos);
                     bytes_sent=SSL_write(ssl, size2,20);
-                    
+
                     int dataLen=0;
                     int packetCounter=0;
                     while(counter<=pos)
                     {
                         counter+=SIZE;
                         std::vector<char> ans;
-                        if(counter<pos)
+                        if(counter<=pos)
                         {
                             ans.resize(SIZE);
                             ifs.read(&ans[0], SIZE);
@@ -270,11 +270,10 @@ int main(int argc, char** argv)
                             ifs.read(&ans[0],SIZE-counter+pos);
                         }
 
-                        
                         char *file2=new char[SIZE];
                         for(int l=0 ;l<SIZE&&dataLen<pos;l++,dataLen++)
                         {
-                            file2[l]=ans[dataLen%SIZE];
+                            file2[l]=ans[l];
                         }
                         std::cout<<"SSL_writeing"<<std::endl;
                         SSL_write(ssl, file2,SIZE);
@@ -287,11 +286,11 @@ int main(int argc, char** argv)
                         {
                             break;
                         }
-    
                         std::vector<char> tempVector;
                         ans.swap(tempVector);
                     }
                     ifs.close();
+                    std::cout<<pos<<std::endl;
                     std::cout<<"file sent"<<std::endl;
                     break;
                 }
