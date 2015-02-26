@@ -207,28 +207,28 @@ void SyncManager::StoreSeHistory(std::string location)
 void SyncManager::LoadFromDiskDB(std::string location)
 {
 	std::cout <<"Loading db\n";
-	LoadSyncList(location+ "/" + Username+"/synclist.txt");
-	LoadReceiving(location+ "/" + Username+"/receiving.txt");
-	LoadGiving(location+ "/" + Username+"/giving.txt");
+	LoadSyncList(location+ "/" + Username+"/.data/synclist.txt");
+	LoadReceiving(location+ "/" + Username+"/.data/receiving.txt");
+	LoadGiving(location+ "/" + Username+"/.data/giving.txt");
 	std::cout <<"Done giving\n";
-	LoadClServerMap(location+ "/" + Username+"/clserver.txt");
-	LoadSeClientMap(location+ "/" + Username+"/seclient.txt");
-	LoadClHistory(location+ "/" + Username+"/clhistory.txt");
+	LoadClServerMap(location+ "/" + Username+"/.data/clserver.txt");
+	LoadSeClientMap(location+ "/" + Username+"/.data/seclient.txt");
+	LoadClHistory(location+ "/" + Username+"/.data/clhistory.txt");
 	std::cout <<"Done giving\n";
-	LoadSeHistory(location+ "/" + Username + "/sehistory.txt");	
+	LoadSeHistory(location+ "/" + Username + "/.data/sehistory.txt");	
 	std::cout <<"Done giving\n";
 }
 
 void SyncManager::StoreToDiskDB(std::string location)
 {
 	std::cout <<"Storing files to disk: " << location <<"\n";
-	StoreSyncList( location + "/" + Username + "/synclist.txt");
-	StoreReceiving( location + "/" + Username + "/receiving.txt");
-	StoreGiving( location +"/" + Username + "/giving.txt" );
-	StoreClServerMap( location + "/" + Username + "/clserver.txt");
-	StoreSeClientMap( location + "/" + Username + "/seclient.txt");
-	StoreClHistory( location + "/" + Username + "/clhistory.txt");
-	StoreSeHistory( location + "/" + Username + "/sehistory.txt");		
+	StoreSyncList( location + "/" + Username + "/.data/synclist.txt");
+	StoreReceiving( location + "/" + Username + "/.data/receiving.txt");
+	StoreGiving( location +"/" + Username + "/.data/giving.txt" );
+	StoreClServerMap( location + "/" + Username + "/.data/clserver.txt");
+	StoreSeClientMap( location + "/" + Username + "/.data/seclient.txt");
+	StoreClHistory( location + "/" + Username + "/.data/clhistory.txt");
+	StoreSeHistory( location + "/" + Username + "/.data/sehistory.txt");		
 }
 
 std::string SyncManager::GetClientMappingForFile(std::string serverfilename)
@@ -598,6 +598,9 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 	MainFiles.SetFileLinking(USF);
 	MainFiles.SetClientFiles(CLH);
 	MainFiles.SetServerFiles(SEH);
+	std::string mainpath(getenv("HOME")); 
+	std::string foldername=mainpath + "/Desktop/DeadDrop/" + Username  + "/";
+	StoreToDiskDB(mainpath+"/Desktop/DeadDrop/");
 	return answer;
 }
 
@@ -732,6 +735,15 @@ Instruction DoNothing()
 	p.data1="";
 	p.data2="";
 	return p;
+}
+
+Instruction DoNormalSending(std::string s1, std::string s2)
+{
+	Instruction p;
+	p.modification=14;
+	p.data1=s1;
+	p.data2=s2;
+	return p;	
 }
 
 

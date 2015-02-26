@@ -260,7 +260,7 @@ std::string ExecuteInstruction(Instruction ins)
                 char filename[size];
                 bytes_recieved=SSL_read(ssl,filename,size);
                 filename[bytes_recieved]='\0';
-
+                std::cout << ToStr(filename)<<"\n";
                 return ToStr(filename);
             }
         case 2: //server to client
@@ -611,6 +611,7 @@ std::string ExecuteInstruction(Instruction ins)
                 }
                 ifs.close();
                 std::cout<<"file sent"<<std::endl;
+                return "1";
             }
         default:
             {
@@ -634,9 +635,10 @@ void CreateNewUser(std::string usn, std::string pwd)
 	std::string x= ExecuteInstruction(Newuser);
     std::string mainpath(getenv("HOME")); 
 	std::string foldername=mainpath + "/Desktop/DeadDrop/" + usn  + "/";
+	std::string folder2 = foldername + "/.data/";
 	std::string serverfoldername="/home/skipper/Desktop/DeadDropServer/" + usn + "/";
 	SyncManager UserManager = SyncManager(usn); 
-	boost::filesystem::path dir(foldername);
+	boost::filesystem::path dir(folder2);
 	if (!(boost::filesystem::exists(dir)))
 	{
 		std::cout<<"creating\n";
@@ -644,9 +646,9 @@ void CreateNewUser(std::string usn, std::string pwd)
 			std::cout <<"created\n";
 	}
 	UserManager.StoreToDiskDB(mainpath + "/Desktop/DeadDrop");
-	x= ExecuteInstruction(TransferClientToServer(foldername + "sehistory.txt",serverfoldername +"sehistory.txt"));
-	x= ExecuteInstruction(TransferClientToServer(foldername + "giving.txt",serverfoldername +"giving.txt"));
-	x= ExecuteInstruction(TransferClientToServer(foldername + "receiving.txt",serverfoldername +"receiving.txt"));
+	x= ExecuteInstruction(DoNormalSending(foldername + ".data/sehistory.txt",serverfoldername +".data/sehistory.txt"));
+	x= ExecuteInstruction(DoNormalSending(foldername + ".data/giving.txt",   serverfoldername +".data/giving.txt"));
+	x= ExecuteInstruction(DoNormalSending(foldername + ".data/receiving.txt",serverfoldername +".data/receiving.txt"));
 }
 
 bool UserLogin(std::string usn, std::string pwd)
@@ -664,7 +666,8 @@ bool UserLogin(std::string usn, std::string pwd)
 	{
 		std::string mainpath(getenv("HOME")); 
 		std::string foldername=mainpath + "/Desktop/DeadDrop/" + usn  + "/";
-		boost::filesystem::path dir(foldername);
+		std::string folder2 = foldername + ".data/";
+		boost::filesystem::path dir(folder2);
 		SyncManager UserMan = SyncManager(usn);
 		if (boost::filesystem::exists(dir))
 		{
@@ -683,7 +686,7 @@ bool UserLogin(std::string usn, std::string pwd)
 			}
 		}
 		std::cout<<"Welcome to dead drop\n";
-		// PerformSync(UserMan);
+		PerformSync(UserMan);
 		// Perform Sync
 		return true;
     }
@@ -714,9 +717,9 @@ void PerformSync(SyncManager UserSyncManager)
 
     std::cout << "Transferring server info files to client\n";
 
-    instructionresult = ExecuteInstruction(TransferServerToClient(foldername + "sehistory.txt" , serverfoldername +"sehistory.txt"));
-    instructionresult = ExecuteInstruction(TransferServerToClient(foldername + "giving.txt" , serverfoldername +"giving.txt"));
-    instructionresult = ExecuteInstruction(TransferServerToClient(foldername + "receiving.txt", serverfoldername +"receiving.txt"));
+	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/sehistory.txt" , serverfoldername +".data/sehistory.txt"));
+	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/giving.txt" , serverfoldername +".data/giving.txt"));
+	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/receiving.txt", serverfoldername +".data/receiving.txt"));
 
     std::cout << "Transferred server info files to client\n";
 
@@ -736,9 +739,9 @@ void PerformSync(SyncManager UserSyncManager)
 
     std::cout << "Stored DB files to client\n";
 
-	instructionresult = ExecuteInstruction(TransferClientToServer(foldername + "sehistory.txt",serverfoldername +"sehistory.txt"));
-	instructionresult = ExecuteInstruction(TransferClientToServer(foldername + "giving.txt",serverfoldername +"giving.txt"));
-	instructionresult = ExecuteInstruction(TransferClientToServer(foldername + "receiving.txt",serverfoldername +"receiving.txt"));
+	instructionresult = ExecuteInstruction(DoNormalSending(foldername + ".data/sehistory.txt",serverfoldername +".data/sehistory.txt"));
+	instructionresult = ExecuteInstruction(DoNormalSending(foldername + ".data/giving.txt",serverfoldername +".data/giving.txt"));
+	instructionresult = ExecuteInstruction(DoNormalSending(foldername + ".data/receiving.txt",serverfoldername +".data/receiving.txt"));
     
     std::cout << "Updated server db files\n";
 }
@@ -762,9 +765,9 @@ void DeleteFileClient(SyncManager UserSyncManager, std::string filenameclient)
 	std::string foldername=mainpath + "/Desktop/DeadDrop/" + UserSyncManager.GetUsername()  + "/";
 	std::string serverfoldername="/home/skipper/Desktop/DeadDropServer/" + UserSyncManager.GetUsername() +"/";
 
-	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + "sehistory.txt" , serverfoldername +"sehistory.txt"));
-    instructionresult = ExecuteInstruction(TransferServerToClient(foldername + "giving.txt" , serverfoldername +"giving.txt"));
-    instructionresult = ExecuteInstruction(TransferServerToClient(foldername + "receiving.txt", serverfoldername +"receiving.txt"));
+	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/sehistory.txt" , serverfoldername +".data/sehistory.txt"));
+    instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/giving.txt" ,    serverfoldername +".data/giving.txt"));
+    instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/receiving.txt",  serverfoldername +".data/receiving.txt"));
 
 	std::cout << "Transferred server info files to client\n";
 
@@ -781,9 +784,9 @@ void DeleteFileClient(SyncManager UserSyncManager, std::string filenameclient)
 
 	UserSyncManager.StoreToDiskDB(mainpath+"/Desktop/DeadDrop/");
 
-	instructionresult = ExecuteInstruction(TransferClientToServer(foldername + "sehistory.txt",serverfoldername +"sehistory.txt"));
-	instructionresult = ExecuteInstruction(TransferClientToServer(foldername + "giving.txt",serverfoldername +"giving.txt"));
-	instructionresult = ExecuteInstruction(TransferClientToServer(foldername + "receiving.txt",serverfoldername +"receiving.txt"));
+	instructionresult = ExecuteInstruction(DoNormalSending(foldername + ".data/sehistory.txt",serverfoldername +".data/sehistory.txt"));
+	instructionresult = ExecuteInstruction(DoNormalSending(foldername + ".data/giving.txt",   serverfoldername +".data/giving.txt"));
+	instructionresult = ExecuteInstruction(DoNormalSending(foldername + ".data/receiving.txt",serverfoldername +".data/receiving.txt"));
     
 }
 
@@ -806,9 +809,9 @@ void DeleteFileServer(SyncManager UserSyncManager, std::string filenameserver)
 	std::string foldername=mainpath + "/Desktop/DeadDrop/" + UserSyncManager.GetUsername()  + "/";
 	std::string serverfoldername="/home/skipper/Desktop/DeadDropServer/" + UserSyncManager.GetUsername() +"/";
 
-	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + "sehistory.txt" , serverfoldername +"sehistory.txt"));
-	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + "giving.txt" , serverfoldername +"giving.txt"));
-	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + "receiving.txt", serverfoldername +"receiving.txt"));
+	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/sehistory.txt" , serverfoldername +".data/sehistory.txt"));
+	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/giving.txt" ,    serverfoldername +".data/giving.txt"));
+	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/receiving.txt",  serverfoldername +".data/receiving.txt"));
 
 	std::cout << "Transferred server info files to client\n";
 
@@ -845,9 +848,9 @@ void GetFileFromServer(SyncManager UserSyncManager, std::string filename)
 	std::string foldername=mainpath + "/Desktop/DeadDrop/" + UserSyncManager.GetUsername()  + "/";
 	std::string serverfoldername="/home/skipper/Desktop/DeadDropServer/" + UserSyncManager.GetUsername() +"/";
 
-	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + "sehistory.txt" , serverfoldername +"sehistory.txt"));
-	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + "giving.txt" , serverfoldername +"giving.txt"));
-	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + "receiving.txt", serverfoldername +"receiving.txt"));
+	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/sehistory.txt", serverfoldername +".data/sehistory.txt"));
+	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/giving.txt"   , serverfoldername +".data/giving.txt"));
+	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/receiving.txt", serverfoldername +".data/receiving.txt"));
 
 	// LOTS OF CHANGES
 
@@ -864,9 +867,9 @@ void GetFileFromServer(SyncManager UserSyncManager, std::string filename)
 
 	UserSyncManager.StoreToDiskDB(mainpath+"/Desktop/DeadDrop/");
 
-	instructionresult = ExecuteInstruction(TransferClientToServer(foldername + "sehistory.txt",serverfoldername +"sehistory.txt"));
-	instructionresult = ExecuteInstruction(TransferClientToServer(foldername + "giving.txt",serverfoldername +"giving.txt"));
-	instructionresult = ExecuteInstruction(TransferClientToServer(foldername + "receiving.txt",serverfoldername +"receiving.txt"));
+	instructionresult = ExecuteInstruction(DoNormalSending(foldername + ".data/sehistory.txt",serverfoldername +".data/sehistory.txt"));
+	instructionresult = ExecuteInstruction(DoNormalSending(foldername + ".data/giving.txt",serverfoldername    +".data/giving.txt"));
+	instructionresult = ExecuteInstruction(DoNormalSending(foldername + ".data/receiving.txt",serverfoldername +".data/receiving.txt"));
 
 }
 

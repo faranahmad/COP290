@@ -25,6 +25,7 @@ struct Instruction
 	// 11 is GetServerFiles					data1=clfodlerpath data2=sefolderpath
 	// 12 is UpdateServerDiskFiles			data1=sefolderpath
 	// 13 is SendServerFiles				data1=clfolderpath data2=sefolderpath
+	// 14 is Transfer from client to server without return path data1=clpath data2=sepath
 	std::string data1;
 	std::string data2;
 };
@@ -110,6 +111,7 @@ Instruction DeleteFileOnServer(std::string);
 Instruction DeleteFileOnClient(std::string);
 Instruction RefreshServerDB(std::string);
 Instruction DoNothing();
+Instruction DoNormalSending(std::string,std::string);
 
 struct Client
 {
