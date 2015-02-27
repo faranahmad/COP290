@@ -730,9 +730,19 @@ void PerformSync(SyncManager UserSyncManager)
     std::vector<Instruction> insvect=UserSyncManager.GetSyncingInstructions();
     for (int i=0; i<insvect.size(); i++)
     {
+        Instruction toexec = insvect[i];
         instructionresult=ExecuteInstruction(insvect[i]);
-    }
+        if (toexec.modification==0)
+        {
 
+        }
+        else if (toexec.modification==3)
+        {
+            UserSyncManager.AddFileToLocalFiles(toexec.data1, instructionresult);
+            UserSyncManager.AddFileToLinking(toexec.data1, instructionresult);
+        }
+    }
+    UserSyncManager.UpdateSyncTimes();
     std::cout << "Executed sync instructions \n";
     
     UserSyncManager.StoreToDiskDB(mainpath+"/Desktop/DeadDrop/");
@@ -890,6 +900,11 @@ void KeepOnlineOnly(SyncManager UserSyncManager, std::string filename)
     std::string instructionresult=ExecuteInstruction(DeleteFileOnClient(filename));
 	UserSyncManager.StoreToDiskDB(mainpath+"/Desktop/DeadDrop/");
 
+}
+
+void ShareFile(std::string username,std::string filepath, int perms)
+{
+	   
 }
 
 int clientmain(int argc, char *argv[])

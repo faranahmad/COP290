@@ -125,6 +125,18 @@ void FileChanges::RemoveFromServer(std::string location)
 	ServerHistory.RemoveFile(location);
 }
 
+void FileChanges::AddFilesToFileChanges(std::string s1, std::string s2)
+{
+	int lmtime = boost::filesystem::last_write_time(s1);
+	ClientHistory.AddFileToHistory(s1,lmtime);
+	ServerHistory.AddFileToHistory(s2,lmtime);
+}
+
+void FileChanges::SetTimeChanges(int ntime)
+{
+	ClientHistory.SetDataTime(ntime);
+	ServerHistory.SetDataTime(ntime);
+}
 
 // std::vector<Instruction> FileChanges::ChangeDetectionGlobal()
 // {

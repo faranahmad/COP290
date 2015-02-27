@@ -92,6 +92,19 @@ void FileReceiving::StoreSharingToDisk(std::string location)
 	out.close();
 }
 
+bool FileReceiving::CheckIfExists(std::string tocheck)
+{
+	bool ans1= false;
+	for (int i=0; (i<SharingList.size()) && !(ans1) ; i++)
+	{
+		if (SharingList[i].FilePath == tocheck)
+		{
+			ans1 = true;
+		}
+	}
+	return ans1;
+}
+
 void FileReceiving::InsertNewInDisk(std::string location,Sharing news)
 {
 	FileReceiving x;

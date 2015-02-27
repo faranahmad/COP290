@@ -32,6 +32,8 @@ class FileReceiving
 		void LoadSharingFromDisk(std::string);
 		void StoreSharingToDisk(std::string);
 
+		bool CheckIfExists(std::string);
+
 		void InsertNewInDisk(std::string,Sharing);
 
 	private:

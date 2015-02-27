@@ -42,6 +42,8 @@ class FileHistory
 
 		void RemoveFile(std::string);
 
+		void AddFileToHistory(std::string, int);
+
 	private:
 		std::string FolderLocation;
 		int TimeOfData;

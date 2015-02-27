@@ -95,7 +95,12 @@ void SyncManager::SetFilesToSync(SyncList slist)
 
 void SyncManager::AddFileToSync(std::string nfile)
 {
-	FilesToSync.ListOfFiles.push_back(nfile);
+	std::vector<std::string>::iterator position = std::find(FilesToSync.ListOfFiles.begin(), FilesToSync.ListOfFiles.end(), nfile);
+	
+	if (position == FilesToSync.ListOfFiles.end())
+	{	
+		FilesToSync.ListOfFiles.push_back(nfile);
+	}
 }
 
 void SyncManager::RemoveFileFromSync(std::string nfile)
@@ -233,15 +238,15 @@ void SyncManager::StoreToDiskDB(std::string location)
 
 std::string SyncManager::GetClientMappingForFile(std::string serverfilename)
 {
+	// Gives the server file name for input
 	return MainFiles.GetCLMapping(serverfilename);
 }
 
 std::string SyncManager::GetServerMappingForFile(std::string serverfilename)
 {
+	// Gives the client file name for input
 	return MainFiles.GetSEMapping(serverfilename);
 }
-
-
 
 
 void SyncManager::RemoveFromServerBase(std::string serverfilename)
@@ -329,8 +334,49 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 			// File was there on last sync and now as well
 			// If change occured then do work
 			int positionlocal=ClientPresent[i];
-			// TODO make cases based on timestamp
-
+			if (SyncListContains(FilesToSync, CLH.GetNthName(i)))
+			{
+				std::string servername = USF.GetClientFileName(CLH.GetNthName(i)); 
+				if (!ReceivingFiles.CheckIfExists(servername))
+				{
+					for (int k=0; (k<numserver); k++)
+					{
+						if (servername == SEH.GetNthInfo(k).first)
+						{
+							if (PresentFiles.GetNthTime(positionlocal) > CLH.GetNthTime(i))
+							{
+								Instruction a;
+								a.modification=3;
+								a.data1= CLH.GetNthName(i);
+								a.data2= SEH.GetNthName(k);
+								answer.push_back(a);
+							}
+							else
+							{
+								if (SEH.GetNthTime(k)>PresentFiles.GetNthTime(positionlocal))
+								{
+									Instruction a;
+									a.modification = 2;
+									a.data1=PresentFiles.GetNthName(positionlocal);
+									a.data2=SEH.GetNthName(k);
+									answer.push_back(a);
+									CLH.SetNthTime( i , SEH.GetNthTime(k));
+								}
+							}
+		
+						}
+					}
+				}
+			}
+			else
+			{
+				// Might cause issue with shared files
+				Instruction a;
+				a.modification = 5;
+				a.data1 = CLH.GetNthName(i);
+				answer.push_back(a);
+				CLH.RemoveFile(CLH.GetNthName(i));		
+			}
 		}
 		else
 		{
@@ -338,15 +384,19 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 			// Delete this file from cloud
 			// Remove from db
 			// Remove file from synclist
-
 			Instruction a;
 			a.modification = 6;
-			a.data2 = PresentFiles.GetNthName(i);
-			int lenpath = CLH.GetFolder().size();
-			std::string sname = a.data2.substr(lenpath);
-			a.data1 = SEH.GetFolder() + sname;
-			answer.push_back(a);	
-			RemoveFileFromSync(a.data2);
+			a.data2 = CLH.GetNthName(i);
+			std::string servername = USF.GetClientFileName(CLH.GetNthName(i)); 
+			if (!ReceivingFiles.CheckIfExists(servername))		
+			{
+				RemoveFileFromSync (CLH.GetNthName(i));
+				RemoveFromClientBase(CLH.GetNthName(i));
+				CLH.RemoveFile(CLH.GetNthName(i));
+				SEH.RemoveFile(servername);
+				a.data1 = servername;
+				answer.push_back(a);	
+			}
 		}
 	}
 	for (int i=0; i < numcpresent ; i++)
@@ -355,17 +405,39 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 		{
 			// New file has appeared on client
 			// Send this to the server
-			// TODO: Fix timestamp issue
-			FilesToSync.ListOfFiles.push_back(PresentFiles.GetNthName(i));
 			Instruction a;
+			AddFileToSync(PresentFiles.GetNthName(i));
 			a.modification=3;
 			a.data1= PresentFiles.GetNthName(i);
 			std::string sname=a.data1;
 			int lenpath= CLH.GetFolder().size();
 			sname=sname.substr(lenpath);
 			a.data2=SEH.GetFolder()+sname;
-			answer.push_back(a);	
-			USF.AddNew(a.data1, a.data2);
+			answer.push_back(a);
+		}
+	}
+
+	std::vector<Sharing> RecvFiles = ReceivingFiles.GetSharingList();
+	for (int i=0; i<RecvFiles.size(); i++)
+	{
+		if (SEH.ExistsFile(RecvFiles[i].FilePath))
+		{
+			// The file exists on the server history, clh etc.
+
+		}
+		else
+		{
+			// Get the files from server
+			// Add to CLH, SEH, CLL, SEL
+			std::string serverfname = RecvFiles[i].FilePath;
+			unsigned found = serverfname.find_last_of("/");
+			std::string clfname = serverfname.substr(found + 1);
+			std::string mainpath(getenv("HOME")); 
+			std::string filefoldername=mainpath + "/Desktop/DeadDrop/" + Username + "/" + clfname;
+			Instruction a;
+			a.modification = 2;
+			a.data1 = filefoldername;
+			a.data2 = serverfname;
 			answer.push_back(a);
 		}
 	}
@@ -638,6 +710,23 @@ std::vector<Instruction> SyncManager::LoadInstructionVector(std::string location
     	myfile.close();
   	}	
   	return answer;
+}
+
+void SyncManager::AddFileToLocalFiles(std::string locpath, std::string gpath)
+{
+	MainFiles.AddFilesToFileChanges(locpath,gpath);
+}
+
+void SyncManager::UpdateSyncTimes()
+{
+	MainFiles.SetTimeChanges(std::time(0));
+}
+
+void SyncManager::AddFileToLinking(std::string cl, std::string se)
+{
+	UserFiles USF = MainFiles.GetFileLinking();
+	USF.AddNew(cl,se);
+	MainFiles.SetFileLinking(USF);
 }
 
 Instruction DoLogin(std::string us,std::string pwd)

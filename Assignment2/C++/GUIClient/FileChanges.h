@@ -41,6 +41,9 @@ class FileChanges
 		void RemoveFromClient(std::string);
 		void RemoveFromServer(std::string);
 
+		void AddFilesToFileChanges(std::string, std::string);
+		void SetTimeChanges(int);
+
 		// std::vector<Instruction> ChangeDetectionGlobal();
 
 		// void SaveInstructionVectorToFile(std::vector<Instruction>, std::string);

@@ -91,6 +91,10 @@ class SyncManager
 		void SaveInstructionVector(std::vector<Instruction>, std::string);
 		std::vector<Instruction> LoadInstructionVector(std::string);
 
+		void AddFileToLocalFiles(std::string, std::string);
+		void UpdateSyncTimes();
+		void AddFileToLinking(std::string, std::string);
+
 	private:
 		std::string Username;
 		SyncList FilesToSync;

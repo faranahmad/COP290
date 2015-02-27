@@ -161,6 +161,19 @@ void FileHistory::LoadFileTimeBase()
  //    }
 }
 
+bool FileHistory::ExistsFile(std::string tofine)
+{
+	bool found1=false;
+	for (int i=0; (i<FileTimeBase.size()) && (!found1) ; i++ )
+	{
+		if (FileTimeBase[i].first == tofine)
+		{
+			found1=true;
+		}
+	}
+	return found1;
+}
+
 void FileHistory::LoadFromFileBase(std::string location)
 {
 	// TODO File DNE
@@ -210,6 +223,23 @@ void FileHistory::RemoveFile(std::string location)
 	}
 }
 
+void FileHistory::AddFileToHistory(std::string sadd, int time1)
+{
+	bool done=false;
+	for (int i=0; (i< FileTimeBase.size()) && !(done); i++ )	
+	{
+		if (FileTimeBase[i].first == sadd)
+		{
+			done = true;
+			FileTimeBase[i].second = time1;
+		}
+	}
+	if (!done)
+	{
+		FileTimeBase.push_back(std::pair<std::string, int>  (sadd,time1) );
+	}
+}
+
 std::vector< std::pair<std::string, int> > GetVectorFiles(std::string location)
 {
 	boost::filesystem::path p (location);
@@ -225,7 +255,7 @@ std::vector< std::pair<std::string, int> > GetVectorFiles(std::string location)
         {
         	if (is_regular_file(v[i]))
         	{
-        		if (v[i].string.find(".data") != std::string::npos) 
+        		if (v[i].string().find("/.data/") != std::string::npos) 
         		{
  				   std::cout << "found!" << '\n';
 				}
