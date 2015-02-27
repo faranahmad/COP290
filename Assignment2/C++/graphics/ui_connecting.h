@@ -16,7 +16,6 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
@@ -24,25 +23,20 @@ QT_BEGIN_NAMESPACE
 class Ui_connecting
 {
 public:
-    QProgressBar *progressBar;
     QLabel *label;
-    QPushButton *pushButton;
+    QPushButton *okbutton;
+    QLabel *label_2;
 
     void setupUi(QDialog *connecting)
     {
         if (connecting->objectName().isEmpty())
             connecting->setObjectName(QStringLiteral("connecting"));
-        connecting->resize(330, 190);
+        connecting->resize(303, 151);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(connecting->sizePolicy().hasHeightForWidth());
         connecting->setSizePolicy(sizePolicy);
-        progressBar = new QProgressBar(connecting);
-        progressBar->setObjectName(QStringLiteral("progressBar"));
-        progressBar->setGeometry(QRect(10, 70, 271, 25));
-        progressBar->setValue(24);
-        progressBar->setAlignment(Qt::AlignCenter);
         label = new QLabel(connecting);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(9, 9, 265, 23));
@@ -54,17 +48,17 @@ public:
         QFont font;
         font.setPointSize(15);
         label->setFont(font);
-        pushButton = new QPushButton(connecting);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(100, 120, 85, 27));
+        okbutton = new QPushButton(connecting);
+        okbutton->setObjectName(QStringLiteral("okbutton"));
+        okbutton->setGeometry(QRect(100, 90, 85, 27));
         QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Fixed);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
-        pushButton->setSizePolicy(sizePolicy2);
-        label->raise();
-        pushButton->raise();
-        progressBar->raise();
+        sizePolicy2.setHeightForWidth(okbutton->sizePolicy().hasHeightForWidth());
+        okbutton->setSizePolicy(sizePolicy2);
+        label_2 = new QLabel(connecting);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(10, 40, 261, 31));
 
         retranslateUi(connecting);
 
@@ -75,7 +69,8 @@ public:
     {
         connecting->setWindowTitle(QApplication::translate("connecting", "Dialog", 0));
         label->setText(QApplication::translate("connecting", "Connecting to Dead Drop.......", 0));
-        pushButton->setText(QApplication::translate("connecting", "OK", 0));
+        okbutton->setText(QApplication::translate("connecting", "OK", 0));
+        label_2->setText(QApplication::translate("connecting", "Syncing in Progress..........", 0));
     } // retranslateUi
 
 };

@@ -18,27 +18,33 @@ public:
     ~file();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_movetodrive_clicked();
 
-    void on_pushButton_2_clicked();
+    //void on_pushButton_2_clicked();
 
-    void on_pushButton_3_clicked();
+    void on_openfile_clicked();
 
-    void on_pushButton_4_clicked();
+    void on_deletefile_clicked();
 
-    void on_pushButton_5_clicked();
+    void on_share_clicked();
 
-    void on_pushButton_8_clicked();
+    void on_AddFileInClientSide_clicked();
 
-    void on_pushButton_9_clicked();
+    void on_OpenFileInDrive_clicked();
 
     void makechange();
 
-    void on_pushButton_10_clicked();
+    void on_GoingBackInDrive_clicked();
 
-    void on_pushButton_6_clicked();
+    void on_GetFromDrive_clicked();
 
-    void on_pushButton_12_clicked();
+    void on_logout_clicked();
+
+    void on_changepassword_clicked();
+
+    void on_DeleteFromDrive_clicked();
+
+    void on_ViewSharedFiles_clicked();
 
 private:
     Ui::file *ui;

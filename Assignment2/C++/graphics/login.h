@@ -22,6 +22,8 @@ private slots:
 
     void on_newuser_clicked();
 
+    void customSlot4();
+
 private:
     Ui::login *ui;
 };

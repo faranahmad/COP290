@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     file.cpp \
     share.cpp \
     connecting.cpp \
-    filesonserver.cpp
+    filesonserver.cpp \
+    sharedwithothers.cpp
 
 HEADERS  += login.h \
     newusersignup.h \
@@ -27,13 +28,15 @@ HEADERS  += login.h \
     file.h \
     share.h \
     connecting.h \
-    filesonserver.h
+    filesonserver.h \
+    sharedwithothers.h
 
 FORMS    += login.ui \
     newusersignup.ui \
     fileaccess.ui \
     file.ui \
     share.ui \
-    connecting.ui
+    connecting.ui \
+    sharedwithothers.ui
 
 CONFIG += c++11

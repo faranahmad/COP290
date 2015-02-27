@@ -3,39 +3,23 @@
 #include "ui_connecting.h"
 #include <cstdlib>
 #include <unistd.h>
+#include <QMessageBox>
 #include <iostream>
-#include <
 
-void connecting::valuechanged(int value)
-{
-    value = 0;
-    for (int i = 0;i<100;i++)
-        value = i;
+bool connection_complete = true;
 
-}
 
 connecting::connecting(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::connecting)
 {
     ui->setupUi(this);
-    int x = 40;
-    ui->progressBar->setRange(0,100);
+    this->setWindowIcon(QIcon("/home/faran/Desktop/COP290/Assignment2/DesignDocument/ddlogo2.png")) ;
+    //connect(this, SIGNAL(valuechanged(bool &)), this, SLOT(setvalue(int)));
+    //connect(ui->okbutton, SIGNAL(clicked(bool)), this, SLOT(slotButtonClicked(bool)));
+    this->setFixedSize(289,155);
+    //this->funccall();
 
-        //for(int i = 0;;i++)
-        //{
-        //    x= i;
-        //    usleep(100);
-        //   std::cout << x <<"\n";
-        ui->progressBar->setValue(x);
-        //    i=i%100;
-       // }
-
-    //sleep(50);
-    //this->hide();
-    //file file1;
-    //file1.setModal(true);
-    //file1.exec();
 }
 
 connecting::~connecting()
@@ -52,12 +36,33 @@ connecting::~connecting()
 
     //
 }
-
-void connecting::on_pushButton_clicked()
+void connecting::funccall()
 {
-    this->hide();
-    file file1;
-    file1.setModal(true);
-    file1.exec();
+    {
+        if(connection_complete == true)
+        {
+            this->hide();
+            file file1;
+            file1.setModal(true);
+            file1.exec();
+        }
+    }
+}
+
+
+
+void connecting::on_okbutton_clicked()
+{
+    if(connection_complete)
+    {
+        this->hide();
+        file file1;
+        file1.setModal(true);
+        file1.exec();
+    }
+    else
+    {
+        QMessageBox::information(this,tr("please wait"),tr("syncing is still in progress"));
+    }
 
 }

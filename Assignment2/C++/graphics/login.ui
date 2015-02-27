@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>424</width>
-    <height>309</height>
+    <width>670</width>
+    <height>576</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,11 +23,17 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>70</y>
+      <x>80</x>
+      <y>250</y>
       <width>71</width>
       <height>17</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Username</string>
@@ -36,9 +42,9 @@
    <widget class="QLineEdit" name="usernametext">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>70</y>
-      <width>113</width>
+      <x>280</x>
+      <y>250</y>
+      <width>251</width>
       <height>27</height>
      </rect>
     </property>
@@ -46,11 +52,17 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>130</y>
+      <x>80</x>
+      <y>300</y>
       <width>71</width>
       <height>17</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Password</string>
@@ -59,9 +71,9 @@
    <widget class="QLineEdit" name="passwordtext">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>130</y>
-      <width>113</width>
+      <x>280</x>
+      <y>300</y>
+      <width>251</width>
       <height>27</height>
      </rect>
     </property>
@@ -72,34 +84,28 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>30</y>
+      <x>170</x>
+      <y>190</y>
       <width>311</width>
       <height>17</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Enter Username and Password</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>240</y>
-      <width>111</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>New User...?</string>
-    </property>
-   </widget>
    <widget class="QToolButton" name="login_2">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>180</y>
+      <x>140</x>
+      <y>380</y>
       <width>111</width>
       <height>25</height>
      </rect>
@@ -111,8 +117,8 @@
    <widget class="QToolButton" name="quitapp">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>180</y>
+      <x>390</x>
+      <y>380</y>
       <width>111</width>
       <height>25</height>
      </rect>
@@ -124,14 +130,61 @@
    <widget class="QToolButton" name="newuser">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>240</y>
+      <x>360</x>
+      <y>460</y>
       <width>111</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
      <string>SignUp</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>10</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="pic">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>20</y>
+      <width>181</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>126</x>
+      <y>460</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>New User....?</string>
     </property>
    </widget>
   </widget>
@@ -143,7 +196,6 @@
     <bool>false</bool>
    </attribute>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

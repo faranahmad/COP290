@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1725</width>
-    <height>895</height>
+    <width>1800</width>
+    <height>950</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,35 +16,31 @@
   <widget class="QTreeView" name="treeView">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>40</y>
-     <width>671</width>
-     <height>481</height>
+     <x>50</x>
+     <y>90</y>
+     <width>991</width>
+     <height>651</height>
     </rect>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustToContents</enum>
+   </property>
+   <property name="dragEnabled">
+    <bool>false</bool>
+   </property>
+   <property name="dragDropMode">
+    <enum>QAbstractItemView::InternalMove</enum>
    </property>
    <property name="selectionMode">
-    <enum>QAbstractItemView::MultiSelection</enum>
+    <enum>QAbstractItemView::SingleSelection</enum>
    </property>
   </widget>
-  <widget class="Line" name="line">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>783</x>
-     <y>20</y>
-     <width>20</width>
-     <height>731</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Vertical</enum>
-   </property>
-  </widget>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>920</x>
-     <y>580</y>
-     <width>471</width>
+     <x>1120</x>
+     <y>790</y>
+     <width>601</width>
      <height>141</height>
     </rect>
    </property>
@@ -52,14 +48,14 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
-       <widget class="QPushButton" name="pushButton_6">
+       <widget class="QPushButton" name="GetFromDrive">
         <property name="text">
          <string>Get From Drive</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_7">
+       <widget class="QPushButton" name="DeleteFromDrive">
         <property name="text">
          <string>Delete From Drive</string>
         </property>
@@ -70,14 +66,14 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_5">
       <item>
-       <widget class="QPushButton" name="pushButton_9">
+       <widget class="QPushButton" name="OpenFileInDrive">
         <property name="text">
          <string>Open</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_10">
+       <widget class="QPushButton" name="GoingBackInDrive">
         <property name="text">
          <string>Back</string>
         </property>
@@ -85,48 +81,15 @@
       </item>
      </layout>
     </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="text">
-       <string>display</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>890</x>
-     <y>10</y>
-     <width>521</width>
-     <height>521</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout_6">
-    <item>
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>files/</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QListWidget" name="listWidget">
-      <property name="selectionMode">
-       <enum>QAbstractItemView::MultiSelection</enum>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>570</y>
-     <width>631</width>
-     <height>231</height>
+     <x>80</x>
+     <y>750</y>
+     <width>921</width>
+     <height>111</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -135,14 +98,14 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <widget class="QPushButton" name="pushButton_3">
+         <widget class="QPushButton" name="openfile">
           <property name="text">
            <string>Open</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_4">
+         <widget class="QPushButton" name="deletefile">
           <property name="text">
            <string>Delete</string>
           </property>
@@ -153,14 +116,14 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="movetodrive">
           <property name="text">
            <string>Move To Drive</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_5">
+         <widget class="QPushButton" name="share">
           <property name="text">
            <string>Share</string>
           </property>
@@ -171,14 +134,14 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QPushButton" name="pushButton_8">
+         <widget class="QPushButton" name="AddFileInClientSide">
           <property name="text">
            <string>Add File</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_11">
+         <widget class="QPushButton" name="sync">
           <property name="text">
            <string>Sync</string>
           </property>
@@ -188,15 +151,198 @@
       </item>
      </layout>
     </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="filesonclientside">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>50</y>
+     <width>301</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Files On PC</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>1120</x>
+     <y>50</y>
+     <width>231</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Files On Server</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>1070</x>
+     <y>50</y>
+     <width>20</width>
+     <height>891</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>1861</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>0</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>WELCOME</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listWidget">
+   <property name="geometry">
+    <rect>
+     <x>1120</x>
+     <y>90</y>
+     <width>601</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::SingleSelection</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>1120</x>
+     <y>70</y>
+     <width>631</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>files/</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>910</y>
+     <width>901</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
     <item>
-     <widget class="QPushButton" name="pushButton_12">
+     <widget class="QPushButton" name="logout">
       <property name="text">
        <string>Log Out</string>
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="changepassword">
+      <property name="text">
+       <string>Change Password</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
+  <widget class="QPushButton" name="ViewSharedFiles">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>860</y>
+     <width>301</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>View Shared Files</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="sharedwithme">
+   <property name="geometry">
+    <rect>
+     <x>1120</x>
+     <y>470</y>
+     <width>601</width>
+     <height>271</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="sharedwithmetext">
+   <property name="geometry">
+    <rect>
+     <x>1120</x>
+     <y>436</y>
+     <width>171</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Shared With Me</string>
+   </property>
+  </widget>
+  <zorder>treeView</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>filesonclientside</zorder>
+  <zorder>listWidget</zorder>
+  <zorder>label</zorder>
+  <zorder>label_2</zorder>
+  <zorder>line</zorder>
+  <zorder>line_2</zorder>
+  <zorder>label_3</zorder>
+  <zorder>ViewSharedFiles</zorder>
+  <zorder>sharedwithme</zorder>
+  <zorder>sharedwithmetext</zorder>
  </widget>
  <resources/>
  <connections/>

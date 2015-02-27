@@ -30,155 +30,138 @@ class Ui_file
 {
 public:
     QTreeView *treeView;
-    QFrame *line;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout_4;
-    QPushButton *pushButton_6;
-    QPushButton *pushButton_7;
+    QPushButton *GetFromDrive;
+    QPushButton *DeleteFromDrive;
     QVBoxLayout *verticalLayout_5;
-    QPushButton *pushButton_9;
-    QPushButton *pushButton_10;
-    QPushButton *pushButton_2;
-    QWidget *widget1;
-    QVBoxLayout *verticalLayout_6;
-    QLabel *label;
-    QListWidget *listWidget;
-    QWidget *widget2;
+    QPushButton *OpenFileInDrive;
+    QPushButton *GoingBackInDrive;
+    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_7;
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_3;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_4;
+    QPushButton *openfile;
+    QPushButton *deletefile;
     QVBoxLayout *verticalLayout;
-    QPushButton *pushButton;
-    QPushButton *pushButton_5;
+    QPushButton *movetodrive;
+    QPushButton *share;
     QVBoxLayout *verticalLayout_2;
-    QPushButton *pushButton_8;
-    QPushButton *pushButton_11;
-    QPushButton *pushButton_12;
+    QPushButton *AddFileInClientSide;
+    QPushButton *sync;
+    QLabel *filesonclientside;
+    QLabel *label_2;
+    QFrame *line;
+    QFrame *line_2;
+    QLabel *label_3;
+    QListWidget *listWidget;
+    QLabel *label;
+    QWidget *layoutWidget2;
+    QHBoxLayout *horizontalLayout_3;
+    QPushButton *logout;
+    QPushButton *changepassword;
+    QPushButton *ViewSharedFiles;
+    QListWidget *sharedwithme;
+    QLabel *sharedwithmetext;
 
     void setupUi(QDialog *file)
     {
         if (file->objectName().isEmpty())
             file->setObjectName(QStringLiteral("file"));
-        file->resize(1725, 895);
+        file->resize(1800, 950);
         treeView = new QTreeView(file);
         treeView->setObjectName(QStringLiteral("treeView"));
-        treeView->setGeometry(QRect(40, 40, 671, 481));
-        treeView->setSelectionMode(QAbstractItemView::MultiSelection);
-        line = new QFrame(file);
-        line->setObjectName(QStringLiteral("line"));
-        line->setGeometry(QRect(783, 20, 20, 731));
-        line->setFrameShape(QFrame::VLine);
-        line->setFrameShadow(QFrame::Sunken);
-        widget = new QWidget(file);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(920, 580, 471, 141));
-        horizontalLayout_2 = new QHBoxLayout(widget);
+        treeView->setGeometry(QRect(50, 90, 991, 651));
+        treeView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        treeView->setDragEnabled(false);
+        treeView->setDragDropMode(QAbstractItemView::InternalMove);
+        treeView->setSelectionMode(QAbstractItemView::SingleSelection);
+        layoutWidget = new QWidget(file);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(1120, 790, 601, 141));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        pushButton_6 = new QPushButton(widget);
-        pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
+        GetFromDrive = new QPushButton(layoutWidget);
+        GetFromDrive->setObjectName(QStringLiteral("GetFromDrive"));
 
-        verticalLayout_4->addWidget(pushButton_6);
+        verticalLayout_4->addWidget(GetFromDrive);
 
-        pushButton_7 = new QPushButton(widget);
-        pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
+        DeleteFromDrive = new QPushButton(layoutWidget);
+        DeleteFromDrive->setObjectName(QStringLiteral("DeleteFromDrive"));
 
-        verticalLayout_4->addWidget(pushButton_7);
+        verticalLayout_4->addWidget(DeleteFromDrive);
 
 
         horizontalLayout_2->addLayout(verticalLayout_4);
 
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        pushButton_9 = new QPushButton(widget);
-        pushButton_9->setObjectName(QStringLiteral("pushButton_9"));
+        OpenFileInDrive = new QPushButton(layoutWidget);
+        OpenFileInDrive->setObjectName(QStringLiteral("OpenFileInDrive"));
 
-        verticalLayout_5->addWidget(pushButton_9);
+        verticalLayout_5->addWidget(OpenFileInDrive);
 
-        pushButton_10 = new QPushButton(widget);
-        pushButton_10->setObjectName(QStringLiteral("pushButton_10"));
+        GoingBackInDrive = new QPushButton(layoutWidget);
+        GoingBackInDrive->setObjectName(QStringLiteral("GoingBackInDrive"));
 
-        verticalLayout_5->addWidget(pushButton_10);
+        verticalLayout_5->addWidget(GoingBackInDrive);
 
 
         horizontalLayout_2->addLayout(verticalLayout_5);
 
-        pushButton_2 = new QPushButton(widget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-
-        horizontalLayout_2->addWidget(pushButton_2);
-
-        widget1 = new QWidget(file);
-        widget1->setObjectName(QStringLiteral("widget1"));
-        widget1->setGeometry(QRect(890, 10, 521, 521));
-        verticalLayout_6 = new QVBoxLayout(widget1);
-        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        verticalLayout_6->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(widget1);
-        label->setObjectName(QStringLiteral("label"));
-
-        verticalLayout_6->addWidget(label);
-
-        listWidget = new QListWidget(widget1);
-        listWidget->setObjectName(QStringLiteral("listWidget"));
-        listWidget->setSelectionMode(QAbstractItemView::MultiSelection);
-
-        verticalLayout_6->addWidget(listWidget);
-
-        widget2 = new QWidget(file);
-        widget2->setObjectName(QStringLiteral("widget2"));
-        widget2->setGeometry(QRect(60, 570, 631, 231));
-        verticalLayout_7 = new QVBoxLayout(widget2);
+        layoutWidget1 = new QWidget(file);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(80, 750, 921, 111));
+        verticalLayout_7 = new QVBoxLayout(layoutWidget1);
         verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
         verticalLayout_7->setContentsMargins(0, 0, 0, 0);
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        pushButton_3 = new QPushButton(widget2);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        openfile = new QPushButton(layoutWidget1);
+        openfile->setObjectName(QStringLiteral("openfile"));
 
-        verticalLayout_3->addWidget(pushButton_3);
+        verticalLayout_3->addWidget(openfile);
 
-        pushButton_4 = new QPushButton(widget2);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+        deletefile = new QPushButton(layoutWidget1);
+        deletefile->setObjectName(QStringLiteral("deletefile"));
 
-        verticalLayout_3->addWidget(pushButton_4);
+        verticalLayout_3->addWidget(deletefile);
 
 
         horizontalLayout->addLayout(verticalLayout_3);
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        pushButton = new QPushButton(widget2);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        movetodrive = new QPushButton(layoutWidget1);
+        movetodrive->setObjectName(QStringLiteral("movetodrive"));
 
-        verticalLayout->addWidget(pushButton);
+        verticalLayout->addWidget(movetodrive);
 
-        pushButton_5 = new QPushButton(widget2);
-        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
+        share = new QPushButton(layoutWidget1);
+        share->setObjectName(QStringLiteral("share"));
 
-        verticalLayout->addWidget(pushButton_5);
+        verticalLayout->addWidget(share);
 
 
         horizontalLayout->addLayout(verticalLayout);
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        pushButton_8 = new QPushButton(widget2);
-        pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
+        AddFileInClientSide = new QPushButton(layoutWidget1);
+        AddFileInClientSide->setObjectName(QStringLiteral("AddFileInClientSide"));
 
-        verticalLayout_2->addWidget(pushButton_8);
+        verticalLayout_2->addWidget(AddFileInClientSide);
 
-        pushButton_11 = new QPushButton(widget2);
-        pushButton_11->setObjectName(QStringLiteral("pushButton_11"));
+        sync = new QPushButton(layoutWidget1);
+        sync->setObjectName(QStringLiteral("sync"));
 
-        verticalLayout_2->addWidget(pushButton_11);
+        verticalLayout_2->addWidget(sync);
 
 
         horizontalLayout->addLayout(verticalLayout_2);
@@ -186,11 +169,80 @@ public:
 
         verticalLayout_7->addLayout(horizontalLayout);
 
-        pushButton_12 = new QPushButton(widget2);
-        pushButton_12->setObjectName(QStringLiteral("pushButton_12"));
+        filesonclientside = new QLabel(file);
+        filesonclientside->setObjectName(QStringLiteral("filesonclientside"));
+        filesonclientside->setGeometry(QRect(50, 50, 301, 31));
+        QFont font;
+        font.setPointSize(16);
+        filesonclientside->setFont(font);
+        label_2 = new QLabel(file);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(1120, 50, 231, 17));
+        label_2->setFont(font);
+        line = new QFrame(file);
+        line->setObjectName(QStringLiteral("line"));
+        line->setGeometry(QRect(1070, 50, 20, 891));
+        line->setFrameShape(QFrame::VLine);
+        line->setFrameShadow(QFrame::Sunken);
+        line_2 = new QFrame(file);
+        line_2->setObjectName(QStringLiteral("line_2"));
+        line_2->setGeometry(QRect(10, 30, 1861, 16));
+        line_2->setFrameShape(QFrame::HLine);
+        line_2->setFrameShadow(QFrame::Sunken);
+        label_3 = new QLabel(file);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(800, 0, 141, 31));
+        QFont font1;
+        font1.setPointSize(18);
+        label_3->setFont(font1);
+        listWidget = new QListWidget(file);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
+        listWidget->setGeometry(QRect(1120, 90, 601, 331));
+        listWidget->setSelectionMode(QAbstractItemView::SingleSelection);
+        label = new QLabel(file);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(1120, 70, 631, 17));
+        label->setWordWrap(true);
+        layoutWidget2 = new QWidget(file);
+        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(70, 910, 901, 29));
+        horizontalLayout_3 = new QHBoxLayout(layoutWidget2);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
+        logout = new QPushButton(layoutWidget2);
+        logout->setObjectName(QStringLiteral("logout"));
 
-        verticalLayout_7->addWidget(pushButton_12);
+        horizontalLayout_3->addWidget(logout);
 
+        changepassword = new QPushButton(layoutWidget2);
+        changepassword->setObjectName(QStringLiteral("changepassword"));
+
+        horizontalLayout_3->addWidget(changepassword);
+
+        ViewSharedFiles = new QPushButton(file);
+        ViewSharedFiles->setObjectName(QStringLiteral("ViewSharedFiles"));
+        ViewSharedFiles->setGeometry(QRect(390, 860, 301, 27));
+        sharedwithme = new QListWidget(file);
+        sharedwithme->setObjectName(QStringLiteral("sharedwithme"));
+        sharedwithme->setGeometry(QRect(1120, 470, 601, 271));
+        sharedwithmetext = new QLabel(file);
+        sharedwithmetext->setObjectName(QStringLiteral("sharedwithmetext"));
+        sharedwithmetext->setGeometry(QRect(1120, 436, 171, 21));
+        sharedwithmetext->setFont(font);
+        treeView->raise();
+        layoutWidget->raise();
+        layoutWidget->raise();
+        layoutWidget->raise();
+        filesonclientside->raise();
+        listWidget->raise();
+        label->raise();
+        label_2->raise();
+        line->raise();
+        line_2->raise();
+        label_3->raise();
+        ViewSharedFiles->raise();
+        sharedwithme->raise();
+        sharedwithmetext->raise();
 
         retranslateUi(file);
 
@@ -200,19 +252,24 @@ public:
     void retranslateUi(QDialog *file)
     {
         file->setWindowTitle(QApplication::translate("file", "Dialog", 0));
-        pushButton_6->setText(QApplication::translate("file", "Get From Drive", 0));
-        pushButton_7->setText(QApplication::translate("file", "Delete From Drive", 0));
-        pushButton_9->setText(QApplication::translate("file", "Open", 0));
-        pushButton_10->setText(QApplication::translate("file", "Back", 0));
-        pushButton_2->setText(QApplication::translate("file", "display", 0));
+        GetFromDrive->setText(QApplication::translate("file", "Get From Drive", 0));
+        DeleteFromDrive->setText(QApplication::translate("file", "Delete From Drive", 0));
+        OpenFileInDrive->setText(QApplication::translate("file", "Open", 0));
+        GoingBackInDrive->setText(QApplication::translate("file", "Back", 0));
+        openfile->setText(QApplication::translate("file", "Open", 0));
+        deletefile->setText(QApplication::translate("file", "Delete", 0));
+        movetodrive->setText(QApplication::translate("file", "Move To Drive", 0));
+        share->setText(QApplication::translate("file", "Share", 0));
+        AddFileInClientSide->setText(QApplication::translate("file", "Add File", 0));
+        sync->setText(QApplication::translate("file", "Sync", 0));
+        filesonclientside->setText(QApplication::translate("file", "Files On PC", 0));
+        label_2->setText(QApplication::translate("file", "Files On Server", 0));
+        label_3->setText(QApplication::translate("file", "WELCOME", 0));
         label->setText(QApplication::translate("file", "files/", 0));
-        pushButton_3->setText(QApplication::translate("file", "Open", 0));
-        pushButton_4->setText(QApplication::translate("file", "Delete", 0));
-        pushButton->setText(QApplication::translate("file", "Move To Drive", 0));
-        pushButton_5->setText(QApplication::translate("file", "Share", 0));
-        pushButton_8->setText(QApplication::translate("file", "Add File", 0));
-        pushButton_11->setText(QApplication::translate("file", "Sync", 0));
-        pushButton_12->setText(QApplication::translate("file", "Log Out", 0));
+        logout->setText(QApplication::translate("file", "Log Out", 0));
+        changepassword->setText(QApplication::translate("file", "Change Password", 0));
+        ViewSharedFiles->setText(QApplication::translate("file", "View Shared Files", 0));
+        sharedwithmetext->setText(QApplication::translate("file", "Shared With Me", 0));
     } // retranslateUi
 
 };

@@ -13,6 +13,9 @@ NewUserSignup::NewUserSignup(QWidget *parent) :
     ui(new Ui::NewUserSignup)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon("/home/faran/Desktop/COP290/Assignment2/DesignDocument/ddlogo2.png")) ;
+    this->setFixedSize(680,364);
+    this->setWindowIcon(QIcon("/home/faran/Desktop/COP290/Assignment2/DesignDocument/ddlogo2.png")) ;
     connect(ui->passwordtext, SIGNAL(textChanged(const QString &)), this, SLOT(customSlot(const QString &)));
     connect(ui->confirmpasswordtext, SIGNAL(textChanged(const QString &)), this, SLOT(customSlot1(const QString &)));
 }
@@ -79,6 +82,14 @@ void NewUserSignup::on_toolButton_clicked()
         ui->passwordtext->setText("");
         ui->confirmpasswordtext->setText("");
         QMessageBox::information(this,tr("Please Re-Enter"),tr("confirm password is different"));
+    }
+    else if(ui->passwordtext->text().size() < 6)
+    {
+        ui->passwordtext->setText("");
+        ui->confirmpasswordtext->setText("");
+        ui->label_6->setText("");
+        ui->label_7->setText("");
+        QMessageBox::information(this,tr("Too Short"),tr("password is too short please re-enter"));
     }
     else
     {

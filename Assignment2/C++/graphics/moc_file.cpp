@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_file_t {
-    QByteArrayData data[13];
-    char stringdata[258];
+    QByteArrayData data[15];
+    char stringdata[308];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,26 +30,30 @@ struct qt_meta_stringdata_file_t {
 static const qt_meta_stringdata_file_t qt_meta_stringdata_file = {
     {
 QT_MOC_LITERAL(0, 0, 4),
-QT_MOC_LITERAL(1, 5, 21),
-QT_MOC_LITERAL(2, 27, 0),
-QT_MOC_LITERAL(3, 28, 23),
-QT_MOC_LITERAL(4, 52, 23),
-QT_MOC_LITERAL(5, 76, 23),
-QT_MOC_LITERAL(6, 100, 23),
-QT_MOC_LITERAL(7, 124, 23),
-QT_MOC_LITERAL(8, 148, 23),
-QT_MOC_LITERAL(9, 172, 10),
-QT_MOC_LITERAL(10, 183, 24),
-QT_MOC_LITERAL(11, 208, 23),
-QT_MOC_LITERAL(12, 232, 24)
+QT_MOC_LITERAL(1, 5, 22),
+QT_MOC_LITERAL(2, 28, 0),
+QT_MOC_LITERAL(3, 29, 19),
+QT_MOC_LITERAL(4, 49, 21),
+QT_MOC_LITERAL(5, 71, 16),
+QT_MOC_LITERAL(6, 88, 30),
+QT_MOC_LITERAL(7, 119, 26),
+QT_MOC_LITERAL(8, 146, 10),
+QT_MOC_LITERAL(9, 157, 27),
+QT_MOC_LITERAL(10, 185, 23),
+QT_MOC_LITERAL(11, 209, 17),
+QT_MOC_LITERAL(12, 227, 25),
+QT_MOC_LITERAL(13, 253, 26),
+QT_MOC_LITERAL(14, 280, 26)
     },
-    "file\0on_pushButton_clicked\0\0"
-    "on_pushButton_2_clicked\0on_pushButton_3_clicked\0"
-    "on_pushButton_4_clicked\0on_pushButton_5_clicked\0"
-    "on_pushButton_8_clicked\0on_pushButton_9_clicked\0"
-    "makechange\0on_pushButton_10_clicked\0"
-    "on_pushButton_6_clicked\0"
-    "on_pushButton_12_clicked\0"
+    "file\0on_movetodrive_clicked\0\0"
+    "on_openfile_clicked\0on_deletefile_clicked\0"
+    "on_share_clicked\0on_AddFileInClientSide_clicked\0"
+    "on_OpenFileInDrive_clicked\0makechange\0"
+    "on_GoingBackInDrive_clicked\0"
+    "on_GetFromDrive_clicked\0on_logout_clicked\0"
+    "on_changepassword_clicked\0"
+    "on_DeleteFromDrive_clicked\0"
+    "on_ViewSharedFiles_clicked\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -59,7 +63,7 @@ static const uint qt_meta_data_file[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -67,19 +71,23 @@ static const uint qt_meta_data_file[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   69,    2, 0x08,
-       3,    0,   70,    2, 0x08,
-       4,    0,   71,    2, 0x08,
-       5,    0,   72,    2, 0x08,
-       6,    0,   73,    2, 0x08,
-       7,    0,   74,    2, 0x08,
-       8,    0,   75,    2, 0x08,
-       9,    0,   76,    2, 0x08,
-      10,    0,   77,    2, 0x08,
-      11,    0,   78,    2, 0x08,
-      12,    0,   79,    2, 0x08,
+       1,    0,   79,    2, 0x08,
+       3,    0,   80,    2, 0x08,
+       4,    0,   81,    2, 0x08,
+       5,    0,   82,    2, 0x08,
+       6,    0,   83,    2, 0x08,
+       7,    0,   84,    2, 0x08,
+       8,    0,   85,    2, 0x08,
+       9,    0,   86,    2, 0x08,
+      10,    0,   87,    2, 0x08,
+      11,    0,   88,    2, 0x08,
+      12,    0,   89,    2, 0x08,
+      13,    0,   90,    2, 0x08,
+      14,    0,   91,    2, 0x08,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -100,17 +108,19 @@ void file::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
     if (_c == QMetaObject::InvokeMetaMethod) {
         file *_t = static_cast<file *>(_o);
         switch (_id) {
-        case 0: _t->on_pushButton_clicked(); break;
-        case 1: _t->on_pushButton_2_clicked(); break;
-        case 2: _t->on_pushButton_3_clicked(); break;
-        case 3: _t->on_pushButton_4_clicked(); break;
-        case 4: _t->on_pushButton_5_clicked(); break;
-        case 5: _t->on_pushButton_8_clicked(); break;
-        case 6: _t->on_pushButton_9_clicked(); break;
-        case 7: _t->makechange(); break;
-        case 8: _t->on_pushButton_10_clicked(); break;
-        case 9: _t->on_pushButton_6_clicked(); break;
-        case 10: _t->on_pushButton_12_clicked(); break;
+        case 0: _t->on_movetodrive_clicked(); break;
+        case 1: _t->on_openfile_clicked(); break;
+        case 2: _t->on_deletefile_clicked(); break;
+        case 3: _t->on_share_clicked(); break;
+        case 4: _t->on_AddFileInClientSide_clicked(); break;
+        case 5: _t->on_OpenFileInDrive_clicked(); break;
+        case 6: _t->makechange(); break;
+        case 7: _t->on_GoingBackInDrive_clicked(); break;
+        case 8: _t->on_GetFromDrive_clicked(); break;
+        case 9: _t->on_logout_clicked(); break;
+        case 10: _t->on_changepassword_clicked(); break;
+        case 11: _t->on_DeleteFromDrive_clicked(); break;
+        case 12: _t->on_ViewSharedFiles_clicked(); break;
         default: ;
         }
     }
@@ -142,13 +152,13 @@ int file::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 13)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 11;
+        _id -= 13;
     }
     return _id;
 }

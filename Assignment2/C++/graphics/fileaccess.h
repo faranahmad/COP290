@@ -17,6 +17,14 @@ public:
 
 private:
     Ui::fileaccess *ui;
+
+private slots:
+
+    void customSlot2(const QString&);
+
+    void customSlot3(const QString&);
+    void on_applychange_clicked();
+    void on_cancel_clicked();
 };
 
 #endif // FILEACCESS_H
