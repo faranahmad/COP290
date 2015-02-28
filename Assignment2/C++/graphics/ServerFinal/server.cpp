@@ -3,18 +3,28 @@
 #include "ui_server.h"
 #include "onlineusers.h"
 #include "serverfilesandfolders.h"
+#include <iostream>
+#include <string>
+
+extern std::string iptodisplay; 
+extern std::string porttodisplay;
+
 server::server(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::server)
 {
+    iptodisplay = "manually set ip";
+    porttodisplay = "manually set port";
+
     ui->setupUi(this);
     this->setFixedSize(608,661);
-    this->setWindowIcon(QIcon("/home/faran/Desktop/COP290/Assignment2/DesignDocument/ddlogo2.png")) ;
     this->setStyleSheet("background-color:rgb(0,255,255);");
     ui->allusers->setStyleSheet("background-color:light green;");
     ui->shutdown->setStyleSheet("background-color:light green;");
     ui->filesandfolders->setStyleSheet("background-color:light green;");
     ui->onlineusers->setStyleSheet("background-color:light green;");
+    ui->label_2->setText(iptodisplay.c_str());
+    ui->label_4->setText(porttodisplay.c_str());
 }
 
 server::~server()

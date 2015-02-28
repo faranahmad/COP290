@@ -3,20 +3,31 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include "UserBase.h"
 
-extern std::vector<std::string> listofitems;
+// extern std::vector<std::string> listofitems;
 
 allusers::allusers(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::allusers)
 {
     ui->setupUi(this);
-    this->setWindowIcon(QIcon("/home/faran/Desktop/COP290/Assignment2/DesignDocument/ddlogo2.png")) ;
     this->setStyleSheet("background-color:rgb(0,255,255);");
     ui->pushButton_2->setStyleSheet("background-color:light green;");
     ui->listWidget->setStyleSheet("background-color:white;");
-    for (unsigned int i = 0;i<listofitems.size();i++)
-        ui->listWidget->addItem(listofitems.at(i).c_str());
+    
+    UserBase todisplaydatabase;
+    todisplaydatabase.LoadFromFile("Database.txt");
+
+
+    std::unordered_map<std::string, std::string> hashmap= todisplaydatabase.GetUsersList();
+
+    for (auto& x: hashmap) 
+    {
+        std::cout << x.first <<"\n";
+        ui->listWidget->addItem((x.first).c_str());
+    }
+
     ui->pushButton_2->setFocusPolicy(Qt::NoFocus);
 }
 
