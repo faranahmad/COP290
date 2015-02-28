@@ -25,7 +25,7 @@ std::string filetodelete;
 std::string file_to_add_from_clientpc;
 std::string path_to_get_from_drive;
 std::string path_to_delete_from_drive;
-std::string shared_with_me_list;
+std::vector<std::string> shared_with_me_list;
 
 file::file(QWidget *parent) :
     QDialog(parent),
@@ -65,9 +65,14 @@ file::file(QWidget *parent) :
     ui->treeView->setRootIndex(index1);
 
     //adding file names to be displayed on shared with me list
+    std::string name  = "faran";
+    for(int i=0;i<100;i++)
+    {
+        shared_with_me_list.push_back(name);
+    }
     for (unsigned int i= 0;i<shared_with_me_list.size();i++)
     {
-        ui->sharedwithme->addItem(QString(shared_with_me_list.at(i)));
+        ui->sharedwithme->addItem((shared_with_me_list.at(i)).c_str());
     }
 
     Data faran("faran", true);
@@ -168,6 +173,7 @@ void file::on_movetodrive_clicked()
             std::cout << fileformovingtodrive<< std::endl;
 
         }
+        ui->treeView->clearSelection();
 
         // for multiple file transfer.............................
 
@@ -208,6 +214,7 @@ void file::on_movetodrive_clicked()
 void file::on_openfile_clicked()
 {
     QModelIndex index2 = ui->treeView->currentIndex();
+    ui->treeView->clearSelection();
     QString filepath1;
         if(!index2.isValid()) return;
 
@@ -253,6 +260,7 @@ void file::on_deletefile_clicked()
         QString filepath2 = dirmodel->filePath(index2);
         filetodelete = filepath2.toUtf8().constData();
     }
+    ui->treeView->clearSelection();
 }
 
 void file::on_share_clicked()
@@ -278,6 +286,7 @@ void file::on_share_clicked()
             share1.exec();
 
         }
+        ui->treeView->clearSelection();
 
 }
 
@@ -333,9 +342,24 @@ void file::on_GoingBackInDrive_clicked()
 void file::on_GetFromDrive_clicked()
 {
     QListWidgetItem* gettingitem = ui->listWidget->currentItem();
-    QString gettingtext = gettingitem->text();
-    path_to_get_from_drive = (gettingtext + ui->label->text()).toUtf8().constData();
-    std::cout << path_to_get_from_drive << std::endl;
+    if (gettingitem != NULL)
+    {
+        QString gettingtext = gettingitem->text();
+        path_to_get_from_drive = (ui->label->text() + gettingtext).toUtf8().constData();
+        std::cout << path_to_get_from_drive << std::endl;
+        ui->sharedwithme->clearSelection();
+    }
+    else
+    {
+        QListWidgetItem* gettingitem1 = ui->sharedwithme->currentItem();
+        if(gettingitem1 != NULL)
+        {
+            QString gettingtext1 = gettingitem1->text();
+            path_to_get_from_drive = (gettingtext1).toUtf8().constData();
+            std::cout << path_to_get_from_drive << std::endl;
+            ui->sharedwithme->clearSelection();
+        }
+    }
 }
 
 void file::on_logout_clicked()
@@ -353,9 +377,13 @@ void file::on_changepassword_clicked()
 void file::on_DeleteFromDrive_clicked()
 {
     QListWidgetItem* gettingitem = ui->listWidget->currentItem();
-    QString gettingtext = gettingitem->text();
-    path_to_delete_from_drive = (gettingtext + ui->label->text()).toUtf8().constData();
-    std::cout << path_to_delete_from_drive << std::endl;
+    if(gettingitem != NULL)
+    {
+        QString gettingtext = gettingitem->text();
+        path_to_delete_from_drive = (ui->label->text() + gettingtext).toUtf8().constData();
+        std::cout << path_to_delete_from_drive << std::endl;
+        ui->sharedwithme->clearSelection();
+    }
 }
 
 void file::on_ViewSharedFiles_clicked()
