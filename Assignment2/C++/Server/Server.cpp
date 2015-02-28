@@ -49,20 +49,22 @@ std::vector<std::string> GetFiles(std::string location)
             }
             else
             {
-                if(v[i].string().find(".data/")==std::string::npos)
+                std::cout<<"###########"<<v[i].string()<<std::endl;
+                if(v[i].string().find(".data")!=std::string::npos)
                     continue;
-                ans.push_back(v[i].string());
+                ans.push_back(v[i].string()+"/");
                 std::vector<std::string> Merged = ans;
                 std::vector<std::string> Subset = GetFiles(v[i].string());
                 Merged.insert(Merged.end(), Subset.begin(), Subset.end());
                 ans = Merged;
-            };
+            }
         }
     }
     else
     {
         std::cout <<"folder dne \n";        
     }
+    std::cout<<"Out of get files"<<std::endl;
     return ans;
 }   
 
@@ -480,29 +482,42 @@ void *ClientService(void* data)
                     std::string name=FileName(ToStr(filename));
                     std::string filepath=ToStr(filename).substr(0,strlen(filename)-name.size());
                     std::cout<<"Filepath:"<<filepath<<std::endl;
-                    std::cout<<"Filename:"<<name<<std::endl;
                     boost::filesystem::path dir(filepath);
-                    if(!(boost::filesystem::exists(dir)))
-                    {
-                        std::cout<<"Directory Doesn't Exists"<<std::endl;
-                        if (boost::filesystem::create_directories(dir))
-                            std::cout << "Directory Successfully Created !" << std::endl;
-                    }
-
+                    std::cout<<"Filename:"<<name<<std::endl;
+                    // if(!(boost::filesystem::exists(dir)))
+                    // {
+                    //     std::cout<<"Directory Doesn't Exists"<<std::endl;
+                    //     if (boost::filesystem::create_directories(dir))
+                    //         std::cout << "Directory Successfully Created !" << std::endl;
+                    // }
+                    std::cout<<"Dir Created"<<std::endl;
                     //filereading-> stored in ans
-                    std::ifstream ifs(filepath+name);
+                    std::string loc=filepath+name;
+                    std::cout<<loc<<std::endl;
+                    std::ifstream ifs(loc);
+                    std::cout<<"Dir Created"<<std::endl;
                     ifs.seekg(0, std::ios::end);
+                    std::cout<<"Dir Created"<<std::endl;
                     std::ifstream::pos_type pos = ifs.tellg();
+                    std::cout<<"Dir Created"<<std::endl;
                     std::vector<char>  ans(pos);
+                    std::cout<<"Dir Created"<<std::endl;
                     ifs.seekg(0, std::ios::beg);
+                    std::cout<<"Dir Created"<<std::endl;
                     ifs.read(&ans[0], pos);
+                    std::cout<<"Dir Created"<<std::endl;
                     
 
                     std::cout<<"File read Successfully\n";
                     char size1[20];
                     size1[20]='\0';
                     sprintf(size1,"%lld",(long long)ans.size());
+                    for(int i=0;i<strlen(size1);i++)
+                    {
+                        std::cout<<size1[i]<<std::endl;
+                    }
                     bytes_sent=SSL_write(ssl, size1,20);
+                    std::cout<<"Size:"<<bytes_sent<<std::endl;
                     std::cout<<"Initiating SSL_writing protocol\n";
 
                     int dataLen=0;
@@ -881,9 +896,8 @@ void *ClientService(void* data)
                     char filename[size];
                     bytes_recieved=SSL_read(ssl,filename,size);
                     filename[bytes_recieved]='\0';
-                    std::cout<<ToStr(filename)<<std::endl;
                     std::string name=FileName(ToStr(filename));
-
+                    std::cout<<name<<std::endl;
                     std::vector<std::string> files=GetFiles("/home/skipper/Desktop/DeadDropServer/"+name+"/");
                     for(int i=0;i<files.size();i++)
                     {
@@ -899,17 +913,15 @@ void *ClientService(void* data)
                         files[i].insert(k,".temp/");
                         std::cout<<files[i]<<std::endl;
                     }
-                    char len2[20];
-                    sprintf(len2,"%lld",(long long)files.size());
-                    bytes_sent=SSL_write(ssl, len2,20);
-                    for(int i=0;i<files.size();i++)
+                    std::ofstream outfile("/home/skipper/Desktop/DeadDropServer/"+name+"/.data/serverfiles.txt");
+                    int index;
+                    for(index=0;index<files.size();index++)
                     {
-                        char size1[20];
-                        sprintf(size1,"%lld",(long long)files[i].size());
-                        char* msg1=ToArr(files[i]);
-                        bytes_sent=SSL_write(ssl, size1,20);
-                        bytes_sent=SSL_write(ssl,msg1,files[i].size());
+                        std::cout<<files[index]<<std::endl;
+                        outfile<<files[index]<<"\n";
                     }
+                    outfile.close();
+                    std::cout<<"Done"<<std::endl;
                     break;
                 }
             default:

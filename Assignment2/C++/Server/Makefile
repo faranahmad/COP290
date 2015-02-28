@@ -9,7 +9,7 @@ client: User.cpp UserBase.cpp Client.cpp
 	g++ -std=c++11 User.cpp UserBase.cpp Client.cpp -o Client -lboost_filesystem -lboost_system -lssl -lcrypto -lpthread
 
 server: User.cpp UserBase.cpp FileHistory.cpp Server.cpp
-	g++ -std=c++11 User.cpp UserBase.cpp FileHistory.cpp Server.cpp -o Server -lboost_filesystem -lboost_system -lssl -lcrypto -lpthread
+	g++ -std=c++11 -g User.cpp UserBase.cpp FileHistory.cpp Server.cpp -o Server -lboost_filesystem -lboost_system -lssl -lcrypto -lpthread
 
 clean:
 	rm -rf a.out
