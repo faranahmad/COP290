@@ -211,7 +211,7 @@ void SyncManager::StoreSeHistory(std::string location)
 
 void SyncManager::LoadFromDiskDB(std::string location)
 {
-	std::cout <<"Loading db\n";
+	std::cout <<"Loading db " << location << "\n";
 	LoadSyncList(location+ "/" + Username+"/.data/synclist.txt");
 	LoadReceiving(location+ "/" + Username+"/.data/receiving.txt");
 	LoadGiving(location+ "/" + Username+"/.data/giving.txt");

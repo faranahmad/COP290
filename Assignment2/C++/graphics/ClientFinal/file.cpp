@@ -14,6 +14,13 @@
 #include "fileaccess.h"
 #include <QMessageBox>
 #include "sharedwithothers.h"
+#include "SyncManager.h"
+
+extern std::string inst,datafield1,datafield2,datafield3;
+extern std::string reversedata1,reversedata2,reversedata3;
+extern bool InstructionStarted, InstructionCompleted;
+extern SyncManager MergedSyncManager;
+extern std::vector<Data> ReverseDataFiles;
 
 std::vector<Data> itemtobeadded;
 std::vector<Data> presentdata;
@@ -56,19 +63,24 @@ file::file(QWidget *parent) :
     ui->treeView->setStyleSheet("background-color:white;");
     ui->sharedwithme->setStyleSheet("background-color:white;");
 
-    QString sPath = "/home/faran/Desktop";
+    std::string mainpath(getenv("HOME")); 
+    std::string foldername=mainpath + "/Desktop/DeadDrop/" + reversedata2  + "/";
+
+    // QString sPath = "/home/faran/Desktop";
+    QString sPath = foldername.c_str();
     dirmodel = new QFileSystemModel(this);
     dirmodel->setRootPath(sPath);
-    QModelIndex index1 = dirmodel->index("/home/faran/Desktop");
+    QModelIndex index1 = dirmodel->index(foldername.c_str());
     ui->treeView->setModel(dirmodel);
     dirmodel->setReadOnly(false);
     ui->treeView->setRootIndex(index1);
 
+    std::vector<Sharing> sharfiles = MergedSyncManager.GetReceivingFiles().GetSharingList();
+
     //adding file names to be displayed on shared with me list
-    std::string name  = "faran";
-    for(int i=0;i<100;i++)
+    for(unsigned int i=0;i<sharfiles.size();i++)
     {
-        shared_with_me_list.push_back(name);
+        shared_with_me_list.push_back(sharfiles[i].FilePath);
     }
     for (unsigned int i= 0;i<shared_with_me_list.size();i++)
     {
@@ -91,10 +103,12 @@ file::file(QWidget *parent) :
     itemtobeadded.push_back(faran);
     itemtobeadded.push_back(ronak);
     itemtobeadded.push_back(pokemon);
+    itemtobeadded=ReverseDataFiles;
     Data rootdata = Data("rootdata", true);
     rootdata.SetData(itemtobeadded);
     fulldata.push(rootdata);
     std::vector<Data> filesroot = fulldata.top().GetListFiles();
+    
     for (unsigned int i = 0;i<filesroot.size();i++)
     {
         if (filesroot.at(i).IfFileFolder() == false)
@@ -146,6 +160,17 @@ void file::makechange()
 
 file::~file()
 {
+    inst = "e";
+    usleep(20);
+    if (InstructionStarted)
+    {
+        while (!InstructionCompleted)
+        {
+            // Keep waiting for the instruction to complete
+        }
+        InstructionCompleted=false;
+        InstructionStarted=false;
+    }
     delete ui;
 }
 
@@ -364,6 +389,17 @@ void file::on_GetFromDrive_clicked()
 
 void file::on_logout_clicked()
 {
+    inst = "e";
+    usleep(20);
+    if (InstructionStarted)
+    {
+        while (!InstructionCompleted)
+        {
+            // Keep waiting for the instruction to complete
+        }
+        InstructionCompleted=false;
+        InstructionStarted=false;
+    }
     qApp->quit();
 }
 
@@ -391,4 +427,20 @@ void file::on_ViewSharedFiles_clicked()
     sharedwithothers sharedwithothers1;
     sharedwithothers1.setModal(true);
     sharedwithothers1.exec();
+}
+
+void file::on_sync_clicked()
+{
+    inst="4";
+    usleep(20);
+    while (InstructionStarted)
+    {
+        while (!InstructionCompleted)
+        {
+
+        }
+        InstructionStarted=false;
+        InstructionCompleted=false;
+    }
+    std::cout<<"prateek chutiya hai"<<std::endl;
 }

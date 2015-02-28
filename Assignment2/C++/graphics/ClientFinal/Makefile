@@ -1,7 +1,7 @@
 QTINC = -c -m64 -pipe -g -std=c++0x -Wall -W -D_REENTRANT -fPIE -DQT_QML_DEBUG -DQT_DECLARATIVE_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -I.
 
 all: UserFiles.cpp FileHistory.cpp FileChanges.cpp FileSharing.cpp FileReceiving.cpp SyncManager.cpp ClientCombined.cpp main.o login.o newusersignup.o fileaccess.o file.o share.o connecting.o filesonserver.o sharedwithothers.o moc_login.o moc_newusersignup.o moc_fileaccess.o moc_file.o moc_share.o moc_connecting.o moc_sharedwithothers.o
-	g++ -std=c++11 -m64 -o welcome UserFiles.cpp FileHistory.cpp FileChanges.cpp FileSharing.cpp FileReceiving.cpp SyncManager.cpp ClientCombined.cpp main.o login.o newusersignup.o fileaccess.o file.o share.o connecting.o filesonserver.o sharedwithothers.o moc_login.o moc_newusersignup.o moc_fileaccess.o moc_file.o moc_share.o moc_connecting.o moc_sharedwithothers.o   -L/usr/X11R6/lib64 -lQt5Widgets -L/usr/lib/x86_64-linux-gnu -lQt5Gui -lQt5Core -lGL -lpthread -lboost_system -lboost_filesystem -lssl -lcrypto
+	g++ -std=c++11 -g -m64 -o welcome UserFiles.cpp FileHistory.cpp FileChanges.cpp FileSharing.cpp FileReceiving.cpp SyncManager.cpp ClientCombined.cpp main.o login.o newusersignup.o fileaccess.o file.o share.o connecting.o filesonserver.o sharedwithothers.o moc_login.o moc_newusersignup.o moc_fileaccess.o moc_file.o moc_share.o moc_connecting.o moc_sharedwithothers.o   -L/usr/X11R6/lib64 -lQt5Widgets -L/usr/lib/x86_64-linux-gnu -lQt5Gui -lQt5Core -lGL -lpthread -lboost_system -lboost_filesystem -lssl -lcrypto
 
 main.o: main.cpp
 	g++ $(QTINC) -o main.o main.cpp

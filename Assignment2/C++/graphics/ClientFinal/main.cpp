@@ -1,5 +1,6 @@
 #include "login.h"
 #include <QApplication>
+#include "filesonserver.h"
 #include "ClientCombined.h"
 bool windowshow = true;
 
@@ -13,6 +14,7 @@ bool InstructionStarted, InstructionCompleted;
 std::string reversedata1,reversedata2,reversedata3;
 std::string inst, datafield1, datafield2, datafield3;
 SyncManager MergedSyncManager;
+std::vector<Data> ReverseDataFiles;
 
 void *StartBackend(void *xyz)
 {
@@ -36,6 +38,7 @@ int main(int argc, char *argv[])
 	reversedata2="";
 	reversedata3="";
 	inst="";
+	ReverseDataFiles = std::vector<Data> ();
 	MergedSyncManager=SyncManager();
 
     graph data;
