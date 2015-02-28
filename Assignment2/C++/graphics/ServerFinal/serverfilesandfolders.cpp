@@ -7,14 +7,13 @@ serverfilesandfolders::serverfilesandfolders(QWidget *parent) :
     ui(new Ui::serverfilesandfolders)
 {
     ui->setupUi(this);
-    this->setWindowIcon(QIcon("/home/faran/Desktop/COP290/Assignment2/DesignDocument/ddlogo2.png")) ;
     this->setStyleSheet("background-color:rgb(0,255,255);");
     ui->back->setStyleSheet("background-color:light green;");
     ui->treeView->setStyleSheet("background-color:white;");
-    QString sPath = "/home/faran/Desktop";
+    QString sPath = "/home/soccer/Desktop/DeadDropServer";
     dirmodel = new QFileSystemModel(this);
     dirmodel->setRootPath(sPath);
-    QModelIndex index1 = dirmodel->index("/home/faran/Desktop");
+    QModelIndex index1 = dirmodel->index("/home/soccer/Desktop/DeadDropServer");
     ui->treeView->setModel(dirmodel);
     //dirmodel->setReadOnly(false);
     ui->treeView->setRootIndex(index1);
