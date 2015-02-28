@@ -392,3 +392,8 @@ void file::on_ViewSharedFiles_clicked()
     sharedwithothers1.setModal(true);
     sharedwithothers1.exec();
 }
+
+void file::on_sync_clicked()
+{
+    std::cout<<"prateek chutiya hai"<<std::endl;
+}
