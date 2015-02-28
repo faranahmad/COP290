@@ -613,6 +613,39 @@ std::string ExecuteInstruction(Instruction ins)
                 std::cout<<"file sent"<<std::endl;
                 return "1";
             }
+        case 15:
+            {
+                temp=ins.data1;
+                char size1[20];
+                sprintf(size1,"%lld",(long long)temp.size());
+                char* msg1=ToArr(temp);
+                bytes_sent=SSL_write(ssl, size1,20);
+                bytes_sent=SSL_write(ssl,msg1,temp.size());
+                char msg3[20];
+                bytes_recieved=SSL_read(ssl,msg3,1);
+                msg3[bytes_recieved]='\0';
+                long long num=atoll(msg3);
+                std::vector<std::string> data;
+                for(long long i=0;i<num;i++)
+                {
+                    char len[20];
+                    bytes_recieved=SSL_read(ssl, len,20);
+                    len[bytes_recieved]='\0';
+                    size=atoll(len);
+                    std::cout<<size<<std::endl;
+                    char filepath[size];
+                    bytes_recieved=SSL_read(ssl,filepath,size);
+                    filepath[bytes_recieved]='\0';
+                    std::cout<<ToStr(filepath)<<std::endl;
+                    std::string name=FileName(ToStr(filepath));
+                    data.push_back(name);
+                }
+                for(int i=0;i<data.size();i++)
+                {
+                    std::cout<<"Path:"<<data[i]<<std::endl;
+                }
+                return "1";
+            }
         default:
             {
                 return "0";

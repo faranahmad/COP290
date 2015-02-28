@@ -30,7 +30,41 @@ struct addrinfo host_info;       // The struct that getaddrinfo() fills up with 
 struct addrinfo *host_info_list; // Pointer to the to the linked list of host_info's.
 
 std::vector<std::string> usersLog;
-std::vector<std::string> allUsers;    
+std::vector<std::string> allUsers; 
+
+std::vector<std::string> GetFiles(std::string location)
+{
+    boost::filesystem::path p (location);
+    std::vector< std::string > ans;     
+    if (exists(p))    // does p actually exist?
+    {
+        std::vector<boost::filesystem::path> v;
+        std::copy(boost::filesystem::directory_iterator(p), boost::filesystem::directory_iterator(), back_inserter(v));
+        std::sort(v.begin(), v.end());
+        for (int i=0; i<v.size() ; i++ )
+        {
+            if (is_regular_file(v[i]))
+            {
+                ans.push_back(v[i].string());
+            }
+            else
+            {
+                if(v[i].string().find(".data/")==std::string::npos)
+                    continue;
+                ans.push_back(v[i].string());
+                std::vector<std::string> Merged = ans;
+                std::vector<std::string> Subset = GetFiles(v[i].string());
+                Merged.insert(Merged.end(), Subset.begin(), Subset.end());
+                ans = Merged;
+            };
+        }
+    }
+    else
+    {
+        std::cout <<"folder dne \n";        
+    }
+    return ans;
+}   
 
 bool EqualVector(std::vector<char> file1, std::vector<char> file2)
 {
@@ -397,16 +431,22 @@ void *ClientService(void* data)
 
                     std::string location="/home/skipper/Desktop/DeadDropServer/";
                     std::vector< std::pair<std::string, int> > files=GetVectorFiles(location);
-                    std::string path=filepath+name;
+                    std::string path="";
+                    std::string pathReturn=filepath+name;
                     for(int i=0;i<files.size();i++)
                     {
                         path=files[i].first;
                         if(path.compare(filepath+name)==0)
                             continue;
+                        if(path.find("/.data/")!=std::string::npos)
+                            continue;
                         if(CompFiles(filepath+name,path))
+                        {
+                            pathReturn=path;
                             break;
+                        }
                     }
-                    if(path.compare(filepath+name)!=0)
+                    if(pathReturn.compare(filepath+name)!=0)
                     {
                         if(boost::filesystem::exists(filepath+name))
                         {
@@ -414,12 +454,12 @@ void *ClientService(void* data)
                             std::cout<<"Deleted"<<std::endl;
                         }
                     }
-                    std::cout<<path<<std::endl;
+                    std::cout<<pathReturn<<std::endl;
                     char size1[20];
-                    sprintf(size1,"%lld",(long long)path.size());
+                    sprintf(size1,"%lld",(long long)pathReturn.size());
                     bytes_sent=SSL_write(ssl, size1,20);
-                    char* filepath2=ToArr(path);
-                    bytes_sent=SSL_write(ssl,filepath2,path.size());
+                    char* filepath2=ToArr(pathReturn);
+                    bytes_sent=SSL_write(ssl,filepath2,pathReturn.size());
                     std::cout<<"file sent"<<std::endl;
                     break;
                 }
@@ -829,6 +869,47 @@ void *ClientService(void* data)
                     std::cout<<"Out of loop\n";
                     out.close();
                     std::cout<<"file sent"<<std::endl;
+                    break;
+                }
+            case 15: //Get server files path of a user.
+                {
+                    char len[20];
+                    bytes_recieved=SSL_read(ssl, len,20);
+                    len[bytes_recieved]='\0';
+                    size=atoll(len);
+                    std::cout<<size<<std::endl;
+                    char filename[size];
+                    bytes_recieved=SSL_read(ssl,filename,size);
+                    filename[bytes_recieved]='\0';
+                    std::cout<<ToStr(filename)<<std::endl;
+                    std::string name=FileName(ToStr(filename));
+
+                    std::vector<std::string> files=GetFiles("/home/skipper/Desktop/DeadDropServer/"+name+"/");
+                    for(int i=0;i<files.size();i++)
+                    {
+                        files[i]=files[i].substr(36);
+                        int j=0;
+                        int k=0;
+                        while(j<2)
+                        {
+                            if(files[i][k]=='/')  
+                                j++;
+                            k++;
+                        }
+                        files[i].insert(k,".temp/");
+                        std::cout<<files[i]<<std::endl;
+                    }
+                    char len2[20];
+                    sprintf(len2,"%lld",(long long)files.size());
+                    bytes_sent=SSL_write(ssl, len2,20);
+                    for(int i=0;i<files.size();i++)
+                    {
+                        char size1[20];
+                        sprintf(size1,"%lld",(long long)files[i].size());
+                        char* msg1=toArr(files[i]);
+                        bytes_sent=SSL_write(ssl, size1,20);
+                        bytes_sent=SSL_write(ssl,msg1,files[i].size());
+                    }
                     break;
                 }
             default:

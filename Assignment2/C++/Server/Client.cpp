@@ -216,13 +216,6 @@ int main(int argc, char** argv)
                     char* msg1=toArr(temp);
                     bytes_sent=SSL_write(ssl, size1,20);
                     bytes_sent=SSL_write(ssl,msg1,temp.size());
-                    char msg3[1];
-                    bytes_recieved=SSL_read(ssl,msg3,1);
-                    msg3[bytes_recieved]='\0';
-                    if(msg3[0]=='1')
-                        std::cout<<"User Exists\n";
-                    else
-                        std::cout<<"User Does not exist\n";
                     break;
                 }
             case 4:
