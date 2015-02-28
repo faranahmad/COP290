@@ -262,6 +262,43 @@ std::string ExecuteInstruction(Instruction ins)
     bytes_sent=SSL_write(ssl, num,2);
     switch(ins.modification)
     {
+        case 16: //change password
+            {
+                std::cout<<"Username\n";
+                temp=ins.data1;
+                char size1[20];
+                sprintf(size1,"%lld",(long long)temp.size());
+                char* msg1=ToArr(temp);
+                std::cout<<temp.size()<<"   "<<strlen(msg1)<<std::endl;
+                bytes_sent=SSL_write(ssl, size1,20);
+                bytes_sent=SSL_write(ssl,msg1,temp.size());
+                std::cout<<"Password\n";
+                temp=ins.data2;
+                char size2[20];
+                sprintf(size2,"%lld",(long long)temp.size());
+                char* msg2=ToArr(temp);
+                bytes_sent=SSL_write(ssl, size2,20);
+                bytes_sent=SSL_write(ssl,msg2,temp.size());
+                temp=ins.data3;
+                char size3[20];
+                sprintf(size3,"%lld",(long long)temp.size());
+                char* msg3=ToArr(temp);
+                bytes_sent=SSL_write(ssl, size3,20);
+                bytes_sent=SSL_write(ssl,msg3,temp.size());
+                char msg4[1];
+                bytes_recieved=SSL_read(ssl,msg4,1);
+                msg4[bytes_recieved]='\0';
+                if(msg4[0]=='1')
+                {
+                    std::cout<<"Successfully\n";
+                    return "1";
+                }
+                else
+                {
+                    std::cout<<"Sorry. Please try again\n";
+                    return "0";
+                }
+            }
         case 0:
             {
                 // #ignore

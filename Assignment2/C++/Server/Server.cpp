@@ -309,7 +309,7 @@ void *ClientService(void* data)
                 bytes_recieved=SSL_read(ssl,msg2,size);
                 msg2[bytes_recieved]='\0';
                 std::string oldpass=ToStr(msg2);
-                std::cout<<oldpass<<std:endl;
+                std::cout<<oldpass<<std::endl;
                 bytes_recieved=SSL_read(ssl,len,20);
                 len[bytes_recieved]='\0';
                 size=atoll(len);
@@ -317,18 +317,19 @@ void *ClientService(void* data)
                 bytes_recieved=SSL_read(ssl,msg3,size);
                 msg3[bytes_recieved]='\0';
                 std::string newpass=ToStr(msg3);
-                std::cout<<newpass<<std:endl;
+                std::cout<<newpass<<std::endl;
                 char msg4[1];
-                if(base.VerifyUserCredentials(User(username,oldpass)))
+                if(base.ChangePassword(username,oldpass,newpass))
                 {
-                    msg3[0]='1';
-                    //change pass
+                    msg4[0]='1';
+                    base.StoreToFile("Database.txt");
+
                 }
                 else
                 {
-                    msg3[0]='0';
+                    msg4[0]='0';
                 }
-                bytes_sent=SSL_write(ssl,msg3,1);
+                bytes_sent=SSL_write(ssl,msg4,1);
                 
                 break;
             }
@@ -539,17 +540,11 @@ void *ClientService(void* data)
                     std::string loc=filepath+name;
                     std::cout<<loc<<std::endl;
                     std::ifstream ifs(loc);
-                    std::cout<<"Dir Created"<<std::endl;
                     ifs.seekg(0, std::ios::end);
-                    std::cout<<"Dir Created"<<std::endl;
                     std::ifstream::pos_type pos = ifs.tellg();
-                    std::cout<<"Dir Created"<<std::endl;
                     std::vector<char>  ans(pos);
-                    std::cout<<"Dir Created"<<std::endl;
                     ifs.seekg(0, std::ios::beg);
-                    std::cout<<"Dir Created"<<std::endl;
                     ifs.read(&ans[0], pos);
-                    std::cout<<"Dir Created"<<std::endl;
                     
 
                     std::cout<<"File read Successfully\n";
