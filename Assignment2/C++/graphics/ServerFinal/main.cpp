@@ -2,6 +2,7 @@
 #include <QApplication>
 #include <vector>
 #include <string>
+#include <iostream>
 
 std::vector<std::string> listofitems;
 
@@ -23,23 +24,30 @@ std::string iptodisplay;
 
  int main(int argc, char *argv[])
 {
-	porttodisplay="port pending";
-	iptodisplay = "dont know how";
-	listofitems = std::vector<std::string> ();
-
-	pthread_t BackEndThread;
-
-    graph data;
-    data.argcx=argc;
-    data.argvy=argv;
-
-    // pthread_create(&BackEndThread,NULL,StartBackend,&data);
-
-    QApplication a(argc, argv);
-    server w;
-    w.show();
-    for (int i = 0;i<100;i++)
-         listofitems.push_back(std::to_string(i));
-
-    return a.exec();
+	if (argc<3)
+	{
+		std::cout << "Usage: ./server ipaddress port\n"; 
+	}
+	else
+	{
+		porttodisplay=(argv[2]);
+		iptodisplay = (argv[1]);
+		listofitems = std::vector<std::string> ();
+	
+		pthread_t BackEndThread;
+	
+	    graph data;
+	    data.argcx=argc;
+	    data.argvy=argv;
+	
+	    // pthread_create(&BackEndThread,NULL,StartBackend,&data);
+	
+	    QApplication a(argc, argv);
+	    server w;
+	    w.show();
+	    for (int i = 0;i<100;i++)
+	         listofitems.push_back(std::to_string(i));
+	
+	    return a.exec();
+	}
 }

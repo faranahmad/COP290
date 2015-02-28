@@ -62,6 +62,19 @@ void UserBase::InsertUser(User UserCons)
 	UsersList[UserCons.GetUserName()]=UserCons.GetPassword();
 }
 
+bool UserBase::ChangePassword(std::string username,std::string old_password,std::string new_password)
+{
+	if(UsersList[username] == old_password)
+	{
+		UsersList[username] = new_password;
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 void UserBase::StoreToFile(std::string location)
 {
 	std::string data="";

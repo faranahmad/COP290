@@ -15,7 +15,7 @@ login::login(QWidget *parent) :
     ui(new Ui::login)
 {
     ui->setupUi(this);
-    this->move(0,400);
+    this->move(0,0);
     QString x = "Dead Drop";
     this->setWindowTitle(x);
     //ui->passwordtext->setEchoMode(QLineEdit::Password);
