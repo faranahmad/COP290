@@ -417,30 +417,30 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 		}
 	}
 
-	std::vector<Sharing> RecvFiles = ReceivingFiles.GetSharingList();
-	for (int i=0; i<RecvFiles.size(); i++)
-	{
-		if (SEH.ExistsFile(RecvFiles[i].FilePath))
-		{
-			// The file exists on the server history, clh etc.
+	// std::vector<Sharing> RecvFiles = ReceivingFiles.GetSharingList();
+	// for (int i=0; i<RecvFiles.size(); i++)
+	// {
+	// 	if (SEH.ExistsFile(RecvFiles[i].FilePath))
+	// 	{
+	// 		// The file exists on the server history, clh etc.
 
-		}
-		else
-		{
-			// Get the files from server
-			// Add to CLH, SEH, CLL, SEL
-			std::string serverfname = RecvFiles[i].FilePath;
-			unsigned found = serverfname.find_last_of("/");
-			std::string clfname = serverfname.substr(found + 1);
-			std::string mainpath(getenv("HOME")); 
-			std::string filefoldername=mainpath + "/Desktop/DeadDrop/" + Username + "/" + clfname;
-			Instruction a;
-			a.modification = 2;
-			a.data1 = filefoldername;
-			a.data2 = serverfname;
-			answer.push_back(a);
-		}
-	}
+	// 	}
+	// 	else
+	// 	{
+	// 		// Get the files from server
+	// 		// Add to CLH, SEH, CLL, SEL
+	// 		std::string serverfname = RecvFiles[i].FilePath;
+	// 		unsigned found = serverfname.find_last_of("/");
+	// 		std::string clfname = serverfname.substr(found + 1);
+	// 		std::string mainpath(getenv("HOME")); 
+	// 		std::string filefoldername=mainpath + "/Desktop/DeadDrop/" + Username + "/" + clfname;
+	// 		Instruction a;
+	// 		a.modification = 2;
+	// 		a.data1 = filefoldername;
+	// 		a.data2 = serverfname;
+	// 		answer.push_back(a);
+	// 	}
+	// }
 
 	// File in prev sync, File in present, no change in TS, if change in server ts then pull else no change
 	// File in prev sync, File in present and newer TS, if change in server ts then decide and give pull/push

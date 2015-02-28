@@ -883,6 +883,49 @@ void GetFileFromServer(SyncManager UserSyncManager, std::string filename)
 
 }
 
+void GetSharedFileFromServer(SyncManager UserSyncManager, std::string serverfname)
+{
+	std::string p = "/home/soccer/DeadDropServer/";
+	std::string lpath = serverfname.substr(p.size());
+	std::string mainpath(getenv("HOME")); 
+	std::string foldername=mainpath + "/Desktop/DeadDrop/" + UserSyncManager.GetUsername()  + "/Shared/";
+	std::string filelpath = foldername + lpath;
+	std::string instructionresult= ExecuteInstruction(TransferServerToClient(filelpath, serverfname));
+}
+
+int GetShareType(SyncManager UserSyncManager, std::string sefname)
+{
+	// 0 is read and write only
+	// 1 is read only
+	std::vector<Sharing> recvfiles= UserSyncManager.GetReceivingFiles().GetSharingList();
+	for (int i=0; i<recvfiles.size() ; i++)
+	{
+		if (recvfiles[i].FilePath == sefname)
+		{
+			return recvfiles[i].ShareType;
+		}
+	}
+}
+
+bool ShareSendFileToServer(SyncManager UserSyncManager, std::string clfname)
+{
+	std::string mainpath(getenv("HOME")); 
+	std::string foldername = mainpath + "/Desktop/DeadDrop/" + UserSyncManager.GetUsername()  + "/Shared/";
+	std::string serverfname = "/home/soccer/DeadDropServer/" + clfname.substr(foldername.size());
+	
+	int stype = GetShareType(UserSyncManager, serverfname);
+	if (stype == 1)
+	{
+		// Cannot upload a read only file
+		return false;
+	}
+	else
+	{
+		std::string instructionresult= ExecuteInstruction(TransferClientToServer(clfname, serverfname));
+		return true;
+	}
+}
+
 void KeepOnlineOnly(SyncManager UserSyncManager, std::string filename)
 {
 	// Load disk db
@@ -902,9 +945,37 @@ void KeepOnlineOnly(SyncManager UserSyncManager, std::string filename)
 
 }
 
-void ShareFile(std::string username,std::string filepath, int perms)
+void ShareFile(SyncManager UserSyncManager, std::string username,std::string filepath, int perms)
 {
-	   
+	// Add file to sharing list
+	// Move sharing file to server
+	// Get the recvfiles of the user
+	// Add the file to the recv files 
+	// Move the recv files to server
+
+	std::string mainpath(getenv("HOME")); 
+	std::string foldername=mainpath + "/Desktop/DeadDrop/" + UserSyncManager.GetUsername()  + "/";
+	std::string serverfoldername="/home/skipper/Desktop/DeadDropServer/" + UserSyncManager.GetUsername() +"/";
+
+	std::string serverfnameforf = UserSyncManager.GetClientMappingForFile(filepath);
+
+	FileSharing sharingf= UserSyncManager.GetGivingFiles();
+	sharingf.AddNewGivingLocationType(serverfnameforf, username, perms);
+	UserSyncManager.SetGivingFiles(sharingf);
+	UserSyncManager.StoreToDiskDB(mainpath + "/Desktop/DeadDrop");
+	std::string instructionresult;
+	instructionresult = ExecuteInstruction(DoNormalSending(foldername + ".data/giving.txt",serverfoldername    +".data/giving.txt"));
+
+	std::string serverfilenamerecv = "/home/skipper/Desktop/DeadDropServer/" + username + "/.data/receiving.txt";
+	std::string tempname = foldername + "/.data/temp.txt";
+	instructionresult = ExecuteInstruction(TransferServerToClient(tempname,serverfilenamerecv));
+
+	FileReceiving recvtemp;
+	recvtemp.LoadSharingFromDisk(tempname);
+	recvtemp.AddNewLocationType( serverfnameforf, perms);
+	recvtemp.StoreSharingToDisk(tempname);
+
+	instructionresult = ExecuteInstruction(DoNormalSending(tempname,serverfilenamerecv));
 }
 
 int clientmain(int argc, char *argv[])
