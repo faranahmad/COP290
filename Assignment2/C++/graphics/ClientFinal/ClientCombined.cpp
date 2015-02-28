@@ -1144,7 +1144,7 @@ void KeepOnlineOnly(SyncManager UserSyncManager, std::string filename)
 
 }
 
-void ShareFile(SyncManager UserSyncManager, std::string username,std::string filepath, int perms)
+void ShareFile(std::string username,std::string filepath, int perms)
 {
 	// Add file to sharing list
 	// Move sharing file to server
@@ -1153,15 +1153,19 @@ void ShareFile(SyncManager UserSyncManager, std::string username,std::string fil
 	// Move the recv files to server
 
 	std::string mainpath(getenv("HOME")); 
-	std::string foldername=mainpath + "/Desktop/DeadDrop/" + UserSyncManager.GetUsername()  + "/";
-	std::string serverfoldername="/home/skipper/Desktop/DeadDropServer/" + UserSyncManager.GetUsername() +"/";
+	std::string foldername=mainpath + "/Desktop/DeadDrop/" + MergedSyncManager.GetUsername()  + "/";
+	std::string serverfoldername="/home/skipper/Desktop/DeadDropServer/" + MergedSyncManager.GetUsername() +"/";
 
-	std::string serverfnameforf = UserSyncManager.GetClientMappingForFile(filepath);
+	MergedSyncManager.LoadFromDiskDB(mainpath + "/Desktop/DeadDrop");
 
-	FileSharing sharingf= UserSyncManager.GetGivingFiles();
+	std::string serverfnameforf = MergedSyncManager.GetClientMappingForFile(filepath);
+	std::cout << "filepath to share \t" <<filepath <<"\n";
+	std::cout << serverfnameforf <<"\n";
+
+	FileSharing sharingf= MergedSyncManager.GetGivingFiles();
 	sharingf.AddNewGivingLocationType(serverfnameforf, username, perms);
-	UserSyncManager.SetGivingFiles(sharingf);
-	UserSyncManager.StoreToDiskDB(mainpath + "/Desktop/DeadDrop");
+	MergedSyncManager.SetGivingFiles(sharingf);
+	MergedSyncManager.StoreToDiskDB(mainpath + "/Desktop/DeadDrop");
 	std::string instructionresult;
 	instructionresult = ExecuteInstruction(DoNormalSending(foldername + ".data/giving.txt",serverfoldername    +".data/giving.txt"));
 
@@ -1338,9 +1342,19 @@ int clientmain(int argc, char *argv[])
                 	{
                 		typeshare=1;
                 	}
-					ShareFile(MergedSyncManager,ustoshare,ftoshare,typeshare);
+					ShareFile(ustoshare,ftoshare,typeshare);
                 	inst="";
                 	InstructionCompleted=true;
+                }
+                else if (inst=="6")
+                {
+                	// Change Password
+                	InstructionStarted=true;
+
+                	
+
+                	InstructionCompleted=true;
+                	inst="";
                 }
                 else if (inst=="e")
                 {

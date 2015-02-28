@@ -75,6 +75,7 @@ file::file(QWidget *parent) :
     dirmodel->setReadOnly(false);
     ui->treeView->setRootIndex(index1);
 
+    MergedSyncManager.LoadFromDiskDB(mainpath+"/Desktop/DeadDrop");
     std::vector<Sharing> sharfiles = MergedSyncManager.GetReceivingFiles().GetSharingList();
 
     //adding file names to be displayed on shared with me list

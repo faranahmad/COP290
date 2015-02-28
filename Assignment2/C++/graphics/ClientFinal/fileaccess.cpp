@@ -4,6 +4,11 @@
 #include <QMessageBox>
 #include <iostream>
 
+extern std::string inst,datafield1,datafield2,datafield3;
+extern std::string reversedata1,reversedata2,reversedata3;
+extern bool InstructionStarted, InstructionCompleted;
+extern SyncManager MergedSyncManager;
+
 std::string previouspassword;
 std::string getting_password;
 fileaccess::fileaccess(QWidget *parent) :
@@ -73,12 +78,7 @@ void fileaccess::customSlot3(const QString &x)
 //apply change button
 void fileaccess::on_applychange_clicked()
 {
-    if(ui->oldpassword->text() != previouspassword.c_str())
-    {
-        ui->oldpassword->setText("");
-        QMessageBox::information(this,tr("Please Re-Enter"),tr("please enter correct old password"));
-    }
-    else if(ui->newpassword->text().size() < 6)
+    if(ui->newpassword->text().size() < 6)
     {
         QMessageBox::information(this,tr("Too Short"),tr("password is too short"));
     }
@@ -93,7 +93,20 @@ void fileaccess::on_applychange_clicked()
         QString gettingpassword = ui->newpassword->text();
         getting_password = gettingpassword.toUtf8().constData();
         std::cout << getting_password << std::endl;
-        this->hide();
+        
+        datafield2 = getting_password;
+        datafield1 = (ui->oldpassword->text()).toUtf8().constData();
+        inst="6";
+        if (Ins)
+        if (reversedata1=="YES")
+        {
+            QMessageBox::information(this,tr("Password changed"),tr("Password changed successfully"));  
+            this->hide();
+        }
+        else
+        {
+            QMessageBox::information(this,tr("Please Re-Enter"),tr("please enter correct old password"));
+        }
     }
 }
 
