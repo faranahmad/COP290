@@ -906,7 +906,7 @@ void *ClientService(void* data)
                     {
                         char size1[20];
                         sprintf(size1,"%lld",(long long)files[i].size());
-                        char* msg1=toArr(files[i]);
+                        char* msg1=ToArr(files[i]);
                         bytes_sent=SSL_write(ssl, size1,20);
                         bytes_sent=SSL_write(ssl,msg1,files[i].size());
                     }

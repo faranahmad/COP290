@@ -5,8 +5,6 @@
 #include <fstream>
 #include "filesonserver.h"
 
-std::vector<std::string> data;
-
 std::string GetUserName(std::string name)
 {
 	std::string ans;
@@ -64,7 +62,7 @@ void Display(std::vector<Data> v)
 	return;
 }
 
-int main() // "/username/.temp/..."
+int GetData(std::string data) // "/username/.temp/..."
 {
 	data.push_back("/dude/.temp/yo/cool.txt");
 	data.push_back("/dude/.temp/yo/");
