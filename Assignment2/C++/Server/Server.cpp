@@ -290,6 +290,50 @@ void *ClientService(void* data)
 
         switch(atoi(command))
         {
+            case 16: //Change password
+            {
+
+                char len[20];
+                bytes_recieved=SSL_read(ssl,len,20);
+                len[bytes_recieved]='\0';
+                size=atoll(len);
+                char msg1[size];
+                bytes_recieved=SSL_read(ssl,msg1,size);
+                msg1[bytes_recieved]='\0';
+                std::string username=ToStr(msg1);
+                std::cout<<username<<std::endl;
+                bytes_recieved=SSL_read(ssl,len,20);
+                len[bytes_recieved]='\0';
+                size=atoll(len);
+                char msg2[size];
+                bytes_recieved=SSL_read(ssl,msg2,size);
+                msg2[bytes_recieved]='\0';
+                std::string oldpass=ToStr(msg2);
+                std::cout<<oldpass<<std:endl;
+                bytes_recieved=SSL_read(ssl,len,20);
+                len[bytes_recieved]='\0';
+                size=atoll(len);
+                char msg3[size];
+                bytes_recieved=SSL_read(ssl,msg3,size);
+                msg3[bytes_recieved]='\0';
+                std::string newpass=ToStr(msg3);
+                std::cout<<newpass<<std:endl;
+                char msg4[1];
+                if(base.VerifyUserCredentials(User(username,oldpass)))
+                {
+                    msg3[0]='1';
+                    //change pass
+                }
+                else
+                {
+                    msg3[0]='0';
+                }
+                bytes_sent=SSL_write(ssl,msg3,1);
+                
+                break;
+            }
+
+
             case 8: // Adding username
                 {
                     char len[20];
