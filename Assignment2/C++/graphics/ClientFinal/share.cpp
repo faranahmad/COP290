@@ -3,10 +3,15 @@
 #include "file.h"
 #include <string>
 #include <QMessageBox>
+#include "SyncManager.h"
 
+extern std::string inst,datafield1,datafield2,datafield3;
+extern std::string reversedata1,reversedata2,reversedata3;
+extern bool InstructionStarted, InstructionCompleted;
+extern SyncManager MergedSyncManager;
 bool readonly;
 std::string getting_username;
-std::string existingusername;
+bool existingusername;
 
 share::share(QWidget *parent) :
     QDialog(parent),
@@ -37,9 +42,54 @@ void share::on_pushButton_clicked()
     {
         readonly = false;
     }
-
-    if(getting_username == existingusername)
+    std::string fname=datafield1;
+    datafield1=getting_username;
+    inst="2";
+    usleep(100);
+    if (InstructionStarted)
     {
+        while (!InstructionCompleted)
+        {
+            // Keep waiting for the instruction to complete
+        }
+        InstructionCompleted=false;
+        InstructionStarted=false;
+    }
+    datafield1=fname;
+
+    if (reversedata3=="YES")
+    {
+        existingusername=true;
+    }
+    else
+    {
+        existingusername=false;
+    }
+
+    if(existingusername)
+    {
+        datafield2=getting_username;
+        if (readonly)
+        {
+            datafield3="1";
+        }
+        else
+        {
+            datafield3="0";
+        }
+
+        inst="5";
+        usleep(100);
+        if (InstructionStarted)
+        {
+            while (!InstructionCompleted)
+            {
+                // Keep waiting for the instruction to complete
+            }
+            InstructionCompleted=false;
+            InstructionStarted=false;
+        }
+
         ui->lineEdit->setText("");
         QMessageBox::information(this,tr("successfully shared"),tr("your file is successfully shared"));
         this->hide();

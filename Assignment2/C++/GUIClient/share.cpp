@@ -1,6 +1,12 @@
 #include "share.h"
 #include "ui_share.h"
 #include "file.h"
+
+extern std::string inst,datafield1,datafield2,datafield3;
+extern std::string reversedata1,reversedata2,reversedata3;
+extern bool InstructionStarted, InstructionCompleted;
+extern SyncManager MergedSyncManager;
+
 share::share(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::share)
@@ -28,5 +34,4 @@ void share::on_pushButton_2_clicked()
     file share1;
     share1.setModal(true);
     share1.exec();
-
 }

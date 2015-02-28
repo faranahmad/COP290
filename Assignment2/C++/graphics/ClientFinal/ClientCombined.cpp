@@ -1,7 +1,7 @@
 #include "ClientCombined.h"
 #include <cstdlib>
 #include "filesonserver.h"
-
+#include <stdlib.h> 
 #define SIZE 10000
 #define BUFFSIZE 10000000
 
@@ -9,6 +9,7 @@ extern std::string inst,datafield1,datafield2,datafield3;
 extern std::string reversedata1,reversedata2,reversedata3;
 extern bool InstructionStarted, InstructionCompleted;
 extern SyncManager MergedSyncManager;
+extern bool ifconnected;
 extern std::vector<Data> ReverseDataFiles;
 // Soccer part
 
@@ -51,16 +52,19 @@ std::vector<Data> GetDataFiles(std::string location)
         std::sort(v.begin(), v.end());
         for (int i=0; i<v.size() ; i++ )
         {
+        	std::string s=v[i].string();
+        	int pos=s.find(".temp");
+        	s=s.substr(pos+5);
             if (is_regular_file(v[i]))
             {
-                ans.push_back(Data(v[i].string(),false));
+                ans.push_back(Data(s,false));
             }
             else
             {
-                Data d=Data(v[i].string(),true);
+                Data d=Data(s,true);
                 d.SetData(GetDataFiles(v[i].string()));
                 ans.push_back(d);
-            };
+            }
         }
     }
     else
@@ -86,16 +90,22 @@ int GetData(std::vector<std::string> data) // "/username/.temp/..."
     std::vector<std::string> files;
 
     std::string mainpath(getenv("HOME"));
-    mainpath=mainpath+"/Desktop/DeadDrop/";
-    std::cout <<"starting\n";
+    mainpath=mainpath+"/Desktop/DeadDrop";
+    std::cout <<"%%%%%%%%%%%%%%%%%%%%%%%%%%starting\n";
+    boost::filesystem::path dir1((mainpath+GetUserName(data[0])).c_str());
+    std::cout << dir1.string() <<"\n";
+    if (!boost::filesystem::exists(dir1))
+    	boost::filesystem::create_directories(dir1);
+    std::cout << "created dir\n";
     for(int i=0;i<data.size();i++)
     {
         if(data[i][(data[i]).size()-1]=='/')
         {
+        	std::cout <<"^^^^^^^^^^^^^ it is a folder\n";
             boost::filesystem::path dir((mainpath+data[i]).c_str());
             if(!(boost::filesystem::exists(dir)))
             {
-                std::cout<<"Directory Doesn't Exists"<<std::endl;
+                std::cout<<"Directory Doesn't Exists\t"<<dir.string()<<  std::endl;
                 if (boost::filesystem::create_directories(dir))
                     std::cout << "Directory Successfully Created !" << std::endl;
             }
@@ -135,7 +145,7 @@ int GetData(std::vector<std::string> data) // "/username/.temp/..."
 
     if(boost::filesystem::exists(directory_path))
     {
-        boost::filesystem::remove_all(directory_path);
+        // boost::filesystem::remove_all(directory_path);
     }
     return 0;
 }
@@ -770,39 +780,13 @@ std::string ExecuteInstruction(Instruction ins)
                 std::cout <<"In 15\n";
                 temp=ins.data1;
                 char size1[20];
+                std::cout <<" in 15th instruction\n";
                 sprintf(size1,"%lld",(long long)temp.size());
-                char* msg1=ToArr(temp);
                 bytes_sent=SSL_write(ssl, size1,20);
+                std::cout << std::atoi(size1) <<"\n";
+                char* msg1=ToArr(temp);
                 bytes_sent=SSL_write(ssl,msg1,temp.size());
-                char msg3[20];
-                std::cout <<"In between\n";
-                bytes_recieved=SSL_read(ssl,msg3,1);
-                msg3[bytes_recieved]='\0';
-                long long num=atoll(msg3);
-                std::vector<std::string> data;
-                for(long long i=0;i<num;i++)
-                {
-                    char len[20];
-                    bytes_recieved=SSL_read(ssl, len,20);
-                    len[bytes_recieved]='\0';
-                    long long size=atoll(len);
-                    std::cout<<size<<std::endl;
-                    char filepath[size];
-                    bytes_recieved=SSL_read(ssl,filepath,size);
-                    filepath[bytes_recieved]='\0';
-                    std::cout<<ToStr(filepath)<<std::endl;
-                    std::string name=FileName(ToStr(filepath));
-                    data.push_back(name);
-                }
-                std::cout <<"out of for 1\n";
-                for(int i=0;i<data.size();i++)
-                {
-                    std::cout<<"Path:"<<data[i]<<std::endl;
-                }
-                std::cout <<"Out of for 2\n";
-                if (data.size())
-                    // GetData(data);
-                std::cout <<"Ending instruction 15\n";
+                std::cout <<"In between\n"<<ToStr(msg1)<<std::endl;;
                 return "1";
             }
         default:
@@ -864,7 +848,7 @@ bool UserLogin(std::string usn, std::string pwd)
 		Instruction b;
         b.modification = 15;
         b.data1 = usn;
-        // ExecuteInstruction(b);
+        ExecuteInstruction(b);
         if (boost::filesystem::exists(dir))
 		{
 		    // User already had logged in before on this machine
@@ -917,6 +901,23 @@ void PerformSync(SyncManager UserSyncManager)
 	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/sehistory.txt" , serverfoldername +".data/sehistory.txt"));
 	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/giving.txt" , serverfoldername +".data/giving.txt"));
 	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/receiving.txt", serverfoldername +".data/receiving.txt"));
+	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/serverfiles.txt", serverfoldername +".data/serverfiles.txt"));
+
+	std::string line1toread;
+	std::ifstream myfile (foldername + ".data/serverfiles.txt");
+	std::vector<std::string> readdata;
+	if (myfile.is_open())
+	{
+	while ( getline (myfile,line1toread) )
+		{	
+			readdata.push_back(line1toread);
+		}
+		myfile.close();
+	}
+	if (readdata.size())
+		GetData(readdata);
+
+	Display(ReverseDataFiles);
 
     std::cout << "Transferred server info files to client\n";
 
@@ -1237,7 +1238,7 @@ int clientmain(int argc, char *argv[])
             // ExecuteInstruction(TransferServerToClient("/home/kartikeya/Desktop/abc.txt","/home/skipper/Desktop/DeadDropServer/98765/.data/sehistory.txt"));
             while (!ExitDone)
             {
-                
+            	ifconnected=true;                
                 if (inst=="0")
                 {
                 	InstructionStarted=true;
@@ -1285,10 +1286,21 @@ int clientmain(int argc, char *argv[])
                 }
 				else if (inst=="2")
 				{
-
-					// std::cin >> usinp;
+					// Check if user exists
+					InstructionStarted=true;
 					std::string usinp = datafield1;
-					std::cout << CheckUserExists(usinp);
+					std::cout << inst <<"\t" <<usinp<<"\n";
+					if (CheckUserExists(usinp))
+					{
+						reversedata3="YES";
+					}
+					else
+					{
+						reversedata3="NO";
+					}
+					std::cout <<reversedata3<<"\n";
+					InstructionCompleted=true;
+					inst="";
                 }
                 else if (inst=="3")
                 {
@@ -1300,6 +1312,7 @@ int clientmain(int argc, char *argv[])
                     l.LoadFromDiskDB("/home/kartikeya/Desktop/DeadDrop/");
                     std::cout << "Got basic data\n";
                     PerformSync(l);
+                    inst="";
                 }
                 else if (inst=="4")
                 {
@@ -1308,6 +1321,26 @@ int clientmain(int argc, char *argv[])
                     PerformSync(MergedSyncManager);
                     inst="";
                     InstructionCompleted=true;
+                }
+                else if (inst=="5")
+                {
+                	// Share file with user and permissions
+                	InstructionStarted=true;
+                	std::cout << "entered sharing inst\n";
+                	std::string ftoshare = datafield1;
+                	std::string ustoshare = datafield2;
+                	int typeshare;
+                	if (datafield3=="0")
+                	{	
+                		typeshare=0;
+                	}
+                	else
+                	{
+                		typeshare=1;
+                	}
+					ShareFile(MergedSyncManager,ustoshare,ftoshare,typeshare);
+                	inst="";
+                	InstructionCompleted=true;
                 }
                 else if (inst=="e")
                 {

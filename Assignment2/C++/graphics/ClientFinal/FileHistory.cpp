@@ -259,6 +259,10 @@ std::vector< std::pair<std::string, int> > GetVectorFiles(std::string location)
         		{
  				   std::cout << "found!" << '\n';
 				}
+				else if (v[i].string().find(".temp") != std::string::npos) 
+        		{
+ 				   std::cout << "found temp!" << '\n';
+				}
 				else if (v[i].string().find("/Shared/") != std::string::npos)
 				{
 					std::cout <<"Shared file\n";

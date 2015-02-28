@@ -15,7 +15,7 @@ extern std::string reversedata1,reversedata2,reversedata3;
 extern bool InstructionStarted, InstructionCompleted;
 
 
-bool ifconnected = false;
+extern bool ifconnected;
 login::login(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::login)
@@ -73,7 +73,7 @@ void login::customSlot4()
 void login::on_quitapp_clicked()
 {
     inst = "e";
-	usleep(20);
+	usleep(100);
 	if (InstructionStarted)
 	{
 		while (!InstructionCompleted)
@@ -83,13 +83,15 @@ void login::on_quitapp_clicked()
 		InstructionCompleted=false;
 		InstructionStarted=false;
 	}
+    // this->hide();   
+    // this->~login();
     qApp->quit();
 }
 
 
 void login::on_login_2_clicked()
 {
-    bool if_user_valid = false;
+    // bool if_user_valid = false;
     QString user_name = ui->usernametext->text();
     std::string user_name_text = user_name.toUtf8().constData();
     std::cout << user_name_text<< std::endl;

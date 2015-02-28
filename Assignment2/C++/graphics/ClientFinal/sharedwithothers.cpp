@@ -4,9 +4,7 @@
 #include <string>
 #include "SyncManager.h"
 
-extern std::string inst,datafield1,datafield2,datafield3;
-extern std::string reversedata1,reversedata2,reversedata3;
-extern bool InstructionStarted, InstructionCompleted;
+
 extern SyncManager MergedSyncManager;
 
 std::vector<std::string> sharedfiles;

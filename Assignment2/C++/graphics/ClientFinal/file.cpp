@@ -294,7 +294,7 @@ void file::on_share_clicked()
 
         if(!index2.isValid())
         {
-            QMessageBox::information(this,tr("please select"),tr("seleSt a file to share"));
+            QMessageBox::information(this,tr("please select"),tr("select a file to share"));
         }
 
         else if(dirmodel->fileInfo(index2).isDir())
@@ -306,6 +306,7 @@ void file::on_share_clicked()
         {
             QString filepath2 = dirmodel->filePath(index2);
             filepathtoshare = filepath2.toUtf8().constData();
+            datafield1=filepathtoshare;
             share share1;
             share1.setModal(true);
             share1.exec();
