@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>972</width>
-    <height>894</height>
+    <width>828</width>
+    <height>695</height>
    </rect>
   </property>
   <property name="font">
@@ -23,8 +23,8 @@
     <rect>
      <x>40</x>
      <y>36</y>
-     <width>901</width>
-     <height>801</height>
+     <width>741</width>
+     <height>571</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -43,9 +43,9 @@
   <widget class="QPushButton" name="back">
    <property name="geometry">
     <rect>
-     <x>38</x>
-     <y>850</y>
-     <width>901</width>
+     <x>40</x>
+     <y>620</y>
+     <width>741</width>
      <height>27</height>
     </rect>
    </property>
