@@ -20,9 +20,6 @@ struct addrinfo *host_info_list;
 
 
 
-
-
-
 std::string GetUserName(std::string name)
 {
     std::string ans;
