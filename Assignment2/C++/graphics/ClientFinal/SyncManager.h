@@ -26,8 +26,11 @@ struct Instruction
 	// 12 is UpdateServerDiskFiles			data1=sefolderpath
 	// 13 is SendServerFiles				data1=clfolderpath data2=sefolderpath
 	// 14 is Transfer from client to server without return path data1=clpath data2=sepath
+	// 15 is create summary file on server
+	// 16 is change password 				data1=username, data2=passwd, data3= newpasswd
 	std::string data1;
 	std::string data2;
+	std::string data3;
 };
 
 struct SyncList
@@ -116,6 +119,7 @@ Instruction DeleteFileOnClient(std::string);
 Instruction RefreshServerDB(std::string);
 Instruction DoNothing();
 Instruction DoNormalSending(std::string,std::string);
+Instruction ChangePasswordIns(std::string,std::string,std::string);
 
 struct Client
 {

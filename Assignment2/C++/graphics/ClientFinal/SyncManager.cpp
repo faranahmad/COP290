@@ -334,38 +334,48 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 			// File was there on last sync and now as well
 			// If change occured then do work
 			int positionlocal=ClientPresent[i];
-			if (SyncListContains(FilesToSync, CLH.GetNthName(i)))
+			// if (SyncListContains(FilesToSync, CLH.GetNthName(i)))
+			if (true)
 			{
 				std::string servername = USF.GetClientFileName(CLH.GetNthName(i)); 
-				if (!ReceivingFiles.CheckIfExists(servername))
+				bool d1=false;
+				for (int k=0; (k<numserver); k++)
 				{
-					for (int k=0; (k<numserver); k++)
+					if (servername == SEH.GetNthInfo(k).first)
 					{
-						if (servername == SEH.GetNthInfo(k).first)
+						fileServer[k]=true;
+						d1=true;
+						if (PresentFiles.GetNthTime(positionlocal) > CLH.GetNthTime(i))
 						{
-							if (PresentFiles.GetNthTime(positionlocal) > CLH.GetNthTime(i))
+							Instruction a;
+							a.modification=3;
+							a.data1= CLH.GetNthName(i);
+							a.data2= SEH.GetNthName(k);
+							answer.push_back(a);
+						}
+						else
+						{
+							if (SEH.GetNthTime(k)>PresentFiles.GetNthTime(positionlocal))
 							{
 								Instruction a;
-								a.modification=3;
-								a.data1= CLH.GetNthName(i);
-								a.data2= SEH.GetNthName(k);
+								a.modification = 2;
+								a.data1=PresentFiles.GetNthName(positionlocal);
+								a.data2=SEH.GetNthName(k);
 								answer.push_back(a);
+								CLH.SetNthTime( i , SEH.GetNthTime(k));
 							}
-							else
-							{
-								if (SEH.GetNthTime(k)>PresentFiles.GetNthTime(positionlocal))
-								{
-									Instruction a;
-									a.modification = 2;
-									a.data1=PresentFiles.GetNthName(positionlocal);
-									a.data2=SEH.GetNthName(k);
-									answer.push_back(a);
-									CLH.SetNthTime( i , SEH.GetNthTime(k));
-								}
-							}
-		
 						}
 					}
+				}
+				if (!d1)
+				{
+					Instruction a;
+					a.modification = 5;
+					a.data1=CLH.GetNthName(i);
+					answer.push_back(a);
+					CLH.RemoveFile(a.data1);
+					// Delete file on local
+					// Remove from mappings and history
 				}
 			}
 			else
@@ -388,15 +398,12 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 			a.modification = 6;
 			a.data2 = CLH.GetNthName(i);
 			std::string servername = USF.GetClientFileName(CLH.GetNthName(i)); 
-			if (!ReceivingFiles.CheckIfExists(servername))		
-			{
-				RemoveFileFromSync (CLH.GetNthName(i));
-				RemoveFromClientBase(CLH.GetNthName(i));
-				CLH.RemoveFile(CLH.GetNthName(i));
-				SEH.RemoveFile(servername);
-				a.data1 = servername;
-				answer.push_back(a);	
-			}
+			RemoveFileFromSync (CLH.GetNthName(i));
+			RemoveFromClientBase(CLH.GetNthName(i));
+			CLH.RemoveFile(CLH.GetNthName(i));
+			SEH.RemoveFile(servername);
+			a.data1 = servername;
+			answer.push_back(a);	
 		}
 	}
 	for (int i=0; i < numcpresent ; i++)
@@ -406,14 +413,38 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 			// New file has appeared on client
 			// Send this to the server
 			Instruction a;
-			AddFileToSync(PresentFiles.GetNthName(i));
+			//AddFileToSync(PresentFiles.GetNthName(i));
 			a.modification=3;
 			a.data1= PresentFiles.GetNthName(i);
 			std::string sname=a.data1;
 			int lenpath= CLH.GetFolder().size();
 			sname=sname.substr(lenpath);
 			a.data2=SEH.GetFolder()+sname;
+			USF.AddNew(a.data1,a.data2);
 			answer.push_back(a);
+		}
+	}
+	for (int i=0; i < numserver ; i++)
+	{
+		if (!fileServer[i])
+		{
+			// New file on server
+			// Get it to client
+			Instruction a;
+			a.modification = 2;
+			a.data2=SEH.GetNthName(i);
+			
+			std::string mainpath(getenv("HOME")); 
+			std::string foldername=mainpath + "/Desktop/DeadDrop/" + GetUsername()  + "/";
+			std::string serverfoldername="/home/skipper/Desktop/DeadDropServer/" + GetUsername() +"/";
+
+			std::string clpath1= foldername + a.data2.substr(serverfoldername.size());
+			std::cout <<"NEW CL PATH\n" << clpath1 <<"\n";
+
+			a.data1=clpath1;
+			answer.push_back(a);
+			CLH.AddFileToHistory(clpath1, SEH.GetNthTime(i));
+			AddFileToLinking(a.data1,a.data2);
 		}
 	}
 
@@ -835,80 +866,13 @@ Instruction DoNormalSending(std::string s1, std::string s2)
 	return p;	
 }
 
+Instruction ChangePasswordIns(std::string usname, std::string opwd, std::string npwd)
+{
+	Instruction p;
+	p.modification=16;
+	p.data1=usname;
+	p.data2=opwd;
+	p.data3=npwd;
+	return p;
+}
 
-
-
-// int main(int argc, char const *argv[])
-// {
-// 	if(argc<3)
-// 	{
-// 		std::cout<<"Error. Usage : ./tclient ip portnumber\n";
-// 	}
-// 	else
-// 	{
-// 	    SSL_CTX *ctx=InitSSL();
-// 	    // SSL *ssl;
-
-// 	    int status;                      // Contains the status of the server
-// 	    struct addrinfo host_info;       // The struct that getaddrinfo() fills up with data.
-// 	    // struct addrinfo *host_info_list; // Pointer to the to the linked list of host_info's.
-// 	    struct sockaddr_in server;
-// 	    int sock;
-// 	    memset(&host_info, 0, sizeof host_info);
-
-//     	host_info.ai_family = AF_UNSPEC;     // IP version not specified. Can be both.
-//     	host_info.ai_socktype = SOCK_STREAM; // Use SOCK_STREAM for TCP or SOCK_DGRAM for UDP.
-
-// 	    status = getaddrinfo(argv[1], argv[2], &host_info, &host_info_list);
-// 	    if (status != 0)  
-//     	    std::cout << "Getaddrinfo error" << gai_strerror(status) ;
-
-//     // int sockID ;                        // The socket descripter
-//    	 	sockID = socket(host_info_list->ai_family, host_info_list->ai_socktype,host_info_list->ai_protocol);
-//     	if (sockID == -1)  
-//         	std::cout << "Socket error " ;
-
-//     	int buffs = BUFFSIZE;
-//     	setsockopt(sockID, SOL_SOCKET, SO_RCVBUF, &buffs, sizeof(buffs));
-//     	std::cout << "Connecting..."  << std::endl;
-//     	status = connect(sockID, host_info_list->ai_addr, host_info_list->ai_addrlen);
-//     	if (status == -1)  
-//     	    std::cout << "Connection error!\n"; 
-//     	else 
-//     		std::cout<<"Connected\n";
-   
-//     	uint32_t htonl(uint32_t hostlong);
-
-
-//     // bool quit =false;
-
-// 	    ssl = SSL_new(ctx);      /* create new SSL connection state */
-// 	    SSL_set_fd(ssl, sockID); 
-	
-// 	    if ( SSL_connect(ssl) <0 )   /* perform the connection */
-// 	        ERR_print_errors_fp(stderr);
-// 	    else
-// 	    {
-// 			std::cout << "Connected with ____ encryption " << SSL_get_cipher(ssl) <<"\n";
-// 	        ShowCerts(ssl);        /* get any certs */
-// 	        SSL_set_connect_state(ssl); 
-	
-// 			std::string usinp,uspwd;
-// 			std::cin >> usinp;
-// 			std::cin >> uspwd;
-// 			Instruction newus=NewUser(usinp,uspwd);
-// 			int k=ExecuteInstruction(newus);
-// 			std::cout<<k<<"\n";
-// 			ExecuteInstruction(Exit());
-// 		}
-// 			// SyncManager p=SyncManager("kg");
-// 			// // p.SetUsername("kg");
-// 			// p.StoreToDiskDB("here3");
-// 			// p.LoadFromDiskDB("here3");
-// 			// p.RefreshClientFolder();
-// 			// std::vector<Instruction> v= p.GetSyncingInstructions();
-// 			// p.SyncManager::SaveInstructionVector(v,"here2/instruction.txt");
-// 		// p.StoreToDiskDB("here2");
-// 	}
-// 	return 0;
-// }

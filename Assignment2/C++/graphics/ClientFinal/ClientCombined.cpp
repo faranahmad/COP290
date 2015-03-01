@@ -11,17 +11,10 @@ extern bool InstructionStarted, InstructionCompleted;
 extern SyncManager MergedSyncManager;
 extern bool ifconnected;
 extern std::vector<Data> ReverseDataFiles;
-// Soccer part
 
 int sockID;
 SSL* ssl;
 struct addrinfo *host_info_list; 
-
-
-
-
-
-
 
 std::string GetUserName(std::string name)
 {
@@ -149,23 +142,6 @@ int GetData(std::vector<std::string> data) // "/username/.temp/..."
     }
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 SSL_CTX* InitSSL(void)
 { 
@@ -491,7 +467,7 @@ std::string ExecuteInstruction(Instruction ins)
                 if(!(boost::filesystem::exists(dir)))
                 {
                     std::cout<<"Directory Doesn't Exists"<<std::endl;
-                    if (boost::filesystem::create_directory(dir))
+                    if (boost::filesystem::create_directories(dir))
                         std::cout << "Directory Successfully Created !" << std::endl;
                 }
                 std::string loc = filepath2 + name;
@@ -545,9 +521,19 @@ std::string ExecuteInstruction(Instruction ins)
             }
         case 10: // quit
             {
-                freeaddrinfo(host_info_list);
+            	std::cout <<"quitting instruction starting\n";
+            	char msg[1];
+            	msg[0]='1';
+            	bytes_sent=SSL_write(ssl,msg,1);
+            	std::cout << "sent\n";
+            	bytes_recieved=SSL_read(ssl,msg,1);
+                std::cout <<"received\n";
                 close(sockID);
+                std::cout <<"closed\n";
                 SSL_free(ssl);
+                std::cout <<"freed\n";
+                freeaddrinfo(host_info_list);
+                std::cout <<"freeaddr\n";
                 return "1";
             }
         case 11: // get serverlist
@@ -1119,13 +1105,15 @@ void GetFileFromServer(SyncManager UserSyncManager, std::string filename)
 
 }
 
-void GetSharedFileFromServer(SyncManager UserSyncManager, std::string serverfname)
+void GetSharedFileFromServer(std::string serverfname)
 {
-	std::string p = "/home/soccer/DeadDropServer/";
+	std::string p = "/home/skipper/Desktop/DeadDropServer/";
 	std::string lpath = serverfname.substr(p.size());
+	std::cout <<"&&&&&&&&&&&&\t" << lpath <<"\n"; 
 	std::string mainpath(getenv("HOME")); 
-	std::string foldername=mainpath + "/Desktop/DeadDrop/" + UserSyncManager.GetUsername()  + "/Shared/";
+	std::string foldername=mainpath + "/Desktop/DeadDrop/" + MergedSyncManager.GetUsername()  + "/Shared/";
 	std::string filelpath = foldername + lpath;
+	std::cout << "*******\t" << filelpath <<"\n";
 	std::string instructionresult= ExecuteInstruction(TransferServerToClient(filelpath, serverfname));
 }
 
@@ -1143,13 +1131,13 @@ int GetShareType(SyncManager UserSyncManager, std::string sefname)
 	}
 }
 
-bool ShareSendFileToServer(SyncManager UserSyncManager, std::string clfname)
+bool ShareSendFileToServer(std::string clfname)
 {
 	std::string mainpath(getenv("HOME")); 
-	std::string foldername = mainpath + "/Desktop/DeadDrop/" + UserSyncManager.GetUsername()  + "/Shared/";
-	std::string serverfname = "/home/soccer/DeadDropServer/" + clfname.substr(foldername.size());
+	std::string foldername = mainpath + "/Desktop/DeadDrop/" + MergedSyncManager.GetUsername()  + "/Shared/";
+	std::string serverfname = "/home/skipper/Desktop/DeadDropServer/" + clfname.substr(foldername.size());
 	
-	int stype = GetShareType(UserSyncManager, serverfname);
+	int stype = GetShareType(MergedSyncManager, serverfname);
 	if (stype == 1)
 	{
 		// Cannot upload a read only file
@@ -1157,7 +1145,10 @@ bool ShareSendFileToServer(SyncManager UserSyncManager, std::string clfname)
 	}
 	else
 	{
-		std::string instructionresult= ExecuteInstruction(TransferClientToServer(clfname, serverfname));
+		std::cout <<clfname<<"\t" << serverfname<<"\n";
+		std::string instructionresult= ExecuteInstruction(DoNormalSending(clfname, serverfname));
+		std::cout <<instructionresult << "\n";
+
 		return true;
 	}
 }
@@ -1216,6 +1207,35 @@ void ShareFile(std::string username,std::string filepath, int perms)
 	recvtemp.StoreSharingToDisk(tempname);
 
 	instructionresult = ExecuteInstruction(DoNormalSending(tempname,serverfilenamerecv));
+}
+
+void RemoveReceiving(std::string filepath)
+{
+	std::vector<Sharing> recvfiles1=MergedSyncManager.GetReceivingFiles().GetSharingList();
+	bool done3= false;
+	for (int i=0; (i<recvfiles1.size()) && !(done3); i++)
+	{
+		if (recvfiles1[i].FilePath == filepath)
+		{
+			std::cout <<"FOUND WHAT TO ERASE\n";
+			recvfiles1.erase(recvfiles1.begin() + i);
+			done3=true;
+		}
+	}
+	FileReceiving x;
+	x.SetSharingList(recvfiles1);
+	MergedSyncManager.SetReceivingFiles(x);
+	std::cout << "REMOVED\n";
+	std::string instructionresult;
+	std::string mainpath(getenv("HOME")); 
+	std::string foldername=mainpath + "/Desktop/DeadDrop/" + MergedSyncManager.GetUsername()  + "/";
+	std::string serverfoldername="/home/skipper/Desktop/DeadDropServer/" + MergedSyncManager.GetUsername() +"/";
+
+	MergedSyncManager.StoreToDiskDB(mainpath+"/Desktop/DeadDrop/");
+ 
+    std::cout << "Stored DB files to client\n";
+ 
+	instructionresult = ExecuteInstruction(DoNormalSending(foldername + ".data/receiving.txt",serverfoldername +".data/receiving.txt"));
 }
 
 int clientmain(int argc, char *argv[])
@@ -1388,10 +1408,57 @@ int clientmain(int argc, char *argv[])
                 	// Change Password
                 	InstructionStarted=true;
 
+                	std::string instructionresult=ExecuteInstruction(ChangePasswordIns(MergedSyncManager.GetUsername() ,datafield1,datafield2));
                 	
+                	if (instructionresult=="1")
+                	{
+                		reversedata1="YES";
+                	}
+                	else
+                	{
+                		reversedata1="NO";
+                	}
+                	inst="";
 
                 	InstructionCompleted=true;
+                }
+                else if (inst=="7")
+                {
+                	// Get shared file from server
+                	InstructionStarted=true;
+
+                	GetSharedFileFromServer(datafield1);
                 	inst="";
+                	InstructionCompleted=true;
+                }
+                else if (inst=="8")
+                {
+                	// Upload shared file to server
+                	InstructionStarted=true;
+                	std::cout <<"^^^^^^^starting upload\n";
+                	bool ans1=ShareSendFileToServer(datafield1);
+
+                	if (ans1)
+                	{
+                		reversedata1="YES";
+                	}
+                	else
+                	{
+                		reversedata1="NO";
+                	}
+                	std::cout <<"(((((((((((((finishing upload\n";
+                	inst="";
+                	InstructionCompleted=true;
+                }
+                else if (inst=="9")
+                {
+                	// Remove file from receiving
+                	InstructionStarted=true;
+
+                	RemoveReceiving(datafield1);
+
+                	inst="";
+                	InstructionCompleted=true;
                 }
                 else if (inst=="e")
                 {
