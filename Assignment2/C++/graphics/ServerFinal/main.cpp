@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include "Server2.h"
 
 std::vector<std::string> listofitems;
 
@@ -15,13 +16,14 @@ struct graph
 void *StartBackend(void *xyz)
 {
     graph *ps=(graph *) xyz;
-	// servermain(ps->argcx,ps->argvy);
+	servermain(ps->argcx,ps->argvy);
 	return (void *) 1;
 }
 
 std::string porttodisplay;
 std::string iptodisplay;
-
+std::vector<std::string> usersLog;
+char input;
  int main(int argc, char *argv[])
 {
 	if (argc<3)
@@ -40,7 +42,7 @@ std::string iptodisplay;
 	    data.argcx=argc;
 	    data.argvy=argv;
 	
-	    // pthread_create(&BackEndThread,NULL,StartBackend,&data);
+	    pthread_create(&BackEndThread,NULL,StartBackend,&data);
 	
 	    QApplication a(argc, argv);
 	    server w;

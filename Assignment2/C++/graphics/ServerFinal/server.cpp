@@ -5,9 +5,15 @@
 #include "serverfilesandfolders.h"
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <stdlib.h>
+#include <unistd.h>
+
 
 extern std::string iptodisplay; 
 extern std::string porttodisplay;
+extern std::vector<std::string> usersLog;
+extern char input;
 
 server::server(QWidget *parent) :
     QMainWindow(parent),
@@ -29,12 +35,16 @@ server::server(QWidget *parent) :
 
 server::~server()
 {
+    input='q';
+    usleep(1000);
     delete ui;
 }
 
 void server::on_shutdown_clicked()
 {
     //to shut down the window
+    input='q';
+    usleep(1000);
     qApp->quit();
 }
 

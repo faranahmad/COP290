@@ -12,10 +12,10 @@ serverfilesandfolders::serverfilesandfolders(QWidget *parent) :
     this->setStyleSheet("background-color:rgb(0,255,255);");
     ui->back->setStyleSheet("background-color:light green;");
     ui->treeView->setStyleSheet("background-color:white;");
-    QString sPath = "/home/soccer/Desktop/DeadDropServer";
+    QString sPath = "/home/skipper/Desktop/DeadDropServer";
     dirmodel = new QFileSystemModel(this);                                                  
     dirmodel->setRootPath(sPath);
-    QModelIndex index1 = dirmodel->index("/home/soccer/Desktop/DeadDropServer");          //displaying a folder in a tree style by giving a path
+    QModelIndex index1 = dirmodel->index("/home/skipper/Desktop/DeadDropServer");          //displaying a folder in a tree style by giving a path
     ui->treeView->setModel(dirmodel);                                                     //setting to file and folder model      
     //dirmodel->setReadOnly(false);
     ui->treeView->setRootIndex(index1);

@@ -16,6 +16,12 @@ int sockID;
 SSL* ssl;
 struct addrinfo *host_info_list; 
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 61f1f563f732c6ff14b9620c88f2553d90b142e6
 std::string GetUserName(std::string name)
 {
     std::string ans;
