@@ -36,13 +36,13 @@ public:
     {
         if (serverfilesandfolders->objectName().isEmpty())
             serverfilesandfolders->setObjectName(QStringLiteral("serverfilesandfolders"));
-        serverfilesandfolders->resize(972, 894);
+        serverfilesandfolders->resize(828, 695);
         QFont font;
         font.setPointSize(16);
         serverfilesandfolders->setFont(font);
         layoutWidget = new QWidget(serverfilesandfolders);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(40, 36, 901, 801));
+        layoutWidget->setGeometry(QRect(40, 36, 741, 571));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -58,7 +58,7 @@ public:
 
         back = new QPushButton(serverfilesandfolders);
         back->setObjectName(QStringLiteral("back"));
-        back->setGeometry(QRect(38, 850, 901, 27));
+        back->setGeometry(QRect(40, 620, 741, 27));
 
         retranslateUi(serverfilesandfolders);
 

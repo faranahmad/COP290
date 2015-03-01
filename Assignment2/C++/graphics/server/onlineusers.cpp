@@ -7,6 +7,9 @@ OnlineUsers::OnlineUsers(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("/home/faran/Desktop/COP290/Assignment2/DesignDocument/ddlogo2.png")) ;
+    this->setFixedSize(531,665);
+    this->setObjectName("online");
+    this->setStyleSheet("#online {background-color:lightgreen;}");
     this->setStyleSheet("background-color:rgb(0,255,255);");
     ui->pushButton->setStyleSheet("background-color:light green;");
     ui->listWidget->setStyleSheet("background-color:white;");

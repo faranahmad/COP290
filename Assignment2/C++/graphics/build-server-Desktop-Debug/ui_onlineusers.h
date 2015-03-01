@@ -37,10 +37,10 @@ public:
     {
         if (OnlineUsers->objectName().isEmpty())
             OnlineUsers->setObjectName(QStringLiteral("OnlineUsers"));
-        OnlineUsers->resize(617, 771);
+        OnlineUsers->resize(531, 665);
         layoutWidget = new QWidget(OnlineUsers);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(40, 36, 531, 691));
+        layoutWidget->setGeometry(QRect(40, 36, 441, 571));
         verticalLayout_2 = new QVBoxLayout(layoutWidget);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);

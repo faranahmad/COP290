@@ -13,9 +13,14 @@ NewUserSignup::NewUserSignup(QWidget *parent) :
     ui(new Ui::NewUserSignup)
 {
     ui->setupUi(this);
-    this->setWindowIcon(QIcon("/home/faran/Desktop/COP290/Assignment2/DesignDocument/ddlogo2.png")) ;
+    this->setWindowTitle("Sign Up");
+    this->setObjectName("newuser");
+    this->move(100,200);
+    this->setWindowIcon(QIcon("/home/faran/Desktop/COP290/Assignment2/DesignDocument/ddlogo2.png"));
+    this->setStyleSheet("#newuser {background-color:lightcoral;}");
     this->setFixedSize(680,364);
-    this->setWindowIcon(QIcon("/home/faran/Desktop/COP290/Assignment2/DesignDocument/ddlogo2.png")) ;
+    ui->toolButton_2->setFocusPolicy(Qt::NoFocus);
+
     connect(ui->passwordtext, SIGNAL(textChanged(const QString &)), this, SLOT(customSlot(const QString &)));
     connect(ui->confirmpasswordtext, SIGNAL(textChanged(const QString &)), this, SLOT(customSlot1(const QString &)));
 }

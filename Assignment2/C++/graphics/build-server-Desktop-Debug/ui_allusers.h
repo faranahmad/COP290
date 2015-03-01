@@ -38,10 +38,10 @@ public:
     {
         if (allusers->objectName().isEmpty())
             allusers->setObjectName(QStringLiteral("allusers"));
-        allusers->resize(649, 885);
+        allusers->resize(527, 720);
         layoutWidget = new QWidget(allusers);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(30, 30, 551, 821));
+        layoutWidget->setGeometry(QRect(30, 30, 451, 651));
         verticalLayout_3 = new QVBoxLayout(layoutWidget);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);

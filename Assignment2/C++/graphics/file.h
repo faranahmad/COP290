@@ -48,6 +48,7 @@ private slots:
 
     void on_sync_clicked();
 
+
 private:
     Ui::file *ui;
     QFileSystemModel *dirmodel;

@@ -13,9 +13,6 @@ class connecting : public QDialog
 
 public:
     explicit connecting(QWidget *parent = 0);
-
-    void funccall();
-
     ~connecting();
 
 private slots:

@@ -32,29 +32,32 @@ file::file(QWidget *parent) :
     ui(new Ui::file)
 {
     ui->setupUi(this);
-    //ui->filesonclientside->setFrameShadow(QFrame::Raised);
+    this->setObjectName("account");
     this->setFixedSize(1800,950);
+    this->setStyleSheet("#account {background-color:rgb(0,245,255);}");
     this->setWindowIcon(QIcon("/home/faran/Desktop/COP290/Assignment2/DesignDocument/ddlogo2.png")) ;
-    ui->treeView->header()->resizeSection(ui->treeView->header()->logicalIndexAt(51,91),400);
-    ui->treeView->header()->setMinimumWidth(1000);
-    this->setStyleSheet("background-color:rgb(0,255,255);");
-    ui->changepassword->setStyleSheet("background-color:light green;");
-    ui->openfile->setStyleSheet("background-color:light green;");
-    ui->deletefile->setStyleSheet("background-color:light green;");
-    ui->share->setStyleSheet("background-color:light green;");
-    ui->AddFileInClientSide->setStyleSheet("background-color:light green;");
-    ui->OpenFileInDrive->setStyleSheet("background-color:light green;");
-    ui->GoingBackInDrive->setStyleSheet("background-color:light green;");
-    ui->GetFromDrive->setStyleSheet("background-color:light green;");
-    ui->logout->setStyleSheet("background-color:light green;");
-    ui->movetodrive->setStyleSheet("background-color:light green;");
-    ui->sync->setStyleSheet("background-color:light green;");
-    ui->DeleteFromDrive->setStyleSheet("background-color:light green;");
-    ui->GetFromDrive->setStyleSheet("background-color:light green;");
-    ui->ViewSharedFiles->setStyleSheet("background-color:light green;");
-    ui->listWidget->setStyleSheet("background-color:white;");
-    ui->treeView->setStyleSheet("background-color:white;");
-    ui->sharedwithme->setStyleSheet("background-color:white;");
+    this->setWindowTitle("Your Account");
+//    ui->treeView->header()->resizeSection(ui->treeView->header()->logicalIndexAt(51,91),400);
+//    ui->treeView->header()->setMinimumWidth(1000);
+//    this->setStyleSheet("background-color:rgb(0,255,255);");
+//    ui->changepassword->setStyleSheet("background-color:light green;");
+//    ui->openfile->setStyleSheet("background-color:light green;");
+//    ui->deletefile->setStyleSheet("background-color:light green;");
+//    ui->share->setStyleSheet("background-color:light green;");
+//    ui->AddFileInClientSide->setStyleSheet("background-color:light green;");
+//    ui->OpenFileInDrive->setStyleSheet("background-color:light green;");
+//    ui->GoingBackInDrive->setStyleSheet("background-color:light green;");
+//    ui->GetFromDrive->setStyleSheet("background-color:light green;");
+//    ui->logout->setStyleSheet("background-color:light green;");
+//    ui->movetodrive->setStyleSheet("background-color:light green;");
+//    ui->sync->setStyleSheet("background-color:light green;");
+//    ui->DeleteFromDrive->setStyleSheet("background-color:light green;");
+//    ui->GetFromDrive->setStyleSheet("background-color:light green;");
+//    ui->ViewSharedFiles->setStyleSheet("background-color:light green;");
+//    ui->listWidget->setStyleSheet("background-color:white;");
+//    ui->treeView->setStyleSheet("background-color:white;");
+//    ui->sharedwithme->setStyleSheet("background-color:white;");
+
 
     QString sPath = "/home/faran/Desktop";
     dirmodel = new QFileSystemModel(this);
@@ -63,7 +66,8 @@ file::file(QWidget *parent) :
     ui->treeView->setModel(dirmodel);
     dirmodel->setReadOnly(false);
     ui->treeView->setRootIndex(index1);
-
+    //ui->treeView->resizeColumnToContents(0);
+    ui->label_3->setText("Welcome");//add username too
     //adding file names to be displayed on shared with me list
     std::string name  = "faran";
     for(int i=0;i<100;i++)
@@ -106,7 +110,20 @@ file::file(QWidget *parent) :
             ui->listWidget->addItem(("Folder\t\t\t" + filesroot.at(i).GetName()).c_str());
         }
     }
-        //ui->tableWidget->setItem(1,1,item);
+   ui->GetFromDrive->setFocusPolicy(Qt::NoFocus);
+   ui->DeleteFromDrive->setFocusPolicy(Qt::NoFocus);
+   ui->OpenFileInDrive->setFocusPolicy(Qt::NoFocus);
+   ui->openfile->setFocusPolicy(Qt::NoFocus);
+   ui->deletefile->setFocusPolicy(Qt::NoFocus);
+   ui->share->setFocusPolicy(Qt::NoFocus);
+   ui->GoingBackInDrive->setFocusPolicy(Qt::NoFocus);
+   ui->logout->setFocusPolicy(Qt::NoFocus);
+   ui->changepassword->setFocusPolicy(Qt::NoFocus);
+   ui->ViewSharedFiles->setFocusPolicy(Qt::NoFocus);
+   ui->movetodrive->setFocusPolicy(Qt::NoFocus);
+   ui->sync->setFocusPolicy(Qt::NoFocus);
+   ui->AddFileInClientSide->setFocusPolicy(Qt::NoFocus);
+   //ui->tableWidget->setItem(1,1,item);
     //faran.SetName("dude");
     //faran.SetFolder(true);
 
@@ -229,6 +246,7 @@ void file::on_openfile_clicked()
             filepath1 = dirmodel->filePath(index2);
         }
         QDesktopServices::openUrl(QUrl(filepath1, QUrl::TolerantMode));
+        ui->treeView->clearSelection();
 
 }
 
@@ -308,6 +326,7 @@ void file::on_OpenFileInDrive_clicked()
             makechange();
         }
     }
+    ui->listWidget->clearSelection();
     //presentdata = itemtobeadded;
     //int selected = ui->listWidget->row(ui->listWidget->currentItem());
     //std::cout << selected << std::endl;
@@ -336,6 +355,7 @@ void file::on_GoingBackInDrive_clicked()
             }
         }
     }
+    ui->listWidget->clearSelection();
 }
 
 
@@ -360,11 +380,19 @@ void file::on_GetFromDrive_clicked()
             ui->sharedwithme->clearSelection();
         }
     }
+    ui->listWidget->clearSelection();
+    ui->sharedwithme->clearSelection();
 }
 
 void file::on_logout_clicked()
 {
-    qApp->quit();
+    QMessageBox::StandardButton reply;
+      reply = QMessageBox::question(this, "Logout", "Are you sure you want to logout?",
+                                    QMessageBox::Yes|QMessageBox::No);
+      if (reply == QMessageBox::Yes)
+      {
+          qApp->quit();
+      }
 }
 
 void file::on_changepassword_clicked()
@@ -384,6 +412,7 @@ void file::on_DeleteFromDrive_clicked()
         std::cout << path_to_delete_from_drive << std::endl;
         ui->sharedwithme->clearSelection();
     }
+    ui->treeView->clearSelection();
 }
 
 void file::on_ViewSharedFiles_clicked()
@@ -397,3 +426,5 @@ void file::on_sync_clicked()
 {
     std::cout<<"prateek chutiya hai"<<std::endl;
 }
+
+

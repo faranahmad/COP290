@@ -13,11 +13,13 @@ fileaccess::fileaccess(QWidget *parent) :
     ui->setupUi(this);
     this->setWindowTitle("changepassword");
     this->setFixedSize(568,344);
+    this->setStyleSheet("#changepassword {background-color: blue;}");
     this->setWindowIcon(QIcon("/home/faran/Desktop/COP290/Assignment2/DesignDocument/ddlogo2.png")) ;
 
-//    ui->oldpassword->setEchoMode(QLineEdit::Password);
-//    ui->newpassword->setEchoMode(QLineEdit::Password);
-//    ui->confirmpassword->setEchoMode(QLineEdit::Password);
+    ui->oldpassword->setEchoMode(QLineEdit::Password);
+    ui->newpassword->setEchoMode(QLineEdit::Password);
+    ui->confirmpassword->setEchoMode(QLineEdit::Password);
+
     connect(ui->newpassword, SIGNAL(textChanged(const QString &)), this, SLOT(customSlot3(const QString &)));
     connect(ui->confirmpassword, SIGNAL(textChanged(const QString &)), this, SLOT(customSlot2(const QString &)));
 }
@@ -76,6 +78,10 @@ void fileaccess::on_applychange_clicked()
     if(ui->oldpassword->text() != previouspassword.c_str())
     {
         ui->oldpassword->setText("");
+        ui->newpassword->setText("");
+        ui->confirmpassword->setText("");
+        ui->passlength->setText("");
+        ui->matching->setText("");
         QMessageBox::information(this,tr("Please Re-Enter"),tr("please enter correct old password"));
     }
     else if(ui->newpassword->text().size() < 6)
@@ -86,13 +92,16 @@ void fileaccess::on_applychange_clicked()
     {
         ui->newpassword->setText("");
         ui->confirmpassword->setText("");
-        QMessageBox::information(this,tr("Please Re-Enter"),tr("please enter correct old password"));
+        ui->passlength->setText("");
+        ui->matching->setText("");
+        QMessageBox::information(this,tr("Please Re-Enter"),tr("Passwords are not matching"));
     }
     else
     {
         QString gettingpassword = ui->newpassword->text();
         getting_password = gettingpassword.toUtf8().constData();
         std::cout << getting_password << std::endl;
+        QMessageBox::information(this,tr("Password Changed"),tr("Password Successfully Changed"));
         this->hide();
     }
 }

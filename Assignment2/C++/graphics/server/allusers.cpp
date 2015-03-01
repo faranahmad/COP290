@@ -11,9 +11,11 @@ allusers::allusers(QWidget *parent) :
     ui(new Ui::allusers)
 {
     ui->setupUi(this);
+    this->setObjectName("allusers");
     this->setWindowIcon(QIcon("/home/faran/Desktop/COP290/Assignment2/DesignDocument/ddlogo2.png")) ;
-    this->setStyleSheet("background-color:rgb(0,255,255);");
-    ui->pushButton_2->setStyleSheet("background-color:light green;");
+    this->setFixedSize(527,720);
+    //this->setStyleSheet("background-color:rgb(0,255,255);");
+    this->setStyleSheet("#allusers {background-color:lightgreen;}");
     ui->listWidget->setStyleSheet("background-color:white;");
     for (unsigned int i = 0;i<listofitems.size();i++)
         ui->listWidget->addItem(listofitems.at(i).c_str());

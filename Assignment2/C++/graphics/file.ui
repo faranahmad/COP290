@@ -218,9 +218,9 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>800</x>
+     <x>20</x>
      <y>0</y>
-     <width>141</width>
+     <width>1771</width>
      <height>31</height>
     </rect>
    </property>
@@ -231,6 +231,9 @@
    </property>
    <property name="text">
     <string>WELCOME</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QListWidget" name="listWidget">
@@ -265,7 +268,7 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>90</x>
      <y>910</y>
      <width>901</width>
      <height>29</height>
@@ -287,19 +290,6 @@
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QPushButton" name="ViewSharedFiles">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>860</y>
-     <width>301</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>View Shared Files</string>
-   </property>
   </widget>
   <widget class="QListWidget" name="sharedwithme">
    <property name="geometry">
@@ -329,6 +319,26 @@
     <string>Shared With Me</string>
    </property>
   </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>860</y>
+     <width>301</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <item>
+     <widget class="QPushButton" name="ViewSharedFiles">
+      <property name="text">
+       <string>View Shared Files</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <zorder>layoutWidget</zorder>
   <zorder>treeView</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
@@ -340,7 +350,6 @@
   <zorder>line</zorder>
   <zorder>line_2</zorder>
   <zorder>label_3</zorder>
-  <zorder>ViewSharedFiles</zorder>
   <zorder>sharedwithme</zorder>
   <zorder>sharedwithmetext</zorder>
  </widget>

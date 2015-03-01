@@ -8,8 +8,10 @@ serverfilesandfolders::serverfilesandfolders(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("/home/faran/Desktop/COP290/Assignment2/DesignDocument/ddlogo2.png")) ;
-    this->setStyleSheet("background-color:rgb(0,255,255);");
-    ui->back->setStyleSheet("background-color:light green;");
+    this->setFixedSize(828,695);
+    this->setObjectName("allfiles");
+    this->setStyleSheet("#allfiles {background-color:lightgreen;}");
+    //ui->back->setStyleSheet("background-color:light green;");
     ui->treeView->setStyleSheet("background-color:white;");
     QString sPath = "/home/faran/Desktop";
     dirmodel = new QFileSystemModel(this);
