@@ -2,8 +2,8 @@
 #include <QApplication>
 #include <vector>
 #include <string>
-#include <iostream>
 #include "Server2.h"
+#include <iostream>
 
 std::vector<std::string> listofitems;
 
@@ -24,6 +24,9 @@ std::string porttodisplay;
 std::string iptodisplay;
 std::vector<std::string> usersLog;
 char input;
+
+
+
  int main(int argc, char *argv[])
 {
 	if (argc<3)
@@ -47,9 +50,9 @@ char input;
 	    QApplication a(argc, argv);
 	    server w;
 	    w.show();
-	    for (int i = 0;i<100;i++)
-	         listofitems.push_back(std::to_string(i));
-	
-	    return a.exec();
-	}
+    	for (int i = 0;i<100;i++)
+        	 listofitems.push_back(std::to_string(i));
+
+    	return a.exec();
+    }
 }

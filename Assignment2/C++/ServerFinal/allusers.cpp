@@ -4,22 +4,21 @@
 #include <iostream>
 #include <vector>
 #include "UserBase.h"
-//to display the list of all users 
-// extern std::vector<std::string> listofitems;
+
+extern std::vector<std::string> listofitems;
 
 allusers::allusers(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::allusers)
 {
-    //constructor to set up this window
     ui->setupUi(this);
-    this->setFixedSize(649,885);
-    this->move(670,0);
-    this->setStyleSheet("background-color:rgb(0,255,255);");
-    ui->pushButton_2->setStyleSheet("background-color:light green;");
+    this->setObjectName("allusers");
+    this->setWindowIcon(QIcon("/home/faran/Desktop/COP290/Assignment2/DesignDocument/ddlogo2.png")) ;
+    this->setFixedSize(527,720);
+    //this->setStyleSheet("background-color:rgb(0,255,255);");
+    this->setStyleSheet("#allusers {background-color:lightgreen;}");
     ui->listWidget->setStyleSheet("background-color:white;");
-    
-    UserBase todisplaydatabase;
+     UserBase todisplaydatabase;
     todisplaydatabase.LoadFromFile("Database.txt");
 
 
@@ -40,8 +39,18 @@ allusers::~allusers()
 }
 
 
+//void allusers::on_pushButton_clicked()
+//{
+//     int selected = ui->listWidget->row(ui->listWidget->currentItem());
+//     //QListWidgetItem *selecteditem = ui->listWidget->item(selected);
+//     listofitems.erase(listofitems.begin()+selected);
+//     ui->listWidget->clear();
+//     for (unsigned int i = 0;i<listofitems.size();i++)
+//         ui->listWidget->addItem(listofitems.at(i).c_str());
+//     //ui->listWidget->removeItemWidget(ui->listWidget->currentItem());
+//}
+
 void allusers::on_pushButton_2_clicked()
 {
-    //clicking on back button hides this to go back to main server window
     this->hide();
 }

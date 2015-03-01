@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include "allusers.h"
-#include <QtCore/qbytearray.h>
+// #include <QtCore/qbyearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'allusers.h' doesn't include <QObject>."
