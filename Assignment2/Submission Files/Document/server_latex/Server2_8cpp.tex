@@ -1,0 +1,223 @@
+\hypertarget{Server2_8cpp}{\section{Server2.\-cpp File Reference}
+\label{Server2_8cpp}\index{Server2.\-cpp@{Server2.\-cpp}}
+}
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$cstring$>$}\\*
+{\ttfamily \#include $<$sys/socket.\-h$>$}\\*
+{\ttfamily \#include $<$netdb.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}User\-Base.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}File\-History.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$boost/filesystem/operations.\-hpp$>$}\\*
+{\ttfamily \#include $<$boost/filesystem.\-hpp$>$}\\*
+{\ttfamily \#include $<$openssl/ssl.\-h$>$}\\*
+{\ttfamily \#include $<$openssl/err.\-h$>$}\\*
+{\ttfamily \#include $<$pthread.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Server2_8cpp_a70ed59adcb4159ac551058053e649640}{S\-I\-Z\-E}~10000
+\item 
+\#define \hyperlink{Server2_8cpp_a216b2abde239eb946227cab4973b5bc8}{J\-O\-I\-N}~500
+\item 
+\#define \hyperlink{Server2_8cpp_a39912bfe2a55f30e269196f9141d845d}{B\-U\-F\-F\-S\-I\-Z\-E}~10000000
+\item 
+\#define \hyperlink{Server2_8cpp_a2fcfdf60d28725b11b5a3539d3acd0d4}{T\-H\-R\-E\-A\-D\-S}~100
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{Server2_8cpp_aa973059545666c92f13f87814666696b}{Get\-Files} (std\-::string location)
+\item 
+bool \hyperlink{Server2_8cpp_a6d6dfe1c2fe9455a03a2ba9f7a68bee4}{Equal\-Vector} (std\-::vector$<$ char $>$ file1, std\-::vector$<$ char $>$ file2)
+\item 
+int \hyperlink{Server2_8cpp_a8cbe113df3cd3f3debceb281083fb944}{Comp\-Files} (std\-::string file1, std\-::string file2)
+\item 
+std\-::string \hyperlink{Server2_8cpp_a0cde59c431c055ef0fd880ea2a278498}{To\-Str} (char $\ast$arr)
+\item 
+std\-::string \hyperlink{Server2_8cpp_aeb012c0f92a559b12246da255db525f9}{File\-Name} (std\-::string filename)
+\item 
+char $\ast$ \hyperlink{Server2_8cpp_ab07990aa563258ba3ec432e705dff1ee}{To\-Arr} (std\-::string str)
+\item 
+int \hyperlink{Server2_8cpp_ace691344b7e108cb29f2601ca69f23c1}{is\-Root} ()
+\item 
+void \hyperlink{Server2_8cpp_a09e2794cde02c0efb1347ea84d047efe}{Load\-Certificates} (S\-S\-L\-\_\-\-C\-T\-X $\ast$\hyperlink{Server2_8cpp_ad5433bcc8a463fb4df3ce5912bb11fe3}{ctx}, char $\ast$Cert\-File, char $\ast$Key\-File)
+\item 
+void \hyperlink{Server2_8cpp_af195e38cc8e359042b01cd9f3bdc069c}{Show\-Certs} (S\-S\-L $\ast$ssl)
+\item 
+S\-S\-L\-\_\-\-C\-T\-X $\ast$ \hyperlink{Server2_8cpp_a3c1877898c12a45be136eefa41677825}{Init\-S\-S\-L} ()
+\item 
+void $\ast$ \hyperlink{Server2_8cpp_aeee490d6285ff72b0b15c76167f66b9f}{Input} (void $\ast$\hyperlink{trying2_8cpp_a589d880006c33afde71782ee91bc502e}{data})
+\item 
+void $\ast$ \hyperlink{Server2_8cpp_a29f0c634933180f2d2d77e09ac06fd0c}{Client\-Service} (void $\ast$\hyperlink{trying2_8cpp_a589d880006c33afde71782ee91bc502e}{data})
+\item 
+int \hyperlink{Server2_8cpp_a0ebef4c3fd81802712e3e3c7d1b709cb}{servermain} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{Server2_8cpp_a38deedb02dcebac366f97a0879b3be5b}{input}
+\item 
+S\-S\-L\-\_\-\-C\-T\-X $\ast$ \hyperlink{Server2_8cpp_ad5433bcc8a463fb4df3ce5912bb11fe3}{ctx}
+\item 
+bool \hyperlink{Server2_8cpp_ae1f6bf024a2d3cd8afc81295e747ae7f}{close\-Server} =false
+\item 
+\hyperlink{classUserBase}{User\-Base} \hyperlink{Server2_8cpp_a0ec8c472be2a5fa59d5e333081995ca3}{base} =\hyperlink{classUserBase}{User\-Base}()
+\item 
+int \hyperlink{Server2_8cpp_ae3ef0df0000dc7d980ef6852a2465ccb}{sock\-I\-D}
+\item 
+struct addrinfo \hyperlink{Server2_8cpp_a3b26cd515b3c1f3c900281a80c479565}{host\-\_\-info}
+\item 
+struct addrinfo $\ast$ \hyperlink{Server2_8cpp_af07aa0f353ef6ca5a5fdfa29a226227d}{host\-\_\-info\-\_\-list}
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{Server2_8cpp_aea139f16c9d9f61920568a085133dfba}{users\-Log}
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{Server2_8cpp_a3d0740334a4cd6266cc7f11ca2a70998}{all\-Users}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Server2_8cpp_a39912bfe2a55f30e269196f9141d845d}{\index{Server2.\-cpp@{Server2.\-cpp}!B\-U\-F\-F\-S\-I\-Z\-E@{B\-U\-F\-F\-S\-I\-Z\-E}}
+\index{B\-U\-F\-F\-S\-I\-Z\-E@{B\-U\-F\-F\-S\-I\-Z\-E}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{B\-U\-F\-F\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-U\-F\-F\-S\-I\-Z\-E~10000000}}\label{Server2_8cpp_a39912bfe2a55f30e269196f9141d845d}
+\hypertarget{Server2_8cpp_a216b2abde239eb946227cab4973b5bc8}{\index{Server2.\-cpp@{Server2.\-cpp}!J\-O\-I\-N@{J\-O\-I\-N}}
+\index{J\-O\-I\-N@{J\-O\-I\-N}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{J\-O\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define J\-O\-I\-N~500}}\label{Server2_8cpp_a216b2abde239eb946227cab4973b5bc8}
+\hypertarget{Server2_8cpp_a70ed59adcb4159ac551058053e649640}{\index{Server2.\-cpp@{Server2.\-cpp}!S\-I\-Z\-E@{S\-I\-Z\-E}}
+\index{S\-I\-Z\-E@{S\-I\-Z\-E}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-Z\-E~10000}}\label{Server2_8cpp_a70ed59adcb4159ac551058053e649640}
+\hypertarget{Server2_8cpp_a2fcfdf60d28725b11b5a3539d3acd0d4}{\index{Server2.\-cpp@{Server2.\-cpp}!T\-H\-R\-E\-A\-D\-S@{T\-H\-R\-E\-A\-D\-S}}
+\index{T\-H\-R\-E\-A\-D\-S@{T\-H\-R\-E\-A\-D\-S}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{T\-H\-R\-E\-A\-D\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-H\-R\-E\-A\-D\-S~100}}\label{Server2_8cpp_a2fcfdf60d28725b11b5a3539d3acd0d4}
+
+
+\subsection{Function Documentation}
+\hypertarget{Server2_8cpp_a29f0c634933180f2d2d77e09ac06fd0c}{\index{Server2.\-cpp@{Server2.\-cpp}!Client\-Service@{Client\-Service}}
+\index{Client\-Service@{Client\-Service}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{Client\-Service}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Client\-Service (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{Server2_8cpp_a29f0c634933180f2d2d77e09ac06fd0c}
+\hypertarget{Server2_8cpp_a8cbe113df3cd3f3debceb281083fb944}{\index{Server2.\-cpp@{Server2.\-cpp}!Comp\-Files@{Comp\-Files}}
+\index{Comp\-Files@{Comp\-Files}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{Comp\-Files}]{\setlength{\rightskip}{0pt plus 5cm}int Comp\-Files (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{file1, }
+\item[{std\-::string}]{file2}
+\end{DoxyParamCaption}
+)}}\label{Server2_8cpp_a8cbe113df3cd3f3debceb281083fb944}
+\hypertarget{Server2_8cpp_a6d6dfe1c2fe9455a03a2ba9f7a68bee4}{\index{Server2.\-cpp@{Server2.\-cpp}!Equal\-Vector@{Equal\-Vector}}
+\index{Equal\-Vector@{Equal\-Vector}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{Equal\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}bool Equal\-Vector (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ char $>$}]{file1, }
+\item[{std\-::vector$<$ char $>$}]{file2}
+\end{DoxyParamCaption}
+)}}\label{Server2_8cpp_a6d6dfe1c2fe9455a03a2ba9f7a68bee4}
+\hypertarget{Server2_8cpp_aeb012c0f92a559b12246da255db525f9}{\index{Server2.\-cpp@{Server2.\-cpp}!File\-Name@{File\-Name}}
+\index{File\-Name@{File\-Name}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{File\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string File\-Name (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{filename}
+\end{DoxyParamCaption}
+)}}\label{Server2_8cpp_aeb012c0f92a559b12246da255db525f9}
+\hypertarget{Server2_8cpp_aa973059545666c92f13f87814666696b}{\index{Server2.\-cpp@{Server2.\-cpp}!Get\-Files@{Get\-Files}}
+\index{Get\-Files@{Get\-Files}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{Get\-Files}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::string$>$ Get\-Files (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{location}
+\end{DoxyParamCaption}
+)}}\label{Server2_8cpp_aa973059545666c92f13f87814666696b}
+\hypertarget{Server2_8cpp_a3c1877898c12a45be136eefa41677825}{\index{Server2.\-cpp@{Server2.\-cpp}!Init\-S\-S\-L@{Init\-S\-S\-L}}
+\index{Init\-S\-S\-L@{Init\-S\-S\-L}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{Init\-S\-S\-L}]{\setlength{\rightskip}{0pt plus 5cm}S\-S\-L\-\_\-\-C\-T\-X$\ast$ Init\-S\-S\-L (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Server2_8cpp_a3c1877898c12a45be136eefa41677825}
+\hypertarget{Server2_8cpp_aeee490d6285ff72b0b15c76167f66b9f}{\index{Server2.\-cpp@{Server2.\-cpp}!Input@{Input}}
+\index{Input@{Input}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{Input}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Input (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{Server2_8cpp_aeee490d6285ff72b0b15c76167f66b9f}
+\hypertarget{Server2_8cpp_ace691344b7e108cb29f2601ca69f23c1}{\index{Server2.\-cpp@{Server2.\-cpp}!is\-Root@{is\-Root}}
+\index{is\-Root@{is\-Root}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{is\-Root}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Root (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Server2_8cpp_ace691344b7e108cb29f2601ca69f23c1}
+\hypertarget{Server2_8cpp_a09e2794cde02c0efb1347ea84d047efe}{\index{Server2.\-cpp@{Server2.\-cpp}!Load\-Certificates@{Load\-Certificates}}
+\index{Load\-Certificates@{Load\-Certificates}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{Load\-Certificates}]{\setlength{\rightskip}{0pt plus 5cm}void Load\-Certificates (
+\begin{DoxyParamCaption}
+\item[{S\-S\-L\-\_\-\-C\-T\-X $\ast$}]{ctx, }
+\item[{char $\ast$}]{Cert\-File, }
+\item[{char $\ast$}]{Key\-File}
+\end{DoxyParamCaption}
+)}}\label{Server2_8cpp_a09e2794cde02c0efb1347ea84d047efe}
+\hypertarget{Server2_8cpp_a0ebef4c3fd81802712e3e3c7d1b709cb}{\index{Server2.\-cpp@{Server2.\-cpp}!servermain@{servermain}}
+\index{servermain@{servermain}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{servermain}]{\setlength{\rightskip}{0pt plus 5cm}int servermain (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{Server2_8cpp_a0ebef4c3fd81802712e3e3c7d1b709cb}
+\hypertarget{Server2_8cpp_af195e38cc8e359042b01cd9f3bdc069c}{\index{Server2.\-cpp@{Server2.\-cpp}!Show\-Certs@{Show\-Certs}}
+\index{Show\-Certs@{Show\-Certs}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{Show\-Certs}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Certs (
+\begin{DoxyParamCaption}
+\item[{S\-S\-L $\ast$}]{ssl}
+\end{DoxyParamCaption}
+)}}\label{Server2_8cpp_af195e38cc8e359042b01cd9f3bdc069c}
+\hypertarget{Server2_8cpp_ab07990aa563258ba3ec432e705dff1ee}{\index{Server2.\-cpp@{Server2.\-cpp}!To\-Arr@{To\-Arr}}
+\index{To\-Arr@{To\-Arr}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{To\-Arr}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ To\-Arr (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{str}
+\end{DoxyParamCaption}
+)}}\label{Server2_8cpp_ab07990aa563258ba3ec432e705dff1ee}
+\hypertarget{Server2_8cpp_a0cde59c431c055ef0fd880ea2a278498}{\index{Server2.\-cpp@{Server2.\-cpp}!To\-Str@{To\-Str}}
+\index{To\-Str@{To\-Str}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{To\-Str}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string To\-Str (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{arr}
+\end{DoxyParamCaption}
+)}}\label{Server2_8cpp_a0cde59c431c055ef0fd880ea2a278498}
+
+
+\subsection{Variable Documentation}
+\hypertarget{Server2_8cpp_a3d0740334a4cd6266cc7f11ca2a70998}{\index{Server2.\-cpp@{Server2.\-cpp}!all\-Users@{all\-Users}}
+\index{all\-Users@{all\-Users}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{all\-Users}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::string$>$ all\-Users}}\label{Server2_8cpp_a3d0740334a4cd6266cc7f11ca2a70998}
+\hypertarget{Server2_8cpp_a0ec8c472be2a5fa59d5e333081995ca3}{\index{Server2.\-cpp@{Server2.\-cpp}!base@{base}}
+\index{base@{base}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{base}]{\setlength{\rightskip}{0pt plus 5cm}{\bf User\-Base} base ={\bf User\-Base}()}}\label{Server2_8cpp_a0ec8c472be2a5fa59d5e333081995ca3}
+\hypertarget{Server2_8cpp_ae1f6bf024a2d3cd8afc81295e747ae7f}{\index{Server2.\-cpp@{Server2.\-cpp}!close\-Server@{close\-Server}}
+\index{close\-Server@{close\-Server}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{close\-Server}]{\setlength{\rightskip}{0pt plus 5cm}bool close\-Server =false}}\label{Server2_8cpp_ae1f6bf024a2d3cd8afc81295e747ae7f}
+\hypertarget{Server2_8cpp_ad5433bcc8a463fb4df3ce5912bb11fe3}{\index{Server2.\-cpp@{Server2.\-cpp}!ctx@{ctx}}
+\index{ctx@{ctx}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{ctx}]{\setlength{\rightskip}{0pt plus 5cm}S\-S\-L\-\_\-\-C\-T\-X$\ast$ ctx}}\label{Server2_8cpp_ad5433bcc8a463fb4df3ce5912bb11fe3}
+\hypertarget{Server2_8cpp_a3b26cd515b3c1f3c900281a80c479565}{\index{Server2.\-cpp@{Server2.\-cpp}!host\-\_\-info@{host\-\_\-info}}
+\index{host\-\_\-info@{host\-\_\-info}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{host\-\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}struct addrinfo host\-\_\-info}}\label{Server2_8cpp_a3b26cd515b3c1f3c900281a80c479565}
+\hypertarget{Server2_8cpp_af07aa0f353ef6ca5a5fdfa29a226227d}{\index{Server2.\-cpp@{Server2.\-cpp}!host\-\_\-info\-\_\-list@{host\-\_\-info\-\_\-list}}
+\index{host\-\_\-info\-\_\-list@{host\-\_\-info\-\_\-list}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{host\-\_\-info\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}struct addrinfo$\ast$ host\-\_\-info\-\_\-list}}\label{Server2_8cpp_af07aa0f353ef6ca5a5fdfa29a226227d}
+\hypertarget{Server2_8cpp_a38deedb02dcebac366f97a0879b3be5b}{\index{Server2.\-cpp@{Server2.\-cpp}!input@{input}}
+\index{input@{input}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{input}]{\setlength{\rightskip}{0pt plus 5cm}char input}}\label{Server2_8cpp_a38deedb02dcebac366f97a0879b3be5b}
+\hypertarget{Server2_8cpp_ae3ef0df0000dc7d980ef6852a2465ccb}{\index{Server2.\-cpp@{Server2.\-cpp}!sock\-I\-D@{sock\-I\-D}}
+\index{sock\-I\-D@{sock\-I\-D}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{sock\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}int sock\-I\-D}}\label{Server2_8cpp_ae3ef0df0000dc7d980ef6852a2465ccb}
+\hypertarget{Server2_8cpp_aea139f16c9d9f61920568a085133dfba}{\index{Server2.\-cpp@{Server2.\-cpp}!users\-Log@{users\-Log}}
+\index{users\-Log@{users\-Log}!Server2.cpp@{Server2.\-cpp}}
+\subsubsection[{users\-Log}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::string$>$ users\-Log}}\label{Server2_8cpp_aea139f16c9d9f61920568a085133dfba}

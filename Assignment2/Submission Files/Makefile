@@ -1,6 +1,10 @@
 objtest = object/Test/
 objclient = object/Client/
 objserver = object/Server/
+doxycl= Document/client_latex/
+doxyse= Document/server_latex/
+design= Document/design_doc/
+doc = Document/
 
 qtincnormal = -c -m64 -pipe -std=c++0x -fPIE  -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -I.
 
@@ -19,6 +23,20 @@ execdebugse = exec/Debug/Server/
 all: $(exectest)Test $(execclient)Client $(execserver)server
 
 DEBUG: $(execdebugcl)Client 
+
+Document: $(doc)DesignDoc.pdf $(doc)client.pdf $(doc)server.pdf
+
+$(doc)DesignDoc.pdf:
+	cd $(design) ; make
+	mv $(design)DesignDoc.pdf $(doc)DesignDoc.pdf
+
+$(doc)client.pdf:
+	cd $(doxycl) ; make
+	mv $(doxycl)refman.pdf $(doc)client.pdf
+
+$(doc)server.pdf:
+	cd $(doxyse) ; make
+	mv $(doxyse)refman.pdf $(doc)server.pdf
 
 $(exectest)Test: $(objtest)Test.o $(objtest)AllTests.o $(objtest)User.o $(objtest)UserBase.o $(objtest)UserTests.o $(objtest)UserBaseTests.o
 	g++ -std=c++11 -o $(exectest)Test $(objtest)Test.o $(objtest)AllTests.o $(objtest)User.o $(objtest)UserBase.o $(objtest)UserTests.o $(objtest)UserBaseTests.o
@@ -171,7 +189,6 @@ $(objserver)moc_serverfilesandfolders.o: $(srcserver)moc_serverfilesandfolders.c
 	g++ $(qtincluding) -o $(objserver)moc_serverfilesandfolders.o $(srcserver)moc_serverfilesandfolders.cpp
 
 
-
 clean:
 	cd $(objtest) ; rm -rf *.o
 	cd $(objclient) ; rm -rf *.o
@@ -180,3 +197,7 @@ clean:
 	cd $(execclient) ; rm -rf Client
 	cd $(execdebugcl) ; rm -rf Client
 	cd $(execserver) ; rm -rf server
+	cd $(doc) ; rm -rf *.pdf
+	cd $(design) ; make clean
+	cd $(doxyse) ; make clean
+	cd $(doxycl) ; make clean

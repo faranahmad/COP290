@@ -1,0 +1,127 @@
+\hypertarget{classUserBase}{\section{User\-Base Class Reference}
+\label{classUserBase}\index{User\-Base@{User\-Base}}
+}
+
+
+{\ttfamily \#include $<$User\-Base.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classUserBase_aef178f4f3fd2a97b6221c0ec92c675ae}{User\-Base} ()
+\item 
+int \hyperlink{classUserBase_a9515e2d3cf822f06641900bb37d997e3}{Get\-Number\-Of\-Users} ()
+\item 
+std\-::unordered\-\_\-map\\*
+$<$ std\-::string, std\-::string $>$ \hyperlink{classUserBase_adcb3f5b10e4889d27285813f8f38c893}{Get\-Users\-List} ()
+\item 
+void \hyperlink{classUserBase_ac008fbb031432046c7ca431d934301e7}{Set\-Users\-Lists} (std\-::unordered\-\_\-map$<$ std\-::string, std\-::string $>$)
+\item 
+bool \hyperlink{classUserBase_acc5731f7347d1844a43e761ebe42006f}{Verify\-User\-Credentials} (\hyperlink{classUser}{User})
+\item 
+bool \hyperlink{classUserBase_ab8a35f8cadaeb61010db846b4fc042f2}{Check\-User\-Exists} (\hyperlink{classUser}{User})
+\item 
+void \hyperlink{classUserBase_a20daf1309f8151cec9ac8f7f4203bd40}{Insert\-User} (\hyperlink{classUser}{User})
+\item 
+bool \hyperlink{classUserBase_a1be56d6f223cd39a6fdaba3d1888f19e}{Change\-Password} (std\-::string, std\-::string, std\-::string)
+\item 
+void \hyperlink{classUserBase_ac9d7a05e0345ef040df653ee0fed6224}{Store\-To\-File} (std\-::string)
+\item 
+void \hyperlink{classUserBase_aebca8f40b615194c576ef041668b9726}{Load\-From\-File} (std\-::string)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::unordered\-\_\-map\\*
+$<$ std\-::string, std\-::string $>$ \hyperlink{classUserBase_a6e9f1eff5be41e7a37e50b8281270266}{Users\-List}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classUserBase_aef178f4f3fd2a97b6221c0ec92c675ae}{\index{User\-Base@{User\-Base}!User\-Base@{User\-Base}}
+\index{User\-Base@{User\-Base}!UserBase@{User\-Base}}
+\subsubsection[{User\-Base}]{\setlength{\rightskip}{0pt plus 5cm}User\-Base\-::\-User\-Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classUserBase_aef178f4f3fd2a97b6221c0ec92c675ae}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classUserBase_a1be56d6f223cd39a6fdaba3d1888f19e}{\index{User\-Base@{User\-Base}!Change\-Password@{Change\-Password}}
+\index{Change\-Password@{Change\-Password}!UserBase@{User\-Base}}
+\subsubsection[{Change\-Password}]{\setlength{\rightskip}{0pt plus 5cm}bool User\-Base\-::\-Change\-Password (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{username, }
+\item[{std\-::string}]{old\-\_\-password, }
+\item[{std\-::string}]{new\-\_\-password}
+\end{DoxyParamCaption}
+)}}\label{classUserBase_a1be56d6f223cd39a6fdaba3d1888f19e}
+\hypertarget{classUserBase_ab8a35f8cadaeb61010db846b4fc042f2}{\index{User\-Base@{User\-Base}!Check\-User\-Exists@{Check\-User\-Exists}}
+\index{Check\-User\-Exists@{Check\-User\-Exists}!UserBase@{User\-Base}}
+\subsubsection[{Check\-User\-Exists}]{\setlength{\rightskip}{0pt plus 5cm}bool User\-Base\-::\-Check\-User\-Exists (
+\begin{DoxyParamCaption}
+\item[{{\bf User}}]{User\-Cons}
+\end{DoxyParamCaption}
+)}}\label{classUserBase_ab8a35f8cadaeb61010db846b4fc042f2}
+\hypertarget{classUserBase_a9515e2d3cf822f06641900bb37d997e3}{\index{User\-Base@{User\-Base}!Get\-Number\-Of\-Users@{Get\-Number\-Of\-Users}}
+\index{Get\-Number\-Of\-Users@{Get\-Number\-Of\-Users}!UserBase@{User\-Base}}
+\subsubsection[{Get\-Number\-Of\-Users}]{\setlength{\rightskip}{0pt plus 5cm}int User\-Base\-::\-Get\-Number\-Of\-Users (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classUserBase_a9515e2d3cf822f06641900bb37d997e3}
+\hypertarget{classUserBase_adcb3f5b10e4889d27285813f8f38c893}{\index{User\-Base@{User\-Base}!Get\-Users\-List@{Get\-Users\-List}}
+\index{Get\-Users\-List@{Get\-Users\-List}!UserBase@{User\-Base}}
+\subsubsection[{Get\-Users\-List}]{\setlength{\rightskip}{0pt plus 5cm}std\-::unordered\-\_\-map$<$ std\-::string, std\-::string $>$ User\-Base\-::\-Get\-Users\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classUserBase_adcb3f5b10e4889d27285813f8f38c893}
+\hypertarget{classUserBase_a20daf1309f8151cec9ac8f7f4203bd40}{\index{User\-Base@{User\-Base}!Insert\-User@{Insert\-User}}
+\index{Insert\-User@{Insert\-User}!UserBase@{User\-Base}}
+\subsubsection[{Insert\-User}]{\setlength{\rightskip}{0pt plus 5cm}void User\-Base\-::\-Insert\-User (
+\begin{DoxyParamCaption}
+\item[{{\bf User}}]{User\-Cons}
+\end{DoxyParamCaption}
+)}}\label{classUserBase_a20daf1309f8151cec9ac8f7f4203bd40}
+\hypertarget{classUserBase_aebca8f40b615194c576ef041668b9726}{\index{User\-Base@{User\-Base}!Load\-From\-File@{Load\-From\-File}}
+\index{Load\-From\-File@{Load\-From\-File}!UserBase@{User\-Base}}
+\subsubsection[{Load\-From\-File}]{\setlength{\rightskip}{0pt plus 5cm}void User\-Base\-::\-Load\-From\-File (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{location}
+\end{DoxyParamCaption}
+)}}\label{classUserBase_aebca8f40b615194c576ef041668b9726}
+\hypertarget{classUserBase_ac008fbb031432046c7ca431d934301e7}{\index{User\-Base@{User\-Base}!Set\-Users\-Lists@{Set\-Users\-Lists}}
+\index{Set\-Users\-Lists@{Set\-Users\-Lists}!UserBase@{User\-Base}}
+\subsubsection[{Set\-Users\-Lists}]{\setlength{\rightskip}{0pt plus 5cm}void User\-Base\-::\-Set\-Users\-Lists (
+\begin{DoxyParamCaption}
+\item[{std\-::unordered\-\_\-map$<$ std\-::string, std\-::string $>$}]{New\-List}
+\end{DoxyParamCaption}
+)}}\label{classUserBase_ac008fbb031432046c7ca431d934301e7}
+\hypertarget{classUserBase_ac9d7a05e0345ef040df653ee0fed6224}{\index{User\-Base@{User\-Base}!Store\-To\-File@{Store\-To\-File}}
+\index{Store\-To\-File@{Store\-To\-File}!UserBase@{User\-Base}}
+\subsubsection[{Store\-To\-File}]{\setlength{\rightskip}{0pt plus 5cm}void User\-Base\-::\-Store\-To\-File (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{location}
+\end{DoxyParamCaption}
+)}}\label{classUserBase_ac9d7a05e0345ef040df653ee0fed6224}
+\hypertarget{classUserBase_acc5731f7347d1844a43e761ebe42006f}{\index{User\-Base@{User\-Base}!Verify\-User\-Credentials@{Verify\-User\-Credentials}}
+\index{Verify\-User\-Credentials@{Verify\-User\-Credentials}!UserBase@{User\-Base}}
+\subsubsection[{Verify\-User\-Credentials}]{\setlength{\rightskip}{0pt plus 5cm}bool User\-Base\-::\-Verify\-User\-Credentials (
+\begin{DoxyParamCaption}
+\item[{{\bf User}}]{User\-Cons}
+\end{DoxyParamCaption}
+)}}\label{classUserBase_acc5731f7347d1844a43e761ebe42006f}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classUserBase_a6e9f1eff5be41e7a37e50b8281270266}{\index{User\-Base@{User\-Base}!Users\-List@{Users\-List}}
+\index{Users\-List@{Users\-List}!UserBase@{User\-Base}}
+\subsubsection[{Users\-List}]{\setlength{\rightskip}{0pt plus 5cm}std\-::unordered\-\_\-map$<$std\-::string, std\-::string$>$ User\-Base\-::\-Users\-List\hspace{0.3cm}{\ttfamily [private]}}}\label{classUserBase_a6e9f1eff5be41e7a37e50b8281270266}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{UserBase_8h}{User\-Base.\-h}\item 
+\hyperlink{UserBase_8cpp}{User\-Base.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,359 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color} 
+\usepackage{titling}
+\usepackage{graphicx}
+\usepackage{titlepic}
+
+\lstset{
+	frame=tb, % draw a frame at the top and bottom of the code block
+   	tabsize=4, % tab space width
+   	showstringspaces=false, % don't mark spaces in strings
+    numbers=left, % display line numbers on the left
+    commentstyle=\color{red}, % comment color
+    keywordstyle=\color{blue}, % keyword color
+    stringstyle=\color{green} % string color
+}
+
+
+\title{\vspace*{\fill} \textbf{COP 290 Assignment 2}
+	  \\ {\Large \textbf{DeadDrop}}
+	  % \\  \vspace{3mm} \includegraphics{ddlogo.png}}
+}
+\author{
+	\vspace{5mm} \includegraphics{ddlogo.png} \\
+	 \textbf{Faran Ahmad}\\
+	2013CS10220 \vspace{2mm} \\
+	\textbf{Kartikeya Gupta}\\ 
+	2013CS10231 \vspace{2mm} \\
+	\textbf{Prateek Kumar Verma}\\ 
+	2013CS10246
+}
+\date{\vspace{3mm} \textbf{February 2015} \vspace*{\fill}}
+
+\begin{document}
+	\maketitle
+
+	\newpage
+
+	\tableofcontents
+
+	\newpage
+
+	\section{Objectives}
+	We have to build an on-line file management system ``Dead Drop'' . A server machine maintains the files of multiple users. The user should use a simple desktop application to login into the system. The content of user's account should remain synced with the server. 
+
+	\section{Overall Design}
+		\begin{enumerate}
+			\item We will begin with creating different sub components like a File Transferring System, Credential Verifier, GUI part.
+			\item Once the components are ready, we will Link this to the network and get basic functionality working on the local-host.
+			\item Once the local interface is ready, we will take this to the web portal. We will use a server to store data and users will have to send queries to it
+			\item Once the backend and front end is complete, we will link the two together.
+		\end{enumerate}
+
+	\section{Sub Components}
+		% \begin{enumerate}
+
+			\subsection{User Verification}
+			\begin{lstlisting}[language=C++, caption={Class Parameters for User}]
+class User
+{
+	private:
+		std::string UserName;
+		std::string PassWord;	
+};
+			\end{lstlisting}
+			\begin{lstlisting}[language=C++, caption={Class Parameters for UserBase}]
+class UserBase
+{
+private:
+	std::unordered_map<std::string, std::string> UsersList;
+};
+			\end{lstlisting}
+			The User Base is a hash table in which the keys are user-names and the stored values are passwords. When the credentials of the user are to be verified, the key is looked up in the table. Inserting users is also achieved easily using this model. The features which we will be provided to the user will be to verify credentials, add new users and change password. On the server, the credentials will be stored in an encrypted file which will be decrypted by the server program.
+
+			\subsection{Files of User}
+
+			We will use boost library to detect changes in files. For each file, the path of the file and last modified time of file is stored in a database.
+
+			\begin{lstlisting}[language=C++, caption={Class Parameters for File History}]
+class FileHistory
+{
+	private:
+		std::string FolderLocation;
+		int TimeOfData;
+		std::vector< std::pair<std::string, int> > FileTimeBase;
+};
+			\end{lstlisting}
+
+			Folder Location is the path of the synced folder. The parameter ``TimeOfData'' contains the system time at which the data detection was done. This will be used to determine if the server or client side file is newer and then do changes accordingly. ``FileTimeBase'' is a vector of a string and an integer. The string is the path of the file and the time is the time at which the file was last modified.
+			
+			% \newline
+			\subsection{Network Managing Part}
+				\subsubsection{Basic Networking}
+				We will use the Transmission Control Protocol (TCP) to design and implement the network aspect of the assignment. It accepts data from a data stream, divides it into chunks, and adds a TCP header creating a TCP segment. The TCP segment is then encapsulated into an Internet Protocol (IP) datagram, and exchanged with peers. A TCP connection is managed through a programming interface that represents the local end-point for communications, the \textit{Internet Socket}. Sockets allow applications to communicate using standard mechanisms built into network hardware and operating systems. In a nutshell, a socket represents a single connection between exactly two pieces of software. Sockets are bidirectional, meaning that either side of the connection is capable of both sending and receiving data.
+				\newline
+				We will use \textit{getaddrinfo()} for obtaining domain name system (DNS) hostnames and IP addresses, which are required to create a socket.  This function deals with all the complicated structs. It also uses a new struct called called \textit{addrinfo}. 
+
+				\begin{lstlisting}[language=C++, caption={The structure ``addrinfo''}]
+struct addrinfo {
+    int ai_flags;     
+    	// This  field  specifies additional options.
+    int ai_family;    
+    	// IPv4, IPv6 or IP agnostic.
+    int ai_socktype;  
+    	// TCP or UDP.
+    int ai_protocol;  
+    	// The protocol for the returned socket addresses.
+    size_t ai_addrlen;   
+    	// Size of ai_addr in bytes
+    struct sockaddr *ai_addr;      
+    	// Containing the IP address and port.
+    char *ai_canonname; 
+    	// The Canonical hostname.
+    struct addrinfo *ai_next;      
+    	// linked list, next address.
+};
+				\end{lstlisting}
+
+				This function and the struct addrinfo are all we need to create and connect a socket.The function prototype looks like this : 
+
+				\begin{lstlisting}[language=C++, caption={getaddrinfo() function}]
+int getaddrinfo(const char *node, const char *service,
+	const struct addrinfo *host_info, struct addrinfo **res); 
+				\end{lstlisting}
+
+				The parameters are:
+
+				\begin{itemize}
+					\item \textbf{node} : The host we want to connect to. This can be a hostname or IP address. 
+					\item \textbf{service} : This is the port number we want to connect to. Usually an integer, but can also be a known service name like `http'. 					
+					\item \textbf{host\_info} : Points to the addrinfo struct to fill. 					
+					\item \textbf{res} : Points to the linked list of filled addrinfo structs. 
+					\item \textbf{return value} : The function returns 0 if all succeeded or a non-zerro error code in case of an error.  
+				\end{itemize}
+				
+				To create a socket we use the \textit{socket()} system call 
+
+				\begin{lstlisting}[language=C++, caption={socket() function}]
+int socket(int domain, int type, int protocol); 
+				\end{lstlisting} 	
+
+				The parameters are:
+
+				\begin{itemize}
+				\item \textbf{domain} : The domain argument specifies a communication domain. In our case this value is AF\_INET or AF\_INET6 (the Internet using ip4 or ip6). 
+				\item \textbf{type} : The type of socket. In our case it is SOCK\_STREAM (tcp). 
+				\item \textbf{protocol} : The protocol to be used with the socket-type. In our case the right protocol is automatically chosen. 
+				\item \textbf{return value} : The socket system call returns a socket descriptor. If the socket call fails, it returns -1. 
+				\end{itemize}
+
+				To connect from client to the server, we will use the \textit{connect()} system call
+
+				\begin{lstlisting}[language=C++, caption ={connect() function}]
+int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen); 
+				\end{lstlisting} 	
+
+				The parameters are:
+
+				\begin{itemize}
+				\item \textbf{sockfd} : the socket descriptor the socket() call returns. 
+				\item \textbf{addr} : The address we need to connect to. In our case stored in `host\_info\_list $\rightarrow$ ai\_addr'. 
+				\item \textbf{addrlen} : The addrlen argument specifies the size of addr. In our case stored in `host\_info\_list$\rightarrow$ai\_addrlen'. 
+				\item \textbf{return value} : If the connection succeeds, zero is returned. On error, -1 is returned, and errno is set appropriately.
+				\end{itemize}
+
+				To accept connections from a client, we will use system calls : \textit{bind()}, \textit{listen()} and \textit{accept()}.
+
+				\begin{lstlisting}[language=C++, caption ={bind(), listen() and accept() function}]
+int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen); 
+int listen(int sockfd, int backlog);
+accept(sockfd, (struct sockaddr *)&their_addr, &addr_size); 
+				\end{lstlisting}				 
+
+				The parameters are:
+
+				\begin{itemize}
+				\item \textit{sockfd} : The socket descriptor the socket() call returns. 
+				\item \textit{addr} : The address we want to listen on (localhost). 
+				\item \textit{addrlen} : The lenght of this address.
+				\item \textit{backlog} : Our server can only handle 1 client at a time. What if more clients want to connect to our server at the same time? With backlog we can specify how many connections will be put in que. For example, if we set it to 5, and 7 connections to our server are made, 1 will fail, 1 will connect and the other 5 will be put``on hold".  
+				\item \textit{their\_addr} : their\_addr will usually be a pointer to a local struct sockaddr\_storage. This is where the information about the incoming connection will be stored (Like the client's IP address and port). 
+				\item \textit{addr\_size} : addr\_size is the size of the their\_addr struct. 
+				\end{itemize}
+
+				To send and receive messages, we will use the system calls \textit{send()} and \textit{recv()}.
+
+				\begin{lstlisting}[language=C++, caption={send() and recv() function}]
+send(int sockfd, const void *buf, size_t len, int flags); 
+recv(int sockfd, void *buf, size_t len, int flags); 
+				\end{lstlisting}
+
+				The parameters are:
+
+				\begin{itemize}
+				\item \textit{sockfd} : The socket descriptor the socket() call returns. 
+				\item \textit{buf} : The message we want to send/receive. 
+				\item \textit{len} : The length of this message. Equals strlen(buf). 
+				\item \textit{flags} : Without this parameter, this call would be the same as the write() call. This parameter gives us some extra options. 
+				\end{itemize}
+
+				\subsubsection{Encryption of Data Transfer}
+				We will use Secure Sockets Layer (SSL) to implement and design a secure connection transfer. It is a cryptographic protocols designed to provide communication security over a computer network. To implement this protocol, we shall use the \textit{OpenSSL} library, which is an open-source implementation. They use X.509 certificates and hence asymmetric cryptography to authenticate the counter-party with whom they are communicating, and to exchange a symmetric key. This session key is then used to encrypt data flowing between the parties. 
+				\newline
+				The initialization is done using the following:
+				\begin{lstlisting}[language=C++, caption={Initialization}]
+SSL_CTX* InitServerCTX(void)
+{   
+	SSL_METHOD *method;
+    SSL_CTX *ctx; 
+    OpenSSL_add_all_algorithms(); // load & register all cryptos, etc.
+    SSL_load_error_strings();    // load all error messages
+    method = SSLv3_server_method();  // create new server-method instance 
+    ctx = SSL_CTX_new(method);   // create new context from method 
+    return ctx;
+}
+				\end{lstlisting}
+
+				We shall make the following functions to implement loading and showing the X.509 certificates.
+
+				\begin{lstlisting}[language=C++, caption={X.509 Certificates}]
+void LoadCertificates(SSL_CTX* ctx, char* CertFile, char* KeyFile)
+void ShowCerts(SSL* ssl)
+				\end{lstlisting}
+
+			\subsection{GUI interface} 
+				The interface of the application would be designed using QtCreator. It would consists of the following windows.
+				\begin{itemize}
+					\item \textbf{User Login}
+						\newline
+						Running the application would display a user login window. The users can access into their accounts by entering their user name and password in the respective fields. It also provides options for new user to sign-up for a new account in dead drop. In case, the user forgets his password, he can reset it using `forgot password' option. If the user name or password entered is wrong, a message box showing this message is displayed and the user can again enter the required informations to login to his account. 
+					 
+					\item \textbf{User Files}
+						\newline
+						Once the login procedure is complete, the user is directed to a new window. It contains the list of files of the user, both on the client and server side. The following buttons would be provided on the window for various functions
+					\begin{itemize}
+						\item \textit{sync :-} Clicking this button would sync the files on the user and the client side.
+						\item \textit{Share :-} This button allows the user to share files with other users. Once the user has selected the files, clicking on this button would open a new dialog box, where the user can enter the name of the ones, with whom he wants to share the selected files. It also provide users with the options to set permissions for the shared files and folders.
+						\item \textit{Delete from local :-} This button can be used to delete the selected files on the client side.
+						\item \textit{Move To Drive :-} It can be used to move the selected files on the client side to the server.
+						\item \textit{Get :-} This button can be used to transfer the selected files on the server to the client side.
+						\item \textit{Delete from Server :-} This button can be used to delete the selected files on the server.
+						\item \textit{Open File :-} This button will allow the user to open the selected file or folder by the default application.
+						\item \textit{Add File :-} This button will allow the user to add a file from his PC to the syncing folder.
+						\item \textit{Exit :-} This button can be used to exit the application.
+					\end{itemize} 
+						
+					\item \textbf{Server Side User Interface}
+					\newline
+					The window on the server side displays the list of all on-line users. It also provides the following buttons for different functions
+					\begin{itemize}
+						\item \textit{View All Users :-} It can be used to display the list of all the users.
+						\item \textit{Remove A User :-} Clicking this button would open a new dialog box, displaying the list of the users. The users to be deleted can be selected from here for this operation.
+						\item \textit{Files and Folders :-} It can be used to view all the files and folders stores on the server.
+						\item \textit{Shut Down :-} This would shut down the server side window.
+					\end{itemize}
+				\end{itemize}
+
+	% \newline
+	\section{Interaction amongst Sub Components}
+		% \subsection{enumerate}
+			\subsection{User Authentication}
+				% \newline a
+				\begin{itemize}
+					\item \textbf{Client}
+						\newline
+						The user will enter their credentials in the provided text boxes. These text boxes belong to the class \textit{LineEdit}, which contains a function to extract \textit{QString} and then converted to \textit{string}. Now, this string is transfered from the client to the server over a secure connection using \textit{OpenSSL}.  
+					\item \textbf{Server}
+						\newline
+						The server receives the credentials one by one over a secure connection using \textit{OpenSSL}. The network part mentioned above is linked with the user base file. The instruction to be performed is decoded to be a new user or credential verification. The data base of user names and passwords are accessed for this to take place and changes if needed are made accordingly to it.
+				\end{itemize}
+			\subsection{File Transfer}
+				\begin{itemize}
+					\item \textbf{Files to Transfer}
+						\newline
+						The files which have to be transferred can be new files created on the client, new files on the server, modifications on the client, server or file getting removed from the client or server. For each of these an instruction will be given to the transferring mechanism which will execute the instructions to perform the sync operation.
+					\item \textbf{Transferring}
+						\newline
+						Using the absolute path of a file, the file is opened using \textit{ifstream class}. The file is opened in chunks of size 10 MB, thus file of any size can be opened and transfered.
+						Now, each of these chunks are split into 100 KB of \textit{char array} and transfered over a secure connection using the network part mentioned above.
+						\newline
+						The file is also received over a secure connection. It is received in chunks of 100 KB and then combined to create 10 MB parts. We wish to store the files in parts of 10 MB to tackle the problem of ``de-duplication''.
+				\end{itemize}	
+			\subsection{File Sharing and Syncing}
+				\begin{itemize}
+					\item \textbf{File changes}
+						\newline
+						To detect changes in files we will use the last modified time stamp of the file. If the files differ in time stamp and are linked together then the newer file is considered to be a more recent version. 
+						\newline 
+						Once this is done we will work on version control which will allow us to consider the differences in files and only sync them.
+					\item \textbf{File Sharing and Permissions}
+						\newline
+						For each file on the server the default property is user only. If the user wishes to share a file with another user then he can give read or read and write permissions to him. 
+					\item \textbf{File Syncing}
+						This will involve use of all of the above mentioned properties. A set of instructions will be given to the network part which will then execute them to get the client and server in sync.
+					\end{itemize}
+			\subsection{Front End and Back End}
+				To link the front end and back end of the program, we will associate all of the buttons and actions in the GUI part with methods in the back end. 
+		% \end{enumerate
+
+	\section{Testing Of Components}
+		% \begin{enumerate}
+			\subsection{General Unit Tests}
+				% \newline
+				\begin{lstlisting}[language=C++, caption={Class Parameters for Test}]
+class Test
+{
+private:
+	bool verbose;               //If test is to be conducted
+	std::string description;    //String description of the test
+	bool isPass;                //Boolean if the test has passed 
+	void PrintPassFail(bool);   //Prints the status of the test
+};
+				\end{lstlisting}
+
+				We will use the aforementioned class ``Test'' to perform unit tests on the different files created. This will ensure that all the functions work correctly against some tests.
+
+			\subsection{File Discovery}
+				% \newline
+				To test file discovery, a folder with different files will be used. The program will be run on this to obtain the list of files with their modified time and verified to check if it is in accordance with expectations. This will involve new files being created, files being modified and removed.
+			\subsection{File Transferring}
+				% \newline
+				To test file transferring, we will transfer `test files'. First, we shall transfer a small file of size lesser than 100 KB to ensure proper transferring and receiving of each chunk. Then, we shall transfer a file of size lesser than 10 MB to ensure all the chunks are transferred properly. After doing that, we will transfer files of arbitrary large size and to ensure proper working of all the components. We will use the system command `diff' to check whether the transfered file and the receive files contain the same contents.
+			\subsection{UI Testing}
+				% \newline
+				%TODO FARAN write about individual components
+				\begin{itemize}
+					\item \textbf{User verification Testing}
+						\newline
+						To test user verification part, new users would be created in the back end. Then, their validity would be tested by typing their user name and password in their respective fields to see if they are able to login to their account. The output of user name and password entered would also displayed on the terminal to check our input manually. 
+					\item \textbf{New User Testing}
+						\newline
+						To test the new user sign-up part, new users would be added using sign-up button on the main window. The entered informations would then be checked in the back end by seeing the list of all the users and their informations. 
+					\item \textbf{File Managing Part}
+						\newline
+						The user files part would be checked manually by comparing that list of files of a user, displayed in his account is same as the list of files that can obtained by browsing into the user folder. Similarly, list of files of a user on the server side being displayed in his account should be same as the one obtained by browsing into the server.
+				\end{itemize}
+			\subsection{Overall Testing}
+				% \newline
+				Once all of the components are tested individually and assembled together, we will perform all possible actions on files and check if the sync is taking place as expected. We will compare the size of the files on the clients and on the server to check if de-duplication is working correctly. We will share files between users with both possible permissions and check if the permissions are getting reflected appropriately.
+		% \end{enumerate}
+
+	\section{Extra Features}
+		% \begin{enumerate}
+		\subsection{Keeping Files On-line only.}
+				% \newline
+				We will give the user an option to keep a file on the cloud only and not on his PC so that lesser space will be used on the users PC. The user can get these files or remove them from the cloud if he wishes.
+		\subsection{Intelligent UI for server}
+			% \newline
+			The server UI will display the list of users currently signed in, the amount of data being sent, received, total size of data stored, total number of users etc.
+		\subsection{Allowing Incomplete Downloads}
+			Allowing the user to resume downloads of files from where he left off if the connection with the server breaks in the middle.
+		\subsection{De-duplication}
+			Dividing the files on the server into smaller files and hashing them will allow us to perform de-duplication of data and save space on the server. 
+		\subsection{MultiThreading}
+			Each server-client connection will be handled by a different thread, thus enabling more than one client connecting to the server at the same time.
+		% \end{enumerate}
+
+\end{document}
