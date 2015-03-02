@@ -15,8 +15,9 @@ extern std::string inst,datafield1,datafield2,datafield3;
 extern std::string reversedata1,reversedata2,reversedata3;
 extern bool InstructionStarted, InstructionCompleted;
 extern SyncManager MergedSyncManager;
+extern bool ifconnected;//to check if connected to server or not
 
-extern bool ifconnected;
+//cnstructor
 login::login(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::login)
@@ -25,18 +26,19 @@ login::login(QWidget *parent) :
     this->move(0,0);
     this->setWindowTitle("Dead Drop");
     this->setObjectName("deaddrop");
-    ui->passwordtext->setEchoMode(QLineEdit::Password);
+    ui->passwordtext->setEchoMode(QLineEdit::Password);//setting to password mode so that text entered is not displayed
     this->setFixedSize(670,576);
     this->setWindowIcon(QIcon("ddlogo2.png"));
     this->setWindowIconText("Login");
     this->setStyleSheet("#deaddrop {background-color: lightskyblue;}");
     ui->pic->setStyleSheet("background-color:rgb(135,206,250);");
-    connect(ui->usernametext, SIGNAL(textChanged(const QString &)), this, SLOT(customSlot4()));
+    connect(ui->usernametext, SIGNAL(textChanged(const QString &)), this, SLOT(customSlot4()));//whenever usernametext is changed customslot4 function is called
     QPixmap photo("ddlogo2.png");
-    photo = photo.scaled(ui->pic->size(), Qt::IgnoreAspectRatio);
-    ui->pic->setPixmap(photo);
+    photo = photo.scaled(ui->pic->size(), Qt::IgnoreAspectRatio);//scalling photo to desied size
+    ui->pic->setPixmap(photo);                                   //setting up photo in box named pic
 }
 
+//destructor
 login::~login()
 {
     inst = "e";
@@ -53,9 +55,10 @@ login::~login()
     delete ui;
 }
 
+//function called when there is change in the text while entering Username
 void login::customSlot4()
 {
-    if(ifconnected == true)
+    if(ifconnected == true)//if connected to server make the frame color at the top right corner green else red
     {
         ui->frame->setStyleSheet("background-color:green;");
     }
@@ -85,14 +88,11 @@ void login::on_quitapp_clicked()
 //login button
 void login::on_login_2_clicked()
 {
-    // bool if_user_valid = false;
     QString user_name = ui->usernametext->text();
-    std::string user_name_text = user_name.toUtf8().constData();
-    // std::cout << user_name_text<< std::endl;
+    std::string user_name_text = user_name.toUtf8().constData();//converting qstring to string
     QString password = ui->passwordtext->text();
     std::string password_text = password.toUtf8().constData();
-    // std::cout <<password_text<<std::endl;
-    if(user_name_text.size() == 0 | password_text.size() == 0)
+    if(user_name_text.size() == 0 | password_text.size() == 0)//if usrname or password left blank
     {
         ui->usernametext->setText("");
         ui->passwordtext->setText("");
@@ -116,7 +116,7 @@ void login::on_login_2_clicked()
                 {
     
                 }
-                if (reversedata1=="NO")         //if it user name or password does not match display the following message
+                if (reversedata1=="NO")         //if the user name or password does not match display the following message
                 {
                     QMessageBox::warning(this,tr("Please Re-Enter"),tr("Username or Password is Wrong"));
                     reversedata1="";
@@ -141,7 +141,6 @@ void login::on_login_2_clicked()
 // sign up button to create new user
 void login::on_newuser_clicked()
 {
-    //this->hide();
     NewUserSignup newusersignup1;           //opens the new user sign up window
     newusersignup1.setModal(true);
     newusersignup1.exec();

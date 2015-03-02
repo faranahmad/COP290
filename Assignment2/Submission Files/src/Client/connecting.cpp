@@ -6,9 +6,9 @@
 #include <QMessageBox>
 #include <iostream>
 
-bool connection_complete = true;
+//window showing that user is connected to the server
 
-
+//constructor
 connecting::connecting(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::connecting)
@@ -22,24 +22,17 @@ connecting::connecting(QWidget *parent) :
     this->setFixedSize(331,194);
 }
 
+//destructor
 connecting::~connecting()
 {
-    // std::cout<<"Exiting ui\n";
     delete ui;
 }
 
+//ok button
 void connecting::on_okbutton_clicked()
 {
-    if(connection_complete)
-    {
-        this->hide();
-        file file1;
-        file1.setModal(true);
-        file1.exec();
-    }
-    else
-    {
-        QMessageBox::information(this,tr("please wait"),tr("syncing is still in progress"));
-    }
-
+    this->hide();
+    file file1;             //to open user account window
+    file1.setModal(true);
+    file1.exec();
 }

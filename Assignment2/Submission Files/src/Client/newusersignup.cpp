@@ -5,13 +5,13 @@
 #include <pthread.h>
 #include <QMessageBox>
 
-bool show1;
 bool xyz;
 
 extern std::string inst,datafield1,datafield2,datafield3;
 extern std::string reversedata1,reversedata2,reversedata3;
 extern bool InstructionStarted, InstructionCompleted;
 
+//constructor
 NewUserSignup::NewUserSignup(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::NewUserSignup)
@@ -23,15 +23,16 @@ NewUserSignup::NewUserSignup(QWidget *parent) :
     this->setWindowIcon(QIcon("ddlogo2.png"));
     this->setStyleSheet("#newuser {background-color:lightcoral;}");
     this->setFixedSize(680,364);
-    ui->toolButton_2->setFocusPolicy(Qt::NoFocus);
+    ui->toolButton_2->setFocusPolicy(Qt::NoFocus);//tool button_2 is cancel button
 
-    connect(ui->passwordtext, SIGNAL(textChanged(const QString &)), this, SLOT(customSlot(const QString &)));
-    connect(ui->confirmpasswordtext, SIGNAL(textChanged(const QString &)), this, SLOT(customSlot1(const QString &)));
+    connect(ui->passwordtext, SIGNAL(textChanged(const QString &)), this, SLOT(customSlot(const QString &)));//whenever text is changed in password custom slot function is called which takes in the input of the password text
+    connect(ui->confirmpasswordtext, SIGNAL(textChanged(const QString &)), this, SLOT(customSlot1(const QString &)));//whenever text is changed in password custom slot function is called which takes in the input of the confirm password text
 }
 
+//function that displays whether password text and confirmpassword text are matching or not
 void NewUserSignup::customSlot1(const QString &y)
 {
-    if( y != ui->passwordtext->text())
+    if( y != ui->passwordtext->text()) //if they are not matching display password dont match text in red color else display password are matching
     {
         ui->label_7->setStyleSheet("QLabel {color : red; }");
         ui->label_7->setText("passwords dont match");
@@ -44,9 +45,10 @@ void NewUserSignup::customSlot1(const QString &y)
     }
 }
 
-void NewUserSignup::customSlot(const QString &x)
+//fuction that displays the strength of the password
+void NewUserSignup::customSlot(const QString &x) //x is the confirm password text
 {
-    if(x.size() < 6)
+    if(x.size() < 6) 
     {
         ui->label_6->setStyleSheet("QLabel {color : red; }");
         ui->label_6->setText("tooshort");
@@ -72,21 +74,21 @@ void NewUserSignup::customSlot(const QString &x)
     }
 }
 
-
+//destructor
 NewUserSignup::~NewUserSignup()
 {
-    xyz =false;
     delete ui;
 }
 
+//cancel button to cancel sign up
 void NewUserSignup::on_toolButton_2_clicked()
 {
     this->hide();
 }
-
+//sign up button
 void NewUserSignup::on_toolButton_clicked()
 {
-    if (ui->passwordtext->text() != ui->confirmpasswordtext->text())
+    if (ui->passwordtext->text() != ui->confirmpasswordtext->text())//if passwurd text and confirm password text are not matching reenter
     {
         ui->passwordtext->setText("");
         ui->confirmpasswordtext->setText("");
@@ -94,7 +96,7 @@ void NewUserSignup::on_toolButton_clicked()
         ui->label_7->setText("");
         QMessageBox::information(this,tr("Please Re-Enter"),tr("confirm password is different"));
     }
-    else if(ui->passwordtext->text().size() < 6)
+    else if(ui->passwordtext->text().size() < 6)//password cannot be smaller then 6 charcters
     {
         ui->passwordtext->setText("");
         ui->confirmpasswordtext->setText("");
@@ -110,8 +112,8 @@ void NewUserSignup::on_toolButton_clicked()
         std::string Gotpassword = gotpassword.toUtf8().constData();
         
 
-        datafield1=Gotusername;
-        datafield2=Gotpassword;
+        datafield1=Gotusername; //storing username in data field 1
+        datafield2=Gotpassword; //storing password in data field 2
         inst="0";
 
         usleep(100);
@@ -121,12 +123,11 @@ void NewUserSignup::on_toolButton_clicked()
             {
             
             }
-            if (reversedata3=="YES")
+            if (reversedata3=="YES")//reversedata3 stores if user is successfully created or not
             {
                 QMessageBox::information(this,tr("successful"),tr("new user successfully created"));
                 InstructionCompleted=false;
                 InstructionStarted=false;
-                // reversedata3 = "";
             }
             else
             {
@@ -136,7 +137,6 @@ void NewUserSignup::on_toolButton_clicked()
                 ui->label_6->setText("");
                 ui->label_7->setText("");
                 QMessageBox::warning(this,tr("Error"),tr("Username already exists"));
-                // reversedata3 ="";
                 InstructionCompleted=false;
                 InstructionStarted=false;
             }    

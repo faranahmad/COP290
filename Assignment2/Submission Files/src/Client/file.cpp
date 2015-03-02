@@ -16,6 +16,8 @@
 #include "sharedwithothers.h"
 #include "SyncManager.h"
 
+//this is the user account's window
+
 extern std::string inst,datafield1,datafield2,datafield3;
 extern std::string reversedata1,reversedata2,reversedata3;
 extern bool InstructionStarted, InstructionCompleted;
@@ -34,6 +36,7 @@ std::string path_to_get_from_drive;
 std::string path_to_delete_from_drive;
 std::vector<std::string> shared_with_me_list;
 
+//constructor
 file::file(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::file)
@@ -46,17 +49,15 @@ file::file(QWidget *parent) :
     this->setWindowTitle("Your Account");
 
     std::string mainpath(getenv("HOME")); 
-    std::string foldername=mainpath + "/Desktop/DeadDrop/" + reversedata2  + "/";
+    std::string foldername=mainpath + "/Desktop/DeadDrop/" + reversedata2  + "/"; //setting the path to user's account to display user's files
 
-    QString sPath = foldername.c_str();
-    dirmodel = new QFileSystemModel(this);
-    dirmodel->setRootPath(sPath);
+    QString sPath = foldername.c_str(); //converting from string to qstring
+    dirmodel = new QFileSystemModel(this);//making a new file system model that contains the list of list of all files and folder in the path given to it 
+    dirmodel->setRootPath(sPath);       //fixing the file system model path to user's account path
     QModelIndex index1 = dirmodel->index(foldername.c_str());
-    ui->treeView->setModel(dirmodel);
-    dirmodel->setReadOnly(false);
-    ui->treeView->setRootIndex(index1);
-    //ui->treeView->resizeColumnToContents(0);
-    ui->label_3->setText(("Welcome " + reversedata2).c_str());//add username too
+    ui->treeView->setModel(dirmodel);   //to display the file and folder list in open tree like structure
+    ui->treeView->setRootIndex(index1); //setting the path of tree view to user's account path
+    ui->label_3->setText(("Welcome " + reversedata2).c_str());//setting the text at the top to welcome <username>
     //adding file names to be displayed on shared with me list
 
     MergedSyncManager.LoadFromDiskDB(mainpath+"/Desktop/DeadDrop");
@@ -74,23 +75,23 @@ file::file(QWidget *parent) :
         ui->sharedwithme->addItem((shared_with_me_list.at(i)).c_str());
     }
 
-    Data faran("faran", true);
-    Data anu = Data("anu",true);
-    Data kg = Data("kg", true);
-    Data yomp4 =  Data("yo.mp4");
-    Data yoyo = Data("yoyyo");
-    Data ronak = Data("ronak",false);
+    // Data faran("faran", true);
+    // Data anu = Data("anu",true);
+    // Data kg = Data("kg", true);
+    // Data yomp4 =  Data("yo.mp4");
+    // Data yoyo = Data("yoyyo");
+    // Data ronak = Data("ronak",false);
     path.push("files");
     ui->label->setText(path.top().c_str());
-    anu.InsertData(yomp4);
-    anu.InsertData(yoyo);
-    faran.InsertData(anu);
-    faran.InsertData(kg);
-    Data pokemon = Data("pokemon");
-    itemtobeadded.push_back(faran);
-    itemtobeadded.push_back(ronak);
-    itemtobeadded.push_back(pokemon);
-    itemtobeadded=ReverseDataFiles;
+    // anu.InsertData(yomp4);
+    // anu.InsertData(yoyo);
+    // faran.InsertData(anu);
+    // faran.InsertData(kg);
+    // Data pokemon = Data("pokemon");
+    // itemtobeadded.push_back(faran);
+    // itemtobeadded.push_back(ronak);
+    // itemtobeadded.push_back(pokemon);
+    // itemtobeadded=ReverseDataFiles;
     Data rootdata = Data("rootdata", true);
     rootdata.SetData(itemtobeadded);
     fulldata.push(rootdata);
@@ -109,7 +110,7 @@ file::file(QWidget *parent) :
         }
     }
 
-   ui->GetFromDrive->setFocusPolicy(Qt::NoFocus);
+   ui->GetFromDrive->setFocusPolicy(Qt::NoFocus);//removing highlight from all the buttons
    ui->DeleteFromDrive->setFocusPolicy(Qt::NoFocus);
    ui->OpenFileInDrive->setFocusPolicy(Qt::NoFocus);
    ui->openfile->setFocusPolicy(Qt::NoFocus);
@@ -142,7 +143,7 @@ void file::makechange()
 {
     int selected = ui->listWidget->row(ui->listWidget->currentItem());  //to get the row selected
     ui->listWidget->clear();                                            //clears the list
-    Data nextfolder = fulldata.top().GetListFiles().at(selected);       //
+    Data nextfolder = fulldata.top().GetListFiles().at(selected);       
     fulldata.push(nextfolder);
     path.push((path.top()+nextfolder.GetName()+"/"));
     ui->label->setText(path.top().c_str());
@@ -160,6 +161,7 @@ void file::makechange()
     }
 }
 
+//destructor
 file::~file()
 {
     inst = "e";
@@ -177,7 +179,7 @@ file::~file()
 }
 
 
-
+//Move To Drive button
 void file::on_movetodrive_clicked()
 {
     QModelIndex index2 = ui->treeView->currentIndex();
@@ -188,7 +190,7 @@ void file::on_movetodrive_clicked()
         {
             // directory
             QString filepath1 = dirmodel->filePath(index2);
-            fileformovingtodrive = filepath1.toUtf8().constData();
+            fileformovingtodrive = filepath1.toUtf8().constData();//getting the path of the directory which is to be moved
             // std::cout << fileformovingtodrive<< std::endl;
 
         }
@@ -196,8 +198,8 @@ void file::on_movetodrive_clicked()
         {
             // file
             QString filepath1 = dirmodel->filePath(index2);
-            fileformovingtodrive = filepath1.toUtf8().constData();
-            if (fileformovingtodrive.find("/Shared/") != std::string::npos)
+            fileformovingtodrive = filepath1.toUtf8().constData();//getting the path of the file which is to be moved
+            if (fileformovingtodrive.find("/Shared/") != std::string::npos)//handling the case of files shared with the user
             {
                 datafield1=fileformovingtodrive;
                 inst="8";
@@ -211,11 +213,11 @@ void file::on_movetodrive_clicked()
                     InstructionStarted=false;
                     InstructionCompleted=false;
                 }
-                if (reversedata1=="YES")
+                if (reversedata1=="YES")//if you have read and write permissions you can move it to drive
                 {
                     QMessageBox::information(this,tr("Result"),tr("File Uploaded Successfully"));
                 }
-                else if (reversedata1 == "NO")
+                else if (reversedata1 == "NO")// if you have read only permssions you cant move it to drive
                 {
                     QMessageBox::information(this,tr("Result"),tr("You dont have the permissions"));
                 }
@@ -226,20 +228,10 @@ void file::on_movetodrive_clicked()
         ui->treeView->clearSelection();
 }
 
-
-
-
-/*void file::on_pushButton_2_clicked()
-{
-    QListWidgetItem* x = ui->listWidget->currentItem();
-    QString y = x->text();
-    std::string y1 = y.toUtf8().constData();
-    std::cout << y1<< std::endl;
-}
-*/
+//to open a file in user's account
 void file::on_openfile_clicked()
 {
-    QModelIndex index2 = ui->treeView->currentIndex();
+    QModelIndex index2 = ui->treeView->currentIndex();//getting the index of the row selected
     ui->treeView->clearSelection();
     QString filepath1;
         if(!index2.isValid()) return;
@@ -247,33 +239,33 @@ void file::on_openfile_clicked()
         if(dirmodel->fileInfo(index2).isDir())
         {
             // directory
-            filepath1 = dirmodel->filePath(index2);
+            filepath1 = dirmodel->filePath(index2);//getting the path of folder to open
         }
         else
         {
             // file
-            filepath1 = dirmodel->filePath(index2);
+            filepath1 = dirmodel->filePath(index2);//getting the path of file to open
         }
-        QDesktopServices::openUrl(QUrl(filepath1, QUrl::TolerantMode));
+        QDesktopServices::openUrl(QUrl(filepath1, QUrl::TolerantMode));//opens a file or a folder if path given
 
 }
 
+//deleting a file in client side
 void file::on_deletefile_clicked()
 {
-    QModelIndex index2 = ui->treeView->currentIndex();
-       if(!index2.isValid()) return;
+    QModelIndex index2 = ui->treeView->currentIndex();//getting the index of file selected to delete
+    if(!index2.isValid()) return;
 
-      if(dirmodel->fileInfo(index2).isDir())
-      {
-          // directory
-          dirmodel->rmdir(index2);
-      }
-      else
-      {
-          // file
-          dirmodel->remove(index2);
-
-      }
+    if(dirmodel->fileInfo(index2).isDir())
+    {
+        // directory
+        dirmodel->rmdir(index2);//if it is directory delete directory
+    }
+    else
+    {
+        // file
+        dirmodel->remove(index2);//if it is a file delete file
+    }
     if(dirmodel->fileInfo(index2).isDir())
     {
         // directory
@@ -289,6 +281,7 @@ void file::on_deletefile_clicked()
     ui->treeView->clearSelection();
 }
 
+//share button
 void file::on_share_clicked()
 {
     QModelIndex index2 = ui->treeView->currentIndex();
@@ -298,17 +291,17 @@ void file::on_share_clicked()
             QMessageBox::information(this,tr("please select"),tr("select a file to share"));
         }
 
-        else if(dirmodel->fileInfo(index2).isDir())
+        else if(dirmodel->fileInfo(index2).isDir())//cannot share a folder
         {
             QMessageBox::information(this,tr("Folder"),tr("Please select a file"));
 
         }
         else
         {
-            QString filepath2 = dirmodel->filePath(index2);
+            QString filepath2 = dirmodel->filePath(index2);//getting the path of file to share
             filepathtoshare = filepath2.toUtf8().constData();
-            datafield1=filepathtoshare;
-            share share1;
+            datafield1=filepathtoshare;                    //storing the path of file to share
+            share share1;                                  //open share file window
             share1.setModal(true);
             share1.exec();
 
@@ -317,11 +310,11 @@ void file::on_share_clicked()
 
 }
 
+//to add file in client side button
 void file::on_AddFileInClientSide_clicked()
 {
-    QString filename = QFileDialog::getOpenFileName(this,tr("open file"), "/home", "All files(*.*)");
-    file_to_add_from_clientpc = filename.toUtf8().constData();
-    // std::cout << file_to_add_from_clientpc << std::endl;
+    QString filename = QFileDialog::getOpenFileName(this,tr("open file"), "/home", "All files(*.*)");//open window to browse file and add it
+    file_to_add_from_clientpc = filename.toUtf8().constData();                                       //getting the path of the file to be added
     int postlast= file_to_add_from_clientpc.find_last_of("/");
     std::string corepath=file_to_add_from_clientpc.substr(postlast);
     std::string mainpath(getenv("HOME")); 
@@ -329,24 +322,22 @@ void file::on_AddFileInClientSide_clicked()
     rename(file_to_add_from_clientpc.c_str() , (foldername+corepath).c_str() );
 }
 
+//to open browse into folders in drive
 void file::on_OpenFileInDrive_clicked()
 {
     QListWidgetItem* x = (ui->listWidget->currentItem());
     if (x !=NULL)
     {
         QString y = x->text();
-        if (y[1] == 'o')
+        if (y[1] == 'o')//to go only into the folders
         {
             makechange();
         }
     }
-    //presentdata = itemtobeadded;
-    //int selected = ui->listWidget->row(ui->listWidget->currentItem());
-    //std::cout << selected << std::endl;
-    //itemtobeadded = presentdata.at(selected).GetListFiles();
 }
 
 
+//going back button in drive
 void file::on_GoingBackInDrive_clicked()
 {
     if(fulldata.size()-1 > 0)
@@ -370,7 +361,7 @@ void file::on_GoingBackInDrive_clicked()
     }
 }
 
-
+// get from drive button
 void file::on_GetFromDrive_clicked()
 {
     QListWidgetItem* gettingitem = ui->listWidget->currentItem();
@@ -389,7 +380,7 @@ void file::on_GetFromDrive_clicked()
             QString gettingtext1 = gettingitem1->text();
             path_to_get_from_drive = (gettingtext1).toUtf8().constData();
             // std::cout << path_to_get_from_drive << std::endl;
-            datafield1="/home/faran/Desktop/DeadDropServer/" + path_to_get_from_drive;
+            datafield1="/home/faran/Desktop/DeadDropServer/" + path_to_get_from_drive;//stroing it in datafield1
             inst="7";
             usleep(100);
             if (InstructionStarted)
@@ -406,6 +397,7 @@ void file::on_GetFromDrive_clicked()
     }
 }
 
+//logout button
 void file::on_logout_clicked()
 {
     QMessageBox::StandardButton reply;
@@ -431,6 +423,7 @@ void file::on_logout_clicked()
     }
 }
 
+//changepassword button
 void file::on_changepassword_clicked()
 {
     fileaccess fileaccess1;
@@ -438,6 +431,7 @@ void file::on_changepassword_clicked()
     fileaccess1.exec();
 }
 
+//delete from drive button
 void file::on_DeleteFromDrive_clicked()
 {
 
@@ -489,13 +483,15 @@ void file::on_DeleteFromDrive_clicked()
     }   
 }
 
+//view shared files button
 void file::on_ViewSharedFiles_clicked()
 {
-    sharedwithothers sharedwithothers1;
+    sharedwithothers sharedwithothers1;//opens shared with other's list
     sharedwithothers1.setModal(true);
     sharedwithothers1.exec();
 }
 
+//sync button
 void file::on_sync_clicked()
 {
     inst="4";
@@ -519,8 +515,8 @@ void file::on_sync_clicked()
     fulldata.push(rootdata);
     std::vector<Data> filesroot = fulldata.top().GetListFiles();
     
-    ui->listWidget->clear();                                            //clears the list
-    ui->label->setText(path.top().c_str());
+    ui->listWidget->clear();//clears the list
+    ui->label->setText(path.top().c_str());//setting the text being displayed on the top that shows the path
     //displaying the files of a user stored on the server side
     for (unsigned int i = 0;i<filesroot.size();i++)
     {
@@ -534,6 +530,4 @@ void file::on_sync_clicked()
         }
     }
     ui->treeView->clearSelection();
-
-    // std::cout<<"prateek chutiya hai"<<std::endl;
 }
