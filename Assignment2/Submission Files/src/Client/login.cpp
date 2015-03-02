@@ -92,38 +92,47 @@ void login::on_login_2_clicked()
     QString password = ui->passwordtext->text();
     std::string password_text = password.toUtf8().constData();
     // std::cout <<password_text<<std::endl;
-    ui->usernametext->setText("");
-    ui->passwordtext->setText("");
-
-    datafield1=user_name_text;          //storing user name entered 
-    datafield2=password_text;           //storing password entered by the user
-
-    inst="1";
-
-    usleep(100);
-
-    while (InstructionStarted)
+    if(user_name_text.size() == 0 | password_text.size() == 0)
     {
-        while (!InstructionCompleted)
-        {
-
-        }
-        if (reversedata1=="NO")         //if it user name or password does not match display the following message
-        {
-            QMessageBox::warning(this,tr("Please Re-Enter"),tr("Username or Password is Wrong"));
-            reversedata1="";
-            InstructionCompleted=false;
-            InstructionStarted=false;
-        }
-        else if (reversedata1=="YES")   //if user name password match 
-        {
-            reversedata1="";
-            InstructionCompleted=false;
-            InstructionStarted=false;
-            this->hide();
-            connecting connecting1;     // go to the next window
-            connecting1.setModal(true);
-            connecting1.exec();
+        ui->usernametext->setText("");
+        ui->passwordtext->setText("");
+        QMessageBox::information(this,tr("Please Re-Enter"),tr("Username or Password not entered"));
+    }
+    else
+    {
+        ui->usernametext->setText("");
+        ui->passwordtext->setText("");
+    
+            datafield1=user_name_text;          //storing user name entered 
+            datafield2=password_text;           //storing password entered by the user
+    
+            inst="1";
+    
+            usleep(100);
+    
+            while (InstructionStarted)
+            {
+                while (!InstructionCompleted)
+                {
+    
+                }
+                if (reversedata1=="NO")         //if it user name or password does not match display the following message
+                {
+                    QMessageBox::warning(this,tr("Please Re-Enter"),tr("Username or Password is Wrong"));
+                    reversedata1="";
+                    InstructionCompleted=false;
+                    InstructionStarted=false;
+                }
+                else if (reversedata1=="YES")   //if user name password match 
+                {
+                    reversedata1="";
+                    InstructionCompleted=false;
+                    InstructionStarted=false;
+                    this->hide();
+                    connecting connecting1;     // go to the next window
+                    connecting1.setModal(true);
+                    connecting1.exec();
+                }
         }
     }
 }

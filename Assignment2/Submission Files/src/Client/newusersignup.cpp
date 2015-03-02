@@ -90,6 +90,8 @@ void NewUserSignup::on_toolButton_clicked()
     {
         ui->passwordtext->setText("");
         ui->confirmpasswordtext->setText("");
+        ui->label_6->setText("");
+        ui->label_7->setText("");
         QMessageBox::information(this,tr("Please Re-Enter"),tr("confirm password is different"));
     }
     else if(ui->passwordtext->text().size() < 6)
@@ -119,13 +121,40 @@ void NewUserSignup::on_toolButton_clicked()
             {
             
             }
-            QMessageBox::information(this,tr("successful"),tr("new user successfully created"));
-            InstructionCompleted=false;
-            InstructionStarted=false;    
+            if (reversedata3=="YES")
+            {
+                QMessageBox::information(this,tr("successful"),tr("new user successfully created"));
+                InstructionCompleted=false;
+                InstructionStarted=false;
+                // reversedata3 = "";
+            }
+            else
+            {
+                ui->usernametext->setText("");
+                ui->passwordtext->setText("");
+                ui->confirmpasswordtext->setText("");
+                ui->label_6->setText("");
+                ui->label_7->setText("");
+                QMessageBox::warning(this,tr("Error"),tr("Username already exists"));
+                // reversedata3 ="";
+                InstructionCompleted=false;
+                InstructionStarted=false;
+            }    
         }
-        datafield1="";
-        datafield2="";
-        inst="";
-        this->hide();
+        if (reversedata3 == "YES")
+        {
+            datafield1="";
+            datafield2="";
+            reversedata3="";
+            inst="";
+            this->hide();
+        }
+        else
+        {
+            datafield1="";
+            datafield2="";
+            reversedata3="";
+            inst="";
+        }
     }
 }

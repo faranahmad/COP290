@@ -379,7 +379,7 @@ void file::on_GetFromDrive_clicked()
         QString gettingtext = gettingitem->text();
         path_to_get_from_drive = (ui->label->text() + gettingtext).toUtf8().constData();
         // std::cout << path_to_get_from_drive << std::endl;
-        ui->sharedwithme->clearSelection();
+        ui->listWidget->clearSelection();
     }
     else
     {
@@ -533,7 +533,7 @@ void file::on_sync_clicked()
             ui->listWidget->addItem(("Folder\t\t\t" + filesroot.at(i).GetName()).c_str()); // else diplay it is a folder
         }
     }
-
+    ui->treeView->clearSelection();
 
     // std::cout<<"prateek chutiya hai"<<std::endl;
 }

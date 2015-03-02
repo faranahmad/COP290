@@ -172,7 +172,7 @@ int GetData(std::vector<std::string> data) // "/username/.temp/..."
 
     if(boost::filesystem::exists(directory_path))
     {
-        // boost::filesystem::remove_all(directory_path);
+        boost::filesystem::remove_all(directory_path);
     }
     return 0;
 }
@@ -937,24 +937,32 @@ void CreateNewUser(std::string usn, std::string pwd)
 	// Touch files on server: 
 
 	Instruction Newuser= NewUser(usn,pwd);
-	std::string x= ExecuteInstruction(Newuser);
-    std::string mainpath(getenv("HOME")); 
-	std::string foldername=mainpath + "/Desktop/DeadDrop/" + usn  + "/";
-	std::string folder2 = foldername + "/.data/";
-	std::string serverfoldername="/home/faran/Desktop/DeadDropServer/" + usn + "/";
-	SyncManager UserManager = SyncManager(usn); 
-	boost::filesystem::path dir(folder2);
-	if (!(boost::filesystem::exists(dir)))
-	{
-		// std::cout<<"creating\n";
-		if (boost::filesystem::create_directories(dir))
-        {}
-    		// std::cout <<"created\n";
-	}
-	UserManager.StoreToDiskDB(mainpath + "/Desktop/DeadDrop");
-	x= ExecuteInstruction(DoNormalSending(foldername + ".data/sehistory.txt",serverfoldername +".data/sehistory.txt"));
-	x= ExecuteInstruction(DoNormalSending(foldername + ".data/giving.txt",   serverfoldername +".data/giving.txt"));
-	x= ExecuteInstruction(DoNormalSending(foldername + ".data/receiving.txt",serverfoldername +".data/receiving.txt"));
+    if (CheckUserExists(usn))
+    {
+        reversedata3="NO";
+    }
+    else
+    {
+        reversedata3="YES";
+    	std::string x= ExecuteInstruction(Newuser);
+        std::string mainpath(getenv("HOME")); 
+    	std::string foldername=mainpath + "/Desktop/DeadDrop/" + usn  + "/";
+    	std::string folder2 = foldername + "/.data/";
+    	std::string serverfoldername="/home/faran/Desktop/DeadDropServer/" + usn + "/";
+    	SyncManager UserManager = SyncManager(usn); 
+    	boost::filesystem::path dir(folder2);
+    	if (!(boost::filesystem::exists(dir)))
+    	{
+    		// std::cout<<"creating\n";
+    		if (boost::filesystem::create_directories(dir))
+            {}
+        		// std::cout <<"created\n";
+    	}
+    	UserManager.StoreToDiskDB(mainpath + "/Desktop/DeadDrop");
+    	x= ExecuteInstruction(DoNormalSending(foldername + ".data/sehistory.txt",serverfoldername +".data/sehistory.txt"));
+    	x= ExecuteInstruction(DoNormalSending(foldername + ".data/giving.txt",   serverfoldername +".data/giving.txt"));
+    	x= ExecuteInstruction(DoNormalSending(foldername + ".data/receiving.txt",serverfoldername +".data/receiving.txt"));
+    }
 }
 
 bool UserLogin(std::string usn, std::string pwd)
@@ -1086,7 +1094,13 @@ void PerformSync(SyncManager UserSyncManager)
 		myfile.close();
 	}
 	if (readdata.size())
-		GetData(readdata);
+	{
+    	GetData(readdata);
+    }
+    else
+    {
+        ReverseDataFiles = std::vector< Data > () ;   
+    }
 
 	Display(ReverseDataFiles);
 
