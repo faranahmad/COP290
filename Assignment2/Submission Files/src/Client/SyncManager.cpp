@@ -465,7 +465,7 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 			// Get it to client
 			Instruction a;
 			a.modification = 2;
-			a.data2=SEH.GetNthName(i);
+			a.data2=SEHcopy.GetNthName(i);
 #ifdef DEBUG
 			std::cout <<a.data2 <<"\n";
 #endif
@@ -484,7 +484,7 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 			std::cout <<a.data1<<"\n";
 #endif
 			answer.push_back(a);
-			CLH.AddFileToHistory(clpath1, SEH.GetNthTime(i));
+			CLH.AddFileToHistory(clpath1, SEHcopy.GetNthTime(i));
 			USF.AddNew(a.data1, a.data2);
 			// AddFileToLinking(a.data1,a.data2);
 		}
