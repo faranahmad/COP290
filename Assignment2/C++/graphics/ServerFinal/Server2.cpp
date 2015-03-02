@@ -572,7 +572,7 @@ void *ClientService(void* data)
                         filename[bytes_recieved]='\0';
                         std::cout<<ToStr(filename)<<std::endl;
                         std::string name=FileName(ToStr(filename)); //name of the file
-                        std::string filepath=ToStr(filename).substr(0,strlen(filename)-name.size());//directory of the path
+                        std::string filepath=ToStr(filename).substr(0,strlen(filename)-name.size());//directory of the file
                         std::cout<<"Filepath:"<<filepath<<std::endl;
                         boost::filesystem::path dir(filepath);
                         std::cout<<"Filename:"<<name<<std::endl;
@@ -584,19 +584,19 @@ void *ClientService(void* data)
                         // }
                         std::cout<<"Dir Created"<<std::endl;
                         //filereading-> stored in ans
-                        std::string loc=filepath+name;
+                        std::string loc=filepath+name; //location of the file
                         std::cout<<loc<<std::endl;
-                        std::ifstream ifs(loc);
-                        ifs.seekg(0, std::ios::end);
-                        std::ifstream::pos_type pos = ifs.tellg();
-                        std::vector<char>  ans(pos);
-                        ifs.seekg(0, std::ios::beg);
+                        std::ifstream ifs(loc); //associating ifstream object with the file
+                        ifs.seekg(0, std::ios::end);//setting the position at the end of the file
+                        std::ifstream::pos_type pos = ifs.tellg(); //getting the position, equal to the size
+                        std::vector<char>  ans(pos); //initializing a vector of size of the file where the bytes would be read
+                        ifs.seekg(0, std::ios::beg); //setting the position at the start
                         ifs.read(&ans[0], pos);
                         
     
                         std::cout<<"File read Successfully\n";
                         char size1[20];
-                        size1[20]='\0';
+                        size1[20]='\0';//sending the size of the file to be sent
                         sprintf(size1,"%lld",(long long)ans.size());
                         for(int i=0;i<strlen(size1);i++)
                         {
@@ -606,54 +606,54 @@ void *ClientService(void* data)
                         std::cout<<"Size:"<<bytes_sent<<std::endl;
                         std::cout<<"Initiating SSL_writing protocol\n";
     
-                        int dataLen=0;
-                        int packetCounter=0;
+                        int dataLen=0; //Length of data which has been sent
+                        int packetCounter=0; //Number of packets of 100 KB which has been sent.
                         while(1)
                         {
-                            char *file2=new char[SIZE];
+                            char *file2=new char[SIZE]; //Reading the characters from the vector in size of 100KB
                             for(int l=0 ;l<SIZE&&dataLen<ans.size();l++,dataLen++)
                             {
                                 file2[l]=ans[dataLen];
                             }
                             file2[SIZE]='\0';
                             std::cout<<"SSL_writing"<<std::endl;
-                            SSL_write(ssl, file2,SIZE);
+                            SSL_write(ssl, file2,SIZE); //Writing into the ssl connection
                             packetCounter++;
                             std::cout<<"sent "<<packetCounter<<std::endl;
     
-                            bytes_recieved=SSL_read(ssl, msg,4);
+                            bytes_recieved=SSL_read(ssl, msg,4); //Receiving the confirmation
                             msg[bytes_recieved]='\0';
                             std::cout<<"conf SSL_read\n";
-                            if(dataLen==ans.size())
+                            if(dataLen==ans.size()) //Complete file sent
                             {
                                 break;
                             }
                     
                         }
-                        std::vector<char> tempVector;
-                        ans.swap(tempVector);
+                        std::vector<char> tempVector; //swapping the vector with an empty vector
+                        ans.swap(tempVector);          // to free up the memory occupied by ans
                         std::cout<<"file sent"<<std::endl;
     
                         break;
                     }
                 case 6: // delete file on server
                     {
-                        char len[20];
+                        char len[20]; //receiving the size of the file location
                         bytes_recieved=SSL_read(ssl, len,20);
                         len[bytes_recieved]='\0';
                         size=atoll(len);
                         std::cout<<size<<std::endl;
-                        char filename[size];
+                        char filename[size]; //receiving the file location
                         bytes_recieved=SSL_read(ssl,filename,size);
                         filename[bytes_recieved]='\0';
-                        boost::filesystem::wpath file(ToStr(filename));
-                        if(boost::filesystem::exists(file))
+                        boost::filesystem::wpath file(ToStr(filename)); 
+                        if(boost::filesystem::exists(file)) //removing the file if it exists
                             boost::filesystem::remove(file);
                         break;
                     }
                 case 10: //logout
                     {
-                        END:int i=0;
+                        END:int i=0; //finding the user in the usersLog and removing it
                         for(i=0;i<usersLog.size();i++)
                         {
                             if(usersLog[i].compare(userID)==0)
@@ -662,10 +662,10 @@ void *ClientService(void* data)
                         if(i<usersLog.size())
                             usersLog.erase (usersLog.begin()+i);
                         char msg[1];
-                        msg[0]='1';
+                        msg[0]='1'; //sending and receiving confirmation 
                         bytes_recieved=SSL_read(ssl,msg,1);
                         bytes_sent=SSL_write(ssl,msg,1);
-                        close(acceptID);
+                        close(acceptID); //closing connection
                         SSL_free(ssl);         /* release SSL state */
                         quit=true;
                         break;
@@ -685,7 +685,7 @@ void *ClientService(void* data)
                         filename[bytes_recieved]='\0';
                         std::cout<<ToStr(filename)<<std::endl;
     
-                        int fileCount=0;
+                        int fileCount=0; // 0-receiving 1-giving 2-sehistory
                         while(fileCount<3)
                         {
                             std::string temp;
@@ -711,11 +711,11 @@ void *ClientService(void* data)
                                     break;
                                 }
                             }
-                            std::string name=FileName(ToStr(filename)+temp);
-                            std::string filepath=(ToStr(filename)+temp).substr(0,strlen(filename)-name.size());
+                            std::string name=FileName(ToStr(filename)+temp); //extracting the file name form the location
+                            std::string filepath=(ToStr(filename)+temp).substr(0,strlen(filename)-name.size()); //directory
                             std::cout<<"Filepath:"<<filepath<<std::endl;
                             std::cout<<"Filename:"<<name<<std::endl;
-                            boost::filesystem::path dir(filepath);
+                            boost::filesystem::path dir(filepath); //creating directory if it does not exist
                             if(!(boost::filesystem::exists(dir)))
                             {
                                 std::cout<<"Directory Doesn't Exists"<<std::endl;
@@ -911,23 +911,23 @@ void *ClientService(void* data)
                     }
                 case 14 : // File transfer from client to server case 1 no path returned
                     { 
-                        char msg[4];
+                        char msg[4]; //confirmation message
                         msg[4]='\0';
                         msg[0]='1';
-                        char len[20];
+                        char len[20]; //receiving the size of the file location
                         bytes_recieved=SSL_read(ssl, len,20);
                         len[bytes_recieved]='\0';
                         size=atoll(len);
                         std::cout<<size<<std::endl;
-                        char filename[size];
+                        char filename[size];//receiving the file location 
                         bytes_recieved=SSL_read(ssl,filename,size);
                         filename[bytes_recieved]='\0';
                         std::cout<<ToStr(filename)<<std::endl;
-                        std::string name=FileName(ToStr(filename));
-                        std::string filepath=ToStr(filename).substr(0,strlen(filename)-name.size());
+                        std::string name=FileName(ToStr(filename)); //extracting file name from the location
+                        std::string filepath=ToStr(filename).substr(0,strlen(filename)-name.size()); //directory
                         std::cout<<"Filepath:"<<filepath<<std::endl;
                         std::cout<<"Filename:"<<name<<std::endl;
-                        boost::filesystem::path dir(filepath);
+                        boost::filesystem::path dir(filepath); //creating the directory if it does not exist
                         if(!(boost::filesystem::exists(dir)))
                         {
                             std::cout<<"Directory Doesn't Exists"<<std::endl;
@@ -935,21 +935,21 @@ void *ClientService(void* data)
                                 std::cout << "Directory Successfully Created !" << std::endl;
                         }
 
-                        bytes_recieved=SSL_read(ssl, len,20);
+                        bytes_recieved=SSL_read(ssl, len,20); //receiving the size of the file
                         len[bytes_recieved]='\0';
                         size=atoll(len);
                         std::cout<<size<<std::endl;
                         
-                        std::string data="";
-                        int packetCounter=0;
-                        int dataLen=0;
+                        std::string data=""; //data which will be written in the file
+                        int packetCounter=0; //number of packets that are received
+                        int dataLen=0; //Length of the file which has been received
 
-                        std::ofstream out(filepath+name);
+                        std::ofstream out(filepath+name); //associating an object ofstream
                         std::cout<<"FileCreated"<<std::endl;
 
                         while(1)
                         {
-                            char file[SIZE];
+                            char file[SIZE]; //receiving the file in chunks of 100 KB
                             bytes_recieved=SSL_read(ssl, file,SIZE);
                             file[bytes_recieved]='\0';
                             std::cout<<bytes_recieved<<std::endl;
@@ -959,10 +959,10 @@ void *ClientService(void* data)
                                 data+=file[i];
                                 dataLen++;
                             }
-                            out << data;
+                            out << data; //writing data into the file
                             data="";
                             std::cout<<"recieved "<<packetCounter<<std::endl;
-                            SSL_write(ssl, msg,4);
+                            SSL_write(ssl, msg,4); //sending confirmation
                             std::cout<<"conf sent\n";    
                             if(/*bytes_recieved<=0*/ dataLen==size)
                             {
@@ -973,23 +973,25 @@ void *ClientService(void* data)
                             
                         }
                         std::cout<<"Out of loop\n";
-                        out.close();
+                        out.close(); //closing the ofstream object
                         std::cout<<"file sent"<<std::endl;
                         break;
                     }
                 case 15: //Get server files path of a user.
                     {
-                        char len[20];
+                        char len[20]; //receiving the length of the username
                         bytes_recieved=SSL_read(ssl, len,20);
                         len[bytes_recieved]='\0';
                         size=atoll(len);
                         std::cout<<size<<std::endl;
-                        char filename[size];
+                        char filename[size]; //receiving the username
                         bytes_recieved=SSL_read(ssl,filename,size);
                         filename[bytes_recieved]='\0';
                         std::string name=FileName(ToStr(filename));
                         std::cout<<name<<std::endl;
+                        //getting all the files in the folder of the given username
                         std::vector<std::string> files=GetFiles("/home/skipper/Desktop/DeadDropServer/"+name+"/");
+                        //converting it into format /username/.temp/...
                         for(int i=0;i<files.size();i++)
                         {
                             std::string mp="/home/skipper/Desktop/DeadDropServer";
@@ -1005,6 +1007,7 @@ void *ClientService(void* data)
                             files[i].insert(k,".temp/");
                             std::cout<<files[i]<<std::endl;
                         }
+                        //writing the strings in the file serverfiles.txt
                         std::ofstream outfile("/home/skipper/Desktop/DeadDropServer/"+name+"/.data/serverfiles.txt");
                         int index;
                         for(index=0;index<files.size();index++)
@@ -1012,6 +1015,7 @@ void *ClientService(void* data)
                             std::cout<<files[index]<<std::endl;
                             outfile<<files[index]<<"\n";
                         }
+                        //closing the file
                         outfile.close();
                         std::cout<<"Done"<<std::endl;
                         break;
@@ -1031,23 +1035,27 @@ void *ClientService(void* data)
         std::cout<<"Ending connection with "<<acceptID<<std::endl;
 }
 
+
+//The main server function
+//It accepts IP Address(for displaying) and port number through which all clients are served
+//Setups the sockets and waits for connections
 int servermain(int argc, char** argv)
 {
     if(argc<3)
     {
-        std::cout<<"Error. Usage: ./tserver portnumber\n";
+        std::cout<<"Error. Usage: ./tserver ip portnumber\n";
     }
     else
     {
-        if(!isRoot())
+        if(!isRoot()) //running it as root is required for certificate files
         {
             printf("This program must be run as root/sudo user!!");
             exit(0);
         }
 
-        ctx=InitSSL();
+        ctx=InitSSL(); //Initializing OpenSSL
 
-        base.LoadFromFile("Database.txt");
+        base.LoadFromFile("Database.txt"); //Loading database file containing username and password (enctrypted)
 
         int status;                      // Contains the status of the server
         int bindStatus;                  // Contains the status of the socket bind
@@ -1060,19 +1068,20 @@ int servermain(int argc, char** argv)
         host_info.ai_socktype = SOCK_STREAM; // Use SOCK_STREAM for TCP.
         host_info.ai_flags = AI_PASSIVE;     // IP Wildcard
     
-        status = getaddrinfo(NULL, argv[2], &host_info, &host_info_list); 
+        status = getaddrinfo(NULL, argv[2], &host_info, &host_info_list); //getting address info
         if (status != 0)  
             std::cout << "Getaddrinfo error" << gai_strerror(status)<<std::endl ;
     
         std::cout << "Creating a socket..."  << std::endl;
-    
-        sockID = socket(host_info_list->ai_family, host_info_list->ai_socktype,host_info_list->ai_protocol); // Getting info on the server
+        
+        // Getting info on the server
+        sockID = socket(host_info_list->ai_family, host_info_list->ai_socktype,host_info_list->ai_protocol); 
         if (sockID == -1)  
             std::cout << "Socket error \n" ;
 
         std::cout << "Binding socket..."  << std::endl;
         
-        int buffs=BUFFSIZE;
+        int buffs=BUFFSIZE; //Setting the maximum size of the buffer
         setsockopt(sockID, SOL_SOCKET, SO_RCVBUF, &buffs, sizeof(buffs));                   // Setting the maximum buffer size of the sockets
         status = setsockopt(sockID, SOL_SOCKET, SO_REUSEPORT, &bindStatus, sizeof(int));    // Reusuing the port if already in use
         status = bind(sockID, host_info_list->ai_addr, host_info_list->ai_addrlen);         // Binding socket
@@ -1087,9 +1096,11 @@ int servermain(int argc, char** argv)
             std::cout<<status<<std::endl;
         }
 
+        //creating a thread of for input
         pthread_t inputThread;
         pthread_create(&inputThread,NULL,Input,NULL);
-            
+        
+        //listening for connections
         status =  listen(sockID, 5);
         if (status == -1)  
             std::cout << "Listen error" << std::endl ;
@@ -1097,13 +1108,14 @@ int servermain(int argc, char** argv)
         uint32_t htonl(uint32_t hostlong);
 
         std::vector<pthread_t> threads= std::vector<pthread_t>(THREADS);              /* get new SSL state with context */
-        int threadCount=0;
+        int threadCount=0; //number of threads. Each thread corresponds to a new client
         while(!closeServer)
         {
             long id;
             struct sockaddr_storage their_addr;
             socklen_t addr_size = sizeof(their_addr);
             std::cout<<"Waiting for more clients..."<<std::endl;
+            // Accepting a new connection and running the ClientService on a new thread
             id = accept(sockID, (struct sockaddr *)&their_addr, &addr_size);
             pthread_create(&threads[threadCount],NULL,ClientService,(void *)id);
             threadCount=(threadCount+1)%THREADS;
