@@ -329,6 +329,9 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 
 	std::vector<std::string> todiscard;
 
+	std::vector<std::string> filesonserverfound;
+	std::vector<std::string> filesonserverremove;
+
 #ifdef DEBUG
 	std::cout <<"Mapped prev and current files\n";
 #endif
@@ -349,6 +352,7 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 					if (servername == SEH.GetNthInfo(k).first)
 					{
 						fileServer[k]=true;
+						filesonserverfound.push_back(servername);
 						d1=true;
 						if (PresentFiles.GetNthTime(positionlocal) > CLH.GetNthTime(i))
 						{
@@ -407,6 +411,7 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 			RemoveFromClientBase(CLH.GetNthName(i));
 			CLH.RemoveFile(CLH.GetNthName(i));
 			SEHcopy.RemoveFile(servername);
+			filesonserverremove.push_back(servername);
 			a.data1 = servername;
 			answer.push_back(a);	
 		}
@@ -430,7 +435,7 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 			int lenpath= CLH.GetFolder().size();
 			sname=sname.substr(lenpath);
 			a.data2=SEH.GetFolder()+sname;
-			USF.AddNew(a.data1,a.data2);
+			// USF.AddNew(a.data1,a.data2);
 			answer.push_back(a);
 		}
 	}
@@ -438,33 +443,52 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 #ifdef DEBUG
 	std::cout <<"Done with new files\n";
 #endif
+	
+	numserver = SEHcopy.GetNumberOfFiles();
 
-	// for (int i=0; i < numserver ; i++)
-	// {
-	// 	if (!fileServer[i])
-	// 	{
-	// 		std::cout << i <<"\t" <<fileServer[i] <<"\n";
-	// 		// New file on server
-	// 		// Get it to client
-	// 		Instruction a;
-	// 		a.modification = 2;
-	// 		a.data2=SEH.GetNthName(i);
-	// 		std::cout <<a.data2 <<"\n";
+	for (int i=0; i < numserver ; i++)
+	{
+		bool f1=false;
+		for (int j=0; j <filesonserverfound.size() ; j++)
+		{
+			if (filesonserverfound[j]==SEHcopy.GetNthName(i))
+			{
+				f1 =true;
+			}
+		}
+		if (!f1)
+		{
+#ifdef DEBUG
+			std::cout << i <<"\t" <<fileServer[i] <<"\n";
+#endif
+			// New file on server
+			// Get it to client
+			Instruction a;
+			a.modification = 2;
+			a.data2=SEH.GetNthName(i);
+#ifdef DEBUG
+			std::cout <<a.data2 <<"\n";
+#endif
 
-	// 		std::string mainpath(getenv("HOME")); 
-	// 		std::string foldername=mainpath + "/Desktop/DeadDrop/" + GetUsername()  + "/";
-	// 		std::string serverfoldername="/home/faran/Desktop/DeadDropServer/" + GetUsername() +"/";
+			std::string mainpath(getenv("HOME")); 
+			std::string foldername=mainpath + "/Desktop/DeadDrop/" + GetUsername()  + "/";
+			std::string serverfoldername="/home/faran/Desktop/DeadDropServer/" + GetUsername() +"/";
 
-	// 		std::string clpath1= foldername + a.data2.substr(serverfoldername.size());
-	// 		std::cout <<"NEW CL PATH\n" << clpath1 <<"\n";
+			std::string clpath1= foldername + a.data2.substr(serverfoldername.size());
+#ifdef DEBUG
+			std::cout <<"NEW CL PATH\n" << clpath1 <<"\n";
+#endif
 
-	// 		a.data1=clpath1;
-	// 		std::cout <<a.data1<<"\n";
-	// 		answer.push_back(a);
-	// 		CLH.AddFileToHistory(clpath1, SEH.GetNthTime(i));
-	// 		AddFileToLinking(a.data1,a.data2);
-	// 	}
-	// }
+			a.data1=clpath1;
+#ifdef DEBUG
+			std::cout <<a.data1<<"\n";
+#endif
+			answer.push_back(a);
+			CLH.AddFileToHistory(clpath1, SEH.GetNthTime(i));
+			USF.AddNew(a.data1, a.data2);
+			// AddFileToLinking(a.data1,a.data2);
+		}
+	}
 
 #ifdef DEBUG
 	std::cout << "Done with new files on server\n";
