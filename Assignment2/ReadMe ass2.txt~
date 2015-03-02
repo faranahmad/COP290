@@ -1,0 +1,54 @@
+Dead Drop Application Version 1.0 02/03/15
+
+Available for Linux only. Coming soon for Windows!
+
+-----------------------
+Running Under Linux OS
+-----------------------
+
+###### Server ######
+
+--To start the server go to the directory containing Makefile using cd command.
+--use ifconfig to get the the ip address of of the PC (which is acting as a server).
+--Type the following command in the terminal to start the server side main window.
+$sudo make server ip = <ip address> port = <port number>
+
+This would also display the server side main window.
+
+###### Client ######
+
+-- To login into our account on the clinet side, go to the directory containin Makefile using cd command.
+-- Type the following command in terminal.
+$ sudo make client ip = <ip address> port = <port number>
+
+This would display the client side main window.
+
+--------------------
+General Usage Notes
+--------------------
+
+###### Server ######
+
+The following buttons are provided on the server side for various actions.
+
+--List of Online Users-- It displays the list of all users connected to the server.
+--All Users-- It displays the list of all the users who have their account in Dead Drop.
+--All Files and Folders-- It displays the list of files and folders of all the users, stored on the server.
+--Shut Down-- It can be used to shut down the server.
+
+###### Client ######
+
+Running the above command in terminal opens a Login window. The user can login into his account by entering his username and password in their respective fields. New User can sign up using the "SignUp" button. Once the user is able to login into his account, he is directed to his account window. It displays the list of all files and folders of the user's account on the left side. On the right side, it displays the list of files and folders of the user stored in the server as well as the list of files shared with the user. The window has the following buttons for various actions.
+
+--Open-- On the left side it is used to open any selected file on the user's account. On the right side, it is used to browse into user's folders, stored on the server.
+--Delete-- It can be used to delete selected file or folder from user's account.
+--Move To Drive-- It can be used to move any selected file or folder on the user's account to the drive.
+--Add File-- It can be used to add any file on the PC (acting as the client) to the user's account.
+--Share-- It can be used to share any selected file on the user's account with another user. On the "share" window the user can type the username, with whom he wants to share file with (along with the permissions) and share it using share button.  
+--Sync--It is used to sync the user's account with the server.
+--View Shared Files-- It can be used to display the list of all the files (along with the name of the user with whom the file is shared and permissions) shared by the user.
+--Logout-- It can be used to logout of the account.
+--ChangePassword-- It can be used to change password of the user.
+--Get From Drive-- It can be used to get the files shared with the user. The user can select any file from "shared with me" list and click this button to get it in his account.
+--Delete From Drive-- It can be used to delete any selected file (which is shared with the user) from the drive.
+=============================================================================================================================================================================================================
