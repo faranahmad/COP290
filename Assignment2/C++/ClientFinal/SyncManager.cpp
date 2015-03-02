@@ -277,11 +277,10 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 	// See for files in sync list which are not changed on disc
 	// See for files not in sync list but are in temp storage
 
-	// TODO: Receiving and giving files
-
 	std::vector<Instruction> answer;
 	FileHistory CLH = MainFiles.GetClientFiles();
 	FileHistory SEH = MainFiles.GetServerFiles();
+	FileHistory SEHcopy = MainFiles.GetServerFiles();
 	UserFiles USF = MainFiles.GetFileLinking();
 
 	FileHistory PresentFiles= GetFilesOnDisc(CLH.GetFolder());
@@ -327,6 +326,9 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 		}
 	}
 
+	std::vector<std::string> todiscard;
+
+	std::cout <<"Mapped prev and current files\n";
 	for (int i=0; i < numclient ; i++)
 	{
 		if (fileClient[i])
@@ -398,14 +400,17 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 			a.modification = 6;
 			a.data2 = CLH.GetNthName(i);
 			std::string servername = USF.GetClientFileName(CLH.GetNthName(i)); 
-			RemoveFileFromSync (CLH.GetNthName(i));
+			// RemoveFileFromSync (CLH.GetNthName(i));
 			RemoveFromClientBase(CLH.GetNthName(i));
 			CLH.RemoveFile(CLH.GetNthName(i));
-			SEH.RemoveFile(servername);
+			SEHcopy.RemoveFile(servername);
 			a.data1 = servername;
 			answer.push_back(a);	
 		}
 	}
+
+	std::cout <<"Done with files which were there before and now\n";
+
 	for (int i=0; i < numcpresent ; i++)
 	{
 		if (!(filePresent[i]))
@@ -424,283 +429,42 @@ std::vector<Instruction> SyncManager::GetSyncingInstructions()
 			answer.push_back(a);
 		}
 	}
-	for (int i=0; i < numserver ; i++)
-	{
-		if (!fileServer[i])
-		{
-			// New file on server
-			// Get it to client
-			Instruction a;
-			a.modification = 2;
-			a.data2=SEH.GetNthName(i);
-			
-			std::string mainpath(getenv("HOME")); 
-			std::string foldername=mainpath + "/Desktop/DeadDrop/" + GetUsername()  + "/";
-			std::string serverfoldername="/home/faran/Desktop/DeadDropServer/" + GetUsername() +"/";
 
-			std::string clpath1= foldername + a.data2.substr(serverfoldername.size());
-			std::cout <<"NEW CL PATH\n" << clpath1 <<"\n";
+	std::cout <<"Done with new files\n";
 
-			a.data1=clpath1;
-			answer.push_back(a);
-			CLH.AddFileToHistory(clpath1, SEH.GetNthTime(i));
-			AddFileToLinking(a.data1,a.data2);
-		}
-	}
-
-	// std::vector<Sharing> RecvFiles = ReceivingFiles.GetSharingList();
-	// for (int i=0; i<RecvFiles.size(); i++)
-	// {
-	// 	if (SEH.ExistsFile(RecvFiles[i].FilePath))
-	// 	{
-	// 		// The file exists on the server history, clh etc.
-
-	// 	}
-	// 	else
-	// 	{
-	// 		// Get the files from server
-	// 		// Add to CLH, SEH, CLL, SEL
-	// 		std::string serverfname = RecvFiles[i].FilePath;
-	// 		unsigned found = serverfname.find_last_of("/");
-	// 		std::string clfname = serverfname.substr(found + 1);
-	// 		std::string mainpath(getenv("HOME")); 
-	// 		std::string filefoldername=mainpath + "/Desktop/DeadDrop/" + Username + "/" + clfname;
-	// 		Instruction a;
-	// 		a.modification = 2;
-	// 		a.data1 = filefoldername;
-	// 		a.data2 = serverfname;
-	// 		answer.push_back(a);
-	// 	}
-	// }
-
-	// File in prev sync, File in present, no change in TS, if change in server ts then pull else no change
-	// File in prev sync, File in present and newer TS, if change in server ts then decide and give pull/push
-	// File not in prev syn, File in present, if there on server then decide and give pull push
-	// File 
-
-	// for (int i=0; i<numclient; i++)
-	// {
-	// 	int PrevAndNow = 0;
-	// 	std::pair<std::string, int> ClData= CLH.GetNthInfo(i);
-	// 	for (int j=0; (j<numcpresent) && !fileClient[i] ; j++)
-	// 	{
-	// 		if (PresentFiles.GetNthInfo(j).first==ClData.first)
-	// 		{
-	// 			fileClient[i]=true;
-	// 			// filePresent[j]=true;
-	// 			previd=i;
-	// 			PrevAndNow = 3;
-	// 			// presentid=j;
-	// 			j -=1 ;
-	// 		}
-	// 	}
-	// 	if !(fileClient[i])
-	// 	{
-	// 		PrevAndNow = 2;
-	// 	}
-
-	// 	if (PrevAndNow == 3)
-	// 	{
-	// 		// File there at prev sync and now
-	// 		if (SyncListContains(FilesToSync,ClData.first))
-	// 		{	
-	// 			std::string servername = USF.GetClientFileName(ClData.first); 
-	// 			for (int k=0; (k<numserver) && !(filePresent[j]) ; k++)
-	// 			{
-	// 				if (servername == SEH.GetNthInfo(k).first)
-	// 				{
-	// 					if (PresentFiles.GetNthTime(j) < SEH.GetNthTime(k))
-	// 					{
-	// 						// TODO: fix client path
-	// 						// newer file is there on cloud
-	// 						Instruction a;
-	// 						a.modification= 2;
-	// 						a.data2=servername;
-	// 						a.data1=CLH.GetNthName(i);
-	// 						answer.push_back(a);
-	// 					}
-	// 					else if (PresentFiles.GetNthTime(j) > SEH.GetNthTime(k))
-	// 					{
-	// 						// TODO: Fix client path
-	// 						// newer file on client
-	// 						Instruction a;
-	// 						a.data1=CLH.GetNthName(i);
-	// 						a.data2=servername;
-	// 						a.modification=1;
-	// 						answer.push_back(a);
-	// 					}
-	// 					else
-	// 					{
-	// 						// No changes;
-	// 						Instruction a;
-	// 						a.modification=0;
-	// 						a.data1=CLH.GetNthName(i);
-	// 						a.data2=servername;
-	// 						answer.push_back(a);
-	// 					}
-	// 					fileServer[k]=true;
-	// 					filePresent[j]=true;
-	// 					k -=1 ;
-	// 				}
-	// 			}
-	// 			if !(fileServer[k])
-	// 			{
-	// 				// Delete file on client
-	// 				// TODO: Fix path
-	// 				Instruction a;
-	// 				a.modification = 5;
-	// 				a.data1 = CLH.GetNthName(i);
-	// 				a.data2 = "";
-	// 				answer.push_back(a);
-	// 			}
-	// 		}
-	// 		else
-	// 		{
-	// 			// Delete file on client
-	// 			// TODO: Fix path
-	// 			Instruction a;
-	// 			a.modification = 5;
-	// 			a.data1 = CLH.GetNthName(i);
-	// 			a.data2 = "";
-	// 			answer.push_back(a);	
-	// 		}
-	// 	}
-	// 	else if (PrevAndNow==2)
-	// 	{
-	// 		// File there previously but not now
-	// 		if (SyncListContains(FilesToSync,ClData.first))
-	// 		{
-	// 			std::string servername = USF.GetClientFileName(ClData.first);
-					
-	// 		}
-	// 		else
-	// 		{
-
-	// 		}
-	// 	}
-	// 		else if (PrevAndNow==1)
-	// 		{
-	// 			// File not there previously but there now
-
-	// 		}
-
-	// 	}
-	// 	else if (PrevAndNow == 2)
-	// 	{
-
-	// 	}
-
-	// 	if (USF.CheckExistsClientServer(ClData.first) && (SyncListContains(FilesToSync,ClData.first)))
-	// 	{
-	// 		std::string servername=USF.GetClientFileName(ClData.first);
-			
-	// 		for (int j=0; (j<numserver) && !(fileClient[i]) ; j++ )
-	// 		{
-	// 			if (servername==SEH.GetNthName(j))
-	// 			{
-	// 				fileClient[i]=true;
-	// 				fileServer[j]=true;
-
-	// 				if (CLH.GetNthTime(i) < SEH.GetNthTime(j))
-	// 				{
-	// 					// newer file is there on cloud
-	// 					Instruction a;
-	// 					a.modification= 2;
-	// 					a.data2=servername;
-	// 					a.data1=CLH.GetNthName(i);
-	// 					answer.push_back(a);
-	// 				}
-	// 				else if (CLH.GetNthTime(i) > SEH.GetNthTime(j))
-	// 				{
-	// 					// newer file on client
-	// 					Instruction a;
-	// 					a.data1=CLH.GetNthName(i);
-	// 					a.data2=servername;
-	// 					a.modification=1;
-	// 					answer.push_back(a);
-	// 				}
-	// 				else
-	// 				{
-	// 					// No changes;
-	// 					Instruction a;
-	// 					a.modification=0;
-	// 					a.data1=CLH.GetNthName(i);
-	// 					a.data2=servername;
-	// 					answer.push_back(a);
-	// 				}
-
-
-	// 				// File found now detect changes based on time
-	// 			}
-	// 		}
-	// 	}
-	// }
-
-	// for (int i=0; i< numclient; i++)
-	// {
-	// 	if (!fileClient[i])
-	// 	{
-	// 		if (CLH.GetDataTime() < SEH.GetDataTime())
-	// 		{
-	// 			// File has to be deleted on client
-	// 			// TODO: Remove from sync list
-	// 			Instruction a;
-	// 			a.modification=5;
-	// 			a.data1=CLH.GetNthName(i);
-	// 			a.data2=" ";
-	// 			answer.push_back(a);
-	// 		}
-	// 		else
-	// 		{
-	// 			// File has been created on client
-	// 			FilesToSync.ListOfFiles.push_back(CLH.GetNthName(i));
-	// 			Instruction a;
-	// 			a.modification=3;
-	// 			a.data1=CLH.GetNthName(i);
-	// 			std::string sname=a.data1;
-	// 			int lenpath= CLH.GetFolder().size();
-	// 			sname=sname.substr(lenpath);
-	// 			a.data2=SEH.GetFolder()+sname;
-	// 			answer.push_back(a);	
-	// 			USF.AddNew(a.data1, a.data2);
-	// 		}
-	// 	}
-	// }
-
-	// for (int i=0; i< numserver; i++)
+	// for (int i=0; i < numserver ; i++)
 	// {
 	// 	if (!fileServer[i])
 	// 	{
-	// 		if (CLH.GetDataTime() < SEH.GetDataTime())
-	// 		{
-	// 			// File has to be transferred to client
-	// 			// TODO: Remove the always addition to sync list
-	// 			Instruction a;
-	// 			a.modification=4;
-	// 			a.data2= SEH.GetNthName(i);
-	// 			int lenpath = SEH.GetFolder().size();
-	// 			std::string clname = a.data2;
-	// 			clname = clname.substr(lenpath);
-	// 			a.data1= CLH.GetFolder() + clname ;
-	// 			FilesToSync.ListOfFiles.push_back(a.data1);
-	// 			answer.push_back(a);
-	// 			USF.AddNew(a.data1, a.data2);
-	// 		}
-	// 		else
-	// 		{
-	// 			// File has to be deleted from server
-	// 			// TODO: Remove from sync list
-	// 			Instruction a;
-	// 			a.modification= 6;
-	// 			a.data1= SEH.GetNthName(i);
-	// 			a.data2= "TO delete file on server ";
-	// 			answer.push_back(a);
-	// 		}
+	// 		std::cout << i <<"\t" <<fileServer[i] <<"\n";
+	// 		// New file on server
+	// 		// Get it to client
+	// 		Instruction a;
+	// 		a.modification = 2;
+	// 		a.data2=SEH.GetNthName(i);
+	// 		std::cout <<a.data2 <<"\n";
+
+	// 		std::string mainpath(getenv("HOME")); 
+	// 		std::string foldername=mainpath + "/Desktop/DeadDrop/" + GetUsername()  + "/";
+	// 		std::string serverfoldername="/home/faran/Desktop/DeadDropServer/" + GetUsername() +"/";
+
+	// 		std::string clpath1= foldername + a.data2.substr(serverfoldername.size());
+	// 		std::cout <<"NEW CL PATH\n" << clpath1 <<"\n";
+
+	// 		a.data1=clpath1;
+	// 		std::cout <<a.data1<<"\n";
+	// 		answer.push_back(a);
+	// 		CLH.AddFileToHistory(clpath1, SEH.GetNthTime(i));
+	// 		AddFileToLinking(a.data1,a.data2);
 	// 	}
 	// }
+
+	std::cout << "Done with new files on server\n";
+
+	std::cout <<"Done with this majorly\n";
 	MainFiles.SetFileLinking(USF);
 	MainFiles.SetClientFiles(CLH);
-	MainFiles.SetServerFiles(SEH);
+	MainFiles.SetServerFiles(SEHcopy);
 	std::string mainpath(getenv("HOME")); 
 	std::string foldername=mainpath + "/Desktop/DeadDrop/" + Username  + "/";
 	StoreToDiskDB(mainpath+"/Desktop/DeadDrop/");

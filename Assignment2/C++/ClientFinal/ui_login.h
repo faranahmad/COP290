@@ -92,7 +92,7 @@ public:
         frame->setFrameShadow(QFrame::Raised);
         pic = new QLabel(centralWidget);
         pic->setObjectName(QStringLiteral("pic"));
-        pic->setGeometry(QRect(230, 20, 181, 141));
+        pic->setGeometry(QRect(230, 0, 165, 165));
         label_4 = new QLabel(centralWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(126, 460, 131, 20));

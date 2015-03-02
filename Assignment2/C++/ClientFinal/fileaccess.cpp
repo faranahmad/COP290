@@ -18,18 +18,16 @@ fileaccess::fileaccess(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::fileaccess)
 {
-    //constructor for setting up the window
     ui->setupUi(this);
     this->setWindowTitle("changepassword");
     this->setFixedSize(568,344);
+    this->setStyleSheet("#changepassword {background-color: blue;}");
     this->setWindowIcon(QIcon("ddlogo2.png")) ;
 
     ui->oldpassword->setEchoMode(QLineEdit::Password);
     ui->newpassword->setEchoMode(QLineEdit::Password);
     ui->confirmpassword->setEchoMode(QLineEdit::Password);
 
-    //connect signal with the slot.when ever text is changed in the newpassword or confirm password signal is emitted
-    //which calls the respective functions in the slot
     connect(ui->newpassword, SIGNAL(textChanged(const QString &)), this, SLOT(customSlot3(const QString &)));
     connect(ui->confirmpassword, SIGNAL(textChanged(const QString &)), this, SLOT(customSlot2(const QString &)));
 }
@@ -39,9 +37,6 @@ fileaccess::~fileaccess()
     delete ui;
 }
 
-//function called when there is a change in the text of confirm password text. 
-//It checks at each stage that whether it is
-//matching with the the new password text
 void fileaccess::customSlot2(const QString &y)
 {
     if( y != ui->newpassword->text())
@@ -57,8 +52,6 @@ void fileaccess::customSlot2(const QString &y)
     }
 }
 
-//function called when there is a change in newpassword text 
-//does not accept password less than 6 characters
 void fileaccess::customSlot3(const QString &x)
 {
     if(x.size() < 6)
@@ -87,10 +80,10 @@ void fileaccess::customSlot3(const QString &x)
     }
 }
 
-//apply change button. when this button is clicked password is changed
+//apply change button
 void fileaccess::on_applychange_clicked()
 {
-    if(ui->newpassword->text().size() < 6) //cannot accept a password less than 6 characters
+    if(ui->newpassword->text().size() < 6)
     {
         QMessageBox::information(this,tr("Too Short"),tr("password is too short"));
     }
@@ -98,9 +91,11 @@ void fileaccess::on_applychange_clicked()
     {
         ui->newpassword->setText("");
         ui->confirmpassword->setText("");
-        QMessageBox::information(this,tr("Please Re-Enter"),tr("please enter correct old password"));
+        ui->passlength->setText("");
+        ui->matching->setText("");
+        QMessageBox::information(this,tr("Please Re-Enter"),tr("Passwords are not matching"));
     }
-    else
+     else
     {
         QString gettingpassword = ui->newpassword->text();      
         getting_password = gettingpassword.toUtf8().constData();
@@ -129,6 +124,9 @@ void fileaccess::on_applychange_clicked()
             ui->oldpassword->setText("");
             ui->newpassword->setText("");
             ui->confirmpassword->setText("");
+            ui->passlength->setText("");
+            ui->matching->setText("");
+        
             QMessageBox::information(this,tr("Please Re-Enter"),tr("please enter correct old password"));
         }
     }

@@ -868,11 +868,7 @@ bool UserLogin(std::string usn, std::string pwd)
 		std::string folder2 = foldername + ".data/";
 		boost::filesystem::path dir(folder2);
 		SyncManager UserMan = SyncManager(usn);
-		Instruction b;
-        b.modification = 15;
-        b.data1 = usn;
-        ExecuteInstruction(b);
-        if (boost::filesystem::exists(dir))
+		if (boost::filesystem::exists(dir))
 		{
 		    // User already had logged in before on this machine
 		    std::cout <<"User existed already on pc\n";
@@ -919,34 +915,18 @@ void PerformSync(SyncManager UserSyncManager)
 	std::string foldername=mainpath + "/Desktop/DeadDrop/" + UserSyncManager.GetUsername()  + "/";
 	std::string serverfoldername="/home/faran/Desktop/DeadDropServer/" + UserSyncManager.GetUsername() +"/";
 
+	    
     std::cout << "Transferring server info files to client\n";
 
 	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/sehistory.txt" , serverfoldername +".data/sehistory.txt"));
 	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/giving.txt" , serverfoldername +".data/giving.txt"));
 	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/receiving.txt", serverfoldername +".data/receiving.txt"));
-	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/serverfiles.txt", serverfoldername +".data/serverfiles.txt"));
-
-	std::string line1toread;
-	std::ifstream myfile (foldername + ".data/serverfiles.txt");
-	std::vector<std::string> readdata;
-	if (myfile.is_open())
-	{
-	while ( getline (myfile,line1toread) )
-		{	
-			readdata.push_back(line1toread);
-		}
-		myfile.close();
-	}
-	if (readdata.size())
-		GetData(readdata);
-
-	Display(ReverseDataFiles);
 
     std::cout << "Transferred server info files to client\n";
 
     UserSyncManager.LoadFromDiskDB(mainpath+"/Desktop/DeadDrop/");
  
-    std::cout <<"Loaded files from disk\n";
+    std::cout <<"Loaded files from disk and now will enter sync\n";
  
     std::vector<Instruction> insvect=UserSyncManager.GetSyncingInstructions();
     for (int i=0; i<insvect.size(); i++)
@@ -971,6 +951,30 @@ void PerformSync(SyncManager UserSyncManager)
  
     std::cout << "Stored DB files to client\n";
  
+ 	Instruction b;
+    b.modification = 15;
+    b.data1 = UserSyncManager.GetUsername();
+    ExecuteInstruction(b);
+    
+
+	instructionresult = ExecuteInstruction(TransferServerToClient(foldername + ".data/serverfiles.txt", serverfoldername +".data/serverfiles.txt"));
+
+	std::string line1toread;
+	std::ifstream myfile (foldername + ".data/serverfiles.txt");
+	std::vector<std::string> readdata;
+	if (myfile.is_open())
+	{
+	while ( getline (myfile,line1toread) )
+		{	
+			readdata.push_back(line1toread);
+		}
+		myfile.close();
+	}
+	if (readdata.size())
+		GetData(readdata);
+
+	Display(ReverseDataFiles);
+
 	instructionresult = ExecuteInstruction(DoNormalSending(foldername + ".data/sehistory.txt",serverfoldername +".data/sehistory.txt"));
 	instructionresult = ExecuteInstruction(DoNormalSending(foldername + ".data/giving.txt",serverfoldername +".data/giving.txt"));
 	instructionresult = ExecuteInstruction(DoNormalSending(foldername + ".data/receiving.txt",serverfoldername +".data/receiving.txt"));
@@ -1138,19 +1142,48 @@ bool ShareSendFileToServer(std::string clfname)
 	std::string serverfname = "/home/faran/Desktop/DeadDropServer/" + clfname.substr(foldername.size());
 	
 	int stype = GetShareType(MergedSyncManager, serverfname);
-	if (stype == 1)
+	if (stype == 0)
 	{
-		// Cannot upload a read only file
-		return false;
-	}
-	else
-	{
+        
+        // Get sehistory for serverfname
+        // modify time in sehistory
+        // Upload sehistory
+		
 		std::cout <<clfname<<"\t" << serverfname<<"\n";
-		std::string instructionresult= ExecuteInstruction(DoNormalSending(clfname, serverfname));
-		std::cout <<instructionresult << "\n";
+		std::string instructionresult = ExecuteInstruction(DoNormalSending(clfname, serverfname));
+		
+        int pos1=clfname.substr(foldername.size()).find("/");
+
+        std::string serverfnameforf = clfname.substr(foldername.size()).substr(0,pos1);
+        std::string locforfilehistory=   "/home/faran/Desktop/DeadDropServer/" + serverfnameforf +"/.data/sehistory.txt";
+        std::string locfortemp = mainpath + "/.temp.txt" ;
+
+        std::cout <<"LOCATION TEMP \t" << locfortemp <<"\n";
+        std::cout <<"LOCATION SERVER \t" << locforfilehistory <<"\n";
+
+        instructionresult=ExecuteInstruction(TransferServerToClient(locfortemp,locforfilehistory));
+
+        FileHistory xyz = FileHistory(locfortemp);
+        xyz.LoadFromFileBase(locfortemp);
+        for (int i=0; i<xyz.GetNumberOfFiles(); i++)
+        {
+        	if (xyz.GetNthName(i) == serverfname)
+        	{
+        		xyz.SetNthTime(i,std::time(0));	
+        	}
+        }
+        xyz.StoreToFileBase(locfortemp);
+
+        instructionresult=ExecuteInstruction(DoNormalSending(locfortemp,locforfilehistory));
+        std::cout <<instructionresult << "\n";
 
 		return true;
-	}
+    }
+    else
+    {
+        // Cannot upload a read only file
+        return false;
+    }
 }
 
 void KeepOnlineOnly(SyncManager UserSyncManager, std::string filename)

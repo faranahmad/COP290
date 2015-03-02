@@ -39,47 +39,35 @@ file::file(QWidget *parent) :
     ui(new Ui::file)
 {
     ui->setupUi(this);
-    //ui->filesonclientside->setFrameShadow(QFrame::Raised);
+    this->setObjectName("account");
     this->setFixedSize(1800,950);
-    this->setWindowIcon(QIcon("ddlogo2.png")) ;
-    this->setStyleSheet("background-color:rgb(0,255,255);");
-    ui->changepassword->setStyleSheet("background-color:light green;");
-    ui->openfile->setStyleSheet("background-color:light green;");
-    ui->deletefile->setStyleSheet("background-color:light green;");
-    ui->share->setStyleSheet("background-color:light green;");
-    ui->AddFileInClientSide->setStyleSheet("background-color:light green;");
-    ui->OpenFileInDrive->setStyleSheet("background-color:light green;");
-    ui->GoingBackInDrive->setStyleSheet("background-color:light green;");
-    ui->GetFromDrive->setStyleSheet("background-color:light green;");
-    ui->logout->setStyleSheet("background-color:light green;");
-    ui->movetodrive->setStyleSheet("background-color:light green;");
-    ui->sync->setStyleSheet("background-color:light green;");
-    ui->DeleteFromDrive->setStyleSheet("background-color:light green;");
-    ui->GetFromDrive->setStyleSheet("background-color:light green;");
-    ui->ViewSharedFiles->setStyleSheet("background-color:light green;");
-    ui->listWidget->setStyleSheet("background-color:white;");
-    ui->treeView->setStyleSheet("background-color:white;");
-    ui->sharedwithme->setStyleSheet("background-color:white;");
+    this->setStyleSheet("#account {background-color:rgb(0,245,255);}");
+    this->setWindowIcon(QIcon("/home/faran/Desktop/COP290/Assignment2/DesignDocument/ddlogo2.png")) ;
+    this->setWindowTitle("Your Account");
 
     std::string mainpath(getenv("HOME")); 
     std::string foldername=mainpath + "/Desktop/DeadDrop/" + reversedata2  + "/";
 
-    // QString sPath = "/home/faran/Desktop";
     QString sPath = foldername.c_str();
-    dirmodel = new QFileSystemModel(this);                          //setting up file system model to show the files of the client
-    dirmodel->setRootPath(sPath);                                   //giving the path to display the folder of any particular user
+    dirmodel = new QFileSystemModel(this);
+    dirmodel->setRootPath(sPath);
     QModelIndex index1 = dirmodel->index(foldername.c_str());
     ui->treeView->setModel(dirmodel);
     dirmodel->setReadOnly(false);
     ui->treeView->setRootIndex(index1);
+    //ui->treeView->resizeColumnToContents(0);
+    ui->label_3->setText(("Welcome" + reversedata2).c_str());//add username too
+    //adding file names to be displayed on shared with me list
 
     MergedSyncManager.LoadFromDiskDB(mainpath+"/Desktop/DeadDrop");
     std::vector<Sharing> sharfiles = MergedSyncManager.GetReceivingFiles().GetSharingList();
 
+    std::string basic ="/home/faran/Desktop/DeadDropServer/";
+
     //adding file names to be displayed on shared with me list
     for(unsigned int i=0;i<sharfiles.size();i++)
     {
-        shared_with_me_list.push_back(sharfiles[i].FilePath);
+        shared_with_me_list.push_back(sharfiles[i].FilePath.substr(basic.size()));
     }
     for (unsigned int i= 0;i<shared_with_me_list.size();i++)
     {
@@ -120,6 +108,21 @@ file::file(QWidget *parent) :
             ui->listWidget->addItem(("Folder\t\t\t" + filesroot.at(i).GetName()).c_str()); // else diplay it is a folder
         }
     }
+
+   ui->GetFromDrive->setFocusPolicy(Qt::NoFocus);
+   ui->DeleteFromDrive->setFocusPolicy(Qt::NoFocus);
+   ui->OpenFileInDrive->setFocusPolicy(Qt::NoFocus);
+   ui->openfile->setFocusPolicy(Qt::NoFocus);
+   ui->deletefile->setFocusPolicy(Qt::NoFocus);
+   ui->share->setFocusPolicy(Qt::NoFocus);
+   ui->GoingBackInDrive->setFocusPolicy(Qt::NoFocus);
+   ui->logout->setFocusPolicy(Qt::NoFocus);
+   ui->changepassword->setFocusPolicy(Qt::NoFocus);
+   ui->ViewSharedFiles->setFocusPolicy(Qt::NoFocus);
+   ui->movetodrive->setFocusPolicy(Qt::NoFocus);
+   ui->sync->setFocusPolicy(Qt::NoFocus);
+   ui->AddFileInClientSide->setFocusPolicy(Qt::NoFocus);
+
     //faran.SetName("dude");
     //faran.SetFolder(true);
 
@@ -134,7 +137,7 @@ file::file(QWidget *parent) :
 
 }
 
-//function used in opening a folder on server side manually triggerd when "open" on serer side is clickes
+//function used in opening a folder on server side manually triggered when "open" on serer side is clicked
 void file::makechange()
 {
     int selected = ui->listWidget->row(ui->listWidget->currentItem());  //to get the row selected
@@ -410,7 +413,7 @@ void file::on_GetFromDrive_clicked()
             QString gettingtext1 = gettingitem1->text();
             path_to_get_from_drive = (gettingtext1).toUtf8().constData();
             std::cout << path_to_get_from_drive << std::endl;
-            datafield1=path_to_get_from_drive;
+            datafield1="/home/faran/Desktop/DeadDropServer" + path_to_get_from_drive;
             inst="7";
             usleep(100);
             if (InstructionStarted)
@@ -429,18 +432,27 @@ void file::on_GetFromDrive_clicked()
 
 void file::on_logout_clicked()
 {
-    inst = "e";
-    usleep(20);
-    if (InstructionStarted)
+    QMessageBox::StandardButton reply;
+        reply= QMessageBox::question(this, "Logout","Are you sure you want to logout?", QMessageBox::Yes | QMessageBox::No);
+    if (reply==QMessageBox::Yes)
     {
-        while (!InstructionCompleted)
+        inst = "e";
+        usleep(20);
+        if (InstructionStarted)
         {
-            // Keep waiting for the instruction to complete
+            while (!InstructionCompleted)
+            {
+                // Keep waiting for the instruction to complete
+            }
+            InstructionCompleted=false;
+            InstructionStarted=false;
         }
-        InstructionCompleted=false;
-        InstructionStarted=false;
+        qApp->quit();
     }
-    qApp->quit();
+    else
+    {
+
+    }
 }
 
 void file::on_changepassword_clicked()
@@ -525,5 +537,31 @@ void file::on_sync_clicked()
         InstructionStarted=false;
         InstructionCompleted=false;
     }
+    path = std::stack<std::string> ();
+    path.push("files/");
+
+    fulldata = std::stack<Data> ();
+    itemtobeadded=ReverseDataFiles;
+    Data rootdata = Data("rootdata", true);
+    rootdata.SetData(itemtobeadded);
+    fulldata.push(rootdata);
+    std::vector<Data> filesroot = fulldata.top().GetListFiles();
+    
+    ui->listWidget->clear();                                            //clears the list
+    ui->label->setText(path.top().c_str());
+    //displaying the files of a user stored on the server side
+    for (unsigned int i = 0;i<filesroot.size();i++)
+    {
+        if (filesroot.at(i).IfFileFolder() == false)
+        {
+            ui->listWidget->addItem(("File\t\t\t" + filesroot.at(i).GetName()).c_str()); //if it is a file display file
+        }
+        else
+        {
+            ui->listWidget->addItem(("Folder\t\t\t" + filesroot.at(i).GetName()).c_str()); // else diplay it is a folder
+        }
+    }
+
+
     std::cout<<"prateek chutiya hai"<<std::endl;
 }

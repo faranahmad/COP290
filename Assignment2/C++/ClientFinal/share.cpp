@@ -18,10 +18,13 @@ share::share(QWidget *parent) :
     ui(new Ui::share)
 {
     ui->setupUi(this);
+    this->setObjectName("share");
+    this->setStyleSheet("#share {background-color:sandybrown;}");
     this->setFixedSize(508,342);
     this->setWindowIcon(QIcon("ddlogo2.png")) ;
 
     ui->radioButton->setChecked(true);
+    ui->pushButton->setFocusPolicy(Qt::NoFocus);
 }
 
 share::~share()

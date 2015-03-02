@@ -7,7 +7,7 @@
 class Data
 {
     private:
-        bool file_or_folder;
+        bool file_or_folder; //true for folder
         std::string name;
         std::vector<Data> list_of_files;
 

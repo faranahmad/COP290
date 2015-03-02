@@ -18,8 +18,6 @@ class UserBase
 		bool CheckUserExists(User);
 
 		void InsertUser(User);
-		bool ChangePassword(std::string,std::string,std::string);
-
 
 		void StoreToFile(std::string);
 		void LoadFromFile(std::string);

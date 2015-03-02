@@ -13,26 +13,14 @@ class connecting : public QDialog
 
 public:
     explicit connecting(QWidget *parent = 0);
-
-    void funccall();
-
     ~connecting();
 
 private slots:
-    //void on_progressBar_customContextMenuRequested(const QPoint &pos);
 
     void on_okbutton_clicked();
 
-
-    //void slotButtonClicked(bool);
-
-  //  void operate();
-
 private:
     Ui::connecting *ui;
-
-//signals:
-//    void emitsignal();
 
 };
 

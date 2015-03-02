@@ -31,7 +31,7 @@ public:
     QToolButton *toolButton_2;
     QLabel *label_6;
     QLabel *label_7;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QLineEdit *usernametext;
     QLineEdit *passwordtext;
@@ -53,6 +53,8 @@ public:
         label_5->setGeometry(QRect(280, 10, 111, 31));
         QFont font;
         font.setPointSize(18);
+        font.setBold(true);
+        font.setWeight(75);
         label_5->setFont(font);
         toolButton_2 = new QToolButton(NewUserSignup);
         toolButton_2->setObjectName(QStringLiteral("toolButton_2"));
@@ -63,18 +65,18 @@ public:
         label_7 = new QLabel(NewUserSignup);
         label_7->setObjectName(QStringLiteral("label_7"));
         label_7->setGeometry(QRect(440, 210, 221, 17));
-        widget = new QWidget(NewUserSignup);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(230, 50, 201, 211));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(NewUserSignup);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(230, 50, 201, 211));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        usernametext = new QLineEdit(widget);
+        usernametext = new QLineEdit(layoutWidget);
         usernametext->setObjectName(QStringLiteral("usernametext"));
 
         verticalLayout->addWidget(usernametext);
 
-        passwordtext = new QLineEdit(widget);
+        passwordtext = new QLineEdit(layoutWidget);
         passwordtext->setObjectName(QStringLiteral("passwordtext"));
         QFont font1;
         font1.setFamily(QStringLiteral("Ubuntu"));
@@ -83,7 +85,7 @@ public:
 
         verticalLayout->addWidget(passwordtext);
 
-        confirmpasswordtext = new QLineEdit(widget);
+        confirmpasswordtext = new QLineEdit(layoutWidget);
         confirmpasswordtext->setObjectName(QStringLiteral("confirmpasswordtext"));
         confirmpasswordtext->setEchoMode(QLineEdit::Password);
 
@@ -108,7 +110,7 @@ public:
     {
         NewUserSignup->setWindowTitle(QApplication::translate("NewUserSignup", "Dialog", 0));
         toolButton->setText(QApplication::translate("NewUserSignup", "SignUp", 0));
-        label_5->setText(QApplication::translate("NewUserSignup", "SIGNUP", 0));
+        label_5->setText(QApplication::translate("NewUserSignup", "Sign Up", 0));
         toolButton_2->setText(QApplication::translate("NewUserSignup", "Cancel", 0));
         label_6->setText(QString());
         label_7->setText(QString());

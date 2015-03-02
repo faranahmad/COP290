@@ -61,9 +61,11 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QPushButton *logout;
     QPushButton *changepassword;
-    QPushButton *ViewSharedFiles;
     QListWidget *sharedwithme;
     QLabel *sharedwithmetext;
+    QWidget *layoutWidget3;
+    QHBoxLayout *horizontalLayout_4;
+    QPushButton *ViewSharedFiles;
 
     void setupUi(QDialog *file)
     {
@@ -191,10 +193,11 @@ public:
         line_2->setFrameShadow(QFrame::Sunken);
         label_3 = new QLabel(file);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(800, 0, 141, 31));
+        label_3->setGeometry(QRect(20, 0, 1771, 31));
         QFont font1;
         font1.setPointSize(18);
         label_3->setFont(font1);
+        label_3->setAlignment(Qt::AlignCenter);
         listWidget = new QListWidget(file);
         listWidget->setObjectName(QStringLiteral("listWidget"));
         listWidget->setGeometry(QRect(1120, 90, 601, 331));
@@ -205,7 +208,7 @@ public:
         label->setWordWrap(true);
         layoutWidget2 = new QWidget(file);
         layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(70, 910, 901, 29));
+        layoutWidget2->setGeometry(QRect(90, 910, 901, 29));
         horizontalLayout_3 = new QHBoxLayout(layoutWidget2);
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -219,9 +222,6 @@ public:
 
         horizontalLayout_3->addWidget(changepassword);
 
-        ViewSharedFiles = new QPushButton(file);
-        ViewSharedFiles->setObjectName(QStringLiteral("ViewSharedFiles"));
-        ViewSharedFiles->setGeometry(QRect(390, 860, 301, 27));
         sharedwithme = new QListWidget(file);
         sharedwithme->setObjectName(QStringLiteral("sharedwithme"));
         sharedwithme->setGeometry(QRect(1120, 470, 601, 271));
@@ -229,6 +229,18 @@ public:
         sharedwithmetext->setObjectName(QStringLiteral("sharedwithmetext"));
         sharedwithmetext->setGeometry(QRect(1120, 436, 171, 21));
         sharedwithmetext->setFont(font);
+        layoutWidget3 = new QWidget(file);
+        layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(390, 860, 301, 29));
+        horizontalLayout_4 = new QHBoxLayout(layoutWidget3);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
+        ViewSharedFiles = new QPushButton(layoutWidget3);
+        ViewSharedFiles->setObjectName(QStringLiteral("ViewSharedFiles"));
+
+        horizontalLayout_4->addWidget(ViewSharedFiles);
+
+        layoutWidget->raise();
         treeView->raise();
         layoutWidget->raise();
         layoutWidget->raise();
@@ -240,7 +252,6 @@ public:
         line->raise();
         line_2->raise();
         label_3->raise();
-        ViewSharedFiles->raise();
         sharedwithme->raise();
         sharedwithmetext->raise();
 
@@ -268,8 +279,8 @@ public:
         label->setText(QApplication::translate("file", "files/", 0));
         logout->setText(QApplication::translate("file", "Log Out", 0));
         changepassword->setText(QApplication::translate("file", "Change Password", 0));
-        ViewSharedFiles->setText(QApplication::translate("file", "View Shared Files", 0));
         sharedwithmetext->setText(QApplication::translate("file", "Shared With Me", 0));
+        ViewSharedFiles->setText(QApplication::translate("file", "View Shared Files", 0));
     } // retranslateUi
 
 };
