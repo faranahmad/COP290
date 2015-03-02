@@ -5,6 +5,8 @@
 #include <QMessageBox>
 #include "SyncManager.h"
 
+//displays the share file window
+
 extern std::string inst,datafield1,datafield2,datafield3;
 extern std::string reversedata1,reversedata2,reversedata3;
 extern bool InstructionStarted, InstructionCompleted;
@@ -13,6 +15,7 @@ bool readonly;
 std::string getting_username;
 bool existingusername;
 
+//constructor
 share::share(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::share)
@@ -23,16 +26,17 @@ share::share(QWidget *parent) :
     this->setFixedSize(508,342);
     this->setWindowIcon(QIcon("ddlogo2.png")) ;
 
-    ui->radioButton->setChecked(true);
-    ui->pushButton->setFocusPolicy(Qt::NoFocus);
+    ui->radioButton->setChecked(true);//radiobutton is readonly button
+    ui->pushButton->setFocusPolicy(Qt::NoFocus);//pushbutton is share button
 }
 
+//destructor
 share::~share()
 {
     delete ui;
 }
 
-
+//share button
 void share::on_pushButton_clicked()
 {
     QString username1 = ui->lineEdit->text();
@@ -46,7 +50,7 @@ void share::on_pushButton_clicked()
         readonly = false;
     }
     std::string fname=datafield1;
-    datafield1=getting_username;
+    datafield1=getting_username; //storing user name
     inst="2";
     usleep(100);
     if (InstructionStarted)
@@ -60,7 +64,7 @@ void share::on_pushButton_clicked()
     }
     datafield1=fname;
 
-    if (reversedata3=="YES")
+    if (reversedata3=="YES") //reversedta3 tells if username exists or not
     {
         existingusername=true;
     }
@@ -74,7 +78,7 @@ void share::on_pushButton_clicked()
         datafield2=getting_username;
         if (readonly)
         {
-            datafield3="1";
+            datafield3="1"; //datafield3 tells if file is readonly or read or write
         }
         else
         {
@@ -106,11 +110,11 @@ void share::on_pushButton_clicked()
 
 }
 
+//cancel button
 void share::on_pushButton_2_clicked()
 {
     this->hide();
     file share1;
     share1.setModal(true);
     share1.exec();
-
 }
