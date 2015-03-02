@@ -1,0 +1,75 @@
+\hypertarget{login_8cpp}{\section{login.\-cpp File Reference}
+\label{login_8cpp}\index{login.\-cpp@{login.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}login.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ui\-\_\-login.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}connecting.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}newusersignup.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}file.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$Qt\-Core$>$}\\*
+{\ttfamily \#include $<$Qt\-Gui$>$}\\*
+{\ttfamily \#include $<$Q\-Message\-Box$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$Q\-Progress\-Dialog$>$}\\*
+{\ttfamily \#include \char`\"{}Sync\-Manager.\-h\char`\"{}}\\*
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\-::string \hyperlink{login_8cpp_a0589b412ad453eb8c5dbce0e056c151b}{inst}
+\item 
+std\-::string \hyperlink{login_8cpp_a838cce38247da46ac6156f1fe05e04e0}{datafield1}
+\item 
+std\-::string \hyperlink{login_8cpp_aa9d82846c75f7bdf77759c5a08e3bb04}{datafield2}
+\item 
+std\-::string \hyperlink{login_8cpp_aa9ec05fbafdbff5c987285c2d1e8a405}{datafield3}
+\item 
+std\-::string \hyperlink{login_8cpp_a9878875765a2eee11b344f7ad57c5c90}{reversedata1}
+\item 
+std\-::string \hyperlink{login_8cpp_a9292ae8ce70098042c5cf1e510093b66}{reversedata2}
+\item 
+std\-::string \hyperlink{login_8cpp_a247b1a9d57a29a114c0e2649fc2ae20d}{reversedata3}
+\item 
+bool \hyperlink{login_8cpp_a27e8a62e7ce6432c2e6cc9ed55b7da40}{Instruction\-Started}
+\item 
+bool \hyperlink{login_8cpp_a87651879d4fd4c2beb93820231ff862d}{Instruction\-Completed}
+\item 
+\hyperlink{classSyncManager}{Sync\-Manager} \hyperlink{login_8cpp_a13b2dcfd1eb25bd60ee65d2cab8144ee}{Merged\-Sync\-Manager}
+\item 
+bool \hyperlink{login_8cpp_a4f5bfd7cc3e09833c6909c379935f84e}{ifconnected}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{login_8cpp_a838cce38247da46ac6156f1fe05e04e0}{\index{login.\-cpp@{login.\-cpp}!datafield1@{datafield1}}
+\index{datafield1@{datafield1}!login.cpp@{login.\-cpp}}
+\subsubsection[{datafield1}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string datafield1}}\label{login_8cpp_a838cce38247da46ac6156f1fe05e04e0}
+\hypertarget{login_8cpp_aa9d82846c75f7bdf77759c5a08e3bb04}{\index{login.\-cpp@{login.\-cpp}!datafield2@{datafield2}}
+\index{datafield2@{datafield2}!login.cpp@{login.\-cpp}}
+\subsubsection[{datafield2}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string datafield2}}\label{login_8cpp_aa9d82846c75f7bdf77759c5a08e3bb04}
+\hypertarget{login_8cpp_aa9ec05fbafdbff5c987285c2d1e8a405}{\index{login.\-cpp@{login.\-cpp}!datafield3@{datafield3}}
+\index{datafield3@{datafield3}!login.cpp@{login.\-cpp}}
+\subsubsection[{datafield3}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string datafield3}}\label{login_8cpp_aa9ec05fbafdbff5c987285c2d1e8a405}
+\hypertarget{login_8cpp_a4f5bfd7cc3e09833c6909c379935f84e}{\index{login.\-cpp@{login.\-cpp}!ifconnected@{ifconnected}}
+\index{ifconnected@{ifconnected}!login.cpp@{login.\-cpp}}
+\subsubsection[{ifconnected}]{\setlength{\rightskip}{0pt plus 5cm}bool ifconnected}}\label{login_8cpp_a4f5bfd7cc3e09833c6909c379935f84e}
+\hypertarget{login_8cpp_a0589b412ad453eb8c5dbce0e056c151b}{\index{login.\-cpp@{login.\-cpp}!inst@{inst}}
+\index{inst@{inst}!login.cpp@{login.\-cpp}}
+\subsubsection[{inst}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string inst}}\label{login_8cpp_a0589b412ad453eb8c5dbce0e056c151b}
+\hypertarget{login_8cpp_a87651879d4fd4c2beb93820231ff862d}{\index{login.\-cpp@{login.\-cpp}!Instruction\-Completed@{Instruction\-Completed}}
+\index{Instruction\-Completed@{Instruction\-Completed}!login.cpp@{login.\-cpp}}
+\subsubsection[{Instruction\-Completed}]{\setlength{\rightskip}{0pt plus 5cm}bool Instruction\-Completed}}\label{login_8cpp_a87651879d4fd4c2beb93820231ff862d}
+\hypertarget{login_8cpp_a27e8a62e7ce6432c2e6cc9ed55b7da40}{\index{login.\-cpp@{login.\-cpp}!Instruction\-Started@{Instruction\-Started}}
+\index{Instruction\-Started@{Instruction\-Started}!login.cpp@{login.\-cpp}}
+\subsubsection[{Instruction\-Started}]{\setlength{\rightskip}{0pt plus 5cm}bool Instruction\-Started}}\label{login_8cpp_a27e8a62e7ce6432c2e6cc9ed55b7da40}
+\hypertarget{login_8cpp_a13b2dcfd1eb25bd60ee65d2cab8144ee}{\index{login.\-cpp@{login.\-cpp}!Merged\-Sync\-Manager@{Merged\-Sync\-Manager}}
+\index{Merged\-Sync\-Manager@{Merged\-Sync\-Manager}!login.cpp@{login.\-cpp}}
+\subsubsection[{Merged\-Sync\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sync\-Manager} Merged\-Sync\-Manager}}\label{login_8cpp_a13b2dcfd1eb25bd60ee65d2cab8144ee}
+\hypertarget{login_8cpp_a9878875765a2eee11b344f7ad57c5c90}{\index{login.\-cpp@{login.\-cpp}!reversedata1@{reversedata1}}
+\index{reversedata1@{reversedata1}!login.cpp@{login.\-cpp}}
+\subsubsection[{reversedata1}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string reversedata1}}\label{login_8cpp_a9878875765a2eee11b344f7ad57c5c90}
+\hypertarget{login_8cpp_a9292ae8ce70098042c5cf1e510093b66}{\index{login.\-cpp@{login.\-cpp}!reversedata2@{reversedata2}}
+\index{reversedata2@{reversedata2}!login.cpp@{login.\-cpp}}
+\subsubsection[{reversedata2}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string reversedata2}}\label{login_8cpp_a9292ae8ce70098042c5cf1e510093b66}
+\hypertarget{login_8cpp_a247b1a9d57a29a114c0e2649fc2ae20d}{\index{login.\-cpp@{login.\-cpp}!reversedata3@{reversedata3}}
+\index{reversedata3@{reversedata3}!login.cpp@{login.\-cpp}}
+\subsubsection[{reversedata3}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string reversedata3}}\label{login_8cpp_a247b1a9d57a29a114c0e2649fc2ae20d}

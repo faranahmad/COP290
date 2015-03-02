@@ -1,0 +1,167 @@
+\hypertarget{ClientCombined_8h}{\section{Client\-Combined.\-h File Reference}
+\label{ClientCombined_8h}\index{Client\-Combined.\-h@{Client\-Combined.\-h}}
+}
+{\ttfamily \#include \char`\"{}Sync\-Manager.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$cstring$>$}\\*
+{\ttfamily \#include $<$sys/socket.\-h$>$}\\*
+{\ttfamily \#include $<$netdb.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$boost/filesystem/operations.\-hpp$>$}\\*
+{\ttfamily \#include $<$boost/filesystem.\-hpp$>$}\\*
+{\ttfamily \#include $<$openssl/ssl.\-h$>$}\\*
+{\ttfamily \#include $<$openssl/err.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\-S\-L\-\_\-\-C\-T\-X $\ast$ \hyperlink{ClientCombined_8h_a8846aacc973b3898f797c1ec9d54d217}{Ini\-T\-S\-S\-L} (void)
+\item 
+void \hyperlink{ClientCombined_8h_a739a569a943d280ac07b8528f2497280}{Show\-Certs} (S\-S\-L $\ast$)
+\item 
+std\-::string \hyperlink{ClientCombined_8h_a9d6b7ed1bd59ccb02d96461058330258}{To\-Str} (char $\ast$)
+\item 
+std\-::string \hyperlink{ClientCombined_8h_a3a0f24ee2c17f3ded4582a709cdeef29}{File\-Name} (std\-::string)
+\item 
+char $\ast$ \hyperlink{ClientCombined_8h_a27bf0d2b79a7a2898ba122e1de20229a}{To\-Arr} (std\-::string)
+\item 
+std\-::string \hyperlink{ClientCombined_8h_ac033ec6ea95e7b6e355b7a4875a11fcd}{Execute\-Instruction} (\hyperlink{structInstruction}{Instruction})
+\item 
+void \hyperlink{ClientCombined_8h_a786033baaa5c1d01268fcff19638cdc0}{Create\-New\-User} (std\-::string, std\-::string)
+\item 
+bool \hyperlink{ClientCombined_8h_a25d4e2fc21a6f78a7dc2ecd849a1f7d0}{User\-Login} (std\-::string, std\-::string)
+\item 
+bool \hyperlink{ClientCombined_8h_a6ce035260281bc0ab31eb819b6ca44a1}{Check\-User\-Exists} (std\-::string)
+\item 
+void \hyperlink{ClientCombined_8h_a8bd90bdfca974636d86c78f6495681ce}{Perform\-Sync} (\hyperlink{classSyncManager}{Sync\-Manager})
+\item 
+void \hyperlink{ClientCombined_8h_a6738b615eee64ca917cef3e7d505a9ec}{Delete\-File\-Server} (\hyperlink{classSyncManager}{Sync\-Manager}, std\-::string)
+\item 
+void \hyperlink{ClientCombined_8h_a986cde6afe517b3422d0dd655af30351}{Get\-File\-From\-Server} (\hyperlink{classSyncManager}{Sync\-Manager}, std\-::string)
+\item 
+void \hyperlink{ClientCombined_8h_acf4318ffdb3b83df27a3bde385ad3b0c}{Delete\-File\-Client} (\hyperlink{classSyncManager}{Sync\-Manager}, std\-::string)
+\item 
+void \hyperlink{ClientCombined_8h_a9122df2b0c93d2bc745037a04c6e7946}{Keep\-Online\-Only} (\hyperlink{classSyncManager}{Sync\-Manager}, std\-::string)
+\item 
+int \hyperlink{ClientCombined_8h_aaf7792890ea4302fdbf8358654ebc0dd}{clientmain} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{ClientCombined_8h_a6ce035260281bc0ab31eb819b6ca44a1}{\index{Client\-Combined.\-h@{Client\-Combined.\-h}!Check\-User\-Exists@{Check\-User\-Exists}}
+\index{Check\-User\-Exists@{Check\-User\-Exists}!ClientCombined.h@{Client\-Combined.\-h}}
+\subsubsection[{Check\-User\-Exists}]{\setlength{\rightskip}{0pt plus 5cm}bool Check\-User\-Exists (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{ClientCombined_8h_a6ce035260281bc0ab31eb819b6ca44a1}
+\hypertarget{ClientCombined_8h_aaf7792890ea4302fdbf8358654ebc0dd}{\index{Client\-Combined.\-h@{Client\-Combined.\-h}!clientmain@{clientmain}}
+\index{clientmain@{clientmain}!ClientCombined.h@{Client\-Combined.\-h}}
+\subsubsection[{clientmain}]{\setlength{\rightskip}{0pt plus 5cm}int clientmain (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{ClientCombined_8h_aaf7792890ea4302fdbf8358654ebc0dd}
+\hypertarget{ClientCombined_8h_a786033baaa5c1d01268fcff19638cdc0}{\index{Client\-Combined.\-h@{Client\-Combined.\-h}!Create\-New\-User@{Create\-New\-User}}
+\index{Create\-New\-User@{Create\-New\-User}!ClientCombined.h@{Client\-Combined.\-h}}
+\subsubsection[{Create\-New\-User}]{\setlength{\rightskip}{0pt plus 5cm}void Create\-New\-User (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{, }
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{ClientCombined_8h_a786033baaa5c1d01268fcff19638cdc0}
+\hypertarget{ClientCombined_8h_acf4318ffdb3b83df27a3bde385ad3b0c}{\index{Client\-Combined.\-h@{Client\-Combined.\-h}!Delete\-File\-Client@{Delete\-File\-Client}}
+\index{Delete\-File\-Client@{Delete\-File\-Client}!ClientCombined.h@{Client\-Combined.\-h}}
+\subsubsection[{Delete\-File\-Client}]{\setlength{\rightskip}{0pt plus 5cm}void Delete\-File\-Client (
+\begin{DoxyParamCaption}
+\item[{{\bf Sync\-Manager}}]{, }
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{ClientCombined_8h_acf4318ffdb3b83df27a3bde385ad3b0c}
+\hypertarget{ClientCombined_8h_a6738b615eee64ca917cef3e7d505a9ec}{\index{Client\-Combined.\-h@{Client\-Combined.\-h}!Delete\-File\-Server@{Delete\-File\-Server}}
+\index{Delete\-File\-Server@{Delete\-File\-Server}!ClientCombined.h@{Client\-Combined.\-h}}
+\subsubsection[{Delete\-File\-Server}]{\setlength{\rightskip}{0pt plus 5cm}void Delete\-File\-Server (
+\begin{DoxyParamCaption}
+\item[{{\bf Sync\-Manager}}]{, }
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{ClientCombined_8h_a6738b615eee64ca917cef3e7d505a9ec}
+\hypertarget{ClientCombined_8h_ac033ec6ea95e7b6e355b7a4875a11fcd}{\index{Client\-Combined.\-h@{Client\-Combined.\-h}!Execute\-Instruction@{Execute\-Instruction}}
+\index{Execute\-Instruction@{Execute\-Instruction}!ClientCombined.h@{Client\-Combined.\-h}}
+\subsubsection[{Execute\-Instruction}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Execute\-Instruction (
+\begin{DoxyParamCaption}
+\item[{{\bf Instruction}}]{}
+\end{DoxyParamCaption}
+)}}\label{ClientCombined_8h_ac033ec6ea95e7b6e355b7a4875a11fcd}
+\hypertarget{ClientCombined_8h_a3a0f24ee2c17f3ded4582a709cdeef29}{\index{Client\-Combined.\-h@{Client\-Combined.\-h}!File\-Name@{File\-Name}}
+\index{File\-Name@{File\-Name}!ClientCombined.h@{Client\-Combined.\-h}}
+\subsubsection[{File\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string File\-Name (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{ClientCombined_8h_a3a0f24ee2c17f3ded4582a709cdeef29}
+\hypertarget{ClientCombined_8h_a986cde6afe517b3422d0dd655af30351}{\index{Client\-Combined.\-h@{Client\-Combined.\-h}!Get\-File\-From\-Server@{Get\-File\-From\-Server}}
+\index{Get\-File\-From\-Server@{Get\-File\-From\-Server}!ClientCombined.h@{Client\-Combined.\-h}}
+\subsubsection[{Get\-File\-From\-Server}]{\setlength{\rightskip}{0pt plus 5cm}void Get\-File\-From\-Server (
+\begin{DoxyParamCaption}
+\item[{{\bf Sync\-Manager}}]{, }
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{ClientCombined_8h_a986cde6afe517b3422d0dd655af30351}
+\hypertarget{ClientCombined_8h_a8846aacc973b3898f797c1ec9d54d217}{\index{Client\-Combined.\-h@{Client\-Combined.\-h}!Ini\-T\-S\-S\-L@{Ini\-T\-S\-S\-L}}
+\index{Ini\-T\-S\-S\-L@{Ini\-T\-S\-S\-L}!ClientCombined.h@{Client\-Combined.\-h}}
+\subsubsection[{Ini\-T\-S\-S\-L}]{\setlength{\rightskip}{0pt plus 5cm}S\-S\-L\-\_\-\-C\-T\-X$\ast$ Ini\-T\-S\-S\-L (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ClientCombined_8h_a8846aacc973b3898f797c1ec9d54d217}
+\hypertarget{ClientCombined_8h_a9122df2b0c93d2bc745037a04c6e7946}{\index{Client\-Combined.\-h@{Client\-Combined.\-h}!Keep\-Online\-Only@{Keep\-Online\-Only}}
+\index{Keep\-Online\-Only@{Keep\-Online\-Only}!ClientCombined.h@{Client\-Combined.\-h}}
+\subsubsection[{Keep\-Online\-Only}]{\setlength{\rightskip}{0pt plus 5cm}void Keep\-Online\-Only (
+\begin{DoxyParamCaption}
+\item[{{\bf Sync\-Manager}}]{, }
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{ClientCombined_8h_a9122df2b0c93d2bc745037a04c6e7946}
+\hypertarget{ClientCombined_8h_a8bd90bdfca974636d86c78f6495681ce}{\index{Client\-Combined.\-h@{Client\-Combined.\-h}!Perform\-Sync@{Perform\-Sync}}
+\index{Perform\-Sync@{Perform\-Sync}!ClientCombined.h@{Client\-Combined.\-h}}
+\subsubsection[{Perform\-Sync}]{\setlength{\rightskip}{0pt plus 5cm}void Perform\-Sync (
+\begin{DoxyParamCaption}
+\item[{{\bf Sync\-Manager}}]{}
+\end{DoxyParamCaption}
+)}}\label{ClientCombined_8h_a8bd90bdfca974636d86c78f6495681ce}
+\hypertarget{ClientCombined_8h_a739a569a943d280ac07b8528f2497280}{\index{Client\-Combined.\-h@{Client\-Combined.\-h}!Show\-Certs@{Show\-Certs}}
+\index{Show\-Certs@{Show\-Certs}!ClientCombined.h@{Client\-Combined.\-h}}
+\subsubsection[{Show\-Certs}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Certs (
+\begin{DoxyParamCaption}
+\item[{S\-S\-L $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{ClientCombined_8h_a739a569a943d280ac07b8528f2497280}
+\hypertarget{ClientCombined_8h_a27bf0d2b79a7a2898ba122e1de20229a}{\index{Client\-Combined.\-h@{Client\-Combined.\-h}!To\-Arr@{To\-Arr}}
+\index{To\-Arr@{To\-Arr}!ClientCombined.h@{Client\-Combined.\-h}}
+\subsubsection[{To\-Arr}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ To\-Arr (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{ClientCombined_8h_a27bf0d2b79a7a2898ba122e1de20229a}
+\hypertarget{ClientCombined_8h_a9d6b7ed1bd59ccb02d96461058330258}{\index{Client\-Combined.\-h@{Client\-Combined.\-h}!To\-Str@{To\-Str}}
+\index{To\-Str@{To\-Str}!ClientCombined.h@{Client\-Combined.\-h}}
+\subsubsection[{To\-Str}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string To\-Str (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{ClientCombined_8h_a9d6b7ed1bd59ccb02d96461058330258}
+\hypertarget{ClientCombined_8h_a25d4e2fc21a6f78a7dc2ecd849a1f7d0}{\index{Client\-Combined.\-h@{Client\-Combined.\-h}!User\-Login@{User\-Login}}
+\index{User\-Login@{User\-Login}!ClientCombined.h@{Client\-Combined.\-h}}
+\subsubsection[{User\-Login}]{\setlength{\rightskip}{0pt plus 5cm}bool User\-Login (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{, }
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{ClientCombined_8h_a25d4e2fc21a6f78a7dc2ecd849a1f7d0}

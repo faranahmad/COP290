@@ -1,5 +1,5 @@
-test: User.cpp Test.cpp UserTests.cpp AllTests.cpp
-	g++ -std=c++11 User.cpp Test.cpp UserTests.cpp AllTests.cpp
+test: User.cpp Test.cpp UserTests.cpp UserBaseTests.cpp AllTests.cpp
+	g++ -std=c++11 User.cpp UserBase.cpp Test.cpp UserTests.cpp UserBaseTests.cpp AllTests.cpp
 	./a.out
 
 history: FileHistory.cpp

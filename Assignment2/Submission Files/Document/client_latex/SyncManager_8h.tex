@@ -1,0 +1,161 @@
+\hypertarget{SyncManager_8h}{\section{Sync\-Manager.\-h File Reference}
+\label{SyncManager_8h}\index{Sync\-Manager.\-h@{Sync\-Manager.\-h}}
+}
+{\ttfamily \#include \char`\"{}File\-Sharing.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}File\-Receiving.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}File\-Changes.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}File\-History.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}User\-Files.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$algorithm$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structInstruction}{Instruction}
+\item 
+struct \hyperlink{structSyncList}{Sync\-List}
+\item 
+class \hyperlink{classSyncManager}{Sync\-Manager}
+\item 
+struct \hyperlink{structClient}{Client}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{SyncManager_8h_abfddd119d52bf96667886ccfb7af21e7}{Sync\-List\-Contains} (\hyperlink{structSyncList}{Sync\-List}, std\-::string)
+\item 
+\hyperlink{structInstruction}{Instruction} \hyperlink{SyncManager_8h_aeda6ec887a46cad88dab41e1d3c73e95}{Do\-Login} (std\-::string, std\-::string)
+\item 
+\hyperlink{structInstruction}{Instruction} \hyperlink{SyncManager_8h_a11a4f069bfdf59b575c59535d3fe7792}{New\-User} (std\-::string, std\-::string)
+\item 
+\hyperlink{structInstruction}{Instruction} \hyperlink{SyncManager_8h_a743ac2ed8a240b58d210f1ca1f30d100}{Exit} ()
+\item 
+\hyperlink{structInstruction}{Instruction} \hyperlink{SyncManager_8h_a30374e1a82aa274f7f17dabbddf8e055}{User\-Exists} (std\-::string)
+\item 
+\hyperlink{structInstruction}{Instruction} \hyperlink{SyncManager_8h_a9c1ce1795c0defadcd213854c807e01c}{Get\-Server\-Files} (std\-::string, std\-::string)
+\item 
+\hyperlink{structInstruction}{Instruction} \hyperlink{SyncManager_8h_a5d12ad90f8461407c13e4f9086dd26d3}{Transfer\-Server\-To\-Client} (std\-::string, std\-::string)
+\item 
+\hyperlink{structInstruction}{Instruction} \hyperlink{SyncManager_8h_a87664538c61e2f5c69b0b2940deed285}{Transfer\-Client\-To\-Server} (std\-::string, std\-::string)
+\item 
+\hyperlink{structInstruction}{Instruction} \hyperlink{SyncManager_8h_a9a73e36e53844ce56d2386e57c2c1c00}{Delete\-File\-On\-Server} (std\-::string)
+\item 
+\hyperlink{structInstruction}{Instruction} \hyperlink{SyncManager_8h_ac6c7d3571ee618d139efb922c4c8f800}{Delete\-File\-On\-Client} (std\-::string)
+\item 
+\hyperlink{structInstruction}{Instruction} \hyperlink{SyncManager_8h_ad0fd69c1477d593c5dc8f144cb76866f}{Refresh\-Server\-D\-B} (std\-::string)
+\item 
+\hyperlink{structInstruction}{Instruction} \hyperlink{SyncManager_8h_a6e4434163bdddeda5cb6ac390fe0a460}{Do\-Nothing} ()
+\item 
+\hyperlink{structInstruction}{Instruction} \hyperlink{SyncManager_8h_a740993a565edfec9f14b04bdde073298}{Do\-Normal\-Sending} (std\-::string, std\-::string)
+\item 
+\hyperlink{structInstruction}{Instruction} \hyperlink{SyncManager_8h_aba0841ff20ccbbc3abb0c694826d29ac}{Change\-Password\-Ins} (std\-::string, std\-::string, std\-::string)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{SyncManager_8h_aba0841ff20ccbbc3abb0c694826d29ac}{\index{Sync\-Manager.\-h@{Sync\-Manager.\-h}!Change\-Password\-Ins@{Change\-Password\-Ins}}
+\index{Change\-Password\-Ins@{Change\-Password\-Ins}!SyncManager.h@{Sync\-Manager.\-h}}
+\subsubsection[{Change\-Password\-Ins}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Instruction} Change\-Password\-Ins (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{, }
+\item[{std\-::string}]{, }
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{SyncManager_8h_aba0841ff20ccbbc3abb0c694826d29ac}
+\hypertarget{SyncManager_8h_ac6c7d3571ee618d139efb922c4c8f800}{\index{Sync\-Manager.\-h@{Sync\-Manager.\-h}!Delete\-File\-On\-Client@{Delete\-File\-On\-Client}}
+\index{Delete\-File\-On\-Client@{Delete\-File\-On\-Client}!SyncManager.h@{Sync\-Manager.\-h}}
+\subsubsection[{Delete\-File\-On\-Client}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Instruction} Delete\-File\-On\-Client (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{SyncManager_8h_ac6c7d3571ee618d139efb922c4c8f800}
+\hypertarget{SyncManager_8h_a9a73e36e53844ce56d2386e57c2c1c00}{\index{Sync\-Manager.\-h@{Sync\-Manager.\-h}!Delete\-File\-On\-Server@{Delete\-File\-On\-Server}}
+\index{Delete\-File\-On\-Server@{Delete\-File\-On\-Server}!SyncManager.h@{Sync\-Manager.\-h}}
+\subsubsection[{Delete\-File\-On\-Server}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Instruction} Delete\-File\-On\-Server (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{SyncManager_8h_a9a73e36e53844ce56d2386e57c2c1c00}
+\hypertarget{SyncManager_8h_aeda6ec887a46cad88dab41e1d3c73e95}{\index{Sync\-Manager.\-h@{Sync\-Manager.\-h}!Do\-Login@{Do\-Login}}
+\index{Do\-Login@{Do\-Login}!SyncManager.h@{Sync\-Manager.\-h}}
+\subsubsection[{Do\-Login}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Instruction} Do\-Login (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{, }
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{SyncManager_8h_aeda6ec887a46cad88dab41e1d3c73e95}
+\hypertarget{SyncManager_8h_a740993a565edfec9f14b04bdde073298}{\index{Sync\-Manager.\-h@{Sync\-Manager.\-h}!Do\-Normal\-Sending@{Do\-Normal\-Sending}}
+\index{Do\-Normal\-Sending@{Do\-Normal\-Sending}!SyncManager.h@{Sync\-Manager.\-h}}
+\subsubsection[{Do\-Normal\-Sending}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Instruction} Do\-Normal\-Sending (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{, }
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{SyncManager_8h_a740993a565edfec9f14b04bdde073298}
+\hypertarget{SyncManager_8h_a6e4434163bdddeda5cb6ac390fe0a460}{\index{Sync\-Manager.\-h@{Sync\-Manager.\-h}!Do\-Nothing@{Do\-Nothing}}
+\index{Do\-Nothing@{Do\-Nothing}!SyncManager.h@{Sync\-Manager.\-h}}
+\subsubsection[{Do\-Nothing}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Instruction} Do\-Nothing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{SyncManager_8h_a6e4434163bdddeda5cb6ac390fe0a460}
+\hypertarget{SyncManager_8h_a743ac2ed8a240b58d210f1ca1f30d100}{\index{Sync\-Manager.\-h@{Sync\-Manager.\-h}!Exit@{Exit}}
+\index{Exit@{Exit}!SyncManager.h@{Sync\-Manager.\-h}}
+\subsubsection[{Exit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Instruction} Exit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{SyncManager_8h_a743ac2ed8a240b58d210f1ca1f30d100}
+\hypertarget{SyncManager_8h_a9c1ce1795c0defadcd213854c807e01c}{\index{Sync\-Manager.\-h@{Sync\-Manager.\-h}!Get\-Server\-Files@{Get\-Server\-Files}}
+\index{Get\-Server\-Files@{Get\-Server\-Files}!SyncManager.h@{Sync\-Manager.\-h}}
+\subsubsection[{Get\-Server\-Files}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Instruction} Get\-Server\-Files (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{, }
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{SyncManager_8h_a9c1ce1795c0defadcd213854c807e01c}
+\hypertarget{SyncManager_8h_a11a4f069bfdf59b575c59535d3fe7792}{\index{Sync\-Manager.\-h@{Sync\-Manager.\-h}!New\-User@{New\-User}}
+\index{New\-User@{New\-User}!SyncManager.h@{Sync\-Manager.\-h}}
+\subsubsection[{New\-User}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Instruction} New\-User (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{, }
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{SyncManager_8h_a11a4f069bfdf59b575c59535d3fe7792}
+\hypertarget{SyncManager_8h_ad0fd69c1477d593c5dc8f144cb76866f}{\index{Sync\-Manager.\-h@{Sync\-Manager.\-h}!Refresh\-Server\-D\-B@{Refresh\-Server\-D\-B}}
+\index{Refresh\-Server\-D\-B@{Refresh\-Server\-D\-B}!SyncManager.h@{Sync\-Manager.\-h}}
+\subsubsection[{Refresh\-Server\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Instruction} Refresh\-Server\-D\-B (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{SyncManager_8h_ad0fd69c1477d593c5dc8f144cb76866f}
+\hypertarget{SyncManager_8h_abfddd119d52bf96667886ccfb7af21e7}{\index{Sync\-Manager.\-h@{Sync\-Manager.\-h}!Sync\-List\-Contains@{Sync\-List\-Contains}}
+\index{Sync\-List\-Contains@{Sync\-List\-Contains}!SyncManager.h@{Sync\-Manager.\-h}}
+\subsubsection[{Sync\-List\-Contains}]{\setlength{\rightskip}{0pt plus 5cm}bool Sync\-List\-Contains (
+\begin{DoxyParamCaption}
+\item[{{\bf Sync\-List}}]{, }
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{SyncManager_8h_abfddd119d52bf96667886ccfb7af21e7}
+\hypertarget{SyncManager_8h_a87664538c61e2f5c69b0b2940deed285}{\index{Sync\-Manager.\-h@{Sync\-Manager.\-h}!Transfer\-Client\-To\-Server@{Transfer\-Client\-To\-Server}}
+\index{Transfer\-Client\-To\-Server@{Transfer\-Client\-To\-Server}!SyncManager.h@{Sync\-Manager.\-h}}
+\subsubsection[{Transfer\-Client\-To\-Server}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Instruction} Transfer\-Client\-To\-Server (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{, }
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{SyncManager_8h_a87664538c61e2f5c69b0b2940deed285}
+\hypertarget{SyncManager_8h_a5d12ad90f8461407c13e4f9086dd26d3}{\index{Sync\-Manager.\-h@{Sync\-Manager.\-h}!Transfer\-Server\-To\-Client@{Transfer\-Server\-To\-Client}}
+\index{Transfer\-Server\-To\-Client@{Transfer\-Server\-To\-Client}!SyncManager.h@{Sync\-Manager.\-h}}
+\subsubsection[{Transfer\-Server\-To\-Client}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Instruction} Transfer\-Server\-To\-Client (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{, }
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{SyncManager_8h_a5d12ad90f8461407c13e4f9086dd26d3}
+\hypertarget{SyncManager_8h_a30374e1a82aa274f7f17dabbddf8e055}{\index{Sync\-Manager.\-h@{Sync\-Manager.\-h}!User\-Exists@{User\-Exists}}
+\index{User\-Exists@{User\-Exists}!SyncManager.h@{Sync\-Manager.\-h}}
+\subsubsection[{User\-Exists}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Instruction} User\-Exists (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{SyncManager_8h_a30374e1a82aa274f7f17dabbddf8e055}

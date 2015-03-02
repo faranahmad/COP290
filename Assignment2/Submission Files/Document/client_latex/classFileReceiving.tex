@@ -1,0 +1,162 @@
+\hypertarget{classFileReceiving}{\section{File\-Receiving Class Reference}
+\label{classFileReceiving}\index{File\-Receiving@{File\-Receiving}}
+}
+
+
+{\ttfamily \#include $<$File\-Receiving.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFileReceiving_a210d62e5e2cb29bbd4b55127816f68bf}{File\-Receiving} ()
+\item 
+\hyperlink{classFileReceiving_a30c46d31d7e53fe7d83d9587265862a6}{File\-Receiving} (std\-::vector$<$ \hyperlink{structSharing}{Sharing} $>$)
+\item 
+std\-::vector$<$ \hyperlink{structSharing}{Sharing} $>$ \hyperlink{classFileReceiving_a42c374d04e33e3466abecd7d3c98f94a}{Get\-Sharing\-List} ()
+\item 
+int \hyperlink{classFileReceiving_a7b6fc52a5c35237ee26f6913f4a5eb23}{Get\-Number\-Of\-Sharing} ()
+\item 
+\hyperlink{structSharing}{Sharing} \hyperlink{classFileReceiving_a099259c6b07dcb917d1c334ac350998e}{Get\-Nth\-Sharing} (int)
+\item 
+void \hyperlink{classFileReceiving_a1d473ca13d04993d63bc6741a6fefbd1}{Set\-Sharing\-List} (std\-::vector$<$ \hyperlink{structSharing}{Sharing} $>$)
+\item 
+void \hyperlink{classFileReceiving_a86819116d557f8a5c3baec58eb7c6ef4}{Set\-Nth\-Sharing} (\hyperlink{structSharing}{Sharing}, int)
+\item 
+void \hyperlink{classFileReceiving_ad8c2893eb148ee850387c1fec54aa0bf}{Add\-New\-Sharing} (\hyperlink{structSharing}{Sharing})
+\item 
+void \hyperlink{classFileReceiving_af25c889e2f2c4638aa05fcbeb62da25a}{Add\-New\-Location} (std\-::string)
+\item 
+void \hyperlink{classFileReceiving_a8daeddf5b19c48abba79bc05f90d0bf8}{Add\-New\-Location\-Type} (std\-::string, int)
+\item 
+void \hyperlink{classFileReceiving_abe9f0ef10a71ba0e7f777e231123be5a}{Load\-Sharing\-From\-Disk} (std\-::string)
+\item 
+void \hyperlink{classFileReceiving_ab3d0b4ff93681251370b27c99ad5946a}{Store\-Sharing\-To\-Disk} (std\-::string)
+\item 
+bool \hyperlink{classFileReceiving_a6c0f67c0ce449c15eecc80153202bcd8}{Check\-If\-Exists} (std\-::string)
+\item 
+void \hyperlink{classFileReceiving_a9665aeb1d58fc74fe2d5e2314a5e6af5}{Insert\-New\-In\-Disk} (std\-::string, \hyperlink{structSharing}{Sharing})
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::vector$<$ \hyperlink{structSharing}{Sharing} $>$ \hyperlink{classFileReceiving_a21cc62eb0b3321750aa1e03315772605}{Sharing\-List}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classFileReceiving_a210d62e5e2cb29bbd4b55127816f68bf}{\index{File\-Receiving@{File\-Receiving}!File\-Receiving@{File\-Receiving}}
+\index{File\-Receiving@{File\-Receiving}!FileReceiving@{File\-Receiving}}
+\subsubsection[{File\-Receiving}]{\setlength{\rightskip}{0pt plus 5cm}File\-Receiving\-::\-File\-Receiving (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classFileReceiving_a210d62e5e2cb29bbd4b55127816f68bf}
+\hypertarget{classFileReceiving_a30c46d31d7e53fe7d83d9587265862a6}{\index{File\-Receiving@{File\-Receiving}!File\-Receiving@{File\-Receiving}}
+\index{File\-Receiving@{File\-Receiving}!FileReceiving@{File\-Receiving}}
+\subsubsection[{File\-Receiving}]{\setlength{\rightskip}{0pt plus 5cm}File\-Receiving\-::\-File\-Receiving (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Sharing} $>$}]{v}
+\end{DoxyParamCaption}
+)}}\label{classFileReceiving_a30c46d31d7e53fe7d83d9587265862a6}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classFileReceiving_af25c889e2f2c4638aa05fcbeb62da25a}{\index{File\-Receiving@{File\-Receiving}!Add\-New\-Location@{Add\-New\-Location}}
+\index{Add\-New\-Location@{Add\-New\-Location}!FileReceiving@{File\-Receiving}}
+\subsubsection[{Add\-New\-Location}]{\setlength{\rightskip}{0pt plus 5cm}void File\-Receiving\-::\-Add\-New\-Location (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{newloc}
+\end{DoxyParamCaption}
+)}}\label{classFileReceiving_af25c889e2f2c4638aa05fcbeb62da25a}
+\hypertarget{classFileReceiving_a8daeddf5b19c48abba79bc05f90d0bf8}{\index{File\-Receiving@{File\-Receiving}!Add\-New\-Location\-Type@{Add\-New\-Location\-Type}}
+\index{Add\-New\-Location\-Type@{Add\-New\-Location\-Type}!FileReceiving@{File\-Receiving}}
+\subsubsection[{Add\-New\-Location\-Type}]{\setlength{\rightskip}{0pt plus 5cm}void File\-Receiving\-::\-Add\-New\-Location\-Type (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{newloc, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}}\label{classFileReceiving_a8daeddf5b19c48abba79bc05f90d0bf8}
+\hypertarget{classFileReceiving_ad8c2893eb148ee850387c1fec54aa0bf}{\index{File\-Receiving@{File\-Receiving}!Add\-New\-Sharing@{Add\-New\-Sharing}}
+\index{Add\-New\-Sharing@{Add\-New\-Sharing}!FileReceiving@{File\-Receiving}}
+\subsubsection[{Add\-New\-Sharing}]{\setlength{\rightskip}{0pt plus 5cm}void File\-Receiving\-::\-Add\-New\-Sharing (
+\begin{DoxyParamCaption}
+\item[{{\bf Sharing}}]{news}
+\end{DoxyParamCaption}
+)}}\label{classFileReceiving_ad8c2893eb148ee850387c1fec54aa0bf}
+\hypertarget{classFileReceiving_a6c0f67c0ce449c15eecc80153202bcd8}{\index{File\-Receiving@{File\-Receiving}!Check\-If\-Exists@{Check\-If\-Exists}}
+\index{Check\-If\-Exists@{Check\-If\-Exists}!FileReceiving@{File\-Receiving}}
+\subsubsection[{Check\-If\-Exists}]{\setlength{\rightskip}{0pt plus 5cm}bool File\-Receiving\-::\-Check\-If\-Exists (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{tocheck}
+\end{DoxyParamCaption}
+)}}\label{classFileReceiving_a6c0f67c0ce449c15eecc80153202bcd8}
+\hypertarget{classFileReceiving_a099259c6b07dcb917d1c334ac350998e}{\index{File\-Receiving@{File\-Receiving}!Get\-Nth\-Sharing@{Get\-Nth\-Sharing}}
+\index{Get\-Nth\-Sharing@{Get\-Nth\-Sharing}!FileReceiving@{File\-Receiving}}
+\subsubsection[{Get\-Nth\-Sharing}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sharing} File\-Receiving\-::\-Get\-Nth\-Sharing (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{classFileReceiving_a099259c6b07dcb917d1c334ac350998e}
+\hypertarget{classFileReceiving_a7b6fc52a5c35237ee26f6913f4a5eb23}{\index{File\-Receiving@{File\-Receiving}!Get\-Number\-Of\-Sharing@{Get\-Number\-Of\-Sharing}}
+\index{Get\-Number\-Of\-Sharing@{Get\-Number\-Of\-Sharing}!FileReceiving@{File\-Receiving}}
+\subsubsection[{Get\-Number\-Of\-Sharing}]{\setlength{\rightskip}{0pt plus 5cm}int File\-Receiving\-::\-Get\-Number\-Of\-Sharing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classFileReceiving_a7b6fc52a5c35237ee26f6913f4a5eb23}
+\hypertarget{classFileReceiving_a42c374d04e33e3466abecd7d3c98f94a}{\index{File\-Receiving@{File\-Receiving}!Get\-Sharing\-List@{Get\-Sharing\-List}}
+\index{Get\-Sharing\-List@{Get\-Sharing\-List}!FileReceiving@{File\-Receiving}}
+\subsubsection[{Get\-Sharing\-List}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf Sharing} $>$ File\-Receiving\-::\-Get\-Sharing\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classFileReceiving_a42c374d04e33e3466abecd7d3c98f94a}
+\hypertarget{classFileReceiving_a9665aeb1d58fc74fe2d5e2314a5e6af5}{\index{File\-Receiving@{File\-Receiving}!Insert\-New\-In\-Disk@{Insert\-New\-In\-Disk}}
+\index{Insert\-New\-In\-Disk@{Insert\-New\-In\-Disk}!FileReceiving@{File\-Receiving}}
+\subsubsection[{Insert\-New\-In\-Disk}]{\setlength{\rightskip}{0pt plus 5cm}void File\-Receiving\-::\-Insert\-New\-In\-Disk (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{location, }
+\item[{{\bf Sharing}}]{news}
+\end{DoxyParamCaption}
+)}}\label{classFileReceiving_a9665aeb1d58fc74fe2d5e2314a5e6af5}
+\hypertarget{classFileReceiving_abe9f0ef10a71ba0e7f777e231123be5a}{\index{File\-Receiving@{File\-Receiving}!Load\-Sharing\-From\-Disk@{Load\-Sharing\-From\-Disk}}
+\index{Load\-Sharing\-From\-Disk@{Load\-Sharing\-From\-Disk}!FileReceiving@{File\-Receiving}}
+\subsubsection[{Load\-Sharing\-From\-Disk}]{\setlength{\rightskip}{0pt plus 5cm}void File\-Receiving\-::\-Load\-Sharing\-From\-Disk (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{location}
+\end{DoxyParamCaption}
+)}}\label{classFileReceiving_abe9f0ef10a71ba0e7f777e231123be5a}
+\hypertarget{classFileReceiving_a86819116d557f8a5c3baec58eb7c6ef4}{\index{File\-Receiving@{File\-Receiving}!Set\-Nth\-Sharing@{Set\-Nth\-Sharing}}
+\index{Set\-Nth\-Sharing@{Set\-Nth\-Sharing}!FileReceiving@{File\-Receiving}}
+\subsubsection[{Set\-Nth\-Sharing}]{\setlength{\rightskip}{0pt plus 5cm}void File\-Receiving\-::\-Set\-Nth\-Sharing (
+\begin{DoxyParamCaption}
+\item[{{\bf Sharing}}]{s, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{classFileReceiving_a86819116d557f8a5c3baec58eb7c6ef4}
+\hypertarget{classFileReceiving_a1d473ca13d04993d63bc6741a6fefbd1}{\index{File\-Receiving@{File\-Receiving}!Set\-Sharing\-List@{Set\-Sharing\-List}}
+\index{Set\-Sharing\-List@{Set\-Sharing\-List}!FileReceiving@{File\-Receiving}}
+\subsubsection[{Set\-Sharing\-List}]{\setlength{\rightskip}{0pt plus 5cm}void File\-Receiving\-::\-Set\-Sharing\-List (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Sharing} $>$}]{v}
+\end{DoxyParamCaption}
+)}}\label{classFileReceiving_a1d473ca13d04993d63bc6741a6fefbd1}
+\hypertarget{classFileReceiving_ab3d0b4ff93681251370b27c99ad5946a}{\index{File\-Receiving@{File\-Receiving}!Store\-Sharing\-To\-Disk@{Store\-Sharing\-To\-Disk}}
+\index{Store\-Sharing\-To\-Disk@{Store\-Sharing\-To\-Disk}!FileReceiving@{File\-Receiving}}
+\subsubsection[{Store\-Sharing\-To\-Disk}]{\setlength{\rightskip}{0pt plus 5cm}void File\-Receiving\-::\-Store\-Sharing\-To\-Disk (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{location}
+\end{DoxyParamCaption}
+)}}\label{classFileReceiving_ab3d0b4ff93681251370b27c99ad5946a}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classFileReceiving_a21cc62eb0b3321750aa1e03315772605}{\index{File\-Receiving@{File\-Receiving}!Sharing\-List@{Sharing\-List}}
+\index{Sharing\-List@{Sharing\-List}!FileReceiving@{File\-Receiving}}
+\subsubsection[{Sharing\-List}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Sharing}$>$ File\-Receiving\-::\-Sharing\-List\hspace{0.3cm}{\ttfamily [private]}}}\label{classFileReceiving_a21cc62eb0b3321750aa1e03315772605}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{FileReceiving_8h}{File\-Receiving.\-h}\item 
+\hyperlink{FileReceiving_8cpp}{File\-Receiving.\-cpp}\end{DoxyCompactItemize}
