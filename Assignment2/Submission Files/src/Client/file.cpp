@@ -145,7 +145,7 @@ void file::makechange()
     ui->listWidget->clear();                                            //clears the list
     Data nextfolder = fulldata.top().GetListFiles().at(selected);       
     fulldata.push(nextfolder);
-    path.push((path.top()+nextfolder.GetName()+"/"));
+    path.push((nextfolder.GetName()));
     ui->label->setText(path.top().c_str());
     std::vector<Data> filesroot1 = fulldata.top().GetListFiles();
     for (unsigned int i = 0;i<filesroot1.size();i++)

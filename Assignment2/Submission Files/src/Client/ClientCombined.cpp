@@ -490,7 +490,9 @@ std::string ExecuteInstruction(Instruction ins)
                 bytes_recieved=SSL_read(ssl, len,20);
                 len[bytes_recieved]='\0';
                 long long size=atoll(len);
+#ifdef DEBUG
                 std::cout<<size<<std::endl;
+#endif
                 char filename[size];
                 bytes_recieved=SSL_read(ssl,filename,size);
                 filename[bytes_recieved]='\0';
