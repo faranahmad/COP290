@@ -130,17 +130,47 @@
 
 
 \begin{frame}{Network Design}{}
-	TODO: SOCCER
+	\begin{block}{Basic Design}
+		\begin{itemize}
+			\item Our application will use UDP (User Datagram Protocol) to communicate between various players.
+			\item Since our multiplayer is real time, we need fast transfer of data.
+			\item Even if some of the packets are lost due to unreliability of UDP, it won't affect much. Things change so fast (i.e. player movement) in the game that it doesn't make sense to resend a lost packet as it will contain old information.
+		\end{itemize}
+	\end{block}
 \end{frame}
 
-\begin{frame}{Network Design}{Some more}
-	TODO: SOCCER
+\begin{frame}{Network Design}{Some more}	
+	\begin{block}{Idea}
+		\begin{itemize}
+			\item Each player will have two basic threads.
+			\item One thread for receiving data from other players.
+			\item Second thread for sending data to other players.
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{Exchanging data}
+		\begin{itemize}
+			\item We will send data from one player to all the other players as soon as a frame is rendered
+			\item This means that we will send almost 30-60 messages every second and hence UDP is used.
+		\end{itemize}
+	\end{block}
 \end{frame}
 
 \begin{frame}{Network Design}{Network Outages}
-	TODO: SOCCER \\
-	Something about replacing player with AI player of same level till network is back. \\
-	Also something on if the AI server goes down then a different user becomes the AI server.
+	\begin{block}{Connection lost}
+		\begin{itemize}
+			\item If a player disconnects, AI (same level) will take over the ship.
+			\item Once the player reconnects, he will automatically gain control of his lost ship.
+		\end{itemize}
+	\end{block}	
+	\begin{block}{Concept of ``server''}
+		\begin{itemize}
+			\item When a game is setup, a randomly chosen player will act as a ``temporary server''.
+			\item This player will act as the AI of the game and will send messages to all the other players accordingly.
+			\item If a player other than this one disconnects, no change is required.
+			\item If this player disconnects, another active player will be chosen to act as the ``temporary server''.
+		\end{itemize}
+	\end{block}
 \end{frame}
 
 \begin{frame}{Artificial Intelligence}{Overview}
