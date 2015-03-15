@@ -1,12 +1,3 @@
-/*
-        demo-udp-03: udp-recv: a simple udp server
-	receive udp messages
-
-        usage:  udp-recv
-
-        Paul Krzyzanowski
-*/
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -20,26 +11,20 @@
 #include <iostream>
 #define BUFSIZE 2048
 
-int
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	struct sockaddr_in myaddr;	/* our address */
-	struct sockaddr_in remaddr;	/* remote address */
-	socklen_t addrlen = sizeof(remaddr);		/* length of addresses */
-	int recvlen;			/* # bytes received */
-	int fd;				/* our socket */
-	int msgcnt = 0;			/* count # of messages we received */
-	char buf[BUFSIZE];	/* receive buffer */
-
-
-	/* create a UDP socket */
+	struct sockaddr_in myaddr;	
+	struct sockaddr_in remaddr;	
+	socklen_t addrlen = sizeof(remaddr);	
+	int recvlen;			
+	int fd;				
+	int msgcnt = 0;		
+	char buf[BUFSIZE];	
 
 	if ((fd = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
 		perror("cannot create socket\n");
 		return 0;
 	}
-
-	/* bind the socket to any valid IP address and a specific port */
 
 	memset((char *)&myaddr, 0, sizeof(myaddr));
 	myaddr.sin_family = AF_INET;
@@ -51,8 +36,7 @@ main(int argc, char **argv)
 		return 0;
 	}
 
-	/* now loop, receiving data and printing what we received */
-	for (;;) {
+	for (;;) { //infinite loop
 		printf("waiting on port %d\n", SERVICE_PORT);
 		recvlen = recvfrom(fd, buf, BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
 		if (recvlen > 0) {
@@ -70,5 +54,4 @@ main(int argc, char **argv)
 		if (sendto(fd, buf, strlen(buf), 0, (struct sockaddr *)&remaddr, addrlen) < 0)
 			perror("sendto");
 	}
-	/* never exits */
 }
