@@ -21,7 +21,8 @@ int main(int argc, char **argv)
 	int msgcnt = 0;		
 	char buf[BUFSIZE];	
 
-	if ((fd = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+	if ((fd = socket(AF_INET, SOCK_DGRAM, 0)) < 0) 
+	{
 		perror("cannot create socket\n");
 		return 0;
 	}
@@ -31,12 +32,14 @@ int main(int argc, char **argv)
 	myaddr.sin_addr.s_addr = htonl(INADDR_ANY);
 	myaddr.sin_port = htons(SERVICE_PORT);
 
-	if (bind(fd, (struct sockaddr *)&myaddr, sizeof(myaddr)) < 0) {
+	if (bind(fd, (struct sockaddr *)&myaddr, sizeof(myaddr)) < 0) 
+	{
 		perror("bind failed");
 		return 0;
 	}
 
-	for (;;) { //infinite loop
+	for (;;)//infinite loop
+	 { 
 		printf("waiting on port %d\n", SERVICE_PORT);
 		recvlen = recvfrom(fd, buf, BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
 		if (recvlen > 0) {

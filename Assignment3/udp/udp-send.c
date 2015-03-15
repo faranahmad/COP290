@@ -29,7 +29,8 @@ int main(void)
 	myaddr.sin_addr.s_addr = htonl(INADDR_ANY);
 	myaddr.sin_port = htons(0);
 
-	if (bind(fd, (struct sockaddr *)&myaddr, sizeof(myaddr)) < 0) {
+	if (bind(fd, (struct sockaddr *)&myaddr, sizeof(myaddr)) < 0) 
+	{
 		perror("bind failed");
 		return 0;
 	}       
@@ -42,21 +43,24 @@ int main(void)
 		exit(1);
 	}
 
-	for (i=0; i < MSGS; i++) {
+	for (i=0; i < MSGS; i++) 
+	{
 		printf("Sending packet %d to %s port %d\n", i, server, SERVICE_PORT);
 		int t;
 		std::cin>>t;
 		sprintf(buf, "This is packet %d", t);
 		int arr[3];
 		arr[5]=1;
-		if (sendto(fd, buf, strlen(buf), 0, (struct sockaddr *)&remaddr, slen)==-1) {
+		if (sendto(fd, buf, strlen(buf), 0, (struct sockaddr *)&remaddr, slen)==-1) 
+		{
 			perror("sendto");
 			exit(1);
 		}
 		socklen_t blen=(socklen_t)slen;
 		recvlen = recvfrom(fd, buf, BUFLEN, 0, (struct sockaddr *)&remaddr, &blen);
-                if (recvlen >= 0) {
-                        buf[recvlen] = 0;	/* expect a printable string - terminate it */
+                if (recvlen >= 0) 
+                {
+                        buf[recvlen] = 0;
                         printf("received message: \"%s\"\n", buf);
                 }
 	}
