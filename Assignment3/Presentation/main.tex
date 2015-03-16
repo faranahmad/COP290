@@ -74,6 +74,21 @@
   \titlepage
 \end{frame}
 
+% \begin{frame}{Networking}{Latency \& Mitigating it}
+%   \begin{blocK}{Latency}
+%     \begin{itemize}
+%       \item For the status/actions of tanks other than a player's own tanks, the player must receive network messages from every opponent.
+%       \item Those messages take time to travel over the network from one computer to another.
+%     \end{itemize}
+%   \end{blocK}
+%   \begin{block}{Mitigating Latency Issues}
+%     \begin{itemize}
+%       \item Extrapolation: Locally move entities based on their current direction and velocity.
+%       \item Timeout: when network latency is too high, then the problematic peers are disconnected. If the peer takes more than an specified time to answer, it is disconnected.
+%     \end{itemize}
+%   \end{block}
+% \end{frame}
+
 \begin{frame}{Objectives}{}
 	Design a game which is :
 	\begin{itemize}
@@ -200,6 +215,7 @@
     \begin{tabular}{ | l | p{9cm} |}
     \hline
     Date &  Summary \\ \hline
+    23 March & Extensive planning and design document. \\ \hline
     31 March & Graphics of individual components like aliens, ships etc. \\ & Basic network communication.\\ \hline
     07 April & AI of the ships.\\ &  Dealing with network outages.\\ \hline
     14 April & AI of the aliens. \\ & Integrating AI with main game.\\ & Testing the network component. \\ \hline
