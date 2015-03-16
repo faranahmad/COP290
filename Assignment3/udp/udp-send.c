@@ -24,6 +24,13 @@ int main(void)
 	if ((fd=socket(AF_INET, SOCK_DGRAM, 0))==-1)
 		printf("socket created\n");
 
+	struct timeval tv;
+	tv.tv_sec = 5;
+	tv.tv_usec = 100000;
+	if (setsockopt(fd, SOL_SOCKET, SO_RCVTIMEO,&tv,sizeof(tv)) < 0) {
+	    perror("Error timeout");
+	}
+
 	memset((char *)&myaddr, 0, sizeof(myaddr));
 	myaddr.sin_family = AF_INET;
 	myaddr.sin_addr.s_addr = htonl(INADDR_ANY);
