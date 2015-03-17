@@ -1,8 +1,6 @@
 #ifndef COLOR_H
 #define COLOR_H
 
-// #include <vector>
-
 class Color
 {
 	public:
@@ -24,7 +22,5 @@ class Color
 		float G;
 		float B;
 };
-
-// std::vector<Color> GoodColors;
 
 #endif
