@@ -2,6 +2,7 @@
 #define BULLET_H
 
 #include "Color.h"
+#include <string>
 
 class Bullet
 {
@@ -10,8 +11,8 @@ class Bullet
 
 		float GetXPos();
 		float GetYPos();
-		float VelX();
-		float VelY();
+		float GetVelX();
+		float GetVelY();
 		Color GetColorOfBullet();
 		int GetShipId();
 		bool GetTypeAI();
@@ -27,6 +28,8 @@ class Bullet
 		void SetTypePlayer(bool);
 
 		void ResetBulletState();
+
+		std::string GetSummary();
 
 	private:
 		float XPos;

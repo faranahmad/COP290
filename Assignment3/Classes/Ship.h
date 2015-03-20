@@ -49,6 +49,8 @@ class Ship
 		void AddMissile();
 		void ReduceMissile();
 
+		std::string GetSummary();
+
 	private:
 		float XPos;
 		float YPos;

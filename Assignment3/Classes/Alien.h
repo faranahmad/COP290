@@ -1,12 +1,17 @@
 #ifndef ALIEN_H
 #define ALIEN_H
 
+#include <string>
+#include "Color.h"
+
 class Alien
 {
 	public:
 		Alien();
 		
 		// TODO FARAN
+
+		std::string GetSummary();
 
 	private:
 		float XPos;

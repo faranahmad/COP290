@@ -38,6 +38,8 @@ class Board
 		void UpdatePlayerAI();					// Update AI players
 		void UpdateUserPlayer(int id,int type); // type =1 then move right etc (6 cases)
 
+		std::string GetSummary();
+
 	private:
 		std::vector<Ship> VectorShips;
 		std::vector<Bullet> VectorBullets;		
