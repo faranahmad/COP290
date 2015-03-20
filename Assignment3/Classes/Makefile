@@ -41,3 +41,4 @@ AllTests.o: AllTests.cpp
 
 clean:
 	rm -rf *.o
+	rm -rf Test Game
