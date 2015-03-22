@@ -9,7 +9,25 @@ class Alien
 	public:
 		Alien();
 		
-		// TODO FARAN
+		float GetXPos();
+		float GetYPos();
+		float GetAngle();
+		Color GetColor();
+		int GetLevel();
+		int GetLives();
+		int GetBullets();
+		int GetMissiles();
+		int GetType();
+
+		void SetXPos(float);
+		void SetYPos(float);
+		void SetAngle(float);
+		void SetColor(Color);
+		void SetLevel(int);
+		void SetLives(int);
+		void SetBullets(int);
+		void SetMissiles(int);
+		void SetType(int);
 
 		std::string GetSummary();
 
@@ -22,6 +40,7 @@ class Alien
 		int PresentLives;
 		int NumberBullets;
 		int NumberMissiles;
+		int AlienType;
 };
 
 #endif
