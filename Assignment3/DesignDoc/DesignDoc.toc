@@ -10,17 +10,22 @@
 \contentsline {subsection}{\numberline {3.2}Artificial Intelligence}{6}
 \contentsline {subsection}{\numberline {3.3}Graphics}{6}
 \contentsline {subsection}{\numberline {3.4}Network Part}{6}
-\contentsline {section}{\numberline {4}Interaction amongst Sub Components}{6}
-\contentsline {subsection}{\numberline {4.1}Back-end and UI}{6}
-\contentsline {subsection}{\numberline {4.2}Back-end and Network}{6}
-\contentsline {section}{\numberline {5}Testing Of Components}{6}
-\contentsline {subsection}{\numberline {5.1}General Unit Tests}{6}
-\contentsline {subsection}{\numberline {5.2}Graphics}{7}
-\contentsline {subsection}{\numberline {5.3}Artificial Intelligence}{7}
-\contentsline {subsection}{\numberline {5.4}Network Component}{7}
-\contentsline {subsection}{\numberline {5.5}Overall Testing}{7}
-\contentsline {section}{\numberline {6}Extra Features}{7}
-\contentsline {subsection}{\numberline {6.1}Competitive Multi-player Mode}{7}
-\contentsline {subsection}{\numberline {6.2}3D Game-play}{7}
-\contentsline {subsection}{\numberline {6.3}Sound Effects}{7}
-\contentsline {subsection}{\numberline {6.4}Replacement of Player by AI}{7}
+\contentsline {subsubsection}{\numberline {3.4.1}Why UDP?}{6}
+\contentsline {subsubsection}{\numberline {3.4.2}Basic Network Design}{6}
+\contentsline {subsubsection}{\numberline {3.4.3}Network Outages}{7}
+\contentsline {subsubsection}{\numberline {3.4.4}Peer-to-Peer}{7}
+\contentsline {subsubsection}{\numberline {3.4.5}Basic UDP Functions}{7}
+\contentsline {section}{\numberline {4}Interaction amongst Sub Components}{8}
+\contentsline {subsection}{\numberline {4.1}Back-end and UI}{8}
+\contentsline {subsection}{\numberline {4.2}Back-end and Network}{8}
+\contentsline {section}{\numberline {5}Testing Of Components}{8}
+\contentsline {subsection}{\numberline {5.1}General Unit Tests}{8}
+\contentsline {subsection}{\numberline {5.2}Graphics}{8}
+\contentsline {subsection}{\numberline {5.3}Artificial Intelligence}{9}
+\contentsline {subsection}{\numberline {5.4}Network Component}{9}
+\contentsline {subsection}{\numberline {5.5}Overall Testing}{9}
+\contentsline {section}{\numberline {6}Extra Features}{9}
+\contentsline {subsection}{\numberline {6.1}Competitive Multi-player Mode}{9}
+\contentsline {subsection}{\numberline {6.2}3D Game-play}{9}
+\contentsline {subsection}{\numberline {6.3}Sound Effects}{9}
+\contentsline {subsection}{\numberline {6.4}Replacement of Player by AI}{10}

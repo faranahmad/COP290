@@ -150,8 +150,55 @@ private:
 			% \newline
 				TODO: KG
 			\subsection{Network Part}
-				TODO: SOCCER
-	% \newline
+				We will use the User Datagram Protocol (UDP) to design and implement the network aspect of the assignment. It is a communications protocol that offers a limited amount of service when messages are exchanged between computers in a network that uses the Internet Protocol (IP).
+				UDP uses a simple connectionless transmission model with a minimum of protocol mechanism. It has no handshaking dialogues, and thus exposes any unreliability of the underlying network protocol to the user's program. There is no guarantee of delivery, ordering, or duplicate protection. UDP provides checksums for data integrity, and port numbers for addressing different functions at the source and destination of the datagram. UDP is suitable for purposes where error checking and correction is either not necessary or is performed in the application, avoiding the overhead of such processing at the network interface level.
+				\subsubsection{Why UDP?}
+					Our application is a real-time multi-player video game, thus we need fast transfer of data. As stated above, UDP can be fast but unreliable. Even if some of the packets are lost due to unreliability of UDP, it won't affect much. Things change so fast (i.e. player movement, bullets firing) in the game that it doesn't make sense to resend a lost packet as it will contain old information. 
+				\subsubsection{Basic Network Design}
+					Our network will work on the basis of following points
+						\begin{itemize}
+							\item Each player will have two basic threads.
+							\item One thread for receiving data from other players.
+							\item Second thread for sending data to other players.
+						\end{itemize}
+					\textbf{We shall be sending data} (i.e. player position, AI components data etc) \textbf{as soon a frame is rendered}. This means that we will send almost 30-60 messages every second and hence the use of UDP is justified.
+				\subsubsection{Network Outages}
+					In the event of a network outages, we shall replace control of the ship of the lost player with AI of same level. The level of AI would be calculated on the basis of the score just before the player was lost. Once the player reconnects, he will automatically gain control of his lost ship.
+				\subsubsection{Peer-to-Peer}
+					Each of the player in the game would be exchanging its data with each and every other player. Thus we shall implement a peer-to-peer (P2P) connection.
+					To control AI components of the game, we shall be using the concept of a ``temporary server'' or a ``virtual server''. A randomly chosen person will be chosen as the ``temporary server''. This player will act as the AI of the game and will send messages to all the other players accordingly. If a player other than this one disconnects, no change is required. If this player disconnects, another active player will be chosen to act as the ``temporary server''.
+				\subsubsection{Basic UDP Functions}
+					\begin{itemize}
+						\item Socket Creation
+							\begin{lstlisting}[language=C++, caption={socket()}]
+socket(AF_INET, SOCK_DGRAM, 0)		
+//AF_INET for Pv4 Internet protocol
+//UDP uses SOCK_DGRAM 
+//0 is the protocol
+							\end{lstlisting}
+						\item When a socket is created with socket(), it exists in a name space (address family) but has no address assigned to it. bind() assigns the address specified by addr to the socket referred to by the file descriptor sockfd. addrlen specifies the size, in bytes, of the address structure pointed to by addr. Traditionally, this operation is called ``assigning a name to a socket''.
+							\begin{lstlisting}[language=C++, caption={bind()}]
+bind(fd, (struct sockaddr *)&myaddr, sizeof(myaddr))
+//fd is the sockfd
+//myaddr is the address of the player
+
+							\end{lstlisting}
+						\item Receiving data
+							\begin{lstlisting}[language=C++, caption={recvfrom()}]
+recvfrom(fd, buf, BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen)
+//fd is the sockfd
+//buf is array of characters in which the message will be received
+//remaddr is the address of the connection player
+							\end{lstlisting}
+						\item Sending data
+							\begin{lstlisting}[language=C++, caption={sendto()}]
+sendto(fd, buf, strlen(buf), 0, (struct sockaddr *)&remaddr, addrlen)
+//fd is the sockfd
+//buf is array of characters which contains the data to be sent
+//remaddr is the address of the sending player
+							\end{lstlisting}
+					\end{itemize}
+% \newline
 	\section{Interaction amongst Sub Components}
 		% \subsection{enumerate}
 			\subsection{Back-end and UI}
@@ -180,12 +227,16 @@ private:
 			\subsection{Artificial Intelligence}
 				TODO KABIR
 			\subsection{Network Component}
-				TODO SOCCER
+				Testing of network will be divided into two stages.
+					\begin{itemize}
+						\item In the first stage, we shall test the basic transfer of data. We shall be about 100 dummy messages from one player to another using a simple for loop. The receiver will record the number of messages received and thus we can determine the percentage of packets dropped.
+						\item In the second stage, we shall be test the shifting of the ``temporary server'' from one player to another when the player gets disconnected. In this case, the ``temporary server'' shall be sending dummy messages. We shall connect about three players. After the connection is established, we shall close the application of the ``temporary server''. One of the other two must become the ``temporary server'' and sending of dummy message should be continued.
+					\end{itemize}
 			\subsection{Overall Testing}
 				For overall testing of the game, we will play the game with as many players as possible and verify the smooth functioning of AI and network component. The network for some clients will be shut down suddenly to check if the transitions for the AI and others are smooth.
 	\section{Extra Features}
 		\subsection{Competitive Multi-player Mode}
-			In this multiplayer mode, the players will be fighting each other. They will try to shoot each other down. Aliens will not be present in this mode. AI players will be present in this.
+			In this multi-player mode, the players will be fighting each other. They will try to shoot each other down. Aliens will not be present in this mode. AI players will be present in this.
 		\subsection{3D Game-play}
 			The game will be taken to 3D in which the aliens and ships can be viewed in a 3D perspective. The camera position will be adjusted by the user based on input from mouse.
 		\subsection{Sound Effects}
