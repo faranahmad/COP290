@@ -155,7 +155,7 @@ private:
 	\section{Interaction amongst Sub Components}
 		% \subsection{enumerate}
 			\subsection{Back-end and UI}
-				TODO KG
+				The GUI will use the data structures directly. The ``Board'' class will be available to generate the display on the screen. The user inputs from keyboard and mouse will be used to generate changes in the class object. 
 			\subsection{Back-end and Network}
 				TODO KG
 	\section{Testing Of Components}
@@ -173,20 +173,23 @@ private:
 };
 				\end{lstlisting}
 
-				We will use the aforementioned class ``Test'' to perform unit tests on the different files created. This will ensure that all the functions work correctly against some tests.
+				We will use the aforementioned class ``Test'' to perform unit tests on the different files created. This will ensure that all the functions work correctly against some test cases.
 
 			\subsection{Graphics}
-				TODO KG
+				To test the graphics component, we will create aliens and ships at chosen positions. The positions should change appropriately based on user inputs. Bullets should also be fired from the correct positions. When a bullet hits an alien or a ship, proper GUI effects will be added.
 			\subsection{Artificial Intelligence}
 				TODO KABIR
 			\subsection{Network Component}
 				TODO SOCCER
 			\subsection{Overall Testing}
-				TODO KG
-
+				For overall testing of the game, we will play the game with as many players as possible and verify the smooth functioning of AI and network component. The network for some clients will be shut down suddenly to check if the transitions for the AI and others are smooth.
 	\section{Extra Features}
-		TODO
 		\subsection{Competitive Multi-player Mode}
+			In this multiplayer mode, the players will be fighting each other. They will try to shoot each other down. Aliens will not be present in this mode. AI players will be present in this.
 		\subsection{3D Game-play}
-
+			The game will be taken to 3D in which the aliens and ships can be viewed in a 3D perspective. The camera position will be adjusted by the user based on input from mouse.
+		\subsection{Sound Effects}
+			Sound effects will be added for the entire game-play. When bullets are fired or some shoot down takes place, appropriate sounds will be played.
+		\subsection{Replacement of Player by AI}
+			In case of network failures, the player whose network has gone down will get replaced by an AI player of the same level as the player was. This will ensure completely seamless transition in case of network outages. Once the network comes back on, the player will replace the AI control. 
 \end{document}

@@ -15,10 +15,12 @@
 \contentsline {subsection}{\numberline {4.2}Back-end and Network}{6}
 \contentsline {section}{\numberline {5}Testing Of Components}{6}
 \contentsline {subsection}{\numberline {5.1}General Unit Tests}{6}
-\contentsline {subsection}{\numberline {5.2}Graphics}{6}
+\contentsline {subsection}{\numberline {5.2}Graphics}{7}
 \contentsline {subsection}{\numberline {5.3}Artificial Intelligence}{7}
 \contentsline {subsection}{\numberline {5.4}Network Component}{7}
 \contentsline {subsection}{\numberline {5.5}Overall Testing}{7}
 \contentsline {section}{\numberline {6}Extra Features}{7}
 \contentsline {subsection}{\numberline {6.1}Competitive Multi-player Mode}{7}
 \contentsline {subsection}{\numberline {6.2}3D Game-play}{7}
+\contentsline {subsection}{\numberline {6.3}Sound Effects}{7}
+\contentsline {subsection}{\numberline {6.4}Replacement of Player by AI}{7}
