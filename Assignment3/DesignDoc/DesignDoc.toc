@@ -1,26 +1,24 @@
 \contentsline {section}{\numberline {1}Objectives}{3}
 \contentsline {section}{\numberline {2}Overall Design}{3}
 \contentsline {section}{\numberline {3}Sub Components}{3}
-\contentsline {subsection}{\numberline {3.1}User Verification}{3}
-\contentsline {subsection}{\numberline {3.2}Files of User}{4}
-\contentsline {subsection}{\numberline {3.3}Network Managing Part}{4}
-\contentsline {subsubsection}{\numberline {3.3.1}Basic Networking}{4}
-\contentsline {subsubsection}{\numberline {3.3.2}Encryption of Data Transfer}{7}
-\contentsline {subsection}{\numberline {3.4}GUI interface}{8}
-\contentsline {section}{\numberline {4}Interaction amongst Sub Components}{9}
-\contentsline {subsection}{\numberline {4.1}User Authentication}{9}
-\contentsline {subsection}{\numberline {4.2}File Transfer}{9}
-\contentsline {subsection}{\numberline {4.3}File Sharing and Syncing}{10}
-\contentsline {subsection}{\numberline {4.4}Front End and Back End}{10}
-\contentsline {section}{\numberline {5}Testing Of Components}{10}
-\contentsline {subsection}{\numberline {5.1}General Unit Tests}{10}
-\contentsline {subsection}{\numberline {5.2}File Discovery}{10}
-\contentsline {subsection}{\numberline {5.3}File Transferring}{11}
-\contentsline {subsection}{\numberline {5.4}UI Testing}{11}
-\contentsline {subsection}{\numberline {5.5}Overall Testing}{11}
-\contentsline {section}{\numberline {6}Extra Features}{11}
-\contentsline {subsection}{\numberline {6.1}Keeping Files On-line only.}{11}
-\contentsline {subsection}{\numberline {6.2}Intelligent UI for server}{12}
-\contentsline {subsection}{\numberline {6.3}Allowing Incomplete Downloads}{12}
-\contentsline {subsection}{\numberline {6.4}De-duplication}{12}
-\contentsline {subsection}{\numberline {6.5}MultiThreading}{12}
+\contentsline {subsection}{\numberline {3.1}Back End}{3}
+\contentsline {subsubsection}{\numberline {3.1.1}Alien}{3}
+\contentsline {subsubsection}{\numberline {3.1.2}Ship}{3}
+\contentsline {subsubsection}{\numberline {3.1.3}Color}{4}
+\contentsline {subsubsection}{\numberline {3.1.4}Bullet}{4}
+\contentsline {subsubsection}{\numberline {3.1.5}Board}{4}
+\contentsline {subsection}{\numberline {3.2}Artificial Intelligence}{5}
+\contentsline {subsection}{\numberline {3.3}Graphics}{5}
+\contentsline {subsection}{\numberline {3.4}Network Part}{5}
+\contentsline {section}{\numberline {4}Interaction amongst Sub Components}{5}
+\contentsline {subsection}{\numberline {4.1}Back-end and UI}{5}
+\contentsline {subsection}{\numberline {4.2}Back-end and Network}{5}
+\contentsline {section}{\numberline {5}Testing Of Components}{5}
+\contentsline {subsection}{\numberline {5.1}General Unit Tests}{5}
+\contentsline {subsection}{\numberline {5.2}Graphics}{6}
+\contentsline {subsection}{\numberline {5.3}Artificial Intelligence}{6}
+\contentsline {subsection}{\numberline {5.4}Network Component}{6}
+\contentsline {subsection}{\numberline {5.5}Overall Testing}{6}
+\contentsline {section}{\numberline {6}Extra Features}{6}
+\contentsline {subsection}{\numberline {6.1}Competitive Multi-player Mode}{6}
+\contentsline {subsection}{\numberline {6.2}3D Game-play}{6}
