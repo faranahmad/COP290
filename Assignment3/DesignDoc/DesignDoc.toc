@@ -1,24 +1,24 @@
 \contentsline {section}{\numberline {1}Objectives}{3}
 \contentsline {section}{\numberline {2}Overall Design}{3}
-\contentsline {section}{\numberline {3}Sub Components}{3}
-\contentsline {subsection}{\numberline {3.1}Back End}{3}
-\contentsline {subsubsection}{\numberline {3.1.1}Alien}{3}
-\contentsline {subsubsection}{\numberline {3.1.2}Ship}{3}
-\contentsline {subsubsection}{\numberline {3.1.3}Color}{4}
-\contentsline {subsubsection}{\numberline {3.1.4}Bullet}{4}
-\contentsline {subsubsection}{\numberline {3.1.5}Board}{4}
-\contentsline {subsection}{\numberline {3.2}Artificial Intelligence}{5}
-\contentsline {subsection}{\numberline {3.3}Graphics}{5}
-\contentsline {subsection}{\numberline {3.4}Network Part}{5}
-\contentsline {section}{\numberline {4}Interaction amongst Sub Components}{5}
-\contentsline {subsection}{\numberline {4.1}Back-end and UI}{5}
-\contentsline {subsection}{\numberline {4.2}Back-end and Network}{5}
-\contentsline {section}{\numberline {5}Testing Of Components}{5}
-\contentsline {subsection}{\numberline {5.1}General Unit Tests}{5}
+\contentsline {section}{\numberline {3}Sub Components}{4}
+\contentsline {subsection}{\numberline {3.1}Back End}{4}
+\contentsline {subsubsection}{\numberline {3.1.1}Alien}{4}
+\contentsline {subsubsection}{\numberline {3.1.2}Ship}{4}
+\contentsline {subsubsection}{\numberline {3.1.3}Color}{5}
+\contentsline {subsubsection}{\numberline {3.1.4}Bullet}{5}
+\contentsline {subsubsection}{\numberline {3.1.5}Board}{5}
+\contentsline {subsection}{\numberline {3.2}Artificial Intelligence}{6}
+\contentsline {subsection}{\numberline {3.3}Graphics}{6}
+\contentsline {subsection}{\numberline {3.4}Network Part}{6}
+\contentsline {section}{\numberline {4}Interaction amongst Sub Components}{6}
+\contentsline {subsection}{\numberline {4.1}Back-end and UI}{6}
+\contentsline {subsection}{\numberline {4.2}Back-end and Network}{6}
+\contentsline {section}{\numberline {5}Testing Of Components}{6}
+\contentsline {subsection}{\numberline {5.1}General Unit Tests}{6}
 \contentsline {subsection}{\numberline {5.2}Graphics}{6}
-\contentsline {subsection}{\numberline {5.3}Artificial Intelligence}{6}
-\contentsline {subsection}{\numberline {5.4}Network Component}{6}
-\contentsline {subsection}{\numberline {5.5}Overall Testing}{6}
-\contentsline {section}{\numberline {6}Extra Features}{6}
-\contentsline {subsection}{\numberline {6.1}Competitive Multi-player Mode}{6}
-\contentsline {subsection}{\numberline {6.2}3D Game-play}{6}
+\contentsline {subsection}{\numberline {5.3}Artificial Intelligence}{7}
+\contentsline {subsection}{\numberline {5.4}Network Component}{7}
+\contentsline {subsection}{\numberline {5.5}Overall Testing}{7}
+\contentsline {section}{\numberline {6}Extra Features}{7}
+\contentsline {subsection}{\numberline {6.1}Competitive Multi-player Mode}{7}
+\contentsline {subsection}{\numberline {6.2}3D Game-play}{7}

@@ -44,30 +44,45 @@
 	\newpage
 
 	\section{Objectives}
-		About the assignment
+		Design a game which is :
+		\begin{itemize}
+			\item Multi-player on-line without a central server.
+			\item Has a artificial intelligence component.
+			\item Is an action game and not a simple board game.
+		\end{itemize}
+		\begin{figure}[ht!]
+      	\centering
+        	\includegraphics[width=1.0\linewidth]{gameplay.png}
+    	\end{figure}
 	\section{Overall Design}
+		The game which we will build is space invaders. It involves the player controlling a space ship and shooting down aliens. The aliens will fight back with bullets and missiles. The player has a limited number of lives and has to score the maximum in them.
 		\begin{enumerate}
-			\item About the components and layers
+			\item The application would be programmed in C++.
+			\item The GUI part would involve OpenGL.
+			\item UDP sockets will be used for network data transfer.
+			\item POSIX threads will be used to run the network and back-end in parallel.
+			\item Inter thread synchronization would be done using mutex lock.
 		\end{enumerate}
 
 	\section{Sub Components}
 		% \begin{enumerate}
 
 			\subsection{Back End}
+				TODO: FARAN
 				\subsubsection{Alien}
 					\begin{lstlisting}[language=C++, caption={Class Parameters for Alien}]
 class Alien
 {
 private:
-	float XPos;
-	float YPos;
-	float Angle;
-	Color ColorOfAlien;
-	int Level;
-	int PresentLives;
-	int NumberBullets;
-	int NumberMissiles;
-	int AlienType;
+	float XPos;				// X coordinate
+	float YPos;				// Y coordinate
+	float Angle;			// Orientation angle
+	Color ColorOfAlien;		// Color
+	int Level;				// AI difficulty level
+	int PresentLives;		// Lives left
+	int NumberBullets;		// Bullets fired per shot
+	int NumberMissiles;		// Number of missiles left
+	int AlienType;			// Type
 };
 					\end{lstlisting}
 				\subsubsection{Ship}
@@ -75,19 +90,19 @@ private:
 class Ship
 {
 private:
-	float XPos;
-	float YPos;
-	float Angle;
-	std::string Name;
-	Color ColorOfShip;
-	int Lives;
-	int Score;
-	int Multiplier;
-	int Kills;
-	int Id;
-	int NumberBullets;
-	int NumberMissiles;
-	int AILevel;
+	float XPos;				// X coordinate
+	float YPos;				// Y coordinate
+	float Angle;			// Angle
+	std::string Name;		// Name of player
+	Color ColorOfShip;		// Color of ship
+	int Lives;				// Lives left
+	int Score;				// Score of player
+	int Multiplier;			// Multiplying factor
+	int Kills;				// No. of kills
+	int Id;					// Player id
+	int NumberBullets;		// Bullets fired per shot
+	int NumberMissiles;		// Number of missiles left
+	int AILevel;			// Level of AI
 };
 					\end{lstlisting}
 				\subsubsection{Color}
@@ -95,9 +110,9 @@ private:
 class Color
 {
 private:
-	float R;
-	float G;
-	float B;
+	float R;				// Value of R component
+	float G;				// Value of G component
+	float B;				// Value of B component
 };
 					\end{lstlisting}
 				\subsubsection{Bullet}
@@ -105,14 +120,14 @@ private:
 class Bullet
 {
 private:
-	float XPos;
-	float YPos;
-	float VelX;
-	float VelY;
-	Color ColorOfBullet;
-	int ShipId;	
-	bool TypeAI;
-	bool TypePlayer;
+	float XPos;				// X Coordinate
+	float YPos;				// Y Coordinate
+	float VelX;				// Velocity X
+	float VelY;				// Velocity Y
+	Color ColorOfBullet;	// Color
+	int ShipId;				// Id of ship fired from
+	bool TypeAI;			// If AI bullet
+	bool TypePlayer;		// Player type
 };
 					\end{lstlisting}
 				\subsubsection{Board}
@@ -120,24 +135,29 @@ private:
 class Board
 {
 private:
-	std::vector<Ship> VectorShips;
-	std::vector<Bullet> VectorBullets;		
-	std::vector<Alien> VectorAliens;
-	double DimensionPosX;
-	double DimensionPosY;
-	double DimensionNegX;
-	double DimensionNegY;	
+	std::vector<Ship> VectorShips;		// All ships
+	std::vector<Bullet> VectorBullets;	// All bullets
+	std::vector<Alien> VectorAliens;	// All aliens
+	double DimensionPosX;				// Dimensions + x	
+	double DimensionPosY;				// Dimensions + y	
+	double DimensionNegX;				// Dimensions - x	
+	double DimensionNegY;				// Dimensions - y		
 };
 					\end{lstlisting}
 			\subsection{Artificial Intelligence}
+				TODO: KABIR
 			\subsection{Graphics}
 			% \newline
+				TODO: KG
 			\subsection{Network Part}
+				TODO: SOCCER
 	% \newline
 	\section{Interaction amongst Sub Components}
 		% \subsection{enumerate}
 			\subsection{Back-end and UI}
+				TODO KG
 			\subsection{Back-end and Network}
+				TODO KG
 	\section{Testing Of Components}
 		% \begin{enumerate}
 			\subsection{General Unit Tests}
@@ -156,11 +176,16 @@ private:
 				We will use the aforementioned class ``Test'' to perform unit tests on the different files created. This will ensure that all the functions work correctly against some tests.
 
 			\subsection{Graphics}
+				TODO KG
 			\subsection{Artificial Intelligence}
+				TODO KABIR
 			\subsection{Network Component}
+				TODO SOCCER
 			\subsection{Overall Testing}
+				TODO KG
 
 	\section{Extra Features}
+		TODO
 		\subsection{Competitive Multi-player Mode}
 		\subsection{3D Game-play}
 
