@@ -6,26 +6,33 @@
 \contentsline {subsubsection}{\numberline {3.1.2}Ship}{4}
 \contentsline {subsubsection}{\numberline {3.1.3}Color}{5}
 \contentsline {subsubsection}{\numberline {3.1.4}Bullet}{5}
-\contentsline {subsubsection}{\numberline {3.1.5}Board}{5}
+\contentsline {subsubsection}{\numberline {3.1.5}Board}{6}
 \contentsline {subsection}{\numberline {3.2}Artificial Intelligence}{6}
-\contentsline {subsection}{\numberline {3.3}Graphics}{6}
-\contentsline {subsection}{\numberline {3.4}Network Part}{6}
-\contentsline {subsubsection}{\numberline {3.4.1}Why UDP?}{6}
-\contentsline {subsubsection}{\numberline {3.4.2}Basic Network Design}{6}
-\contentsline {subsubsection}{\numberline {3.4.3}Network Outages}{7}
-\contentsline {subsubsection}{\numberline {3.4.4}Peer-to-Peer}{7}
-\contentsline {subsubsection}{\numberline {3.4.5}Basic UDP Functions}{7}
-\contentsline {section}{\numberline {4}Interaction amongst Sub Components}{8}
-\contentsline {subsection}{\numberline {4.1}Back-end and UI}{8}
-\contentsline {subsection}{\numberline {4.2}Back-end and Network}{8}
-\contentsline {section}{\numberline {5}Testing Of Components}{8}
-\contentsline {subsection}{\numberline {5.1}General Unit Tests}{8}
-\contentsline {subsection}{\numberline {5.2}Graphics}{8}
-\contentsline {subsection}{\numberline {5.3}Artificial Intelligence}{9}
-\contentsline {subsection}{\numberline {5.4}Network Component}{9}
-\contentsline {subsection}{\numberline {5.5}Overall Testing}{9}
-\contentsline {section}{\numberline {6}Extra Features}{9}
-\contentsline {subsection}{\numberline {6.1}Competitive Multi-player Mode}{9}
-\contentsline {subsection}{\numberline {6.2}3D Game-play}{9}
-\contentsline {subsection}{\numberline {6.3}Sound Effects}{9}
-\contentsline {subsection}{\numberline {6.4}Replacement of Player by AI}{10}
+\contentsline {subsubsection}{\numberline {3.2.1}Aliens}{6}
+\contentsline {subsubsection}{\numberline {3.2.2}Ships}{6}
+\contentsline {subsubsection}{\numberline {3.2.3}Missiles}{6}
+\contentsline {subsubsection}{\numberline {3.2.4}Strategy}{7}
+\contentsline {subsubsection}{\numberline {3.2.5}Difficulty}{7}
+\contentsline {subsubsection}{\numberline {3.2.6}Learning for AI}{7}
+\contentsline {subsubsection}{\numberline {3.2.7}Incorporation}{7}
+\contentsline {subsection}{\numberline {3.3}Graphics}{7}
+\contentsline {subsection}{\numberline {3.4}Network Part}{7}
+\contentsline {subsubsection}{\numberline {3.4.1}Why UDP?}{8}
+\contentsline {subsubsection}{\numberline {3.4.2}Basic Network Design}{8}
+\contentsline {subsubsection}{\numberline {3.4.3}Network Outages}{8}
+\contentsline {subsubsection}{\numberline {3.4.4}Peer-to-Peer}{8}
+\contentsline {subsubsection}{\numberline {3.4.5}Basic UDP Functions}{9}
+\contentsline {section}{\numberline {4}Interaction amongst Sub Components}{9}
+\contentsline {subsection}{\numberline {4.1}Back-end and UI}{9}
+\contentsline {subsection}{\numberline {4.2}Back-end and Network}{10}
+\contentsline {section}{\numberline {5}Testing Of Components}{10}
+\contentsline {subsection}{\numberline {5.1}General Unit Tests}{10}
+\contentsline {subsection}{\numberline {5.2}Graphics}{10}
+\contentsline {subsection}{\numberline {5.3}Artificial Intelligence}{10}
+\contentsline {subsection}{\numberline {5.4}Network Component}{11}
+\contentsline {subsection}{\numberline {5.5}Overall Testing}{11}
+\contentsline {section}{\numberline {6}Extra Features}{11}
+\contentsline {subsection}{\numberline {6.1}Competitive Multi-player Mode}{11}
+\contentsline {subsection}{\numberline {6.2}3D Game-play}{11}
+\contentsline {subsection}{\numberline {6.3}Sound Effects}{11}
+\contentsline {subsection}{\numberline {6.4}Replacement of Player by AI}{11}
