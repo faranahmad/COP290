@@ -13,6 +13,7 @@ class Ship
 		float GetXPos();
 		float GetYPos();
 		float GetAngle();
+		std::string GetName();
 		Color GetColor();
 		int GetLives();
 		int GetScore();
@@ -21,13 +22,14 @@ class Ship
 		int GetId();
 		int GetNumberBullets();
 		int GetNumberMissiles();
-		bool GetAIControl();
+		int GetAIControlLevel();
 
 		void SetXPos(float);
 		void SetYPos(float);
 		void SetAngle(float);
+		void SetName(std::string);
 		void SetColorOfShip(Color);
-		void SetColorFloat(float,float,float);
+		void SetColorFloat(int,int,int);
 		void SetLives(int);
 		void SetScore(int);
 		void SetMultiplier(int);
@@ -35,7 +37,10 @@ class Ship
 		void SetId(int);
 		void SetNumberBullets(int);
 		void SetNumberMissiles(int);
-		void SetAIControl(bool);
+		void SetAIControlLevel(int);
+
+		bool IfAIControl();
+		bool IfHumanControl();
 
 		void AddLife();
 		void ReduceLife();
@@ -64,7 +69,7 @@ class Ship
 		int Id;
 		int NumberBullets;
 		int NumberMissiles;
-		int AILevel; 				// -1 if human player
+		int AILevel; 				// -1 if human player 
 };
 
 #endif
