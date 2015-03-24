@@ -53,6 +53,7 @@ int main(int argc, char **argv)
 		sprintf(buf, "ack %d", t);
 
 		printf("sending response \"%s\"\n", buf);
+		std::cout << "Connected to: " << remaddr.sin_addr.s_addr << std::endl;
 
 		if (sendto(fd, buf, strlen(buf), 0, (struct sockaddr *)&remaddr, addrlen) < 0)
 			perror("sendto");
