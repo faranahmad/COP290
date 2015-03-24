@@ -11,8 +11,28 @@ class Board
 {
 	public:
 		Board();
+		Board(double,double,double,double);
+
+		void SetPosXDimension(double);
+		void SetPosYDimension(double);
+		void SetNegXDimension(double);
+		void SetNegYDimension(double);
+
+
+		// void SetNumberShips(int);
+		// void SetNumberAliens(int);
+		// void SetNumberBullets(int);
+		
+		void SetNthBullet(int);
+		void SetNthBullet(int);
+		void SetNthShip(int);
 		
 		// SET GET
+
+		double GetPosXDimension();
+		double GetPosYDimension();
+		double GetNegXDimension();
+		double GetNegYDimension();
 
 		int GetNumberShips();
 		int GetNumberAliens();
@@ -38,6 +58,10 @@ class Board
 		void UpdatePlayerAI();					// Update AI players
 		void UpdateUserPlayer(int id,int type); // type =1 then move right etc (6 cases)
 
+		void InsertBullet();
+		void InsertAlien();
+		void InsertShip();
+		
 		std::string GetSummary();
 
 	private:

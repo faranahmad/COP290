@@ -18,6 +18,8 @@ class Alien
 		int GetBullets();
 		int GetMissiles();
 		int GetType();
+		int GetBullets();
+		int GetMissiles();
 
 		void SetXPos(float);
 		void SetYPos(float);
