@@ -24,7 +24,7 @@ class Board
 		// void SetNumberBullets(int);
 		
 		void SetNthBullet(int);
-		void SetNthBullet(int);
+		// void SetNthBullet(int);
 		void SetNthShip(int);
 		
 		// SET GET

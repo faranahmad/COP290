@@ -268,7 +268,7 @@ void display(void)
 int main(int argc,char *argv[])
 {
 	std::cout << "Opening file\n";
-	missile = loadOBJ("cube3.obj");
+	missile = loadOBJ("Bullet.obj");
 	std::cout << "Opened file\n";
     // Wrapper function for graphics
     glutInit(&argc, argv);

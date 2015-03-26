@@ -27,7 +27,7 @@ Color Alien::GetColor()
 
 int Alien::GetLevel()
 {
-	return level;
+	return Level;
 }
 
 int Alien::GetType()
@@ -98,15 +98,15 @@ void Alien::SetType(int type_alien)
 
 std::string Alien::GetSummary()
 {
-	return (std::to_string(XPos) + "\t" + 
+	return std::to_string(XPos) + "\t" + 
 			std::to_string(YPos) + "\t" + 
 			std::to_string(Angle) + "\t" + 
-			std::to_string(ColorOfAlien.GetR()) + ","
-			std::to_string(ColorOfAlien.GetB()) + ","
-			std::to_string(ColorOfAlien.GetG()) + "\t"
-			std::to_string(Level) + "\t"
-			std::to_string(PresentLives) + "\t"
-			std::to_string(NumberBullets) + "\t"
-			std::to_string(NumberMissiles) + "\t"
-			std::to_string(AlienType))
+			std::to_string(ColorOfAlien.GetR()) + "," +
+			std::to_string(ColorOfAlien.GetB()) + "," +
+			std::to_string(ColorOfAlien.GetG()) + "\t" +
+			std::to_string(Level) + "\t" +
+			std::to_string(PresentLives) + "\t" +
+			std::to_string(NumberBullets) + "\t" +
+			std::to_string(NumberMissiles) + "\t" + 
+			std::to_string(AlienType);
 }

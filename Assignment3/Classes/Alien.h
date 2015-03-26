@@ -18,13 +18,14 @@ class Alien
 		int GetBullets();
 		int GetMissiles();
 		int GetType();
-		int GetBullets();
-		int GetMissiles();
+		// int GetBullets();
+		// int GetMissiles();
 
 		void SetXPos(float);
 		void SetYPos(float);
 		void SetAngle(float);
 		void SetColor(Color);
+		void SetColorFloat(int,int,int);
 		void SetLevel(int);
 		void SetLives(int);
 		void SetBullets(int);
