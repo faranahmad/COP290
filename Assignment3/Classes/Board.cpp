@@ -170,7 +170,7 @@ void Board::InsertShip(Ship new_ship)
 	VectorShips.push_back(new_ship);
 }
 
-void Board::GetSummary()
+std::string Board::GetSummary()
 {
 	std::string get_summary_ship = "";
 	std::string get_summary_bullet = "";
@@ -178,8 +178,9 @@ void Board::GetSummary()
 
 	for (int i = 0;i < VectorShips.size();i++)
 	{
-//		std::to_string()
+
 	}
+	return "prateek is chutiya";
 }
 
 
