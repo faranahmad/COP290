@@ -182,11 +182,41 @@ void handleKeypress(unsigned char key, int x, int y)
 			Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
 			newb.SetXPos(present.GetXPos());
 			newb.SetYPos(present.GetYPos());
-			
+
+			float velx = 0- 10*sin(PI*present.GetAngle()/180);
+			float vely = 10* cos(PI*present.GetAngle()/180);
+
+			newb.SetVelX(velx);
+			newb.SetVelY(vely);
+
 			newg.PlayerBoard.InsertBullet(newb);
 			glutPostRedisplay();
 			break;
 		}
+		
+		case 's':
+		{
+			// Fire Missile
+			std::cout << "space bar presed\n";
+			Bullet newb = Bullet();
+			newb.SetTypeAI(true);
+			Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
+			newb.SetXPos(present.GetXPos());
+			newb.SetYPos(present.GetYPos());
+
+
+			float velx = -10* sin(PI*present.GetAngle()/180);
+			float vely = 10* cos(PI*present.GetAngle()/180);
+
+			newb.SetVelX(velx);
+			newb.SetVelY(vely);
+			// float velx=
+
+			newg.PlayerBoard.InsertBullet(newb);
+			glutPostRedisplay();
+			break;
+		}
+
 		case 43: //+ key
 		{    
 			break; 
