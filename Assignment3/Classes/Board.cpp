@@ -1,5 +1,6 @@
 #include "Board.h"
 
+
 Board::Board()
 {
 
@@ -233,41 +234,43 @@ void Board::MoveNthShip(int ship_id,int mov_type)
 	{
 		if(ship_to_move.GetXPos() - 5.0 > -(DimensionNegX))
 		{
-			ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*sin((double) ship_to_move.GetAngle()));
-			ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*cos((double) ship_to_move.GetAngle()));			
+			ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
+			ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180));			
 		}
 	}
 	else if(mov_type == 1)
 	{
 		if(ship_to_move.GetXPos() + 5.0 < DimensionPosX)
 		{
-			ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*sin((double) ship_to_move.GetAngle()));
-			ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*cos((double) ship_to_move.GetAngle()));
+			ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
+			ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
 		}
 	}
 	else if(mov_type == 2)
 	{
 		if(ship_to_move.GetYPos() + 5.0 < DimensionPosY)
 		{
-			ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*sin((double) ship_to_move.GetAngle()));
-			ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*cos((double) ship_to_move.GetAngle()));
+			ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
+			ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
 		}
 	}
 	else if(mov_type == 3)
 	{
 		if(ship_to_move.GetYPos() - 5.0 > -(DimensionNegY))
 		{
-			ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*sin((double) ship_to_move.GetAngle()));
-			ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*cos((double) ship_to_move.GetAngle()));
+			ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
+			ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
 		}
 	}
 	else if(mov_type == 4)
 	{
 		ship_to_move.SetAngle(ship_to_move.GetAngle() - 5.0);
+		std::cout<<ship_to_move.GetAngle() <<"\n";
 	}
 	else if(mov_type == 5)
 	{
 		ship_to_move.SetAngle(ship_to_move.GetAngle() + 5.0);
+		std::cout<<ship_to_move.GetAngle() <<"\n";
 	}
 	VectorShips.at(ship_id) = ship_to_move; 
 }

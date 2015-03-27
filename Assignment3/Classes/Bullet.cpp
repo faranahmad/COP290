@@ -1,6 +1,6 @@
 #include "Bullet.h" 
 
-#define PI 3.14159265
+
 
 Bullet::Bullet()
 {

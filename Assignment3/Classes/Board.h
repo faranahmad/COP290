@@ -8,6 +8,7 @@
 #include <vector>
 #include <math.h>
 #include <string>
+#include <iostream>
 
 class Board
 {
