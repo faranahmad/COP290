@@ -162,7 +162,11 @@ int Board::CheckBulletHitShip(int id)
 
 void Board::UpdateAllBullets()
 {
-	//to do 
+	int bullet_size = VectorBullets.size();
+	for (int i = 0;i < bullet_size ;i++)
+	{
+
+	} 
 }
 
 void Board::UpdateAliens()
@@ -224,7 +228,7 @@ std::string Board::GetSummary()
 
 void Board::MoveNthShip(int ship_id,int mov_type)
 {
-	Ship ship_to_move;
+	Ship ship_to_move = VectorShips.at(ship_id);
 	if(mov_type == 0)
 	{
 		if(ship_to_move.GetXPos() - 5.0 > -(DimensionNegX))
@@ -261,4 +265,11 @@ void Board::MoveNthShip(int ship_id,int mov_type)
 	{
 		ship_to_move.SetAngle(ship_to_move.GetAngle() + 5.0);
 	}
+	VectorShips.at(ship_id) = ship_to_move; 
+}
+ void Board::AddRandomShip()
+{
+	//Ship random_ship;
+	//rand() % 10 + 1;
+
 }
