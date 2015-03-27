@@ -40,7 +40,7 @@ int main(void)
 	// if (setsockopt(fd, SOL_SOCKET, SO_RCVTIMEO,&tv,sizeof(tv)) < 0) {
 	//     perror("Error timeout");
 	// }
-
+struct sockaddr_in myaddr, remaddr
 	memset((char *)&myaddr, 0, sizeof(myaddr));
 	myaddr.sin_family = AF_INET;
 	// myaddr.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -67,7 +67,7 @@ int main(void)
 		printf("Sending packet %d to %s port %d\n", i, server, SERVICE_PORT);
 		int t;
 		std::cin>>t;
-		sprintf(buf, "This is packet %d", t);
+		sprintf(buf, "This isaddrlen packet %d", t);
 		int arr[3];
 		arr[5]=1;
 		if (sendto(fd, buf, strlen(buf), 0, (struct sockaddr *)&remaddr, slen)==-1) 
