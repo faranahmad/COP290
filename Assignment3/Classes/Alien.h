@@ -25,6 +25,7 @@ class Alien
 		void SetYPos(float);
 		void SetAngle(float);
 		void SetColor(Color);
+		void SetColorFloat(int,int,int);
 		void SetLevel(int);
 		void SetLives(int);
 		void SetBullets(int);

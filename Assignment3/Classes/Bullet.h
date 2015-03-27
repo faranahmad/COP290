@@ -23,6 +23,7 @@ class Bullet
 		void SetVelX(float);
 		void SetVelY(float);
 		void SetColorOfBullet(Color);
+		void SetColorOfBulletfloat(int,int,int);
 		void SetShipID(int);
 		void SetTypeAI(bool);
 		void SetTypePlayer(bool);
