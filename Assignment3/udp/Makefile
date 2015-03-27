@@ -5,6 +5,9 @@ CFLAGS = -g
 
 all: udp-send udp-recv
 
+udp: udp.cpp port.h
+	$(CC) udp.cpp -o udp -lpthread
+
 udp-send: udp-send.o 
 	$(CC) -o udp-send udp-send.o $(LIBS)
 
