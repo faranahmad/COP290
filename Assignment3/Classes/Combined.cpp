@@ -120,29 +120,70 @@ void specialKeys( int key, int x, int y )
 	if (key == GLUT_KEY_RIGHT)
 	{
 		// Move the player ship to the right
+		// rotate_x +=2;
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,1);
 	}
 	else if (key == GLUT_KEY_LEFT)
-    {
-    	// Move player ship to left
-    }
-    else if (key == GLUT_KEY_UP)
-    {
-    	// Move player ship up
-    }
-    else if (key == GLUT_KEY_DOWN)
-    {
+	{
+		// Move player ship to left
+		// rotate_y +=2;
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,0);
+	}
+	else if (key == GLUT_KEY_UP)
+	{
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,2);
+		// Move player ship up
+	}
+	else if (key == GLUT_KEY_DOWN)
+	{
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,3);
 		// Move player ship down 
-    }
-    // std::cout << rotate_x <<"\t"<<rotate_y<<"\n";
+	}
+	// std::cout << rotate_x <<"\t"<<rotate_y<<"\n";
 	glutPostRedisplay();
+}
+
+void handleKeypress(unsigned char key, int x, int y) 
+{
+	std::cout << key << "\n";
+	switch (key) 
+	{
+		case 'a':
+		{
+			std::cout <<"a was pressed\n";
+			newg.PlayerBoard.MoveNthShip(newg.PlayerId,4);
+			// Rotate the ship to the left
+		}
+		case 'd':
+		{
+			std::cout <<"d was pressed\n";
+			newg.PlayerBoard.MoveNthShip(newg.PlayerId,5);
+			// Rotate the ship to the right
+		}
+		case 'f':
+		{
+			std::cout << "f was pressed\n";
+			newg.PlayerBoard.AddRandomShip();
+		}
+
+		case 32: //SpaceBar
+			break;
+		case 43: //+ key
+		{    
+			break; 
+		}      
+		case 27: //Escape key
+		{
+			exit(0);
+		}
+    }
 }
 
 void ShowObject(std::vector<Faces> facevect)
 {
 	// glPushMatrix();
 	// glTranslatef(500,500,1000);
-	// glRotatef( rotate_x, 200, 0.0, 0.0 );
-	// glRotatef( rotate_y, 0.0, 200, 0.0 );
+	glRotatef (90,1,0,0);
 	for (int i=0; i<facevect.size() ; i++)
 	{
 		Faces currentface= facevect[i];
@@ -186,7 +227,7 @@ void ShowShip(Ship shiptodisplay)
 {
 	glPushMatrix();
 	glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
-	glRotatef(shiptodisplay.GetAngle(),0,0,1);
+	// glRotatef(shiptodisplay.GetAngle(),0,0,1);
 	Color col_ship=shiptodisplay.GetColor();
 	glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
 	ShowObject(ship);
@@ -282,7 +323,7 @@ int main(int argc,char *argv[])
 	std::cout << "Opened file\n";
 
 	newg.PlayerId = 0;
-	newg.PlayerBoard = Board();
+	newg.PlayerBoard = Board(800,800,450,450);
 
 	Ship news= Ship();
 	news.SetXPos(500);
@@ -298,8 +339,8 @@ int main(int argc,char *argv[])
     glutDisplayFunc(display);
     // glutReshapeFunc(reshape);
     // glutMouseFunc(mouseclick);
-    // glutSpecialFunc(specialKeys);
-    // glutKeyboardFunc(handleKeypress);
+    glutSpecialFunc(specialKeys);
+    glutKeyboardFunc(handleKeypress);
     // initRendering();
 
     glutMainLoop();
