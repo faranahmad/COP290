@@ -284,6 +284,11 @@ int main(int argc,char *argv[])
 	newg.PlayerId = 0;
 	newg.PlayerBoard = Board();
 
+	Ship news= Ship();
+	news.SetXPos(500);
+	news.SetYPos(45);
+	newg.PlayerBoard.InsertShip(news);
+
     // Wrapper function for graphics
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
