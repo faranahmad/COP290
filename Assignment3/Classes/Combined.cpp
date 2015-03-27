@@ -152,22 +152,37 @@ void handleKeypress(unsigned char key, int x, int y)
 		{
 			std::cout <<"a was pressed\n";
 			newg.PlayerBoard.MoveNthShip(newg.PlayerId,4);
+			glutPostRedisplay();
 			// Rotate the ship to the left
+			break;
 		}
 		case 'd':
 		{
 			std::cout <<"d was pressed\n";
 			newg.PlayerBoard.MoveNthShip(newg.PlayerId,5);
+    		glutPostRedisplay();
 			// Rotate the ship to the right
+			break;
 		}
 		case 'f':
 		{
 			std::cout << "f was pressed\n";
-			newg.PlayerBoard.AddRandomShip();
+			// newg.PlayerBoard.AddRandomShip();
+			glutPostRedisplay();
+			break;
 		}
 
 		case 32: //SpaceBar
+		{
+			// Fire bullet
+			// TODO: incorporate multiplier
+			std::cout << "space bar presed\n";
+			Bullet newb = Bullet();
+			newb.SetTypeAI(true);
+			newg.PlayerBoard.InsertBullet(newb);
+			glutPostRedisplay();
 			break;
+		}
 		case 43: //+ key
 		{    
 			break; 
@@ -203,6 +218,7 @@ void ShowObject(std::vector<Faces> facevect)
 
 void ShowBullet(Bullet b)
 {
+	std::cout <<"Showing bullet now\n";
 	glPushMatrix();
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
 	glRotatef(b.GetAngle(),0,0,1);
@@ -227,9 +243,10 @@ void ShowShip(Ship shiptodisplay)
 {
 	glPushMatrix();
 	glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
-	// glRotatef(shiptodisplay.GetAngle(),0,0,1);
+	glRotatef(shiptodisplay.GetAngle(),0,0,1);
 	Color col_ship=shiptodisplay.GetColor();
 	glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
+	std::cout << shiptodisplay.GetXPos() << "\t" << shiptodisplay.GetYPos() <<"\n";
 	ShowObject(ship);
 	glPopMatrix();
 }
@@ -304,10 +321,10 @@ void display(void)
 	glPushMatrix();
 	// glTranslatef(100,100,1000);
 	glColor3f(0.5,0.8,0.2);
-	glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'a' );
-	glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'b' );
-	glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'c' );
-	glutSolidSphere(30, 31, 10);
+	// glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'a' );
+	// glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'b' );
+	// glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'c' );
+	// glutSolidSphere(30, 31, 10);
 	glPopMatrix();
 	glutSwapBuffers();
 	// glutPostRedisplay();
@@ -323,7 +340,7 @@ int main(int argc,char *argv[])
 	std::cout << "Opened file\n";
 
 	newg.PlayerId = 0;
-	newg.PlayerBoard = Board(800,800,450,450);
+	newg.PlayerBoard = Board(1600,1600,900,900);
 
 	Ship news= Ship();
 	news.SetXPos(500);
