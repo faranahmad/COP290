@@ -66,6 +66,9 @@ class Board
 		
 		std::string GetSummary();
 
+		void MoveNthShip(int,int); //first int id secong int if 0 move to left 1 pe right 2 up 3 down 4 rotate clock 5 rotate anti clock
+		void AddRandomShip();
+	
 	private:
 		std::vector<Ship> VectorShips;
 		std::vector<Bullet> VectorBullets;		

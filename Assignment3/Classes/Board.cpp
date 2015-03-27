@@ -126,14 +126,38 @@ void Board::RemoveNthShip(int id)
 	VectorShips.erase(VectorShips.begin() + id);
 }
 
-int Board::CheckBulletHitAlien(int)
+//returns -1 if bullets hits noalien
+int Board::CheckBulletHitAlien(int bullet_id)
 {
-	//to do
+	Bullet bullet_hitting = VectorBullets.at(bullet_id);
+	for (int i = 0;i < VectorAliens.size();i++)
+	{
+		Alien alien_hit = VectorAliens.at(i);
+		float xdis = bullet_hitting.GetXPos() - alien_hit.GetXPos();
+		float ydis = bullet_hitting.GetYPos() - alien_hit.GetYPos();
+		if ((float) sqrt(xdis*xdis + ydis*ydis) < 0.1)
+		{
+			return i;
+		}
+	}
+	return -1;
+
 }
 
-int Board::CheckBulletHitShip(int)
+int Board::CheckBulletHitShip(int id)
 {
-	//to do
+	Bullet bullet_hitting = VectorBullets.at(id);
+	for (int i = 0;i < VectorShips.size();i++)
+	{
+		Ship ship_hit = VectorShips.at(i);
+		float xdis = bullet_hitting.GetXPos() - ship_hit.GetXPos();
+		float ydis = bullet_hitting.GetYPos() - ship_hit.GetYPos();
+		if ((float) sqrt(xdis*xdis + ydis*ydis) < 0.1)
+		{
+			return i;
+		}
+	}
+	return -1;
 }
 
 void Board::UpdateAllBullets()
@@ -178,9 +202,63 @@ std::string Board::GetSummary()
 
 	for (int i = 0;i < VectorShips.size();i++)
 	{
-
+		get_summary_ship  = get_summary_ship + VectorShips.at(i).GetSummary() + "\t";
 	}
-	return "prateek is chutiya";
+	for (int i = 0;i < VectorBullets.size();i++)
+	{
+		get_summary_ship  = get_summary_bullet + VectorBullets.at(i).GetSummary() + "\t";
+	}
+	for (int i = 0;i < VectorAliens.size();i++)
+	{
+		if (i == VectorAliens.size()-1)
+		{
+			get_summary_ship  = get_summary_bullet + VectorAliens.at(i).GetSummary();
+		}
+		else
+		{
+			get_summary_ship  = get_summary_bullet + VectorAliens.at(i).GetSummary() + "\t";	
+		}
+	}
+	return (get_summary_ship + get_summary_bullet + get_summary_alien);
 }
 
-
+void Board::MoveNthShip(int ship_id,int mov_type)
+{
+	Ship ship_to_move;
+	if(mov_type == 0)
+	{
+		if(ship_to_move.GetXPos() - 5.0 > -(DimensionNegX))
+		{
+			ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0);
+		}
+	}
+	else if(mov_type == 1)
+	{
+		if(ship_to_move.GetXPos() + 5.0 < DimensionPosX)
+		{
+			ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0);
+		}
+	}
+	else if(mov_type == 2)
+	{
+		if(ship_to_move.GetYPos() + 5.0 < DimensionPosY)
+		{
+			ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0);
+		}
+	}
+	else if(mov_type == 3)
+	{
+		if(ship_to_move.GetYPos() - 5.0 > -(DimensionNegY))
+		{
+			ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0);
+		}
+	}
+	else if(mov_type == 4)
+	{
+		ship_to_move.SetAngle(ship_to_move.GetAngle() - 5.0);
+	}
+	else if(mov_type == 5)
+	{
+		ship_to_move.SetAngle(ship_to_move.GetAngle() + 5.0);
+	}
+}

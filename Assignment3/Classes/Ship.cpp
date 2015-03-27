@@ -225,5 +225,21 @@ void Ship::ReduceMissile()
 
 std::string Ship::GetSummary()
 {
-	//to o later
+	return(
+			std::to_string(XPos) + "\t" +
+			std::to_string(YPos) + "\t" + 
+			std::to_string(Angle) + "\t" + 
+			Name + "\t" + 
+			std::to_string(ColorOfShip.GetR())+ "," + 
+			std::to_string(ColorOfShip.GetG()) + "," + 
+			std::to_string(ColorOfShip.GetB()) + "\t" + 
+			std::to_string(Lives) + "\t" + 
+			std::to_string(Score) + "\t" + 
+			std::to_string(Multiplier) + "\t" + 
+			std::to_string(Kills) + "\t" + 
+			std::to_string(Id) + "\t" +
+			std::to_string(NumberBullets) + "\t" +
+			std::to_string(NumberMissiles) + "\t" + 
+			std::to_string(AILevel)
+		);
 }
