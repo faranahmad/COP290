@@ -18,7 +18,15 @@ std::vector<Faces> alien;
 std::vector<Faces> ship;
 std::vector<Faces> missile;
 std::vector<Faces> bullet;
-Board BoardToDisplay;
+// Board BoardToDisplay;
+
+struct GamePlay
+{
+	Board PlayerBoard;
+	int PlayerId;
+};
+
+GamePlay newg;
 
 
 std::vector<Faces> loadOBJ(char * path)
@@ -26,7 +34,7 @@ std::vector<Faces> loadOBJ(char * path)
 	std::vector<unsigned int> vertexIndices, uvIndices, normalIndices;
 	std::vector<Faces> answer;
 	std::vector<Points> temp_vertices; 
-	// std::vector<glm::vec2> temp_uvs;
+	// std::vector<glm::vec2> temp_uvs;Missile
 	// std::vector<glm::vec3> temp_normals;
 
 
@@ -110,14 +118,22 @@ std::vector<Faces> loadOBJ(char * path)
 void specialKeys( int key, int x, int y ) 
 {
 	if (key == GLUT_KEY_RIGHT)
-		rotate_y += 2;
+	{
+		// Move the player ship to the right
+	}
 	else if (key == GLUT_KEY_LEFT)
-    	rotate_y -= 2;
- 	else if (key == GLUT_KEY_UP)
-    	rotate_x += 2;
- 	else if (key == GLUT_KEY_DOWN)
-    	rotate_x -= 2;
- 	std::cout << rotate_x <<"\t"<<rotate_y<<"\n";
+    {
+    	// Move player ship to left
+    }
+    else if (key == GLUT_KEY_UP)
+    {
+    	// Move player ship up
+    }
+    else if (key == GLUT_KEY_DOWN)
+    {
+		// Move player ship down 
+    }
+    // std::cout << rotate_x <<"\t"<<rotate_y<<"\n";
 	glutPostRedisplay();
 }
 
@@ -147,19 +163,8 @@ void ShowObject(std::vector<Faces> facevect)
 void ShowBullet(Bullet b)
 {
 	glPushMatrix();
-	// glTranslatef(x,y,1000);
-	// glColor3f(color.GetR(),color.GetG(),color.GetB());
-	// GLfloat white[] = {1.f, 1.f, 1.f, 1.0f};
-	// GLfloat ambient[] = {0.7f,0.7f,0.7f,1.0f};
-	// GLfloat cyan[] = {0.8,0.8,0.8,1};
-	// GLfloat shininess[] = {100};
-	// glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
-	// glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
-	// glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
-	// glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient);
-	// glutSolidSphere(10, 31, 10);	
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
-	glRotatef(0,0,b.GetAngle());
+	glRotatef(b.GetAngle(),0,0,1);
 	Color col_bul=b.GetColorOfBullet();
 	glColor3f(col_bul.GetR(),col_bul.GetG(),col_bul.GetB());
 	ShowObject(bullet);
@@ -169,31 +174,19 @@ void ShowBullet(Bullet b)
 void ShowMissile(Bullet b)
 {
 	glPushMatrix();
-	// glTranslatef(x,y,1000);
-	// glColor3f(color.GetR(),color.GetG(),color.GetB());
-	// GLfloat white[] = {1.f, 1.f, 1.f, 1.0f};
-	// GLfloat ambient[] = {0.7f,0.7f,0.7f,1.0f};
-	// GLfloat cyan[] = {0.8,0.8,0.8,1};
-	// GLfloat shininess[] = {100};
-	// glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
-	// glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
-	// glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
-	// glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient);
-	// glutSolidSphere(10, 31, 10);	
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
-	glRotatef(0,0,b.GetAngle());
+	glRotatef(b.GetAngle(),0,0,1);
 	Color col_bul=b.GetColorOfBullet();
 	glColor3f(col_bul.GetR(),col_bul.GetG(),col_bul.GetB());
 	ShowObject(missile);
 	glPopMatrix();
-
 }
 
 void ShowShip(Ship shiptodisplay)
 {
 	glPushMatrix();
 	glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
-	glRotatef(0,0,shiptodisplay.GetAngle());
+	glRotatef(shiptodisplay.GetAngle(),0,0,1);
 	Color col_ship=shiptodisplay.GetColor();
 	glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
 	ShowObject(ship);
@@ -204,7 +197,7 @@ void ShowAlien(Alien alientodisplay)
 {
 	glPushMatrix();
 	glTranslatef(alientodisplay.GetXPos(),alientodisplay.GetYPos(),0);
-	glRotatef(0,0,alientodisplay.GetAngle());
+	glRotatef(alientodisplay.GetAngle(),0,0,1);
 	Color col_ship=alientodisplay.GetColor();
 	glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
 	ShowObject(alien);
@@ -247,8 +240,8 @@ void display(void)
 	int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
 	int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
 	float const window_aspect = (float)window_width / (float)window_height;
-	glRotatef( rotate_x, 200, 0.0, 0.0 );
-	glRotatef( rotate_y, 0.0, 200, 0.0 );
+	// glRotatef( rotate_x, 200, 0.0, 0.0 );
+	// glRotatef( rotate_y, 0.0, 200, 0.0 );
 	glClearColor(0.5, 0.5, 1.0, 1.0);
 	glClearDepth(1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -261,24 +254,18 @@ void display(void)
 	glLoadIdentity();
 
 	// ShowObject(missile);
-// 
 	// ShowBullet(50,-60,5,Color(255,0,0));
 	// ShowBullet(-50,-60,5,Color(255,0,0));
-
 	// ShowMissile(-40.0,-40.0,10.0,10.0,Color(255,0,0));
 
+	ShowBoard(newg.PlayerBoard);
+
 	glPushMatrix();
-	glTranslatef(100,100,1000);
+	// glTranslatef(100,100,1000);
 	glColor3f(0.5,0.8,0.2);
 	glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'a' );
-	GLfloat white[] = {1.f, 1.f, 1.f, 1.0f};
-	GLfloat ambient[] = {0.7f,0.7f,0.7f,1.0f};
-	GLfloat cyan[] = {0.8,0.8,0.8,1};
-	GLfloat shininess[] = {100};
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
-	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
-	glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
-	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient);
+	glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'b' );
+	glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'c' );
 	glutSolidSphere(30, 31, 10);
 	glPopMatrix();
 	glutSwapBuffers();
@@ -290,7 +277,13 @@ int main(int argc,char *argv[])
 	std::cout << "Opening file\n";
 	missile = loadOBJ("Missile.obj");
 	bullet = loadOBJ("Bullet.obj");
+	alien = loadOBJ("Alien1.obj");
+	ship = loadOBJ("Ship.obj");
 	std::cout << "Opened file\n";
+
+	newg.PlayerId = 0;
+	newg.PlayerBoard = Board();
+
     // Wrapper function for graphics
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
@@ -300,7 +293,7 @@ int main(int argc,char *argv[])
     glutDisplayFunc(display);
     // glutReshapeFunc(reshape);
     // glutMouseFunc(mouseclick);
-    glutSpecialFunc(specialKeys);
+    // glutSpecialFunc(specialKeys);
     // glutKeyboardFunc(handleKeypress);
     // initRendering();
 
