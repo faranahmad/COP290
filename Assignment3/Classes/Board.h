@@ -29,6 +29,10 @@ class Board
 		
 		// SET GET
 
+		std::vector<Bullet> GetVectorBullets();
+		std::vector<Ship> GetVectorShips();
+		std::vector<Alien> GetVectorAliens();
+
 		double GetPosXDimension();
 		double GetPosYDimension();
 		double GetNegXDimension();
