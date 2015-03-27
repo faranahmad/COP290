@@ -44,10 +44,10 @@ std::vector<Faces> loadOBJ(char * path)
 		getchar();
 		return answer;
 	}
-	std::cout <<"Starting work\n";
+	// std::cout <<"Starting work\n";
 	while( 1 )
 	{
-		std::cout << "Here\n";
+		// std::cout << "Here\n";
 		char lineHeader[128];
 		// read the first word of the line
 		int res = fscanf(file, "%s", lineHeader);
@@ -58,7 +58,7 @@ std::vector<Faces> loadOBJ(char * path)
 		
 		if ( strcmp( lineHeader, "v" ) == 0 )
 		{
-			std::cout <<"In v case\n";
+			// std::cout <<"In v case\n";
 			Points vertex;
 			fscanf(file, "%f %f %f\n", &vertex.x, &vertex.y, &vertex.z );
 			temp_vertices.push_back(vertex);
@@ -92,7 +92,7 @@ std::vector<Faces> loadOBJ(char * path)
 			vertexIndices.push_back(vertexIndex[1]);
 			vertexIndices.push_back(vertexIndex[2]);
 			Faces NewF;
-			std::cout << vertexIndex[0] <<"\t"<< vertexIndex[1] <<"\t"<< vertexIndex[2] <<"\n";
+			// std::cout << vertexIndex[0] <<"\t"<< vertexIndex[1] <<"\t"<< vertexIndex[2] <<"\n";
 			NewF.p1 = temp_vertices[vertexIndex[0]-1]; 
 			NewF.p2 = temp_vertices[vertexIndex[1]-1];
 			NewF.p3 = temp_vertices[vertexIndex[2]-1];
@@ -167,7 +167,7 @@ void handleKeypress(unsigned char key, int x, int y)
 		case 'f':
 		{
 			std::cout << "f was pressed\n";
-			// newg.PlayerBoard.AddRandomShip();
+			newg.PlayerBoard.AddRandomShip();
 			glutPostRedisplay();
 			break;
 		}
@@ -178,7 +178,11 @@ void handleKeypress(unsigned char key, int x, int y)
 			// TODO: incorporate multiplier
 			std::cout << "space bar presed\n";
 			Bullet newb = Bullet();
-			newb.SetTypeAI(true);
+			newb.SetTypeAI(false);
+			Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
+			newb.SetXPos(present.GetXPos());
+			newb.SetYPos(present.GetYPos());
+			
 			newg.PlayerBoard.InsertBullet(newb);
 			glutPostRedisplay();
 			break;
@@ -230,9 +234,11 @@ void ShowBullet(Bullet b)
 
 void ShowMissile(Bullet b)
 {
+	std::cout <<"Showing missile now\n";
 	glPushMatrix();
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
 	glRotatef(b.GetAngle(),0,0,1);
+	std::cout << b.GetXPos() <<"\t"<< b.GetYPos() <<"\n";
 	Color col_bul=b.GetColorOfBullet();
 	glColor3f(col_bul.GetR(),col_bul.GetG(),col_bul.GetB());
 	ShowObject(missile);
@@ -287,7 +293,7 @@ void ShowBoard(Board boardtodisplay)
 		}
 		else
 		{
-			ShowMissile(BulletsToDisplay[i]);
+			ShowBullet(BulletsToDisplay[i]);
 		}
 	}	
 }
