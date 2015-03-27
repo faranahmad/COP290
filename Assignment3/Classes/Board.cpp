@@ -33,6 +33,50 @@ void Board::SetNegYDimension(double negy)
 	DimensionNegY = negy;
 }
 
+void Board::SetNthBullet(int id,Bullet set_bullet)
+{
+	VectorBullets.at(id) = set_bullet;
+}
+
+void Board::SetNthAlien(int id, Alien set_alien)
+{
+	VectorAliens.at(id) = set_alien;
+}
+
+void Board::SetNthShip(int id, Ship set_ship)
+{
+	VectorShips.at(id) = set_ship;
+}
+
+void Board::SetVectorBullets(std::vector<Bullet> bullet_vector)
+{
+	VectorBullets = bullet_vector;
+}
+void Board::SetVectorShips(std::vector<Ship> ship_vector)
+{
+	VectorShips = ship_vector;
+}
+
+void Board::SetVectorAliens(std::vector<Alien> alien_vector)
+{
+	VectorAliens = alien_vector;
+}
+
+std::vector<Bullet> Board::GetVectorBullets()
+{
+	return VectorBullets;
+}
+
+std::vector<Ship> Board::GetVectorShips()
+{
+	return VectorShips;
+}
+
+std::vector<Alien> Board::GetVectorAliens()
+{
+	return VectorAliens;
+}
+
 double Board::GetPosXDimension()
 {
 	return DimensionPosX;
@@ -66,3 +110,5 @@ int Board::GetNumberBullets()
 {
 	return VectorBullets.size();
 }
+
+Bullet Board::RemoveNthAlien(int id)

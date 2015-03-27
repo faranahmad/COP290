@@ -3,6 +3,7 @@
 
 #include "Color.h"
 #include <string>
+#include <math.h>
 
 class Bullet
 {
