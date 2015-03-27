@@ -284,6 +284,9 @@ void Board::MoveNthShip(int ship_id,int mov_type)
  void Board::AddRandomShip()
 {
 	Ship random_ship;
-	random_ship.SetXPos(RandomFloat())
-
+	random_ship.SetXPos(RandomFloat(-(DimensionNegX),DimensionPosX));
+	random_ship.SetYPos(RandomFloat(-(DimensionNegY),DimensionPosY));
+	random_ship.SetColorFloat(rand() % 255,rand() % 255,rand() % 255);
+	random_ship.SetAngle(RandomFloat(0.0,360.0));
+	VectorShips.push_back(random_ship);
 }
