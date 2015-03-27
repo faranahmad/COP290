@@ -18,16 +18,13 @@ class Board
 		void SetNegXDimension(double);
 		void SetNegYDimension(double);
 
-
-		// void SetNumberShips(int);
-		// void SetNumberAliens(int);
-		// void SetNumberBullets(int);
+		void SetVectorBullets(std::vector<Bullet>);
+		void SetVectorShips(std::vector<Ship>);
+		void SetVectorAliens(std::vector<Alien>);
 		
-		void SetNthBullet(int);
-		// void SetNthBullet(int);
-		void SetNthShip(int);
-		
-		// SET GET
+		void SetNthBullet(int,Bullet);
+		void SetNthShip(int,Ship);
+		void SetNthAlien(int,Alien);
 
 		std::vector<Bullet> GetVectorBullets();
 		std::vector<Ship> GetVectorShips();
@@ -62,9 +59,9 @@ class Board
 		void UpdatePlayerAI();					// Update AI players
 		void UpdateUserPlayer(int id,int type); // type =1 then move right etc (6 cases)
 
-		void InsertBullet();
-		void InsertAlien();
-		void InsertShip();
+		void InsertBullet(Bullet);
+		void InsertAlien(Alien);
+		void InsertShip(Ship);
 		
 		std::string GetSummary();
 

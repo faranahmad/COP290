@@ -1,5 +1,7 @@
 #include "Bullet.h" 
 
+#define PI 3.14159265
+
 Bullet::Bullet()
 {
 	//by default would take everything
@@ -114,4 +116,16 @@ std::string Bullet::GetSummary()
 	+ std::to_string(ColorOfBullet.GetR())+ "," + std::to_string(ColorOfBullet.GetG()) + "," 
 	+ std::to_string(ColorOfBullet.GetB()) + "\t" + std::to_string(ShipId) + "\t"
 	+ std::to_string(TypeAI) + "\t" + std::to_string(TypePlayer));
+}
+
+float Bullet::GetAngle()
+{
+	if (VelX == 0.0)
+	{
+		return (float) PI/2.0;
+	} 
+	else
+	{
+		return (float) atan(VelY / VelX) * 180/PI;
+	}
 }
