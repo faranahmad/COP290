@@ -8,8 +8,8 @@ Board::Board()
 Board::Board(double posx,double negx,double posy,double negy)
 {
 	DimensionPosX = posx;
-	DimensionPosY = negx;
-	DimensionNegX = posy;
+	DimensionPosY = posy;
+	DimensionNegX = negx;
 	DimensionNegY = negy;
 } 
 
@@ -233,28 +233,32 @@ void Board::MoveNthShip(int ship_id,int mov_type)
 	{
 		if(ship_to_move.GetXPos() - 5.0 > -(DimensionNegX))
 		{
-			ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0);
+			ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*sin((double) ship_to_move.GetAngle()));
+			ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*cos((double) ship_to_move.GetAngle()));			
 		}
 	}
 	else if(mov_type == 1)
 	{
 		if(ship_to_move.GetXPos() + 5.0 < DimensionPosX)
 		{
-			ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0);
+			ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*sin((double) ship_to_move.GetAngle()));
+			ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*cos((double) ship_to_move.GetAngle()));
 		}
 	}
 	else if(mov_type == 2)
 	{
 		if(ship_to_move.GetYPos() + 5.0 < DimensionPosY)
 		{
-			ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0);
+			ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*sin((double) ship_to_move.GetAngle()));
+			ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*cos((double) ship_to_move.GetAngle()));
 		}
 	}
 	else if(mov_type == 3)
 	{
 		if(ship_to_move.GetYPos() - 5.0 > -(DimensionNegY))
 		{
-			ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0);
+			ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*sin((double) ship_to_move.GetAngle()));
+			ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*cos((double) ship_to_move.GetAngle()));
 		}
 	}
 	else if(mov_type == 4)

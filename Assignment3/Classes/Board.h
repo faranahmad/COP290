@@ -6,6 +6,7 @@
 #include "Bullet.h"
 #include "Ship.h"
 #include <vector>
+#include <math.h>
 #include <string>
 
 class Board

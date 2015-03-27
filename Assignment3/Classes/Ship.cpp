@@ -2,12 +2,13 @@
 
 Ship::Ship()
 {
-	//to do later
+	Angle = 0.0;
 }
 
 Ship::Ship(int id)
 {
 	Id = id;
+	Angle = 0.0;
 	//add something
 }
 
