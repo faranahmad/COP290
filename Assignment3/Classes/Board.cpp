@@ -203,12 +203,28 @@ void Board::UpdateAllBullets()
 		if(VectorBullets.at(i).GetTypeAI() == true)
 		{
 			int hit_ship = CheckBulletHitShip(i);
-			int hit_alien = CheckBulletHitAlien(i);
 			if(hit_ship > -1)
 			{	
 				ships_lives_reduce.push_back(VectorShips.at(hit_ship));
+				bullets_delete.push_back(i);
 			}
 		}
+		else 
+		{
+			int hit_alien = CheckBulletHitAlien(i);
+			if(hit_alien > -1)
+			{	
+				aliens_delete.push_back(VectorShips.at(hit_alien));
+				bullets_delete.push_back(i);
+			}	
+		}
+	}
+	int bullets_delete_size  = bullets_delete.size();
+	int ships_lives_reduce_size = ships_lives_reduce.size();
+	int aliens_delete = aliens_delete.size();
+	for (int i = 0;i < bullets_delete_size;i++)
+	{
+		
 	} 
 }
 
