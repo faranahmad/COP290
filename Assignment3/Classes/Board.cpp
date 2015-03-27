@@ -141,3 +141,45 @@ void Board::UpdateAllBullets()
 	//to do 
 }
 
+void Board::UpdateAliens()
+{
+	//to do
+}
+
+void Board::UpdatePlayerAI()
+{
+	//to do
+}
+void Board::UpdateUserPlayer(int id, int type)
+{
+	//to do 
+}
+
+void Board::InsertBullet(Bullet new_bullet)
+{
+	VectorBullets.push_back(new_bullet);
+}
+
+void Board::InsertAlien(Alien new_alien)
+{
+	VectorAliens.push_back(new_alien);
+}
+
+void Board::InsertShip(Ship new_ship)
+{
+	VectorShips.push_back(new_ship);
+}
+
+void Board::GetSummary()
+{
+	std::string get_summary_ship = "";
+	std::string get_summary_bullet = "";
+	std::string get_summary_alien = "";
+
+	for (int i = 0;i < VectorShips.size();i++)
+	{
+//		std::to_string()
+	}
+}
+
+
