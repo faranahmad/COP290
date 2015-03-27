@@ -41,6 +41,20 @@ void Board::SetNegYDimension(double negy)
 	DimensionNegY = negy;
 }
 
+void Board::SetVectorBullets(std::vector<Bullet> bullet_vector)
+{
+	VectorBullets = bullet_vector;
+}
+void Board::SetVectorShips(std::vector<Ship> ship_vector)
+{
+	VectorShips = ship_vector;
+}
+
+void Board::SetVectorAliens(std::vector<Alien> alien_vector)
+{
+	VectorAliens = alien_vector;
+}
+
 void Board::SetNthBullet(int id,Bullet set_bullet)
 {
 	VectorBullets.at(id) = set_bullet;
@@ -56,19 +70,7 @@ void Board::SetNthShip(int id, Ship set_ship)
 	VectorShips.at(id) = set_ship;
 }
 
-void Board::SetVectorBullets(std::vector<Bullet> bullet_vector)
-{
-	VectorBullets = bullet_vector;
-}
-void Board::SetVectorShips(std::vector<Ship> ship_vector)
-{
-	VectorShips = ship_vector;
-}
 
-void Board::SetVectorAliens(std::vector<Alien> alien_vector)
-{
-	VectorAliens = alien_vector;
-}
 
 std::vector<Bullet> Board::GetVectorBullets()
 {
@@ -119,6 +121,21 @@ int Board::GetNumberBullets()
 	return VectorBullets.size();
 }
 
+Bullet Board::GetNthBullet(int id)
+{
+	return VectorBullets.at(id);
+}
+		
+Alien Board::GetNthAlien(int id)
+{
+	return VectorAliens.at(id);
+}
+
+Ship Board::GetNthShip(int id)
+{
+	return VectorShips.at(id);
+}
+
 void Board::RemoveNthAlien(int id)
 {
 	VectorAliens.erase(VectorAliens.begin() + id);
@@ -138,14 +155,17 @@ void Board::RemoveNthShip(int id)
 int Board::CheckBulletHitAlien(int bullet_id)
 {
 	Bullet bullet_hitting = VectorBullets.at(bullet_id);
-	for (int i = 0;i < VectorAliens.size();i++)
+	if(bullet_hitting.GetTypePlayer() == true)
 	{
-		Alien alien_hit = VectorAliens.at(i);
-		float xdis = bullet_hitting.GetXPos() - alien_hit.GetXPos();
-		float ydis = bullet_hitting.GetYPos() - alien_hit.GetYPos();
-		if ((float) sqrt(xdis*xdis + ydis*ydis) < 0.1)
+		for (int i = 0;i < VectorAliens.size();i++)
 		{
-			return i;
+			Alien alien_hit = VectorAliens.at(i);
+			float xdis = bullet_hitting.GetXPos() - alien_hit.GetXPos();
+			float ydis = bullet_hitting.GetYPos() - alien_hit.GetYPos();
+			if ((float) sqrt(xdis*xdis + ydis*ydis) < 0.1)
+			{
+				return i;
+			}
 		}
 	}
 	return -1;
@@ -155,14 +175,17 @@ int Board::CheckBulletHitAlien(int bullet_id)
 int Board::CheckBulletHitShip(int id)
 {
 	Bullet bullet_hitting = VectorBullets.at(id);
-	for (int i = 0;i < VectorShips.size();i++)
+	if(bullet_hitting.GetTypeAI() == true)
 	{
-		Ship ship_hit = VectorShips.at(i);
-		float xdis = bullet_hitting.GetXPos() - ship_hit.GetXPos();
-		float ydis = bullet_hitting.GetYPos() - ship_hit.GetYPos();
-		if ((float) sqrt(xdis*xdis + ydis*ydis) < 0.1)
+		for (int i = 0;i < VectorShips.size();i++)
 		{
-			return i;
+			Ship ship_hit = VectorShips.at(i);
+			float xdis = bullet_hitting.GetXPos() - ship_hit.GetXPos();
+			float ydis = bullet_hitting.GetYPos() - ship_hit.GetYPos();
+			if ((float) sqrt(xdis*xdis + ydis*ydis) < 0.1)
+			{
+				return i;
+			}
 		}
 	}
 	return -1;
@@ -171,9 +194,21 @@ int Board::CheckBulletHitShip(int id)
 void Board::UpdateAllBullets()
 {
 	int bullet_size = VectorBullets.size();
+	std::vector<Bullet> bullets_delete;
+	std::vector<Ship> ships_lives_reduce;
+	std::vector<Alien> aliens_delete;
+
 	for (int i = 0;i < bullet_size ;i++)
 	{
-
+		if(VectorBullets.at(i).GetTypeAI() == true)
+		{
+			int hit_ship = CheckBulletHitShip(i);
+			int hit_alien = CheckBulletHitAlien(i);
+			if(hit_ship > -1)
+			{	
+				ships_lives_reduce.push_back(VectorShips.at(hit_ship));
+			}
+		}
 	} 
 }
 
@@ -281,7 +316,8 @@ void Board::MoveNthShip(int ship_id,int mov_type)
 	}
 	VectorShips.at(ship_id) = ship_to_move; 
 }
- void Board::AddRandomShip()
+
+void Board::AddRandomShip()
 {
 	Ship random_ship;
 	random_ship.SetXPos(RandomFloat(-(DimensionNegX),DimensionPosX));
@@ -290,3 +326,4 @@ void Board::MoveNthShip(int ship_id,int mov_type)
 	random_ship.SetAngle(RandomFloat(0.0,360.0));
 	VectorShips.push_back(random_ship);
 }
+
