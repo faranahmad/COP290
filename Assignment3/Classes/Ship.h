@@ -70,6 +70,6 @@ class Ship
 		int NumberBullets;
 		int NumberMissiles;
 		int AILevel; 				// -1 if human player 
-};
+}; 
 
 #endif

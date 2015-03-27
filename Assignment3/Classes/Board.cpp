@@ -15,7 +15,7 @@ Board::Board(double posx,double negx,double posy,double negy)
 
 void Board::SetPosXDimension(double posx)
 {
-	DimensionPosx = posx;
+	DimensionPosX = posx;
 }
 
 void Board::SetPosYDimension(double posy)
@@ -64,5 +64,5 @@ int Board::GetNumberAliens()
 
 int Board::GetNumberBullets()
 {
-	return VectorBullet.size();
+	return VectorBullets.size();
 }

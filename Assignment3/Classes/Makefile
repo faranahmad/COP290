@@ -1,3 +1,5 @@
+ver = -std=c++11
+
 all: Game Test
 
 RunGame: Game
@@ -7,37 +9,37 @@ RunTest: Test
 	./Test
 
 Game: Alien.o Ship.o Color.o Bullet.o Board.o Combined.o
-	g++ -o Game Color.o Ship.o Bullet.o Alien.o Board.o Combined.o -lGL -lGLU -lglut
+	g++ $(ver) -o Game Color.o Ship.o Bullet.o Alien.o Board.o Combined.o -lGL -lGLU -lglut
 
 Test: Test.o Alien.o Ship.o Color.o Bullet.o Board.o ShipTest.o AllTests.o
-	g++ -o Test Test.o Alien.o Ship.o Color.o Bullet.o Board.o ShipTest.o AllTests.o
+	g++ $(ver) -o Test Test.o Alien.o Ship.o Color.o Bullet.o Board.o ShipTest.o AllTests.o
 
 Color.o: Color.cpp
-	g++ -c Color.cpp
+	g++ $(ver) -c Color.cpp
 
 Alien.o: Alien.cpp
-	g++ -c Alien.cpp
+	g++ $(ver) -c Alien.cpp
 
 Ship.o: Ship.cpp
-	g++ -c Ship.cpp
+	g++ $(ver) -c Ship.cpp
 
 Bullet.o: Bullet.cpp
-	g++ -c Bullet.cpp
+	g++ $(ver) -c Bullet.cpp
 
 Board.o: Board.cpp
-	g++ -c Board.cpp
+	g++ $(ver) -c Board.cpp
 
 Combined.o: Combined.cpp
-	g++ -c Combined.cpp
+	g++ $(ver) -c Combined.cpp
 
 Test.o: Test.cpp
-	g++ -c Test.cpp
+	g++ $(ver) -c Test.cpp
 
 ShipTest.o: ShipTest.cpp
-	g++ -c ShipTest.cpp
+	g++ $(ver) -c ShipTest.cpp
 
 AllTests.o: AllTests.cpp
-	g++ -c AllTests.cpp
+	g++ $(ver) -c AllTests.cpp
 
 clean:
 	rm -rf *.o

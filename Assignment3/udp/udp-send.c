@@ -22,11 +22,14 @@ int main(void)
 	std::getline(ip4,ipadr);
 	std::cout<<ipadr<<std::endl;
 	system("rm -rf .ip.txt");
+	ip4.close();
+
+	
 	struct sockaddr_in myaddr, remaddr,dude;
 	int fd, i, slen=sizeof(remaddr);
 	char buf[BUFLEN];	
 	int recvlen;		
-	char *server = "10.192.20.168";	
+	char *server = "10.192.5.249";	
 
 	if ((fd=socket(AF_INET, SOCK_DGRAM, 0))==-1)
 		printf("socket created\n");
@@ -43,8 +46,8 @@ int main(void)
 	// myaddr.sin_addr.s_addr = htonl(INADDR_ANY);
 	myaddr.sin_port = htons(0);
 	const char * c = ipadr.c_str();
-	inet_aton(c,&dude.sin_addr);
-	std::cout<<(long long)dude.sin_addr.s_addr<<std::endl;
+	inet_aton(c,&myaddr.sin_addr);
+	std::cout<<(long long)myaddr.sin_addr.s_addr<<std::endl;
 	if (bind(fd, (struct sockaddr *)&myaddr, sizeof(myaddr)) < 0) 
 	{
 		perror("bind failed");

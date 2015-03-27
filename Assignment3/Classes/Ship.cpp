@@ -139,25 +139,25 @@ void Ship::SetNumberMissiles(int no_of_missiles)
 //also sees if it is controlled by humans or not 
 void Ship::SetAIControlLevel(int level)
 {
-	Level = level;	
+	AILevel = level;	
 }
 
 
 bool Ship::IfAIControl()
 {
-	if(Level == -1)
+	if(AILevel == -1)
 	{
-		return true;
+		return false;
 	}
 	else
 	{
-		false;
+		true;
 	}
 }
 
 bool Ship::IfHumanControl()
 {
-	if(Level >= 0)
+	if(AILevel < 0)
 	{
 		return true;
 	}
@@ -180,7 +180,7 @@ void Ship::ReduceLife()
 //has to change game points currently 10
 void Ship::IncrementScore()
 {
-	Score = Score + 10*Multiplier
+	Score = Score + 10*Multiplier;
 }
 
 void Ship::IncrementMultiplier()
@@ -223,7 +223,7 @@ void Ship::ReduceMissile()
 	NumberMissiles -= 1;
 }
 
-std::string Ships::GetSummary()
+std::string Ship::GetSummary()
 {
 	//to o later
 }

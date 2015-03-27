@@ -15,7 +15,7 @@ float Bullet::GetYPos()
 {
 	return YPos;
 }
-
+ 
 float Bullet::GetVelX()
 {
 	return VelX;
@@ -102,7 +102,7 @@ void Bullet::ResetBulletState()
 	VelX = 0.0;
 	VelY = 0.0;
 	ColorOfBullet = Color(0.0,0.0,0.0);
-	ShipId = -1							//right now assuming to come from alien
+	ShipId = -1	;						//right now assuming to come from alien
 	TypeAI = true; 						//right now setting it to be controlled by AI
 	TypePlayer = false;	
 }
