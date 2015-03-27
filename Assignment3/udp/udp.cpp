@@ -16,25 +16,40 @@
 vector< pair<long long,long long> > IPdata;
 vector<std::string> Instructions;
 
+struct IPMessage {
+    long long ip;
+    char* message;
+    int sockid;
+};
+
 void AddPlayers(char players [])
 {
 	string s;
-	struct sockaddr_in addr;
-	for(int i=2;i<strlen(players);i++)
+	for(int i=2;players[i]!=0;i++)
 	{
-		if(players[i]!=' ')
+		if(players[i]!=' ' && players[i]!='\n')
 			s=s+players[i];
 		else
 		{	
 			const char * ipchar = s.c_str();
-			inet_aton(ipchar,&addr.sin_addr);
 			pair p;
-			p.first=(long long)(addr.sin_addr.s_addr);
+			p.first=atoll(ipchar);
 			p.second=0;
 			IPdata.push_back(p);
 			s="";
 		}
 	}
+}
+
+int LengthNum(long long num)
+{
+	int ans=0;
+	while(num>0)
+	{
+		num=num/10;
+		ans++;
+	}
+	return ans;
 }
 
 std::string ToStr(char* arr)  
@@ -46,6 +61,27 @@ std::string ToStr(char* arr)
     }
     return ans;
 }
+
+void *SendMessage(void* id)
+{
+    IPMessage  *pa= (IPMessage *)id;
+    long long ip=pa->ip;
+    char * message=pa->message;
+    int sockid=pa->sockid;
+
+    struct sockaddr_in remaddr;
+    int fd, i, slen=sizeof(remaddr);
+
+    memset((char *) &remaddr, 0, sizeof(remaddr));
+	remaddr.sin_family = AF_INET;
+	myaddr.sin_addr.s_addr=htonl(ip);
+	remaddr.sin_port = htons(SERVICE_PORT);
+	int bytes_sent=sendto(sockid, message, strlen(message), 0, (struct sockaddr *)&remaddr, slen);
+	//TODO:5 seconds time out thing 
+	
+
+}
+
 
 int main(int argc, char** argv)
 {
@@ -108,7 +144,7 @@ int main(int argc, char** argv)
 		printf("Connecting to %s port %d\n", server, SERVICE_PORT);
 
 		int slen=sizeof(remaddr);
-		if (sendto(sockid, sendmsg, strlen(send), 0, (struct sockaddr *)&remaddr, slen)==-1) 
+		if (sendto(sockid, sendmsg, strlen(sendmsg), 0, (struct sockaddr *)&remaddr, slen)==-1) 
 		{
 			perror("Sorry, player not found!\nMake sure you are connected to the network");
 			exit(1);
@@ -119,7 +155,8 @@ int main(int argc, char** argv)
     	if (recvlen >= 0) 
     	{
     	    recvmsg[recvlen] = 0;
-    	    AddPlayers(recvmsg);
+    	    if(sendmsg[0]=='1')
+    	    	AddPlayers(recvmsg);
     	}
 	}
 
@@ -132,8 +169,59 @@ int main(int argc, char** argv)
 			switch(recvmsg[0])
 			{
 				case '0':
-				{
+				{	
+					pair p;
+					p.first=(long long)remaddr.sin_addr.s_addr;
+					p.second=0;
+					IPdata.push_back(p);
+					char sendmsg[BUFSIZE];
+					sendmsg[0]='1';
+					sendmsg[1]=' ';
+					int j=2;
+					for(int i=0;i<IPdata.size();i++)
+					{
+						char temp[20];
+                        sprintf(temp,"%lld",IPdata[i].first);
+                        int lenll=LengthNum(IPdata[i].first)
+                        for(int k=0;k<lenll;k++)
+                        {
+                        	sendmsg[j]=temp[k];
+                        	j++;
+                        }
+                        sendmsg[j]=' ';
+					}
+					sendmsg[j]='\n';
+					sendmsg[j+1]='\0';
+					sendto(sockid, sendmsg, strlen(sendmsg), 0, (struct sockaddr *)&remaddr, slen);
+			        std::vector<pthread_t> threads= std::vector<pthread_t>(IPdata.size()-2);
+			        
+			        IPMessage im;
+			        im.ip=IPdata[i+1];
+			        char temp[20];
+			        sprintf(temp,"%lld",(long long)remaddr.sin_addr.s_addr);
+			        char* sendmsg;
+			        sendmsg[0]='2';
+			        sendmsg[1]=' ';
+			        int j=2;
+			        for(int k=0;k<LengthNum((long long)remaddr.sin_addr.s_addr);k++)
+			        {
+			        	sendmsg[]=temp[k];
+			        	j++;
+			        }
+			        sendmsg[j]='\n';
+			        sendmsg[j+1]='\0';
+			        im.message=sendmsg;
+			        im.sockid=sockid;
 
+			        for(int i=0;i<threads.size();i++)
+			        {
+			        	pthread_create(&threads[i],NULL,SendMessage,(void *)im);
+			        }
+			        break;
+				}
+				case '2':
+				{
+	    	    	AddPlayers(recvmsg);
 					break;
 				}
 				default:
@@ -149,7 +237,5 @@ int main(int argc, char** argv)
 			exit(0);
 		}
 	}
-
-
 
 }
