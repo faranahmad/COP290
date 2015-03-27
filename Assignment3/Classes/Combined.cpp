@@ -121,6 +121,29 @@ void specialKeys( int key, int x, int y )
 	glutPostRedisplay();
 }
 
+void ShowObject(std::vector<Faces> facevect)
+{
+	// glPushMatrix();
+	// glTranslatef(500,500,1000);
+	// glRotatef( rotate_x, 200, 0.0, 0.0 );
+	// glRotatef( rotate_y, 0.0, 200, 0.0 );
+	for (int i=0; i<facevect.size() ; i++)
+	{
+		Faces currentface= facevect[i];
+		Points point1,point2,point3;
+		point1= currentface.p1;
+		point2= currentface.p2;
+		point3= currentface.p3;
+		glBegin(GL_POLYGON);
+		glVertex3f(point1.x,point1.y,point1.z);
+		glVertex3f(point2.x,point2.y,point2.z);
+		glVertex3f(point3.x,point3.y,point3.z);
+		glEnd();
+	}
+	// glPopMatrix();
+}
+
+
 void ShowBullet(Bullet b)
 {
 	glPushMatrix();
@@ -188,33 +211,12 @@ void ShowAlien(Alien alientodisplay)
 	glPopMatrix();	
 }
 
-void ShowObject(std::vector<Faces> facevect)
-{
-	// glPushMatrix();
-	// glTranslatef(500,500,1000);
-	// glRotatef( rotate_x, 200, 0.0, 0.0 );
-	// glRotatef( rotate_y, 0.0, 200, 0.0 );
-	for (int i=0; i<facevect.size() ; i++)
-	{
-		Faces currentface= facevect[i];
-		Points point1,point2,point3;
-		point1= currentface.p1;
-		point2= currentface.p2;
-		point3= currentface.p3;
-		glBegin(GL_POLYGON);
-		glVertex3f(point1.x,point1.y,point1.z);
-		glVertex3f(point2.x,point2.y,point2.z);
-		glVertex3f(point3.x,point3.y,point3.z);
-		glEnd();
-	}
-	// glPopMatrix();
-}
 
 void ShowBoard(Board boardtodisplay)
 {
 	std::vector<Ship> ShipsToDisplay= boardtodisplay.GetVectorShips();
-	std::vector<Ship> AliensToDisplay= boardtodisplay.GetVectorAliens();
-	std::vector<Ship> BulletsToDisplay= boardtodisplay.GetVectorBullets();
+	std::vector<Alien> AliensToDisplay= boardtodisplay.GetVectorAliens();
+	std::vector<Bullet> BulletsToDisplay= boardtodisplay.GetVectorBullets();
 
 	for (int i = 0; i < ShipsToDisplay.size(); i++)
 	{
@@ -258,16 +260,17 @@ void display(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	ShowObject(missile);
+	// ShowObject(missile);
+// 
+	// ShowBullet(50,-60,5,Color(255,0,0));
+	// ShowBullet(-50,-60,5,Color(255,0,0));
 
-	ShowBullet(50,-60,5,Color(255,0,0));
-	ShowBullet(-50,-60,5,Color(255,0,0));
-
-	ShowMissile(-40.0,-40.0,10.0,10.0,Color(255,0,0));
+	// ShowMissile(-40.0,-40.0,10.0,10.0,Color(255,0,0));
 
 	glPushMatrix();
 	glTranslatef(100,100,1000);
 	glColor3f(0.5,0.8,0.2);
+	glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'a' );
 	GLfloat white[] = {1.f, 1.f, 1.f, 1.0f};
 	GLfloat ambient[] = {0.7f,0.7f,0.7f,1.0f};
 	GLfloat cyan[] = {0.8,0.8,0.8,1};
