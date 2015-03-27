@@ -191,9 +191,9 @@ void ShowAlien(Alien alientodisplay)
 void ShowObject(std::vector<Faces> facevect)
 {
 	// glPushMatrix();
-	glTranslatef(500,500,1000);
-	glRotatef( rotate_x, 200, 0.0, 0.0 );
-	glRotatef( rotate_y, 0.0, 200, 0.0 );
+	// glTranslatef(500,500,1000);
+	// glRotatef( rotate_x, 200, 0.0, 0.0 );
+	// glRotatef( rotate_y, 0.0, 200, 0.0 );
 	for (int i=0; i<facevect.size() ; i++)
 	{
 		Faces currentface= facevect[i];
