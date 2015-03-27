@@ -1,5 +1,12 @@
 #include "Board.h"
 
+float RandomFloat(float a, float b) 
+{
+    float random = ((float) rand()) / (float) RAND_MAX;
+    float diff = b - a;
+    float r = random * diff;
+    return a + r;
+}
 
 Board::Board()
 {
@@ -276,7 +283,7 @@ void Board::MoveNthShip(int ship_id,int mov_type)
 }
  void Board::AddRandomShip()
 {
-	//Ship random_ship;
-	//rand() % 10 + 1;
+	Ship random_ship;
+	random_ship.SetXPos(RandomFloat())
 
 }

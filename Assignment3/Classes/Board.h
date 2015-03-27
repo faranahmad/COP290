@@ -9,6 +9,9 @@
 #include <math.h>
 #include <string>
 #include <iostream>
+#include <cstdlib>
+
+float RandomFloat(float,float);
 
 class Board
 {

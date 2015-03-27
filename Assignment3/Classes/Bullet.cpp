@@ -4,7 +4,11 @@
 
 Bullet::Bullet()
 {
-	//by default would take everything
+	float XPos = 0.0;
+	float YPos = 0.0;
+	float VelX = 0.0;
+	float VelY = 0.0;
+
 }
 
 //get the x axis position of bullet
