@@ -10,11 +10,12 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <pthread.h>
 
 #define PORT 5555
 #define BUFSIZE 50000
-vector< pair<long long,long long> > IPdata;
-vector<std::string> Instructions;
+std::vector< std::pair<long long,long long> > IPdata;
+std::vector<std::string> Instructions;
 
 struct IPMessage {
     long long ip;
@@ -24,7 +25,7 @@ struct IPMessage {
 
 void AddPlayers(char players [])
 {
-	string s;
+	std::string s;
 	for(int i=2;players[i]!=0;i++)
 	{
 		if(players[i]!=' ' && players[i]!='\n')
@@ -32,9 +33,10 @@ void AddPlayers(char players [])
 		else
 		{	
 			const char * ipchar = s.c_str();
-			pair p;
+			std::pair<long long,long long> p;
 			p.first=atoll(ipchar);
 			p.second=0;
+			std::cout<<p.first<<std::endl;
 			IPdata.push_back(p);
 			s="";
 		}
@@ -74,12 +76,17 @@ void *SendMessage(void* id)
 
     memset((char *) &remaddr, 0, sizeof(remaddr));
 	remaddr.sin_family = AF_INET;
-	myaddr.sin_addr.s_addr=htonl(ip);
+	remaddr.sin_addr.s_addr=htonl(ip);
 	remaddr.sin_port = htons(SERVICE_PORT);
 	int bytes_sent=sendto(sockid, message, strlen(message), 0, (struct sockaddr *)&remaddr, slen);
-	//TODO:5 seconds time out thing 
-	
-
+	if(bytes_sent<=0)
+	{
+		bytes_sent=sendto(sockid, message, strlen(message), 0, (struct sockaddr *)&remaddr, slen);
+		if(bytes_sent<0)
+		{
+			std::cout<<"Player disconnected:"<<ip<<std::endl;
+		}
+	} //TODO:Remove the the disconnected player
 }
 
 
@@ -99,7 +106,7 @@ int main(int argc, char** argv)
 	struct timeval tv;
 	tv.tv_sec = 5;
 	tv.tv_usec = 100000;
-	if (setsockopt(fd, SOL_SOCKET, SO_RCVTIMEO,&tv,sizeof(tv)) < 0) 
+	if (setsockopt(sockid, SOL_SOCKET, SO_RCVTIMEO,&tv,sizeof(tv)) < 0) 
 	{
 	    perror("Error timeout");
 	}
@@ -115,15 +122,16 @@ int main(int argc, char** argv)
 		return 0;
 	}    
 
-	pair myself;
+	std::pair<long long,long long> myself;
 	myself.first=(long long)(myaddr.sin_addr.s_addr);
 	myself.second=0;
 	IPdata.push_back(myself);
 
 	memset((char *) &remaddr, 0, sizeof(remaddr));
 	
-	if(argc>0)
+	if(argc>1)
 	{
+		std::cout<<"sending case 0\n"<<std::endl;
 		char sendmsg[BUFSIZE];
 		remaddr.sin_family = AF_INET;
 		remaddr.sin_port = htons(SERVICE_PORT);
@@ -132,6 +140,12 @@ int main(int argc, char** argv)
 			fprintf(stderr, "inet_aton() failed\n");
 			exit(1);
 		}
+
+		std::pair<long long,long long> server;
+		server.first=(long long)(remaddr.sin_addr.s_addr);
+		server.second=0;
+		IPdata.push_back(server);
+
 		sendmsg[0]='0';
 		sendmsg[1]=' ';
 		int firstMsg=0;
@@ -141,8 +155,6 @@ int main(int argc, char** argv)
 		}
 		sendmsg[firstMsg+2]='\n';
 	
-		printf("Connecting to %s port %d\n", server, SERVICE_PORT);
-
 		int slen=sizeof(remaddr);
 		if (sendto(sockid, sendmsg, strlen(sendmsg), 0, (struct sockaddr *)&remaddr, slen)==-1) 
 		{
@@ -151,7 +163,7 @@ int main(int argc, char** argv)
 		}
 
 		socklen_t blen=(socklen_t)slen;
-		recvlen = recvfrom(sockid, recvmsg, BUFSIZE, 0, (struct sockaddr *)&remaddr, &blen);
+		int recvlen = recvfrom(sockid, recvmsg, BUFSIZE, 0, (struct sockaddr *)&remaddr, &blen);
     	if (recvlen >= 0) 
     	{
     	    recvmsg[recvlen] = 0;
@@ -161,8 +173,10 @@ int main(int argc, char** argv)
 	}
 
 	while(true)
-	{
-		int recvlen = recvfrom(sockid,recvmsg , BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
+	{	
+		socklen_t addrlen=(socklen_t)(sizeof(remaddr));
+		std::cout<<"Awaiting data...\n";
+		START:int recvlen = recvfrom(sockid,recvmsg , BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
 		if (recvlen > 0) 
 		{
 			recvmsg[recvlen] = 0;
@@ -170,7 +184,8 @@ int main(int argc, char** argv)
 			{
 				case '0':
 				{	
-					pair p;
+					std::cout<<"case 0\n"<<std::cout;
+					std::pair<long long,long long> p;
 					p.first=(long long)remaddr.sin_addr.s_addr;
 					p.second=0;
 					IPdata.push_back(p);
@@ -182,7 +197,7 @@ int main(int argc, char** argv)
 					{
 						char temp[20];
                         sprintf(temp,"%lld",IPdata[i].first);
-                        int lenll=LengthNum(IPdata[i].first)
+                        int lenll=LengthNum(IPdata[i].first);
                         for(int k=0;k<lenll;k++)
                         {
                         	sendmsg[j]=temp[k];
@@ -192,30 +207,32 @@ int main(int argc, char** argv)
 					}
 					sendmsg[j]='\n';
 					sendmsg[j+1]='\0';
+					int slen=sizeof(remaddr);
 					sendto(sockid, sendmsg, strlen(sendmsg), 0, (struct sockaddr *)&remaddr, slen);
 			        std::vector<pthread_t> threads= std::vector<pthread_t>(IPdata.size()-2);
 			        
 			        IPMessage im;
-			        im.ip=IPdata[i+1];
+			        
 			        char temp[20];
 			        sprintf(temp,"%lld",(long long)remaddr.sin_addr.s_addr);
-			        char* sendmsg;
-			        sendmsg[0]='2';
-			        sendmsg[1]=' ';
-			        int j=2;
+			        char* sendmsg2;
+			        sendmsg2[0]='2';
+			        sendmsg2[1]=' ';
+			        j=2;
 			        for(int k=0;k<LengthNum((long long)remaddr.sin_addr.s_addr);k++)
 			        {
-			        	sendmsg[]=temp[k];
+			        	sendmsg2[j]=temp[k];
 			        	j++;
 			        }
-			        sendmsg[j]='\n';
-			        sendmsg[j+1]='\0';
-			        im.message=sendmsg;
+			        sendmsg2[j]='\n';
+			        sendmsg2[j+1]='\0';
+			        im.message=sendmsg2;
 			        im.sockid=sockid;
-
+			        std::cout<<"sendmsg2:"<<ToStr(sendmsg2)<<std::endl;
 			        for(int i=0;i<threads.size();i++)
 			        {
-			        	pthread_create(&threads[i],NULL,SendMessage,(void *)im);
+			        	im.ip=IPdata[i+1].first;
+			        	pthread_create(&threads[i],NULL,SendMessage,&im);
 			        }
 			        break;
 				}
@@ -225,7 +242,8 @@ int main(int argc, char** argv)
 					break;
 				}
 				default:
-				{
+				{	
+					std::cout<<ToStr(recvmsg)<<std::endl;
 					Instructions.push_back(ToStr(recvmsg));
 					break;
 				}
@@ -233,8 +251,9 @@ int main(int argc, char** argv)
 		}
 		else
 		{	
-			printf("You have been disconnected\n");
-			exit(0);
+			goto START;
+			// printf("You have been disconnected\n");
+			// exit(0);
 		}
 	}
 
