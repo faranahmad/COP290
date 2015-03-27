@@ -111,4 +111,33 @@ int Board::GetNumberBullets()
 	return VectorBullets.size();
 }
 
-Bullet Board::RemoveNthAlien(int id)
+void Board::RemoveNthAlien(int id)
+{
+	VectorAliens.erase(VectorAliens.begin() + id);
+}
+
+void Board::RemoveNthBullet(int id)
+{
+	VectorBullets.erase(VectorBullets.begin() + id);
+}
+
+void Board::RemoveNthShip(int id)
+{
+	VectorShips.erase(VectorShips.begin() + id);
+}
+
+int Board::CheckBulletHitAlien(int)
+{
+	//to do
+}
+
+int Board::CheckBulletHitShip(int)
+{
+	//to do
+}
+
+void Board::UpdateAllBullets()
+{
+	//to do 
+}
+
