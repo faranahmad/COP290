@@ -32,6 +32,8 @@ class Bullet
 
 		std::string GetSummary();
 
+		float GetAngle();  // TODO faran, return angle in degrees.
+
 	private:
 		float XPos;
 		float YPos;

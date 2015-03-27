@@ -13,10 +13,13 @@ struct Faces
 
 double rotate_y=0.0; 
 double rotate_x=0.0;
+
 std::vector<Faces> alien;
 std::vector<Faces> ship;
 std::vector<Faces> missile;
 std::vector<Faces> bullet;
+Board BoardToDisplay;
+
 
 std::vector<Faces> loadOBJ(char * path)
 {
@@ -118,91 +121,76 @@ void specialKeys( int key, int x, int y )
 	glutPostRedisplay();
 }
 
-void ShowBullet(float x,float y,float angle,Color color)
+void ShowBullet(Bullet b)
 {
 	glPushMatrix();
-	glTranslatef(x,y,1000);
-	glColor3f(color.GetR(),color.GetG(),color.GetB());
-	GLfloat white[] = {1.f, 1.f, 1.f, 1.0f};
-	GLfloat ambient[] = {0.7f,0.7f,0.7f,1.0f};
-	GLfloat cyan[] = {0.8,0.8,0.8,1};
-	GLfloat shininess[] = {100};
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
-	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
-	glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
-	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient);
-	glutSolidSphere(10, 31, 10);	
+	// glTranslatef(x,y,1000);
+	// glColor3f(color.GetR(),color.GetG(),color.GetB());
+	// GLfloat white[] = {1.f, 1.f, 1.f, 1.0f};
+	// GLfloat ambient[] = {0.7f,0.7f,0.7f,1.0f};
+	// GLfloat cyan[] = {0.8,0.8,0.8,1};
+	// GLfloat shininess[] = {100};
+	// glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
+	// glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
+	// glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
+	// glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient);
+	// glutSolidSphere(10, 31, 10);	
+	glTranslatef(b.GetXPos(),b.GetYPos(),0);
+	glRotatef(0,0,b.GetAngle());
+	Color col_bul=b.GetColorOfBullet();
+	glColor3f(col_bul.GetR(),col_bul.GetG(),col_bul.GetB());
+	ShowObject(bullet);
 	glPopMatrix();
 }
 
-void ShowMissile(float x, float y, float vx, float vy, Color color)
+void ShowMissile(Bullet b)
 {
-	GLUquadricObj *quadric=gluNewQuadric();
-	
-	int length=300;
-	int radius=100;
-
-	float vz = 0;
-	float v = sqrt(vx*vx+vy*vy);
-	float ax = 0;
-	float rx = 57.29577*acos(vy/v);
-	float ry = 57.29577*asin(vy/v);
-
 	glPushMatrix();
-
-	glTranslatef(x,y,1000);
-	// glRotatef(-0.5,0.0,1.0,1.0);
-
-	gluQuadricOrientation(quadric,GLU_OUTSIDE);
-	gluCylinder(quadric,radius,radius,100,50,1);
-
+	// glTranslatef(x,y,1000);
+	// glColor3f(color.GetR(),color.GetG(),color.GetB());
+	// GLfloat white[] = {1.f, 1.f, 1.f, 1.0f};
+	// GLfloat ambient[] = {0.7f,0.7f,0.7f,1.0f};
+	// GLfloat cyan[] = {0.8,0.8,0.8,1};
+	// GLfloat shininess[] = {100};
+	// glMaterialfv(GL_FRONT, GL_DIFFUSE, cyan);
+	// glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, white);
+	// glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
+	// glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient);
+	// glutSolidSphere(10, 31, 10);	
+	glTranslatef(b.GetXPos(),b.GetYPos(),0);
+	glRotatef(0,0,b.GetAngle());
+	Color col_bul=b.GetColorOfBullet();
+	glColor3f(col_bul.GetR(),col_bul.GetG(),col_bul.GetB());
+	ShowObject(missile);
 	glPopMatrix();
-	gluDeleteQuadric(quadric);
+
 }
 
-void ShowShip(float x, float y,float angle, Color color)
+void ShowShip(Ship shiptodisplay)
 {
 	glPushMatrix();
-	int dimx=20;
-	int dimy=40;
-	int dimz=20;
-
-	float sintheta = sin(angle);
-	float costheta = cos(angle);
-
-	float xcos = dimx*costheta;
-	float xsin = dimx*sintheta;
-	float ycos = dimy*costheta;
-	float ysin = dimy*sintheta;
-
-	glBegin(GL_QUADS);
-
-	// glRotatef()
-
-	glColor3f(0.0,1.0,0.0);
-	glVertex3f(x+xcos/2 - ysin/2, y+xsin/2 + ycos/2 ,dimz/2);
-	glVertex3f(x+xcos/2 - ysin/2, y+xsin/2 + ycos/2 ,-dimz/2);
-	glVertex3f(x+xcos/2 + ysin/2, y+xsin/2 - ycos/2 ,-dimz/2);
-	glVertex3f(x+xcos/2 + ysin/2, y+xsin/2 - ycos/2 ,dimz/2);
-
-	glColor3f(0.0,1.0,0.0);
-	glVertex3f(x-xcos/2 - ysin/2, y-xsin/2 + ycos/2 ,dimz/2);
-	glVertex3f(x-xcos/2 - ysin/2, y-xsin/2 + ycos/2 ,-dimz/2);
-	glVertex3f(x-xcos/2 + ysin/2, y-xsin/2 - ycos/2 ,-dimz/2);
-	glVertex3f(x-xcos/2 + ysin/2, y-xsin/2 - ycos/2 ,dimz/2);
-
-	glColor3f(0.0,1.0,0.0);
-	glVertex3f(x-xcos/2 - ysin/2, y-xsin/2 + ycos/2 ,dimz/2);
-	glVertex3f(x-xcos/2 - ysin/2, y-xsin/2 + ycos/2 ,-dimz/2);
-	glVertex3f(x-xcos/2 + ysin/2, y-xsin/2 - ycos/2 ,-dimz/2);
-	glVertex3f(x-xcos/2 + ysin/2, y-xsin/2 - ycos/2 ,dimz/2);
-	glEnd();
+	glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
+	glRotatef(0,0,shiptodisplay.GetAngle());
+	Color col_ship=shiptodisplay.GetColor();
+	glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
+	ShowObject(ship);
 	glPopMatrix();
+}
+
+void ShowAlien(Alien alientodisplay)
+{
+	glPushMatrix();
+	glTranslatef(alientodisplay.GetXPos(),alientodisplay.GetYPos(),0);
+	glRotatef(0,0,alientodisplay.GetAngle());
+	Color col_ship=alientodisplay.GetColor();
+	glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
+	ShowObject(alien);
+	glPopMatrix();	
 }
 
 void ShowObject(std::vector<Faces> facevect)
 {
-	glPushMatrix();
+	// glPushMatrix();
 	glTranslatef(500,500,1000);
 	glRotatef( rotate_x, 200, 0.0, 0.0 );
 	glRotatef( rotate_y, 0.0, 200, 0.0 );
@@ -219,7 +207,36 @@ void ShowObject(std::vector<Faces> facevect)
 		glVertex3f(point3.x,point3.y,point3.z);
 		glEnd();
 	}
-	glPopMatrix();
+	// glPopMatrix();
+}
+
+void ShowBoard(Board boardtodisplay)
+{
+	std::vector<Ship> ShipsToDisplay= boardtodisplay.GetVectorShips();
+	std::vector<Ship> AliensToDisplay= boardtodisplay.GetVectorAliens();
+	std::vector<Ship> BulletsToDisplay= boardtodisplay.GetVectorBullets();
+
+	for (int i = 0; i < ShipsToDisplay.size(); i++)
+	{
+		ShowShip(ShipsToDisplay[i]);
+	}
+
+	for (int i=0; i< AliensToDisplay.size() ; i++)
+	{
+		ShowAlien(AliensToDisplay[i]);
+	}
+
+	for (int i=0; i< BulletsToDisplay.size() ; i++)
+	{
+		if (BulletsToDisplay[i].GetTypeAI())
+		{
+			ShowMissile(BulletsToDisplay[i]);
+		}
+		else
+		{
+			ShowMissile(BulletsToDisplay[i]);
+		}
+	}	
 }
 
 void display(void)
@@ -268,7 +285,8 @@ void display(void)
 int main(int argc,char *argv[])
 {
 	std::cout << "Opening file\n";
-	missile = loadOBJ("Bullet.obj");
+	missile = loadOBJ("Missile.obj");
+	bullet = loadOBJ("Bullet.obj");
 	std::cout << "Opened file\n";
     // Wrapper function for graphics
     glutInit(&argc, argv);
