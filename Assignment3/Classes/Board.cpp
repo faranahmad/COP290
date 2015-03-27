@@ -194,9 +194,9 @@ int Board::CheckBulletHitShip(int id)
 void Board::UpdateAllBullets()
 {
 	int bullet_size = VectorBullets.size();
-	std::vector<Bullet> bullets_delete;
-	std::vector<Ship> ships_lives_reduce;
-	std::vector<Alien> aliens_delete;
+	std::vector<int> bullets_delete;
+	std::vector<int> ships_lives_reduce;
+	std::vector<int> aliens_delete;
 
 	for (int i = 0;i < bullet_size ;i++)
 	{
@@ -205,7 +205,7 @@ void Board::UpdateAllBullets()
 			int hit_ship = CheckBulletHitShip(i);
 			if(hit_ship > -1)
 			{	
-				ships_lives_reduce.push_back(VectorShips.at(hit_ship));
+				ships_lives_reduce.push_back(hit_ship);
 				bullets_delete.push_back(i);
 			}
 		}
@@ -214,17 +214,17 @@ void Board::UpdateAllBullets()
 			int hit_alien = CheckBulletHitAlien(i);
 			if(hit_alien > -1)
 			{	
-				aliens_delete.push_back(VectorShips.at(hit_alien));
+				aliens_delete.push_back((hit_alien));
 				bullets_delete.push_back(i);
 			}	
 		}
 	}
 	int bullets_delete_size  = bullets_delete.size();
 	int ships_lives_reduce_size = ships_lives_reduce.size();
-	int aliens_delete = aliens_delete.size();
+	int aliens_delete_size = aliens_delete.size();
 	for (int i = 0;i < bullets_delete_size;i++)
 	{
-		
+
 	} 
 }
 
