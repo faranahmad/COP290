@@ -32,6 +32,11 @@ float Bullet::GetVelY()
 	return VelY;
 }
 
+float Bullet::GetSpeed()
+{
+	return ((float) sqrt(VelX*VelX + VelY*VelY)); 
+}
+
 Color Bullet::GetColorOfBullet()
 {
 	return ColorOfBullet;

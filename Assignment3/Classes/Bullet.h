@@ -4,6 +4,7 @@
 #include "Color.h"
 #include <string>
 #include <math.h>
+#include <algorithm>
 
 #define PI 3.14159265
 
@@ -16,6 +17,7 @@ class Bullet
 		float GetYPos();
 		float GetVelX();
 		float GetVelY();
+		float GetSpeed();
 		Color GetColorOfBullet();
 		int GetShipId();
 		bool GetTypeAI();
