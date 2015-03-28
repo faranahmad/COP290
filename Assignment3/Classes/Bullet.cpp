@@ -126,10 +126,16 @@ float Bullet::GetAngle()
 {
 	if (VelX == 0.0)
 	{
-		return (float) PI/2.0;
+		if (VelY>0)
+			return (float) 0.0;
+		else
+			return 180.0;
 	} 
 	else
 	{
-		return ((float) atan(VelY / VelX) * 180/PI - 90.0);
+		if (VelX>0)
+			return ((float) atan(VelY / VelX) * 180/PI - 90.0);
+		else
+			return ((float) atan(VelY / VelX) * 180/PI + 90.0);
 	}
 }

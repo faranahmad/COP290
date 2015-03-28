@@ -222,10 +222,18 @@ void Board::UpdateAllBullets()
 	int bullets_delete_size  = bullets_delete.size();
 	int ships_lives_reduce_size = ships_lives_reduce.size();
 	int aliens_delete_size = aliens_delete.size();
-	for (int i = 0;i < bullets_delete_size;i++)
+	for (int i = bullets_delete_size - 1;i >= 0;i--)
 	{
-
+		VectorBullets.erase(VectorBullets.begin() + bullets_delete.at(i));
 	} 
+	for(int i = ships_lives_reduce_size - 1;i>=0;i--)
+	{
+		VectorShips.at(ships_lives_reduce.at(i)).SetLives(VectorShips.at(ships_lives_reduce.at(i)).GetLives()-1);
+	}
+	for (int i = aliens_delete_size-1;i>=0;i--)
+	{
+		VectorAliens.erase(VectorAliens.begin()+aliens_delete.at(i));
+	}
 }
 
 void Board::UpdateAliens()
