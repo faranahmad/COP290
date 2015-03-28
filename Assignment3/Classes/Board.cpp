@@ -167,7 +167,7 @@ int Board::CheckBulletHitAlien(int bullet_id)
 			Alien alien_hit = VectorAliens.at(i);
 			float xdis = bullet_hitting.GetXPos() - alien_hit.GetXPos();
 			float ydis = bullet_hitting.GetYPos() - alien_hit.GetYPos();
-			if ((float) sqrt(xdis*xdis + ydis*ydis) < 0.1)
+			if ((float) sqrt(xdis*xdis + ydis*ydis) < 10)
 			{
 				return i;
 			}
@@ -187,7 +187,7 @@ int Board::CheckBulletHitShip(int id)
 			Ship ship_hit = VectorShips.at(i);
 			float xdis = bullet_hitting.GetXPos() - ship_hit.GetXPos();
 			float ydis = bullet_hitting.GetYPos() - ship_hit.GetYPos();
-			if ((float) sqrt(xdis*xdis + ydis*ydis) < 0.1)
+			if ((float) sqrt(xdis*xdis + ydis*ydis) < 10)
 			{
 				return i;
 			}
