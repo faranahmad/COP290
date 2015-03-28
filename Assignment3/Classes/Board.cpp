@@ -1,5 +1,10 @@
 #include "Board.h"
 
+bool MyFunction (int i,int j) 
+{ 
+	return (i<j); 
+}
+
 float RandomFloat(float a, float b) 
 {
     float random = ((float) rand()) / (float) RAND_MAX;
@@ -151,7 +156,7 @@ void Board::RemoveNthShip(int id)
 	VectorShips.erase(VectorShips.begin() + id);
 }
 
-//returns -1 if bullets hits noalien
+//returns -1 if bullets hits no alien
 int Board::CheckBulletHitAlien(int bullet_id)
 {
 	Bullet bullet_hitting = VectorBullets.at(bullet_id);
@@ -211,10 +216,22 @@ void Board::UpdateAllBullets()
 		}
 		else 
 		{
+			bool repeat = false;
 			int hit_alien = CheckBulletHitAlien(i);
 			if(hit_alien > -1)
-			{	
-				aliens_delete.push_back((hit_alien));
+			{
+				for (int i = 0;i<aliens_delete.size()-1;i++)
+				{
+					if(hit_alien == aliens_delete.at(i))
+					{
+						repeat = true;
+						break;
+					}	
+				}
+				if(repeat == false)
+				{	
+					aliens_delete.push_back((hit_alien));
+				}
 				bullets_delete.push_back(i);
 			}	
 		}
@@ -222,6 +239,7 @@ void Board::UpdateAllBullets()
 	int bullets_delete_size  = bullets_delete.size();
 	int ships_lives_reduce_size = ships_lives_reduce.size();
 	int aliens_delete_size = aliens_delete.size();
+	std::sort (aliens_delete.begin(), aliens_delete.end(), MyFunction);
 	for (int i = bullets_delete_size - 1;i >= 0;i--)
 	{
 		VectorBullets.erase(VectorBullets.begin() + bullets_delete.at(i));
@@ -234,6 +252,12 @@ void Board::UpdateAllBullets()
 	{
 		VectorAliens.erase(VectorAliens.begin()+aliens_delete.at(i));
 	}
+	for (int i=0;i<VectorBullets.size()-1;i++)
+	{
+		VectorBullets.at(i).SetXPos(VectorBullets.at(i).GetXPos()+VectorBullets.at(i).GetVelX());
+		VectorBullets.at(i).SetYPos(VectorBullets.at(i).GetYPos()+VectorBullets.at(i).GetVelY());
+	}
+
 }
 
 void Board::UpdateAliens()
@@ -245,10 +269,7 @@ void Board::UpdatePlayerAI()
 {
 	//to do
 }
-void Board::UpdateUserPlayer(int id, int type)
-{
-	//to do 
-}
+
 
 void Board::InsertBullet(Bullet new_bullet)
 {

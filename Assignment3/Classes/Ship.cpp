@@ -3,12 +3,14 @@
 Ship::Ship()
 {
 	Angle = 0.0;
+	NumberMissiles = 5;
 }
 
 Ship::Ship(int id)
 {
 	Id = id;
 	Angle = 0.0;
+	NumberMissiles = 5;
 	//add something
 }
 

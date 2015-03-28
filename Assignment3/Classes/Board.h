@@ -10,6 +10,7 @@
 #include <string>
 #include <iostream>
 #include <cstdlib>
+#include <algorithm>
 
 float RandomFloat(float,float);
 
@@ -63,7 +64,6 @@ class Board
 		void UpdateAliens(); 					// Call AI function for aliens
 
 		void UpdatePlayerAI();					// Update AI players
-		void UpdateUserPlayer(int id,int type); // type =1 then move right etc (6 cases)
 
 		void InsertBullet(Bullet);
 		void InsertAlien(Alien);
