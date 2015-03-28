@@ -2,7 +2,9 @@
 
 Alien::Alien()
 {
-	//to do later
+	XPos = 0.0;
+	YPos = 0.0;
+	Angle = 0.0;
 }
 
 float Alien::GetXPos()
