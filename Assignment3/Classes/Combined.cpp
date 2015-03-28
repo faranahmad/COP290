@@ -178,7 +178,6 @@ void handleKeypress(unsigned char key, int x, int y)
 			// TODO: incorporate multiplier
 			std::cout << "space bar presed\n";
 			Bullet newb = Bullet();
-			newb.SetTypeAI(false);
 			Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
 
 			std::cout <<"angle: " <<present.GetAngle() <<"\n";
@@ -304,6 +303,8 @@ void ShowShip(Ship shiptodisplay)
 
 void ShowAlien(Alien alientodisplay)
 {
+	std::cout << "displaying alien\n";
+	std::cout << alientodisplay.GetSummary() <<"\n";
 	glPushMatrix();
 	glTranslatef(alientodisplay.GetXPos(),alientodisplay.GetYPos(),0);
 	glRotatef(alientodisplay.GetAngle(),0,0,1);
@@ -423,6 +424,10 @@ int main(int argc,char *argv[])
 	news.SetXPos(500);
 	news.SetYPos(45);
 	newg.PlayerBoard.InsertShip(news);
+
+
+	Alien newa= Alien();
+	newg.PlayerBoard.InsertAlien(newa);
 
 	// Wrapper function for graphics
 	glutInit(&argc, argv);
