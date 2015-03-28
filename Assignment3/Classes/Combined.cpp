@@ -18,6 +18,7 @@ std::vector<Faces> alien;
 std::vector<Faces> ship;
 std::vector<Faces> missile;
 std::vector<Faces> bullet;
+std::vector<Points> Stars;
 // Board BoardToDisplay;
 
 struct GamePlay
@@ -180,15 +181,20 @@ void handleKeypress(unsigned char key, int x, int y)
 			Bullet newb = Bullet();
 			newb.SetTypeAI(false);
 			Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
-			newb.SetXPos(present.GetXPos());
-			newb.SetYPos(present.GetYPos());
 
+			std::cout <<"angle: " <<present.GetAngle() <<"\n";
 			float velx = 0- 10*sin(PI*present.GetAngle()/180);
 			float vely = 10* cos(PI*present.GetAngle()/180);
 
+			newb.SetXPos(present.GetXPos());
+			newb.SetYPos(present.GetYPos());
 			newb.SetVelX(velx);
 			newb.SetVelY(vely);
+			newb.SetShipID(newg.PlayerId);
+			newb.SetTypeAI(false);
 
+			std::cout <<"angle bullet: " << newb.GetAngle() <<"\n";
+			std::cout <<"velocities " << newb.GetVelX() <<"\t" <<newb.GetVelY() <<"\n";
 			newg.PlayerBoard.InsertBullet(newb);
 			glutPostRedisplay();
 			break;
@@ -199,24 +205,34 @@ void handleKeypress(unsigned char key, int x, int y)
 			// Fire Missile
 			std::cout << "space bar presed\n";
 			Bullet newb = Bullet();
-			newb.SetTypeAI(true);
 			Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
-			newb.SetXPos(present.GetXPos());
-			newb.SetYPos(present.GetYPos());
-
-
-			float velx = -10* sin(PI*present.GetAngle()/180);
-			float vely = 10* cos(PI*present.GetAngle()/180);
-
-			newb.SetVelX(velx);
-			newb.SetVelY(vely);
-			// float velx=
-
-			newg.PlayerBoard.InsertBullet(newb);
+			if (present.GetNumberMissiles()>0)
+			{
+				present.ReduceMissile();
+				newb.SetTypeAI(true);
+				newb.SetXPos(present.GetXPos());
+				newb.SetYPos(present.GetYPos());
+	
+				float velx = -10* sin(PI*present.GetAngle()/180);
+				float vely = 10* cos(PI*present.GetAngle()/180);
+	
+				newb.SetVelX(velx);
+				newb.SetVelY(vely);
+				newb.SetShipID(newg.PlayerId);
+				newb.SetTypeAI(false);
+			
+				newg.PlayerBoard.SetNthShip(newg.PlayerId,present);
+				newg.PlayerBoard.InsertBullet(newb);	
+			}
 			glutPostRedisplay();
 			break;
 		}
-
+		case 'y':
+		{
+			newg.PlayerBoard.UpdateAllBullets();
+			glutPostRedisplay();
+			break;
+		}
 		case 43: //+ key
 		{    
 			break; 
@@ -248,7 +264,6 @@ void ShowObject(std::vector<Faces> facevect)
 	}
 	// glPopMatrix();
 }
-
 
 void ShowBullet(Bullet b)
 {
@@ -375,10 +390,28 @@ int main(int argc,char *argv[])
 	ship = loadOBJ("Ship.obj");
 	std::cout << "Opened file\n";
 
+	int limt = rand()%500;
+
+	for (int i =0 ; i<limt ; i++)
+	{
+		int X,Y,Z;
+		X = (rand()%3200) -1600;
+		Y = (rand()%1800) -900;
+		Z = -500;
+		Points p;
+		p.x=X;
+		p.y=Y;
+		p.z=Z;
+		Stars.push_back(p);	
+	}
+
+	std::cout <<"Generated stars: " << Stars.size() <<"\n";
+
 	newg.PlayerId = 0;
 	newg.PlayerBoard = Board(1600,1600,900,900);
 
 	Ship news= Ship();
+	news.SetColorFloat(30,170,65);
 	news.SetXPos(500);
 	news.SetYPos(45);
 	newg.PlayerBoard.InsertShip(news);
