@@ -91,13 +91,11 @@ void Bullet::SetShipID(int ship_id)
 void Bullet::SetTypeAI(bool AI)
 {
 	TypeAI = AI;
-	TypePlayer = !AI;
 }
 
 void Bullet::SetTypePlayer(bool type_player)
 {
 	TypePlayer = type_player;
-	TypeAI = !type_player;
 }
 
 void Bullet::ResetBulletState()

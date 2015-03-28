@@ -180,7 +180,7 @@ int Board::CheckBulletHitAlien(int bullet_id)
 int Board::CheckBulletHitShip(int id)
 {
 	Bullet bullet_hitting = VectorBullets.at(id);
-	if(bullet_hitting.GetTypeAI() == true)
+	if(bullet_hitting.GetTypePlayer() == false)
 	{
 		for (int i = 0;i < VectorShips.size();i++)
 		{
