@@ -19,7 +19,6 @@ std::vector<Faces> ship;
 std::vector<Faces> missile;
 std::vector<Faces> bullet;
 std::vector<Points> Stars;
-// Board BoardToDisplay;
 
 struct GamePlay
 {
@@ -209,18 +208,17 @@ void handleKeypress(unsigned char key, int x, int y)
 			if (present.GetNumberMissiles()>0)
 			{
 				present.ReduceMissile();
-				newb.SetTypeAI(true);
-				newb.SetXPos(present.GetXPos());
-				newb.SetYPos(present.GetYPos());
 	
 				float velx = -10* sin(PI*present.GetAngle()/180);
 				float vely = 10* cos(PI*present.GetAngle()/180);
 	
+				newb.SetTypeAI(true);
+				newb.SetXPos(present.GetXPos());
+				newb.SetYPos(present.GetYPos());
 				newb.SetVelX(velx);
 				newb.SetVelY(vely);
 				newb.SetShipID(newg.PlayerId);
-				newb.SetTypeAI(false);
-			
+
 				newg.PlayerBoard.SetNthShip(newg.PlayerId,present);
 				newg.PlayerBoard.InsertBullet(newb);	
 			}
@@ -351,7 +349,7 @@ void display(void)
 	float const window_aspect = (float)window_width / (float)window_height;
 	// glRotatef( rotate_x, 200, 0.0, 0.0 );
 	// glRotatef( rotate_y, 0.0, 200, 0.0 );
-	glClearColor(0.5, 0.5, 1.0, 1.0);
+	glClearColor(0, 0, 0.0, 1.0);
 	glClearDepth(1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_COLOR_MATERIAL);
@@ -370,19 +368,27 @@ void display(void)
 	ShowBoard(newg.PlayerBoard);
 
 	glPushMatrix();
-	// glTranslatef(100,100,1000);
-	glColor3f(0.5,0.8,0.2);
 	// glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'a' );
 	// glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'b' );
 	// glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'c' );
-	// glutSolidSphere(30, 31, 10);
+	for (int i=0; i<Stars.size() ; i++)
+	{
+		glPushMatrix();
+		glColor3f(0.5,0.8,0.2);
+		glTranslatef(Stars[i].x,Stars[i].y,Stars[i].z);
+		glutSolidSphere(3, 31, 10);
+		glPopMatrix();
+	}
 	glPopMatrix();
 	glutSwapBuffers();
-	// glutPostRedisplay();
+	newg.PlayerBoard.UpdateAllBullets();
+	glutPostRedisplay();
 }
+
 
 int main(int argc,char *argv[])
 {
+	srand (time(NULL));
 	std::cout << "Opening file\n";
 	missile = loadOBJ("Missile.obj");
 	bullet = loadOBJ("Bullet.obj");
@@ -397,7 +403,7 @@ int main(int argc,char *argv[])
 		int X,Y,Z;
 		X = (rand()%3200) -1600;
 		Y = (rand()%1800) -900;
-		Z = -500;
+		Z = 500;
 		Points p;
 		p.x=X;
 		p.y=Y;
@@ -416,20 +422,20 @@ int main(int argc,char *argv[])
 	news.SetYPos(45);
 	newg.PlayerBoard.InsertShip(news);
 
-    // Wrapper function for graphics
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-    glutInitWindowSize(1600,900);
-    glutCreateWindow("Team Babe Magnets");
-    
-    glutDisplayFunc(display);
-    // glutReshapeFunc(reshape);
-    // glutMouseFunc(mouseclick);
-    glutSpecialFunc(specialKeys);
-    glutKeyboardFunc(handleKeypress);
-    // initRendering();
+	// Wrapper function for graphics
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
+	glutInitWindowSize(1600,900);
+	glutCreateWindow("Team Babe Magnets");
+	
+	glutDisplayFunc(display);
+	// glutReshapeFunc(reshape);
+	// glutMouseFunc(mouseclick);
+	glutSpecialFunc(specialKeys);
+	glutKeyboardFunc(handleKeypress);
+	// initRendering();
 
-    glutMainLoop();
-
-    return 0;
+	glutMainLoop();
+	
+	return 0;
 }

@@ -9,7 +9,7 @@ RunTest: Test
 	./Test
 
 Game: Alien.o Ship.o Color.o Bullet.o Board.o Combined.o
-	g++ $(ver) -o Game Color.o Ship.o Bullet.o Alien.o Board.o Combined.o -lGL -lGLU -lglut
+	g++ $(ver) -o Game Color.o Ship.o Bullet.o Alien.o Board.o Combined.o -lGL -lGLU -lglut -lpthread
 
 Test: Test.o Alien.o Ship.o Color.o Bullet.o Board.o ShipTest.o AllTests.o
 	g++ $(ver) -o Test Test.o Alien.o Ship.o Color.o Bullet.o Board.o ShipTest.o AllTests.o
