@@ -228,8 +228,8 @@ void handleKeypress(unsigned char key, int x, int y)
 		}
 		case 'y':
 		{
-			newg.PlayerBoard.UpdateAllBullets();
-			glutPostRedisplay();
+			newg.PlayerBoard.AddRandomAlien();
+			// glutPostRedisplay();
 			break;
 		}
 		case 43: //+ key
@@ -266,7 +266,7 @@ void ShowObject(std::vector<Faces> facevect)
 
 void ShowBullet(Bullet b)
 {
-	std::cout <<"Showing bullet now\n";
+	// std::cout <<"Showing bullet now\n";
 	glPushMatrix();
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
 	glRotatef(b.GetAngle(),0,0,1);
@@ -278,7 +278,7 @@ void ShowBullet(Bullet b)
 
 void ShowMissile(Bullet b)
 {
-	std::cout <<"Showing missile now\n";
+	// std::cout <<"Showing missile now\n";
 	glPushMatrix();
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
 	glRotatef(b.GetAngle(),0,0,1);
@@ -303,8 +303,8 @@ void ShowShip(Ship shiptodisplay)
 
 void ShowAlien(Alien alientodisplay)
 {
-	std::cout << "displaying alien\n";
-	std::cout << alientodisplay.GetSummary() <<"\n";
+	// std::cout << "displaying alien\n";
+	// std::cout << alientodisplay.GetSummary() <<"\n";
 	glPushMatrix();
 	glTranslatef(alientodisplay.GetXPos(),alientodisplay.GetYPos(),0);
 	glRotatef(alientodisplay.GetAngle(),0,0,1);
