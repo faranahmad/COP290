@@ -191,6 +191,7 @@ void handleKeypress(unsigned char key, int x, int y)
 			newb.SetVelY(vely);
 			newb.SetShipID(newg.PlayerId);
 			newb.SetTypeAI(false);
+			newb.SetTypePlayer(true);
 
 			std::cout <<"angle bullet: " << newb.GetAngle() <<"\n";
 			std::cout <<"velocities " << newb.GetVelX() <<"\t" <<newb.GetVelY() <<"\n";
@@ -218,6 +219,7 @@ void handleKeypress(unsigned char key, int x, int y)
 				newb.SetVelX(velx);
 				newb.SetVelY(vely);
 				newb.SetShipID(newg.PlayerId);
+				newb.SetTypePlayer(true);
 
 				newg.PlayerBoard.SetNthShip(newg.PlayerId,present);
 				newg.PlayerBoard.InsertBullet(newb);	
