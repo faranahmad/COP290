@@ -437,3 +437,14 @@ void Board::AddRandomShip()
 	VectorShips.push_back(random_ship);
 }
 
+void Board::AddRandomAlien()
+{
+	Alien random_alien;
+	random_alien.SetXPos(RandomFloat(-(DimensionNegX),DimensionPosX));
+	random_alien.SetYPos(RandomFloat(-(DimensionNegY),DimensionPosY));
+	random_alien.SetColorFloat(rand() % 255,rand() % 255,rand() % 255);
+	random_alien.SetAngle(RandomFloat(0.0,360.0));	
+	VectorAliens.push_back(random_alien);
+}
+
+

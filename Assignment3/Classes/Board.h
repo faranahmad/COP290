@@ -73,6 +73,7 @@ class Board
 
 		void MoveNthShip(int,int); //first int id secong int if 0 move to left 1 pe right 2 up 3 down 4 rotate clock 5 rotate anti clock
 		void AddRandomShip();
+		void AddRandomAlien();
 	
 	private:
 		std::vector<Ship> VectorShips;
