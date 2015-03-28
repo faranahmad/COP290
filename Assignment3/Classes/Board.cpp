@@ -205,7 +205,7 @@ void Board::UpdateAllBullets()
 
 	for (int i = 0;i < bullet_size ;i++)
 	{
-		if(VectorBullets.at(i).GetTypeAI() == true)
+		if(VectorBullets.at(i).GetTypePlayer() == false)
 		{
 			int hit_ship = CheckBulletHitShip(i);
 			if(hit_ship > -1)
@@ -220,7 +220,7 @@ void Board::UpdateAllBullets()
 			int hit_alien = CheckBulletHitAlien(i);
 			if(hit_alien > -1)
 			{
-				for (int i = 0;i<aliens_delete.size()-1;i++)
+				for (int i = 0;i<aliens_delete.size();i++)
 				{
 					if(hit_alien == aliens_delete.at(i))
 					{
@@ -252,10 +252,23 @@ void Board::UpdateAllBullets()
 	{
 		VectorAliens.erase(VectorAliens.begin()+aliens_delete.at(i));
 	}
-	for (int i=0;i<VectorBullets.size()-1;i++)
+	for (int i=VectorBullets.size()-1;i>=0;i--)
 	{
-		VectorBullets.at(i).SetXPos(VectorBullets.at(i).GetXPos()+VectorBullets.at(i).GetVelX());
-		VectorBullets.at(i).SetYPos(VectorBullets.at(i).GetYPos()+VectorBullets.at(i).GetVelY());
+		if(VectorBullets.at(i).GetXPos()+2.0 > DimensionPosX 
+		|| VectorBullets.at(i).GetXPos()-2.0 < -(DimensionNegX) 
+		|| VectorBullets.at(i).GetYPos()+2.0 > DimensionPosY
+		|| VectorBullets.at(i).GetYPos()-2.0 < -(DimensionNegY))
+		{
+			VectorBullets.erase(VectorBullets.begin() + i);
+		}
+	}
+	for (int i=0;i<VectorBullets.size();i++)
+	{
+		if(VectorBullets.at(i).GetTypeAI() == false)
+		{
+			VectorBullets.at(i).SetXPos(VectorBullets.at(i).GetXPos()+VectorBullets.at(i).GetVelX());
+			VectorBullets.at(i).SetYPos(VectorBullets.at(i).GetYPos()+VectorBullets.at(i).GetVelY());
+		}
 	}
 
 }
@@ -319,35 +332,23 @@ void Board::MoveNthShip(int ship_id,int mov_type)
 	Ship ship_to_move = VectorShips.at(ship_id);
 	if(mov_type == 0)
 	{
-		if(ship_to_move.GetXPos() - 5.0 > -(DimensionNegX))
-		{
-			ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
-			ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180));			
-		}
+		ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180));			
 	}
 	else if(mov_type == 1)
 	{
-		if(ship_to_move.GetXPos() + 5.0 < DimensionPosX)
-		{
-			ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
-			ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
-		}
+		ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
 	}
 	else if(mov_type == 2)
 	{
-		if(ship_to_move.GetYPos() + 5.0 < DimensionPosY)
-		{
-			ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
-			ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
-		}
+		ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
 	}
 	else if(mov_type == 3)
 	{
-		if(ship_to_move.GetYPos() - 5.0 > -(DimensionNegY))
-		{
-			ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
-			ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
-		}
+		ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
 	}
 	else if(mov_type == 4)
 	{
@@ -359,8 +360,72 @@ void Board::MoveNthShip(int ship_id,int mov_type)
 		ship_to_move.SetAngle(ship_to_move.GetAngle() + 5.0);
 		std::cout<<ship_to_move.GetAngle() <<"\n";
 	}
+	if(ship_to_move.GetXPos() < -(DimensionNegX))
+	{
+		ship_to_move.SetXPos(-(DimensionNegX));
+	}
+	if(ship_to_move.GetXPos() > DimensionPosX)
+	{
+		ship_to_move.SetXPos(DimensionPosX);		
+	}
+	if(ship_to_move.GetYPos() > DimensionPosY)
+	{
+		ship_to_move.SetYPos(DimensionPosY);
+	}
+	if(ship_to_move.GetYPos() < -(DimensionNegY))
+	{
+		ship_to_move.SetYPos(-(DimensionNegY));
+	}
 	VectorShips.at(ship_id) = ship_to_move; 
 }
+
+// void Board::MoveNthShip(int ship_id,int mov_type)
+// {
+// 	Ship ship_to_move = VectorShips.at(ship_id);
+// 	if(mov_type == 0)
+// 	{
+// 		if(ship_to_move.GetXPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180) > -(DimensionNegX) || 
+// 		   ship_to_move.GetYPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180) > -(DimensionNegY))
+// 		{
+// 			ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
+// 			ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180));			
+// 		}
+// 	}
+// 	else if(mov_type == 1)
+// 	{
+// 		if(ship_to_move.GetXPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180) < DimensionPosX ||
+// 		   ship_to_move.GetYPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180) < DimensionPosY)
+// 		{
+// 			ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
+// 			ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
+// 		}
+// 	}
+// 	else if(mov_type == 2)
+// 	{
+// 		if(ship_to_move.GetYPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180) < DimensionPosY ||
+// 		   ship_to_move.GetXPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180) > -(DimensionNegX))
+// 		ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
+// 		ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
+// 	}
+// 	else if(mov_type == 3)
+// 	{
+// 		if(ship_to_move.GetYPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180) > -(DimensionNegY) ||
+// 		   ship_to_move.GetXPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180) < DimensionPosX)
+// 		ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
+// 		ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
+// 	}
+// 	else if(mov_type == 4)
+// 	{
+// 		ship_to_move.SetAngle(ship_to_move.GetAngle() - 5.0);
+// 		std::cout<<ship_to_move.GetAngle() <<"\n";
+// 	}
+// 	else if(mov_type == 5)
+// 	{
+// 		ship_to_move.SetAngle(ship_to_move.GetAngle() + 5.0);
+// 		std::cout<<ship_to_move.GetAngle() <<"\n";
+// 	}
+// 	VectorShips.at(ship_id) = ship_to_move; 
+// }
 
 void Board::AddRandomShip()
 {
