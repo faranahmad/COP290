@@ -1,0 +1,36 @@
+\documentclass[12pt]{article}
+ \usepackage{setspace} 
+\addtolength{\textheight}{4cm}
+\addtolength{\voffset}{-2cm}
+
+\setlength{\parskip}{0.35cm}
+
+\begin{document}
+\title{Dead Drop}
+\author{}
+\date{}
+\maketitle
+
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\begin{itemize}
+	\item Connection status shown at the time of login by the red or green color
+	\item Username Passwords stored in encrypted form
+	\item New user creation checks for existing username and other redundant cases.
+	\item On login, syncing of files takes place.
+	\item User can change password after login takes place.
+	\item User can Share files with both read and write permissions and see which files have been shared. On trying to share file with a user who doesnt exist, then an error is shown.
+	\item On trying to upload read only files, error message is shown. 
+	\item When a file is shared from a to b and b makes a modification in it, a file gets changed automatically when sync takes place.
+	\item The files on the server can be viewed.
+	\item De duplication of files is done. Only 1 copy of the same file is stored on the server.
+	\item In the server UI, the IP and port is visible for ease of connection. List of online users and all users can be seen. Even the files stored on the server can be seen.
+	\item The entire UI and backend is threaded in such a way that the UI becomes inactive when the back end is active which ensures that multiple interfering processes do not take place.
+	\item The core data about all the files is stored in 7 files in a hidden folder. These are initially transferred from the server to client to generate further syncing instructions.
+	\item Logo for the application has been added.
+	\item File history was not done because we could not get diff files properly and others who have done it have done it by storing multiple copies which is against the specification clearly.
+	
+\end{itemize}
+
+\end{document}
