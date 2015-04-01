@@ -385,6 +385,8 @@ void display(void)
 	glPopMatrix();
 	glutSwapBuffers();
 	newg.PlayerBoard.UpdateAllBullets();
+	UpdatePlayerAI(newg.PlayerBoard);
+	// UpdateAIBoard(newg.PlayerBoard);
 	//Update AI
 	glutPostRedisplay();
 }

@@ -1,4 +1,5 @@
 #include "Board.h"
+#include "AI.h"
 #include <GL/glut.h>
 #include <GL/gl.h>
 #include <iostream>

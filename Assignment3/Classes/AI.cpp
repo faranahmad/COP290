@@ -24,7 +24,7 @@
 
 // srand(time(NULL));
 
-void AI::UpdatePlayerAI(Board &board)
+void UpdatePlayerAI(Board &board)
 {
 	std::vector<Bullet> CurrentBullets = board.GetVectorBullets();
 	std::vector<Ship> CurrentShips = board.GetVectorShips();
@@ -43,7 +43,7 @@ void AI::UpdatePlayerAI(Board &board)
 	}
 }
 
-void AI::UpdateAlien(Board &board)
+void UpdateAlien(Board &board)
 {
 	std::vector<Bullet> CurrentBullets = board.GetVectorBullets();
 	std::vector<Ship> CurrentShips = board.GetVectorShips();
@@ -67,7 +67,7 @@ void AI::UpdateAlien(Board &board)
 	}
 }
 
-void AI::UpdateAlienMissile(Board &board, int missile)
+void UpdateAlienMissile(Board &board, int missile)
 {
 	Bullet CurrentBullet = board.GetNthBullet(missile);
 	std::vector<Bullet> CurrentBullets = board.GetVectorBullets();
@@ -86,13 +86,13 @@ void AI::UpdateAlienMissile(Board &board, int missile)
 }
 
 
-void AI::MoveInDirectionOf(Ship &ship, Alien &alien)
+void MoveInDirectionOf(Ship &ship, Alien &alien)
 {
 	Ship tempShip1 = ship;
 	Ship tempShip2 = ship;
 }
 
-void AI::TurnInDirectionOf(Ship &ship, Alien &alien)
+void TurnInDirectionOf(Ship &ship, Alien &alien)
 {
 	float shipAngle = ship.GetAngle();
 	if (abs(relativeAngle(ship,alien)) < minAngleofRotation)
@@ -101,7 +101,7 @@ void AI::TurnInDirectionOf(Ship &ship, Alien &alien)
 		ship.SetAngle(shipAngle+angularvelocity);//change the sign of this according to where the alien is
 }
 
-float AI::relativeAngle(Ship &ship,Alien &alien)
+float relativeAngle(Ship &ship,Alien &alien)
 {
 	return atan((ship.GetYPos()-alien.GetYPos())/(ship.GetXPos()-alien.GetXPos()));
 }
@@ -110,13 +110,13 @@ float AI::relativeAngle(Ship &ship,Alien &alien)
 
 
 
-void AI::MoveInDirectionOf(Alien &alien, Ship &ship)
+void MoveInDirectionOf(Alien &alien, Ship &ship)
 {
 	Alien tempAlien1 = alien;
 	Alien tempAlien2 = alien;
 }
 
-void AI::TurnInDirectionOf(Alien &alien, Ship &ship)
+void TurnInDirectionOf(Alien &alien, Ship &ship)
 {
 	float alienAngle = alien.GetAngle();
 	if (abs(relativeAngle(alien,ship)) < minAngleofRotation)
@@ -130,12 +130,12 @@ void AI::TurnInDirectionOf(Alien &alien, Ship &ship)
 
 }
 
-float AI::relativeAngle(Alien& alien,Ship &ship)
+float relativeAngle(Alien& alien,Ship &ship)
 {
 	return atan((alien.GetYPos()-ship.GetYPos())/(alien.GetXPos()-ship.GetXPos()));
 }
 
-int AI::FindNearestAlien(Ship &ship, std::vector<Alien> &CurrentAliens,bool nearEnough)
+int FindNearestAlien(Ship &ship, std::vector<Alien> &CurrentAliens,bool nearEnough)
 {
 	float min = maximumdistance;
 	int nearestAlien = -1;
@@ -158,7 +158,7 @@ int AI::FindNearestAlien(Ship &ship, std::vector<Alien> &CurrentAliens,bool near
 
 }
 
-int AI::FindNearestShip(Alien &alien, std::vector<Ship> &CurrentShips,bool nearEnough)
+int FindNearestShip(Alien &alien, std::vector<Ship> &CurrentShips,bool nearEnough)
 {
 	float min = maximumdistance;
 	int nearestShip = -1;
@@ -181,24 +181,24 @@ int AI::FindNearestShip(Alien &alien, std::vector<Ship> &CurrentShips,bool nearE
 
 }
 
-float AI::Distance(Alien &alien, Bullet &actualmissile)
+float Distance(Alien &alien, Bullet &actualmissile)
 {
 	//include math.h
 	return pow((alien.GetXPos() - actualmissile.GetXPos()),2) + pow((alien.GetYPos()-actualmissile.GetYPos()),2);
 }
 
-float AI::Distance(Ship &ship, Bullet &actualmissile)
+float Distance(Ship &ship, Bullet &actualmissile)
 {
 	//include math.h
 	return pow((ship.GetXPos()-actualmissile.GetXPos()),2) + pow((ship.GetYPos()-actualmissile.GetYPos()),2);
 }
 
-float AI::Distance(Ship &ship, Alien &alien)
+float Distance(Ship &ship, Alien &alien)
 {
 	return pow((alien.GetXPos()-ship.GetXPos()),2) + pow((alien.GetYPos()-ship.GetYPos()),2);
 
 }
-int AI::ClosestAlienEnemy(std::vector<Alien> &Aliens,int NumberAliens, Bullet &actualmissile)
+int ClosestAlienEnemy(std::vector<Alien> &Aliens,int NumberAliens, Bullet &actualmissile)
 {
 	//return -1 if none in range
 	int closestAlien = -1;
@@ -215,7 +215,7 @@ int AI::ClosestAlienEnemy(std::vector<Alien> &Aliens,int NumberAliens, Bullet &a
 
 }
 
-int AI::ClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actualmissile)
+int ClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actualmissile)
 {
 	int closestShip = -1;
 	float leastDistance = 100000; //Infinity
@@ -230,7 +230,7 @@ int AI::ClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actua
 	return closestShip;
 }
 
-bool AI::InArc(Alien &alien, Bullet &actualmissile)
+bool InArc(Alien &alien, Bullet &actualmissile)
 {
 	if (abs(atan((alien.GetYPos()-actualmissile.GetYPos())/(alien.GetXPos()-actualmissile.GetXPos()))*180/PI-90.0-actualmissile.GetAngle())<theta)
 		return true;
@@ -238,7 +238,7 @@ bool AI::InArc(Alien &alien, Bullet &actualmissile)
 		return false;
 }
 
-bool AI::InArc(Ship &ship, Bullet &actualmissile)
+bool InArc(Ship &ship, Bullet &actualmissile)
 {
 	if (abs(atan((ship.GetYPos()-actualmissile.GetYPos())/(ship.GetXPos()-actualmissile.GetXPos()))*180/PI-90.0-actualmissile.GetAngle())<theta)
 		return true;
@@ -247,7 +247,7 @@ bool AI::InArc(Ship &ship, Bullet &actualmissile)
 }
 
 
-void AI::UpdateShipMissile(Board &board, int missile)
+void UpdateShipMissile(Board &board, int missile)
 {
 	Bullet CurrentBullet = board.GetNthBullet(missile);
 	std::vector<Bullet> CurrentBullets = board.GetVectorBullets();
@@ -266,7 +266,7 @@ void AI::UpdateShipMissile(Board &board, int missile)
 	}
 }
 
-void AI::UpdateMissile(Board &board, int missile)
+void UpdateMissile(Board &board, int missile)
 {
 	int NumberBullets=board.GetNumberBullets();
 	std::vector<Bullet> VectorBullets = board.GetVectorBullets();
@@ -285,28 +285,28 @@ void AI::UpdateMissile(Board &board, int missile)
 	}
 }
 
-float AI::relativeAngle(Alien &alien,Bullet &actualmissile)
+float relativeAngle(Alien &alien,Bullet &actualmissile)
 {
 	return atan((alien.GetYPos()-actualmissile.GetYPos())/(alien.GetXPos()-actualmissile.GetXPos()));
 }
 
-float AI::relativeAngle(Ship &ship,Bullet &actualmissile)
+float relativeAngle(Ship &ship,Bullet &actualmissile)
 {
 	return atan((ship.GetYPos()-actualmissile.GetYPos())/(ship.GetXPos()-actualmissile.GetXPos()));
 }
 
-void AI::UpdateVelocity(Bullet &actualmissile,Ship &ship)
+void UpdateVelocity(Bullet &actualmissile,Ship &ship)
 {
 	actualmissile.SetVelX(actualmissile.GetSpeed()*cos(relativeAngle(ship,actualmissile)));
 	actualmissile.SetVelY(actualmissile.GetSpeed()*sin(relativeAngle(ship,actualmissile)));
 }
 
-void AI::UpdateVelocity(Bullet &actualmissile,Alien &alien)
+void UpdateVelocity(Bullet &actualmissile,Alien &alien)
 {
 	actualmissile.SetVelX(actualmissile.GetSpeed()*cos(relativeAngle(alien,actualmissile)));
 	actualmissile.SetVelY(actualmissile.GetSpeed()*sin(relativeAngle(alien,actualmissile)));
 }
-void AI::UpdateAIBoard(Board &board)
+void UpdateAIBoard(Board &board)
 {
 	int NumberShips = board.GetNumberShips();
 	int NumberAliens = board.GetNumberAliens();
