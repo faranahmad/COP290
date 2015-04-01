@@ -1,5 +1,8 @@
 #include "Combined.h"
 
+#define NUM_PARTICLES    1000          /* Number of particles  */
+#define NUM_DEBRIS       70            /* Number of debris     */
+
 struct Points
 {
 	float x,y,z;
@@ -11,6 +14,37 @@ struct Faces
 }
 ;
 
+
+struct particleData
+{
+  float   position[3];
+  float   speed[3];
+  float   color[3];
+};
+typedef struct particleData    particleData;
+
+
+/* A piece of debris */
+
+struct debrisData
+{
+  float   position[3];
+  float   speed[3];
+  float   orientation[3];        /* Rotation angles around x, y, and z axes */
+  float   orientationSpeed[3];
+  float   color[3];
+  float   scale[3];
+};
+
+struct Expl
+{
+	particleData 	particles[NUM_PARTICLES];
+	debrisData 		debris[NUM_DEBRIS];   
+	int         	fuel = 0;                /* "fuel" of the explosion */
+	float 			angle = 0.0;             /* camera rotation angle */
+};
+
+
 double rotate_y=0.0; 
 double rotate_x=0.0;
 
@@ -19,6 +53,7 @@ std::vector<Faces> ship;
 std::vector<Faces> missile;
 std::vector<Faces> bullet;
 std::vector<Points> Stars;
+std::vector<Expl> Explosions;
 
 struct GamePlay
 {
@@ -123,18 +158,18 @@ void specialKeys( int key, int x, int y )
 		// rotate_x +=2;
 		newg.PlayerBoard.MoveNthShip(newg.PlayerId,1);
 	}
-	else if (key == GLUT_KEY_LEFT)
+	if (key == GLUT_KEY_LEFT)
 	{
 		// Move player ship to left
 		// rotate_y +=2;
 		newg.PlayerBoard.MoveNthShip(newg.PlayerId,0);
 	}
-	else if (key == GLUT_KEY_UP)
+	if (key == GLUT_KEY_UP)
 	{
 		newg.PlayerBoard.MoveNthShip(newg.PlayerId,2);
 		// Move player ship up
 	}
-	else if (key == GLUT_KEY_DOWN)
+	if (key == GLUT_KEY_DOWN)
 	{
 		newg.PlayerBoard.MoveNthShip(newg.PlayerId,3);
 		// Move player ship down 
@@ -241,6 +276,15 @@ void handleKeypress(unsigned char key, int x, int y)
 			exit(0);
 		}
     }
+    if (key=='o')
+    {
+    	std::cout <<"o\n";
+    }
+    if (key=='l')
+    {
+    	std::cout <<"l\n";
+    }
+
 }
 
 void ShowObject(std::vector<Faces> facevect)
@@ -282,7 +326,7 @@ void ShowMissile(Bullet b)
 	glPushMatrix();
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
 	glRotatef(b.GetAngle(),0,0,1);
-	std::cout << b.GetXPos() <<"\t"<< b.GetYPos() <<"\n";
+	// std::cout << b.GetXPos() <<"\t"<< b.GetYPos() <<"\n";
 	Color col_bul=b.GetColorOfBullet();
 	glColor3f(col_bul.GetR(),col_bul.GetG(),col_bul.GetB());
 	ShowObject(missile);
@@ -296,7 +340,7 @@ void ShowShip(Ship shiptodisplay)
 	glRotatef(shiptodisplay.GetAngle(),0,0,1);
 	Color col_ship=shiptodisplay.GetColor();
 	glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
-	std::cout << shiptodisplay.GetXPos() << "\t" << shiptodisplay.GetYPos() <<"\n";
+	// std::cout << shiptodisplay.GetXPos() << "\t" << shiptodisplay.GetYPos() <<"\n";
 	ShowObject(ship);
 	glPopMatrix();
 }
@@ -344,9 +388,158 @@ void ShowBoard(Board boardtodisplay)
 	}	
 }
 
+void newSpeed (float dest[3])
+{
+	float    x;
+	float    y;
+	float    z;
+	float    len;
+
+	x = (2.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 1.0;
+	y = (2.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 1.0;
+	z = (2.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 1.0;
+
+  	/*
+  	 * Normalizing the speed vectors gives a "fireball" effect
+  	 *
+  	 */
+
+	// if (wantNormalize)
+ //   	{
+ //    	len = sqrt (x * x + y * y + z * z);
+ //    	if (len)
+	// 	{
+	// 		x = x / len;
+	// 		y = y / len;
+	// 		z = z / len;
+	// 	}
+ //   	}
+	
+	dest[0] = x;
+	dest[1] = y;
+	dest[2] = z;
+}
+
+void newExplosion (void)
+{
+	Expl newexpl;
+	for (int i = 0; i < NUM_PARTICLES; i++)
+	{
+		newexpl.particles[i].position[0] = 0.0;
+		newexpl.particles[i].position[1] = 0.0;
+		newexpl.particles[i].position[2] = 0.0;
+
+		newexpl.particles[i].color[0] = 1.0;
+		newexpl.particles[i].color[1] = 1.0;
+		newexpl.particles[i].color[2] = 0.5;
+
+		newSpeed (newexpl.particles[i].speed);
+	}
+
+	for (int i = 0; i < NUM_DEBRIS; i++)
+	{
+		newexpl.debris[i].position[0] = 0.0;
+		newexpl.debris[i].position[1] = 0.0;
+		newexpl.debris[i].position[2] = 0.0;
+
+		newexpl.debris[i].orientation[0] = 0.0;
+		newexpl.debris[i].orientation[1] = 0.0;
+		newexpl.debris[i].orientation[2] = 0.0;
+
+		newexpl.debris[i].color[0] = 0.7;
+		newexpl.debris[i].color[1] = 0.7;
+		newexpl.debris[i].color[2] = 0.7;
+
+		newexpl.debris[i].scale[0] = (2.0* ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 1.0;
+		newexpl.debris[i].scale[1] = (2.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 1.0;
+		newexpl.debris[i].scale[2] = (2.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 1.0;
+
+		newSpeed (newexpl.debris[i].speed);
+		newSpeed (newexpl.debris[i].orientationSpeed);
+	}
+	newexpl.fuel = 100;
+	Explosions.push_back(newexpl);
+}
+
+void ShowExplosion(Expl exptodisplay)
+{
+  // glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+  // glLoadIdentity ();
+
+  /* Place the camera */
+
+  glTranslatef (0.0, 0.0, -10.0);
+  glRotatef (exptodisplay.angle, 0.0, 1.0, 0.0);
+
+  /* If no explosion, draw cube */
+
+	if (exptodisplay.fuel == 0)
+    {
+		// glEnable (GL_LIGHTING);
+		// glDisable (GL_LIGHT0);
+		// glEnable (GL_DEPTH_TEST);
+		// glutSolidCube (1.0);
+    }
+	else
+    {
+    	std::cout <<"in else case\n";
+		glPushMatrix ();
+
+      // glDisable (GL_LIGHTING);
+      // glDisable (GL_DEPTH_TEST);
+
+		glBegin (GL_POINTS);
+
+		for (int i = 0; i < NUM_PARTICLES; i++)
+		{
+			glColor3fv  (exptodisplay.particles[i].color);
+			glVertex3fv (exptodisplay.particles[i].position);
+		}
+		glEnd ();
+
+		glPopMatrix ();
+
+      // glEnable (GL_LIGHTING); 
+      // glEnable (GL_LIGHT0); 
+      // glEnable (GL_DEPTH_TEST);
+
+      glNormal3f (0.0, 0.0, 1.0);
+
+      for (int i = 0; i < NUM_DEBRIS; i++)
+	{
+	  glColor3fv (exptodisplay.debris[i].color);
+
+	  glPushMatrix ();
+      
+	  glTranslatef (exptodisplay.debris[i].position[0],
+			exptodisplay.debris[i].position[1],
+			exptodisplay.debris[i].position[2]);
+
+	  glRotatef (exptodisplay.debris[i].orientation[0], 1.0, 0.0, 0.0);
+	  glRotatef (exptodisplay.debris[i].orientation[1], 0.0, 1.0, 0.0);
+	  glRotatef (exptodisplay.debris[i].orientation[2], 0.0, 0.0, 1.0);
+
+	  glScalef (exptodisplay.debris[i].scale[0],
+		    exptodisplay.debris[i].scale[1],
+		    exptodisplay.debris[i].scale[2]);
+
+	  glBegin (GL_TRIANGLES);
+	  glVertex3f (0.0, 0.5, 0.0);
+	  glVertex3f (-0.25, 0.0, 0.0);
+	  glVertex3f (0.25, 0.0, 0.0);
+	  glEnd ();	  
+	  
+	  glPopMatrix ();
+	}
+    }
+
+  // glutSwapBuffers ();
+} 
+
 void display(void)
 {
-	std::cout<<"In display\n";
+	// std::cout<<"In display\n";
 	int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
 	int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
 	float const window_aspect = (float)window_width / (float)window_height;
@@ -369,6 +562,7 @@ void display(void)
 	// ShowMissile(-40.0,-40.0,10.0,10.0,Color(255,0,0));
 
 	ShowBoard(newg.PlayerBoard);
+	ShowExplosion(Explosions[0]);
 
 	glPushMatrix();
 	// glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'a' );
@@ -385,7 +579,7 @@ void display(void)
 	glPopMatrix();
 	glutSwapBuffers();
 	newg.PlayerBoard.UpdateAllBullets();
-	UpdatePlayerAI(newg.PlayerBoard);
+	// UpdatePlayerAI(newg.PlayerBoard);
 	// UpdateAIBoard(newg.PlayerBoard);
 	//Update AI
 	glutPostRedisplay();
@@ -395,6 +589,7 @@ void display(void)
 int main(int argc,char *argv[])
 {
 	srand (time(NULL));
+	newExplosion();
 	std::cout << "Opening file\n";
 	missile = loadOBJ("Missile.obj");
 	bullet = loadOBJ("Bullet.obj");
