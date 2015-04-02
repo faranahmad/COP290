@@ -240,14 +240,14 @@ std::vector<Points> Board::UpdateAllBullets()
 					aliens_delete.push_back((hit_alien));
 					Points alien_del_pos;
 					alien_del_pos.x = VectorAliens.at(hit_alien).GetXPos();
-					alien_del_pos.y = VectorAliens.at(hit_alien).GetXPos();
+					alien_del_pos.y = VectorAliens.at(hit_alien).GetYPos();
 					alien_del_pos.z = 0.0;
 					aliens_pos.push_back(alien_del_pos);
 				}
 				bullets_delete.push_back(i);
 			}	
 		}
-		
+
 	}
 	int bullets_delete_size  = bullets_delete.size();
 	int ships_lives_reduce_size = ships_lives_reduce.size();
