@@ -14,6 +14,12 @@
 
 float RandomFloat(float,float);
 
+struct Points
+{
+	float x,y,z;
+};
+
+
 class Board
 {
 	public:
@@ -60,7 +66,7 @@ class Board
 		int CheckBulletHitAlien(int); 			// Return id of alien
 		int CheckBulletHitShip(int); 			// Return id of ship
 
-		void UpdateAllBullets(); 				// Move bullets to next position, Call AI function
+		std::vector<Points> UpdateAllBullets(); 				// Move bullets to next position, Call AI function
 												// Check bullet collisions
 												// Check bullet out of board
 		
