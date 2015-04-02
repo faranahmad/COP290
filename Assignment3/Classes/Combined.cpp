@@ -1,70 +1,5 @@
 #include "Combined.h"
 
-#define NUM_PARTICLES    1000          /* Number of particles  */
-#define NUM_DEBRIS       70            /* Number of debris     */
-
-// struct Points
-// {
-// 	float x,y,z;
-// }
-// ;
-struct Faces
-{
-	Points p1,p2,p3;
-}
-;
-
-
-struct particleData
-{
-  float   position[3];
-  float   speed[3];
-  float   color[3];
-};
-
-bool Keys[8];
-
-/* A piece of debris */
-
-struct debrisData
-{
-  float   position[3];
-  float   speed[3];
-  float   orientation[3];        /* Rotation angles around x, y, and z axes */
-  float   orientationSpeed[3];
-  float   color[3];
-  float   scale[3];
-};
-
-struct Expl
-{
-	particleData 	particles[NUM_PARTICLES];
-	debrisData 		debris[NUM_DEBRIS];   
-	int         	fuel = 0;                /* "fuel" of the explosion */
-	float 			angle = 0.0;             /* camera rotation angle */
-};
-
-
-double rotate_y=0.0; 
-double rotate_x=0.0;
-
-std::vector<Faces> alien;
-std::vector<Faces> ship;
-std::vector<Faces> missile;
-std::vector<Faces> bullet;
-std::vector<Points> Stars;
-std::vector<Expl> Explosions;
-
-struct GamePlay
-{
-	Board PlayerBoard;
-	int PlayerId;
-};
-
-GamePlay newg;
-
-
-Expl newExplosion (float x, float y, float z);
 
 std::vector<Faces> loadOBJ(char * path)
 {
@@ -154,17 +89,84 @@ std::vector<Faces> loadOBJ(char * path)
 void ProcessKeys()
 {
 	if (Keys[0])
+	{
+		// Move right
 		newg.PlayerBoard.MoveNthShip(newg.PlayerId,1);
+	}
 	if (Keys[1])
+	{
+		// Move left
 		newg.PlayerBoard.MoveNthShip(newg.PlayerId,0);
+	}
 	if (Keys[2])
+	{
+		// Move up
 		newg.PlayerBoard.MoveNthShip(newg.PlayerId,2);
+	}
 	if (Keys[3])
+	{
+		// Move down
 		newg.PlayerBoard.MoveNthShip(newg.PlayerId,3);
+	}
 	if (Keys[4])
-		newg.PlayerBoard.MoveNthShip(newg.PlayerId,4);
-	if (Keys[5])
+	{
+		// Rotate d
 		newg.PlayerBoard.MoveNthShip(newg.PlayerId,5);
+	}
+	if (Keys[5])
+	{
+		// Rotate a
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,4);
+	}
+	if (Keys[6])
+	{
+		// Fire Bullet
+		// TODO: Incorporate multiple bullets
+		if (clock()-newg.LastBulletTime>75000)
+		{
+			newg.LastBulletTime=clock();
+			Bullet newb = Bullet();
+			Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
+			float velx = 0- 10*sin(PI*present.GetAngle()/180);
+			float vely = 10* cos(PI*present.GetAngle()/180);
+			newb.SetXPos(present.GetXPos());
+			newb.SetYPos(present.GetYPos());
+			newb.SetVelX(velx);
+			newb.SetVelY(vely);
+			newb.SetShipID(newg.PlayerId);
+			newb.SetTypeAI(false);
+			newb.SetTypePlayer(true);
+			newg.PlayerBoard.InsertBullet(newb);
+		}
+	}
+	if (Keys[7])
+	{
+		// Fire Missile 
+		Bullet newb = Bullet();
+		Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
+		if (present.GetNumberMissiles()>0)
+		{
+			present.ReduceMissile();
+
+			float velx = -10* sin(PI*present.GetAngle()/180);
+			float vely = 10* cos(PI*present.GetAngle()/180);
+
+			newb.SetTypeAI(true);
+			newb.SetXPos(present.GetXPos());
+			newb.SetYPos(present.GetYPos());
+			newb.SetVelX(velx);
+			newb.SetVelY(vely);
+			newb.SetShipID(newg.PlayerId);
+			newb.SetTypePlayer(true);
+			newg.PlayerBoard.SetNthShip(newg.PlayerId,present);
+			newg.PlayerBoard.InsertBullet(newb);	
+		}
+	}
+	if (Keys[8])
+	{
+		// Add random alien
+		newg.PlayerBoard.AddRandomAlien();
+	}
 }
 
 
@@ -196,7 +198,6 @@ void specialKeys( int key, int x, int y )
 	// std::cout << rotate_x <<"\t"<<rotate_y<<"\n";
 	glutPostRedisplay();
 }
-
 
 
 void specialKeysUp( int key, int x, int y ) 
@@ -269,60 +270,22 @@ void handleKeypress(unsigned char key, int x, int y)
 		{
 			// Fire bullet
 			// TODO: incorporate multiplier
+			Keys[6]=true;
 			std::cout << "space bar presed\n";
-			Bullet newb = Bullet();
-			Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
-
-			std::cout <<"angle: " <<present.GetAngle() <<"\n";
-			float velx = 0- 10*sin(PI*present.GetAngle()/180);
-			float vely = 10* cos(PI*present.GetAngle()/180);
-
-			newb.SetXPos(present.GetXPos());
-			newb.SetYPos(present.GetYPos());
-			newb.SetVelX(velx);
-			newb.SetVelY(vely);
-			newb.SetShipID(newg.PlayerId);
-			newb.SetTypeAI(false);
-			newb.SetTypePlayer(true);
-
-			std::cout <<"angle bullet: " << newb.GetAngle() <<"\n";
-			std::cout <<"velocities " << newb.GetVelX() <<"\t" <<newb.GetVelY() <<"\n";
-			newg.PlayerBoard.InsertBullet(newb);
-			glutPostRedisplay();
+			
 			break;
 		}
 		
 		case 's':
 		{
 			// Fire Missile
-			std::cout << "space bar presed\n";
-			Bullet newb = Bullet();
-			Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
-			if (present.GetNumberMissiles()>0)
-			{
-				present.ReduceMissile();
-	
-				float velx = -10* sin(PI*present.GetAngle()/180);
-				float vely = 10* cos(PI*present.GetAngle()/180);
-	
-				newb.SetTypeAI(true);
-				newb.SetXPos(present.GetXPos());
-				newb.SetYPos(present.GetYPos());
-				newb.SetVelX(velx);
-				newb.SetVelY(vely);
-				newb.SetShipID(newg.PlayerId);
-				newb.SetTypePlayer(true);
-
-				newg.PlayerBoard.SetNthShip(newg.PlayerId,present);
-				newg.PlayerBoard.InsertBullet(newb);	
-			}
-			glutPostRedisplay();
+			// std::cout << "space bar presed\n";
+			Keys[7]=true;
 			break;
 		}
 		case 'y':
 		{
-			newg.PlayerBoard.AddRandomAlien();
-			// glutPostRedisplay();
+			Keys[8]=true;
 			break;
 		}
 		case 43: //+ key
@@ -333,14 +296,6 @@ void handleKeypress(unsigned char key, int x, int y)
 		{
 			exit(0);
 		}
-    }
-    if (key=='o')
-    {
-    	std::cout <<"o\n";
-    }
-    if (key=='l')
-    {
-    	std::cout <<"l\n";
     }
     ProcessKeys();
 }
@@ -364,96 +319,26 @@ void handleKeypressUp(unsigned char key, int x, int y)
 			Keys[5]=false;
 			// std::cout <<"d was pressed\n";
 			// newg.PlayerBoard.MoveNthShip(newg.PlayerId,5);
-   //  		glutPostRedisplay();
+   			//glutPostRedisplay();
 			// Rotate the ship to the right
 			break;
 		}
+		case 32:
+		{
+			Keys[6]=false;
+			break;
+		}
+		case 's':
+		{
+			Keys[7]=false;
+			break;
+		}
+		case 'y':
+		{
+			Keys[8]=false;
+			break;
+		}
 	}
-		// case 'f':
-		// {
-		// 	std::cout << "f was pressed\n";
-		// 	newg.PlayerBoard.AddRandomShip();
-		// 	glutPostRedisplay();
-		// 	break;
-		// }
-
-		// case 32: //SpaceBar
-		// {
-		// 	// Fire bullet
-		// 	// TODO: incorporate multiplier
-		// 	std::cout << "space bar presed\n";
-		// 	Bullet newb = Bullet();
-		// 	Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
-
-		// 	std::cout <<"angle: " <<present.GetAngle() <<"\n";
-		// 	float velx = 0- 10*sin(PI*present.GetAngle()/180);
-		// 	float vely = 10* cos(PI*present.GetAngle()/180);
-
-		// 	newb.SetXPos(present.GetXPos());
-		// 	newb.SetYPos(present.GetYPos());
-		// 	newb.SetVelX(velx);
-		// 	newb.SetVelY(vely);
-		// 	newb.SetShipID(newg.PlayerId);
-		// 	newb.SetTypeAI(false);
-		// 	newb.SetTypePlayer(true);
-
-		// 	std::cout <<"angle bullet: " << newb.GetAngle() <<"\n";
-		// 	std::cout <<"velocities " << newb.GetVelX() <<"\t" <<newb.GetVelY() <<"\n";
-		// 	newg.PlayerBoard.InsertBullet(newb);
-		// 	glutPostRedisplay();
-		// 	break;
-		// }
-		
-		// case 's':
-		// {
-		// 	// Fire Missile
-		// 	std::cout << "space bar presed\n";
-		// 	Bullet newb = Bullet();
-		// 	Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
-		// 	if (present.GetNumberMissiles()>0)
-		// 	{
-		// 		present.ReduceMissile();
-	
-		// 		float velx = -10* sin(PI*present.GetAngle()/180);
-		// 		float vely = 10* cos(PI*present.GetAngle()/180);
-	
-		// 		newb.SetTypeAI(true);
-		// 		newb.SetXPos(present.GetXPos());
-		// 		newb.SetYPos(present.GetYPos());
-		// 		newb.SetVelX(velx);
-		// 		newb.SetVelY(vely);
-		// 		newb.SetShipID(newg.PlayerId);
-		// 		newb.SetTypePlayer(true);
-
-		// 		newg.PlayerBoard.SetNthShip(newg.PlayerId,present);
-		// 		newg.PlayerBoard.InsertBullet(newb);	
-		// 	}
-		// 	glutPostRedisplay();
-		// 	break;
-		// }
-		// case 'y':
-		// {
-		// 	newg.PlayerBoard.AddRandomAlien();
-		// 	// glutPostRedisplay();
-		// 	break;
-		// }
-		// case 43: //+ key
-		// {    
-		// 	break; 
-		// }      
-		// case 27: //Escape key
-		// {
-		// 	exit(0);
-		// }
-  //   }
-  //   if (key=='o')
-  //   {
-  //   	std::cout <<"o\n";
-  //   }
-  //   if (key=='l')
-  //   {
-  //   	std::cout <<"l\n";
-  //   }
     ProcessKeys();
 }
 
@@ -632,12 +517,7 @@ void ShowExplosion(Expl exptodisplay)
     }
 	else
     {
-    	std::cout <<"in else case\n";
 		glPushMatrix ();
-
-      // glDisable (GL_LIGHTING);
-      // glDisable (GL_DEPTH_TEST);
-
 		glBegin (GL_POINTS);
 
 		for (int i = 0; i < NUM_PARTICLES; i++)
@@ -715,9 +595,9 @@ Expl UpdateExplosion(Expl exptoupdate)
 	      	exptoupdate.debris[i].orientation[1] += exptoupdate.debris[i].orientationSpeed[1] * 10;
 	      	exptoupdate.debris[i].orientation[2] += exptoupdate.debris[i].orientationSpeed[2] * 10;
 	    }
-	  	std::cout << "fuel was: " <<exptoupdate.fuel <<"\n";	  
+	  	// std::cout << "fuel was: " <<exptoupdate.fuel <<"\n";	  
 	  	exptoupdate.fuel -= 1;
-	  	std::cout << "fuel is now: " <<exptoupdate.fuel <<"\n";
+	  	// std::cout << "fuel is now: " <<exptoupdate.fuel <<"\n";
 	}      
     exptoupdate.angle += 0.3;  /* Always continue to rotate the camera */
     return exptoupdate;
