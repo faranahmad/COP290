@@ -19,8 +19,7 @@
 struct Faces
 {
 	Points p1,p2,p3;
-}
-;
+};
 
 struct particleData
 {
@@ -55,24 +54,41 @@ struct GamePlay
 	clock_t LastBulletTime;
 };
 
+struct SmokePoint
+{
+  float 	position[3];
+  float 	speed[3];
+  float 	color[3];
+  float 	radius;
+  int 		life;
+};
+
 std::vector<Faces> alien;
 std::vector<Faces> ship;
 std::vector<Faces> missile;
 std::vector<Faces> bullet;
 std::vector<Points> Stars;
 std::vector<Expl> Explosions;
-
-GamePlay newg;
+std::vector<SmokePoint> SmokePoints;
 
 bool Keys[9];
 
-std::vector<Faces> loadOBJ(char * path);
+GamePlay newg;
 
+std::vector<Faces> loadOBJ(char * path);
 void ProcessKeys();
-void specialKeys( int key, int x, int y );
-void specialKeysUp( int key, int x, int y ) ;
+void specialKeys(int key, int x, int y);
+void specialKeysUp(int key, int x, int y);
 void handleKeypress(unsigned char key, int x, int y);
 void handleKeypressUp(unsigned char key, int x, int y);
 Expl newExplosion (float x, float y, float z);
+
+void ShowSmokePoint(SmokePoint);
+SmokePoint NewSmokePoint(float,float);
+SmokePoint UpdateSmokePoint(SmokePoint);
+std::vector<SmokePoint> UpdateAllSmokePoints(std::vector<SmokePoint>);
+void DisplaySmokePoints(std::vector<SmokePoint>);
+void DisplayExplosions(std::vector<Expl>);
+void display(void);
 
 #endif

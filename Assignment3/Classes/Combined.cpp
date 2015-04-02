@@ -407,6 +407,15 @@ void ShowShip(Ship shiptodisplay)
 	// std::cout << shiptodisplay.GetXPos() << "\t" << shiptodisplay.GetYPos() <<"\n";
 	ShowObject(ship);
 	glPopMatrix();
+	glPushMatrix();
+	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+	DisplaySmokePoints(SmokePoints);
+	SmokePoints=UpdateAllSmokePoints(SmokePoints);
+	glPopMatrix();
 }
 
 void ShowAlien(Alien alientodisplay)
@@ -595,9 +604,7 @@ Expl UpdateExplosion(Expl exptoupdate)
 	      	exptoupdate.debris[i].orientation[1] += exptoupdate.debris[i].orientationSpeed[1] * 10;
 	      	exptoupdate.debris[i].orientation[2] += exptoupdate.debris[i].orientationSpeed[2] * 10;
 	    }
-	  	// std::cout << "fuel was: " <<exptoupdate.fuel <<"\n";	  
 	  	exptoupdate.fuel -= 1;
-	  	// std::cout << "fuel is now: " <<exptoupdate.fuel <<"\n";
 	}      
     exptoupdate.angle += 0.3;  /* Always continue to rotate the camera */
     return exptoupdate;
@@ -611,6 +618,86 @@ void UpdateAllExplosions()
 	}
 }
 
+void ShowSmokePoint(SmokePoint p)
+{
+	// glTranslatef(-,0,0);
+	glPushMatrix();
+	glTranslatef(p.position[0],p.position[1]-50,p.position[2]);
+	glColor3f(p.color[0],p.color[1],p.color[2]);	
+	glutSolidSphere(p.radius, 31, 10);
+	glPopMatrix();
+}
+
+SmokePoint NewSmokePoint(float x, float y)
+{
+	SmokePoint p;
+	p.position[0]=x;
+	p.position[1]=y;
+	p.position[2]=0;
+
+
+	p.speed[0] = (5.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 2.0;
+	p.speed[1] = - (10.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) ;
+	p.speed[2] = (5.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 10.0;
+
+	p.color[0] = 0.5;
+	p.color[1] = 0.5;
+	p.color[2] = 1.0;
+
+	p.radius = rand()%10;
+
+	p.life = 49;
+
+	return p;
+}
+
+SmokePoint UpdateSmokePoint(SmokePoint p)
+{
+	p.position[0] += p.speed[0];
+	p.position[1] += p.speed[1];
+	p.position[2] += p.speed[2];
+
+	p.speed[0] *=0.98;
+	p.speed[1] *=0.98;
+	p.speed[2] *=0.98;
+
+	p.color[0] +=0.01;
+	p.color[1] -=0.01;
+	p.color[2] -=0.02;
+
+	p.life -= 1;
+
+	return p;
+}
+
+std::vector<SmokePoint> UpdateAllSmokePoints(std::vector<SmokePoint> v)
+{
+	for (int i=0; i<v.size(); i++)
+	{
+		v[i]=UpdateSmokePoint(v[i]);
+	}
+
+	for (int i=0; i<v.size(); i++)
+	{
+		if (v[i].life==0)
+		{
+			v.erase(v.begin()+i);
+			i-=1;
+		}
+	}
+
+	return v;
+}
+
+void DisplaySmokePoints(std::vector<SmokePoint> v)
+{
+	for (int i=0; i<v.size(); i++)
+	{
+		// std::cout << "Showing point:" << i <<"\n";
+		ShowSmokePoint(v[i]);
+	}
+}
+
 void DisplayExplosions(std::vector<Expl> v)
 {
 	for (int i=0;i<v.size() ; i++)
@@ -621,12 +708,9 @@ void DisplayExplosions(std::vector<Expl> v)
 
 void display(void)
 {
-	// std::cout<<Keys[0]<<"\n";
 	int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
 	int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
 	float const window_aspect = (float)window_width / (float)window_height;
-	// glRotatef( rotate_x, 200, 0.0, 0.0 );
-	// glRotatef( rotate_y, 0.0, 200, 0.0 );
 	glClearColor(0, 0, 0.0, 1.0);
 	glClearDepth(1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -638,14 +722,7 @@ void display(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	// ShowObject(missile);
-	// ShowBullet(50,-60,5,Color(255,0,0));
-	// ShowBullet(-50,-60,5,Color(255,0,0));
-	// ShowMissile(-40.0,-40.0,10.0,10.0,Color(255,0,0));
 	glPushMatrix();
-	// glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'a' );
-	// glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'b' );
-	// glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, 'c' );
 	for (int i=0; i<Stars.size() ; i++)
 	{
 		glPushMatrix();
@@ -658,8 +735,8 @@ void display(void)
 
 	ShowBoard(newg.PlayerBoard);
 	DisplayExplosions(Explosions);
-
 	glutSwapBuffers();
+
 	std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
 	for (int j=0; j<Explosions.size(); j++)
 	{
@@ -670,18 +747,20 @@ void display(void)
 	}
 	for (int j=0; j<p.size(); j++)
 	{
-		// 2*x-newg.PlayerBoard.GetPosXDimension(),-2*y+newg.PlayerBoard.GetPosYDimension()
 		Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
 		std::cout << p[j].x <<"\t" <<p[j].y << "\n";
 	}
-
 	UpdateAllExplosions();
+
+	while (newg.PlayerBoard.GetNumberAliens()<=5)
+	{
+		newg.PlayerBoard.AddRandomAlien();
+	}
 	// UpdatePlayerAI(newg.PlayerBoard);
 	// UpdateAIBoard(newg.PlayerBoard);
-	//Update AI
+	// Update AI
 	glutPostRedisplay();
 }
-
 
 int main(int argc,char *argv[])
 {
