@@ -407,15 +407,19 @@ void ShowShip(Ship shiptodisplay)
 	// std::cout << shiptodisplay.GetXPos() << "\t" << shiptodisplay.GetYPos() <<"\n";
 	ShowObject(ship);
 	glPopMatrix();
+	
 	glPushMatrix();
 	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
 	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
 	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
 	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
 	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+	glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
+	glRotatef(shiptodisplay.GetAngle(),0,0,1);
+	glTranslatef(0,-67,0);
 	DisplaySmokePoints(SmokePoints);
-	SmokePoints=UpdateAllSmokePoints(SmokePoints);
 	glPopMatrix();
+	SmokePoints=UpdateAllSmokePoints(SmokePoints);
 }
 
 void ShowAlien(Alien alientodisplay)
@@ -622,7 +626,7 @@ void ShowSmokePoint(SmokePoint p)
 {
 	// glTranslatef(-,0,0);
 	glPushMatrix();
-	glTranslatef(p.position[0],p.position[1]-50,p.position[2]);
+	glTranslatef(p.position[0],p.position[1],p.position[2]);
 	glColor3f(p.color[0],p.color[1],p.color[2]);	
 	glutSolidSphere(p.radius, 31, 10);
 	glPopMatrix();
@@ -631,8 +635,8 @@ void ShowSmokePoint(SmokePoint p)
 SmokePoint NewSmokePoint(float x, float y)
 {
 	SmokePoint p;
-	p.position[0]=x;
-	p.position[1]=y;
+	p.position[0]=0;
+	p.position[1]=0;
 	p.position[2]=0;
 
 
