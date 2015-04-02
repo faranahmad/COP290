@@ -3,7 +3,7 @@
 Ship::Ship()
 {
 	Angle = 0.0;
-	NumberMissiles = 5;
+	NumberMissiles = 500;
 }
 
 Ship::Ship(int id)

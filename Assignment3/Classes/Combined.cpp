@@ -483,7 +483,7 @@ void ShowExplosion(Expl exptodisplay)
     }
 	else
     {
-    	std::cout <<"in else case\n";
+    	// std::cout <<"in else case\n";
 		glPushMatrix ();
 
       // glDisable (GL_LIGHTING);
@@ -580,7 +580,7 @@ void display(void)
 	glutSwapBuffers();
 	newg.PlayerBoard.UpdateAllBullets();
 	// UpdatePlayerAI(newg.PlayerBoard);
-	// UpdateAIBoard(newg.PlayerBoard);
+	UpdateAIBoard(newg.PlayerBoard);
 	//Update AI
 	glutPostRedisplay();
 }

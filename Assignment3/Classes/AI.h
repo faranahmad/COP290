@@ -4,16 +4,16 @@
 
 void UpdatePlayerAI(Board &board);
 void UpdateAlien(Board &board);
-void UpdateMissile(Board &board,int);
+void UpdateMissile(Board &board);
 void UpdateAIBoard(Board &board);
 
-void UpdateAlienMissile(Board &board, int missile);
-void UpdateShipMissile(Board &board, int missile);
+void UpdateAlienMissile(Board &board);
+void UpdateShipMissile(Board &board);
 float Distance(Alien &alien, Bullet &actualmissile);
 float Distance(Ship &ship, Bullet &actualmissile);
 float Distance(Ship &ship, Alien &alien);
 
-int ClosestAlienEnemy(std::vector<Alien> &Aliens,int NumberAliens, Bullet &actualmissile);
+int ClosestAlienEnemy(std::vector<Alien> &Aliens,int NumberAliens, Bullet &actualmissile, double maxDistance);
 int ClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actualmissile);
 bool InArc(Alien &alien, Bullet &actualmissile);
 bool InArc(Ship &ship, Bullet &actualmissile);
@@ -32,5 +32,8 @@ void MoveInDirectionOf(Ship &ship, Alien &alien);
 void MoveInDirectionOf(Alien &alien, Ship &ship);
 void TurnInDirectionOf(Ship &ship, Alien &alien);
 void TurnInDirectionOf(Alien &alien, Ship &ship);
+
+float relativeAngletoMissile(Alien &alien, Bullet &actualmissile);
+float relativeAngletoMissile(Ship &ship, Bullet &actualmissile);
 	
 	

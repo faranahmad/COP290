@@ -156,6 +156,12 @@ void Board::RemoveNthShip(int id)
 	VectorShips.erase(VectorShips.begin() + id);
 }
 
+double Board::MaxDistance()
+{
+	return pow(DimensionPosX+DimensionNegX,2) + pow (DimensionPosY+DimensionNegY,2);
+}
+
+
 //returns -1 if bullets hits no alien
 int Board::CheckBulletHitAlien(int bullet_id)
 {

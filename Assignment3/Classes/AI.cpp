@@ -24,6 +24,15 @@
 
 // srand(time(NULL));
 
+void UpdateAIBoard(Board &board)
+{
+	UpdatePlayerAI(board);
+	UpdateAlien(board);
+	UpdateMissile(board);
+		
+	
+}
+
 void UpdatePlayerAI(Board &board)
 {
 	std::vector<Bullet> CurrentBullets = board.GetVectorBullets();
@@ -67,29 +76,254 @@ void UpdateAlien(Board &board)
 	}
 }
 
-void UpdateAlienMissile(Board &board, int missile)
+void UpdateAlienMissile(Board &board)
 {
-	Bullet CurrentBullet = board.GetNthBullet(missile);
+	
+	//std::cout<<"breakpoint1\n";
 	std::vector<Bullet> CurrentBullets = board.GetVectorBullets();
 	std::vector<Ship> CurrentShips = board.GetVectorShips();
 	std::vector<Alien> CurrentAliens = board.GetVectorAliens();
+	//std::cout<<"breakpoint1\n";
 	for (int i=0; i<board.GetNumberBullets(); i++)
 	{
-		if (CurrentBullets[i].GetTypeAI()==true)
+		if (CurrentBullets[i].GetTypeAI()==true && CurrentBullets[i].GetShipId()==-1)
 		{
 			std::vector<Ship> temp=board.GetVectorShips();
 			int target = ClosestShipEnemy(temp,board.GetNumberShips(),CurrentBullets[i]);
-			Ship temp2=board.GetNthShip(target);
-			UpdateVelocity(CurrentBullets[i] , temp2);
+			if (target==-1)
+			{
+
+			}
+			else
+			{
+				//std::cout<<"Target "<<target<<"\n";
+				//std::cout<<"Alien Missile target Acquired\n";
+				Ship temp2=board.GetNthShip(target);
+				UpdateVelocity(CurrentBullets[i] , temp2);
+			}
+			
 		}
 	}
+	board.SetVectorBullets(CurrentBullets);
 }
+
+void UpdateShipMissile(Board &board)
+{
+		
+	
+		
+	std::vector<Bullet> CurrentBullets = board.GetVectorBullets();
+	std::vector<Ship> CurrentShips = board.GetVectorShips();
+	std::vector<Alien> CurrentAliens = board.GetVectorAliens();
+		
+	for (int i=0; i<board.GetNumberBullets(); i++)
+	{
+			
+		if (CurrentBullets[i].GetTypeAI()==true && CurrentBullets[i].GetShipId()!=-1)
+		{
+				
+			std::vector<Alien> temp=board.GetVectorAliens();
+			int target = ClosestAlienEnemy(temp,board.GetNumberAliens(),CurrentBullets[i],board.MaxDistance());
+				
+			if (target==-1)
+			{
+				std::cout<<"No target acquired, velocity remains same \n";
+			}
+			else
+			{
+				//std::cout<<"Target "<<target<<"\n";
+				//std::cout<<"Ship Missile target Acquired\n";
+				Alien temp2=board.GetNthAlien(target);
+			    // 	std::cout<<"breakpoint11\n";
+			UpdateVelocity(CurrentBullets[i],temp2);
+				//std::cout<<"breakpoint12\n";
+			}
+			
+		}
+	}
+	board.SetVectorBullets(CurrentBullets);
+
+}
+
+int ClosestAlienEnemy(std::vector<Alien> &Aliens,int NumberAliens, Bullet &actualmissile, double maxDistance)
+{
+	//return -1 if none in range
+	int closestAlien = -1;
+	float leastDistance = maxDistance; //Infinity
+	for (int i=0; i<NumberAliens;i++)
+	{
+		std::cout<<"Inarc "<<InArc(Aliens[i],actualmissile)<<" Distance "<<Distance(Aliens[i],actualmissile)<<"\n";
+		if (InArc(Aliens[i],actualmissile)==true && Distance(Aliens[i],actualmissile) < leastDistance)
+		{
+			leastDistance=Distance(Aliens[i],actualmissile);
+			closestAlien = i;
+			//std::cout<<"closest alien "<<closestAlien<<"\n";
+		}
+	}
+	return closestAlien;
+
+}
+
+bool InArc(Alien &alien, Bullet &actualmissile)
+{
+	if (abs(relativeAngle(alien,actualmissile)*180/PI)<theta)
+		return true;
+	else 
+		return false;
+}
+
+bool InArc(Ship &ship, Bullet &actualmissile)
+{
+	if (abs(relativeAngle(ship,actualmissile)*180/PI)<theta)
+		return true;
+	else 
+		return false;
+}
+
+
+
+
+float relativeAngle(Alien &alien,Bullet &actualmissile)
+{
+	float angle;
+
+	if (alien.GetXPos()-actualmissile.GetXPos() == 0.0)
+	{
+		if ((alien.GetYPos()-actualmissile.GetYPos())>0)
+			angle= (float) 0.0;
+		else
+			angle= 180.0;
+	} 
+	else
+	{
+		if (alien.GetXPos()-actualmissile.GetXPos()>0)
+			angle= ((float) atan( (alien.GetYPos()-actualmissile.GetYPos())/ (alien.GetXPos()-actualmissile.GetXPos())) * 180/PI - 90.0);
+		else
+			angle= ((float) atan((alien.GetYPos()-actualmissile.GetYPos()) / (alien.GetXPos()-actualmissile.GetXPos())) * 180/PI + 90.0);
+	}
+
+	//std::cout<<"angle "<<angle<<"\n";
+	//std::cout<<"relative angle"<<actualmissile.GetAngle()-angle<<"\n";
+	return (actualmissile.GetAngle()-angle)*PI/180.0;
+}
+
+float relativeAngle(Ship &ship,Bullet &actualmissile)
+{
+	float angle;
+
+	if (ship.GetXPos()-actualmissile.GetXPos() == 0.0)
+	{
+		if ((ship.GetYPos()-actualmissile.GetYPos())>0)
+			angle= (float) 0.0;
+		else
+			angle= 180.0;
+	} 
+	else
+	{
+		if (ship.GetXPos()-actualmissile.GetXPos()>0)
+			angle= ((float) atan( (ship.GetYPos()-actualmissile.GetYPos())/ (ship.GetXPos()-actualmissile.GetXPos())) * 180/PI - 90.0);
+		else
+			angle= ((float) atan((ship.GetYPos()-actualmissile.GetYPos()) / (ship.GetXPos()-actualmissile.GetXPos())) * 180/PI + 90.0);
+	}
+
+	return (actualmissile.GetAngle()-angle)*PI/180.0;
+}
+
+
+
+void UpdateMissile(Board &board)
+{
+
+	UpdateAlienMissile(board);
+	//std::cout<<"breakpoint4\n";
+	UpdateShipMissile(board);
+	std::vector<Bullet> VectorBullets=board.GetVectorBullets();
+			
+		
+	
+
+	for (int i=0;i<VectorBullets.size();i++)
+	{
+		if(VectorBullets.at(i).GetTypeAI() == true)
+		{
+			VectorBullets.at(i).SetXPos(VectorBullets.at(i).GetXPos()+VectorBullets.at(i).GetVelX());
+			VectorBullets.at(i).SetYPos(VectorBullets.at(i).GetYPos()+VectorBullets.at(i).GetVelY());
+		}
+	}
+	board.SetVectorBullets(VectorBullets);
+
+}
+
+void UpdateVelocity(Bullet &actualmissile,Ship &ship)
+{
+	float angle=relativeAngletoMissile(ship,actualmissile);
+	float speed=actualmissile.GetSpeed();
+	actualmissile.SetVelX(speed*cos(angle));
+	actualmissile.SetVelY(speed*sin(angle));
+}
+
+void UpdateVelocity(Bullet &actualmissile,Alien &alien)
+{
+	float angle=relativeAngletoMissile(alien,actualmissile);
+	float speed=actualmissile.GetSpeed();
+	actualmissile.SetVelX(speed*cos(angle));
+	actualmissile.SetVelY(speed*sin(angle));
+}
+
+float relativeAngletoMissile(Alien &alien, Bullet &actualmissile)
+{
+	float angle;
+
+	if (alien.GetXPos()-actualmissile.GetXPos() == 0.0)
+	{
+		if ((alien.GetYPos()-actualmissile.GetYPos())>0)
+			angle= (float) 0.0;
+		else
+			angle= 180.0;
+	} 
+	else
+	{
+		if (alien.GetXPos()-actualmissile.GetXPos()>0)
+			angle= ((float) atan( (alien.GetYPos()-actualmissile.GetYPos())/ (alien.GetXPos()-actualmissile.GetXPos())) * 180/PI - 90.0);
+		else
+			angle= ((float) atan((alien.GetYPos()-actualmissile.GetYPos()) / (alien.GetXPos()-actualmissile.GetXPos())) * 180/PI + 90.0);
+	}
+
+	return angle;
+
+}
+
+float relativeAngletoMissile(Ship &ship, Bullet &actualmissile)
+{
+	float angle;
+
+	if (ship.GetXPos()-actualmissile.GetXPos() == 0.0)
+	{
+		if ((ship.GetYPos()-actualmissile.GetYPos())>0)
+			angle= (float) 0.0;
+		else
+			angle= 180.0;
+	} 
+	else
+	{
+		if (ship.GetXPos()-actualmissile.GetXPos()>0)
+			angle= ((float) atan( (ship.GetYPos()-actualmissile.GetYPos())/ (ship.GetXPos()-actualmissile.GetXPos())) * 180/PI - 90.0);
+		else
+			angle= ((float) atan((ship.GetYPos()-actualmissile.GetYPos()) / (ship.GetXPos()-actualmissile.GetXPos())) * 180/PI + 90.0);
+	}
+
+	return angle;
+
+}
+
+
 
 
 void MoveInDirectionOf(Ship &ship, Alien &alien)
 {
 	Ship tempShip1 = ship;
 	Ship tempShip2 = ship;
+
 }
 
 void TurnInDirectionOf(Ship &ship, Alien &alien)
@@ -198,22 +432,7 @@ float Distance(Ship &ship, Alien &alien)
 	return pow((alien.GetXPos()-ship.GetXPos()),2) + pow((alien.GetYPos()-ship.GetYPos()),2);
 
 }
-int ClosestAlienEnemy(std::vector<Alien> &Aliens,int NumberAliens, Bullet &actualmissile)
-{
-	//return -1 if none in range
-	int closestAlien = -1;
-	float leastDistance = 100000; //Infinity
-	for (int i=0; i<NumberAliens;i++)
-	{
-		if (InArc(Aliens[i],actualmissile) && Distance(Aliens[i],actualmissile) < leastDistance)
-		{
-			leastDistance=Distance(Aliens[i],actualmissile);
-			closestAlien = i;
-		}
-	}
-	return closestAlien;
 
-}
 
 int ClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actualmissile)
 {
@@ -230,109 +449,3 @@ int ClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actualmis
 	return closestShip;
 }
 
-bool InArc(Alien &alien, Bullet &actualmissile)
-{
-	if (abs(atan((alien.GetYPos()-actualmissile.GetYPos())/(alien.GetXPos()-actualmissile.GetXPos()))*180/PI-90.0-actualmissile.GetAngle())<theta)
-		return true;
-	else 
-		return false;
-}
-
-bool InArc(Ship &ship, Bullet &actualmissile)
-{
-	if (abs(atan((ship.GetYPos()-actualmissile.GetYPos())/(ship.GetXPos()-actualmissile.GetXPos()))*180/PI-90.0-actualmissile.GetAngle())<theta)
-		return true;
-	else 
-		return false;
-}
-
-
-void UpdateShipMissile(Board &board, int missile)
-{
-	Bullet CurrentBullet = board.GetNthBullet(missile);
-	std::vector<Bullet> CurrentBullets = board.GetVectorBullets();
-	std::vector<Ship> CurrentShips = board.GetVectorShips();
-	std::vector<Alien> CurrentAliens = board.GetVectorAliens();
-	for (int i=0; i<board.GetNumberBullets(); i++)
-	{
-		if (CurrentBullets[i].GetTypeAI()==true)
-		{
-			std::vector<Alien> temp=board.GetVectorAliens();
-			int target = ClosestAlienEnemy(temp,board.GetNumberAliens(),CurrentBullets[i]);
-			Alien temp2=board.GetNthAlien(target);
-
-			UpdateVelocity(CurrentBullets[i],temp2);
-		}
-	}
-}
-
-void UpdateMissile(Board &board, int missile)
-{
-	int NumberBullets=board.GetNumberBullets();
-	std::vector<Bullet> VectorBullets = board.GetVectorBullets();
-	for (int i=0 ;i<NumberBullets; i++)
-	{
-		
-			if (VectorBullets[i].GetShipId()==-1)
-			{
-				UpdateAlienMissile(board,i);
-			}
-			else
-			{
-				UpdateShipMissile(board,i);
-			}
-		
-	}
-}
-
-float relativeAngle(Alien &alien,Bullet &actualmissile)
-{
-	return atan((alien.GetYPos()-actualmissile.GetYPos())/(alien.GetXPos()-actualmissile.GetXPos()));
-}
-
-float relativeAngle(Ship &ship,Bullet &actualmissile)
-{
-	return atan((ship.GetYPos()-actualmissile.GetYPos())/(ship.GetXPos()-actualmissile.GetXPos()));
-}
-
-void UpdateVelocity(Bullet &actualmissile,Ship &ship)
-{
-	actualmissile.SetVelX(actualmissile.GetSpeed()*cos(relativeAngle(ship,actualmissile)));
-	actualmissile.SetVelY(actualmissile.GetSpeed()*sin(relativeAngle(ship,actualmissile)));
-}
-
-void UpdateVelocity(Bullet &actualmissile,Alien &alien)
-{
-	actualmissile.SetVelX(actualmissile.GetSpeed()*cos(relativeAngle(alien,actualmissile)));
-	actualmissile.SetVelY(actualmissile.GetSpeed()*sin(relativeAngle(alien,actualmissile)));
-}
-void UpdateAIBoard(Board &board)
-{
-	int NumberShips = board.GetNumberShips();
-	int NumberAliens = board.GetNumberAliens();
-	int NumberBullets = board.GetNumberBullets();
-	
-	for (int i=0 ; i < NumberShips ; i++)
-	{
-		Ship CurrentPlayer = board.GetNthShip(i);
-		if (CurrentPlayer.GetAIControlLevel() != -1)
-		{
-			UpdatePlayerAI(board);
-		}
-	}
-
-	for (int i=0 ; i < NumberAliens ; i++)
-	{
-		Alien CurrentAlien = board.GetNthAlien(i);
-		UpdateAlien(board);
-	}
-
-	for (int i=0 ; i < NumberBullets ; i++)
-	{
-		Bullet CurrentBullet = board.GetNthBullet(i);
-		if (CurrentBullet.GetTypeAI() == true)
-		{
-			UpdateMissile(board,i);
-		}
-	}
-}

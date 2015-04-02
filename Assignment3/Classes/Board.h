@@ -54,6 +54,9 @@ class Board
 		void RemoveNthBullet(int);
 		void RemoveNthShip(int);
 
+		double MaxDistance();
+		
+
 		int CheckBulletHitAlien(int); 			// Return id of alien
 		int CheckBulletHitShip(int); 			// Return id of ship
 
