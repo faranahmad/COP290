@@ -247,7 +247,7 @@ std::vector<Points> Board::UpdateAllBullets()
 				bullets_delete.push_back(i);
 			}	
 		}
-		return aliens_pos;
+		
 	}
 	int bullets_delete_size  = bullets_delete.size();
 	int ships_lives_reduce_size = ships_lives_reduce.size();
@@ -283,7 +283,7 @@ std::vector<Points> Board::UpdateAllBullets()
 			VectorBullets.at(i).SetYPos(VectorBullets.at(i).GetYPos()+VectorBullets.at(i).GetVelY());
 		}
 	}
-
+	return aliens_pos;
 }
 
 void Board::UpdateAliens()

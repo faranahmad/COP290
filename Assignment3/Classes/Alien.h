@@ -46,4 +46,5 @@ class Alien
 		int AlienType;
 };
 
+
 #endif
