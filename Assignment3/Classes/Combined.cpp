@@ -3,11 +3,11 @@
 #define NUM_PARTICLES    1000          /* Number of particles  */
 #define NUM_DEBRIS       70            /* Number of debris     */
 
-struct Points
-{
-	float x,y,z;
-}
-;
+// struct Points
+// {
+// 	float x,y,z;
+// }
+// ;
 struct Faces
 {
 	Points p1,p2,p3;
@@ -22,6 +22,7 @@ struct particleData
   float   color[3];
 };
 
+bool Keys[8];
 
 /* A piece of debris */
 
@@ -150,34 +151,89 @@ std::vector<Faces> loadOBJ(char * path)
 	return answer;
 }
 
+void ProcessKeys()
+{
+	if (Keys[0])
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,1);
+	if (Keys[1])
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,0);
+	if (Keys[2])
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,2);
+	if (Keys[3])
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,3);
+	if (Keys[4])
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,4);
+	if (Keys[5])
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,5);
+}
+
 
 void specialKeys( int key, int x, int y ) 
 {
 	if (key == GLUT_KEY_RIGHT)
 	{
+		Keys[0]=true;
 		// Move the player ship to the right
 		// rotate_x +=2;
-		newg.PlayerBoard.MoveNthShip(newg.PlayerId,1);
 	}
 	if (key == GLUT_KEY_LEFT)
 	{
+		Keys[1]=true;
 		// Move player ship to left
 		// rotate_y +=2;
-		newg.PlayerBoard.MoveNthShip(newg.PlayerId,0);
 	}
 	if (key == GLUT_KEY_UP)
 	{
-		newg.PlayerBoard.MoveNthShip(newg.PlayerId,2);
+		Keys[2]=true;
 		// Move player ship up
 	}
 	if (key == GLUT_KEY_DOWN)
 	{
-		newg.PlayerBoard.MoveNthShip(newg.PlayerId,3);
+		Keys[3]=true;
 		// Move player ship down 
 	}
+	ProcessKeys();
 	// std::cout << rotate_x <<"\t"<<rotate_y<<"\n";
 	glutPostRedisplay();
 }
+
+
+
+void specialKeysUp( int key, int x, int y ) 
+{
+	if (key == GLUT_KEY_RIGHT)
+	{
+		Keys[0]=false;
+		// Move the player ship to the right
+		// rotate_x +=2;
+		// newg.PlayerBoard.MoveNthShip(newg.PlayerId,1);
+	}
+	if (key == GLUT_KEY_LEFT)
+	{
+		Keys[1]=false;
+		// Move player ship to left
+		// rotate_y +=2;
+		// newg.PlayerBoard.MoveNthShip(newg.PlayerId,0);
+	}
+	if (key == GLUT_KEY_UP)
+	{
+
+		Keys[2]=false;
+		// newg.PlayerBoard.MoveNthShip(newg.PlayerId,2);
+		// Move player ship up
+	}
+	if (key == GLUT_KEY_DOWN)
+	{
+		Keys[3]=false;
+		std::cout << "down key left\n";
+		// newg.PlayerBoard.MoveNthShip(newg.PlayerId,3);
+		// Move player ship down 
+	}
+	ProcessKeys();
+	// std::cout << rotate_x <<"\t"<<rotate_y<<"\n";
+	glutPostRedisplay();
+}
+
 
 void handleKeypress(unsigned char key, int x, int y) 
 {
@@ -187,16 +243,17 @@ void handleKeypress(unsigned char key, int x, int y)
 		case 'a':
 		{
 			std::cout <<"a was pressed\n";
-			newg.PlayerBoard.MoveNthShip(newg.PlayerId,4);
-			glutPostRedisplay();
+			Keys[4]=true;
+			// glutPostRedisplay();
 			// Rotate the ship to the left
 			break;
 		}
 		case 'd':
 		{
 			std::cout <<"d was pressed\n";
-			newg.PlayerBoard.MoveNthShip(newg.PlayerId,5);
-    		glutPostRedisplay();
+			Keys[5]=true;
+			// newg.PlayerBoard.MoveNthShip(newg.PlayerId,5);
+    		// glutPostRedisplay();
 			// Rotate the ship to the right
 			break;
 		}
@@ -285,7 +342,119 @@ void handleKeypress(unsigned char key, int x, int y)
     {
     	std::cout <<"l\n";
     }
+    ProcessKeys();
+}
 
+void handleKeypressUp(unsigned char key, int x, int y) 
+{
+	std::cout << key << "\n";
+	switch (key) 
+	{
+		case 'a':
+		{
+			Keys[4]=false;
+			// std::cout <<"a was pressed\n";
+			// newg.PlayerBoard.MoveNthShip(newg.PlayerId,4);
+			// glutPostRedisplay();
+			// Rotate the ship to the left
+			break;
+		}
+		case 'd':
+		{
+			Keys[5]=false;
+			// std::cout <<"d was pressed\n";
+			// newg.PlayerBoard.MoveNthShip(newg.PlayerId,5);
+   //  		glutPostRedisplay();
+			// Rotate the ship to the right
+			break;
+		}
+	}
+		// case 'f':
+		// {
+		// 	std::cout << "f was pressed\n";
+		// 	newg.PlayerBoard.AddRandomShip();
+		// 	glutPostRedisplay();
+		// 	break;
+		// }
+
+		// case 32: //SpaceBar
+		// {
+		// 	// Fire bullet
+		// 	// TODO: incorporate multiplier
+		// 	std::cout << "space bar presed\n";
+		// 	Bullet newb = Bullet();
+		// 	Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
+
+		// 	std::cout <<"angle: " <<present.GetAngle() <<"\n";
+		// 	float velx = 0- 10*sin(PI*present.GetAngle()/180);
+		// 	float vely = 10* cos(PI*present.GetAngle()/180);
+
+		// 	newb.SetXPos(present.GetXPos());
+		// 	newb.SetYPos(present.GetYPos());
+		// 	newb.SetVelX(velx);
+		// 	newb.SetVelY(vely);
+		// 	newb.SetShipID(newg.PlayerId);
+		// 	newb.SetTypeAI(false);
+		// 	newb.SetTypePlayer(true);
+
+		// 	std::cout <<"angle bullet: " << newb.GetAngle() <<"\n";
+		// 	std::cout <<"velocities " << newb.GetVelX() <<"\t" <<newb.GetVelY() <<"\n";
+		// 	newg.PlayerBoard.InsertBullet(newb);
+		// 	glutPostRedisplay();
+		// 	break;
+		// }
+		
+		// case 's':
+		// {
+		// 	// Fire Missile
+		// 	std::cout << "space bar presed\n";
+		// 	Bullet newb = Bullet();
+		// 	Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
+		// 	if (present.GetNumberMissiles()>0)
+		// 	{
+		// 		present.ReduceMissile();
+	
+		// 		float velx = -10* sin(PI*present.GetAngle()/180);
+		// 		float vely = 10* cos(PI*present.GetAngle()/180);
+	
+		// 		newb.SetTypeAI(true);
+		// 		newb.SetXPos(present.GetXPos());
+		// 		newb.SetYPos(present.GetYPos());
+		// 		newb.SetVelX(velx);
+		// 		newb.SetVelY(vely);
+		// 		newb.SetShipID(newg.PlayerId);
+		// 		newb.SetTypePlayer(true);
+
+		// 		newg.PlayerBoard.SetNthShip(newg.PlayerId,present);
+		// 		newg.PlayerBoard.InsertBullet(newb);	
+		// 	}
+		// 	glutPostRedisplay();
+		// 	break;
+		// }
+		// case 'y':
+		// {
+		// 	newg.PlayerBoard.AddRandomAlien();
+		// 	// glutPostRedisplay();
+		// 	break;
+		// }
+		// case 43: //+ key
+		// {    
+		// 	break; 
+		// }      
+		// case 27: //Escape key
+		// {
+		// 	exit(0);
+		// }
+  //   }
+  //   if (key=='o')
+  //   {
+  //   	std::cout <<"o\n";
+  //   }
+  //   if (key=='l')
+  //   {
+  //   	std::cout <<"l\n";
+  //   }
+    ProcessKeys();
 }
 
 void mouseclick(int button,int state,int x,int y )
@@ -493,7 +662,7 @@ void ShowExplosion(Expl exptodisplay)
 	  		glRotatef (exptodisplay.debris[i].orientation[1], 0.0, 1.0, 0.0);
 	  		glRotatef (exptodisplay.debris[i].orientation[2], 0.0, 0.0, 1.0);
 
-	  		glScalef (exptodisplay.debris[i].scale[0],
+	  		glScalef ( exptodisplay.debris[i].scale[0],
 		    exptodisplay.debris[i].scale[1],
 		    exptodisplay.debris[i].scale[2]);
 
@@ -572,7 +741,7 @@ void DisplayExplosions(std::vector<Expl> v)
 
 void display(void)
 {
-	// std::cout<<"In display\n";
+	// std::cout<<Keys[0]<<"\n";
 	int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
 	int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
 	float const window_aspect = (float)window_width / (float)window_height;
@@ -614,14 +783,16 @@ void display(void)
 	std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
 	for (int j=0; j<Explosions.size(); j++)
 	{
-		if (Explosions[i].fuel==0)
+		if (Explosions[j].fuel==0)
 		{		
 			Explosions.erase(Explosions.begin()+j);
 		}
 	}
-	for (int j=0; j<p.size(); p++)
+	for (int j=0; j<p.size(); j++)
 	{
-		Explosions.push_back(newExplosion(p[i].x,p[i].y,0));
+		// 2*x-newg.PlayerBoard.GetPosXDimension(),-2*y+newg.PlayerBoard.GetPosYDimension()
+		Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
+		std::cout << p[j].x <<"\t" <<p[j].y << "\n";
 	}
 
 	UpdateAllExplosions();
@@ -634,6 +805,11 @@ void display(void)
 
 int main(int argc,char *argv[])
 {
+	for (int i=0; i<8; i++)
+	{
+		Keys[i]=false;
+	}
+
 	srand (time(NULL));
 	// newExplosion();
 	std::cout << "Opening file\n";
@@ -684,6 +860,8 @@ int main(int argc,char *argv[])
 	glutMouseFunc(mouseclick);
 	glutSpecialFunc(specialKeys);
 	glutKeyboardFunc(handleKeypress);
+	glutKeyboardUpFunc(handleKeypressUp);
+	glutSpecialUpFunc(specialKeysUp);
 	// initRendering();
 
 	glutMainLoop();
