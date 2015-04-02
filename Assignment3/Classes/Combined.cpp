@@ -414,9 +414,9 @@ void ShowShip(Ship shiptodisplay)
 	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
 	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
 	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-	glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
-	glRotatef(shiptodisplay.GetAngle(),0,0,1);
+	// glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
 	glTranslatef(0,-67,0);
+	glRotatef(shiptodisplay.GetAngle(),0,0,1);
 	DisplaySmokePoints(SmokePoints);
 	glPopMatrix();
 	SmokePoints=UpdateAllSmokePoints(SmokePoints);
@@ -635,8 +635,8 @@ void ShowSmokePoint(SmokePoint p)
 SmokePoint NewSmokePoint(float x, float y)
 {
 	SmokePoint p;
-	p.position[0]=0;
-	p.position[1]=0;
+	p.position[0]=x;
+	p.position[1]=y;
 	p.position[2]=0;
 
 
@@ -747,6 +747,7 @@ void display(void)
 		if (Explosions[j].fuel==0)
 		{		
 			Explosions.erase(Explosions.begin()+j);
+			j-=1;			
 		}
 	}
 	for (int j=0; j<p.size(); j++)

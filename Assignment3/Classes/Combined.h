@@ -56,11 +56,12 @@ struct GamePlay
 
 struct SmokePoint
 {
-  float 	position[3];
-  float 	speed[3];
-  float 	color[3];
-  float 	radius;
-  int 		life;
+	float 	position[3];
+	float 	speed[3];
+	float 	color[3];
+	float 	radius;
+	int 	life;
+	float 	initpos[3];
 };
 
 std::vector<Faces> alien;
