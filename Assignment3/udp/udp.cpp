@@ -421,6 +421,7 @@ int main(int argc, char** argv)
 				default:
 				{	
 					// Instructions.push_back(ToStr(recvmsg));
+					Instructions.push(ToStr(recvmsg));
 					break;
 				}
 			}
