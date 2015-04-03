@@ -53,9 +53,10 @@ std::vector<Faces> loadOBJ(char * path)
 		{
 			std::string vertex1, vertex2, vertex3;
 			unsigned int vertexIndex[3], uvIndex[3], normalIndex[3];
+			unsigned int garbage[3];
 			// int matches = fscanf(file, "%d/%d/%d %d/%d/%d %d/%d/%d\n", &vertexIndex[0], &uvIndex[0], &normalIndex[0], &vertexIndex[1], &uvIndex[1], &normalIndex[1], &vertexIndex[2], &uvIndex[2], &normalIndex[2] );
-			int matches = fscanf(file, "%d//%d %d//%d %d//%d\n", &vertexIndex[0], &normalIndex[0], &vertexIndex[1], &normalIndex[1], &vertexIndex[2], &normalIndex[2] );
-			if (matches != 6)
+			int matches = fscanf(file, "%d/%d/%d %d/%d/%d %d/%d/%d\n", &vertexIndex[0], &garbage[0], &normalIndex[0], &vertexIndex[1],&garbage[1], &normalIndex[1], &vertexIndex[2],&garbage[2], &normalIndex[2] );
+			if (matches != 9)
 			{
 				printf("File can't be read by our simple parser :-( Try exporting with other options\n");
 				return answer;
@@ -395,6 +396,22 @@ void ShowMissile(Bullet b)
 	glColor3f(col_bul.GetR(),col_bul.GetG(),col_bul.GetB());
 	ShowObject(missile);
 	glPopMatrix();
+
+	glPushMatrix();
+	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
+	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
+	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
+	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
+	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
+
+	glTranslatef(0,-110,0);
+	glRotatef(b.GetAngle(),0,0,1);
+	DisplaySmokePoints(SmokePointsMissile);
+	// std::cout << SmokePointsMissile.size() <<"\n";
+	glPopMatrix();
+	SmokePointsMissile=UpdateAllSmokePoints(SmokePointsMissile);
+
+
 }
 
 void ShowShip(Ship shiptodisplay)
@@ -780,7 +797,7 @@ int main(int argc,char *argv[])
 	missile = loadOBJ("Missile.obj");
 	bullet = loadOBJ("Bullet.obj");
 	alien = loadOBJ("Alien1.obj");
-	ship = loadOBJ("Ship.obj");
+	ship = loadOBJ("Ship2.obj");
 	std::cout << "Opened file\n";
 
 	int limt = rand()%500;

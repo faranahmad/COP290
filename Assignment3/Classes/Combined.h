@@ -71,6 +71,8 @@ std::vector<Faces> bullet;
 std::vector<Points> Stars;
 std::vector<Expl> Explosions;
 std::vector<SmokePoint> SmokePoints;
+std::vector<SmokePoint> SmokePointsMissile;
+
 
 bool Keys[9];
 
