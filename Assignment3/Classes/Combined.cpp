@@ -405,9 +405,9 @@ void ShowMissile(Bullet b)
 	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
 	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
 	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
-
-	glTranslatef(0,-110,0);
+	glTranslatef(b.GetXPos(),b.GetYPos(),0);
 	glRotatef(b.GetAngle(),0,0,1);
+	glTranslatef(0,-110,0);
 	DisplaySmokePoints(SmokePointsMissile);
 	// std::cout << SmokePointsMissile.size() <<"\n";
 	glPopMatrix();
@@ -433,9 +433,9 @@ void ShowShip(Ship shiptodisplay)
 	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
 	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
 	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-	// glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
-	glTranslatef(0,-67,0);
+	glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
 	glRotatef(shiptodisplay.GetAngle(),0,0,1);
+	glTranslatef(0,-67,0);
 	DisplaySmokePoints(SmokePoints);
 	glPopMatrix();
 	SmokePoints=UpdateAllSmokePoints(SmokePoints);
@@ -654,8 +654,8 @@ void ShowSmokePoint(SmokePoint p)
 SmokePoint NewSmokePoint(float x, float y)
 {
 	SmokePoint p;
-	p.position[0]=x;
-	p.position[1]=y;
+	p.position[0]=0;
+	p.position[1]=0;
 	p.position[2]=0;
 
 
@@ -820,7 +820,7 @@ int main(int argc,char *argv[])
 	std::cout <<"Generated stars: " << Stars.size() <<"\n";
 
 	newg.PlayerId = 0;
-	newg.PlayerBoard = Board(1600,1600,900,900);
+	newg.PlayerBoard = Board(1200,1200,800,800);
 
 	Ship news= Ship();
 	news.SetColorFloat(30,170,65);
