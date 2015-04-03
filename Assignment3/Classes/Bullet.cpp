@@ -88,6 +88,11 @@ void Bullet::SetColorOfBulletfloat(int red,int green,int blue)
 	ColorOfBullet.SetRGB(red,green,blue);	
 }
 
+void Bullet::SetColorFloat(float r,float g,float b) 
+{
+	ColorOfBullet.SetRGBFloat(r,g,b);
+}
+
 void Bullet::SetShipID(int ship_id)
 {
 	ShipId = ship_id;

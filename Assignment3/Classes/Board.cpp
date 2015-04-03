@@ -1,5 +1,10 @@
 #include "Board.h"
 
+
+#define toDigit(c) (c-'0')
+
+
+
 bool MyFunction (int i,int j) 
 { 
 	return (i<j); 
@@ -11,6 +16,30 @@ float RandomFloat(float a, float b)
     float diff = b - a;
     float r = random * diff;
     return a + r;
+}
+
+int ConvertBool(bool a)
+{
+	if(a == true)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+bool ExtractBool(int i)
+{
+	if(i == 0)
+	{
+		return false;
+	}
+	else 
+	{
+		return true;
+	}
 }
 
 Board::Board()
@@ -460,4 +489,160 @@ void Board::AddRandomAlien()
 	VectorAliens.push_back(random_alien);
 }
 
+std::string Board::GeneratePlayerPositionInstructions(int player_id)
+{
+	Ship player = VectorShips.at(player_id);
+	return ("1_" + std::to_string(player_id) + "_" +
+	player.GetName() +  
+	std::to_string(player.GetXPos()) + "_" + 
+	std::to_string(player.GetYPos()) + "_" + 
+	std::to_string(player.GetAngle()));
 
+}
+
+std::string Board::GeneratePlayerBulletInstructions(std::vector<Bullet> vector_bullet)
+{
+	std::string answer = "";
+	for(int i=0;i<vector_bullet.size();i++)
+	{
+		if(i<vector_bullet.size() - 1)
+		{
+			Bullet bullet_added = vector_bullet.at(i);
+			answer  = answer + "2" + std::to_string(bullet_added.GetXPos()) + "_" 
+								   + std::to_string(bullet_added.GetYPos()) + "_" 
+								   + std::to_string(bullet_added.GetVelX()) + "_" 
+								   + std::to_string(bullet_added.GetVelY()) + "_" 
+								   + std::to_string(bullet_added.GetColorOfBullet().GetR()) + "_" 
+								   + std::to_string(bullet_added.GetColorOfBullet().GetG()) + "_" 
+								   + std::to_string(bullet_added.GetColorOfBullet().GetB()) + "_" 
+								   + std::to_string(bullet_added.GetShipId()) + "_" 
+								   + std::to_string(bullet_added.GetTypeAI()) + "_" 
+								   + std::to_string(bullet_added.GetTypePlayer()) + "\t";
+		}
+		else
+		{
+			Bullet bullet_added = vector_bullet.at(i);
+			answer  = answer + "2" + std::to_string(bullet_added.GetXPos()) + "_" 
+								   + std::to_string(bullet_added.GetYPos()) + "_" 
+								   + std::to_string(bullet_added.GetVelX()) + "_" 
+								   + std::to_string(bullet_added.GetVelY()) + "_" 
+								   + std::to_string(bullet_added.GetColorOfBullet().GetR()) + "_" 
+								   + std::to_string(bullet_added.GetColorOfBullet().GetG()) + "_" 
+								   + std::to_string(bullet_added.GetColorOfBullet().GetB()) + "_" 
+								   + std::to_string(bullet_added.GetShipId()) + "_" 
+								   + std::to_string(ConvertBool(bullet_added.GetTypeAI())) + "_" 
+								   + std::to_string(ConvertBool(bullet_added.GetTypePlayer()));
+		}
+		
+	}
+	return answer;
+
+
+}
+
+std::string Board::GeneratePlayerInstructions(int player_id,std::vector<Bullet> vector_bullet)
+{
+	return (GeneratePlayerPositionInstructions(player_id) + "\n" + 
+	GeneratePlayerBulletInstructions(vector_bullet));
+
+}
+
+// Ship parseship(std::string shipinfo,Ship ship_parsed)
+// {
+// 	int count = 0;
+// 	std::string getting_name = "";
+// 	while(shipinfo[count] != '_')
+// 	{
+// 		gettingname = gettingname + shipinfo[count];
+// 		count = count + 1;
+// 	}
+// 	count = count + 1;
+// 	ship_parsed.SetName(getting_name);
+// 	std::string gettingxpos = "";
+// 	while(shipinfo[count] != '_')
+// 	{
+// 		gettingxpos = gettingxpos + shipinfo[count];
+// 		count += 1;
+// 	}
+// 	count = count + 1;
+// 	ship_parsed.SetXPos(std::atof(gettingxpos));
+// 	std::string gettingypos = "";
+// 	while(shipinfo[count] != '_')
+// 	{
+// 		gettingypos = gettingypos + shipinfo[count];
+// 		count += 1;
+// 	}
+// 	count = count + 1;
+// 	ship_parsed.SetYPos(std::atof(gettingypos));
+// 	std::string gettingangle = "";
+// 	while(shipinfo[count] != '_')
+// 	{
+// 		gettingangle = gettingangle + shipinfo[count];
+// 		count += 1;
+// 	}
+// 	count = count + 1;
+// 	ship_parsed.SetAngle(std::atof(gettingangle));
+
+// }
+std::vector<std::string> Board::SplitString(std::string s, char chartosplit)
+{
+	// Break the string s into substrings wherever the chartosplit appears
+	std::vector<std::string> answer;
+	int initlength = s.length();
+	std::string tostore = "";
+	int i = 0;
+	while(i < initlength)
+	{
+		if(s[i] == chartosplit)
+		{
+			answer.push_back(tostore);
+			tostore = "";
+			i = i+1;
+		}
+		if(i<initlength)
+		{
+			tostore = tostore+s[i];
+		}
+		i++;
+	}	 
+}
+
+void Board::ApplyInsToShip(std::vector<std::string> s,Ship shiptochange)
+{
+	shiptochange.SetName(s[1]);
+	shiptochange.SetXPos(std::stof(s[2]));
+	shiptochange.SetYPos(std::stof(s[3]));
+	shiptochange.SetAngle(std::stof(s[4]));
+}
+void Board::ApplyInsToBullets(std::vector<std::string> bulletinfo)
+{
+	Bullet bullettoadd;
+	bullettoadd.SetXPos(std::stof(bulletinfo[1]));
+	bullettoadd.SetYPos(std::stof(bulletinfo[2]));
+	bullettoadd.SetVelX(std::stof(bulletinfo[3]));
+	bullettoadd.SetVelY(std::stof(bulletinfo[4]));
+	bullettoadd.SetColorFloat(std::stof(bulletinfo[5]),std::stof(bulletinfo[6]),std::stof(bulletinfo[7]));
+	bullettoadd.SetTypeAI(ExtractBool(std::stoi(bulletinfo[8])));
+	bullettoadd.SetTypePlayer(ExtractBool(std::stoi(bulletinfo[9])));
+	VectorBullets.push_back(bullettoadd);
+}
+
+void Board::ApplyInstructions(std::string information)
+{
+	std::vector<std::string> ship_bullets = SplitString(information,'\n');	
+	int shipid = toDigit(information[0]);
+	std::vector<std::string> shipinfo = SplitString(ship_bullets[0],'_');
+	ApplyInsToShip(shipinfo,VectorShips[shipid]);
+	for (int i = 1;i<ship_bullets.size();i++)
+	{
+		std::vector<std::string> bulletinfo = SplitString(ship_bullets[i],'\t');
+		ApplyInsToBullets(bulletinfo);
+	}
+}
+
+
+
+// 1) split by \n
+// 2) Split by \t
+// 3) Split by _
+// COnvert string to float in vector 

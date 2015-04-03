@@ -14,7 +14,8 @@ class Color
 		void SetR(int);
 		void SetG(int);
 		void SetB(int);
-
+		
+		void SetRGBFloat(float,float,float);
 		void SetRGB(int,int,int);
 				
 	private:

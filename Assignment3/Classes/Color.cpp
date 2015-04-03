@@ -44,6 +44,7 @@ float Color::GetB()
 	return B;
 }
 
+
 void Color::SetR(int r)
 {
 	// Sets the red component
@@ -60,6 +61,12 @@ void Color::SetB(int b)
 {
 	// Sets the blue component
 	B=((float) b)/255.0;
+}
+void Color::SetRGBFloat(float r,float g,float b)
+{
+	R = r;
+	G = g;
+	B = b;
 }
 
 void Color::SetRGB(int r,int g,int b)

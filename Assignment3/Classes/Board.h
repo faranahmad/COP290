@@ -84,6 +84,17 @@ class Board
 		void AddRandomShip();
 		void AddRandomAlien();
 	
+		std::string GeneratePlayerPositionInstructions(int); 	// String 1_PlayerID_PlayerName_xpos_ypos_angle
+		std::string GeneratePlayerBulletInstructions(std::vector<Bullet>); // String 2_
+		std::string GeneratePlayerInstructions(int,std::vector<Bullet>); // 1....... \n 2 ....  \t 2..... t 2... \t \n
+
+		
+		std::vector<std::string> SplitString(std::string,char);
+		void ApplyInsToShip(std::vector<std::string>,Ship);
+		void ApplyInsToBullets(std::vector<std::string>);
+		
+		void ApplyInstructions(std::string);
+	
 	private:
 		std::vector<Ship> VectorShips;
 		std::vector<Bullet> VectorBullets;		
