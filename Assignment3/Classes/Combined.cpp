@@ -742,10 +742,10 @@ void display(void)
 		std::string s=Instructions.front();
 		Instructions.pop();
 		std::cout << "applying: " << s <<"\n";
-		newg.PlayerBoard.ApplyShipInstructions(s);
+		newg.PlayerBoard.ApplyInstructions(s);
 	}
 
-	std::string message1 = newg.PlayerBoard.GeneratePlayerPositionInstructions(newg.PlayerId);
+	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId);
 	std::cout << "sending" << message1 <<"\n";
 	SendMessageToAll(message1);
 
@@ -794,6 +794,10 @@ void display(void)
 			Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
 			std::cout << p[j].x <<"\t" <<p[j].y << "\n";
 		}
+
+		message1 = newg.PlayerBoard.GenerateAllInstructions(newg.PlayerId);
+		std::cout << "sending" << message1 <<"\n";
+		SendMessageToAll(message1);
 	}
 	UpdateAllExplosions();
 

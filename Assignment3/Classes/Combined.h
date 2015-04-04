@@ -51,7 +51,7 @@ struct GamePlay
 {
 	Board PlayerBoard;
 	int PlayerId;
-	clock_t LastBulletTime;
+	int LastBulletTime;
 };
 
 struct Graph 
@@ -100,12 +100,15 @@ void ShowMissile(Bullet &);
 void ShowShip(Ship &);
 void ShowBoard(Board &);
 Expl newExplosion (float x, float y, float z);
+void ShowExplosion(Expl &);
+void UpdateAllExplosions();
 void ShowSmokePoint(SmokePoint &);
 SmokePoint NewSmokePoint(float,float);
 SmokePoint UpdateSmokePoint(SmokePoint);
 std::vector<SmokePoint> UpdateAllSmokePoints(std::vector<SmokePoint>);
 void DisplaySmokePoints(std::vector<SmokePoint> &);
 void DisplayExplosions(std::vector<Expl> &);
+void *networkmainhelper(void*);
 void display(void);
 
 #endif
