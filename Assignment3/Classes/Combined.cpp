@@ -733,7 +733,7 @@ void display(void)
 	{
 		std::string s=Instructions.front();
 		Instructions.pop();
-		newg.PlayerBoard.ApplyInstructions(s);
+		newg.PlayerBoard.ApplyShipInstructions(s);
 	}
 
 	std::string message1 = newg.PlayerBoard.GeneratePlayerPositionInstructions(newg.PlayerId);
