@@ -452,6 +452,14 @@ int networkmain(int argc, char** argv)
 	    	    	AddPlayers(recvmsg);
 					break;
 				}
+				case 'C':
+				{
+					break;
+				}
+				case 'P':
+				{
+					break;
+				}
 				default:
 				{	
 					// Instructions.push_back(ToStr(recvmsg));
