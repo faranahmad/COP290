@@ -321,7 +321,7 @@ int networkmain(int argc, char** argv)
 	
 	if(argc>1)
 	{
-		START:std::cout<<"sending case 0\n";
+		// START:std::cout<<"sending case 0\n";
 		char sendmsg[BUFSIZE];
 		remaddr.sin_family = AF_INET;
 		remaddr.sin_port = htons(SERVICE_PORT);
@@ -347,16 +347,16 @@ int networkmain(int argc, char** argv)
 		sendmsg[firstMsg+2]='\n';
 	
 		int slen=sizeof(remaddr);
-		std::cout<<"sending data:"<<ToStr(sendmsg);
+		// std::cout<<"sending data:"<<ToStr(sendmsg);
 		if (sendto(sockid, sendmsg, strlen(sendmsg), 0, (struct sockaddr *)&remaddr, slen)<=0) 
 		{
 			perror("Sorry, player not found!\nMake sure you are connected to the network");
 			goto START;
 		}
-		std::cout<<"Data sent:"<<remaddr.sin_addr.s_addr<<std::endl;
+		// std::cout<<"Data sent:"<<remaddr.sin_addr.s_addr<<std::endl;
 		socklen_t blen=(socklen_t)slen;
 		int recvlen = recvfrom(sockid, recvmsg, BUFSIZE, 0, (struct sockaddr *)&remaddr, &blen);
-		std::cout<<"First reply:"<<ToStr(recvmsg);
+		// std::cout<<"First reply:"<<ToStr(recvmsg);
     	if (recvlen >= 0) 
     	{
     		for(int i=1;i<IPdata.size();i++)
@@ -368,7 +368,7 @@ int networkmain(int argc, char** argv)
     	    if(recvmsg[0]=='1')
     	    	AddPlayers(recvmsg);
     	}
-    	std::cout<<"Players added\n";
+    	// std::cout<<"Players added\n";
     	playersReady=true;
 
 	}
@@ -385,8 +385,8 @@ int networkmain(int argc, char** argv)
 	while(true)
 	{	
 		socklen_t addrlen=sizeof(remaddr);
-		for(int i=0;i<IPdata.size();i++)
-	        std::cout<<IPdata[i].first<<'\t'<<IPdata[i].second<<std::endl;
+		// for(int i=0;i<IPdata.size();i++)
+	        // std::cout<<IPdata[i].first<<'\t'<<IPdata[i].second<<std::endl;
 		// std::cout<<"Awaiting data...\n";
 		int recvlen = recvfrom(sockid,recvmsg , BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
 		if(recvmsg[0]!='0' && recvlen>0)
@@ -460,8 +460,8 @@ int networkmain(int argc, char** argv)
 			        sendmsg2[j+1]='\0';
 			        im.message=sendmsg2;
 			        im.sockid=sockid;
-			        for(int i=0;i<IPdata.size();i++)
-			        	std::cout<<IPdata[i].first<<std::endl;
+			        // for(int i=0;i<IPdata.size();i++)
+			        	// std::cout<<IPdata[i].first<<std::endl;
 			        for(int i=0;i<threads.size();i++)
 			        {
 			        	// std::cout<<"sendmsg2:"<<ToStr(sendmsg2)<<"to:"<<IPdata[i+1].first<<std::endl;
