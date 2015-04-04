@@ -113,11 +113,11 @@ void *SendMessage(void* id)
 	remaddr.sin_family = AF_INET;
 	remaddr.sin_addr.s_addr=ip;
 	remaddr.sin_port = htons(SERVICE_PORT);
-    std::cout<<"sending to "<<remaddr.sin_addr.s_addr<<std::endl;
+    // std::cout<<"sending to "<<remaddr.sin_addr.s_addr<<std::endl;
     if(FindIndex((long long)remaddr.sin_addr.s_addr)>0)
     {	
 		int bytes_sent=sendto(sockid, message, strlen(message), 0, (struct sockaddr *)&remaddr, slen);
-		std::cout<<"bytes sent: "<<bytes_sent<<std::endl;
+		// std::cout<<"bytes sent: "<<bytes_sent<<std::endl;
 		// if(bytes_sent<=0)
 		// {
 		// 	bytes_sent=sendto(sockid, message, strlen(message), 0, (struct sockaddr *)&remaddr, slen);
@@ -387,13 +387,13 @@ int networkmain(int argc, char** argv)
 		socklen_t addrlen=sizeof(remaddr);
 		for(int i=0;i<IPdata.size();i++)
 	        std::cout<<IPdata[i].first<<'\t'<<IPdata[i].second<<std::endl;
-		std::cout<<"Awaiting data...\n";
+		// std::cout<<"Awaiting data...\n";
 		int recvlen = recvfrom(sockid,recvmsg , BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
 		if(recvmsg[0]!='0' && recvlen>0)
 		{
 			TimeStamp[FindIndex((long long)remaddr.sin_addr.s_addr)]=time(0);
 		}
-		std::cout<<"Recieved message:"<<ToStr(recvmsg)<<" Bytes recv:"<<recvlen<<std::endl;
+		// std::cout<<"Recieved message:"<<ToStr(recvmsg)<<" Bytes recv:"<<recvlen<<std::endl;
 		if (recvlen > 0) 
 		{
 			recvmsg[recvlen] = 0;
@@ -401,22 +401,22 @@ int networkmain(int argc, char** argv)
 			{
 				case '0':
 				{	
-					std::cout<<"case 0\n";
+					// std::cout<<"case 0\n";
 					std::pair<long long,long long> p;
-					std::cout<<"case 0\n";
+					// std::cout<<"case 0\n";
 					p.first=(long long)remaddr.sin_addr.s_addr;
-					std::cout<<p.first<<std::endl;
+					// std::cout<<p.first<<std::endl;
 					p.second=0;
-					std::cout<<p.second<<std::endl;
+					// std::cout<<p.second<<std::endl;
 					TimeStamp.push_back(time(0));
 					IPdata.push_back(p);
-					std::cout<<time(0)<<std::endl;
-					std::cout<<"case 0\n";
+					// std::cout<<time(0)<<std::endl;
+					// std::cout<<"case 0\n";
 					char sendmsg[BUFSIZE];
 					sendmsg[0]='1';
 					sendmsg[1]=' ';
 					int j=2;
-					std::cout<<"case 0\n";
+					// std::cout<<"case 0\n";
 					for(int i=0;i<IPdata.size()-1;i++)
 					{
 						char temp[20];
@@ -438,7 +438,7 @@ int networkmain(int argc, char** argv)
 					j--;
 					sendmsg[j]='\n';
 					sendmsg[j+1]='\0';
-					std::cout<<"First message sent:"<<ToStr(sendmsg);
+					// std::cout<<"First message sent:"<<ToStr(sendmsg);
 					int slen=sizeof(remaddr);
 					sendto(sockid, sendmsg, strlen(sendmsg), 0, (struct sockaddr *)&remaddr, slen);
 			        std::vector<pthread_t> threads= std::vector<pthread_t>(IPdata.size()-2);
@@ -464,7 +464,7 @@ int networkmain(int argc, char** argv)
 			        	std::cout<<IPdata[i].first<<std::endl;
 			        for(int i=0;i<threads.size();i++)
 			        {
-			        	std::cout<<"sendmsg2:"<<ToStr(sendmsg2)<<"to:"<<IPdata[i+1].first<<std::endl;
+			        	// std::cout<<"sendmsg2:"<<ToStr(sendmsg2)<<"to:"<<IPdata[i+1].first<<std::endl;
 			        	im.ip=IPdata[i+1].first;
 			        	pthread_create(&threads[i],NULL,SendMessage,&im);
 			        }
@@ -504,12 +504,12 @@ int networkmain(int argc, char** argv)
 				// IPdata.erase(IPdata.begin()+1);
 				// TimeStamp.erase(TimeStamp.begin()+1);
 				IPdata[0].second=1;
-				std::cout<<"First GOTO\n";
+				// std::cout<<"First GOTO\n";
 				goto RECV;
 			}
 			else
 			{
-				std::cout<<"Second GOTO\n";
+				// std::cout<<"Second GOTO\n";
 				Connect=false;
 				playersReady=false;
 				IPdata[0].second=0;
