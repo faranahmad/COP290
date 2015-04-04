@@ -635,16 +635,18 @@ void Board::ApplyInsToShip(std::vector<std::string> s,Ship shiptochange)
 	// std::cout << "applied all\n";
 }
 
-void Board::ApplyInsToBullets(std::vector<std::string> bulletinfo)
+void Board::ApplyInsToBullets(std::string bulletinfostring)
 {
 	Bullet bullettoadd;
+	std::vector<std::string> bulletinfo = SplitString(bulletinfostring,'_');
 	bullettoadd.SetXPos(std::stof(bulletinfo[1]));
 	bullettoadd.SetYPos(std::stof(bulletinfo[2]));
 	bullettoadd.SetVelX(std::stof(bulletinfo[3]));
 	bullettoadd.SetVelY(std::stof(bulletinfo[4]));
 	bullettoadd.SetColorFloat(std::stof(bulletinfo[5]),std::stof(bulletinfo[6]),std::stof(bulletinfo[7]));
-	bullettoadd.SetTypeAI(ExtractBool(std::stoi(bulletinfo[8])));
-	bullettoadd.SetTypePlayer(ExtractBool(std::stoi(bulletinfo[9])));
+	bullettoadd.SetShipID(std::stoi(bulletinfo[8]));
+	bullettoadd.SetTypeAI(ExtractBool(std::stoi(bulletinfo[9])));
+	bullettoadd.SetTypePlayer(ExtractBool(std::stoi(bulletinfo[10])));
 	VectorBullets.push_back(bullettoadd);
 }
 
@@ -663,8 +665,8 @@ void Board::ApplyInsToBullets(std::vector<std::string> bulletinfo)
 
 void Board::ApplyShipInstructions(std::string information)
 {
-	std::vector<std::string> ship_bullets = SplitString(information,'\n');	
-	std::vector<std::string> shipinfo = SplitString(ship_bullets[0],'_');
+	//std::vector<std::string> ship_bullets = SplitString(information,'\n');	
+	std::vector<std::string> shipinfo = SplitString(information,'_');
 	// std::cout <<"splitted\t" <<shipinfo[1] <<"\n";
 	int shipid = std::stoi(shipinfo[1]);
 	// std::cout << "obtianed :" << shipid << "\n";
@@ -673,11 +675,7 @@ void Board::ApplyShipInstructions(std::string information)
 		VectorShips.push_back(Ship(VectorShips.size()));
 	}
 	ApplyInsToShip(shipinfo,VectorShips[shipid]);
-	for (int i = 1;i<ship_bullets.size();i++)
-	{
-		std::vector<std::string> bulletinfo = SplitString(ship_bullets[i],'\t');
-		ApplyInsToBullets(bulletinfo);
-	}
+	
 }
 
 
@@ -791,6 +789,10 @@ void Board::ApplyInstructions(std::string information)
 		else if(infosplitted[i][0] == '3')
 		{
 			ApplyShipInstructions(infosplitted[i]);
+		}
+		else if(infosplitted[i][0] == '4')
+		{
+			ApplyPlayerBulletInstructions(infosplitted[i]);
 		}
 		else if(infosplitted[i][0] == '5')
 		{
@@ -914,7 +916,14 @@ void Board::ApplyAllAlienInstructions(std::string information)
 	}
 }
 
-
+void Board::ApplyPlayerBulletInstructions(std::string information)
+{
+	std::vector<std::string> allbullets = SplitString(information,'\t');
+	for (int i = 1;i<allbullets.size();i++)
+	{
+		ApplyInsToBullets(allbullets.at(i));
+	}
+}
 
 
 // 1) split by \n

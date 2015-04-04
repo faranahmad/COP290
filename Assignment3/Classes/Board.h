@@ -91,7 +91,7 @@ class Board
 		
 		std::vector<std::string> SplitString(std::string,char);
 		void ApplyInsToShip(std::vector<std::string>,Ship);
-		void ApplyInsToBullets(std::vector<std::string>);
+		void ApplyInsToBullets(std::string);
 		
 		void ApplyShipInstructions(std::string);
 		
@@ -114,6 +114,7 @@ class Board
 		void ApplySingleAlienInstructions(Alien,std::string);
 		void ApplyAllAlienInstructions(std::string information);
 
+		void ApplyPlayerBulletInstructions(std::string);
 	private:
 		std::vector<Ship> VectorShips;
 		std::vector<Bullet> VectorBullets;		
