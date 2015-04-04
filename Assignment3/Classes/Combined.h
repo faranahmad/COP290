@@ -81,6 +81,7 @@ std::vector<SmokePoint> SmokePoints;
 std::vector<SmokePoint> SmokePointsMissile;
 
 extern std::queue<std::string> Instructions;
+extern bool playersReady;
 
 bool Keys[9];
 
