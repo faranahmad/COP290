@@ -290,17 +290,22 @@ int networkmain(int argc, char** argv)
 	myself.first=(long long)(myaddr.sin_addr.s_addr);
 	if(argc>1)
 	{
-		playersReady=false;
 		myself.second=0;
 	}
 	else
 	{
-		playersReady=true;
 		myself.second=1;
 	}
 	TimeStamp.push_back(time(0));
 	IPdata.push_back(myself);
-
+	if(argc>1)
+	{
+		playersReady=false;
+	}
+	else
+	{
+		playersReady=true;
+	}
 	std::cout<<"Mine:"<<myaddr.sin_addr.s_addr<<std::endl;
 
 	memset((char *) &remaddr, 0, sizeof(remaddr));
