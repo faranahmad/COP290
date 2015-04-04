@@ -7,6 +7,7 @@ std::queue<std::string> Instructions;
 
 bool First=true;
 bool Connect;
+bool playersReady;
 
 int sid;
 
@@ -288,12 +289,23 @@ int networkmain(int argc, char** argv)
 	std::pair<long long,long long> myself;
 	myself.first=(long long)(myaddr.sin_addr.s_addr);
 	if(argc>1)
+	{
 		myself.second=0;
+	}
 	else
+	{
 		myself.second=1;
+	}
 	TimeStamp.push_back(time(0));
 	IPdata.push_back(myself);
-
+	if(argc>1)
+	{
+		playersReady=false;
+	}
+	else
+	{
+		playersReady=true;
+	}
 	std::cout<<"Mine:"<<myaddr.sin_addr.s_addr<<std::endl;
 
 	memset((char *) &remaddr, 0, sizeof(remaddr));
@@ -347,6 +359,8 @@ int networkmain(int argc, char** argv)
     	    if(recvmsg[0]=='1')
     	    	AddPlayers(recvmsg);
     	}
+    	std::cout<<"Players added\n";
+    	playersReady=true;
 
 	}
 
@@ -488,6 +502,7 @@ int networkmain(int argc, char** argv)
 			{
 				std::cout<<"Second GOTO\n";
 				Connect=false;
+				playersReady=false;
 				IPdata[0].second=0;
 				pthread_join(output,NULL);
 				pthread_join(remplayer,NULL);
