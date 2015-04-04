@@ -843,7 +843,7 @@ int main(int argc,char *argv[])
 	missile = loadOBJ("Missile.obj");
 	bullet = loadOBJ("Bullet.obj");
 	alien = loadOBJ("Alien1.obj");
-	ship = loadOBJ("Ship.obj");
+	ship = loadOBJ("Ship3.obj");
 	std::cout << "Opened file\n";
 
 	int limt = rand()%500;
