@@ -630,11 +630,7 @@ void Board::ApplyInsToShip(std::vector<std::string> s,Ship shiptochange)
 	shiptochange.SetYPos(std::stof(s[4]));
 	shiptochange.SetAngle(std::stof(s[5]));
 	shiptochange.SetColorFloatInp(std::stof(s[6]),std::stof(s[7]),std::stof(s[8]));
-	int sid_1= std::stoi(s[1]);
-	while (sid_1 >= VectorShips.size())
-	{
-		VectorShips.push_back(Ship(VectorShips.size()));
-	}
+
 	VectorShips[std::stoi(s[1])] = shiptochange;	
 	std::cout << "applied all\n";
 }
@@ -672,6 +668,10 @@ void Board::ApplyShipInstructions(std::string information)
 	std::cout <<"splitted\t" <<shipinfo[1] <<"\n";
 	int shipid = std::stoi(shipinfo[1]);
 	std::cout << "obtianed :" << shipid << "\n";
+	while (shipid >= VectorShips.size())
+	{
+		VectorShips.push_back(Ship(VectorShips.size()));
+	}
 	ApplyInsToShip(shipinfo,VectorShips[shipid]);
 	// for (int i = 1;i<ship_bullets.size();i++)
 	// {
@@ -718,6 +718,11 @@ std::string Board::GenerateAllBulletInstructions()
 		}
 	}
 	return answer;
+}
+
+void Board::ApplyAllBulletInstructions(std::string information)
+{
+	std::vector<std::string> bulletsinfo = SplitString(information,'_');
 }
  
 std::string Board::GenerateAllInstructions(int player_id,std::vector<Bullet> bullet_vector)
