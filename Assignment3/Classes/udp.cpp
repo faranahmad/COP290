@@ -7,7 +7,7 @@ std::queue<std::string> Instructions;
 
 bool First=true;
 bool Connect;
-bool playersReady=false;
+bool playersReady;
 
 int sid;
 
@@ -289,9 +289,15 @@ int networkmain(int argc, char** argv)
 	std::pair<long long,long long> myself;
 	myself.first=(long long)(myaddr.sin_addr.s_addr);
 	if(argc>1)
+	{
+		playersReady=false;
 		myself.second=0;
+	}
 	else
+	{
+		playersReady=true;
 		myself.second=1;
+	}
 	TimeStamp.push_back(time(0));
 	IPdata.push_back(myself);
 
