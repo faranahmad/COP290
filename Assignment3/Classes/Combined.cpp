@@ -750,7 +750,7 @@ void display(void)
 		BulletsToAdd.pop();
 	}
 	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,bulltoadd);
-	std::cout << "sending" << message1 <<"\n";
+	// std::cout << "sending" << message1 <<"\n";
 	SendMessageToAll(message1);
 
 	// std::cout << "Starting display work\n";
