@@ -93,14 +93,19 @@ void specialKeys(int key, int x, int y);
 void specialKeysUp(int key, int x, int y);
 void handleKeypress(unsigned char key, int x, int y);
 void handleKeypressUp(unsigned char key, int x, int y);
+void mouseclick(int,int,int,int);
+void ShowObject(std::vector<Faces> &);
+void ShowBullet(Bullet &);
+void ShowMissile(Bullet &);
+void ShowShip(Ship &);
+void ShowBoard(Board &);
 Expl newExplosion (float x, float y, float z);
-
-void ShowSmokePoint(SmokePoint);
+void ShowSmokePoint(SmokePoint &);
 SmokePoint NewSmokePoint(float,float);
 SmokePoint UpdateSmokePoint(SmokePoint);
 std::vector<SmokePoint> UpdateAllSmokePoints(std::vector<SmokePoint>);
-void DisplaySmokePoints(std::vector<SmokePoint>);
-void DisplayExplosions(std::vector<Expl>);
+void DisplaySmokePoints(std::vector<SmokePoint> &);
+void DisplayExplosions(std::vector<Expl> &);
 void display(void);
 
 #endif
