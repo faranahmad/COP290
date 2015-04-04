@@ -99,6 +99,9 @@ class Board
 
 		void ApplyAllBulletInstructions(std::string);
 
+		std::string GenerateAllInstructions(int,std::vector<Bullet>);
+		
+		
 		void ApplyInstructions(std::string);
 
 	private:

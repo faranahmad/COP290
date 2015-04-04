@@ -630,6 +630,12 @@ void Board::ApplyInsToShip(std::vector<std::string> s,Ship shiptochange)
 	shiptochange.SetYPos(std::stof(s[4]));
 	shiptochange.SetAngle(std::stof(s[5]));
 	shiptochange.SetColorFloatInp(std::stof(s[6]),std::stof(s[7]),std::stof(s[8]));
+	int sid_1= std::stoi(s[1]);
+	while (sid_1 >= VectorShips.size())
+	{
+		VectorShips.push_back(Ship(VectorShips.size()));
+	}
+	VectorShips[std::stoi(s[1])] = shiptochange;	
 	std::cout << "applied all\n";
 }
 
@@ -681,15 +687,47 @@ std::string Board::GenerateAllBulletInstructions()
 	int bullet_vect_size = VectorBullets.size();
 	for (int i = 0;i < bullet_vect_size;i++)
 	{
+		if(i<bullet_vect_size-1)
+		{
+			answer = answer + "5_" + std::to_string(i) + "_"  
+					+ std::to_string(VectorBullets.at(i).GetXPos()) + "_" 
+					+ std::to_string(VectorBullets.at(i).GetYPos()) + "_" 
+					+ std::to_string(VectorBullets.at(i).GetVelX()) + "_" 
+					+ std::to_string(VectorBullets.at(i).GetVelY()) + "_" 
+					+ std::to_string(VectorBullets.at(i).GetColorOfBullet().GetR()) + "_" 
+					+ std::to_string(VectorBullets.at(i).GetColorOfBullet().GetG()) + "_" 
+					+ std::to_string(VectorBullets.at(i).GetColorOfBullet().GetB()) + "_" 
+					+ std::to_string(VectorBullets.at(i).GetShipId()) + "_" 
+					+ std::to_string(ConvertBool(VectorBullets.at(i).GetTypeAI())) + "_" 
+					+ std::to_string(ConvertBool(VectorBullets.at(i).GetTypePlayer())) + "\t";
+		}
+		else
+		{
+			answer = answer + "5_" + std::to_string(i) + "_"  
+					+ std::to_string(VectorBullets.at(i).GetXPos()) + "_" 
+					+ std::to_string(VectorBullets.at(i).GetYPos()) + "_" 
+					+ std::to_string(VectorBullets.at(i).GetVelX()) + "_" 
+					+ std::to_string(VectorBullets.at(i).GetVelY()) + "_" 
+					+ std::to_string(VectorBullets.at(i).GetColorOfBullet().GetR()) + "_" 
+					+ std::to_string(VectorBullets.at(i).GetColorOfBullet().GetG()) + "_" 
+					+ std::to_string(VectorBullets.at(i).GetColorOfBullet().GetB()) + "_" 
+					+ std::to_string(VectorBullets.at(i).GetShipId()) + "_" 
+					+ std::to_string(ConvertBool(VectorBullets.at(i).GetTypeAI())) + "_" 
+					+ std::to_string(ConvertBool(VectorBullets.at(i).GetTypePlayer()));
 
+		}
 	}
-
-
+	return answer;
 }
  
+std::string Board::GenerateAllInstructions(int player_id,std::vector<Bullet> bullet_vector)
+{
+	return (GeneratePlayerInstructions(player_id,bullet_vector) + "\n" + GenerateAllBulletInstructions());
+}
 
 void Board::ApplyInstructions(std::string)
 {
+
 	//to do
 }
 // 1) split by \n
