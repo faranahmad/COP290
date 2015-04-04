@@ -395,12 +395,12 @@ void Board::MoveNthShip(int ship_id,int mov_type)
 	else if(mov_type == 4)
 	{
 		ship_to_move.SetAngle(ship_to_move.GetAngle() - 5.0);
-		std::cout<<ship_to_move.GetAngle() <<"\n";
+		//std::cout<<ship_to_move.GetAngle() <<"\n";
 	}
 	else if(mov_type == 5)
 	{
 		ship_to_move.SetAngle(ship_to_move.GetAngle() + 5.0);
-		std::cout<<ship_to_move.GetAngle() <<"\n";
+		//std::cout<<ship_to_move.GetAngle() <<"\n";
 	}
 	if(ship_to_move.GetXPos() < -(DimensionNegX))
 	{
@@ -600,7 +600,7 @@ std::vector<std::string> Board::SplitString(std::string s, char chartosplit)
 		if(s[i] == chartosplit)
 		{
 			answer.push_back(tostore);
-			std::cout <<tostore <<" was put in\n";
+			//std::cout <<tostore <<" was put in\n";
 			tostore = "";
 			i = i+1;
 		}
@@ -616,15 +616,15 @@ std::vector<std::string> Board::SplitString(std::string s, char chartosplit)
 
 void Board::ApplyInsToShip(std::vector<std::string> s,Ship shiptochange)
 {
-	std::cout << "0\t" <<s[0] <<"\n";
-	std::cout << "1\t" <<s[1] <<"\n";
-	std::cout << "2\t" <<s[2] <<"\n";
-	std::cout << "3\t" <<s[3] <<"\n";
-	std::cout << "4\t" <<s[4] <<"\n";
-	std::cout << "5\t" <<s[5] <<"\n";
-	std::cout << "6\t" <<s[6] <<"\n";
-	std::cout << "7\t" <<s[7] <<"\n";
-	std::cout << "8\t" <<s[8] <<"\n";
+	// std::cout << "0\t" <<s[0] <<"\n";
+	// std::cout << "1\t" <<s[1] <<"\n";
+	// std::cout << "2\t" <<s[2] <<"\n";
+	// std::cout << "3\t" <<s[3] <<"\n";
+	// std::cout << "4\t" <<s[4] <<"\n";
+	// std::cout << "5\t" <<s[5] <<"\n";
+	// std::cout << "6\t" <<s[6] <<"\n";
+	// std::cout << "7\t" <<s[7] <<"\n";
+	// std::cout << "8\t" <<s[8] <<"\n";
 	shiptochange.SetName(s[2]);
 	shiptochange.SetXPos(std::stof(s[3]));
 	shiptochange.SetYPos(std::stof(s[4]));
@@ -632,7 +632,7 @@ void Board::ApplyInsToShip(std::vector<std::string> s,Ship shiptochange)
 	shiptochange.SetColorFloatInp(std::stof(s[6]),std::stof(s[7]),std::stof(s[8]));
 
 	VectorShips[std::stoi(s[1])] = shiptochange;	
-	std::cout << "applied all\n";
+	// std::cout << "applied all\n";
 }
 
 void Board::ApplyInsToBullets(std::vector<std::string> bulletinfo)
@@ -665,9 +665,9 @@ void Board::ApplyShipInstructions(std::string information)
 {
 	//std::vector<std::string> ship_bullets = SplitString(information,'\n');	
 	std::vector<std::string> shipinfo = SplitString(information,'_');
-	std::cout <<"splitted\t" <<shipinfo[1] <<"\n";
+	// std::cout <<"splitted\t" <<shipinfo[1] <<"\n";
 	int shipid = std::stoi(shipinfo[1]);
-	std::cout << "obtianed :" << shipid << "\n";
+	// std::cout << "obtianed :" << shipid << "\n";
 	while (shipid >= VectorShips.size())
 	{
 		VectorShips.push_back(Ship(VectorShips.size()));
