@@ -80,6 +80,7 @@ std::vector<Expl> Explosions;
 std::vector<SmokePoint> SmokePoints;
 std::vector<SmokePoint> SmokePointsMissile;
 
+extern std::queue<std::string> Instructions;
 
 bool Keys[9];
 

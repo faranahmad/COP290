@@ -492,11 +492,15 @@ void Board::AddRandomAlien()
 std::string Board::GeneratePlayerPositionInstructions(int player_id)
 {
 	Ship player = VectorShips.at(player_id);
-	return ("1_" + std::to_string(player_id) + "_" +
+	return ("3_" + std::to_string(player_id) + "_" +
 	player.GetName() +  
 	std::to_string(player.GetXPos()) + "_" + 
 	std::to_string(player.GetYPos()) + "_" + 
-	std::to_string(player.GetAngle()));
+	std::to_string(player.GetAngle()) + "_" +
+	std::to_string(player.GetColor().GetR()) + "_" + 
+	std::to_string(player.GetColor().GetG()) + "_" + 
+	std::to_string(player.GetColor().GetB()) 
+	);
 
 }
 
@@ -508,7 +512,7 @@ std::string Board::GeneratePlayerBulletInstructions(std::vector<Bullet> vector_b
 		if(i<vector_bullet.size() - 1)
 		{
 			Bullet bullet_added = vector_bullet.at(i);
-			answer  = answer + "2" + std::to_string(bullet_added.GetXPos()) + "_" 
+			answer  = answer + "4" + std::to_string(bullet_added.GetXPos()) + "_" 
 								   + std::to_string(bullet_added.GetYPos()) + "_" 
 								   + std::to_string(bullet_added.GetVelX()) + "_" 
 								   + std::to_string(bullet_added.GetVelY()) + "_" 
@@ -522,7 +526,7 @@ std::string Board::GeneratePlayerBulletInstructions(std::vector<Bullet> vector_b
 		else
 		{
 			Bullet bullet_added = vector_bullet.at(i);
-			answer  = answer + "2" + std::to_string(bullet_added.GetXPos()) + "_" 
+			answer  = answer + "4" + std::to_string(bullet_added.GetXPos()) + "_" 
 								   + std::to_string(bullet_added.GetYPos()) + "_" 
 								   + std::to_string(bullet_added.GetVelX()) + "_" 
 								   + std::to_string(bullet_added.GetVelY()) + "_" 
@@ -613,7 +617,9 @@ void Board::ApplyInsToShip(std::vector<std::string> s,Ship shiptochange)
 	shiptochange.SetXPos(std::stof(s[3]));
 	shiptochange.SetYPos(std::stof(s[4]));
 	shiptochange.SetAngle(std::stof(s[5]));
+	shiptochange.SetColorFloatInp(std::stof(s[6]),std::stof(s[7]),std::stof(s[8]));
 }
+
 void Board::ApplyInsToBullets(std::vector<std::string> bulletinfo)
 {
 	Bullet bullettoadd;
@@ -627,7 +633,7 @@ void Board::ApplyInsToBullets(std::vector<std::string> bulletinfo)
 	VectorBullets.push_back(bullettoadd);
 }
 
-void Board::ApplyInstructions(std::string information)
+void Board::ApplyShipInstructions(std::string information)
 {
 	std::vector<std::string> ship_bullets = SplitString(information,'\n');	
 	std::vector<std::string> shipinfo = SplitString(ship_bullets[0],'_');
@@ -640,8 +646,18 @@ void Board::ApplyInstructions(std::string information)
 	}
 }
 
+std::string Board::GenerateAllBulletInstructions()
+{
 
 
+
+}
+ 
+
+void Board::ApplyInstructions(std::string)
+{
+	//to do
+}
 // 1) split by \n
 // 2) Split by \t
 // 3) Split by _

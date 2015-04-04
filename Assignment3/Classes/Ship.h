@@ -30,6 +30,7 @@ class Ship
 		void SetName(std::string);
 		void SetColorOfShip(Color);
 		void SetColorFloat(int,int,int);
+		void SetColorFloatInp(float,float,float);
 		void SetLives(int);
 		void SetScore(int);
 		void SetMultiplier(int);

@@ -105,6 +105,11 @@ void Ship::SetColorFloat(int red,int green,int blue)
 	ColorOfShip.SetRGB(red,green,blue);
 }
 
+void Ship::SetColorFloatInp(float r,float g,float b)
+{
+	ColorOfShip.SetRGBFloat(r,g,b);
+}
+
 void Ship::SetLives(int lives)
 {
 	Lives = lives;
