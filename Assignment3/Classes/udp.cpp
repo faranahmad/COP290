@@ -7,6 +7,7 @@ std::queue<std::string> Instructions;
 
 bool First=true;
 bool Connect;
+bool playersReady=false;
 
 int sid;
 
@@ -347,6 +348,8 @@ int networkmain(int argc, char** argv)
     	    if(recvmsg[0]=='1')
     	    	AddPlayers(recvmsg);
     	}
+    	std::cout<<"Players added\n";
+    	playersReady=true;
 
 	}
 
@@ -488,6 +491,7 @@ int networkmain(int argc, char** argv)
 			{
 				std::cout<<"Second GOTO\n";
 				Connect=false;
+				playersReady=false;
 				IPdata[0].second=0;
 				pthread_join(output,NULL);
 				pthread_join(remplayer,NULL);
