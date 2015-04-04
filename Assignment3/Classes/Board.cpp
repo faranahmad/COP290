@@ -599,12 +599,12 @@ std::vector<std::string> Board::SplitString(std::string s, char chartosplit)
 	{
 		if(s[i] == chartosplit)
 		{
+			// std::cout <<"storing :" << tostore<<"\n";
 			answer.push_back(tostore);
 			//std::cout <<tostore <<" was put in\n";
 			tostore = "";
-			i = i+1;
 		}
-		if(i<initlength)
+		else
 		{
 			tostore = tostore+s[i];
 		}
@@ -776,10 +776,15 @@ std::string Board::GenerateAllInstructions(int player_id)
 
 void Board::ApplyInstructions(std::string information)
 {
+	//std::cout <<"applying for: " <<information<<"\n";
 	std::vector<std::string> infosplitted = SplitString(information,'\n');
 	for (int i = 0;i<infosplitted.size();i++)
 	{
-		if(infosplitted[i][0] == '6')
+		if (infosplitted[i]=="")
+		{
+			//std::cout <<"empty inst\n";
+		}
+		else if(infosplitted[i][0] == '6')
 		{
 			ApplyInstruction6(infosplitted[i]);
 		}
@@ -793,6 +798,7 @@ void Board::ApplyInstructions(std::string information)
 		}
 		else if(infosplitted[i][0] == '7')
 		{
+			//std::cout <<"applying aliens\n";
 			ApplyAllAlienInstructions(infosplitted[i]);
 		}
 	}
