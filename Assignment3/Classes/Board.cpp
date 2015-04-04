@@ -493,7 +493,7 @@ std::string Board::GeneratePlayerPositionInstructions(int player_id)
 {
 	Ship player = VectorShips.at(player_id);
 	return ("3_" + std::to_string(player_id) + "_" +
-	player.GetName() +  
+	player.GetName() + "_" +  
 	std::to_string(player.GetXPos()) + "_" + 
 	std::to_string(player.GetYPos()) + "_" + 
 	std::to_string(player.GetAngle()) + "_" +
