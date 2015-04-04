@@ -512,7 +512,7 @@ std::string Board::GeneratePlayerBulletInstructions(std::vector<Bullet> vector_b
 		if(i<vector_bullet.size() - 1)
 		{
 			Bullet bullet_added = vector_bullet.at(i);
-			answer  = answer + "4" + std::to_string(bullet_added.GetXPos()) + "_" 
+			answer  = answer + "4_" + std::to_string(bullet_added.GetXPos()) + "_" 
 								   + std::to_string(bullet_added.GetYPos()) + "_" 
 								   + std::to_string(bullet_added.GetVelX()) + "_" 
 								   + std::to_string(bullet_added.GetVelY()) + "_" 
@@ -526,7 +526,7 @@ std::string Board::GeneratePlayerBulletInstructions(std::vector<Bullet> vector_b
 		else
 		{
 			Bullet bullet_added = vector_bullet.at(i);
-			answer  = answer + "4" + std::to_string(bullet_added.GetXPos()) + "_" 
+			answer  = answer + "4_" + std::to_string(bullet_added.GetXPos()) + "_" 
 								   + std::to_string(bullet_added.GetYPos()) + "_" 
 								   + std::to_string(bullet_added.GetVelX()) + "_" 
 								   + std::to_string(bullet_added.GetVelY()) + "_" 
@@ -648,7 +648,12 @@ void Board::ApplyShipInstructions(std::string information)
 
 std::string Board::GenerateAllBulletInstructions()
 {
+	std::string answer = "";
+	int bullet_vect_size = VectorBullets.size();
+	for (int i = 0;i < bullet_vect_size;i++)
+	{
 
+	}
 
 
 }

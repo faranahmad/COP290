@@ -4,6 +4,7 @@ Ship::Ship()
 {
 	Angle = 0.0;
 	NumberMissiles = 500;
+	Name = "abc";
 }
 
 Ship::Ship(int id)
@@ -11,6 +12,7 @@ Ship::Ship(int id)
 	Id = id;
 	Angle = 0.0;
 	NumberMissiles = 5;
+	Name = "abc";
 	//add something
 }
 
