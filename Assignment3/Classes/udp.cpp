@@ -50,7 +50,7 @@ int GetNumPlayers()
 void AddPlayers(char players [])
 {
 	std::string s;
-	std::cout<<"Adding player:"<<ToStr(players);
+	// std::cout<<"Adding player:"<<ToStr(players);
 	for(int i=2;players[i]!=0;i++)
 	{
 		if(players[i]!=' ' && players[i]!='\n')
@@ -68,12 +68,12 @@ void AddPlayers(char players [])
 
 			const char * ipchar = s.c_str();
 			p.first=atoll(ipchar);
-			std::cout<<"first element of p:"<<p.first<<std::endl;
-			std::cout<<"second element of p:"<<p.second<<std::endl;
+			// std::cout<<"first element of p:"<<p.first<<std::endl;
+			// std::cout<<"second element of p:"<<p.second<<std::endl;
 			TimeStamp.push_back(time(0));
 			IPdata.push_back(p);
-	        for(int i=0;i<IPdata.size();i++)
-	        	std::cout<<IPdata[i].first<<std::endl;
+	        // for(int i=0;i<IPdata.size();i++)
+	        	// std::cout<<IPdata[i].first<<std::endl;
 			s="";
 		}
 	}
@@ -183,8 +183,8 @@ void* RemovePlayer(void* input)
 		{
 			if((now-TimeStamp[i])>6)
 			{
-				std::cout<<"Removing: "<<IPdata[i].first<<std::endl;
-				std::cout<<"Time diff:"<<(now-TimeStamp[i])<<std::endl;
+				// std::cout<<"Removing: "<<IPdata[i].first<<std::endl;
+				// std::cout<<"Time diff:"<<(now-TimeStamp[i])<<std::endl;
 				if(Connect)
 				{
 					long long temp=IPdata[i].second;
@@ -219,7 +219,7 @@ void* OutMessage(void* input)
 	long long count=0;
 	while(true)
 	{
-		std::cout<<"Sending OutMessage\n";
+		// std::cout<<"Sending OutMessage\n";
 	    std::vector<pthread_t> threads= std::vector<pthread_t>(IPdata.size()-1);
 		if(IPdata[0].second==0)
 		{
@@ -230,7 +230,7 @@ void* OutMessage(void* input)
 			im.sockid=sockid;
 			for(int i=0;i<threads.size();i++)
 			{
-				std::cout<<"Dummy:"<<ToStr(buf)<<"to: "<<IPdata[i+1].first<<std::endl;
+				// std::cout<<"Dummy:"<<ToStr(buf)<<"to: "<<IPdata[i+1].first<<std::endl;
 				im.ip=IPdata[i+1].first;
 				pthread_create(&threads[i],NULL,SendMessage,&im);
 				usleep(1000);
@@ -246,7 +246,7 @@ void* OutMessage(void* input)
 			im.sockid=sockid;
 			for(int i=0;i<threads.size();i++)
 			{
-				std::cout<<"Dummy:"<<ToStr(buf)<<"to: "<<IPdata[i+1].first<<std::endl;
+				// std::cout<<"Dummy:"<<ToStr(buf)<<"to: "<<IPdata[i+1].first<<std::endl;
 				im.ip=IPdata[i+1].first;
 				pthread_create(&threads[i],NULL,SendMessage,&im);
 				usleep(1000);

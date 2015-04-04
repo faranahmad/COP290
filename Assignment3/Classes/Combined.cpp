@@ -246,7 +246,7 @@ void handleKeypress(unsigned char key, int x, int y)
 	{
 		case 'a':
 		{
-			std::cout <<"a was pressed\n";
+			// std::cout <<"a was pressed\n";
 			Keys[4]=true;
 			// glutPostRedisplay();
 			// Rotate the ship to the left
@@ -254,7 +254,7 @@ void handleKeypress(unsigned char key, int x, int y)
 		}
 		case 'd':
 		{
-			std::cout <<"d was pressed\n";
+			// std::cout <<"d was pressed\n";
 			Keys[5]=true;
 			// newg.PlayerBoard.MoveNthShip(newg.PlayerId,5);
     		// glutPostRedisplay();
@@ -265,7 +265,7 @@ void handleKeypress(unsigned char key, int x, int y)
 		{
 			// std::cout << "f was pressed\n";
 			newg.PlayerBoard.AddRandomShip();
-			glutPostRedisplay();
+			// glutPostRedisplay();
 			break;
 		}
 
@@ -305,7 +305,7 @@ void handleKeypress(unsigned char key, int x, int y)
 
 void handleKeypressUp(unsigned char key, int x, int y) 
 {
-	std::cout << key << "\n";
+	// std::cout << key << "\n";
 	switch (key) 
 	{
 		case 'a':
@@ -541,7 +541,7 @@ void ShowExplosion(Expl &exptodisplay)
 {
   	if (exptodisplay.fuel == 0)
     {
-    	std::cout << "fuel is 0\n";
+    	// std::cout << "fuel is 0\n";
 		// glEnable (GL_LIGHTING);
 		// glDisable (GL_LIGHT0);
 		// glEnable (GL_DEPTH_TEST);
@@ -741,7 +741,6 @@ void display(void)
 	{
 		std::string s=Instructions.front();
 		Instructions.pop();
-		// std::cout << "applying: " << s <<"\n";
 		newg.PlayerBoard.ApplyInstructions(s);
 	}
 
