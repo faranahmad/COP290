@@ -729,6 +729,16 @@ void DisplayExplosions(std::vector<Expl> v)
 
 void display(void)
 {
+	while (!Instructions.empty())
+	{
+		std::string s=Instructions.front();
+		Instructions.pop();
+		newg.PlayerBoard.ApplyInstructions(s);
+	}
+
+	std::string message1 = newg.PlayerBoard.GeneratePlayerPositionInstructions(newg.PlayerId);
+	SendMessageToAll(message1);
+
 	int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
 	int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
 	float const window_aspect = (float)window_width / (float)window_height;
