@@ -741,6 +741,7 @@ void display(void)
 	{
 		std::string s=Instructions.front();
 		Instructions.pop();
+		std::cout << "applying: " << s <<"\n";
 		newg.PlayerBoard.ApplyShipInstructions(s);
 	}
 
