@@ -8,6 +8,8 @@ std::queue<std::string> Instructions;
 bool First=true;
 bool Connect;
 
+int sid;
+
 struct IPMessage {
     long long ip;
     char* message;
@@ -126,6 +128,32 @@ void *SendMessage(void* id)
 	pthread_exit(NULL);
 }
 
+char* ToArr(std::string str)  
+{
+    char* ans=new char[str.size()]; //answer of this function
+    for(int i=0;i<str.size();i++)
+    {
+        ans[i]=str[i];
+    }
+    ans[str.size()]='\0';
+    return ans;
+}
+
+void SendMessageToAll(std::string message)
+{
+	IPMessage im;
+    std::vector<pthread_t> threads= std::vector<pthread_t>(IPdata.size()-1);
+	im.message=ToArr(message);
+	im.sockid=sid;
+	for(int i=0;i<threads.size();i++)
+	{
+		std::cout<<"Sending Message:"<<message<<" to:"<<IPdata[i+1].first<<std::endl;
+		im.ip=IPdata[i+1].first;
+		pthread_create(&threads[i],NULL,SendMessage,&im);
+		usleep(1);
+	}
+}
+
 
 void* RemovePlayer(void* input)
 {
@@ -134,7 +162,7 @@ void* RemovePlayer(void* input)
 		long long now=time(0);
 		for(int i=1;i<IPdata.size();i++)
 		{
-			if((now-TimeStamp[i])>10)
+			if((now-TimeStamp[i])>6)
 			{
 				std::cout<<"Removing: "<<IPdata[i].first<<std::endl;
 				std::cout<<"Time diff:"<<(now-TimeStamp[i])<<std::endl;
@@ -227,6 +255,7 @@ int networkmain(int argc, char** argv)
 	char recvmsg[BUFSIZE];
 	struct sockaddr_in myaddr, remaddr;
 	int sockid=socket(AF_INET, SOCK_DGRAM, 0);
+	sid=sockid;
 	struct timeval tv;
 	tv.tv_sec = 5;
 	tv.tv_usec = 100000;
