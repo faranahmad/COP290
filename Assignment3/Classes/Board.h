@@ -100,7 +100,7 @@ class Board
 		void ApplySingleBulletInstructions(Bullet,std::string);
 		void ApplyAllBulletInstructions(std::string);
 
-		std::string GenerateOnlyPlayerInstructions(int);
+		std::string GenerateOnlyPlayerInstructions(int,std::vector<Bullet>);
 		std::string GenerateAllInstructions(int);
 
 

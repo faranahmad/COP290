@@ -663,8 +663,8 @@ void Board::ApplyInsToBullets(std::vector<std::string> bulletinfo)
 
 void Board::ApplyShipInstructions(std::string information)
 {
-	//std::vector<std::string> ship_bullets = SplitString(information,'\n');	
-	std::vector<std::string> shipinfo = SplitString(information,'_');
+	std::vector<std::string> ship_bullets = SplitString(information,'\n');	
+	std::vector<std::string> shipinfo = SplitString(ship_bullets[0],'_');
 	// std::cout <<"splitted\t" <<shipinfo[1] <<"\n";
 	int shipid = std::stoi(shipinfo[1]);
 	// std::cout << "obtianed :" << shipid << "\n";
