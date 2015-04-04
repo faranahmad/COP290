@@ -15,14 +15,12 @@
 #include <algorithm>
 #include <queue>         
 
-#define PORT 5555
 #define BUFSIZE 50000
 
-//TODO:Complete OutMessage.
-//TODO:Remove players, if baap, then make new baap
 std::vector< std::pair<long long,long long> > IPdata;
 std::vector<long long>TimeStamp;
 std::queue<std::string> Instructions;
+
 
 bool First=true;
 bool Connect;
@@ -33,6 +31,20 @@ struct IPMessage {
     int sockid;
 };
 
+bool IsBaap()
+{
+	if(IPdata.size()>0)
+	{
+		if(IPdata[0].second==1)
+			return true;
+		else
+			return false;
+	}
+	else
+	{
+		return false;
+	}
+}
 std::string ToStr(char* arr)  
 {
     std::string ans="";
