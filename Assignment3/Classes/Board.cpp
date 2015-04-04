@@ -793,7 +793,7 @@ void Board::ApplyInstructions(std::string information)
 		}
 		else if(infosplitted[i][0] == '7')
 		{
-
+			ApplyAllAlienInstructions(infosplitted[i]);
 		}
 	}
 
