@@ -771,7 +771,7 @@ std::string Board::GenerateOnlyPlayerInstructions(int player_id)
 
 std::string Board::GenerateAllInstructions(int player_id)
 {
-	return (GeneratingCount() + "\n" + GeneratePlayerPositionInstructions(player_id) + "\n" + GenerateAllBulletInstructions());
+	return (GeneratingCount() + "\n" + GeneratePlayerPositionInstructions(player_id) + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation());
 }
 
 void Board::ApplyInstructions(std::string information)
