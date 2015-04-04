@@ -27,6 +27,11 @@ Color Alien::GetColor()
 	return ColorOfAlien;
 }
 
+int Alien::GetLives()
+{
+	return PresentLives;
+}
+
 int Alien::GetLevel()
 {
 	return Level;
@@ -71,6 +76,11 @@ void Alien::SetColor(Color alien_color)
 void Alien::SetColorFloat(int red,int green,int blue)
 {
 	ColorOfAlien.SetRGB(red,green,blue);
+}
+
+void Alien::SetColorFloat2(float r,float g,float b)
+{
+	ColorOfAlien.SetRGBFloat(r,g,b);
 }
 
 void Alien::SetLevel(int alien_level)

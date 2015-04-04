@@ -781,7 +781,7 @@ void Board::ApplyInstructions(std::string information)
 	{
 		if(infosplitted[i][0] == '6')
 		{
-			ApplyInstruciton6(infosplitted[i]);
+			ApplyInstruction6(infosplitted[i]);
 		}
 		else if(infosplitted[i][0] == '3')
 		{
@@ -790,6 +790,10 @@ void Board::ApplyInstructions(std::string information)
 		else if(infosplitted[i][0] == '5')
 		{
 			ApplyAllBulletInstructions(infosplitted[i]);
+		}
+		else if(infosplitted[i][0] == '7')
+		{
+
 		}
 	}
 
@@ -803,7 +807,7 @@ std::string Board::GeneratingCount()
 			std::to_string(VectorAliens.size()));
 }
 
-void Board::ApplyInstruciton6(std::string information)
+void Board::ApplyInstruction6(std::string information)
 {
 	std::vector<std::string> s = SplitString(information,'_');
 	if(std::stoi(s[2]) == 0)
@@ -815,6 +819,95 @@ void Board::ApplyInstruciton6(std::string information)
 		VectorAliens.clear();
 	} 
 }
+
+std::string Board::GenerateAliensInformation()
+{
+	std::string answer = "";
+	int alien_vect_size = VectorAliens.size();
+	 
+	for(int i = 0;i < alien_vect_size;i++)
+	{
+		if(i < alien_vect_size - 1)
+		{
+			answer = answer + "7_" + std::to_string(i)  + "_" 
+				 	+std::to_string(VectorAliens.at(i).GetXPos()) + "_"
+				 	+std::to_string(VectorAliens.at(i).GetYPos()) + "_"
+				 	+std::to_string(VectorAliens.at(i).GetAngle()) + "_"
+				 	+std::to_string(VectorAliens.at(i).GetColor().GetR()) + "_"
+					+std::to_string(VectorAliens.at(i).GetColor().GetG()) + "_"
+					+std::to_string(VectorAliens.at(i).GetColor().GetB()) + "_"
+					+std::to_string(VectorAliens.at(i).GetLives()) + "_"
+					+std::to_string(VectorAliens.at(i).GetBullets()) + "_"
+					+std::to_string(VectorAliens.at(i).GetMissiles()) + "_"
+					+std::to_string(VectorAliens.at(i).GetType()) + "\t";
+		}
+		else
+		{
+			answer = answer + "7_"  + std::to_string(i)  + "_"
+				 	+std::to_string(VectorAliens.at(i).GetXPos()) + "_"
+				 	+std::to_string(VectorAliens.at(i).GetYPos()) + "_"
+				 	+std::to_string(VectorAliens.at(i).GetAngle()) + "_"
+				 	+std::to_string(VectorAliens.at(i).GetColor().GetR()) + "_"
+					+std::to_string(VectorAliens.at(i).GetColor().GetG()) + "_"
+					+std::to_string(VectorAliens.at(i).GetColor().GetB()) + "_"
+					+std::to_string(VectorAliens.at(i).GetLives()) + "_"
+					+std::to_string(VectorAliens.at(i).GetLevel()) + "_"
+					+std::to_string(VectorAliens.at(i).GetBullets()) + "_"
+					+std::to_string(VectorAliens.at(i).GetMissiles()) + "_"
+					+std::to_string(VectorAliens.at(i).GetType());
+		
+		}
+	}
+	return answer;
+}
+
+void Board::ApplySingleAlienInstructions(Alien alien_applied,std::string information)
+{
+	std::vector<std::string> alieninfo = SplitString(information,'_');
+	alien_applied.SetXPos(std::stof(alieninfo[2]));
+	alien_applied.SetYPos(std::stof(alieninfo[3]));
+	alien_applied.SetAngle(std::stof(alieninfo[4]));
+	alien_applied.SetColorFloat2(std::stof(alieninfo[5]),std::stof(alieninfo[6]),std::stof(alieninfo[7]));
+	alien_applied.SetLives(std::stoi(alieninfo[8]));
+	alien_applied.SetLevel(std::stoi(alieninfo[9]));
+	alien_applied.SetBullets(std::stoi(alieninfo[10]));
+	alien_applied.SetMissiles(std::stoi(alieninfo[11]));
+	alien_applied.SetType(std::stoi(alieninfo[12]));
+	VectorAliens.at(std::stoi(alieninfo[1])) = alien_applied;
+}
+
+
+
+void Board::ApplyAllAlienInstructions(std::string information)
+{
+	std::vector<std::string> allaliensinfo = SplitString(information,'\t');
+	if(allaliensinfo.size() >= VectorAliens.size())
+	{
+		for(int i = 0;i<allaliensinfo.size();i++)
+		{
+			
+			if(i<VectorAliens.size())
+			{
+				ApplySingleAlienInstructions(VectorAliens.at(i),allaliensinfo[i]);	
+			}
+			else
+			{
+				VectorAliens.push_back(Alien());
+				ApplySingleAlienInstructions(VectorAliens.at(i),allaliensinfo[i]);
+			}
+		}
+	}
+	else
+	{
+		for(int i = 0;i<allaliensinfo.size();i++)
+		{
+			ApplySingleAlienInstructions(VectorAliens.at(i),allaliensinfo[i]);
+		}
+		VectorAliens.erase(VectorAliens.begin()+allaliensinfo.size(),VectorAliens.end());
+	}
+}
+
+
 // 1) split by \n
 // 2) Split by \t
 // 3) Split by _

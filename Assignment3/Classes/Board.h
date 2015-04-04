@@ -108,7 +108,11 @@ class Board
 
 		std::string GeneratingCount();
 
-		void ApplyInstruciton6(std::string);
+		void ApplyInstruction6(std::string);
+
+		std::string GenerateAliensInformation();
+		void ApplySingleAlienInstructions(Alien,std::string);
+		void ApplyAllAlienInstructions(std::string information);
 
 	private:
 		std::vector<Ship> VectorShips;
