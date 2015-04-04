@@ -321,7 +321,7 @@ int networkmain(int argc, char** argv)
 	
 	if(argc>1)
 	{
-		// START:std::cout<<"sending case 0\n";
+		START://std::cout<<"sending case 0\n";
 		char sendmsg[BUFSIZE];
 		remaddr.sin_family = AF_INET;
 		remaddr.sin_port = htons(SERVICE_PORT);
