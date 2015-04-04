@@ -313,7 +313,7 @@ int networkmain(int argc, char** argv)
 
 	pthread_t remplayer;
 	pthread_t output;
-	pthread_create(&output,NULL,OutMessage,(void *)(long long)sockid);
+	// pthread_create(&output,NULL,OutMessage,(void *)(long long)sockid);
 	
 	long long dummy=0;
 	pthread_create(&remplayer,NULL, RemovePlayer,(void *)dummy);

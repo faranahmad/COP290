@@ -1,7 +1,6 @@
 #include "Combined.h"
 
 
-
 std::vector<Faces> loadOBJ(char * path)
 {
 	std::vector<unsigned int> vertexIndices, uvIndices, normalIndices;
