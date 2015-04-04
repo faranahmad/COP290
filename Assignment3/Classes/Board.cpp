@@ -673,11 +673,11 @@ void Board::ApplyShipInstructions(std::string information)
 		VectorShips.push_back(Ship(VectorShips.size()));
 	}
 	ApplyInsToShip(shipinfo,VectorShips[shipid]);
-	// for (int i = 1;i<ship_bullets.size();i++)
-	// {
-		// std::vector<std::string> bulletinfo = SplitString(ship_bullets[i],'\t');
-		// ApplyInsToBullets(bulletinfo);
-	// }
+	for (int i = 1;i<ship_bullets.size();i++)
+	{
+		std::vector<std::string> bulletinfo = SplitString(ship_bullets[i],'\t');
+		ApplyInsToBullets(bulletinfo);
+	}
 }
 
 
@@ -764,14 +764,14 @@ void Board::ApplyAllBulletInstructions(std::string information)
 
 }	
  
-std::string Board::GenerateOnlyPlayerInstructions(int player_id)
+std::string Board::GenerateOnlyPlayerInstructions(int player_id,std::vector<Bullet> vector_bullet)
 {
-	return (GeneratePlayerPositionInstructions(player_id));
+	return (GeneratePlayerPositionInstructions(player_id) + "\n" + GeneratePlayerBulletInstructions(vector_bullet)); 
 }
 
 std::string Board::GenerateAllInstructions(int player_id)
 {
-	return (GeneratingCount() + "\n" + GeneratePlayerPositionInstructions(player_id) + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation());
+	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation());
 }
 
 void Board::ApplyInstructions(std::string information)
@@ -913,6 +913,8 @@ void Board::ApplyAllAlienInstructions(std::string information)
 		VectorAliens.erase(VectorAliens.begin()+allaliensinfo.size(),VectorAliens.end());
 	}
 }
+
+
 
 
 // 1) split by \n
