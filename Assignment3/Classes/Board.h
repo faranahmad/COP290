@@ -97,11 +97,13 @@ class Board
 		
 		std::string GenerateAllBulletInstructions();
 
+		void ApplySingleBulletInstructions(Bullet,std::string);
 		void ApplyAllBulletInstructions(std::string);
 
-		std::string GenerateAllInstructions(int,std::vector<Bullet>);
-		
-		
+		std::string GenerateOnlyPlayerInstructions(int);
+		std::string GenerateAllInstructions(int);
+
+
 		void ApplyInstructions(std::string);
 
 	private:

@@ -720,18 +720,53 @@ std::string Board::GenerateAllBulletInstructions()
 	return answer;
 }
 
-void Board::ApplyAllBulletInstructions(std::string information)
+void Board::ApplySingleBulletInstructions(Bullet bullet_applied,std::string information)
 {
-	std::vector<std::string> bulletsinfo = SplitString(information,'_');
-}
- 
-std::string Board::GenerateAllInstructions(int player_id,std::vector<Bullet> bullet_vector)
-{
-	return (GeneratePlayerInstructions(player_id,bullet_vector) + "\n" + GenerateAllBulletInstructions());
+	std::vector<std::string> bulletinfo = SplitString(information,'_');
+	bullet_applied.SetXPos(std::stof(bulletinfo[2]));
+	bullet_applied.SetYPos(std::stof(bulletinfo[3]));
+	bullet_applied.SetVelX(std::stof(bulletinfo[4]));
+	bullet_applied.SetVelY(std::stof(bulletinfo[5]));
+	bullet_applied.SetColorFloat(std::stof(bulletinfo[6]),std::stof(bulletinfo[7]),std::stof(bulletinfo[8]));
+	bullet_applied.SetShipID(std::stoi(bulletinfo[9]));
+	bullet_applied.SetTypeAI(ExtractBool(std::stoi(bulletinfo[10])));
+	bullet_applied.SetTypePlayer(ExtractBool(std::stoi(bulletinfo[11])));
+	VectorBullets.at(std::stoi(bulletinfo[1])) =  bullet_applied;
 }
 
-void Board::ApplyInstructions(std::string)
+void Board::ApplyAllBulletInstructions(std::string information)
 {
+	std::vector<std::string> allbulletsinfo = SplitString(information,'\t');
+	for(int i = 0;i<allbulletsinfo.size();i++)
+	{
+		ApplySingleBulletInstructions(VectorBullets.at(i),allbulletsinfo[i]);	
+	}
+}
+ 
+std::string Board::GenerateOnlyPlayerInstructions(int player_id)
+{
+	return GeneratePlayerPositionInstructions(player_id);
+}
+
+std::string Board::GenerateAllInstructions(int player_id)
+{
+	return (GeneratePlayerPositionInstructions(player_id) + "\n" + GenerateAllBulletInstructions());
+}
+
+void Board::ApplyInstructions(std::string information)
+{
+	std::vector<std::string> infosplitted = SplitString(information,'\n');
+	for (int i = 0;i<infosplitted.size();i++)
+	{
+		if(infosplitted[i][0] == '3')
+		{
+			ApplyShipInstructions(infosplitted[i]);
+		}
+		else if(infosplitted[i][0] == '5')
+		{
+			ApplyAllBulletInstructions(infosplitted[i]);
+		}
+	}
 
 	//to do
 }
