@@ -354,7 +354,7 @@ void mouseclick(int button,int state,int x,int y )
     }
 }
 
-void ShowObject(std::vector<Faces> facevect)
+void ShowObject(std::vector<Faces> &facevect)
 {
 	// glPushMatrix();
 	// glTranslatef(500,500,1000);
@@ -375,7 +375,7 @@ void ShowObject(std::vector<Faces> facevect)
 	// glPopMatrix();
 }
 
-void ShowBullet(Bullet b)
+void ShowBullet(Bullet &b)
 {
 	// std::cout <<"Showing bullet now\n";
 	glPushMatrix();
@@ -387,7 +387,7 @@ void ShowBullet(Bullet b)
 	glPopMatrix();
 }
 
-void ShowMissile(Bullet b)
+void ShowMissile(Bullet &b)
 {
 	// std::cout <<"Showing missile now\n";
 	glPushMatrix();
@@ -416,7 +416,7 @@ void ShowMissile(Bullet b)
 
 }
 
-void ShowShip(Ship shiptodisplay)
+void ShowShip(Ship &shiptodisplay)
 {
 	glPushMatrix();
 	glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
@@ -441,7 +441,7 @@ void ShowShip(Ship shiptodisplay)
 	SmokePoints=UpdateAllSmokePoints(SmokePoints);
 }
 
-void ShowAlien(Alien alientodisplay)
+void ShowAlien(Alien &alientodisplay)
 {
 	// std::cout << "displaying alien\n";
 	// std::cout << alientodisplay.GetSummary() <<"\n";
@@ -455,7 +455,7 @@ void ShowAlien(Alien alientodisplay)
 }
 
 
-void ShowBoard(Board boardtodisplay)
+void ShowBoard(Board &boardtodisplay)
 {
 	std::vector<Ship> ShipsToDisplay= boardtodisplay.GetVectorShips();
 	std::vector<Alien> AliensToDisplay= boardtodisplay.GetVectorAliens();
@@ -537,7 +537,7 @@ Expl newExplosion (float x, float y, float z)
 	return newexpl;
 }
 
-void ShowExplosion(Expl exptodisplay)
+void ShowExplosion(Expl &exptodisplay)
 {
   	if (exptodisplay.fuel == 0)
     {
@@ -641,7 +641,7 @@ void UpdateAllExplosions()
 	}
 }
 
-void ShowSmokePoint(SmokePoint p)
+void ShowSmokePoint(SmokePoint &p)
 {
 	// glTranslatef(-,0,0);
 	glPushMatrix();
@@ -712,7 +712,7 @@ std::vector<SmokePoint> UpdateAllSmokePoints(std::vector<SmokePoint> v)
 	return v;
 }
 
-void DisplaySmokePoints(std::vector<SmokePoint> v)
+void DisplaySmokePoints(std::vector<SmokePoint> &v)
 {
 	for (int i=0; i<v.size(); i++)
 	{
@@ -721,7 +721,7 @@ void DisplaySmokePoints(std::vector<SmokePoint> v)
 	}
 }
 
-void DisplayExplosions(std::vector<Expl> v)
+void DisplayExplosions(std::vector<Expl> &v)
 {
 	for (int i=0;i<v.size() ; i++)
 	{
@@ -858,7 +858,7 @@ int main(int argc,char *argv[])
 
 	for (int k=0; k<numplayers; k++)
 	{
-		Ship news= Ship();
+		Ship news= Ship(k);
 		news.SetColorFloat(30,170,65);
 		news.SetXPos(500);
 		news.SetYPos(45);
