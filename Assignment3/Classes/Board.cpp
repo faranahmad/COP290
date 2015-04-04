@@ -737,23 +737,32 @@ void Board::ApplySingleBulletInstructions(Bullet bullet_applied,std::string info
 void Board::ApplyAllBulletInstructions(std::string information)
 {
 	std::vector<std::string> allbulletsinfo = SplitString(information,'\t');
-	for(int i = 0;i<allbulletsinfo.size();i++)
+	if(allbulletsinfo.size() >= VectorBullets.size())
 	{
-		
-		if(i<VectorBullets.size())
+		for(int i = 0;i<allbulletsinfo.size();i++)
 		{
-			ApplySingleBulletInstructions(VectorBullets.at(i),allbulletsinfo[i]);	
-		}
-		else
-		{
-			while (i >= VectorBullets.size())
+			
+			if(i<VectorBullets.size())
+			{
+				ApplySingleBulletInstructions(VectorBullets.at(i),allbulletsinfo[i]);	
+			}
+			else
 			{
 				VectorBullets.push_back(Bullet());
+				ApplySingleBulletInstructions(VectorBullets.at(i),allbulletsinfo[i]);
 			}
-			ApplySingleBulletInstructions(VectorBullets.at(i),allbulletsinfo[i]);
 		}
 	}
-}
+	else
+	{
+		for(int i = 0;i<allbulletsinfo.size();i++)
+		{
+			ApplySingleBulletInstructions(VectorBullets.at(i),allbulletsinfo[i]);
+		}
+		VectorBullets.erase(VectorBullets.begin()+allbulletsinfo.size(),VectorBullets.end());
+	}
+
+}	
  
 std::string Board::GenerateOnlyPlayerInstructions(int player_id)
 {
