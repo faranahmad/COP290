@@ -244,14 +244,15 @@ void* OutMessage(void* input)
 
 int networkmain(int argc, char** argv)
 {
-	system ("ifconfig | grep 'inet addr:' | grep -v '127.0.0.1' | awk '{print $2}' | cut -f2 -d: > .ip.txt");
+	Begin:system ("ifconfig | grep 'inet addr:' | grep -v '127.0.0.1' | awk '{print $2}' | cut -f2 -d: > .ip.txt");
 	std::ifstream ip4(".ip.txt");
 	std::string ipadr;
 	std::getline(ip4,ipadr);
 	std::cout<<"My IP:"<<ipadr<<std::endl;
 	system("rm -rf .ip.txt");
 	ip4.close();
-
+	if(ipadr.size()==0)
+		goto Begin;
 	char recvmsg[BUFSIZE];
 	struct sockaddr_in myaddr, remaddr;
 	int sockid=socket(AF_INET, SOCK_DGRAM, 0);

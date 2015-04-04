@@ -516,8 +516,8 @@ std::string Board::GeneratePlayerBulletInstructions(std::vector<Bullet> vector_b
 								   + std::to_string(bullet_added.GetColorOfBullet().GetG()) + "_" 
 								   + std::to_string(bullet_added.GetColorOfBullet().GetB()) + "_" 
 								   + std::to_string(bullet_added.GetShipId()) + "_" 
-								   + std::to_string(bullet_added.GetTypeAI()) + "_" 
-								   + std::to_string(bullet_added.GetTypePlayer()) + "\t";
+								   + std::to_string(ConvertBool(bullet_added.GetTypeAI())) + "_" 
+								   + std::to_string(ConvertBool(bullet_added.GetTypePlayer())) + "\t";
 		}
 		else
 		{
@@ -609,10 +609,10 @@ std::vector<std::string> Board::SplitString(std::string s, char chartosplit)
 
 void Board::ApplyInsToShip(std::vector<std::string> s,Ship shiptochange)
 {
-	shiptochange.SetName(s[1]);
-	shiptochange.SetXPos(std::stof(s[2]));
-	shiptochange.SetYPos(std::stof(s[3]));
-	shiptochange.SetAngle(std::stof(s[4]));
+	shiptochange.SetName(s[2]);
+	shiptochange.SetXPos(std::stof(s[3]));
+	shiptochange.SetYPos(std::stof(s[4]));
+	shiptochange.SetAngle(std::stof(s[5]));
 }
 void Board::ApplyInsToBullets(std::vector<std::string> bulletinfo)
 {
@@ -630,8 +630,8 @@ void Board::ApplyInsToBullets(std::vector<std::string> bulletinfo)
 void Board::ApplyInstructions(std::string information)
 {
 	std::vector<std::string> ship_bullets = SplitString(information,'\n');	
-	int shipid = toDigit(information[0]);
 	std::vector<std::string> shipinfo = SplitString(ship_bullets[0],'_');
+	int shipid = std::stoi(shipinfo[1]);
 	ApplyInsToShip(shipinfo,VectorShips[shipid]);
 	for (int i = 1;i<ship_bullets.size();i++)
 	{
