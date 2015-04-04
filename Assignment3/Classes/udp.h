@@ -24,6 +24,7 @@
 
 bool IsBaap();
 std::string ToStr(char* arr);
+int GetNumPlayers();
 void AddPlayers(char players []);
 int LengthNum(long long num);
 int FindIndex(long long ip);

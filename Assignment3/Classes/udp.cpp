@@ -30,6 +30,7 @@ bool IsBaap()
 		return false;
 	}
 }
+
 std::string ToStr(char* arr)  
 {
     std::string ans="";
@@ -38,6 +39,11 @@ std::string ToStr(char* arr)
         ans+=arr[i];
     }
     return ans;
+}
+
+int GetNumPlayers()
+{
+	return IPdata.size();
 }
 
 void AddPlayers(char players [])
