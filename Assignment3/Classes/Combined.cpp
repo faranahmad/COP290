@@ -140,6 +140,7 @@ void ProcessKeys()
 			newb.SetTypeAI(false);
 			newb.SetTypePlayer(true);
 			newg.PlayerBoard.InsertBullet(newb);
+			BulletsToAdd.push_back(newb);
 		// }
 	}
 	if (Keys[7])
@@ -162,7 +163,8 @@ void ProcessKeys()
 			newb.SetShipID(newg.PlayerId);
 			newb.SetTypePlayer(true);
 			newg.PlayerBoard.SetNthShip(newg.PlayerId,present);
-			newg.PlayerBoard.InsertBullet(newb);	
+			newg.PlayerBoard.InsertBullet(newb);
+			BulletsToAdd.push_back(newb);	
 		}
 	}
 	if (Keys[8])
@@ -412,8 +414,6 @@ void ShowMissile(Bullet &b)
 	// std::cout << SmokePointsMissile.size() <<"\n";
 	glPopMatrix();
 	SmokePointsMissile=UpdateAllSmokePoints(SmokePointsMissile);
-
-
 }
 
 void ShowShip(Ship &shiptodisplay)
@@ -744,7 +744,8 @@ void display(void)
 		newg.PlayerBoard.ApplyInstructions(s);
 	}
 
-	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId);
+	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,BulletsToAdd);
+	BulletsToAdd.clear();
 	// std::cout << "sending" << message1 <<"\n";
 	SendMessageToAll(message1);
 
