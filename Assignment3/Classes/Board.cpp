@@ -739,7 +739,19 @@ void Board::ApplyAllBulletInstructions(std::string information)
 	std::vector<std::string> allbulletsinfo = SplitString(information,'\t');
 	for(int i = 0;i<allbulletsinfo.size();i++)
 	{
-		ApplySingleBulletInstructions(VectorBullets.at(i),allbulletsinfo[i]);	
+		
+		if(i<VectorBullets.size())
+		{
+			ApplySingleBulletInstructions(VectorBullets.at(i),allbulletsinfo[i]);	
+		}
+		else
+		{
+			while (i >= VectorBullets.size())
+			{
+				VectorBullets.push_back(Bullet());
+			}
+			ApplySingleBulletInstructions(VectorBullets.at(i),allbulletsinfo[i]);
+		}
 	}
 }
  
