@@ -113,6 +113,13 @@ void Alien::SetType(int type_alien)
 	AlienType = type_alien;
 }
 
+void Alien::ReduceMissile()
+{
+	if (NumberMissiles > 0)
+	{
+		NumberMissiles -= 1;
+	}
+}
 std::string Alien::GetSummary()
 {
 	return std::to_string(XPos) + "\t" + 

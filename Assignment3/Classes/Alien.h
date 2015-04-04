@@ -33,6 +33,8 @@ class Alien
 		void SetMissiles(int);
 		void SetType(int);
 
+		void ReduceMissile();
+
 		std::string GetSummary();
 
 	private:
