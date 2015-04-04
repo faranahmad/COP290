@@ -600,6 +600,7 @@ std::vector<std::string> Board::SplitString(std::string s, char chartosplit)
 		if(s[i] == chartosplit)
 		{
 			answer.push_back(tostore);
+			std::cout <<tostore <<" was put in\n";
 			tostore = "";
 			i = i+1;
 		}
@@ -608,16 +609,28 @@ std::vector<std::string> Board::SplitString(std::string s, char chartosplit)
 			tostore = tostore+s[i];
 		}
 		i++;
-	}	 
+	}	
+	answer.push_back(tostore); 
+	return answer;
 }
 
 void Board::ApplyInsToShip(std::vector<std::string> s,Ship shiptochange)
 {
+	std::cout << "0\t" <<s[0] <<"\n";
+	std::cout << "1\t" <<s[1] <<"\n";
+	std::cout << "2\t" <<s[2] <<"\n";
+	std::cout << "3\t" <<s[3] <<"\n";
+	std::cout << "4\t" <<s[4] <<"\n";
+	std::cout << "5\t" <<s[5] <<"\n";
+	std::cout << "6\t" <<s[6] <<"\n";
+	std::cout << "7\t" <<s[7] <<"\n";
+	std::cout << "8\t" <<s[8] <<"\n";
 	shiptochange.SetName(s[2]);
 	shiptochange.SetXPos(std::stof(s[3]));
 	shiptochange.SetYPos(std::stof(s[4]));
 	shiptochange.SetAngle(std::stof(s[5]));
 	shiptochange.SetColorFloatInp(std::stof(s[6]),std::stof(s[7]),std::stof(s[8]));
+	std::cout << "applied all\n";
 }
 
 void Board::ApplyInsToBullets(std::vector<std::string> bulletinfo)
@@ -650,7 +663,9 @@ void Board::ApplyShipInstructions(std::string information)
 {
 	//std::vector<std::string> ship_bullets = SplitString(information,'\n');	
 	std::vector<std::string> shipinfo = SplitString(information,'_');
+	std::cout <<"splitted\t" <<shipinfo[1] <<"\n";
 	int shipid = std::stoi(shipinfo[1]);
+	std::cout << "obtianed :" << shipid << "\n";
 	ApplyInsToShip(shipinfo,VectorShips[shipid]);
 	// for (int i = 1;i<ship_bullets.size();i++)
 	// {
