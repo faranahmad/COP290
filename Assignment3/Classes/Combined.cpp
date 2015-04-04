@@ -757,20 +757,22 @@ void display(void)
 	ShowBoard(newg.PlayerBoard);
 	DisplayExplosions(Explosions);
 	glutSwapBuffers();
-
-	std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
-	for (int j=0; j<Explosions.size(); j++)
+	if (IsBaap())
 	{
-		if (Explosions[j].fuel==0)
-		{		
-			Explosions.erase(Explosions.begin()+j);
-			j-=1;			
+		std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
+		for (int j=0; j<Explosions.size(); j++)
+		{
+			if (Explosions[j].fuel==0)
+			{		
+				Explosions.erase(Explosions.begin()+j);
+				j-=1;			
+			}
 		}
-	}
-	for (int j=0; j<p.size(); j++)
-	{
-		Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
-		std::cout << p[j].x <<"\t" <<p[j].y << "\n";
+		for (int j=0; j<p.size(); j++)
+		{
+			Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
+			std::cout << p[j].x <<"\t" <<p[j].y << "\n";
+		}
 	}
 	UpdateAllExplosions();
 

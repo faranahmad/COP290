@@ -28,6 +28,8 @@ void AddPlayers(char players []);
 int LengthNum(long long num);
 int FindIndex(long long ip);
 void *SendMessage(void* id);
+char* ToArr(std::string str); 
+void SendMessageToAll(std::string message);
 void* RemovePlayer(void* input);
 void* OutMessage(void* input);
 int networkmain(int argc, char** argv);
