@@ -137,30 +137,39 @@ void *SendMessage(void* id)
 
 char* ToArr(std::string str)  
 {
-    char* ans=new char[str.size()]; //answer of this function
-    for(int i=0;i<str.size();i++)
-    {
-        ans[i]=str[i];
-    }
-    ans[str.size()]='\0';
-    return ans;
+    // char* ans=new char[str.size()]; //answer of this function
+    // for(int i=0;i<str.size();i++)
+    // {
+    //     ans[i]=str[i];
+    // }
+    // ans[str.size()]='\0';
+    // return ans;
+    // delete [] ans;
+    char *cstr = new char[str.length() + 1];
+	strcpy(cstr, str.c_str());
+	return cstr;
+	delete [] cstr;
+
 }
 
 void SendMessageToAll(std::string message)
 {
 	if(IPdata.size()>0)
 	{
+		// std::cout<<"Sending message to all\t" <<message<<"\n";
 		IPMessage im;
     	std::vector<pthread_t> threads= std::vector<pthread_t>(IPdata.size()-1);
 		im.message=ToArr(message);
 		im.sockid=sid;
+		// std::cout <<"Starting for loop\n";
 		for(int i=0;i<threads.size();i++)
 		{
-			std::cout<<"Sending Message:"<<message<<" to:"<<IPdata[i+1].first<<std::endl;
+			// std::cout<<"Sending Message:"<<message<<" to:"<<IPdata[i+1].first<<std::endl;
 			im.ip=IPdata[i+1].first;
 			pthread_create(&threads[i],NULL,SendMessage,&im);
 			usleep(1);
 		}
+		// std::cout<<"Messages sent!!!!!!!!!!!!!!!!!!!!!!\n";
 	}
 }
 

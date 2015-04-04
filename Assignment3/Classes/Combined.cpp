@@ -125,9 +125,9 @@ void ProcessKeys()
 	{
 		// Fire Bullet
 		// TODO: Incorporate multiple bullets
-		if (clock()-newg.LastBulletTime>75000)
-		{
-			newg.LastBulletTime=clock();
+		// if (clock()-newg.LastBulletTime>75000)
+		// {
+		// 	newg.LastBulletTime=clock();
 			Bullet newb = Bullet();
 			Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
 			float velx = 0- 10*sin(PI*present.GetAngle()/180);
@@ -140,7 +140,7 @@ void ProcessKeys()
 			newb.SetTypeAI(false);
 			newb.SetTypePlayer(true);
 			newg.PlayerBoard.InsertBullet(newb);
-		}
+		// }
 	}
 	if (Keys[7])
 	{
@@ -199,7 +199,7 @@ void specialKeys( int key, int x, int y )
 	}
 	ProcessKeys();
 	// std::cout << rotate_x <<"\t"<<rotate_y<<"\n";
-	glutPostRedisplay();
+	// glutPostRedisplay();
 }
 
 
@@ -229,19 +229,19 @@ void specialKeysUp( int key, int x, int y )
 	if (key == GLUT_KEY_DOWN)
 	{
 		Keys[3]=false;
-		std::cout << "down key left\n";
+		// std::cout << "down key left\n";
 		// newg.PlayerBoard.MoveNthShip(newg.PlayerId,3);
 		// Move player ship down 
 	}
 	ProcessKeys();
 	// std::cout << rotate_x <<"\t"<<rotate_y<<"\n";
-	glutPostRedisplay();
+	// glutPostRedisplay();
 }
 
 
 void handleKeypress(unsigned char key, int x, int y) 
 {
-	std::cout << key << "\n";
+	// std::cout << key << "\n";
 	switch (key) 
 	{
 		case 'a':
@@ -263,7 +263,7 @@ void handleKeypress(unsigned char key, int x, int y)
 		}
 		case 'f':
 		{
-			std::cout << "f was pressed\n";
+			// std::cout << "f was pressed\n";
 			newg.PlayerBoard.AddRandomShip();
 			glutPostRedisplay();
 			break;
@@ -274,7 +274,7 @@ void handleKeypress(unsigned char key, int x, int y)
 			// Fire bullet
 			// TODO: incorporate multiplier
 			Keys[6]=true;
-			std::cout << "space bar presed\n";
+			// std::cout << "space bar presed\n";
 			
 			break;
 		}
@@ -741,14 +741,15 @@ void display(void)
 	{
 		std::string s=Instructions.front();
 		Instructions.pop();
-		std::cout << "applying: " << s <<"\n";
+		// std::cout << "applying: " << s <<"\n";
 		newg.PlayerBoard.ApplyInstructions(s);
 	}
 
 	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId);
-	std::cout << "sending" << message1 <<"\n";
+	// std::cout << "sending" << message1 <<"\n";
 	SendMessageToAll(message1);
 
+	// std::cout << "Starting display work\n";
 	int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
 	int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
 	float const window_aspect = (float)window_width / (float)window_height;
@@ -774,13 +775,18 @@ void display(void)
 	}
 	glPopMatrix();
 
+
+
 	ShowBoard(newg.PlayerBoard);
 	DisplayExplosions(Explosions);
 	glutSwapBuffers();
+	// std::cout <<"Buffers swapped\n";
 	if (IsBaap())
 	{
+		// std::cout << "It is in the baap case\n";
 		std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
 	
+
 		for (int j=0; j<Explosions.size(); j++)
 		{
 			if (Explosions[j].fuel==0)
@@ -792,19 +798,27 @@ void display(void)
 		for (int j=0; j<p.size(); j++)
 		{
 			Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
-			std::cout << p[j].x <<"\t" <<p[j].y << "\n";
+			// std::cout << p[j].x <<"\t" <<p[j].y << "\n";
 		}
 
 		message1 = newg.PlayerBoard.GenerateAllInstructions(newg.PlayerId);
-		std::cout << "sending" << message1 <<"\n";
+		// std::cout << "sending: " << message1 <<"\n";
 		SendMessageToAll(message1);
+		// std::cout<<"#####################\n";
+		// for(int k=0;k<message1.size();k++)
+		// 	std::cout<<message1[k];
+		// std::cout<<std::endl;
+		// ToArr(message1);
+		// std::cout << "message sent to all\n";
 	}
+	// std::cout <<"Now updating explosions\n";
 	UpdateAllExplosions();
 
 	while (newg.PlayerBoard.GetNumberAliens()<=5)
 	{
 		newg.PlayerBoard.AddRandomAlien();
 	}
+	// std::cout << "Done operations, time for re display\n";
 	// UpdatePlayerAI(newg.PlayerBoard);
 	// UpdateAIBoard(newg.PlayerBoard);
 	// Update AI
