@@ -93,8 +93,14 @@ class Board
 		void ApplyInsToShip(std::vector<std::string>,Ship);
 		void ApplyInsToBullets(std::vector<std::string>);
 		
+		void ApplyShipInstructions(std::string);
+		
+		std::string GenerateAllBulletInstructions();
+
+		void ApplyAllBulletInstructions(std::string);
+
 		void ApplyInstructions(std::string);
-	
+
 	private:
 		std::vector<Ship> VectorShips;
 		std::vector<Bullet> VectorBullets;		
