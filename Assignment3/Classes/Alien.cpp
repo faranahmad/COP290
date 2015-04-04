@@ -5,6 +5,11 @@ Alien::Alien()
 	XPos = 0.0;
 	YPos = 0.0;
 	Angle = 0.0;
+	Level = 1;
+	PresentLives = 1;
+	NumberBullets = 2;
+	NumberMissiles = 3;
+	AlienType = 0;
 }
 
 float Alien::GetXPos()
