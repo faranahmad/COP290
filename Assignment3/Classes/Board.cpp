@@ -837,6 +837,7 @@ std::string Board::GenerateAliensInformation()
 					+std::to_string(VectorAliens.at(i).GetColor().GetG()) + "_"
 					+std::to_string(VectorAliens.at(i).GetColor().GetB()) + "_"
 					+std::to_string(VectorAliens.at(i).GetLives()) + "_"
+					+std::to_string(VectorAliens.at(i).GetLevel()) + "_"
 					+std::to_string(VectorAliens.at(i).GetBullets()) + "_"
 					+std::to_string(VectorAliens.at(i).GetMissiles()) + "_"
 					+std::to_string(VectorAliens.at(i).GetType()) + "\t";
