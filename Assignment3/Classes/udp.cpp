@@ -141,16 +141,19 @@ char* ToArr(std::string str)
 
 void SendMessageToAll(std::string message)
 {
-	IPMessage im;
-    std::vector<pthread_t> threads= std::vector<pthread_t>(IPdata.size()-1);
-	im.message=ToArr(message);
-	im.sockid=sid;
-	for(int i=0;i<threads.size();i++)
+	if(IPdata.size()>0)
 	{
-		std::cout<<"Sending Message:"<<message<<" to:"<<IPdata[i+1].first<<std::endl;
-		im.ip=IPdata[i+1].first;
-		pthread_create(&threads[i],NULL,SendMessage,&im);
-		usleep(1);
+		IPMessage im;
+    	std::vector<pthread_t> threads= std::vector<pthread_t>(IPdata.size()-1);
+		im.message=ToArr(message);
+		im.sockid=sid;
+		for(int i=0;i<threads.size();i++)
+		{
+			std::cout<<"Sending Message:"<<message<<" to:"<<IPdata[i+1].first<<std::endl;
+			im.ip=IPdata[i+1].first;
+			pthread_create(&threads[i],NULL,SendMessage,&im);
+			usleep(1);
+		}
 	}
 }
 

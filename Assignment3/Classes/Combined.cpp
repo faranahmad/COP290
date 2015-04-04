@@ -729,6 +729,12 @@ void DisplayExplosions(std::vector<Expl> v)
 	}
 }
 
+void *networkmainhelper(void* inp)
+{
+	Graph *pa= (Graph *)inp;
+	networkmain(pa->x1,pa->s1);
+}
+
 void display(void)
 {
 	while (!Instructions.empty())
@@ -798,6 +804,12 @@ void display(void)
 
 int main(int argc,char *argv[])
 {
+	pthread_t networkthread;
+    Graph datagraph;
+    datagraph.x1=argc;
+    datagraph.s1=argv;
+	pthread_create(&networkthread,NULL,networkmainhelper,&datagraph);
+	
 	for (int i=0; i<8; i++)
 	{
 		Keys[i]=false;
