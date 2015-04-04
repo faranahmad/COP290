@@ -1,35 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <netdb.h>
-#include <sys/socket.h>
-#include "port.h"
-#include <unistd.h>  
-#include <netinet/in.h>
-#include <arpa/inet.h> 
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <pthread.h>
-#include <math.h>
-#include <algorithm>
-#include <queue>         
-
-#define BUFSIZE 50000
-
-std::vector< std::pair<long long,long long> > IPdata;
-std::vector<long long>TimeStamp;
-std::queue<std::string> Instructions;
-
-
-bool First=true;
-bool Connect;
-
-struct IPMessage {
-    long long ip;
-    char* message;
-    int sockid;
-};
+#include "udp.h"      
 
 bool IsBaap()
 {
