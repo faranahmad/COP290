@@ -47,12 +47,18 @@ struct Expl
 	float 			angle = 0.0;             /* camera rotation angle */
 };
 
-
 struct GamePlay
 {
 	Board PlayerBoard;
 	int PlayerId;
 	clock_t LastBulletTime;
+};
+
+struct Graph 
+{
+    // Struct used for passing data via thread
+    int x1;
+    char **s1;
 };
 
 struct SmokePoint

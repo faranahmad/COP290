@@ -1,6 +1,7 @@
 #include "Combined.h"
 
 
+
 std::vector<Faces> loadOBJ(char * path)
 {
 	std::vector<unsigned int> vertexIndices, uvIndices, normalIndices;
@@ -229,7 +230,7 @@ void specialKeysUp( int key, int x, int y )
 	if (key == GLUT_KEY_DOWN)
 	{
 		Keys[3]=false;
-		std::cout << "down key left\n";
+		// std::cout << "down key left\n";
 		// newg.PlayerBoard.MoveNthShip(newg.PlayerId,3);
 		// Move player ship down 
 	}
@@ -241,12 +242,12 @@ void specialKeysUp( int key, int x, int y )
 
 void handleKeypress(unsigned char key, int x, int y) 
 {
-	std::cout << key << "\n";
+	// std::cout << key << "\n";
 	switch (key) 
 	{
 		case 'a':
 		{
-			std::cout <<"a was pressed\n";
+			// std::cout <<"a was pressed\n";
 			Keys[4]=true;
 			// glutPostRedisplay();
 			// Rotate the ship to the left
@@ -254,7 +255,7 @@ void handleKeypress(unsigned char key, int x, int y)
 		}
 		case 'd':
 		{
-			std::cout <<"d was pressed\n";
+			// std::cout <<"d was pressed\n";
 			Keys[5]=true;
 			// newg.PlayerBoard.MoveNthShip(newg.PlayerId,5);
     		// glutPostRedisplay();
@@ -263,7 +264,7 @@ void handleKeypress(unsigned char key, int x, int y)
 		}
 		case 'f':
 		{
-			std::cout << "f was pressed\n";
+			// std::cout << "f was pressed\n";
 			newg.PlayerBoard.AddRandomShip();
 			glutPostRedisplay();
 			break;
@@ -274,7 +275,7 @@ void handleKeypress(unsigned char key, int x, int y)
 			// Fire bullet
 			// TODO: incorporate multiplier
 			Keys[6]=true;
-			std::cout << "space bar presed\n";
+			// std::cout << "space bar presed\n";
 			
 			break;
 		}
@@ -784,9 +785,20 @@ void display(void)
 	glutPostRedisplay();
 }
 
+void *networkmainhelper(void* inp)
+{
+	Graph *pa= (Graph *)inp;
+	networkmain(pa->x1,pa->s1);
+}
+
+
 int main(int argc,char *argv[])
 {
-	networkmain(argc,argv);
+	pthread_t networkthread;
+    Graph datagraph;
+    datagraph.x1=argc;
+    datagraph.s1=argv;
+	pthread_create(&networkthread,NULL,networkmainhelper,&datagraph);
 	for (int i=0; i<8; i++)
 	{
 		Keys[i]=false;

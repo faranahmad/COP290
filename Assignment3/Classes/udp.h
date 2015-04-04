@@ -20,19 +20,7 @@
 
 #define BUFSIZE 50000
 
-std::vector< std::pair<long long,long long> > IPdata;
-std::vector<long long>TimeStamp;
-std::queue<std::string> Instructions;
 
-
-bool First=true;
-bool Connect;
-
-struct IPMessage {
-    long long ip;
-    char* message;
-    int sockid;
-};
 
 bool IsBaap();
 std::string ToStr(char* arr);
