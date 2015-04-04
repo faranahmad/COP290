@@ -140,7 +140,7 @@ void ProcessKeys()
 			newb.SetTypeAI(false);
 			newb.SetTypePlayer(true);
 			newg.PlayerBoard.InsertBullet(newb);
-			BulletsToAdd.push_back(newb);
+			BulletsToAdd.push(newb);
 		// }
 	}
 	if (Keys[7])
@@ -164,7 +164,7 @@ void ProcessKeys()
 			newb.SetTypePlayer(true);
 			newg.PlayerBoard.SetNthShip(newg.PlayerId,present);
 			newg.PlayerBoard.InsertBullet(newb);
-			BulletsToAdd.push_back(newb);	
+			BulletsToAdd.push(newb);	
 		}
 	}
 	if (Keys[8])
@@ -743,9 +743,13 @@ void display(void)
 		Instructions.pop();
 		newg.PlayerBoard.ApplyInstructions(s);
 	}
-
-	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,BulletsToAdd);
-	BulletsToAdd.clear();
+	std::vector<Bullet> bulltoadd;
+	while (!BulletsToAdd.empty())
+	{
+		bulltoadd.push_back(BulletsToAdd.front());
+		BulletsToAdd.pop();
+	}
+	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,bulltoadd);
 	// std::cout << "sending" << message1 <<"\n";
 	SendMessageToAll(message1);
 

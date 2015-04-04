@@ -79,7 +79,7 @@ std::vector<Points> Stars;
 std::vector<Expl> Explosions;
 std::vector<SmokePoint> SmokePoints;
 std::vector<SmokePoint> SmokePointsMissile;
-std::vector<Bullet> BulletsToAdd;
+std::queue<Bullet> BulletsToAdd;
 
 
 extern std::queue<std::string> Instructions;
