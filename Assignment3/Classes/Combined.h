@@ -3,6 +3,7 @@
 
 
 #include "Board.h"
+#include "udp.h"
 #include <time.h>
 #include "AI.h"
 #include <GL/glut.h>

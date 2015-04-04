@@ -43,3 +43,5 @@ void *SendMessage(void* id);
 void* RemovePlayer(void* input);
 void* OutMessage(void* input);
 int networkmain(int argc, char** argv);
+
+#endif

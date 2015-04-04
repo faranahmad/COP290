@@ -401,10 +401,10 @@ void ShowMissile(Bullet b)
 
 	glPushMatrix();
 	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
-	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
-	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
-	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
-	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
+	// SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
+	// SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
+	// SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
+	// SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
 	glRotatef(b.GetAngle(),0,0,1);
 	glTranslatef(0,-110,0);
@@ -412,8 +412,6 @@ void ShowMissile(Bullet b)
 	// std::cout << SmokePointsMissile.size() <<"\n";
 	glPopMatrix();
 	SmokePointsMissile=UpdateAllSmokePoints(SmokePointsMissile);
-
-
 }
 
 void ShowShip(Ship shiptodisplay)
@@ -788,6 +786,7 @@ void display(void)
 
 int main(int argc,char *argv[])
 {
+	networkmain(argc,argv);
 	for (int i=0; i<8; i++)
 	{
 		Keys[i]=false;
