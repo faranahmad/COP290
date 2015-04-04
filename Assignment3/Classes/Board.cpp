@@ -766,12 +766,12 @@ void Board::ApplyAllBulletInstructions(std::string information)
  
 std::string Board::GenerateOnlyPlayerInstructions(int player_id)
 {
-	return GeneratePlayerPositionInstructions(player_id);
+	return (GeneratingCount() + GeneratePlayerPositionInstructions(player_id));
 }
 
 std::string Board::GenerateAllInstructions(int player_id)
 {
-	return (GeneratePlayerPositionInstructions(player_id) + "\n" + GenerateAllBulletInstructions());
+	return (GeneratingCount() + "\n" + GeneratePlayerPositionInstructions(player_id) + "\n" + GenerateAllBulletInstructions());
 }
 
 void Board::ApplyInstructions(std::string information)
@@ -779,7 +779,11 @@ void Board::ApplyInstructions(std::string information)
 	std::vector<std::string> infosplitted = SplitString(information,'\n');
 	for (int i = 0;i<infosplitted.size();i++)
 	{
-		if(infosplitted[i][0] == '3')
+		if(infosplitted[i][0] == '6')
+		{
+			ApplyInstruciton6(infosplitted[i]);
+		}
+		else if(infosplitted[i][0] == '3')
 		{
 			ApplyShipInstructions(infosplitted[i]);
 		}
@@ -790,6 +794,26 @@ void Board::ApplyInstructions(std::string information)
 	}
 
 	//to do
+}
+
+std::string Board::GeneratingCount()
+{
+	return ("6_" + std::to_string(VectorShips.size()) + "_" + 
+			std::to_string(VectorBullets.size()) + "_" + 
+			std::to_string(VectorAliens.size()));
+}
+
+void Board::ApplyInstruciton6(std::string information)
+{
+	std::vector<std::string> s = SplitString(information,'_');
+	if(std::stoi(s[2]) == 0)
+	{
+		VectorBullets.clear();
+	}
+	if(std::stoi(s[3]) == 0)
+	{
+		VectorAliens.clear();
+	} 
 }
 // 1) split by \n
 // 2) Split by \t

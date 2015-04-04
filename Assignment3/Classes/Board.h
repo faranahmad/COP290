@@ -106,6 +106,10 @@ class Board
 
 		void ApplyInstructions(std::string);
 
+		std::string GeneratingCount();
+
+		void ApplyInstruciton6(std::string);
+
 	private:
 		std::vector<Ship> VectorShips;
 		std::vector<Bullet> VectorBullets;		
