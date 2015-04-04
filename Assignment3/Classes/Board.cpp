@@ -633,18 +633,32 @@ void Board::ApplyInsToBullets(std::vector<std::string> bulletinfo)
 	VectorBullets.push_back(bullettoadd);
 }
 
+// void Board::ApplyShipInstructions(std::string information)
+// {
+// 	std::vector<std::string> ship_bullets = SplitString(information,'\n');	
+// 	std::vector<std::string> shipinfo = SplitString(ship_bullets[0],'_');
+// 	int shipid = std::stoi(shipinfo[1]);
+// 	ApplyInsToShip(shipinfo,VectorShips[shipid]);
+// 	for (int i = 1;i<ship_bullets.size();i++)
+// 	{
+// 		std::vector<std::string> bulletinfo = SplitString(ship_bullets[i],'\t');
+// 		ApplyInsToBullets(bulletinfo);
+// 	}
+// }
+
 void Board::ApplyShipInstructions(std::string information)
 {
-	std::vector<std::string> ship_bullets = SplitString(information,'\n');	
-	std::vector<std::string> shipinfo = SplitString(ship_bullets[0],'_');
+	//std::vector<std::string> ship_bullets = SplitString(information,'\n');	
+	std::vector<std::string> shipinfo = SplitString(information,'_');
 	int shipid = std::stoi(shipinfo[1]);
 	ApplyInsToShip(shipinfo,VectorShips[shipid]);
-	for (int i = 1;i<ship_bullets.size();i++)
-	{
-		std::vector<std::string> bulletinfo = SplitString(ship_bullets[i],'\t');
-		ApplyInsToBullets(bulletinfo);
-	}
+	// for (int i = 1;i<ship_bullets.size();i++)
+	// {
+		// std::vector<std::string> bulletinfo = SplitString(ship_bullets[i],'\t');
+		// ApplyInsToBullets(bulletinfo);
+	// }
 }
+
 
 std::string Board::GenerateAllBulletInstructions()
 {
