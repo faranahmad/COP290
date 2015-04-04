@@ -745,6 +745,7 @@ void display(void)
 	}
 
 	std::string message1 = newg.PlayerBoard.GeneratePlayerPositionInstructions(newg.PlayerId);
+	std::cout << "sending" << message1 <<"\n";
 	SendMessageToAll(message1);
 
 	int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
