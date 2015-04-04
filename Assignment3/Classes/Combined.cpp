@@ -741,6 +741,7 @@ void display(void)
 	{
 		std::string s=Instructions.front();
 		Instructions.pop();
+		std::cout << "applying: " << s <<"\n";
 		newg.PlayerBoard.ApplyShipInstructions(s);
 	}
 
@@ -776,20 +777,23 @@ void display(void)
 	ShowBoard(newg.PlayerBoard);
 	DisplayExplosions(Explosions);
 	glutSwapBuffers();
-
-	std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
-	for (int j=0; j<Explosions.size(); j++)
+	if (IsBaap())
 	{
-		if (Explosions[j].fuel==0)
-		{		
-			Explosions.erase(Explosions.begin()+j);
-			j-=1;			
+		std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
+	
+		for (int j=0; j<Explosions.size(); j++)
+		{
+			if (Explosions[j].fuel==0)
+			{		
+				Explosions.erase(Explosions.begin()+j);
+				j-=1;			
+			}
 		}
-	}
-	for (int j=0; j<p.size(); j++)
-	{
-		Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
-		std::cout << p[j].x <<"\t" <<p[j].y << "\n";
+		for (int j=0; j<p.size(); j++)
+		{
+			Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
+			std::cout << p[j].x <<"\t" <<p[j].y << "\n";
+		}
 	}
 	UpdateAllExplosions();
 
@@ -840,17 +844,28 @@ int main(int argc,char *argv[])
 		Stars.push_back(p);	
 	}
 
+	while (!playersReady)
+	{
+		// Keep waiting
+	}
+
+	int numplayers=GetNumPlayers();
+
 	std::cout <<"Generated stars: " << Stars.size() <<"\n";
 
-	newg.PlayerId = 0;
+	newg.PlayerId = numplayers-1;
 	newg.PlayerBoard = Board(1200,1200,800,800);
 
-	Ship news= Ship();
-	news.SetColorFloat(30,170,65);
-	news.SetXPos(500);
-	news.SetYPos(45);
-	newg.PlayerBoard.InsertShip(news);
+	for (int k=0; k<numplayers; k++)
+	{
+		Ship news= Ship();
+		news.SetColorFloat(30,170,65);
+		news.SetXPos(500);
+		news.SetYPos(45);
+		newg.PlayerBoard.InsertShip(news);
+	}
 
+	std::cout << "board is set up: " <<newg.PlayerId<<"\n";
 
 	Alien newa= Alien();
 	newg.PlayerBoard.InsertAlien(newa);
