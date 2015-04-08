@@ -8,6 +8,8 @@ std::queue<std::string> Instructions;
 bool First=true;
 bool Connect;
 bool playersReady;
+bool isOffline;
+bool noIP;
 
 int sid;
 
@@ -263,6 +265,7 @@ void* OutMessage(void* input)
 
 int networkmain(int argc, char** argv)
 {
+	noIP=false;
 	Begin:system ("ifconfig | grep 'inet addr:' | grep -v '127.0.0.1' | awk '{print $2}' | cut -f2 -d: > .ip.txt");
 	std::ifstream ip4(".ip.txt");
 	std::string ipadr;
@@ -270,8 +273,21 @@ int networkmain(int argc, char** argv)
 	std::cout<<"My IP:"<<ipadr<<std::endl;
 	system("rm -rf .ip.txt");
 	ip4.close();
-	if(ipadr.size()==0)
+	if(ipadr.size()==0 && !noIP)
+	{
+		noIP=true;
+		usleep(5000000);
 		goto Begin;
+	}
+	if(noIP && ipadr.size()==0)
+	{
+		std::cout<<"Network not found. Starting an offline game.\n";
+		isOffline=true;
+	}
+	else
+	{
+		isOffline=false;
+	}
 	char recvmsg[BUFSIZE];
 	struct sockaddr_in myaddr, remaddr;
 	int sockid=socket(AF_INET, SOCK_DGRAM, 0);
