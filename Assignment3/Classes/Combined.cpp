@@ -5,7 +5,7 @@ std::vector<Faces> loadOBJ(char * path)
 {
 	std::vector<unsigned int> vertexIndices, uvIndices, normalIndices;
 	std::vector<Faces> answer;
-	std::vector<Points> temp_vertices; 
+	std::vector<Points> temp_vertices;
 	// std::vector<glm::vec2> temp_uvs;Missile
 	// std::vector<glm::vec3> temp_normals;
 
@@ -27,7 +27,7 @@ std::vector<Faces> loadOBJ(char * path)
 			break; // EOF = End Of File. Quit the loop.
 
 		// else : parse lineHeader
-		
+
 		if ( strcmp( lineHeader, "v" ) == 0 )
 		{
 			// std::cout <<"In v case\n";
@@ -68,7 +68,7 @@ std::vector<Faces> loadOBJ(char * path)
 			vertexIndices.push_back(vertexIndex[2]);
 			Faces NewF;
 			// std::cout << vertexIndex[0] <<"\t"<< vertexIndex[1] <<"\t"<< vertexIndex[2] <<"\n";
-			NewF.p1 = temp_vertices[vertexIndex[0]-1]; 
+			NewF.p1 = temp_vertices[vertexIndex[0]-1];
 			NewF.p2 = temp_vertices[vertexIndex[1]-1];
 			NewF.p3 = temp_vertices[vertexIndex[2]-1];
 			answer.push_back(NewF);
@@ -145,7 +145,7 @@ void ProcessKeys()
 	}
 	if (Keys[7])
 	{
-		// Fire Missile 
+		// Fire Missile
 		Bullet newb = Bullet();
 		Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
 		if (present.GetNumberMissiles()>0)
@@ -164,7 +164,7 @@ void ProcessKeys()
 			newb.SetTypePlayer(true);
 			newg.PlayerBoard.SetNthShip(newg.PlayerId,present);
 			newg.PlayerBoard.InsertBullet(newb);
-			BulletsToAdd.push(newb);	
+			BulletsToAdd.push(newb);
 		}
 	}
 	if (Keys[8])
@@ -175,7 +175,7 @@ void ProcessKeys()
 }
 
 
-void specialKeys( int key, int x, int y ) 
+void specialKeys( int key, int x, int y )
 {
 	if (key == GLUT_KEY_RIGHT)
 	{
@@ -197,7 +197,7 @@ void specialKeys( int key, int x, int y )
 	if (key == GLUT_KEY_DOWN)
 	{
 		Keys[3]=true;
-		// Move player ship down 
+		// Move player ship down
 	}
 	ProcessKeys();
 	// std::cout << rotate_x <<"\t"<<rotate_y<<"\n";
@@ -205,7 +205,7 @@ void specialKeys( int key, int x, int y )
 }
 
 
-void specialKeysUp( int key, int x, int y ) 
+void specialKeysUp( int key, int x, int y )
 {
 	if (key == GLUT_KEY_RIGHT)
 	{
@@ -233,7 +233,7 @@ void specialKeysUp( int key, int x, int y )
 		Keys[3]=false;
 		// std::cout << "down key left\n";
 		// newg.PlayerBoard.MoveNthShip(newg.PlayerId,3);
-		// Move player ship down 
+		// Move player ship down
 	}
 	ProcessKeys();
 	// std::cout << rotate_x <<"\t"<<rotate_y<<"\n";
@@ -241,10 +241,10 @@ void specialKeysUp( int key, int x, int y )
 }
 
 
-void handleKeypress(unsigned char key, int x, int y) 
+void handleKeypress(unsigned char key, int x, int y)
 {
 	// std::cout << key << "\n";
-	switch (key) 
+	switch (key)
 	{
 		case 'a':
 		{
@@ -277,10 +277,10 @@ void handleKeypress(unsigned char key, int x, int y)
 			// TODO: incorporate multiplier
 			Keys[6]=true;
 			// std::cout << "space bar presed\n";
-			
+
 			break;
 		}
-		
+
 		case 's':
 		{
 			// Fire Missile
@@ -294,9 +294,9 @@ void handleKeypress(unsigned char key, int x, int y)
 			break;
 		}
 		case 43: //+ key
-		{    
-			break; 
-		}      
+		{
+			break;
+		}
 		case 27: //Escape key
 		{
 			exit(0);
@@ -305,10 +305,10 @@ void handleKeypress(unsigned char key, int x, int y)
     ProcessKeys();
 }
 
-void handleKeypressUp(unsigned char key, int x, int y) 
+void handleKeypressUp(unsigned char key, int x, int y)
 {
 	// std::cout << key << "\n";
-	switch (key) 
+	switch (key)
 	{
 		case 'a':
 		{
@@ -426,7 +426,7 @@ void ShowShip(Ship &shiptodisplay)
 	// std::cout << shiptodisplay.GetXPos() << "\t" << shiptodisplay.GetYPos() <<"\n";
 	ShowObject(ship);
 	glPopMatrix();
-	
+
 	glPushMatrix();
 	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
 	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
@@ -451,7 +451,7 @@ void ShowAlien(Alien &alientodisplay)
 	Color col_ship=alientodisplay.GetColor();
 	glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
 	ShowObject(alien);
-	glPopMatrix();	
+	glPopMatrix();
 }
 
 
@@ -481,7 +481,7 @@ void ShowBoard(Board &boardtodisplay)
 		{
 			ShowBullet(BulletsToDisplay[i]);
 		}
-	}	
+	}
 }
 
 void newSpeed (float dest[3])
@@ -565,7 +565,7 @@ void ShowExplosion(Expl &exptodisplay)
 			glColor3fv (exptodisplay.debris[i].color);
 
 			glPushMatrix ();
-      
+
 	  		glTranslatef (exptodisplay.debris[i].position[0],
 			exptodisplay.debris[i].position[1],
 			exptodisplay.debris[i].position[2]);
@@ -582,12 +582,12 @@ void ShowExplosion(Expl &exptodisplay)
 			glVertex3f (0.0, 0.5, 0.0);
 			glVertex3f (-0.25, 0.0, 0.0);
 			glVertex3f (0.25, 0.0, 0.0);
-			glEnd ();	  
-	  
+			glEnd ();
+
 	  		glPopMatrix ();
 		}
     }
-} 
+}
 
 Expl UpdateExplosion(Expl exptoupdate)
 {
@@ -598,19 +598,19 @@ Expl UpdateExplosion(Expl exptoupdate)
 			exptoupdate.particles[i].position[0] += exptoupdate.particles[i].speed[0] * 0.3;
 			exptoupdate.particles[i].position[1] += exptoupdate.particles[i].speed[1] * 0.3;
 			exptoupdate.particles[i].position[2] += exptoupdate.particles[i].speed[2] * 0.3;
-	      
+
 			exptoupdate.particles[i].color[0] -= 1.0 / 500.0;
 			if (exptoupdate.particles[i].color[0] < 0.0)
 			{
 		  		exptoupdate.particles[i].color[0] = 0.0;
 			}
-	      
+
 	      	exptoupdate.particles[i].color[1] -= 1.0 / 100.0;
 	      	if (exptoupdate.particles[i].color[1] < 0.0)
 			{
 		  		exptoupdate.particles[i].color[1] = 0.0;
 			}
-	      
+
 	      	exptoupdate.particles[i].color[2] -= 1.0 / 50.0;
 	      	if (exptoupdate.particles[i].color[2] < 0.0)
 			{
@@ -622,13 +622,13 @@ Expl UpdateExplosion(Expl exptoupdate)
 	    	exptoupdate.debris[i].position[0] += exptoupdate.debris[i].speed[0] * 0.3;
 	    	exptoupdate.debris[i].position[1] += exptoupdate.debris[i].speed[1] * 0.3;
 	    	exptoupdate.debris[i].position[2] += exptoupdate.debris[i].speed[2] * 0.3;
-	      
+
 	      	exptoupdate.debris[i].orientation[0] += exptoupdate.debris[i].orientationSpeed[0] * 10;
 	      	exptoupdate.debris[i].orientation[1] += exptoupdate.debris[i].orientationSpeed[1] * 10;
 	      	exptoupdate.debris[i].orientation[2] += exptoupdate.debris[i].orientationSpeed[2] * 10;
 	    }
 	  	exptoupdate.fuel -= 1;
-	}      
+	}
     exptoupdate.angle += 0.3;  /* Always continue to rotate the camera */
     return exptoupdate;
 }
@@ -646,7 +646,7 @@ void ShowSmokePoint(SmokePoint &p)
 	// glTranslatef(-,0,0);
 	glPushMatrix();
 	glTranslatef(p.position[0],p.position[1],p.position[2]);
-	glColor3f(p.color[0],p.color[1],p.color[2]);	
+	glColor3f(p.color[0],p.color[1],p.color[2]);
 	glutSolidSphere(p.radius, 31, 10);
 	glPopMatrix();
 }
@@ -779,7 +779,15 @@ void display(void)
 	}
 	glPopMatrix();
 
+	// const char * kg="kartikeya";
+	// unsigned char* y;
+	// y= (unsigned char*) kg;
 
+	// glPushMatrix();
+	// 	glTranslatef(0,0,0);
+	// 	// glutStrokeString(GLUT_STROKE_ROMAN, "kartikeya");
+	// 	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
+	// glPopMatrix();
 
 	ShowBoard(newg.PlayerBoard);
 	DisplayExplosions(Explosions);
@@ -789,14 +797,14 @@ void display(void)
 	{
 		// std::cout << "It is in the baap case\n";
 		std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
-	
+
 
 		for (int j=0; j<Explosions.size(); j++)
 		{
 			if (Explosions[j].fuel==0)
-			{		
+			{
 				Explosions.erase(Explosions.begin()+j);
-				j-=1;			
+				j-=1;
 			}
 		}
 		for (int j=0; j<p.size(); j++)
@@ -835,8 +843,8 @@ int main(int argc,char *argv[])
     Graph datagraph;
     datagraph.x1=argc;
     datagraph.s1=argv;
-	pthread_create(&networkthread,NULL,networkmainhelper,&datagraph);
-	
+    pthread_create(&networkthread,NULL,networkmainhelper,&datagraph);
+
 	for (int i=0; i<8; i++)
 	{
 		Keys[i]=false;
@@ -863,7 +871,7 @@ int main(int argc,char *argv[])
 		p.x=X;
 		p.y=Y;
 		p.z=Z;
-		Stars.push_back(p);	
+		Stars.push_back(p);
 	}
 
 	while (!playersReady)
@@ -897,7 +905,7 @@ int main(int argc,char *argv[])
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
 	glutInitWindowSize(1600,900);
 	glutCreateWindow("Team Babe Magnets");
-	
+
 	glutDisplayFunc(display);
 	// glutReshapeFunc(reshape);
 	glutMouseFunc(mouseclick);
@@ -908,6 +916,6 @@ int main(int argc,char *argv[])
 	// initRendering();
 
 	glutMainLoop();
-	
+
 	return 0;
 }

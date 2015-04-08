@@ -13,6 +13,7 @@
 #include <cstdio>
 #include <cstring>
 #include <pthread.h>
+#include <GL/freeglut.h>
 
 #define NUM_PARTICLES    1000          /* Number of particles  */
 #define NUM_DEBRIS       70            /* Number of debris     */
