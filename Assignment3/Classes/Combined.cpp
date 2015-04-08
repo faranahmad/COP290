@@ -412,9 +412,9 @@ void ShowMissile(Bullet &b)
 
 	glPushMatrix();
 	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
-	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
-	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
-	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
+	// SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
+	// SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
+	// SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
 	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
 	glRotatef(b.GetAngle(),0,0,1);
