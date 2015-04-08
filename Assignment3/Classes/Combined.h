@@ -85,8 +85,10 @@ std::queue<Bullet> BulletsToAdd;
 
 extern std::queue<std::string> Instructions;
 extern bool playersReady;
+extern bool isOffline;
 
 bool Keys[9];
+int SpaceBarFree;
 
 GamePlay newg;
 
@@ -101,14 +103,18 @@ void ShowObject(std::vector<Faces> &);
 void ShowBullet(Bullet &);
 void ShowMissile(Bullet &);
 void ShowShip(Ship &);
+void ShowBorders(Board &);
+void ShowTitle(Board &);
+void ShowScores(Board &);
+void ShowLives(Board &,int);
 void ShowBoard(Board &);
 Expl newExplosion (float x, float y, float z);
 void ShowExplosion(Expl &);
 void UpdateAllExplosions();
 void ShowSmokePoint(SmokePoint &);
 SmokePoint NewSmokePoint(float,float);
-SmokePoint UpdateSmokePoint(SmokePoint);
-std::vector<SmokePoint> UpdateAllSmokePoints(std::vector<SmokePoint>);
+void UpdateSmokePoint(SmokePoint &);
+void UpdateAllSmokePoints(std::vector<SmokePoint> &);
 void DisplaySmokePoints(std::vector<SmokePoint> &);
 void DisplayExplosions(std::vector<Expl> &);
 void *networkmainhelper(void*);

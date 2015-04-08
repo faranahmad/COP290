@@ -128,6 +128,9 @@ void ProcessKeys()
 		// if (clock()-newg.LastBulletTime>75000)
 		// {
 		// 	newg.LastBulletTime=clock();
+		std::cout << SpaceBarFree <<"  number of times spacebar pressed\n";
+		if (SpaceBarFree==1)
+		{
 			Bullet newb = Bullet();
 			Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
 			float velx = 0- 10*sin(PI*present.GetAngle()/180);
@@ -141,6 +144,8 @@ void ProcessKeys()
 			newb.SetTypePlayer(true);
 			newg.PlayerBoard.InsertBullet(newb);
 			BulletsToAdd.push(newb);
+			SpaceBarFree+=1;
+		}
 		// }
 	}
 	if (Keys[7])
@@ -276,6 +281,7 @@ void handleKeypress(unsigned char key, int x, int y)
 			// Fire bullet
 			// TODO: incorporate multiplier
 			Keys[6]=true;
+			SpaceBarFree+=1;
 			// std::cout << "space bar presed\n";
 
 			break;
@@ -313,6 +319,7 @@ void handleKeypressUp(unsigned char key, int x, int y)
 		case 'a':
 		{
 			Keys[4]=false;
+			std::cout << " a lifted\n";
 			// std::cout <<"a was pressed\n";
 			// newg.PlayerBoard.MoveNthShip(newg.PlayerId,4);
 			// glutPostRedisplay();
@@ -330,6 +337,8 @@ void handleKeypressUp(unsigned char key, int x, int y)
 		}
 		case 32:
 		{
+			SpaceBarFree=0;
+			std::cout <<" In spacebar up case\n";
 			Keys[6]=false;
 			break;
 		}
@@ -413,7 +422,7 @@ void ShowMissile(Bullet &b)
 	DisplaySmokePoints(SmokePointsMissile);
 	// std::cout << SmokePointsMissile.size() <<"\n";
 	glPopMatrix();
-	SmokePointsMissile=UpdateAllSmokePoints(SmokePointsMissile);
+	UpdateAllSmokePoints(SmokePointsMissile);
 }
 
 void ShowShip(Ship &shiptodisplay)
@@ -438,7 +447,7 @@ void ShowShip(Ship &shiptodisplay)
 	glTranslatef(0,-67,0);
 	DisplaySmokePoints(SmokePoints);
 	glPopMatrix();
-	SmokePoints=UpdateAllSmokePoints(SmokePoints);
+	UpdateAllSmokePoints(SmokePoints);
 }
 
 void ShowAlien(Alien &alientodisplay)
@@ -454,6 +463,109 @@ void ShowAlien(Alien &alientodisplay)
 	glPopMatrix();
 }
 
+void ShowBorders(Board &boardtodisplay)
+{
+	glPushMatrix();
+	double px,py,nx,ny;
+	px=boardtodisplay.GetPosXDimension();
+	nx=boardtodisplay.GetNegXDimension();
+	py=boardtodisplay.GetPosYDimension();
+	ny=boardtodisplay.GetNegYDimension();
+	
+	float tk=30.0;  // Thickness of the border
+	glColor3f(0,0,1.0);
+
+	glBegin(GL_POLYGON);
+	glVertex3f( -nx -tk, py +tk , 0.0);
+	glVertex3f( px +tk , py +tk , 0.0);
+	glVertex3f( px +tk , py  , 0.0);
+	glVertex3f( -nx -tk, py  , 0.0);
+	glEnd();
+	
+	glBegin(GL_POLYGON);
+	glVertex3f( -nx -tk , py + tk , 0.0);
+	glVertex3f( -nx -tk , -ny -tk , 0.0);
+	glVertex3f( -nx , -ny -tk , 0.0);
+	glVertex3f( -nx , py +tk , 0.0);
+	glEnd();
+	
+	glBegin(GL_POLYGON);
+	glVertex3f( -nx -tk , -ny , 0.0);
+	glVertex3f( -nx -tk , -ny -tk , 0.0);
+	glVertex3f(  px +tk , -ny -tk , 0.0);
+	glVertex3f(  px +tk , -ny , 0.0);
+	glEnd();
+	
+	glBegin(GL_POLYGON);
+	glVertex3f( px , py , 0.0);
+	glVertex3f( px , -ny , 0.0);
+	glVertex3f( px + tk , -ny , 0.0);
+	glVertex3f( px + tk, py , 0.0);
+	glEnd();
+
+	glPopMatrix();
+}
+
+void ShowTitle(Board &boardtodisplay)
+{
+	const char * kg="Space Invaders Co-op";
+	unsigned char *y= (unsigned char*) kg;
+
+	glPushMatrix();
+	glRasterPos2f(   -boardtodisplay.GetNegXDimension(), boardtodisplay.GetPosYDimension() +50);
+	glColor3f(0,0,1);
+	// glutStrokeString(GLUT_STROKE_ROMAN, y);
+	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
+	glPopMatrix();
+}
+
+void ShowLives(Board &boardtodisplay, int playid)
+{
+	const char * livesS="Lives: ";
+	unsigned char *y= (unsigned char*) livesS;
+
+	int lives= boardtodisplay.GetNthShip(playid).GetLives();
+	std::string s = std::to_string(lives);
+	unsigned char *pchar = (unsigned char*) s.c_str();
+	
+	const char * MissilesS="Missiles: ";
+	unsigned char *y2= (unsigned char*) MissilesS;
+
+	int nummis= boardtodisplay.GetNthShip(playid).GetNumberMissiles();
+	s = std::to_string(nummis);
+	unsigned char *pchar2 = (unsigned char*) s.c_str();
+	
+
+
+	glPushMatrix();
+	glRasterPos2f(   -1600, 0 );
+	glColor3f(0,1,1);
+	// glutStrokeString(GLUT_STROKE_ROMAN, y);
+	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
+	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar);
+	glPopMatrix();
+
+	glPushMatrix();
+	glRasterPos2f(-1600,-50);
+	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y2);
+	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar2);
+	
+	glPopMatrix();
+}
+
+void ShowScores(Board &boardtodisplay)
+{
+	const char * kg="kartikeya";
+	unsigned char *y= (unsigned char*) kg;
+
+	glPushMatrix();
+	glRasterPos2f( 0,0 );
+	glColor3f(0,0,1);
+	// glutStrokeString(GLUT_STROKE_ROMAN, y);
+	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
+	glPopMatrix();
+
+}
 
 void ShowBoard(Board &boardtodisplay)
 {
@@ -539,16 +651,16 @@ Expl newExplosion (float x, float y, float z)
 
 void ShowExplosion(Expl &exptodisplay)
 {
-  	if (exptodisplay.fuel == 0)
-    {
-    	// std::cout << "fuel is 0\n";
+	if (exptodisplay.fuel == 0)
+	{
+		// std::cout << "fuel is 0\n";
 		// glEnable (GL_LIGHTING);
 		// glDisable (GL_LIGHT0);
 		// glEnable (GL_DEPTH_TEST);
 		// glutSolidCube (1.0);
-    }
+	}
 	else
-    {
+	{
 		glPushMatrix ();
 		glBegin (GL_POINTS);
 
@@ -560,7 +672,7 @@ void ShowExplosion(Expl &exptodisplay)
 		glEnd ();
 
 		glPopMatrix ();
-	    for (int i = 0; i < NUM_DEBRIS; i++)
+		for (int i = 0; i < NUM_DEBRIS; i++)
 		{
 			glColor3fv (exptodisplay.debris[i].color);
 
@@ -570,13 +682,13 @@ void ShowExplosion(Expl &exptodisplay)
 			exptodisplay.debris[i].position[1],
 			exptodisplay.debris[i].position[2]);
 
-	  		glRotatef (exptodisplay.debris[i].orientation[0], 1.0, 0.0, 0.0);
-	  		glRotatef (exptodisplay.debris[i].orientation[1], 0.0, 1.0, 0.0);
-	  		glRotatef (exptodisplay.debris[i].orientation[2], 0.0, 0.0, 1.0);
+			glRotatef (exptodisplay.debris[i].orientation[0], 1.0, 0.0, 0.0);
+			glRotatef (exptodisplay.debris[i].orientation[1], 0.0, 1.0, 0.0);
+			glRotatef (exptodisplay.debris[i].orientation[2], 0.0, 0.0, 1.0);
 
 	  		glScalef ( exptodisplay.debris[i].scale[0],
-		    exptodisplay.debris[i].scale[1],
-		    exptodisplay.debris[i].scale[2]);
+			exptodisplay.debris[i].scale[1],
+			exptodisplay.debris[i].scale[2]);
 
 			glBegin (GL_TRIANGLES);
 			glVertex3f (0.0, 0.5, 0.0);
@@ -674,7 +786,7 @@ SmokePoint NewSmokePoint(float x, float y)
 	return p;
 }
 
-SmokePoint UpdateSmokePoint(SmokePoint p)
+void UpdateSmokePoint(SmokePoint &p)
 {
 	p.position[0] += p.speed[0];
 	p.position[1] += p.speed[1];
@@ -690,14 +802,14 @@ SmokePoint UpdateSmokePoint(SmokePoint p)
 
 	p.life -= 1;
 
-	return p;
+	// return p;
 }
 
-std::vector<SmokePoint> UpdateAllSmokePoints(std::vector<SmokePoint> v)
+void UpdateAllSmokePoints(std::vector<SmokePoint> &v)
 {
 	for (int i=0; i<v.size(); i++)
 	{
-		v[i]=UpdateSmokePoint(v[i]);
+		UpdateSmokePoint(v[i]);
 	}
 
 	for (int i=0; i<v.size(); i++)
@@ -709,7 +821,7 @@ std::vector<SmokePoint> UpdateAllSmokePoints(std::vector<SmokePoint> v)
 		}
 	}
 
-	return v;
+	// return v;
 }
 
 void DisplaySmokePoints(std::vector<SmokePoint> &v)
@@ -735,6 +847,7 @@ void *networkmainhelper(void* inp)
 	networkmain(pa->x1,pa->s1);
 }
 
+
 void display(void)
 {
 	while (!Instructions.empty())
@@ -756,7 +869,7 @@ void display(void)
 	// std::cout << "Starting display work\n";
 	int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
 	int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
-	float const window_aspect = (float)window_width / (float)window_height;
+	// float const window_aspect = (float)window_width / (float)window_height;
 	glClearColor(0, 0, 0.0, 1.0);
 	glClearDepth(1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -768,7 +881,6 @@ void display(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	glPushMatrix();
 	for (int i=0; i<Stars.size() ; i++)
 	{
 		glPushMatrix();
@@ -777,19 +889,12 @@ void display(void)
 		glutSolidSphere(3, 31, 10);
 		glPopMatrix();
 	}
-	glPopMatrix();
 
-	// const char * kg="kartikeya";
-	// unsigned char* y;
-	// y= (unsigned char*) kg;
-
-	// glPushMatrix();
-	// 	glTranslatef(0,0,0);
-	// 	// glutStrokeString(GLUT_STROKE_ROMAN, "kartikeya");
-	// 	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
-	// glPopMatrix();
-
+	ShowTitle(newg.PlayerBoard);
+	ShowScores(newg.PlayerBoard);
 	ShowBoard(newg.PlayerBoard);
+	ShowBorders(newg.PlayerBoard);
+	ShowLives(newg.PlayerBoard,newg.PlayerId);
 	DisplayExplosions(Explosions);
 	glutSwapBuffers();
 	// std::cout <<"Buffers swapped\n";
@@ -814,16 +919,8 @@ void display(void)
 		}
 
 		message1 = newg.PlayerBoard.GenerateAllInstructions(newg.PlayerId);
-		// std::cout << "sending: " << message1 <<"\n";
 		SendMessageToAll(message1);
-		// std::cout<<"#####################\n";
-		// for(int k=0;k<message1.size();k++)
-		// 	std::cout<<message1[k];
-		// std::cout<<std::endl;
-		// ToArr(message1);
-		// std::cout << "message sent to all\n";
 	}
-	// std::cout <<"Now updating explosions\n";
 	UpdateAllExplosions();
 
 	while (newg.PlayerBoard.GetNumberAliens()<=5)
@@ -840,10 +937,10 @@ void display(void)
 int main(int argc,char *argv[])
 {
 	pthread_t networkthread;
-    Graph datagraph;
-    datagraph.x1=argc;
-    datagraph.s1=argv;
-    pthread_create(&networkthread,NULL,networkmainhelper,&datagraph);
+	Graph datagraph;
+	datagraph.x1=argc;
+	datagraph.s1=argv;
+	pthread_create(&networkthread,NULL,networkmainhelper,&datagraph);
 
 	for (int i=0; i<8; i++)
 	{
@@ -859,13 +956,14 @@ int main(int argc,char *argv[])
 	ship = loadOBJ("Ship3.obj");
 	std::cout << "Opened file\n";
 
+	SpaceBarFree=0;
 	int limt = rand()%500;
 
 	for (int i =0 ; i<limt ; i++)
 	{
 		int X,Y,Z;
-		X = (rand()%3200) -1600;
-		Y = (rand()%1800) -900;
+		X = (rand()%2400) -1200;
+		Y = (rand()%1500) -750;
 		Z = 500;
 		Points p;
 		p.x=X;
@@ -884,7 +982,7 @@ int main(int argc,char *argv[])
 	std::cout <<"Generated stars: " << Stars.size() <<"\n";
 
 	newg.PlayerId = numplayers-1;
-	newg.PlayerBoard = Board(1200,1200,800,800);
+	newg.PlayerBoard = Board(1200,1200,750,750);
 
 	for (int k=0; k<numplayers; k++)
 	{
@@ -913,8 +1011,6 @@ int main(int argc,char *argv[])
 	glutKeyboardFunc(handleKeypress);
 	glutKeyboardUpFunc(handleKeypressUp);
 	glutSpecialUpFunc(specialKeysUp);
-	// initRendering();
-
 	glutMainLoop();
 
 	return 0;
