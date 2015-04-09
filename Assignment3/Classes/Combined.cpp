@@ -128,7 +128,7 @@ void ProcessKeys()
 		// if (clock()-newg.LastBulletTime>75000)
 		// {
 		// 	newg.LastBulletTime=clock();
-		std::cout << SpaceBarFree <<"  number of times spacebar pressed\n";
+		// std::cout << SpaceBarFree <<"  number of times spacebar pressed\n";
 		if (SpaceBarFree==1)
 		{
 			Bullet newb = Bullet();
@@ -319,7 +319,7 @@ void handleKeypressUp(unsigned char key, int x, int y)
 		case 'a':
 		{
 			Keys[4]=false;
-			std::cout << " a lifted\n";
+			// std::cout << " a lifted\n";
 			// std::cout <<"a was pressed\n";
 			// newg.PlayerBoard.MoveNthShip(newg.PlayerId,4);
 			// glutPostRedisplay();
@@ -338,7 +338,7 @@ void handleKeypressUp(unsigned char key, int x, int y)
 		case 32:
 		{
 			SpaceBarFree=0;
-			std::cout <<" In spacebar up case\n";
+			// std::cout <<" In spacebar up case\n";
 			Keys[6]=false;
 			break;
 		}
@@ -502,14 +502,11 @@ void ShowBorders()
 
 void ShowTitle()
 {
-	const char * kg="Space Invaders";
-	unsigned char *y= (unsigned char*) kg;
-
 	glPushMatrix();
 	glRasterPos2f(  50+ PX, PY -50);
 	glColor3f(0,0,1);
 	// glutStrokeString(GLUT_STROKE_ROMAN, y);
-	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
+	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, titleptr);
 	glPopMatrix();
 }
 
@@ -944,6 +941,7 @@ void display(void)
 	{
 		// std::cout<<"Lives before: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 		// std::cout << "It is in the baap case\n";
+		UpdateAIBoard(newg.PlayerBoard);
 		std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
 		// std::cout<<"Lives after: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 
@@ -983,7 +981,6 @@ void display(void)
 	// std::cout << "Updated\n";
 	// std::cout << "Done operations, time for re display\n";
 	// UpdatePlayerAI(newg.PlayerBoard);
-	// UpdateAIBoard(newg.PlayerBoard);
 	// Update AI
 	glutPostRedisplay();
 }
@@ -1002,7 +999,6 @@ int main(int argc,char *argv[])
 	}
 
 	srand (time(NULL));
-	// newExplosion();
 	std::cout << "Opening file\n";
 	missile = loadOBJ("Missile.obj");
 	bullet = loadOBJ("Bullet.obj");
@@ -1013,6 +1009,9 @@ int main(int argc,char *argv[])
 	NX=1850;
 	PY=1040;
 	NY=1040;
+
+	std::string title ="Space Invaders";
+	titleptr= (unsigned char*) title.c_str();
 
 	SpaceBarFree=0;
 	int limt = rand()%500 +250;
@@ -1056,7 +1055,7 @@ int main(int argc,char *argv[])
 	for (int k=0; k<numplayers; k++)
 	{
 		Ship news= Ship(k);
-		news.SetColorFloat(30,170,65);
+		news.SetColorFloat(rand()%255,rand()%255,rand()%255);
 		news.SetXPos(500);
 		news.SetYPos(45);
 		newg.PlayerBoard.InsertShip(news);

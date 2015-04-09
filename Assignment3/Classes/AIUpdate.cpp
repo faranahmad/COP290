@@ -43,9 +43,7 @@ void UpdatePlayerAI(Board &board)
 				case FireMissile:
 					FireMissileForShip(CurrentShips[i],board);
 					break;
-
 			}
-				
 		}
 	}
 	board.SetVectorShips(CurrentShips); 	//actual updation
@@ -95,7 +93,7 @@ void UpdateAlien(Board &board)
 
 void UpdateMissile(Board &board)
 {
-	std::cout<<"Update Missile called\n";
+	// std::cout<<"Update Missile called\n";
 	UpdateAlienMissile(board);
 	UpdateShipMissile(board);
 	std::vector<Bullet> VectorBullets=board.GetVectorBullets();
