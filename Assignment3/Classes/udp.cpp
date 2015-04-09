@@ -11,6 +11,8 @@ bool playersReady;
 bool isOffline;
 bool noIP;
 
+std::string ipadr;
+
 int sid;
 
 struct IPMessage {
@@ -19,6 +21,10 @@ struct IPMessage {
     int sockid;
 };
 
+std::string GetIP()
+{
+	return ipadr;
+}
 bool IsBaap()
 {
 	if(IPdata.size()>0)
@@ -268,7 +274,6 @@ int networkmain(int argc, char** argv)
 	noIP=false;
 	Begin:system ("ifconfig | grep 'inet addr:' | grep -v '127.0.0.1' | awk '{print $2}' | cut -f2 -d: > .ip.txt");
 	std::ifstream ip4(".ip.txt");
-	std::string ipadr;
 	std::getline(ip4,ipadr);
 	std::cout<<"My IP:"<<ipadr<<std::endl;
 	system("rm -rf .ip.txt");
@@ -409,7 +414,7 @@ int networkmain(int argc, char** argv)
 		{
 			TimeStamp[FindIndex((long long)remaddr.sin_addr.s_addr)]=time(0);
 		}
-		std::cout<<"Recieved message:"<<ToStr(recvmsg)<<" Bytes recv:"<<recvlen<<std::endl;
+		// std::cout<<"Recieved message:"<<ToStr(recvmsg)<<" Bytes recv:"<<recvlen<<std::endl;
 		if (recvlen > 0) 
 		{
 			recvmsg[recvlen] = 0;
