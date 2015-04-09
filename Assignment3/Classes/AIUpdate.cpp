@@ -43,9 +43,7 @@ void UpdatePlayerAI(Board &board)
 				case FireMissile:
 					FireMissileForShip(CurrentShips[i],board);
 					break;
-
 			}
-				
 		}
 	}
 	board.SetVectorShips(CurrentShips); 	//actual updation
