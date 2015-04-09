@@ -772,7 +772,7 @@ std::string Board::GenerateOnlyPlayerInstructions(int player_id,std::vector<Bull
 
 std::string Board::GenerateAllInstructions(int player_id,std::vector<Points> points)
 {
-	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation()); 
+	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation() + "\n" + GetStringPoints(points)); 
 }
 
 std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
@@ -786,7 +786,7 @@ std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
 		{
 			//std::cout <<"empty inst\n";
 		}
-		else if(infosplitted[i][0] == '9' && infosplitted[i][1] == '0')
+		else if(infosplitted[i][0] == '9')
 		{
 			vanswer=GetVectorPoints(infosplitted[i]);
 		}
@@ -972,12 +972,12 @@ std::string Board::GetStringPoints(std::vector<Points> points)
 	{
 		for(int i = 0;i<points.size() -1;i++)
 		{
-			answer = answer + "10_" + std::to_string(points.at(i).x) + "_" 
+			answer = answer + "9_" + std::to_string(points.at(i).x) + "_" 
 									+ std::to_string(points.at(i).y) + "_" 
 									+ std::to_string(points.at(i).z) + "\t";
 		}
 		// std::cout <<"primary for done\n";
-		answer = answer + "10_" + std::to_string(points.at(points.size() - 1).x) + "_" 
+		answer = answer + "9_" + std::to_string(points.at(points.size() - 1).x) + "_" 
 					   + std::to_string(points.at(points.size() - 1).y) + "_" 
 					   + std::to_string(points.at(points.size() - 1).z);
 	}
