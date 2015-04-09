@@ -742,7 +742,7 @@ void Board::ApplyShipInstructions(std::string information,int t)
 		VectorShips[shipid].SetScore(std::stoi(shipinfo[10]));
 		VectorShips[shipid].SetMultiplier(std::stoi(shipinfo[11]));
 		VectorShips[shipid].SetKills(std::stoi(shipinfo[12]));
-		VectorShips[shipid].SetNumberBUllets(std::stoi(shipinfo[13]));
+		VectorShips[shipid].SetNumberBullets(std::stoi(shipinfo[13]));
 		VectorShips[shipid].SetAIControlLevel(std::stoi(shipinfo[15]));
 	}
 }
