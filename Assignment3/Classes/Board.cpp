@@ -733,26 +733,30 @@ void Board::ApplyInsToBullets(std::string bulletinfostring)
 void Board::ApplyShipInstructions(std::string information,int t)
 {
 	//std::vector<std::string> ship_bullets = SplitString(information,'\n');	
-	std::vector<std::string> shipinfo = SplitString(information,'_');
-	// std::cout <<"splitted\t" <<shipinfo[1] <<"\n";
-	int shipid = std::stoi(shipinfo[1]);
-	// std::cout << "obtianed :" << shipid << "\n";
-	while (shipid >= VectorShips.size())
+	std::vector<std::string> allshipinfo = SplitString(information,'\t');
+	for(int i = 0;i<allshipinfo.size();i++)
 	{
-		VectorShips.push_back(Ship(VectorShips.size()));
-	}
-	if(shipid != t)
-	{
-		ApplyInsToShip(shipinfo,VectorShips[shipid]);
-	}
-	else
-	{
-		VectorShips[shipid].SetLives(std::stoi(shipinfo[9]));
-		VectorShips[shipid].SetScore(std::stoi(shipinfo[10]));
-		VectorShips[shipid].SetMultiplier(std::stoi(shipinfo[11]));
-		VectorShips[shipid].SetKills(std::stoi(shipinfo[12]));
-		VectorShips[shipid].SetNumberBullets(std::stoi(shipinfo[13]));
-		VectorShips[shipid].SetAIControlLevel(std::stoi(shipinfo[15]));
+		std::vector<std::string> shipinfo = SplitString(allshipinfo[i],'_');
+		// std::cout <<"splitted\t" <<shipinfo[1] <<"\n";
+		int shipid = std::stoi(shipinfo[1]);
+		// std::cout << "obtianed :" << shipid << "\n";
+		while (shipid >= VectorShips.size())
+		{
+			VectorShips.push_back(Ship(VectorShips.size()));
+		}
+		if(shipid != t)
+		{
+			ApplyInsToShip(shipinfo,VectorShips[shipid]);
+		}
+		else
+		{	
+			VectorShips[shipid].SetLives(std::stoi(shipinfo[9]));
+			VectorShips[shipid].SetScore(std::stoi(shipinfo[10]));
+			VectorShips[shipid].SetMultiplier(std::stoi(shipinfo[11]));
+			VectorShips[shipid].SetKills(std::stoi(shipinfo[12]));
+			VectorShips[shipid].SetNumberBullets(std::stoi(shipinfo[13]));
+			VectorShips[shipid].SetAIControlLevel(std::stoi(shipinfo[15]));
+		}
 	}
 }
 
