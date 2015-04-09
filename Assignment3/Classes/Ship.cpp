@@ -5,6 +5,7 @@ Ship::Ship()
 	Angle = 0.0;
 	NumberMissiles = 500;
 	Name = "abc";
+	Score  = 0;
 	Lives=3;
 }
 
@@ -14,6 +15,7 @@ Ship::Ship(int id)
 	Angle = 0.0;
 	NumberMissiles = 5;
 	Name = "abc";
+	Score = 0;
 	Lives=3;
 	//add something
 }

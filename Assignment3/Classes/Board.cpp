@@ -219,9 +219,8 @@ int Board::CheckBulletHitShip(int id)
 	{
 		for (int i = 0;i < VectorShips.size();i++)
 		{
-			Ship ship_hit = VectorShips.at(i);
-			float xdis = bullet_hitting.GetXPos() - ship_hit.GetXPos();
-			float ydis = bullet_hitting.GetYPos() - ship_hit.GetYPos();
+			float xdis = bullet_hitting.GetXPos() - VectorShips.at(i).GetXPos();
+			float ydis = bullet_hitting.GetYPos() - VectorShips.at(i).GetYPos();
 			if ((float) sqrt(xdis*xdis + ydis*ydis) < 50)
 			{
 				return i;
@@ -949,6 +948,11 @@ void Board::UpdateBulletsWithoutKilling()
 	}
 	
 }	
+
+std::string Board::GetNthPlayerScore(int shipid)
+{
+	return (VectorShips.at(shipid).GetName() + " " + std::to_string(VectorShips.at(shipid).GetScore()));
+}
 
 // 1) split by \n
 // 2) Split by \t
