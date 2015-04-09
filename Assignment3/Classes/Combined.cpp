@@ -128,7 +128,7 @@ void ProcessKeys()
 		// if (clock()-newg.LastBulletTime>75000)
 		// {
 		// 	newg.LastBulletTime=clock();
-		std::cout << SpaceBarFree <<"  number of times spacebar pressed\n";
+		// std::cout << SpaceBarFree <<"  number of times spacebar pressed\n";
 		if (SpaceBarFree==1)
 		{
 			Bullet newb = Bullet();
