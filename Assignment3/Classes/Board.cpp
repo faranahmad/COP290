@@ -965,15 +965,21 @@ std::string Board::GetNthPlayerScore(int shipid)
 std::string Board::GetStringPoints(std::vector<Points> points)
 {
 	std::string answer = "";
-	for(int i = 0;i<points.size() - 1;i++)
+	// std::cout <<"starting for\n";
+	if (points.size()>0)
 	{
-		answer = answer + "10_" + std::to_string(points.at(i).x) + "_" 
-								+ std::to_string(points.at(i).y) + "_" 
-								+ std::to_string(points.at(i).z) + "\t";
+		for(int i = 0;i<points.size() -1;i++)
+		{
+			answer = answer + "10_" + std::to_string(points.at(i).x) + "_" 
+									+ std::to_string(points.at(i).y) + "_" 
+									+ std::to_string(points.at(i).z) + "\t";
+		}
+		// std::cout <<"primary for done\n";
+		answer = answer + "10_" + std::to_string(points.at(points.size() - 1).x) + "_" 
+					   + std::to_string(points.at(points.size() - 1).y) + "_" 
+					   + std::to_string(points.at(points.size() - 1).z);
 	}
-	answer = "10_" + std::to_string(points.at(points.size() - 1).x) + "_" 
-				   + std::to_string(points.at(points.size() - 1).y) + "_" 
-				   + std::to_string(points.at(points.size() - 1).z);
+	return answer;
 }
 
 std::vector<Points> Board::GetVectorPoints(std::string information)
@@ -992,7 +998,7 @@ std::vector<Points> Board::GetVectorPoints(std::string information)
 			answer.push_back(newpoint);
 		}
 	}
-
+	return answer;
 }
 
 // 1) split by \n
