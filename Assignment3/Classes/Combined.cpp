@@ -319,7 +319,7 @@ void handleKeypressUp(unsigned char key, int x, int y)
 		case 'a':
 		{
 			Keys[4]=false;
-			std::cout << " a lifted\n";
+			// std::cout << " a lifted\n";
 			// std::cout <<"a was pressed\n";
 			// newg.PlayerBoard.MoveNthShip(newg.PlayerId,4);
 			// glutPostRedisplay();
@@ -338,7 +338,7 @@ void handleKeypressUp(unsigned char key, int x, int y)
 		case 32:
 		{
 			SpaceBarFree=0;
-			std::cout <<" In spacebar up case\n";
+			// std::cout <<" In spacebar up case\n";
 			Keys[6]=false;
 			break;
 		}
@@ -983,7 +983,7 @@ void display(void)
 	// std::cout << "Updated\n";
 	// std::cout << "Done operations, time for re display\n";
 	// UpdatePlayerAI(newg.PlayerBoard);
-	// UpdateAIBoard(newg.PlayerBoard);
+	UpdateAIBoard(newg.PlayerBoard);
 	// Update AI
 	glutPostRedisplay();
 }

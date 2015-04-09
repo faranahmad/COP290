@@ -5,8 +5,8 @@
 
 void UpdateAIBoard(Board &board)
 {
-	UpdatePlayerAI(board);
-	UpdateAlien(board);
+	// UpdatePlayerAI(board);
+	// UpdateAlien(board);
 	// if (board.GetVectorBullets().size()>0)
 	UpdateMissile(board);
 }
@@ -95,7 +95,7 @@ void UpdateAlien(Board &board)
 
 void UpdateMissile(Board &board)
 {
-	std::cout<<"Update Missile called\n";
+	// std::cout<<"Update Missile called\n";
 	UpdateAlienMissile(board);
 	UpdateShipMissile(board);
 	std::vector<Bullet> VectorBullets=board.GetVectorBullets();
