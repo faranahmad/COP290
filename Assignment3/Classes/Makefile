@@ -8,8 +8,8 @@ RunGame: Game
 RunTest: Test
 	./Test
 
-Game: Alien.o Ship.o Color.o Bullet.o Board.o AI.o udp.o Combined.o
-	g++ $(ver) -o Game Color.o Ship.o Bullet.o Alien.o Board.o AI.o udp.o Combined.o -lGL -lGLU -lglut -lpthread
+Game: Alien.o Ship.o Color.o Bullet.o Board.o udp.o Combined.o
+	g++ $(ver) -o Game Color.o Ship.o Bullet.o Alien.o Board.o udp.o Combined.o -lGL -lGLU -lglut -lpthread
 
 
 Color.o: Color.cpp

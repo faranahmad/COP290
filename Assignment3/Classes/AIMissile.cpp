@@ -1,0 +1,121 @@
+
+//TODO
+
+//#define theta for InArc
+//add acceleration for missiles
+//define speed of aliens in terms of alien types and levels
+//similarly for ships
+//also define speed of rotation for the same
+// ask faran for getangle of alien and ship
+//relativeangles are in radians-correct
+//ask faran how he updates position of ship 
+
+
+/*To think/test
+1.minDistanceforRotation
+2.minAngleofRotation/angularvelocity
+3.relativeangle ki direction
+4. angle so that i can shoot, keep this different for different aliens :)
+*/ 
+#include "AI.h"
+
+
+// srand(time(NULL));
+void UpdateAlienMissile(Board &board)
+{
+	std::vector<Bullet> CurrentBullets = board.GetVectorBullets();
+	std::vector<Ship> CurrentShips = board.GetVectorShips();
+	std::vector<Alien> CurrentAliens = board.GetVectorAliens();
+	for (int i=0; i<board.GetNumberBullets(); i++)
+	{
+		if (CurrentBullets[i].GetTypeAI()==true && CurrentBullets[i].GetShipId()==ALIENMISSILE)
+		{
+			
+			int target = ClosestShipEnemy(CurrentShips,board.GetNumberShips(),CurrentBullets[i], board.MaxDistance());
+			if (target==-1)
+			{
+
+			}
+			else
+			{
+				Ship temp2=board.GetNthShip(target);
+				UpdateAlienMissileVelocity(CurrentBullets[i] , temp2);
+			}
+		}
+	}
+	board.SetVectorBullets(CurrentBullets);
+}
+
+void UpdateShipMissile(Board &board)
+{
+	std::cout<<"Update Ship missile called\n";
+	std::vector<Bullet> CurrentBullets = board.GetVectorBullets();
+	std::vector<Ship> CurrentShips = board.GetVectorShips();
+	std::vector<Alien> CurrentAliens = board.GetVectorAliens();
+		
+	for (int i=0; i<board.GetNumberBullets(); i++)
+	{
+		if (CurrentBullets[i].GetTypeAI()==true && CurrentBullets[i].GetShipId()!=ALIENMISSILE)
+		{
+			
+			int target = ClosestAlienEnemy(CurrentAliens,board.GetNumberAliens(),CurrentBullets[i],board.MaxDistance());
+			std::cout<<"Target of Missile "<<target<<"\n";
+			if (target==-1)
+			{
+				std::cout<<"No target acquired, velocity remains same \n";
+			}
+			else
+			{
+				std::cout<<"Target Acquired "<<target<<"\n";
+				Alien temp2=board.GetNthAlien(target);
+				UpdateShipMissileVelocity(CurrentBullets[i],temp2);
+			}
+		}
+	}
+	board.SetVectorBullets(CurrentBullets);
+}
+
+void UpdateAlienMissileVelocity(Bullet &actualmissile,Ship &ship)
+{
+	float angle=RelativeAngleShiptoMissilePosition(ship,actualmissile);
+	float speed=actualmissile.GetSpeed();
+	actualmissile.SetVelX(speed*cos(angle));
+	actualmissile.SetVelY(speed*sin(angle));
+}
+
+void UpdateShipMissileVelocity(Bullet &actualmissile,Alien &alien)
+{
+	std::cout<<"Update Ship Missile velocity called\n";
+	float angle=RelativeAngleAlientoMissilePosition(alien,actualmissile);
+	angle+=90;
+	angle*=PI/180;
+	std::cout<<"Relative angle between alien and missile "<<angle<<"\n";
+	float speed=actualmissile.GetSpeed();
+	actualmissile.SetVelX(speed*cos(angle));
+	std::cout<<"Setting velocity along X "<<speed*cos(angle)<<"\n";
+	actualmissile.SetVelY(speed*sin(angle));
+	std::cout<<"Setting velocity along Y "<<speed*sin(angle)<<"\n";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -873,10 +873,10 @@ void *networkmainhelper(void* inp)
 
 void display(void)
 {
-	std::cout << "starting display\n";
+	// std::cout << "starting display\n";
 	while (!Instructions.empty())
 	{
-		std::cout <<"in instructions\n";
+		// std::cout <<"in instructions\n";
 		std::string s=Instructions.front();
 		Instructions.pop();
 		std::vector<Points> newexp= newg.PlayerBoard.ApplyInstructions(s,newg.PlayerId);
@@ -888,14 +888,14 @@ void display(void)
 				j-=1;
 			}
 		}
-		std::cout <<"erased any explosions\n";
+		// std::cout <<"erased any explosions\n";
 		for (int j=0; j<newexp.size(); j++)
 		{
 			Explosions.push_back(newExplosion(newexp[j].x,newexp[j].y,0));
 		}
-		std::cout << "pushed new explosions\n";
+		// std::cout << "pushed new explosions\n";
 	}
-	std::cout <<"applied instructions if any\n";
+	// std::cout <<"applied instructions if any\n";
 	std::vector<Bullet> bulltoadd;
 	while (!BulletsToAdd.empty())
 	{
@@ -903,7 +903,7 @@ void display(void)
 		BulletsToAdd.pop();
 	}
 	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,bulltoadd);
-	std::cout << "sending" << message1 <<"\n";
+	// std::cout << "sending" << message1 <<"\n";
 	SendMessageToAll(message1);
 
 	// std::cout << "Starting display work\n";
@@ -936,10 +936,10 @@ void display(void)
 	ShowBorders();
 	// ShowLives();
 	// ShowIp();
-	// ShowAllText();
+	ShowAllText();
 	DisplayExplosions(Explosions);
 	glutSwapBuffers();
-	std::cout <<"Buffers swapped\n";
+	// std::cout <<"Buffers swapped\n";
 	if (IsBaap())
 	{
 		// std::cout<<"Lives before: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
@@ -947,7 +947,7 @@ void display(void)
 		std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
 		// std::cout<<"Lives after: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 
-		std::cout << "starting for loop\n";
+		// std::cout << "starting for loop\n";
 		for (int j=0; j<Explosions.size(); j++)
 		{
 			if (Explosions[j].fuel==0)
@@ -956,7 +956,7 @@ void display(void)
 				j-=1;
 			}
 		}
-		std::cout <<"done with for 1\n";
+		// std::cout <<"done with for 1\n";
 		for (int j=0; j<p.size(); j++)
 		{
 			Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
@@ -967,19 +967,20 @@ void display(void)
 		{
 			newg.PlayerBoard.AddRandomAlien();
 		}
-		std::cout << "starting ins gen\n";
+		// std::cout << "starting ins gen\n";
 		message1 = newg.PlayerBoard.GenerateAllInstructions(newg.PlayerId,p);
-		std::cout <<" generated instructions\n";
+		// std::cout <<" generated instructions\n";
+		// std::cout << message1;
 		SendMessageToAll(message1);
-		std::cout << "done sent\n";
+		// std::cout << "done sent\n";
 	}
 	else
 	{
 		newg.PlayerBoard.UpdateBulletsWithoutKilling();
 	}
-	std::cout << "starting explosion update\n";
+	// std::cout << "starting explosion update\n";
 	UpdateAllExplosions();
-	std::cout << "Updated\n";
+	// std::cout << "Updated\n";
 	// std::cout << "Done operations, time for re display\n";
 	// UpdatePlayerAI(newg.PlayerBoard);
 	// UpdateAIBoard(newg.PlayerBoard);
@@ -1014,7 +1015,7 @@ int main(int argc,char *argv[])
 	NY=1040;
 
 	SpaceBarFree=0;
-	int limt = rand()%500;
+	int limt = rand()%500 +250;
 
 	IPAddress= GetIP();
 
