@@ -515,13 +515,14 @@ void ShowTitle()
 
 void ShowIp()
 {
-	unsigned char *y12= (unsigned char*) GetIP().c_str();
+	unsigned char *y123= (unsigned char*) GetIP().c_str();
 
+	std::cout <<GetIP() <<"\n";
 	glPushMatrix();
 	glRasterPos2f(  50+ PX, PY -100);
 	glColor3f(0,0,1);
 	// glutStrokeString(GLUT_STROKE_ROMAN, y);
-	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y12);
+	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y123);
 	glPopMatrix();
 }
 
@@ -579,6 +580,14 @@ void ShowScores()
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
 		glPopMatrix();
 	}
+}
+
+void ShowAllText()
+{
+	ShowTitle();
+	ShowIp();
+	ShowLives();
+	ShowScores();
 }
 
 void ShowBoard(Board &boardtodisplay)
@@ -904,12 +913,13 @@ void display(void)
 		glPopMatrix();
 	}
 
-	ShowTitle();
-	ShowScores();
+	// ShowTitle();
+	// ShowScores();
 	ShowBoard(newg.PlayerBoard);
 	ShowBorders();
-	ShowLives();
-	ShowIp();
+	// ShowLives();
+	// ShowIp();
+	ShowAllText();
 	DisplayExplosions(Explosions);
 	glutSwapBuffers();
 	// std::cout <<"Buffers swapped\n";
