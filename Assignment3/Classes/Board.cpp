@@ -785,7 +785,7 @@ std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
 		{
 			//std::cout <<"empty inst\n";
 		}
-		else if(infosplitted[i][0] == '1' && infosplitted[i][1] == '0')
+		else if(infosplitted[i][0] == '9' && infosplitted[i][1] == '0')
 		{
 			GetVectorPoints(infosplitted[i]);
 		}
