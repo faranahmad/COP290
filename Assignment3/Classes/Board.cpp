@@ -772,7 +772,7 @@ std::string Board::GenerateOnlyPlayerInstructions(int player_id,std::vector<Bull
 
 std::string Board::GenerateAllInstructions(int player_id,std::vector<Points> points)
 {
-	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation() + "\n" + GetStringPoints(points)); 
+	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation()); 
 }
 
 std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
