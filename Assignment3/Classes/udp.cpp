@@ -340,6 +340,7 @@ int networkmain(int argc, char** argv)
 
 	memset((char *) &remaddr, 0, sizeof(remaddr));
 	
+	int conTo;
 	if(argc>1)
 	{
 		START://std::cout<<"sending case 0\n";
@@ -355,7 +356,8 @@ int networkmain(int argc, char** argv)
 		}
 		else
 		{
-			remaddr.sin_addr.s_addr=IPdata[IPdata.size()-1].first;
+			conTo=(conTo)%(IPdata.size()-2) +1;
+			remaddr.sin_addr.s_addr=IPdata[conTo].first;
 		}
 
 		sendmsg[0]='0';
@@ -536,6 +538,7 @@ int networkmain(int argc, char** argv)
 				IPdata[0].second=0;
 				pthread_join(output,NULL);
 				pthread_join(remplayer,NULL);
+				conTo=IPdata.size()-2;
 				goto START;
 			}
  		}
