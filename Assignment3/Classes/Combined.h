@@ -89,6 +89,8 @@ extern bool isOffline;
 float PX,PY,NX,NY;
 std::string IPAddress;
 
+unsigned char *titleptr;
+
 bool Keys[9];
 int SpaceBarFree;
 

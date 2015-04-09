@@ -5,8 +5,8 @@
 
 void UpdateAIBoard(Board &board)
 {
-	// UpdatePlayerAI(board);
-	// UpdateAlien(board);
+	UpdatePlayerAI(board);
+	UpdateAlien(board);
 	// if (board.GetVectorBullets().size()>0)
 	UpdateMissile(board);
 }
