@@ -985,6 +985,41 @@ void display(void)
 	glutPostRedisplay();
 }
 
+void mousepos(int x, int y)
+{
+	double convx=2*x-1920;
+	double convy=-2*y+1080;
+	Ship n1=newg.PlayerBoard.GetNthShip(newg.PlayerId);
+	double dy=convy-n1.GetYPos();
+	double dx=convx-n1.GetXPos();
+	float theta1;
+	if (dx == 0.0)
+	{
+		if (dy>0)
+		{
+			theta1=0;
+		}
+		else
+		{
+			theta1=180;
+		}
+	}
+	else
+	{
+		if (dx>0)
+		{
+			theta1 = (float) (atan(dy/dx)*180/PI) -90.0 ;
+		}
+		else
+		{
+			theta1 = (float) (atan(dy/dx)*180/PI) +90.0 ;
+		}
+	}
+	n1.SetAngle(theta1);
+	newg.PlayerBoard.SetNthShip(newg.PlayerId,n1);
+	// std::cout<< "Mouse is at: "<<convx <<"\t" <<convy <<"\n";
+}
+
 int main(int argc,char *argv[])
 {
 	pthread_t networkthread;
@@ -1079,6 +1114,7 @@ int main(int argc,char *argv[])
 	glutKeyboardFunc(handleKeypress);
 	glutKeyboardUpFunc(handleKeypressUp);
 	glutSpecialUpFunc(specialKeysUp);
+	glutPassiveMotionFunc(mousepos);
 	glutMainLoop();
 
 	return 0;
