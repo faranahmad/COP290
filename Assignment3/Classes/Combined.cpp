@@ -361,7 +361,20 @@ void mouseclick(int button,int state,int x,int y )
     // Functions for the mouse click locations
     if(state== GLUT_UP )
     {
-    	Explosions.push_back(newExplosion(2*x-newg.PlayerBoard.GetPosXDimension(),-2*y+newg.PlayerBoard.GetPosYDimension(),0));
+    	Bullet newb = Bullet();
+		Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
+		float velx = 0- 10*sin(PI*present.GetAngle()/180);
+		float vely = 10* cos(PI*present.GetAngle()/180);
+		newb.SetXPos(present.GetXPos());
+		newb.SetYPos(present.GetYPos());
+		newb.SetVelX(velx);
+		newb.SetVelY(vely);
+		newb.SetShipID(newg.PlayerId);
+		newb.SetTypeAI(false);
+		newb.SetTypePlayer(true);
+		newg.PlayerBoard.InsertBullet(newb);
+		BulletsToAdd.push(newb);
+    	// Explosions.push_back(newExplosion(2*x-newg.PlayerBoard.GetPosXDimension(),-2*y+newg.PlayerBoard.GetPosYDimension(),0));
     }
 }
 
