@@ -101,10 +101,10 @@ class Board
 		void ApplyAllBulletInstructions(std::string);
 
 		std::string GenerateOnlyPlayerInstructions(int,std::vector<Bullet>);
-		std::string GenerateAllInstructions(int);
+		std::string GenerateAllInstructions(int,std::vector<Points>);
 
 
-		void ApplyInstructions(std::string,int);
+		std::vector<Points> ApplyInstructions(std::string,int);
 
 		std::string GeneratingCount();
 
@@ -118,6 +118,10 @@ class Board
 		void UpdateBulletsWithoutKilling(); 
 
 		std::string GetNthPlayerScore(int);
+		// std::string GetStringPoints(std::vector<Points>);
+		std::vector<Points> GetVectorPoints(std::string);
+		std::string GetStringPoints(std::vector<Points>);
+
 	private:
 		std::vector<Ship> VectorShips;
 		std::vector<Bullet> VectorBullets;		

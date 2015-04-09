@@ -770,12 +770,12 @@ std::string Board::GenerateOnlyPlayerInstructions(int player_id,std::vector<Bull
 	return (GeneratePlayerPositionInstructions(player_id) + "\n" + GeneratePlayerBulletInstructions(vector_bullet)); 
 }
 
-std::string Board::GenerateAllInstructions(int player_id)
+std::string Board::GenerateAllInstructions(int player_id,std::vector<Points> points)
 {
-	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation());
+	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation() + "\n" + GetStringPoints(points)); 
 }
 
-void Board::ApplyInstructions(std::string information,int shipid)
+std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
 {
 	//std::cout <<"applying for: " <<information<<"\n";
 	std::vector<std::string> infosplitted = SplitString(information,'\n');
@@ -784,6 +784,10 @@ void Board::ApplyInstructions(std::string information,int shipid)
 		if (infosplitted[i]=="")
 		{
 			//std::cout <<"empty inst\n";
+		}
+		else if(infosplitted[i][0] == '1' && infosplitted[i][1] == '0')
+		{
+			GetVectorPoints(infosplitted[i]);
 		}
 		else if(infosplitted[i][0] == '6')
 		{
@@ -954,6 +958,41 @@ void Board::UpdateBulletsWithoutKilling()
 std::string Board::GetNthPlayerScore(int shipid)
 {
 	return (VectorShips.at(shipid).GetName() + " " + std::to_string(VectorShips.at(shipid).GetScore()));
+}
+
+
+
+std::string Board::GetStringPoints(std::vector<Points> points)
+{
+	std::string answer = "";
+	for(int i = 0;i<points.size() - 1;i++)
+	{
+		answer = answer + "10_" + std::to_string(points.at(i).x) + "_" 
+								+ std::to_string(points.at(i).y) + "_" 
+								+ std::to_string(points.at(i).z) + "\t";
+	}
+	answer = "10_" + std::to_string(points.at(points.size() - 1).x) + "_" 
+				   + std::to_string(points.at(points.size() - 1).y) + "_" 
+				   + std::to_string(points.at(points.size() - 1).z);
+}
+
+std::vector<Points> Board::GetVectorPoints(std::string information)
+{
+	std::vector<Points> answer;
+	std::vector<std::string> splitted = SplitString(information,'\t'); 
+	for(int i = 0;i<splitted.size();i++)
+	{
+		std::vector<std::string> pointinfo = SplitString(splitted.at(i),'_');
+		for(int i = 0;i<pointinfo.size();i++)
+		{
+			Points newpoint;
+			newpoint.x = std::stof(pointinfo.at(1));
+			newpoint.y = std::stof(pointinfo.at(2));
+			newpoint.z = std::stof(pointinfo.at(3));
+			answer.push_back(newpoint);
+		}
+	}
+
 }
 
 // 1) split by \n
