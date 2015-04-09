@@ -230,6 +230,21 @@ int Board::CheckBulletHitShip(int id)
 	return -1;
 }
 
+std::vector<int> Board::CheckAlienHitShip(int shipid)
+{
+	std::vector<int> answer;
+	for(int i = 0;i < VectorAliens.size();i++)
+	{
+		float xdis = VectorShips.at(shipid).GetXPos() - VectorAliens.at(i).GetXPos();
+		float ydis = VectorShips.at(shipid).GetYPos() - VectorAliens.at(i).GetYPos();
+		if ((float) sqrt(xdis*xdis + ydis*ydis) < 50)
+		{
+			answer.push_back(i);
+		}
+	}
+	return answer;;
+}
+
 std::vector<Points> Board::UpdateAllBullets()
 {
 	std::vector<Points> aliens_pos;
@@ -277,7 +292,32 @@ std::vector<Points> Board::UpdateAllBullets()
 				bullets_delete.push_back(i);
 			}	
 		}
-
+	}
+	for(int i = 0;i < VectorShips.size();i++)
+	{
+		
+		std::vector<int> alientodel = CheckAlienHitShip(i);
+		if(alientodel.size() == 0)
+		{ 
+			//cout << "chutiya prateek"
+			ships_lives_reduce.push_back(i);
+			for(int j = 0;j<alientodel.size();j++)
+			{
+				bool repeat  = false;
+				for (int i = 0;i<aliens_delete.size();i++)
+				{
+					if(alientodel.at(j) == aliens_delete.at(i))
+					{
+						repeat = true;
+						break;
+					}
+				}
+				if(!repeat)
+				{
+					aliens_delete.push_back(alientodel.at(j));
+				}
+			}
+		}
 	}
 	int bullets_delete_size  = bullets_delete.size();
 	int ships_lives_reduce_size = ships_lives_reduce.size();
@@ -289,7 +329,10 @@ std::vector<Points> Board::UpdateAllBullets()
 	} 
 	for(int i = ships_lives_reduce_size - 1;i>=0;i--)
 	{
-		VectorShips.at(ships_lives_reduce.at(i)).SetLives(VectorShips.at(ships_lives_reduce.at(i)).GetLives()-1);
+		if(VectorShips.at(ships_lives_reduce.at(i)).GetLives() > 0)
+		{
+			VectorShips.at(ships_lives_reduce.at(i)).SetLives(VectorShips.at(ships_lives_reduce.at(i)).GetLives()-1);
+		}
 	}
 	for (int i = aliens_delete_size-1;i>=0;i--)
 	{
@@ -500,7 +543,14 @@ std::string Board::GeneratePlayerPositionInstructions(int player_id)
 	std::to_string(player.GetAngle()) + "_" +
 	std::to_string(player.GetColor().GetR()) + "_" + 
 	std::to_string(player.GetColor().GetG()) + "_" + 
-	std::to_string(player.GetColor().GetB()) 
+	std::to_string(player.GetColor().GetB()) + "_" + 
+	std::to_string(player.GetLives()) + "_" + 
+	std::to_string(player.GetScore()) + "_" + 
+	std::to_string(player.GetMultiplier()) + "_" + 
+	std::to_string(player.GetKills()) + "_" + 
+	std::to_string(player.GetNumberBullets()) + "_" + 
+	std::to_string(player.GetNumberMissiles()) + "_" + 
+	std::to_string(player.GetAIControlLevel())
 	);
 
 }
@@ -631,7 +681,13 @@ void Board::ApplyInsToShip(std::vector<std::string> s,Ship shiptochange)
 	shiptochange.SetYPos(std::stof(s[4]));
 	shiptochange.SetAngle(std::stof(s[5]));
 	shiptochange.SetColorFloatInp(std::stof(s[6]),std::stof(s[7]),std::stof(s[8]));
-
+	shiptochange.SetLives(std::stoi(s[9]));
+	shiptochange.SetScore(std::stoi(s[10]));
+	shiptochange.SetMultiplier(std::stoi(s[11]));
+	shiptochange.SetKills(std::stoi(s[12]));
+	shiptochange.SetNumberBullets(std::stoi(s[13]));
+	shiptochange.SetNumberMissiles(std::stoi(s[14]));
+	shiptochange.SetAIControlLevel(std::stoi(s[15]));
 	VectorShips[std::stoi(s[1])] = shiptochange;	
 	// std::cout << "applied all\n";
 }
@@ -664,6 +720,7 @@ void Board::ApplyInsToBullets(std::string bulletinfostring)
 // 	}
 // }
 
+
 void Board::ApplyShipInstructions(std::string information,int t)
 {
 	//std::vector<std::string> ship_bullets = SplitString(information,'\n');	
@@ -678,6 +735,15 @@ void Board::ApplyShipInstructions(std::string information,int t)
 	if(shipid != t)
 	{
 		ApplyInsToShip(shipinfo,VectorShips[shipid]);
+	}
+	else
+	{
+		VectorShips[shipid].SetLives(std::stoi(shipinfo[9]));
+		VectorShips[shipid].SetScore(std::stoi(shipinfo[10]));
+		VectorShips[shipid].SetMultiplier(std::stoi(shipinfo[11]));
+		VectorShips[shipid].SetKills(std::stoi(shipinfo[12]));
+		VectorShips[shipid].SetNumberBUllets(std::stoi(shipinfo[13]));
+		VectorShips[shipid].SetAIControlLevel(std::stoi(shipinfo[15]));
 	}
 }
 
@@ -928,7 +994,7 @@ void Board::ApplyAllAlienInstructions(std::string information)
 void Board::ApplyPlayerBulletInstructions(std::string information)
 {
 	std::vector<std::string> allbullets = SplitString(information,'\t');
-	for (int i = 1;i<allbullets.size();i++)
+	for (int i = 0;i<allbullets.size();i++)
 	{
 		ApplyInsToBullets(allbullets.at(i));
 	}

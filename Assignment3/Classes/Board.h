@@ -65,6 +65,7 @@ class Board
 
 		int CheckBulletHitAlien(int); 			// Return id of alien
 		int CheckBulletHitShip(int); 			// Return id of ship
+		std::vector<int> CheckAlienHitShip(int);
 
 		std::vector<Points> UpdateAllBullets(); 				// Move bullets to next position, Call AI function
 												// Check bullet collisions
