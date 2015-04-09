@@ -779,6 +779,7 @@ std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
 {
 	//std::cout <<"applying for: " <<information<<"\n";
 	std::vector<std::string> infosplitted = SplitString(information,'\n');
+	std::vector<Points> vanswer;
 	for (int i = 0;i<infosplitted.size();i++)
 	{
 		if (infosplitted[i]=="")
@@ -787,7 +788,7 @@ std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
 		}
 		else if(infosplitted[i][0] == '9' && infosplitted[i][1] == '0')
 		{
-			GetVectorPoints(infosplitted[i]);
+			vanswer=GetVectorPoints(infosplitted[i]);
 		}
 		else if(infosplitted[i][0] == '6')
 		{
@@ -811,6 +812,7 @@ std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
 			ApplyAllAlienInstructions(infosplitted[i]);
 		}
 	}
+	return vanswer;
 
 	//to do
 }
