@@ -508,11 +508,11 @@ void ShowBorders(Board &boardtodisplay)
 
 void ShowTitle(Board &boardtodisplay)
 {
-	const char * kg="Space Invaders Co-op";
+	const char * kg="Space Invaders";
 	unsigned char *y= (unsigned char*) kg;
 
 	glPushMatrix();
-	glRasterPos2f(   -boardtodisplay.GetNegXDimension(), boardtodisplay.GetPosYDimension() +50);
+	glRasterPos2f(  50+ boardtodisplay.GetPosXDimension(), boardtodisplay.GetPosYDimension() -50);
 	glColor3f(0,0,1);
 	// glutStrokeString(GLUT_STROKE_ROMAN, y);
 	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
@@ -538,7 +538,7 @@ void ShowLives(Board &boardtodisplay, int playid)
 
 
 	glPushMatrix();
-	glRasterPos2f(   -1600, 0 );
+	glRasterPos2f(   1500, 0 );
 	glColor3f(0,1,1);
 	// glutStrokeString(GLUT_STROKE_ROMAN, y);
 	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
@@ -546,7 +546,7 @@ void ShowLives(Board &boardtodisplay, int playid)
 	glPopMatrix();
 
 	glPushMatrix();
-	glRasterPos2f(-1600,-50);
+	glRasterPos2f(1500,-50);
 	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y2);
 	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar2);
 	
@@ -921,6 +921,10 @@ void display(void)
 		message1 = newg.PlayerBoard.GenerateAllInstructions(newg.PlayerId);
 		SendMessageToAll(message1);
 	}
+	else
+	{
+		newg.PlayerBoard.UpdateBulletsWithoutKilling();
+	}
 	UpdateAllExplosions();
 
 	while (newg.PlayerBoard.GetNumberAliens()<=5)
@@ -959,6 +963,7 @@ int main(int argc,char *argv[])
 	SpaceBarFree=0;
 	int limt = rand()%500;
 
+	std::cout <<"pushing stars\n";
 	for (int i =0 ; i<limt ; i++)
 	{
 		int X,Y,Z;
@@ -971,18 +976,26 @@ int main(int argc,char *argv[])
 		p.z=Z;
 		Stars.push_back(p);
 	}
-
-	while (!playersReady)
+	std::cout <<"pushed stars: " <<isOffline <<"\n";
+	int numplayers;
+	if (!isOffline)
 	{
-		// Keep waiting
+		while (!playersReady)
+		{
+			// Keep waiting
+		}
+		numplayers=GetNumPlayers();
 	}
-
-	int numplayers=GetNumPlayers();
+	else
+	{
+		numplayers=1;
+	}
+	
 
 	std::cout <<"Generated stars: " << Stars.size() <<"\n";
 
 	newg.PlayerId = numplayers-1;
-	newg.PlayerBoard = Board(1200,1200,750,750);
+	newg.PlayerBoard = Board(1400,1870,1040,1040);
 
 	for (int k=0; k<numplayers; k++)
 	{
@@ -1001,7 +1014,7 @@ int main(int argc,char *argv[])
 	// Wrapper function for graphics
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-	glutInitWindowSize(1600,900);
+	glutInitWindowSize(1920,1080);
 	glutCreateWindow("Team Babe Magnets");
 
 	glutDisplayFunc(display);

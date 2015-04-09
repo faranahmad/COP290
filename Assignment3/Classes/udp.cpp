@@ -115,7 +115,7 @@ void *SendMessage(void* id)
 	remaddr.sin_family = AF_INET;
 	remaddr.sin_addr.s_addr=ip;
 	remaddr.sin_port = htons(SERVICE_PORT);
-    // std::cout<<"sending to "<<remaddr.sin_addr.s_addr<<std::endl;
+    // std::cout<<"sending:"<<ToStr(message)<<std::endl;
     if(FindIndex((long long)remaddr.sin_addr.s_addr)>0)
     {	
 		int bytes_sent=sendto(sockid, message, strlen(message), 0, (struct sockaddr *)&remaddr, slen);
@@ -276,7 +276,7 @@ int networkmain(int argc, char** argv)
 	if(ipadr.size()==0 && !noIP)
 	{
 		noIP=true;
-		usleep(5000000);
+		// usleep(5000000);
 		goto Begin;
 	}
 	if(noIP && ipadr.size()==0)
@@ -409,7 +409,7 @@ int networkmain(int argc, char** argv)
 		{
 			TimeStamp[FindIndex((long long)remaddr.sin_addr.s_addr)]=time(0);
 		}
-		// std::cout<<"Recieved message:"<<ToStr(recvmsg)<<" Bytes recv:"<<recvlen<<std::endl;
+		std::cout<<"Recieved message:"<<ToStr(recvmsg)<<" Bytes recv:"<<recvlen<<std::endl;
 		if (recvlen > 0) 
 		{
 			recvmsg[recvlen] = 0;
