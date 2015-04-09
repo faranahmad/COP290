@@ -115,7 +115,7 @@ void *SendMessage(void* id)
 	remaddr.sin_family = AF_INET;
 	remaddr.sin_addr.s_addr=ip;
 	remaddr.sin_port = htons(SERVICE_PORT);
-    std::cout<<"sending:"<<ToStr(message)<<std::endl;
+    // std::cout<<"sending:"<<ToStr(message)<<std::endl;
     if(FindIndex((long long)remaddr.sin_addr.s_addr)>0)
     {	
 		int bytes_sent=sendto(sockid, message, strlen(message), 0, (struct sockaddr *)&remaddr, slen);
