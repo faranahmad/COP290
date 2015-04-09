@@ -93,7 +93,7 @@ class Board
 		void ApplyInsToShip(std::vector<std::string>,Ship);
 		void ApplyInsToBullets(std::string);
 		
-		void ApplyShipInstructions(std::string);
+		void ApplyShipInstructions(std::string,int);
 		
 		std::string GenerateAllBulletInstructions();
 
@@ -104,7 +104,7 @@ class Board
 		std::string GenerateAllInstructions(int);
 
 
-		void ApplyInstructions(std::string);
+		void ApplyInstructions(std::string,int);
 
 		std::string GeneratingCount();
 

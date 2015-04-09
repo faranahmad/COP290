@@ -664,7 +664,7 @@ void Board::ApplyInsToBullets(std::string bulletinfostring)
 // 	}
 // }
 
-void Board::ApplyShipInstructions(std::string information)
+void Board::ApplyShipInstructions(std::string information,int t)
 {
 	//std::vector<std::string> ship_bullets = SplitString(information,'\n');	
 	std::vector<std::string> shipinfo = SplitString(information,'_');
@@ -675,8 +675,10 @@ void Board::ApplyShipInstructions(std::string information)
 	{
 		VectorShips.push_back(Ship(VectorShips.size()));
 	}
-	ApplyInsToShip(shipinfo,VectorShips[shipid]);
-	
+	if(shipid != t)
+	{
+		ApplyInsToShip(shipinfo,VectorShips[shipid]);
+	}
 }
 
 
@@ -773,7 +775,7 @@ std::string Board::GenerateAllInstructions(int player_id)
 	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation());
 }
 
-void Board::ApplyInstructions(std::string information)
+void Board::ApplyInstructions(std::string information,int shipid)
 {
 	//std::cout <<"applying for: " <<information<<"\n";
 	std::vector<std::string> infosplitted = SplitString(information,'\n');
@@ -789,7 +791,7 @@ void Board::ApplyInstructions(std::string information)
 		}
 		else if(infosplitted[i][0] == '3')
 		{
-			ApplyShipInstructions(infosplitted[i]);
+			ApplyShipInstructions(infosplitted[i],shipid);
 		}
 		else if(infosplitted[i][0] == '4')
 		{

@@ -517,7 +517,7 @@ void ShowIp()
 {
 	unsigned char *y123= (unsigned char*) GetIP().c_str();
 
-	std::cout <<GetIP() <<"\n";
+	// std::cout <<GetIP() <<"\n";
 	glPushMatrix();
 	glRasterPos2f(  50+ PX, PY -100);
 	glColor3f(0,0,1);
@@ -877,7 +877,7 @@ void display(void)
 	{
 		std::string s=Instructions.front();
 		Instructions.pop();
-		newg.PlayerBoard.ApplyInstructions(s);
+		newg.PlayerBoard.ApplyInstructions(s,newg.PlayerId);
 	}
 	std::vector<Bullet> bulltoadd;
 	while (!BulletsToAdd.empty())
