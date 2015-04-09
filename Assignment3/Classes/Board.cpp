@@ -925,6 +925,28 @@ void Board::ApplyPlayerBulletInstructions(std::string information)
 	}
 }
 
+void Board::UpdateBulletsWithoutKilling()
+{
+	for (int i=VectorBullets.size()-1;i>=0;i--)
+	{
+		if(VectorBullets.at(i).GetXPos()+2.0 > DimensionPosX 
+		|| VectorBullets.at(i).GetXPos()-2.0 < -(DimensionNegX) 
+		|| VectorBullets.at(i).GetYPos()+2.0 > DimensionPosY
+		|| VectorBullets.at(i).GetYPos()-2.0 < -(DimensionNegY))
+		{
+			VectorBullets.erase(VectorBullets.begin() + i);
+		}
+	}
+	for (int i=0;i<VectorBullets.size();i++)
+	{
+		if(VectorBullets.at(i).GetTypeAI() == false)
+		{
+			VectorBullets.at(i).SetXPos(VectorBullets.at(i).GetXPos()+VectorBullets.at(i).GetVelX());
+			VectorBullets.at(i).SetYPos(VectorBullets.at(i).GetYPos()+VectorBullets.at(i).GetVelY());
+		}
+	}
+	
+}	
 
 // 1) split by \n
 // 2) Split by \t

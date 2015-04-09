@@ -115,6 +115,7 @@ class Board
 		void ApplyAllAlienInstructions(std::string information);
 
 		void ApplyPlayerBulletInstructions(std::string);
+		void UpdateBulletsWithoutKilling();
 	private:
 		std::vector<Ship> VectorShips;
 		std::vector<Bullet> VectorBullets;		
