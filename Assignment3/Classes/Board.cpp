@@ -242,7 +242,7 @@ std::vector<int> Board::CheckAlienHitShip(int shipid)
 			answer.push_back(i);
 		}
 	}
-	return answer;;
+	return answer;
 }
 
 std::vector<Points> Board::UpdateAllBullets()
@@ -293,30 +293,39 @@ std::vector<Points> Board::UpdateAllBullets()
 			}	
 		}
 	}
+
 	for(int i = 0;i < VectorShips.size();i++)
 	{
-		
-		std::vector<int> alientodel = CheckAlienHitShip(i);
-		if(alientodel.size() == 0)
-		{ 
-			//cout << "chutiya prateek"
-			ships_lives_reduce.push_back(i);
-			for(int j = 0;j<alientodel.size();j++)
-			{
-				bool repeat  = false;
-				for (int i = 0;i<aliens_delete.size();i++)
+		if(VectorShips.at(i).GetLives() != 0)
+		{
+			std::vector<int> alientodel = CheckAlienHitShip(i);
+			if(alientodel.size() != 0)
+			{ 
+				//cout << "chutiya prateek"
+				ships_lives_reduce.push_back(i);
+				for(int j = 0;j<alientodel.size();j++)
 				{
-					if(alientodel.at(j) == aliens_delete.at(i))
+					bool repeat  = false;
+					for (int i = 0;i<aliens_delete.size();i++)
 					{
-						repeat = true;
-						break;
+						if(alientodel.at(j) == aliens_delete.at(i))
+						{
+							repeat = true;
+							break;
+						}
 					}
-				}
-				if(!repeat)
-				{
-					aliens_delete.push_back(alientodel.at(j));
-				}
-			}
+					if(!repeat)
+					{
+						Points newpoint;
+						newpoint.x = VectorAliens.at(alientodel.at(j)).GetXPos();
+						newpoint.y = VectorAliens.at(alientodel.at(j)).GetYPos();
+						newpoint.z = 0.0;
+						aliens_pos.push_back(newpoint);
+	
+							aliens_delete.push_back(alientodel.at(j));
+						}
+					}
+			} 
 		}
 	}
 	int bullets_delete_size  = bullets_delete.size();
