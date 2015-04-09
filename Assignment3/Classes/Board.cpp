@@ -949,6 +949,10 @@ void Board::UpdateBulletsWithoutKilling()
 	
 }	
 
+std::string Board::GetNthPlayerScore(int shipid)
+{
+	return (VectorShips.at(shipid).GetName() + " " + std::to_string(VectorShips.at(shipid).GetScore()));
+}
 
 // 1) split by \n
 // 2) Split by \t
