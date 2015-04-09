@@ -266,6 +266,8 @@ std::vector<Points> Board::UpdateAllBullets()
 				}
 				if(repeat == false)
 				{	
+					int ship_score_to_inc = VectorBullets.at(i).GetShipId();
+					VectorShips.at(ship_score_to_inc).SetScore(VectorShips.at(ship_score_to_inc).GetScore() + 5);
 					aliens_delete.push_back((hit_alien));
 					Points alien_del_pos;
 					alien_del_pos.x = VectorAliens.at(hit_alien).GetXPos();
