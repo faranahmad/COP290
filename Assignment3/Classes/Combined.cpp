@@ -463,108 +463,131 @@ void ShowAlien(Alien &alientodisplay)
 	glPopMatrix();
 }
 
-void ShowBorders(Board &boardtodisplay)
+void ShowBorders()
 {
 	glPushMatrix();
-	double px,py,nx,ny;
-	px=boardtodisplay.GetPosXDimension();
-	nx=boardtodisplay.GetNegXDimension();
-	py=boardtodisplay.GetPosYDimension();
-	ny=boardtodisplay.GetNegYDimension();
-	
 	float tk=30.0;  // Thickness of the border
 	glColor3f(0,0,1.0);
 
 	glBegin(GL_POLYGON);
-	glVertex3f( -nx -tk, py +tk , 0.0);
-	glVertex3f( px +tk , py +tk , 0.0);
-	glVertex3f( px +tk , py  , 0.0);
-	glVertex3f( -nx -tk, py  , 0.0);
+	glVertex3f( -NX -tk, PY +tk , 0.0);
+	glVertex3f( PX +tk , PY +tk , 0.0);
+	glVertex3f( PX +tk , PY  , 0.0);
+	glVertex3f( -NX -tk, PY  , 0.0);
 	glEnd();
 	
 	glBegin(GL_POLYGON);
-	glVertex3f( -nx -tk , py + tk , 0.0);
-	glVertex3f( -nx -tk , -ny -tk , 0.0);
-	glVertex3f( -nx , -ny -tk , 0.0);
-	glVertex3f( -nx , py +tk , 0.0);
+	glVertex3f( -NX -tk , PY + tk , 0.0);
+	glVertex3f( -NX -tk , -NY -tk , 0.0);
+	glVertex3f( -NX , -NY -tk , 0.0);
+	glVertex3f( -NX , PY +tk , 0.0);
 	glEnd();
 	
 	glBegin(GL_POLYGON);
-	glVertex3f( -nx -tk , -ny , 0.0);
-	glVertex3f( -nx -tk , -ny -tk , 0.0);
-	glVertex3f(  px +tk , -ny -tk , 0.0);
-	glVertex3f(  px +tk , -ny , 0.0);
+	glVertex3f( -NX -tk , -NY , 0.0);
+	glVertex3f( -NX -tk , -NY -tk , 0.0);
+	glVertex3f(  PX +tk , -NY -tk , 0.0);
+	glVertex3f(  PX +tk , -NY , 0.0);
 	glEnd();
 	
 	glBegin(GL_POLYGON);
-	glVertex3f( px , py , 0.0);
-	glVertex3f( px , -ny , 0.0);
-	glVertex3f( px + tk , -ny , 0.0);
-	glVertex3f( px + tk, py , 0.0);
+	glVertex3f( PX , PY , 0.0);
+	glVertex3f( PX , -NY , 0.0);
+	glVertex3f( PX + tk , -NY , 0.0);
+	glVertex3f( PX + tk, PY , 0.0);
 	glEnd();
 
 	glPopMatrix();
 }
 
-void ShowTitle(Board &boardtodisplay)
+void ShowTitle()
 {
 	const char * kg="Space Invaders";
 	unsigned char *y= (unsigned char*) kg;
 
 	glPushMatrix();
-	glRasterPos2f(  50+ boardtodisplay.GetPosXDimension(), boardtodisplay.GetPosYDimension() -50);
+	glRasterPos2f(  50+ PX, PY -50);
 	glColor3f(0,0,1);
 	// glutStrokeString(GLUT_STROKE_ROMAN, y);
 	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
 	glPopMatrix();
 }
 
-void ShowLives(Board &boardtodisplay, int playid)
+void ShowIp()
+{
+	unsigned char *y123= (unsigned char*) GetIP().c_str();
+
+	std::cout <<GetIP() <<"\n";
+	glPushMatrix();
+	glRasterPos2f(  50+ PX, PY -100);
+	glColor3f(0,0,1);
+	// glutStrokeString(GLUT_STROKE_ROMAN, y);
+	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y123);
+	glPopMatrix();
+}
+
+void ShowLives()
 {
 	const char * livesS="Lives: ";
 	unsigned char *y= (unsigned char*) livesS;
 
-	int lives= boardtodisplay.GetNthShip(playid).GetLives();
-	std::string s = std::to_string(lives);
-	unsigned char *pchar = (unsigned char*) s.c_str();
+	int lives= newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives();
+	std::string s1 = std::to_string(lives);
+	s1 = s1 + " itne hain";
+	// std::cout <<s1 <<"\n";
+	unsigned char *pchar1 = (unsigned char*) s1.c_str();
 	
 	const char * MissilesS="Missiles: ";
 	unsigned char *y2= (unsigned char*) MissilesS;
 
-	int nummis= boardtodisplay.GetNthShip(playid).GetNumberMissiles();
-	s = std::to_string(nummis);
-	unsigned char *pchar2 = (unsigned char*) s.c_str();
+	int nummis= newg.PlayerBoard.GetNthShip(newg.PlayerId).GetNumberMissiles();
+	std::string s2 = std::to_string(nummis);
+	unsigned char *pchar2 = (unsigned char*) s2.c_str();
 	
 
 
 	glPushMatrix();
-	glRasterPos2f(   1500, 0 );
-	glColor3f(0,1,1);
+	glRasterPos2f(   PX+100, 0 );
+	// glColor3f(0,1,1);
 	// glutStrokeString(GLUT_STROKE_ROMAN, y);
 	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
-	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar);
+	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar1);
 	glPopMatrix();
 
 	glPushMatrix();
-	glRasterPos2f(1500,-50);
+	glRasterPos2f( PX +100,-50);
 	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y2);
 	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar2);
-	
 	glPopMatrix();
 }
 
-void ShowScores(Board &boardtodisplay)
+void ShowScores()
 {
-	const char * kg="kartikeya";
-	unsigned char *y= (unsigned char*) kg;
+	// const char * kg="kartikeya";
+	// unsigned char *y= (unsigned char*) kg;
 
-	glPushMatrix();
-	glRasterPos2f( 0,0 );
-	glColor3f(0,0,1);
-	// glutStrokeString(GLUT_STROKE_ROMAN, y);
-	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
-	glPopMatrix();
+	float iniy = -100;
 
+	for (int i=0; i<newg.PlayerBoard.GetNumberShips(); i++)
+	{
+		std::string l1 = newg.PlayerBoard.GetNthPlayerScore(i);
+		unsigned char *pchar3= (unsigned char*) l1.c_str();
+	
+		glPushMatrix();
+		glRasterPos2f( PX +100, iniy );
+		glColor3f(0,0,1);
+		iniy -=50;
+		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
+		glPopMatrix();
+	}
+}
+
+void ShowAllText()
+{
+	ShowTitle();
+	ShowIp();
+	ShowLives();
+	ShowScores();
 }
 
 void ShowBoard(Board &boardtodisplay)
@@ -890,19 +913,22 @@ void display(void)
 		glPopMatrix();
 	}
 
-	ShowTitle(newg.PlayerBoard);
-	ShowScores(newg.PlayerBoard);
+	// ShowTitle();
+	// ShowScores();
 	ShowBoard(newg.PlayerBoard);
-	ShowBorders(newg.PlayerBoard);
-	ShowLives(newg.PlayerBoard,newg.PlayerId);
+	ShowBorders();
+	// ShowLives();
+	// ShowIp();
+	ShowAllText();
 	DisplayExplosions(Explosions);
 	glutSwapBuffers();
 	// std::cout <<"Buffers swapped\n";
 	if (IsBaap())
 	{
+		// std::cout<<"Lives before: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 		// std::cout << "It is in the baap case\n";
 		std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
-
+		// std::cout<<"Lives after: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 
 		for (int j=0; j<Explosions.size(); j++)
 		{
@@ -959,9 +985,15 @@ int main(int argc,char *argv[])
 	alien = loadOBJ("Alien1.obj");
 	ship = loadOBJ("Ship3.obj");
 	std::cout << "Opened file\n";
+	PX=1400;
+	NX=1850;
+	PY=1040;
+	NY=1040;
 
 	SpaceBarFree=0;
 	int limt = rand()%500;
+
+	IPAddress= GetIP();
 
 	std::cout <<"pushing stars\n";
 	for (int i =0 ; i<limt ; i++)
@@ -995,7 +1027,7 @@ int main(int argc,char *argv[])
 	std::cout <<"Generated stars: " << Stars.size() <<"\n";
 
 	newg.PlayerId = numplayers-1;
-	newg.PlayerBoard = Board(1400,1870,1040,1040);
+	newg.PlayerBoard = Board(PX,NX,PY,NY);
 
 	for (int k=0; k<numplayers; k++)
 	{

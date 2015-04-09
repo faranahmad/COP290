@@ -21,7 +21,7 @@
 #define BUFSIZE 50000
 
 
-
+std::string GetIP();
 bool IsBaap();
 std::string ToStr(char* arr);
 int GetNumPlayers();
