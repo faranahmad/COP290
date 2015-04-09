@@ -106,7 +106,7 @@ void ShowShip(Ship &);
 void ShowBorders(Board &);
 void ShowTitle(Board &);
 void ShowScores(Board &);
-void ShowLives(Board &,int);
+void ShowLives(Board &);
 void ShowBoard(Board &);
 Expl newExplosion (float x, float y, float z);
 void ShowExplosion(Expl &);

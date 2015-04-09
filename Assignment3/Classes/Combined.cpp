@@ -519,52 +519,61 @@ void ShowTitle(Board &boardtodisplay)
 	glPopMatrix();
 }
 
-void ShowLives(Board &boardtodisplay, int playid)
+void ShowLives(Board &boardtodisplay)
 {
 	const char * livesS="Lives: ";
 	unsigned char *y= (unsigned char*) livesS;
 
-	int lives= boardtodisplay.GetNthShip(playid).GetLives();
-	std::string s = std::to_string(lives);
-	unsigned char *pchar = (unsigned char*) s.c_str();
+	int lives= boardtodisplay.GetNthShip(newg.PlayerId).GetLives();
+	std::string s1 = std::to_string(lives);
+	s1 = s1 + " itne hain";
+	// std::cout <<s1 <<"\n";
+	unsigned char *pchar1 = (unsigned char*) s1.c_str();
 	
 	const char * MissilesS="Missiles: ";
 	unsigned char *y2= (unsigned char*) MissilesS;
 
-	int nummis= boardtodisplay.GetNthShip(playid).GetNumberMissiles();
-	s = std::to_string(nummis);
-	unsigned char *pchar2 = (unsigned char*) s.c_str();
+	int nummis= boardtodisplay.GetNthShip(newg.PlayerId).GetNumberMissiles();
+	std::string s2 = std::to_string(nummis);
+	unsigned char *pchar2 = (unsigned char*) s2.c_str();
 	
 
 
 	glPushMatrix();
 	glRasterPos2f(   1500, 0 );
-	glColor3f(0,1,1);
+	// glColor3f(0,1,1);
 	// glutStrokeString(GLUT_STROKE_ROMAN, y);
 	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
-	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar);
+	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar1);
 	glPopMatrix();
 
 	glPushMatrix();
 	glRasterPos2f(1500,-50);
 	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y2);
 	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar2);
-	
 	glPopMatrix();
 }
 
 void ShowScores(Board &boardtodisplay)
 {
-	const char * kg="kartikeya";
-	unsigned char *y= (unsigned char*) kg;
+	// const char * kg="kartikeya";
+	// unsigned char *y= (unsigned char*) kg;
 
-	glPushMatrix();
-	glRasterPos2f( 0,0 );
-	glColor3f(0,0,1);
-	// glutStrokeString(GLUT_STROKE_ROMAN, y);
-	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
-	glPopMatrix();
+	float iniy=-100;
 
+	for (int i=0; i<newg.PlayerBoard.GetNumberShips(); i++)
+	{
+		std::string l1 = newg.PlayerBoard.GetNthPlayerScore(newg.PlayerId);
+		unsigned char *pchar3= (unsigned char*) l1.c_str();
+	
+		glPushMatrix();
+		glRasterPos2f( 1500, -100 );
+		glColor3f(0,0,1);
+	
+		// glutStrokeString(GLUT_STROKE_ROMAN, y);
+		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
+		glPopMatrix();
+	}
 }
 
 void ShowBoard(Board &boardtodisplay)
@@ -894,15 +903,16 @@ void display(void)
 	ShowScores(newg.PlayerBoard);
 	ShowBoard(newg.PlayerBoard);
 	ShowBorders(newg.PlayerBoard);
-	ShowLives(newg.PlayerBoard,newg.PlayerId);
+	ShowLives(newg.PlayerBoard);
 	DisplayExplosions(Explosions);
 	glutSwapBuffers();
 	// std::cout <<"Buffers swapped\n";
 	if (IsBaap())
 	{
+		// std::cout<<"Lives before: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 		// std::cout << "It is in the baap case\n";
 		std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
-
+		// std::cout<<"Lives after: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 
 		for (int j=0; j<Explosions.size(); j++)
 		{
@@ -995,7 +1005,7 @@ int main(int argc,char *argv[])
 	std::cout <<"Generated stars: " << Stars.size() <<"\n";
 
 	newg.PlayerId = numplayers-1;
-	newg.PlayerBoard = Board(1400,1870,1040,1040);
+	newg.PlayerBoard = Board(1400,1850,1040,1040);
 
 	for (int k=0; k<numplayers; k++)
 	{
