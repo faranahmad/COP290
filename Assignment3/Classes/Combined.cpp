@@ -520,7 +520,7 @@ void ShowIp()
 	// std::cout <<GetIP() <<"\n";
 	glPushMatrix();
 	glRasterPos2f(  50+ PX, PY -100);
-	glColor3f(0,0,1);
+	glColor3f(1,0,1);
 	// glutStrokeString(GLUT_STROKE_ROMAN, y);
 	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y123);
 	glPopMatrix();
@@ -566,7 +566,7 @@ void ShowScores()
 	// const char * kg="kartikeya";
 	// unsigned char *y= (unsigned char*) kg;
 
-	float iniy = -100;
+	float iniy = -200;
 
 	for (int i=0; i<newg.PlayerBoard.GetNumberShips(); i++)
 	{
@@ -877,7 +877,19 @@ void display(void)
 	{
 		std::string s=Instructions.front();
 		Instructions.pop();
-		newg.PlayerBoard.ApplyInstructions(s,newg.PlayerId);
+		std::vector<Points> newexp= newg.PlayerBoard.ApplyInstructions(s,newg.PlayerId);
+		for (int j=0; j<Explosions.size(); j++)
+		{
+			if (Explosions[j].fuel==0)
+			{
+				Explosions.erase(Explosions.begin()+j);
+				j-=1;
+			}
+		}
+		for (int j=0; j<newexp.size(); j++)
+		{
+			Explosions.push_back(newExplosion(newexp[j].x,newexp[j].y,0));
+		}
 	}
 	std::vector<Bullet> bulltoadd;
 	while (!BulletsToAdd.empty())
@@ -944,7 +956,7 @@ void display(void)
 			// std::cout << p[j].x <<"\t" <<p[j].y << "\n";
 		}
 
-		message1 = newg.PlayerBoard.GenerateAllInstructions(newg.PlayerId);
+		message1 = newg.PlayerBoard.GenerateAllInstructions(newg.PlayerId,p);
 		SendMessageToAll(message1);
 	}
 	else
@@ -999,8 +1011,8 @@ int main(int argc,char *argv[])
 	for (int i =0 ; i<limt ; i++)
 	{
 		int X,Y,Z;
-		X = (rand()%2400) -1200;
-		Y = (rand()%1500) -750;
+		X = (rand()%int(PX+NX)) -NX;
+		Y = (rand()%int(PY+NY)) -NY;
 		Z = 500;
 		Points p;
 		p.x=X;
