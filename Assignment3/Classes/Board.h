@@ -123,6 +123,9 @@ class Board
 		std::vector<Points> GetVectorPoints(std::string);
 		std::string GetStringPoints(std::vector<Points>);
 
+		std::string GenerateShipInsForAI();
+		void ApplyInstructionsToShipAI(std::string);
+
 	private:
 		std::vector<Ship> VectorShips;
 		std::vector<Bullet> VectorBullets;		
