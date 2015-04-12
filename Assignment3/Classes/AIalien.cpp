@@ -6,22 +6,24 @@
 WhatItShouldDo DecideActionForAlien(Board &board, Alien &alien, bool nearEnough)
 {
 	//herein lies the magic
-	std::cout<<"Trying to Decide \n";
+	// std::cout<<"Trying to Decide \n";
 	bool InView = ShipIsInViewOfAlien(board,alien);
 	if (InView)
 		{
-			std::cout<<"Alien has acquired its target\n";
-			std::cout<<"Angle of Alien "<<alien.GetAngle()<<"\n";
+			// std::cout<<"Alien has acquired its target\n";
+			// std::cout<<"Angle of Alien "<<alien.GetAngle()<<"\n";
 		}
 	else
-		std::cout<<"No ship in Field of View of Alien\n";
+	{
+		// std::cout<<"No ship in Field of View of Alien\n";
+	}
 	WhatItShouldDo action;
 	// if ( InView && alien.GetMissiles() > 0) // add some randomness here
 	// 	action = FireMissile;
 	// else 
 	if (nearEnough==true)	// add some randomness here
 	{	
-		std::cout<<"Ship is near enough to the alien \n";
+		// std::cout<<"Ship is near enough to the alien \n";
 		if ( InView )
 			action = FireBullet;
 		else
@@ -29,7 +31,7 @@ WhatItShouldDo DecideActionForAlien(Board &board, Alien &alien, bool nearEnough)
 	}
 	else 
 	{
-		std::cout<<"Ship isnt near enough to the alien \n";
+		// std::cout<<"Ship isnt near enough to the alien \n";
 		action = Move;
 	}
 	
@@ -47,7 +49,7 @@ void MoveAlienInDirectionOfShip(Alien &alien, Ship &ship)
 	// else 
 	// 	angle =360-alien.GetAngle();
 	//std::cout<<"Angle of alien"<<angle<<"\n";
-	std::cout<<"Relative angle"<<relativeangle<<"\n";
+	// std::cout<<"Relative angle"<<relativeangle<<"\n";
 	//if (fabs(RelativeAngleOfShipFromAlien(ship,alien)-angle)<RIGHTANGLE)
 	//{
 		alien.SetXPos(alien.GetXPos()-5*sin(relativeangle));
@@ -103,14 +105,14 @@ void TurnAlienInDirectionOfShip(Alien &alien, Ship &ship,bool &finished)
 	else 
 	 	alienAngle =alien.GetAngle()-360;
 
-	std::cout<<"Relative Angle "<<relativeangle<<" Alien angle "<<alienAngle<<"\n";
+	// std::cout<<"Relative Angle "<<relativeangle<<" Alien angle "<<alienAngle<<"\n";
 	
 	if (fabs(relativeangle-alienAngle)<=5 )
 	{
 
-		std::cout<<"setting finished true \n";
-		std::cout<<"Relative angle "<<relativeangle<<"\n";
-		std::cout<<"Alien angle "<<alienAngle<<"\n";
+		// std::cout<<"setting finished true \n";
+		// std::cout<<"Relative angle "<<relativeangle<<"\n";
+		// std::cout<<"Alien angle "<<alienAngle<<"\n";
 		finished=true;
 	}
 	else if (fabs(relativeangle-alienAngle) < minAngleofRotation && fabs(relativeangle-alienAngle)>1)

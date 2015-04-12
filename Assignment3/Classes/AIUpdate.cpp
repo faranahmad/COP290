@@ -87,7 +87,7 @@ void UpdateAlien(Board &board)
 	{
 
 		std::pair<int, bool> NearestShipPair= FindNearestShip(CurrentAliens[i],CurrentShips);
-		std::cout<< " Nearest Ship "<<NearestShipPair.first<<" for alien "<<i<<"\n";
+		// std::cout<< " Nearest Ship "<<NearestShipPair.first<<" for alien "<<i<<"\n";
 		nearestShip=NearestShipPair.first;
 	//	std::cout<<"Nearest Ship "<< NearestShipPair.first<<"\n";
 		// std::cout<<"Near Enough "<<NearestShipPair.second<<"\n";
@@ -143,7 +143,7 @@ void UpdateAlien(Board &board)
 
 void UpdateMissile(Board &board)
 {
-	std::cout<<"Update Missile called\n";
+	// std::cout<<"Update Missile called\n";
 	UpdateAlienMissile(board);
 	UpdateShipMissile(board);
 	std::vector<Bullet> VectorBullets=board.GetVectorBullets();

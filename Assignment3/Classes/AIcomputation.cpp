@@ -6,7 +6,7 @@ int ClosestAlienEnemy(std::vector<Alien> &Aliens,int NumberAliens, Bullet &actua
 	float leastDistance = maxDistance; //Infinity
 	for (int i=0; i<NumberAliens;i++)
 	{
-		std::cout<<"AlienInarc "<<AlienInArc(Aliens[i],actualmissile)<<" Distance of alien from missile "<<DistanceOfAlienFromMissile(Aliens[i],actualmissile)<<"\n";
+		// std::cout<<"AlienInarc "<<AlienInArc(Aliens[i],actualmissile)<<" Distance of alien from missile "<<DistanceOfAlienFromMissile(Aliens[i],actualmissile)<<"\n";
 		if (AlienInArc(Aliens[i],actualmissile)==true && DistanceOfAlienFromMissile(Aliens[i],actualmissile) < leastDistance)
 		{
 			leastDistance=DistanceOfAlienFromMissile(Aliens[i],actualmissile);

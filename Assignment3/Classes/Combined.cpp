@@ -455,18 +455,18 @@ void ShowShip(Ship &shiptodisplay)
 		ShowObject(ship);
 		glPopMatrix();
 	
-		glPushMatrix();
-		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
-		glRotatef(shiptodisplay.GetAngle(),0,0,1);
-		glTranslatef(0,-67,0);
-		DisplaySmokePoints(SmokePoints);
-		glPopMatrix();
-		UpdateAllSmokePoints(SmokePoints);
+		// glPushMatrix();
+		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+		// glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
+		// glRotatef(shiptodisplay.GetAngle(),0,0,1);
+		// glTranslatef(0,-67,0);
+		// DisplaySmokePoints(SmokePoints);
+		// glPopMatrix();
+		// UpdateAllSmokePoints(SmokePoints);
 	}
 }
 
@@ -1153,7 +1153,7 @@ int main(int argc,char *argv[])
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
 	glutInitWindowSize(1920,1080);
-	glutCreateWindow("Team Babe Magnets");
+	glutCreateWindow("Space Invaders Co-op");
 
 	glutDisplayFunc(display);
 	// glutReshapeFunc(reshape);

@@ -7,7 +7,7 @@ Ship::Ship()
 	Name = "abc";
 	Score  = 0;
 	Lives=3;
-	AILevel = -1;
+	AILevel = 1;
 }
 
 Ship::Ship(int id)
@@ -18,7 +18,7 @@ Ship::Ship(int id)
 	Name = "abc";
 	Score = 0;
 	Lives=3;
-	AILevel = -1;
+	AILevel = 1;
 	//add something
 }
 

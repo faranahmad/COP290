@@ -86,14 +86,14 @@ void TurnShipInDirectionOfAlien(Ship &ship, Alien &alien, bool &finished)
 	else 
 	 	shipAngle =ship.GetAngle()-360;
 
-	std::cout<<"Relative Angle "<<relativeangle<<" Ship angle "<<shipAngle<<"\n";
+	// std::cout<<"Relative Angle "<<relativeangle<<" Ship angle "<<shipAngle<<"\n";
 	
 	if (fabs(relativeangle-shipAngle)<=5 )
 	{
 
-		std::cout<<"setting finished true \n";
-		std::cout<<"Relative angle "<<relativeangle<<"\n";
-		std::cout<<"Alien angle "<<shipAngle<<"\n";
+		// std::cout<<"setting finished true \n";
+		// std::cout<<"Relative angle "<<relativeangle<<"\n";
+		// std::cout<<"Alien angle "<<shipAngle<<"\n";
 		finished=true;
 	}
 	else if (fabs(relativeangle-shipAngle) < minAngleofRotation && fabs(relativeangle-shipAngle)>1)
