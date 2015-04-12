@@ -690,12 +690,12 @@ void Board::ApplyInsToShip(std::vector<std::string> s,Ship shiptochange)
 	shiptochange.SetYPos(std::stof(s[4]));
 	shiptochange.SetAngle(std::stof(s[5]));
 	shiptochange.SetColorFloatInp(std::stof(s[6]),std::stof(s[7]),std::stof(s[8]));
-	shiptochange.SetLives(std::stoi(s[9]));
-	shiptochange.SetScore(std::stoi(s[10]));
-	shiptochange.SetMultiplier(std::stoi(s[11]));
-	shiptochange.SetKills(std::stoi(s[12]));
-	shiptochange.SetNumberBullets(std::stoi(s[13]));
-	shiptochange.SetNumberMissiles(std::stoi(s[14]));
+	// shiptochange.SetLives(std::stoi(s[9]));
+	// shiptochange.SetScore(std::stoi(s[10]));
+	// shiptochange.SetMultiplier(std::stoi(s[11]));
+	// shiptochange.SetKills(std::stoi(s[12]));
+	// shiptochange.SetNumberBullets(std::stoi(s[13]));
+	// shiptochange.SetNumberMissiles(std::stoi(s[14]));
 	shiptochange.SetAIControlLevel(std::stoi(s[15]));
 	VectorShips[std::stoi(s[1])] = shiptochange;	
 	// std::cout << "applied all\n";
