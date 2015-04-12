@@ -1113,7 +1113,7 @@ void Board::ApplyInstructionsToShipAI(std::string information)
 		int id  = std::stoi(shipinfo[1]);
 		VectorShips.at(id).SetLives(std::stoi(shipinfo[2]));
 		VectorShips.at(id).SetScore(std::stoi(shipinfo[3]));
-		VectorShips.at(id).SetNumberMissiles(std::stoi(shipinfo[4])); 
+		// VectorShips.at(id).SetNumberMissiles(std::stoi(shipinfo[4])); 
 	}
 }
 // 1) split by \n
