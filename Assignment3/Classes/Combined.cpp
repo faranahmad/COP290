@@ -365,20 +365,20 @@ void mouseclick(int button,int state,int x,int y )
     // Functions for the mouse click locations
     if(state== GLUT_UP )
     {
-    	Bullet newb = Bullet();
-		Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
-		float velx = 0- 10*sin(PI*present.GetAngle()/180);
-		float vely = 10* cos(PI*present.GetAngle()/180);
-		newb.SetXPos(present.GetXPos());
-		newb.SetYPos(present.GetYPos());
-		newb.SetVelX(velx);
-		newb.SetVelY(vely);
-		newb.SetShipID(newg.PlayerId);
-		newb.SetTypeAI(false);
-		newb.SetTypePlayer(true);
-		newg.PlayerBoard.InsertBullet(newb);
-		BulletsToAdd.push(newb);
-    	// Explosions.push_back(newExplosion(2*x-newg.PlayerBoard.GetPosXDimension(),-2*y+newg.PlayerBoard.GetPosYDimension(),0));
+  //   	Bullet newb = Bullet();
+		// Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
+		// float velx = 0- 10*sin(PI*present.GetAngle()/180);
+		// float vely = 10* cos(PI*present.GetAngle()/180);
+		// newb.SetXPos(present.GetXPos());
+		// newb.SetYPos(present.GetYPos());
+		// newb.SetVelX(velx);
+		// newb.SetVelY(vely);
+		// newb.SetShipID(newg.PlayerId);
+		// newb.SetTypeAI(false);
+		// newb.SetTypePlayer(true);
+		// newg.PlayerBoard.InsertBullet(newb);
+		// BulletsToAdd.push(newb);
+  //   	// Explosions.push_back(newExplosion(2*x-newg.PlayerBoard.GetPosXDimension(),-2*y+newg.PlayerBoard.GetPosYDimension(),0));
     }
 }
 
@@ -959,9 +959,6 @@ void display(void)
 		glutSolidSphere(3, 31, 10);
 		glPopMatrix();
 	}
-
-	// ShowTitle();
-	// ShowScores();
 	ShowBoard(newg.PlayerBoard);
 	ShowBorders();
 	// for (int i=0; i<newg.PlayerBoard.GetVectorBullets().size();i++)
@@ -973,8 +970,6 @@ void display(void)
 	// {
 	// 	std::cout << "players info: "<< newg.PlayerBoard.GetNthShip(i).GetSummary()<<"\n";
 	// }
-
-
 	ShowAllText();
 	DisplayExplosions(Explosions);
 	glutSwapBuffers();
@@ -1029,36 +1024,36 @@ void display(void)
 
 void mousepos(int x, int y)
 {
-	double convx=2*x-1920;
-	double convy=-2*y+1080;
-	Ship n1=newg.PlayerBoard.GetNthShip(newg.PlayerId);
-	double dy=convy-n1.GetYPos();
-	double dx=convx-n1.GetXPos();
-	float theta1;
-	if (dx == 0.0)
-	{
-		if (dy>0)
-		{
-			theta1=0;
-		}
-		else
-		{
-			theta1=180;
-		}
-	}
-	else
-	{
-		if (dx>0)
-		{
-			theta1 = (float) (atan(dy/dx)*180/PI) -90.0 ;
-		}
-		else
-		{
-			theta1 = (float) (atan(dy/dx)*180/PI) +90.0 ;
-		}
-	}
-	n1.SetAngle(theta1);
-	newg.PlayerBoard.SetNthShip(newg.PlayerId,n1);
+	// double convx=2*x-1920;
+	// double convy=-2*y+1080;
+	// Ship n1=newg.PlayerBoard.GetNthShip(newg.PlayerId);
+	// double dy=convy-n1.GetYPos();
+	// double dx=convx-n1.GetXPos();
+	// float theta1;
+	// if (dx == 0.0)
+	// {
+	// 	if (dy>0)
+	// 	{
+	// 		theta1=0;
+	// 	}
+	// 	else
+	// 	{
+	// 		theta1=180;
+	// 	}
+	// }
+	// else
+	// {
+	// 	if (dx>0)
+	// 	{
+	// 		theta1 = (float) (atan(dy/dx)*180/PI) -90.0 ;
+	// 	}
+	// 	else
+	// 	{
+	// 		theta1 = (float) (atan(dy/dx)*180/PI) +90.0 ;
+	// 	}
+	// }
+	// n1.SetAngle(theta1);
+	// newg.PlayerBoard.SetNthShip(newg.PlayerId,n1);
 	// std::cout<< "Mouse is at: "<<convx <<"\t" <<convy <<"\n";
 }
 
@@ -1066,8 +1061,9 @@ int main(int argc,char *argv[])
 {
 	pthread_t networkthread;
 	Graph datagraph;
-	datagraph.x1=argc;
+	datagraph.x1=argc-1;
 	datagraph.s1=argv;
+
 	pthread_create(&networkthread,NULL,networkmainhelper,&datagraph);
 
 	for (int i=0; i<8; i++)
@@ -1137,6 +1133,9 @@ int main(int argc,char *argv[])
 		news.SetYPos(45);
 		newg.PlayerBoard.InsertShip(news);
 	}
+	Ship Pship=newg.PlayerBoard.GetNthShip(newg.PlayerId);
+	Pship.SetName(argv[argc-1]);
+	newg.PlayerBoard.SetNthShip(newg.PlayerId,Pship);
 
 	std::cout << "board is set up: " <<newg.PlayerId<<"\n";
 
