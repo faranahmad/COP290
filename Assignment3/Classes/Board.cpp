@@ -851,7 +851,7 @@ std::string Board::GenerateOnlyPlayerInstructions(int player_id,std::vector<Bull
 
 std::string Board::GenerateAllInstructions(int player_id,std::vector<Points> points)
 {
-	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation() + "\n" + GetStringPoints(points)); 
+	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation() + "\n" + GetStringPoints(points) + "\n" + GenerateShipInsForAI()); 
 }
 
 std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
@@ -889,6 +889,10 @@ std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
 		{
 			//std::cout <<"applying aliens\n";
 			ApplyAllAlienInstructions(infosplitted[i]);
+		}
+		else if(infosplitted[i][0] == 't')
+		{
+			ApplyInstructionsToShipAI(infosplitted[i]);
 		}
 	}
 	return vanswer;
@@ -1082,6 +1086,36 @@ std::vector<Points> Board::GetVectorPoints(std::string information)
 	return answer;
 }
 
+std::string Board::GenerateShipInsForAI()
+{
+	std::string answer = "";
+	for(int i=0;i<VectorShips.size() - 1;i++)
+	{
+		answer = answer + "t_" + std::to_string(i) + "_" 
+							   + std::to_string(VectorShips.at(i).GetLives()) + "_" 
+							   + std::to_string(VectorShips.at(i).GetScore()) + "_" 
+							   + std::to_string(VectorShips.at(i).GetNumberMissiles()) + "\t"; 
+	}
+	answer = answer + "t_" + std::to_string(VectorShips.size()-1) + "_" 
+						   + std::to_string(VectorShips.at(VectorShips.size()-1).GetLives()) + "_" 
+						   + std::to_string(VectorShips.at(VectorShips.size()-1).GetScore()) + "_" 
+						   + std::to_string(VectorShips.at(VectorShips.size()-1).GetNumberMissiles());
+
+	return answer;
+}
+
+void Board::ApplyInstructionsToShipAI(std::string information)
+{
+	std::vector<std::string> AllShipsInfo = SplitString(information,'\t');
+	for(int i = 0;i<AllShipsInfo.size();i++)
+	{
+		std::vector<std::string> shipinfo = SplitString(AllShipsInfo[i],'_');
+		int id  = std::stoi(shipinfo[1]);
+		VectorShips.at(id).SetLives(std::stoi(shipinfo[2]));
+		VectorShips.at(id).SetScore(std::stoi(shipinfo[3]));
+		VectorShips.at(id).SetNumberMissiles(std::stoi(shipinfo[4])); 
+	}
+}
 // 1) split by \n
 // 2) Split by \t
 // 3) Split by _
