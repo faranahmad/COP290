@@ -6,7 +6,7 @@ int ClosestAlienEnemy(std::vector<Alien> &Aliens,int NumberAliens, Bullet &actua
 	float leastDistance = maxDistance; //Infinity
 	for (int i=0; i<NumberAliens;i++)
 	{
-		// std::cout<<"AlienInarc "<<AlienInArc(Aliens[i],actualmissile)<<" Distance of alien from missile "<<DistanceOfAlienFromMissile(Aliens[i],actualmissile)<<"\n";
+		std::cout<<"AlienInarc "<<AlienInArc(Aliens[i],actualmissile)<<" Distance of alien from missile "<<DistanceOfAlienFromMissile(Aliens[i],actualmissile)<<"\n";
 		if (AlienInArc(Aliens[i],actualmissile)==true && DistanceOfAlienFromMissile(Aliens[i],actualmissile) < leastDistance)
 		{
 			leastDistance=DistanceOfAlienFromMissile(Aliens[i],actualmissile);
@@ -34,7 +34,7 @@ int ClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actualmis
 
 bool AlienInArc(Alien &alien, Bullet &actualmissile)
 {
-	if (abs(RelativeAngleAlienFromMissile(alien,actualmissile)*180/PI)<theta)
+	if (fabs(RelativeAngleAlienFromMissile(alien,actualmissile)*180/PI)<theta)
 		return true;
 	else 
 		return false;
@@ -42,7 +42,7 @@ bool AlienInArc(Alien &alien, Bullet &actualmissile)
 
 bool ShipInArc(Ship &ship, Bullet &actualmissile)
 {
-	if (abs(RelativeAngleShipFromMissile(ship,actualmissile)*180/PI)<theta)
+	if (fabs(RelativeAngleShipFromMissile(ship,actualmissile)*180/PI)<theta)
 		return true;
 	else 
 		return false;
@@ -141,7 +141,7 @@ float RelativeAngleShiptoMissilePosition(Ship &ship, Bullet &actualmissile)
 
 }
 
-float RelativeAngleOfShipFromAlien(Ship &ship,Alien &alien)
+float RelativeAngleOfShipFromAlien(Ship &ship,Alien &alien)//returns angle in degress
 {
 	float angle;
 
@@ -189,13 +189,15 @@ float RelativeAngleOfAlienFromShip(Alien& alien,Ship &ship)//returns angles in d
 
 std::pair<int,bool> FindNearestAlien(Ship &ship, std::vector<Alien> &CurrentAliens,bool nearEnough)
 {
-	float min = maximumdistance;
+	float min = INT_MAX;
 	int nearestAlien = -1;
 	for (int j=0; j<CurrentAliens.size(); j++)
 	{
 		float dist = DistanceOfAlienFromShip(CurrentAliens[j],ship);
+		
 		if (dist < min)
 		{
+
 			min = dist;
 			nearestAlien = j;
 		}
@@ -210,22 +212,31 @@ std::pair<int,bool> FindNearestAlien(Ship &ship, std::vector<Alien> &CurrentAlie
 
 }
 
-std::pair<int,bool> FindNearestShip(Alien &alien, std::vector<Ship> &CurrentShips,bool nearEnough)
+std::pair<int,bool> FindNearestShip(Alien &alien, std::vector<Ship> &CurrentShips)
 {
-	float min = maximumdistance;
+	bool nearEnough;
+	//std::cout<<"Entered here \n";
+	float min = INT_MAX;
+	//std::cout<<"maximumdistance = "<<min<<"\n";
 	int nearestShip = -1;
 	for (int j=0; j<CurrentShips.size(); j++)
 	{
+		//std::cout<<"Entered Ship loop \n";
 		float dist=DistanceOfShipFromAlien(CurrentShips[j],alien);
+		//std::cout<<"Distance "<<dist<<"\n";
+		//std::cout<<"Distance is "<<dist<<" \n";
 		if (dist < min)
 		{
+			//std::cout<<"Updating min \n";
 			min = dist;
 			nearestShip = j;
 		}
 	}
+	//std::cout<<"minimum dist "<<min<<"\n";
+	//std::cout<<"minDistanceforRotation "<<minDistanceforRotation<<"\n";
 
 	if (min<=minDistanceforRotation)
-		nearEnough = true;
+			nearEnough = true;
 	else 
 		nearEnough = false;
 
@@ -262,7 +273,7 @@ bool AlienIsInViewOfShip(Board &board, Ship &ship)
 	std::vector<Alien> CurrentAliens = board.GetVectorAliens();
 	for (int i=0 ; i< CurrentAliens.size(); i++ )
 	{
-		if (abs(RelativeAngleOfAlienFromShip(CurrentAliens[i],ship)-ship.GetAngle()) < ANGLEOFVIEW)
+		if (fabs(RelativeAngleOfAlienFromShip(CurrentAliens[i],ship)-ship.GetAngle()) < ANGLEOFVIEW)
 			return true;
 	}
 	return false;
@@ -273,7 +284,7 @@ bool ShipIsInViewOfAlien(Board &board, Alien &alien)
 	std::vector<Ship> CurrentShips = board.GetVectorShips();
 	for (int i=0 ; i< CurrentShips.size(); i++ )
 	{
-		if (abs(RelativeAngleOfShipFromAlien(CurrentShips[i],alien)-alien.GetAngle()) < ANGLEOFVIEW)
+		if (fabs(RelativeAngleOfShipFromAlien(CurrentShips[i],alien)-alien.GetAngle()) < ANGLEOFVIEW)
 			return true;
 	}
 	return false;

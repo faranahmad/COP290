@@ -48,7 +48,7 @@ void UpdateAlienMissile(Board &board)
 
 void UpdateShipMissile(Board &board)
 {
-	// std::cout<<"Update Ship missile called\n";
+	std::cout<<"Update Ship missile called\n";
 	std::vector<Bullet> CurrentBullets = board.GetVectorBullets();
 	std::vector<Ship> CurrentShips = board.GetVectorShips();
 	std::vector<Alien> CurrentAliens = board.GetVectorAliens();
@@ -59,14 +59,14 @@ void UpdateShipMissile(Board &board)
 		{
 			
 			int target = ClosestAlienEnemy(CurrentAliens,board.GetNumberAliens(),CurrentBullets[i],board.MaxDistance());
-			// std::cout<<"Target of Missile "<<target<<"\n";
+			std::cout<<"Target of Missile "<<target<<"\n";
 			if (target==-1)
 			{
-				// std::cout<<"No target acquired, velocity remains same \n";
+				std::cout<<"No target acquired, velocity remains same \n";
 			}
 			else
 			{
-				// std::cout<<"Target Acquired "<<target<<"\n";
+				std::cout<<"Target Acquired "<<target<<"\n";
 				Alien temp2=board.GetNthAlien(target);
 				UpdateShipMissileVelocity(CurrentBullets[i],temp2);
 			}
@@ -85,16 +85,16 @@ void UpdateAlienMissileVelocity(Bullet &actualmissile,Ship &ship)
 
 void UpdateShipMissileVelocity(Bullet &actualmissile,Alien &alien)
 {
-	// std::cout<<"Update Ship Missile velocity called\n";
+	std::cout<<"Update Ship Missile velocity called\n";
 	float angle=RelativeAngleAlientoMissilePosition(alien,actualmissile);
 	angle+=90;
 	angle*=PI/180;
-	// std::cout<<"Relative angle between alien and missile "<<angle<<"\n";
+	std::cout<<"Relative angle between alien and missile "<<angle<<"\n";
 	float speed=actualmissile.GetSpeed();
 	actualmissile.SetVelX(speed*cos(angle));
-	// std::cout<<"Setting velocity along X "<<speed*cos(angle)<<"\n";
+	std::cout<<"Setting velocity along X "<<speed*cos(angle)<<"\n";
 	actualmissile.SetVelY(speed*sin(angle));
-	// std::cout<<"Setting velocity along Y "<<speed*sin(angle)<<"\n";
+	std::cout<<"Setting velocity along Y "<<speed*sin(angle)<<"\n";
 }
 
 

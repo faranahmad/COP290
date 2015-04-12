@@ -5,49 +5,52 @@
 
 void UpdateAIBoard(Board &board)
 {
-	UpdatePlayerAI(board);
+
+	//UpdatePlayerAI(board);
 	UpdateAlien(board);
 	// if (board.GetVectorBullets().size()>0)
-	UpdateMissile(board);
+	//UpdateMissile(board);
 }
 
-void UpdatePlayerAI(Board &board)
-{
-	std::vector<Bullet> CurrentBullets = board.GetVectorBullets();
-	std::vector<Ship> CurrentShips = board.GetVectorShips();
-	std::vector<Alien> CurrentAliens = board.GetVectorAliens();
-	WhatItShouldDo action;
-	bool nearEnough;
-	int nearestAlien;
-	for (int i=0;i<CurrentShips.size();i++)
-	{
-		if (CurrentShips[i].IfAIControl())
-		{
+// void UpdatePlayerAI(Board &board)
+// {
+// 	std::vector<Bullet> CurrentBullets = board.GetVectorBullets();
+// 	std::vector<Ship> CurrentShips = board.GetVectorShips();
+// 	std::vector<Alien> CurrentAliens = board.GetVectorAliens();
+// 	WhatItShouldDo action;
+// 	bool nearEnough;
+// 	int nearestAlien;
+// 	for (int i=0;i<CurrentShips.size();i++)
+// 	{
+// 		if (CurrentShips[i].IfAIControl())
+// 		{
 			
-			std::pair<int,bool> NearestAlienPair = FindNearestAlien(CurrentShips[i],CurrentAliens,nearEnough);
+// 			std::pair<int,bool> NearestAlienPair = FindNearestAlien(CurrentShips[i],CurrentAliens,nearEnough);
 			
-			nearEnough = NearestAlienPair.first;
-			nearestAlien= NearestAlienPair.second;
-			action = DecideActionForShip(board,CurrentShips[i],nearEnough);
-			switch (action)
-			{
-				case Move:
-					MoveShipInDirectionOfAlien(CurrentShips[i],CurrentAliens[nearestAlien]);
-					break;
-				case Turn:
-					TurnShipInDirectionOfAlien(CurrentShips[i],CurrentAliens[nearestAlien]);
-					break;
-				case FireBullet:
-					FireBulletForShip(CurrentShips[i],board);
-					break;
-				case FireMissile:
-					FireMissileForShip(CurrentShips[i],board);
-					break;
-			}
-		}
-	}
-	board.SetVectorShips(CurrentShips); 	//actual updation
-}
+// 			nearEnough = NearestAlienPair.first;
+// 			nearestAlien= NearestAlienPair.second;
+// 			action = DecideActionForShip(board,CurrentShips[i],nearEnough);
+// 			switch (action)
+// 			{
+// 				case Move:
+// 					MoveShipInDirectionOfAlien(CurrentShips[i],CurrentAliens[nearestAlien]);
+// 					break;
+// 				case Turn:
+// 					TurnShipInDirectionOfAlien(CurrentShips[i],CurrentAliens[nearestAlien]);
+// 					break;
+// 				case FireBullet:
+// 					FireBulletForShip(CurrentShips[i],board);
+// 					break;
+// 				case FireMissile:
+// 					FireMissileForShip(CurrentShips[i],board);
+// 					break;
+
+// 			}
+				
+// 		}
+// 	}
+// 	board.SetVectorShips(CurrentShips); 	//actual updation
+// }
 
 void UpdateAlien(Board &board)
 {
@@ -57,12 +60,31 @@ void UpdateAlien(Board &board)
 	WhatItShouldDo action;
 	bool nearEnough;
 	int nearestShip;
+	std::cout<<"starting for loop on aliens\n";
 	for (int i=0; i<CurrentAliens.size(); i++)
 	{
 
-	std::pair<int, bool> NearestShipPair= FindNearestShip(CurrentAliens[i],CurrentShips,nearEnough);
-	MoveAlienInDirectionOfShip(CurrentAliens[i],CurrentShips[nearestShip]);
-}
+		std::pair<int, bool> NearestShipPair= FindNearestShip(CurrentAliens[i],CurrentShips);
+		std::cout<<"Nearest Ship "<< NearestShipPair.first<<"\n";
+		// std::cout<<"Near Enough "<<NearestShipPair.second<<"\n";
+		nearEnough=NearestShipPair.second;
+		std::cout<<"got near enough\n";
+		// std::cout<<" Distance of Nearest Ship from alien is "<<DistanceOfShipFromAlien(CurrentShips[nearestShip], CurrentAliens[i]);
+		if (nearEnough==1)
+		{
+			bool finished=false;
+			TurnAlienInDirectionOfShip(CurrentAliens[i],CurrentShips[nearestShip],finished);
+			std::cout<<"Turning Alien in Direction of Ship \n";
+			if (finished==true)
+			{
+				// std::cout<<"Finished set to true \n";
+				// FireBulletForAlien(CurrentAliens[i],board);
+			}
+
+
+		}
+		
+	}
 
 	// for (int i=0; i<CurrentAliens.size(); i++)
 	// {
@@ -93,7 +115,7 @@ void UpdateAlien(Board &board)
 
 void UpdateMissile(Board &board)
 {
-	// std::cout<<"Update Missile called\n";
+	std::cout<<"Update Missile called\n";
 	UpdateAlienMissile(board);
 	UpdateShipMissile(board);
 	std::vector<Bullet> VectorBullets=board.GetVectorBullets();

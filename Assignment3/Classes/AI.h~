@@ -3,7 +3,6 @@
 #include "Board.h"
 #include <cstdlib>
 #include <time.h>
-#include <limits.h>
 
 //change these defines for ship and alien for different levels of difficulty
 #define theta 45
