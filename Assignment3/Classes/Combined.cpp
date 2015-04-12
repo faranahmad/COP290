@@ -531,11 +531,11 @@ void ShowTitle()
 
 void ShowIp()
 {
-	unsigned char *y123= (unsigned char*) GetIP().c_str();
+	unsigned char *y123= (unsigned char*) ("IP: "+ GetIP()).c_str();
 
 	// std::cout <<GetIP() <<"\n";
 	glPushMatrix();
-	glRasterPos2f(  50+ PX, PY -100);
+	glRasterPos2f(  50+ PX, PY -150);
 	glColor3f(1,0,1);
 	// glutStrokeString(GLUT_STROKE_ROMAN, y);
 	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y123);
@@ -549,7 +549,6 @@ void ShowLives()
 
 	int lives= newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives();
 	std::string s1 = std::to_string(lives);
-	s1 = s1 + " itne hain";
 	// std::cout <<s1 <<"\n";
 	unsigned char *pchar1 = (unsigned char*) s1.c_str();
 	
@@ -592,7 +591,7 @@ void ShowScores()
 		glPushMatrix();
 		glRasterPos3f( PX +100, iniy,-1000 );
 		glColor3f(0,0,1);
-		iniy -=50;
+		iniy -=60;
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
 		glPopMatrix();
 	}
