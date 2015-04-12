@@ -82,7 +82,7 @@ std::vector<Expl> Explosions;
 std::vector<SmokePoint> SmokePoints;
 std::vector<SmokePoint> SmokePointsMissile;
 std::queue<Bullet> BulletsToAdd;
-
+int presentf;
 
 extern std::queue<std::string> Instructions;
 extern bool playersReady;

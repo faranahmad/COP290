@@ -131,8 +131,9 @@ void ProcessKeys()
 			// {
 			// 	newg.LastBulletTime=clock();
 			// std::cout << SpaceBarFree <<"  number of times spacebar pressed\n";
-			if (SpaceBarFree==1)
+			if (presentf-newg.LastBulletTime>10)
 			{
+				newg.LastBulletTime=presentf;
 				Bullet newb = Bullet();
 				Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
 				float velx = 0- 10*sin(PI*present.GetAngle()/180);
@@ -901,6 +902,7 @@ void *networkmainhelper(void* inp)
 void display(void)
 {
 	// std::cout << "starting display\n";
+	presentf+=1;
 	newg.IsActive=(newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()>0);
 	while (!Instructions.empty())
 	{
@@ -962,8 +964,11 @@ void display(void)
 	// ShowScores();
 	ShowBoard(newg.PlayerBoard);
 	ShowBorders();
-	// ShowLives();
-	// ShowIp();
+	for (int i=0; i<newg.PlayerBoard.GetVectorBullets().size();i++)
+	{
+		std::cout << newg.PlayerBoard.GetNthBullet(i).GetSummary()<<"\n";
+	}
+
 	ShowAllText();
 	DisplayExplosions(Explosions);
 	glutSwapBuffers();
@@ -1131,6 +1136,8 @@ int main(int argc,char *argv[])
 
 	Alien newa= Alien();
 	newg.PlayerBoard.InsertAlien(newa);
+	newg.LastBulletTime=0;
+	presentf=0;
 
 	// Wrapper function for graphics
 	glutInit(&argc, argv);
