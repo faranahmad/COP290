@@ -1,6 +1,6 @@
 ver = -std=c++11
 
-all: Game Test
+all: Game CompGame Test
 
 RunGame: Game
 	./Game $(ip)
@@ -11,6 +11,8 @@ RunTest: Test
 Game: Alien.o Ship.o Color.o Bullet.o Board.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o Combined.o
 	g++ $(ver) -o Game Color.o Ship.o Bullet.o Alien.o Board.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o Combined.o -lGL -lGLU -lglut -lpthread
 
+CompGame: Alien.o Ship.o Color.o Bullet.o CompetitiveBoard.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o CompCombined.o
+	g++ $(ver) -o Game Color.o Ship.o Bullet.o Alien.o CompetitiveBoard.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o CompCombined.o -lGL -lGLU -lglut -lpthread
 
 Color.o: Color.cpp
 	g++ $(ver) -c Color.cpp
@@ -26,6 +28,9 @@ Bullet.o: Bullet.cpp
 
 Board.o: Board.cpp
 	g++ $(ver) -c Board.cpp
+
+CompetitiveBoard.o: CompetitiveBoard.cpp
+	g++ $(ver) -c CompetitiveBoard.cpp
 
 AIcomputation.o: AIcomputation.cpp
 	g++ $(ver) -c AIcomputation.cpp
@@ -50,6 +55,9 @@ udp.o: udp.cpp
 
 Combined.o: Combined.cpp
 	g++ $(ver) -c Combined.cpp
+
+CompCombined.o: CompCombined.cpp
+	g++ $(ver) -c CompCombined.cpp
 
 GameDebug: AlienD.o ShipD.o ColorD.o BulletD.o BoardD.o AID.o udpD.o CombinedD.o
 	g++ $(ver) -o GameDebug ColorD.o ShipD.o BulletD.o AlienD.o BoardD.o AID.o udpD.o CombinedD.o -g -lGL -lGLU -lglut -lpthread

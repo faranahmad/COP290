@@ -53,7 +53,6 @@ struct GamePlay
 	Board PlayerBoard;
 	int PlayerId;
 	int LastBulletTime;
-	bool IsActive;
 };
 
 struct Graph 

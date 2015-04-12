@@ -1,4 +1,4 @@
-#include "Combined.h"
+#include "CompCombined.h"
 
 
 std::vector<Faces> loadOBJ(char * path)
@@ -91,94 +91,91 @@ std::vector<Faces> loadOBJ(char * path)
 
 void ProcessKeys()
 {
-	if (newg.IsActive)
+	if (Keys[0])
 	{
-		if (Keys[0])
+		// Move right
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,1);
+	}
+	if (Keys[1])
+	{
+		// Move left
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,0);
+	}
+	if (Keys[2])
+	{
+		// Move up
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,2);
+	}
+	if (Keys[3])
+	{
+		// Move down
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,3);
+	}
+	if (Keys[4])
+	{
+		// Rotate d
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,5);
+	}
+	if (Keys[5])
+	{
+		// Rotate a
+		newg.PlayerBoard.MoveNthShip(newg.PlayerId,4);
+	}
+	if (Keys[6])
+	{
+		// Fire Bullet
+		// TODO: Incorporate multiple bullets
+		// if (clock()-newg.LastBulletTime>75000)
+		// {
+		// 	newg.LastBulletTime=clock();
+		// std::cout << SpaceBarFree <<"  number of times spacebar pressed\n";
+		if (SpaceBarFree==1)
 		{
-			// Move right
-			newg.PlayerBoard.MoveNthShip(newg.PlayerId,1);
-		}
-		if (Keys[1])
-		{
-			// Move left
-			newg.PlayerBoard.MoveNthShip(newg.PlayerId,0);
-		}
-		if (Keys[2])
-		{
-			// Move up
-			newg.PlayerBoard.MoveNthShip(newg.PlayerId,2);
-		}
-		if (Keys[3])
-		{
-			// Move down
-			newg.PlayerBoard.MoveNthShip(newg.PlayerId,3);
-		}
-		if (Keys[4])
-		{
-			// Rotate d
-			newg.PlayerBoard.MoveNthShip(newg.PlayerId,5);
-		}
-		if (Keys[5])
-		{
-			// Rotate a
-			newg.PlayerBoard.MoveNthShip(newg.PlayerId,4);
-		}
-		if (Keys[6])
-		{
-			// Fire Bullet
-			// TODO: Incorporate multiple bullets
-			// if (clock()-newg.LastBulletTime>75000)
-			// {
-			// 	newg.LastBulletTime=clock();
-			// std::cout << SpaceBarFree <<"  number of times spacebar pressed\n";
-			if (SpaceBarFree==1)
-			{
-				Bullet newb = Bullet();
-				Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
-				float velx = 0- 10*sin(PI*present.GetAngle()/180);
-				float vely = 10* cos(PI*present.GetAngle()/180);
-				newb.SetXPos(present.GetXPos());
-				newb.SetYPos(present.GetYPos());
-				newb.SetVelX(velx);
-				newb.SetVelY(vely);
-				newb.SetShipID(newg.PlayerId);
-				newb.SetTypeAI(false);
-				newb.SetTypePlayer(true);
-				newg.PlayerBoard.InsertBullet(newb);
-				BulletsToAdd.push(newb);
-				SpaceBarFree+=1;
-			}
-			// }
-		}
-		if (Keys[7])
-		{
-			// Fire Missile
 			Bullet newb = Bullet();
 			Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
-			if (present.GetNumberMissiles()>0)
-			{
-				present.ReduceMissile();
-	
-				float velx = -10* sin(PI*present.GetAngle()/180);
-				float vely = 10* cos(PI*present.GetAngle()/180);
-	
-				newb.SetTypeAI(true);
-				newb.SetXPos(present.GetXPos());
-				newb.SetYPos(present.GetYPos());
-				newb.SetVelX(velx);
-				newb.SetVelY(vely);
-				newb.SetShipID(newg.PlayerId);
-				newb.SetTypePlayer(true);
-				newg.PlayerBoard.SetNthShip(newg.PlayerId,present);
-				newg.PlayerBoard.InsertBullet(newb);
-				BulletsToAdd.push(newb);
-			}
+			float velx = 0- 10*sin(PI*present.GetAngle()/180);
+			float vely = 10* cos(PI*present.GetAngle()/180);
+			newb.SetXPos(present.GetXPos());
+			newb.SetYPos(present.GetYPos());
+			newb.SetVelX(velx);
+			newb.SetVelY(vely);
+			newb.SetShipID(newg.PlayerId);
+			newb.SetTypeAI(false);
+			newb.SetTypePlayer(true);
+			newg.PlayerBoard.InsertBullet(newb);
+			BulletsToAdd.push(newb);
+			SpaceBarFree+=1;
 		}
-		if (Keys[8])
+		// }
+	}
+	if (Keys[7])
+	{
+		// Fire Missile
+		Bullet newb = Bullet();
+		Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
+		if (present.GetNumberMissiles()>0)
 		{
-			// Add random alien
-			newg.PlayerBoard.AddRandomAlien();
+			present.ReduceMissile();
+
+			float velx = -10* sin(PI*present.GetAngle()/180);
+			float vely = 10* cos(PI*present.GetAngle()/180);
+
+			newb.SetTypeAI(true);
+			newb.SetXPos(present.GetXPos());
+			newb.SetYPos(present.GetYPos());
+			newb.SetVelX(velx);
+			newb.SetVelY(vely);
+			newb.SetShipID(newg.PlayerId);
+			newb.SetTypePlayer(true);
+			newg.PlayerBoard.SetNthShip(newg.PlayerId,present);
+			newg.PlayerBoard.InsertBullet(newb);
+			BulletsToAdd.push(newb);
 		}
+	}
+	if (Keys[8])
+	{
+		// Add random alien
+		newg.PlayerBoard.AddRandomAlien();
 	}
 }
 
@@ -443,30 +440,27 @@ void ShowMissile(Bullet &b)
 
 void ShowShip(Ship &shiptodisplay)
 {
-	if (shiptodisplay.GetLives()>0)
-	{
-		glPushMatrix();
-		glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
-		glRotatef(shiptodisplay.GetAngle(),0,0,1);
-		Color col_ship=shiptodisplay.GetColor();
-		glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
-		// std::cout << shiptodisplay.GetXPos() << "\t" << shiptodisplay.GetYPos() <<"\n";
-		ShowObject(ship);
-		glPopMatrix();
-	
-		glPushMatrix();
-		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
-		glRotatef(shiptodisplay.GetAngle(),0,0,1);
-		glTranslatef(0,-67,0);
-		DisplaySmokePoints(SmokePoints);
-		glPopMatrix();
-		UpdateAllSmokePoints(SmokePoints);
-	}
+	glPushMatrix();
+	glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
+	glRotatef(shiptodisplay.GetAngle(),0,0,1);
+	Color col_ship=shiptodisplay.GetColor();
+	glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
+	// std::cout << shiptodisplay.GetXPos() << "\t" << shiptodisplay.GetYPos() <<"\n";
+	ShowObject(ship);
+	glPopMatrix();
+
+	glPushMatrix();
+	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+	SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+	glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
+	glRotatef(shiptodisplay.GetAngle(),0,0,1);
+	glTranslatef(0,-67,0);
+	DisplaySmokePoints(SmokePoints);
+	glPopMatrix();
+	UpdateAllSmokePoints(SmokePoints);
 }
 
 void ShowAlien(Alien &alientodisplay)
@@ -581,7 +575,7 @@ void ShowScores()
 {
 	// const char * kg="kartikeya";
 	// unsigned char *y= (unsigned char*) kg;
-	
+
 	float iniy = -200;
 
 	for (int i=0; i<newg.PlayerBoard.GetNumberShips(); i++)
@@ -590,7 +584,7 @@ void ShowScores()
 		unsigned char *pchar3= (unsigned char*) l1.c_str();
 	
 		glPushMatrix();
-		glRasterPos3f( PX +100, iniy,-1000 );
+		glRasterPos2f( PX +100, iniy );
 		glColor3f(0,0,1);
 		iniy -=50;
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
@@ -633,25 +627,13 @@ void ShowBoard(Board &boardtodisplay)
 			ShowBullet(BulletsToDisplay[i]);
 		}
 	}
-
-	glPushMatrix();
-	glColor3f(1.0,1.0,1.0);
-	glBegin(GL_POLYGON);
-	glVertex3f( PX , 1080 , 0);
-	glVertex3f( 1920 , 1080 , 0);
-	glVertex3f( 1920 , -1080  ,0);
-	glVertex3f( PX, -1080  , 0);
-	glEnd();
-	glPopMatrix();
-
 }
 
 void newSpeed (float dest[3])
 {
-	float v = (20.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 10.0;
-	float theta1= (PI* (((GLfloat) rand ()) / ((GLfloat) RAND_MAX)));
-	float x= v*cos(theta1);
-	float y= v*sin(theta1); 
+
+	float x = (20.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 10.0;
+	float y = (20.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 10.0;
 	float z = (20.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 10.0;
 
 	dest[0] = x;
@@ -902,7 +884,6 @@ void *networkmainhelper(void* inp)
 void display(void)
 {
 	// std::cout << "starting display\n";
-	newg.IsActive=(newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()>0);
 	while (!Instructions.empty())
 	{
 		// std::cout <<"in instructions\n";
