@@ -964,10 +964,16 @@ void display(void)
 	// ShowScores();
 	ShowBoard(newg.PlayerBoard);
 	ShowBorders();
-	for (int i=0; i<newg.PlayerBoard.GetVectorBullets().size();i++)
-	{
-		std::cout << newg.PlayerBoard.GetNthBullet(i).GetSummary()<<"\n";
-	}
+	// for (int i=0; i<newg.PlayerBoard.GetVectorBullets().size();i++)
+	// {
+	// 	std::cout << "bullets info: "<< newg.PlayerBoard.GetNthBullet(i).GetSummary()<<"\n";
+	// }
+	
+	// for (int i=0; i<newg.PlayerBoard.GetNumberShips();i++)
+	// {
+	// 	std::cout << "players info: "<< newg.PlayerBoard.GetNthShip(i).GetSummary()<<"\n";
+	// }
+
 
 	ShowAllText();
 	DisplayExplosions(Explosions);
