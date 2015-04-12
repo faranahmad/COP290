@@ -6,29 +6,51 @@
 void UpdateAIBoard(Board &board)
 {
 
-	//UpdatePlayerAI(board);
+	UpdatePlayerAI(board);
 	UpdateAlien(board);
 	// if (board.GetVectorBullets().size()>0)
-	//UpdateMissile(board);
+	UpdateMissile(board);
 }
 
-// void UpdatePlayerAI(Board &board)
-// {
-// 	std::vector<Bullet> CurrentBullets = board.GetVectorBullets();
-// 	std::vector<Ship> CurrentShips = board.GetVectorShips();
-// 	std::vector<Alien> CurrentAliens = board.GetVectorAliens();
+ void UpdatePlayerAI(Board &board)
+ {
+ 	std::vector<Bullet> CurrentBullets = board.GetVectorBullets();
+ 	std::vector<Ship> CurrentShips = board.GetVectorShips();
+ 	std::vector<Alien> CurrentAliens = board.GetVectorAliens();
 // 	WhatItShouldDo action;
-// 	bool nearEnough;
-// 	int nearestAlien;
-// 	for (int i=0;i<CurrentShips.size();i++)
-// 	{
-// 		if (CurrentShips[i].IfAIControl())
-// 		{
+	bool nearEnough;
+ 	int nearestAlien;
+ 	for (int i=0;i<CurrentShips.size();i++)
+ 	{
+ 		if (CurrentShips[i].GetLives()==0)
+ 			continue;
+ 		if (CurrentShips[i].IfAIControl())
+ 		{
 			
-// 			std::pair<int,bool> NearestAlienPair = FindNearestAlien(CurrentShips[i],CurrentAliens,nearEnough);
+ 			std::pair<int,bool> NearestAlienPair = FindNearestAlien(CurrentShips[i],CurrentAliens);
 			
-// 			nearEnough = NearestAlienPair.first;
-// 			nearestAlien= NearestAlienPair.second;
+ 			nearEnough = NearestAlienPair.first;
+ 			nearestAlien= NearestAlienPair.second;
+
+ 			if (nearEnough==1)
+			{
+				bool finished=false;
+				TurnShipInDirectionOfAlien(CurrentShips[i],CurrentAliens[nearestAlien],finished);
+		//		std::cout<<"Turning Alien in Direction of Ship \n";
+				if (finished==true)
+				{
+					// std::cout<<"Finished set to true \n";
+					if(rand()%3==1)
+						MoveShipInDirectionOfAlien(CurrentShips[i],CurrentAliens[nearestAlien]);
+					else if (rand()%10==9)
+						FireBulletForShip(CurrentShips[i],board);
+					
+				}
+
+
+			}
+
+
 // 			action = DecideActionForShip(board,CurrentShips[i],nearEnough);
 // 			switch (action)
 // 			{
@@ -45,12 +67,12 @@ void UpdateAIBoard(Board &board)
 // 					FireMissileForShip(CurrentShips[i],board);
 // 					break;
 
-// 			}
+ //			}
 				
-// 		}
-// 	}
-// 	board.SetVectorShips(CurrentShips); 	//actual updation
-// }
+ 		}
+ 	}
+ 	board.SetVectorShips(CurrentShips); 	//actual updation
+}
 
 void UpdateAlien(Board &board)
 {
@@ -60,25 +82,31 @@ void UpdateAlien(Board &board)
 	WhatItShouldDo action;
 	bool nearEnough;
 	int nearestShip;
-	std::cout<<"starting for loop on aliens\n";
+	//std::cout<<"starting for loop on aliens\n";
 	for (int i=0; i<CurrentAliens.size(); i++)
 	{
 
 		std::pair<int, bool> NearestShipPair= FindNearestShip(CurrentAliens[i],CurrentShips);
-		std::cout<<"Nearest Ship "<< NearestShipPair.first<<"\n";
+		std::cout<< " Nearest Ship "<<NearestShipPair.first<<" for alien "<<i<<"\n";
+		nearestShip=NearestShipPair.first;
+	//	std::cout<<"Nearest Ship "<< NearestShipPair.first<<"\n";
 		// std::cout<<"Near Enough "<<NearestShipPair.second<<"\n";
 		nearEnough=NearestShipPair.second;
-		std::cout<<"got near enough\n";
+	//	std::cout<<"got near enough\n";
 		// std::cout<<" Distance of Nearest Ship from alien is "<<DistanceOfShipFromAlien(CurrentShips[nearestShip], CurrentAliens[i]);
 		if (nearEnough==1)
 		{
 			bool finished=false;
 			TurnAlienInDirectionOfShip(CurrentAliens[i],CurrentShips[nearestShip],finished);
-			std::cout<<"Turning Alien in Direction of Ship \n";
+	//		std::cout<<"Turning Alien in Direction of Ship \n";
 			if (finished==true)
 			{
 				// std::cout<<"Finished set to true \n";
-				// FireBulletForAlien(CurrentAliens[i],board);
+				if(rand()%3==1)
+					MoveAlienInDirectionOfShip(CurrentAliens[i],CurrentShips[nearestShip]);
+				else if (rand()%(120/(CurrentAliens[i].GetLevel()))==9)
+					FireBulletForAlien(CurrentAliens[i],board);
+				
 			}
 
 

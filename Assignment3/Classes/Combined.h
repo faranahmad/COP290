@@ -88,6 +88,7 @@ extern std::queue<std::string> Instructions;
 extern bool playersReady;
 extern bool isOffline;
 float PX,PY,NX,NY;
+int POSX,POSY,NEGX,NEGY;
 std::string IPAddress;
 
 unsigned char *titleptr;

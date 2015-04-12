@@ -187,8 +187,9 @@ float RelativeAngleOfAlienFromShip(Alien& alien,Ship &ship)//returns angles in d
 	return angle;
 }
 
-std::pair<int,bool> FindNearestAlien(Ship &ship, std::vector<Alien> &CurrentAliens,bool nearEnough)
+std::pair<int,bool> FindNearestAlien(Ship &ship, std::vector<Alien> &CurrentAliens)
 {
+	bool nearEnough;
 	float min = INT_MAX;
 	int nearestAlien = -1;
 	for (int j=0; j<CurrentAliens.size(); j++)
@@ -221,15 +222,18 @@ std::pair<int,bool> FindNearestShip(Alien &alien, std::vector<Ship> &CurrentShip
 	int nearestShip = -1;
 	for (int j=0; j<CurrentShips.size(); j++)
 	{
-		//std::cout<<"Entered Ship loop \n";
-		float dist=DistanceOfShipFromAlien(CurrentShips[j],alien);
-		//std::cout<<"Distance "<<dist<<"\n";
-		//std::cout<<"Distance is "<<dist<<" \n";
-		if (dist < min)
+		if (CurrentShips[j].GetLives()>0)
 		{
-			//std::cout<<"Updating min \n";
-			min = dist;
-			nearestShip = j;
+			//std::cout<<"Entered Ship loop \n";
+			float dist=DistanceOfShipFromAlien(CurrentShips[j],alien);
+			//std::cout<<"Distance "<<dist<<"\n";
+			//std::cout<<"Distance is "<<dist<<" \n";
+			if (dist < min)
+			{
+				//std::cout<<"Updating min \n";
+				min = dist;
+				nearestShip = j;
+			}
 		}
 	}
 	//std::cout<<"minimum dist "<<min<<"\n";

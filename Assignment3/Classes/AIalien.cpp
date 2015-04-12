@@ -97,12 +97,15 @@ void TurnAlienInDirectionOfShip(Alien &alien, Ship &ship,bool &finished)
 	float alienAngle;
 
 	float relativeangle=RelativeAngleOfShipFromAlien(ship,alien);
+
 	if (alien.GetAngle()<180)
 	 	alienAngle=alien.GetAngle();
 	else 
-	 	alienAngle =360-alien.GetAngle();
+	 	alienAngle =alien.GetAngle()-360;
+
+	std::cout<<"Relative Angle "<<relativeangle<<" Alien angle "<<alienAngle<<"\n";
 	
-	if (fabs(relativeangle-alienAngle)<=5)
+	if (fabs(relativeangle-alienAngle)<=5 )
 	{
 
 		std::cout<<"setting finished true \n";
@@ -110,7 +113,7 @@ void TurnAlienInDirectionOfShip(Alien &alien, Ship &ship,bool &finished)
 		std::cout<<"Alien angle "<<alienAngle<<"\n";
 		finished=true;
 	}
-	else if (fabs(relativeangle-alienAngle) < minAngleofRotation && fabs(relativeangle-alienAngle)>2)
+	else if (fabs(relativeangle-alienAngle) < minAngleofRotation && fabs(relativeangle-alienAngle)>1)
 		{
 			if (relativeangle>=0)
 				alien.SetAngle(relativeangle);//check

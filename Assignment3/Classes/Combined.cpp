@@ -131,7 +131,7 @@ void ProcessKeys()
 			// {
 			// 	newg.LastBulletTime=clock();
 			// std::cout << SpaceBarFree <<"  number of times spacebar pressed\n";
-			if (presentf-newg.LastBulletTime>10)
+			if (presentf-newg.LastBulletTime>5)
 			{
 				newg.LastBulletTime=presentf;
 				Bullet newb = Bullet();
@@ -1082,6 +1082,11 @@ int main(int argc,char *argv[])
 	NX=1850;
 	PY=1040;
 	NY=1040;
+	POSX=1400;
+	NEGX=1850;
+	POSY=1040;
+	NEGY=1040;
+
 
 	std::string title ="Space Invaders";
 	titleptr= (unsigned char*) title.c_str();

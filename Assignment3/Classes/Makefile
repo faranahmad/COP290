@@ -3,7 +3,7 @@ ver = -std=c++11
 all: Game CompGame Test
 
 RunGame: Game
-	./Game $(ip) $(name)
+	./Game $(ip) $(name) > Debug.txt
 
 RunTest: Test
 	./Test
@@ -100,4 +100,4 @@ AllTests.o: AllTests.cpp
 
 clean:
 	rm -rf *.o
-	rm -rf Test Game
+	rm -rf Test Game Debug.txt

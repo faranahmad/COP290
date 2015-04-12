@@ -427,23 +427,23 @@ void Board::MoveNthShip(int ship_id,int mov_type)
 	Ship ship_to_move = VectorShips.at(ship_id);
 	if(mov_type == 0)
 	{
-		ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
-		ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180));			
+		ship_to_move.SetXPos(ship_to_move.GetXPos() - 10.0*cos((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetYPos(ship_to_move.GetYPos() - 10.0*sin((double) ship_to_move.GetAngle()*PI/180));			
 	}
 	else if(mov_type == 1)
 	{
-		ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
-		ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetXPos(ship_to_move.GetXPos() + 10.0*cos((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetYPos(ship_to_move.GetYPos() + 10.0*sin((double) ship_to_move.GetAngle()*PI/180));
 	}
 	else if(mov_type == 2)
 	{
-		ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
-		ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetYPos(ship_to_move.GetYPos() + 10.0*cos((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetXPos(ship_to_move.GetXPos() - 10.0*sin((double) ship_to_move.GetAngle()*PI/180));
 	}
 	else if(mov_type == 3)
 	{
-		ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
-		ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetYPos(ship_to_move.GetYPos() - 10.0*cos((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetXPos(ship_to_move.GetXPos() + 10.0*sin((double) ship_to_move.GetAngle()*PI/180));
 	}
 	else if(mov_type == 4)
 	{

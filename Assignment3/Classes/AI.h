@@ -8,15 +8,17 @@
 //change these defines for ship and alien for different levels of difficulty
 #define theta 45
 #define minDistanceforRotation 5000000 //important to set this	//decides whether an alien should turn or move i.e affects nearEnough
-#define minAngleofRotation 1	//should be same as angular velocity shouldnt it??
-#define angularvelocity 1 		//turning velocity of ship / alien
+#define minAngleofRotation 5	//should be same as angular velocity shouldnt it??
+#define angularvelocity 5 		//turning velocity of ship / alien
 //#define maximumdistance 100000 //not required 
 #define RIGHTANGLE 90		//for moving alien/ship
 #define ALIENMISSILE -1
-#define POSX 1200 		//import these
-#define NEGX 1200
-#define POSY 600
-#define NEGY 600
+extern int POSX;
+ 		//import these
+extern int NEGX;
+
+extern int POSY;
+extern int NEGY;
 #define NOSHIP -1 	
 #define ANGLEOFVIEW 45 //view of ship/alien to decide what to do
 //import these defines from somewhere
@@ -50,11 +52,11 @@ void UpdateAlienMissileVelocity(Bullet &actualmissile,Ship &ship);
 void UpdateShipMissileVelocity(Bullet &actualmissile,Alien &alien);
 
 std::pair<int,bool> FindNearestShip(Alien &alien, std::vector<Ship> &CurrentShips);
-std::pair<int,bool> FindNearestAlien(Ship &ship, std::vector<Alien> &CurrentAliens,bool nearEnough);
+std::pair<int,bool> FindNearestAlien(Ship &ship, std::vector<Alien> &CurrentAliens);
 void MoveAlienInDirectionOfShip(Alien &alien, Ship &ship);
 void TurnAlienInDirectionOfShip(Alien &alien, Ship &ship,bool &finished);
 void MoveShipInDirectionOfAlien(Ship &ship, Alien &alien);
-void TurnShipInDirectionOfAlien(Ship &ship, Alien &alien);
+void TurnShipInDirectionOfAlien(Ship &ship, Alien &alien, bool &finished);
 
 void FireBulletForAlien(Alien &alien, Board &board);
 void FireMissileForAlien(Alien &alien, Board &board);
