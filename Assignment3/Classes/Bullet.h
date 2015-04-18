@@ -21,7 +21,8 @@ class Bullet
 		Color GetColorOfBullet();
 		int GetShipId();
 		bool GetTypeAI();
-		bool GetTypePlayer();
+		bool GetTypePlayer(); 
+		int GetTimeCreated();
 
 		void SetXPos(float);
 		void SetYPos(float);
@@ -33,6 +34,7 @@ class Bullet
 		void SetShipID(int);
 		void SetTypeAI(bool);
 		void SetTypePlayer(bool);
+		void SetTimeCreated(int);
 
 		void ResetBulletState();
 
@@ -49,6 +51,7 @@ class Bullet
 		int ShipId;				//-1 if from alien
 		bool TypeAI;			//true if Missile, AI has to be active on this
 		bool TypePlayer;		//true if Player Bullet
+		int TimeCreated; 		//for time out of missiles
 };
 
 

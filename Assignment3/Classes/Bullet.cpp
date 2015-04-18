@@ -1,13 +1,14 @@
 #include "Bullet.h" 
-
+#include <cstdlib>
 
 
 Bullet::Bullet()
 {
-	float XPos = 0.0;
-	float YPos = 0.0;
-	float VelX = 0.0;
-	float VelY = 0.0;
+	XPos = 0.0;
+	YPos = 0.0;
+	VelX = 0.0;
+	VelY = 0.0;
+	TimeCreated = time(0);
 
 }
 
@@ -56,6 +57,11 @@ bool Bullet::GetTypeAI()
 bool Bullet::GetTypePlayer()
 {
 	return TypePlayer;
+}
+
+int Bullet::GetTimeCreated()
+{
+	return TimeCreated;
 }
 
 void Bullet::SetXPos(float xposition)
@@ -108,6 +114,11 @@ void Bullet::SetTypePlayer(bool type_player)
 	TypePlayer = type_player;
 }
 
+void Bullet::SetTimeCreated(int t)
+{
+	TimeCreated = t;
+}
+
 void Bullet::ResetBulletState()
 {
 	//see later
@@ -147,3 +158,4 @@ float Bullet::GetAngle()
 			return ((float) atan(VelY / VelX) * 180/PI + 90.0);
 	}
 }
+
