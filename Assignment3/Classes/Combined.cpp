@@ -8,7 +8,7 @@ void *sound_play1(void *x)
 		if (Is_SoundExpl)
 		{
 			std::cout <<"playing found for missile\n";
-			system("canberra-gtk-play -f explosion1.wav");
+			system("canberra-gtk-play -f explosion1.mp3");
 			Is_SoundExpl=false;
 		}
 	}
