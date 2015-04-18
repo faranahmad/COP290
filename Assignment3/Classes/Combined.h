@@ -87,6 +87,8 @@ int presentf;
 extern std::queue<std::string> Instructions;
 extern bool playersReady;
 extern bool isOffline;
+bool Is_SoundExpl;
+bool Is_SoundBullet;
 float PX,PY,NX,NY;
 int POSX,POSY,NEGX,NEGY;
 std::string IPAddress;

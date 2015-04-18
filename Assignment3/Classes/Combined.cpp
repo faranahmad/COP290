@@ -1,5 +1,31 @@
 #include "Combined.h"
 
+void *sound_play1(void *x)
+{
+	std::cout <<"in sound play missle\n";
+	while (true)
+	{
+		if (Is_SoundExpl)
+		{
+			system("canberra-gtk-play -f explosion1.wav");
+			Is_SoundExpl=false;
+		}
+	}
+}
+
+void *sound_play2(void *x)
+{
+	std::cout <<" In sound play bullet\n";
+	while (true)
+	{
+		if (Is_SoundBullet)
+		{
+			std::cout << "playing sound for bullet\n";
+			system("canberra-gtk-play -f bullet1.wav");
+			Is_SoundBullet=false;
+		}
+	}
+}
 
 std::vector<Faces> loadOBJ(char * path)
 {
@@ -147,6 +173,7 @@ void ProcessKeys()
 				newb.SetTypePlayer(true);
 				newg.PlayerBoard.InsertBullet(newb);
 				BulletsToAdd.push(newb);
+				Is_SoundBullet=true;
 				SpaceBarFree+=1;
 			}
 			// }
@@ -455,18 +482,18 @@ void ShowShip(Ship &shiptodisplay)
 		ShowObject(ship);
 		glPopMatrix();
 	
-		// glPushMatrix();
-		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		// glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
-		// glRotatef(shiptodisplay.GetAngle(),0,0,1);
-		// glTranslatef(0,-67,0);
-		// DisplaySmokePoints(SmokePoints);
-		// glPopMatrix();
-		// UpdateAllSmokePoints(SmokePoints);
+		glPushMatrix();
+		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+		glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
+		glRotatef(shiptodisplay.GetAngle(),0,0,1);
+		glTranslatef(0,-67,0);
+		DisplaySmokePoints(SmokePoints);
+		glPopMatrix();
+		UpdateAllSmokePoints(SmokePoints);
 	}
 }
 
@@ -910,6 +937,10 @@ void display(void)
 		std::string s=Instructions.front();
 		Instructions.pop();
 		std::vector<Points> newexp= newg.PlayerBoard.ApplyInstructions(s,newg.PlayerId);
+		if (newexp.size()>0)
+		{
+			Is_SoundExpl=true;
+		}
 		for (int j=0; j<Explosions.size(); j++)
 		{
 			if (Explosions[j].fuel==0)
@@ -1059,6 +1090,8 @@ void mousepos(int x, int y)
 
 int main(int argc,char *argv[])
 {
+	Is_SoundExpl=false;
+	Is_SoundBullet=false;
 	pthread_t networkthread;
 	Graph datagraph;
 	datagraph.x1=argc-1;
@@ -1087,6 +1120,11 @@ int main(int argc,char *argv[])
 	POSY=1040;
 	NEGY=1040;
 
+	pthread_t soundthread1;
+	pthread_t soundthread2;
+	pthread_create(&soundthread1,NULL,sound_play1,NULL);
+	pthread_create(&soundthread2,NULL,sound_play2,NULL);
+    
 
 	std::string title ="Space Invaders";
 	titleptr= (unsigned char*) title.c_str();
