@@ -536,7 +536,7 @@ void Board::AddRandomShip()
 {
 	Ship random_ship;
 	random_ship.SetXPos(RandomFloat(-(DimensionNegX),DimensionPosX));
-	random_ship.SetYPos(RandomFloat(-(DimensionNegY),-(DimensionNegY) + 20));
+	random_ship.SetYPos(RandomFloat(-(DimensionNegY) = 20,-(DimensionNegY) + 40));
 	random_ship.SetColorFloat(rand() % 255,rand() % 255,rand() % 255);
 	random_ship.SetAngle(RandomFloat(0.0,360.0));
 	random_ship.SetId(VectorShips.size());
