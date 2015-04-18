@@ -2,7 +2,7 @@
 
 void *sound_play1(void *x)
 {
-	std::cout <<"in sound play missle\n";
+	std::cout <<"in sound play explosion\n";
 	while (true)
 	{
 		if (Is_SoundExpl)
@@ -899,8 +899,6 @@ void UpdateAllSmokePoints(std::vector<SmokePoint> &v)
 			i-=1;
 		}
 	}
-
-	// return v;
 }
 
 void DisplaySmokePoints(std::vector<SmokePoint> &v)
@@ -1012,6 +1010,10 @@ void display(void)
 		// std::cout << "It is in the baap case\n";
 		UpdateAIBoard(newg.PlayerBoard);
 		std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
+		if (p.size()>0)
+		{
+			Is_SoundExpl=true;
+		}
 		// std::cout<<"Lives after: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 
 		// std::cout << "starting for loop\n";
