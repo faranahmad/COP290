@@ -259,9 +259,12 @@ std::vector<Points> Board::UpdateAllBullets()
 		{
 			int hit_ship = CheckBulletHitShip(i);
 			if(hit_ship > -1)
-			{	
-				ships_lives_reduce.push_back(hit_ship);
-				bullets_delete.push_back(i);
+			{
+				if(VectorShips.at(hit_ship).GetLives() > 0)
+				{	
+					ships_lives_reduce.push_back(hit_ship);
+					bullets_delete.push_back(i);
+				}
 			}
 		}
 		else 
@@ -366,8 +369,7 @@ std::vector<Points> Board::UpdateAllBullets()
 		}
 		else 
 		{
-			std::cout << time(0) << "\t" << "prateek chutiya" << VectorBullets.at(i).GetTimeCreated()<< std::endl;
-			if(time(0) - VectorBullets.at(i).GetTimeCreated() > 20000) 
+			if(time(0) - VectorBullets.at(i).GetTimeCreated() > 5) 
 			{
 				VectorBullets.erase(VectorBullets.begin() + i);
 			}
