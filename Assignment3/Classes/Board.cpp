@@ -259,9 +259,12 @@ std::vector<Points> Board::UpdateAllBullets()
 		{
 			int hit_ship = CheckBulletHitShip(i);
 			if(hit_ship > -1)
-			{	
-				ships_lives_reduce.push_back(hit_ship);
-				bullets_delete.push_back(i);
+			{
+				if(VectorShips.at(hit_ship).GetLives() > 0)
+				{	
+					ships_lives_reduce.push_back(hit_ship);
+					bullets_delete.push_back(i);
+				}
 			}
 		}
 		else 
@@ -357,12 +360,19 @@ std::vector<Points> Board::UpdateAllBullets()
 			VectorBullets.erase(VectorBullets.begin() + i);
 		}
 	}
-	for (int i=0;i<VectorBullets.size();i++)
+	for (int i=VectorBullets.size() - 1;i >= 0;i--)
 	{
 		if(VectorBullets.at(i).GetTypeAI() == false)
 		{
 			VectorBullets.at(i).SetXPos(VectorBullets.at(i).GetXPos()+VectorBullets.at(i).GetVelX());
 			VectorBullets.at(i).SetYPos(VectorBullets.at(i).GetYPos()+VectorBullets.at(i).GetVelY());
+		}
+		else 
+		{
+			if(time(0) - VectorBullets.at(i).GetTimeCreated() > 5) 
+			{
+				VectorBullets.erase(VectorBullets.begin() + i);
+			}
 		}
 	}
 	return aliens_pos;
@@ -526,9 +536,11 @@ void Board::AddRandomShip()
 {
 	Ship random_ship;
 	random_ship.SetXPos(RandomFloat(-(DimensionNegX),DimensionPosX));
-	random_ship.SetYPos(RandomFloat(-(DimensionNegY),DimensionPosY));
+	random_ship.SetYPos(RandomFloat(-(DimensionNegY) + 60,-(DimensionNegY) + 120));
 	random_ship.SetColorFloat(rand() % 255,rand() % 255,rand() % 255);
 	random_ship.SetAngle(RandomFloat(0.0,360.0));
+	random_ship.SetId(VectorShips.size());
+	random_ship.SetAIControlLevel(1);
 	VectorShips.push_back(random_ship);
 }
 
@@ -536,7 +548,7 @@ void Board::AddRandomAlien()
 {
 	Alien random_alien;
 	random_alien.SetXPos(RandomFloat(-(DimensionNegX),DimensionPosX));
-	random_alien.SetYPos(RandomFloat(-(DimensionNegY),DimensionPosY));
+	random_alien.SetYPos(RandomFloat((DimensionPosY)-10,DimensionPosY));
 	random_alien.SetColorFloat(rand() % 255,rand() % 255,rand() % 255);
 	random_alien.SetAngle(RandomFloat(0.0,360.0));	
 	VectorAliens.push_back(random_alien);
