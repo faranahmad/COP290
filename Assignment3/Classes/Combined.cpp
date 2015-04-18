@@ -924,6 +924,20 @@ void *networkmainhelper(void* inp)
 	networkmain(pa->x1,pa->s1);
 }
 
+void ShowGameOver()
+{
+	glPushMatrix();
+	glColor3f(1.0,1.0,1.0);
+
+	glBegin(GL_POLYGON);
+	glVertex3f( -NX, PY, 0.0);
+	glVertex3f(  PX , PY, 0.0);
+	glVertex3f( PX , -NY  , 0.0);
+	glVertex3f( -NX, -NY  , 0.0);
+	glEnd();
+	glPopMatrix();
+	
+}
 
 void display(void)
 {
@@ -1183,8 +1197,8 @@ int main(int argc,char *argv[])
 
 	std::cout << "board is set up: " <<newg.PlayerId<<"\n";
 
-	Alien newa= Alien();
-	newg.PlayerBoard.InsertAlien(newa);
+	// Alien newa= Alien();
+	// newg.PlayerBoard.InsertAlien(newa);
 	newg.LastBulletTime=0;
 	presentf=0;
 
