@@ -536,7 +536,7 @@ void Board::AddRandomShip()
 {
 	Ship random_ship;
 	random_ship.SetXPos(RandomFloat(-(DimensionNegX),DimensionPosX));
-	random_ship.SetYPos(RandomFloat(-(DimensionNegY),-(DimensionNegY) + 20));
+	random_ship.SetYPos(RandomFloat(-(DimensionNegY) + 60,-(DimensionNegY) + 120));
 	random_ship.SetColorFloat(rand() % 255,rand() % 255,rand() % 255);
 	random_ship.SetAngle(RandomFloat(0.0,360.0));
 	random_ship.SetId(VectorShips.size());
@@ -1057,7 +1057,10 @@ std::string Board::GetNthPlayerScore(int shipid)
 	return (VectorShips.at(shipid).GetName() + " " + std::to_string(VectorShips.at(shipid).GetScore()));
 }
 
-
+std::string Board::GetNthPlayerName(int shipid)
+{
+	return VectorShips.at(shipid).GetName();
+}
 
 std::string Board::GetStringPoints(std::vector<Points> points)
 {

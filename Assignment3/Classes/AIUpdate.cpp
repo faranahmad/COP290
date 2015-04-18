@@ -99,11 +99,11 @@ void UpdateAlien(Board &board)
 			bool finished=false;
 			TurnAlienInDirectionOfShip(CurrentAliens[i],CurrentShips[nearestShip],finished);
 	//		std::cout<<"Turning Alien in Direction of Ship \n";
+			MoveAlienInDirectionOfShip(CurrentAliens[i],CurrentShips[nearestShip]);
 			if (finished==true)
 			{
 				// std::cout<<"Finished set to true \n";
 				//if(rand()%3==1)
-				MoveAlienInDirectionOfShip(CurrentAliens[i],CurrentShips[nearestShip]);
 				if (rand()%(120/(CurrentAliens[i].GetLevel()))==9)
 					FireBulletForAlien(CurrentAliens[i],board);
 				

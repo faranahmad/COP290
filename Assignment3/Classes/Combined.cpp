@@ -1175,8 +1175,6 @@ int main(int argc,char *argv[])
 	{
 		Ship news= Ship(k);
 		news.SetColorFloat(rand()%255,rand()%255,rand()%255);
-		news.SetXPos(500);
-		news.SetYPos(45);
 		newg.PlayerBoard.InsertShip(news);
 	}
 	Ship Pship=newg.PlayerBoard.GetNthShip(newg.PlayerId);
