@@ -14,6 +14,8 @@
 #include <cstring>
 #include <pthread.h>
 #include <GL/freeglut.h>
+#include <fstream>
+#include "Image.h"
 
 #define NUM_PARTICLES    1000          /* Number of particles  */
 #define NUM_DEBRIS       70            /* Number of debris     */
@@ -84,6 +86,7 @@ std::vector<SmokePoint> SmokePointsMissile;
 std::queue<Bullet> BulletsToAdd;
 int presentf;
 
+
 extern std::queue<std::string> Instructions;
 extern bool playersReady;
 extern bool isOffline;
@@ -99,6 +102,9 @@ bool Keys[9];
 int SpaceBarFree;
 
 GamePlay newg;
+
+bool GameActive;
+bool GameOver;
 
 std::vector<Faces> loadOBJ(char * path);
 void ProcessKeys();
