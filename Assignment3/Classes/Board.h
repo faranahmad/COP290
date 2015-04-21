@@ -119,6 +119,7 @@ class Board
 		void UpdateBulletsWithoutKilling(); 
 
 		std::string GetNthPlayerScore(int);
+		std::string GetNthPlayerName(int);
 		// std::string GetStringPoints(std::vector<Points>);
 		std::vector<Points> GetVectorPoints(std::string);
 		std::string GetStringPoints(std::vector<Points>);

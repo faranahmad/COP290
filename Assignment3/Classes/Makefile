@@ -8,8 +8,8 @@ RunGame: Game
 RunTest: Test
 	./Test
 
-Game: Alien.o Ship.o Color.o Bullet.o Board.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o Combined.o
-	g++ $(ver) -o Game Color.o Ship.o Bullet.o Alien.o Board.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o Combined.o -lGL -lGLU -lglut -lpthread
+Game: Alien.o Ship.o Color.o Bullet.o Board.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o Image.o Combined.o
+	g++ $(ver) -o Game Color.o Ship.o Bullet.o Alien.o Board.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o Image.o Combined.o -lGL -lGLU -lglut -lpthread
 
 CompGame: Alien.o Ship.o Color.o Bullet.o CompetitiveBoard.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o CompCombined.o
 	g++ $(ver) -o Game Color.o Ship.o Bullet.o Alien.o CompetitiveBoard.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o CompCombined.o -lGL -lGLU -lglut -lpthread
@@ -52,6 +52,9 @@ AI.o: AI.cpp
 
 udp.o: udp.cpp
 	g++ $(ver) -c udp.cpp
+
+Image.o: Image.cpp
+	g++ $(ver) -c Image.cpp
 
 Combined.o: Combined.cpp
 	g++ $(ver) -c Combined.cpp

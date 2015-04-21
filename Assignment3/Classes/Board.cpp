@@ -1057,7 +1057,10 @@ std::string Board::GetNthPlayerScore(int shipid)
 	return (VectorShips.at(shipid).GetName() + " " + std::to_string(VectorShips.at(shipid).GetScore()));
 }
 
-
+std::string Board::GetNthPlayerName(int shipid)
+{
+	return VectorShips.at(shipid).GetName();
+}
 
 std::string Board::GetStringPoints(std::vector<Points> points)
 {
