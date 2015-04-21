@@ -6,12 +6,12 @@ GLuint _textureId;
 
 void *sound_play1(void *x)
 {
-	std::cout <<"in sound play explosion\n";
+	// std::cout <<"in sound play explosion\n";
 	while (true)
 	{
 		if (Is_SoundExpl)
 		{
-			std::cout <<"playing found for missile\n";
+			// std::cout <<"playing found for missile\n";
 			system("canberra-gtk-play -f explosion1.wav");
 			Is_SoundExpl=false;
 		}
@@ -20,12 +20,12 @@ void *sound_play1(void *x)
 
 void *sound_play2(void *x)
 {
-	std::cout <<" In sound play bullet\n";
+	// std::cout <<" In sound play bullet\n";
 	while (true)
 	{
 		if (Is_SoundBullet)
 		{
-			std::cout << "playing sound for bullet\n";
+			// std::cout << "playing sound for bullet\n";
 			system("canberra-gtk-play -f bullet1.wav");
 			Is_SoundBullet=false;
 		}
@@ -324,7 +324,6 @@ void ProcessKeys()
 		if (Keys[6])
 		{
 			// Fire Bullet
-			// TODO: Incorporate multiple bullets
 			// if (clock()-newg.LastBulletTime>75000)
 			// {
 			// 	newg.LastBulletTime=clock();
@@ -334,12 +333,13 @@ void ProcessKeys()
 				newg.LastBulletTime=presentf;
 				Bullet newb = Bullet();
 				Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
-				float velx = 0- 10*sin(PI*present.GetAngle()/180);
-				float vely = 10* cos(PI*present.GetAngle()/180);
-				newb.SetXPos(present.GetXPos());
-				newb.SetYPos(present.GetYPos());
+				float velx = 0- 20*sin(PI*present.GetAngle()/180);
+				float vely = 20* cos(PI*present.GetAngle()/180);
+				newb.SetXPos(present.GetXPos()+10*velx);
+				newb.SetYPos(present.GetYPos() +10*vely);
 				newb.SetVelX(velx);
 				newb.SetVelY(vely);
+				newb.SetColorOfBulletfloat(125,255,127);
 				newb.SetShipID(newg.PlayerId);
 				newb.SetTypeAI(false);
 				newb.SetTypePlayer(true);
@@ -359,8 +359,8 @@ void ProcessKeys()
 			{
 				present.ReduceMissile();
 	
-				float velx = -10* sin(PI*present.GetAngle()/180);
-				float vely = 10* cos(PI*present.GetAngle()/180);
+				float velx = -20* sin(PI*present.GetAngle()/180);
+				float vely = 20* cos(PI*present.GetAngle()/180);
 	
 				newb.SetTypeAI(true);
 				newb.SetXPos(present.GetXPos());
@@ -368,6 +368,7 @@ void ProcessKeys()
 				newb.SetVelX(velx);
 				newb.SetVelY(vely);
 				newb.SetShipID(newg.PlayerId);
+				newb.SetColorOfBulletfloat(192,57,43);
 				newb.SetTypePlayer(true);
 				newg.PlayerBoard.SetNthShip(newg.PlayerId,present);
 				newg.PlayerBoard.InsertBullet(newb);
@@ -1175,7 +1176,7 @@ void display(void)
 	if (!GameActive)
 	{
 	
-	    std::cout <<"displaying image\n";
+	    // std::cout <<"displaying image\n";
 		glEnable(GL_TEXTURE_2D);
 	    glBindTexture(GL_TEXTURE_2D, _textureId);
 	    
@@ -1204,7 +1205,7 @@ void display(void)
 	}
 	else
 	{
-		std::cout << "in else\n";
+		// std::cout << "in else\n";
 		for (int i=0; i<Stars.size() ; i++)
 		{
 			glPushMatrix();
@@ -1233,7 +1234,7 @@ void display(void)
 	{
 		// std::cout << "in baap\n";
 		// std::cout<<"Lives before: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
-		std::cout << "It is in the baap case\n";
+		// std::cout << "It is in the baap case\n";
 		UpdateAIBoard(newg.PlayerBoard);
 		std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
 		if (p.size()>0)
