@@ -408,7 +408,7 @@ void specialKeys( int key, int x, int y )
 		Keys[3]=true;
 		// Move player ship down
 	}
-	ProcessKeys();
+	// ProcessKeys();
 	// std::cout << rotate_x <<"\t"<<rotate_y<<"\n";
 	// glutPostRedisplay();
 }
@@ -444,7 +444,7 @@ void specialKeysUp( int key, int x, int y )
 		// newg.PlayerBoard.MoveNthShip(newg.PlayerId,3);
 		// Move player ship down
 	}
-	ProcessKeys();
+	// ProcessKeys();
 	// std::cout << rotate_x <<"\t"<<rotate_y<<"\n";
 	// glutPostRedisplay();
 }
@@ -517,7 +517,7 @@ void handleKeypress(unsigned char key, int x, int y)
 			exit(0);
 		}
     }
-    ProcessKeys();
+    // ProcessKeys();
 }
 
 void handleKeypressUp(unsigned char key, int x, int y)
@@ -562,7 +562,7 @@ void handleKeypressUp(unsigned char key, int x, int y)
 			break;
 		}
 	}
-    ProcessKeys();
+    // ProcessKeys();
 }
 
 void mouseclick(int button,int state,int x,int y )
@@ -1118,6 +1118,7 @@ void ShowGameOver()
 
 void display(void)
 {
+	ProcessKeys();
 	// std::cout << "starting display\n";
 	presentf+=1;
 	newg.IsActive=(newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()>0);
