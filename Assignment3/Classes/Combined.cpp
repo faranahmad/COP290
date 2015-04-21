@@ -1174,8 +1174,8 @@ void display(void)
 	// std::cout<<"here before the if\n";
 	if (!GameActive)
 	{
-		glPushMatrix();
 	
+	    std::cout <<"displaying image\n";
 		glEnable(GL_TEXTURE_2D);
 	    glBindTexture(GL_TEXTURE_2D, _textureId);
 	    
@@ -1183,7 +1183,6 @@ void display(void)
 	    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	    glColor3f(1.0f, 1.0f, 1.0f);
 	
-	    std::cout <<"displaying image\n";
 	
 	    glBegin(GL_QUADS);
 	
@@ -1202,7 +1201,6 @@ void display(void)
 	
 	    glDisable(GL_TEXTURE_2D);
 	
-	    glPopMatrix();
 	}
 	else
 	{
@@ -1433,6 +1431,7 @@ int main(int argc,char *argv[])
 	glutKeyboardUpFunc(handleKeypressUp);
 	glutSpecialUpFunc(specialKeysUp);
 	glutPassiveMotionFunc(mousepos);
+	initRendering();
 	glutMainLoop();
 
 	return 0;

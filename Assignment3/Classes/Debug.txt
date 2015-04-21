@@ -1,9 +1,0 @@
-Opening file
-Opened file
-pushing stars
-pushed stars: 0
-My IP:10.192.5.249
-Mine:Generated stars: 4177903626
-535
-board is set up: 0
-You have been disconnected
