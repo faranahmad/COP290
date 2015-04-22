@@ -16,6 +16,7 @@
 #include <GL/freeglut.h>
 #include <fstream>
 #include "Image.h"
+#include "Highscore.h"
 
 #define NUM_PARTICLES    1000          /* Number of particles  */
 #define NUM_DEBRIS       70            /* Number of debris     */
@@ -105,6 +106,10 @@ bool Is_SoundBullet;
 float PX,PY,NX,NY;
 int POSX,POSY,NEGX,NEGY;
 std::string IPAddress;
+
+
+bool NewHighScore;
+int ID;
 
 unsigned char *titleptr;
 
