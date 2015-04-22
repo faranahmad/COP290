@@ -1,7 +1,12 @@
 #ifndef HIGHSCORE_H
 #define HIGHSCORE_H
 
+#include <iostream>
 #include <fstream>
+#include <vector>
+#include <string>
+#include <cstdio>
+#include <algorithm>
 #include "Board.h" 
 
 extern bool NewHighScore;

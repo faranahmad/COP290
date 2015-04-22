@@ -1,0 +1,10 @@
+./Game
+125
+./Game
+35
+./Game
+35
+faran
+15
+kartikeya
+10
