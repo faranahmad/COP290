@@ -75,6 +75,15 @@ struct SmokePoint
 	float 	initpos[3];
 };
 
+struct FirePoint
+{
+	float position[3];
+	float color[4];
+	int life;
+	float radius;
+};
+
+
 std::vector<Faces> alien;
 std::vector<Faces> ship;
 std::vector<Faces> missile;
@@ -83,6 +92,7 @@ std::vector<Points> Stars;
 std::vector<Expl> Explosions;
 std::vector<SmokePoint> SmokePoints;
 std::vector<SmokePoint> SmokePointsMissile;
+std::vector<FirePoint> FirePoints;
 std::queue<Bullet> BulletsToAdd;
 int presentf;
 
@@ -125,6 +135,8 @@ void ShowScores();
 void ShowAllText();
 void ShowBoard(Board &);
 Expl newExplosion (float x, float y, float z);
+void AddNewExplosion(float x, float y, float z);
+void UpdateFireExplosions();
 void ShowExplosion(Expl &);
 void UpdateAllExplosions();
 void ShowSmokePoint(SmokePoint &);

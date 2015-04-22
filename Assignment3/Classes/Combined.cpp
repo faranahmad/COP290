@@ -570,6 +570,7 @@ void mouseclick(int button,int state,int x,int y )
     // Functions for the mouse click locations
     if(state== GLUT_UP )
     {
+    	AddNewExplosion(2*x-PX, PY-2*y,0);
   //   	Bullet newb = Bullet();
 		// Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
 		// float velx = 0- 10*sin(PI*present.GetAngle()/180);
@@ -905,6 +906,91 @@ Expl newExplosion (float x, float y, float z)
 	return newexpl;
 }
 
+void AddNewExplosion(float x,float y, float z)
+{
+	for (int i=0; i<100; i++)
+	{
+		FirePoint p;
+		p.position[0]=x;
+		p.position[1]=y;
+		p.position[2]=z;
+		p.color[0]=1.0;
+		p.color[1]=1.0;
+		p.color[2]=1.0;
+		p.color[3]=1.0;
+		p.radius = rand()%50; 
+		p.life=50;
+		FirePoints.push_back(p);
+	}
+}
+
+void UpdateFireExplosions()
+{
+	for (int i=0; i<FirePoints.size() ; i++)
+	{
+		if (FirePoints[i].life>0)
+		{
+			FirePoints[i].life -=1;
+			// FirePoints[i].z +=
+			FirePoints[i].position[1] += rand()%20;
+			FirePoints[i].color[0] -= 0.0149*3;
+			FirePoints[i].color[1] += 0.005*3;
+			FirePoints[i].color[2] += 0.005*3;
+			FirePoints[i].color[3] -= 0.02;	
+		}
+		else
+		{
+			// FirePoints.
+			i-=1;
+		}
+	}
+}
+
+void ShowFirePoint(FirePoint &ptodisplay)
+{
+	glPushMatrix();
+
+	glTranslatef(ptodisplay.position[0],ptodisplay.position[1],ptodisplay.position[2]);
+	glColor4f(ptodisplay.color[0],ptodisplay.color[1],ptodisplay.color[2],ptodisplay.color[3]);
+	glutSolidSphere(ptodisplay.radius, 31, 10);
+	glPopMatrix();
+}
+
+void ShowAllFirePoints()
+{
+	for (int i=0; i<FirePoints.size(); i++)
+	{
+		ShowFirePoint(FirePoints[i]);
+	}
+}
+
+// void updatesphere(Sphere &sphere1,int decide){
+// 	// sphere1.position[0]+=random()%10;
+// 	// if(count<5){
+// 	// 	sphere1.position[2]=random()%10;
+// 	// }
+// 	// else{
+// 		sphere1.position[1]+=random()%30;
+// 	// }
+// 	sphere1.position[2]+=random()%50;
+
+// 	// sphere1.radius -= 5-random()%10;
+// 	sphere1.radius -= 2;
+// 	if(decide<sphere.size()/2){
+// 		sphere1.color[0] -= 0.0149*3;
+// 		sphere1.color[1] += 0.005*3;
+// 		sphere1.color[2] += 0.005*3;
+// 	}
+// 	else{
+// 		sphere1.color[0] -= 0.0149*3;
+// 		sphere1.color[1] -= 0.0149*3;
+// 		sphere1.color[2] += 0.005*3;
+// 	}
+
+// 	sphere1.color[3] -= 0.02;
+// 	sphere1.life = sphere1.life-3;
+
+
 void ShowExplosion(Expl &exptodisplay)
 {
 	if (exptodisplay.fuel == 0)
@@ -957,7 +1043,7 @@ void ShowExplosion(Expl &exptodisplay)
     }
 }
 
-Expl UpdateExplosion(Expl exptoupdate)
+void UpdateExplosion(Expl &exptoupdate)
 {
 	if (exptoupdate.fuel > 0)
 	{
@@ -998,14 +1084,14 @@ Expl UpdateExplosion(Expl exptoupdate)
 	  	exptoupdate.fuel -= 1;
 	}
     exptoupdate.angle += 0.3;  /* Always continue to rotate the camera */
-    return exptoupdate;
+    // return exptoupdate;
 }
 
 void UpdateAllExplosions()
 {
 	for (int i=0; i<Explosions.size(); i++)
 	{
-		Explosions[i]=UpdateExplosion(Explosions[i]);
+		UpdateExplosion(Explosions[i]);
 	}
 }
 
@@ -1216,6 +1302,7 @@ void display(void)
 			glPopMatrix();
 		}
 		ShowBoard(newg.PlayerBoard);
+		ShowAllFirePoints();
 		ShowBorders();
 		ShowAllText();
 		DisplayExplosions(Explosions);
@@ -1321,7 +1408,8 @@ void mousepos(int x, int y)
 
 int main(int argc,char *argv[])
 {
-	initRendering();
+	FirePoints = std::vector<FirePoint> ();
+	// initRendering();
 	GameActive=false;
 	GameOver=false;
 	Is_SoundExpl=false;
