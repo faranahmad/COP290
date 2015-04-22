@@ -1,7 +1,18 @@
 #include "Highscore.h"
 
-extern bool NewHighScore;
-extern int ID;
+std::vector<std::string> UpdateHighScores(Board &)
+{
+	std::string p ="kg";
+	p+="\t"; 
+	p+= "450";
+	std::vector<std::string> answer;
+	answer.push_back(p);
+	answer.push_back(p);
+	answer.push_back(p);
+	answer.push_back(p);
+	answer.push_back(p);
+	return answer;
+}
 
 // void UpdateHighScores(Board &board)
 // { 

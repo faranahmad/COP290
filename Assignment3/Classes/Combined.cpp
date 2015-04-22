@@ -3,6 +3,7 @@
 
 GLuint _textureId;
 GLuint _textureGameOver;
+GLuint _textureHighScore;
 
 
 void *sound_play1(void *x)
@@ -32,11 +33,6 @@ void *sound_play2(void *x)
 		}
 	}
 }
-
-
-
-
-
 
 namespace {
     //Converts a four-character array to an integer, using little-endian form
@@ -195,13 +191,17 @@ GLuint loadTexture(Image* image) {
 void initRendering() 
 {
     // Initialises the rendering of all textures
-    Image* image = loadBMP("bottom.bmp");
+    Image* image = loadBMP("start.bmp");
     _textureId = loadTexture(image);
     delete image;
 
     Image* image1 = loadBMP("Game_Over.bmp");
     _textureGameOver = loadTexture(image1);
     delete image1;
+
+    Image* image2 = loadBMP("highsc.bmp");
+    _textureHighScore = loadTexture(image2);
+    delete image2;
 }
 
 std::vector<Faces> loadOBJ(char * path)
@@ -1194,16 +1194,16 @@ void *networkmainhelper(void* inp)
 
 void ShowGameOver()
 {
-	glPushMatrix();
-	glColor3f(1.0,1.0,1.0);
+	// glPushMatrix();
+	// glColor3f(1.0,1.0,1.0);
 
-	glBegin(GL_POLYGON);
-	glVertex3f( -NX, PY, 0.0);
-	glVertex3f(  PX , PY, 0.0);
-	glVertex3f( PX , -NY  , 0.0);
-	glVertex3f( -NX, -NY  , 0.0);
-	glEnd();
-	glPopMatrix();
+	// glBegin(GL_POLYGON);
+	// glVertex3f( -NX, PY, 0.0);
+	// glVertex3f(  PX , PY, 0.0);
+	// glVertex3f( PX , -NY  , 0.0);
+	// glVertex3f( -NX, -NY  , 0.0);
+	// glEnd();
+	// glPopMatrix();
 	
 }
 
@@ -1297,6 +1297,12 @@ void display(void)
 	}
 	else if(GameOver)
 	{
+		if (!doneonce)
+		{
+			highscorestodisplay=UpdateHighScores(newg.PlayerBoard);
+			doneonce=true;
+		}
+
 		glEnable(GL_TEXTURE_2D);
 	    glBindTexture(GL_TEXTURE_2D, _textureGameOver);
 	    
@@ -1321,6 +1327,51 @@ void display(void)
 	
 	
 	    glDisable(GL_TEXTURE_2D);
+
+	    if (NewHighScore)
+	    {
+			glEnable(GL_TEXTURE_2D);
+		    glBindTexture(GL_TEXTURE_2D, _textureHighScore);
+		    
+		    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		    glColor3f(1.0f, 1.0f, 1.0f);
+		
+		
+		    glBegin(GL_QUADS);
+		
+		    glNormal3f(0.0, 1.0f, 0.0f);
+		    glTexCoord2f(0.0f, 1.0f);
+		    glVertex3f(-250, 600, 1000);
+		    glTexCoord2f(1.0f, 1.0f);
+		    glVertex3f(250,600, 1000);
+		    glTexCoord2f(1.0f, 0.0f);
+		    glVertex3f( 250, 300, 1000);
+		    glTexCoord2f(0.0f, 0.0f);
+		    glVertex3f( -250, 300, 1000);
+		    
+		    glEnd();
+		
+		
+		    glDisable(GL_TEXTURE_2D);
+	    }
+
+	    // Now show the highscores
+		float iniy = -200;
+
+		for (int i=0; i<highscorestodisplay.size(); i++)
+		{
+			std::string l1 = highscorestodisplay[i];
+			unsigned char *pchar3= (unsigned char*) l1.c_str();
+		
+			glPushMatrix();
+			glColor3f(0,0,1);
+			glRasterPos3f( -200, iniy, 1000 );
+			iniy -=60;
+			glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
+			glPopMatrix();
+		}
+
 
 	}
 	else
@@ -1446,13 +1497,14 @@ int main(int argc,char *argv[])
 	// initRendering();
 	GameActive=false;
 	GameOver=false;
+	doneonce=false;
 	Is_SoundExpl=false;
 	Is_SoundBullet=false;
 	pthread_t networkthread;
 	Graph datagraph;
 	datagraph.x1=argc-1;
 	datagraph.s1=argv;
-
+	NewHighScore=true;
 	pthread_create(&networkthread,NULL,networkmainhelper,&datagraph);
 
 	for (int i=0; i<8; i++)

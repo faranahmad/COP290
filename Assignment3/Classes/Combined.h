@@ -120,6 +120,9 @@ GamePlay newg;
 
 bool GameActive;
 bool GameOver;
+bool doneonce;
+std::vector<std::string> highscorestodisplay;
+
 
 std::vector<Faces> loadOBJ(char * path);
 void ProcessKeys();
