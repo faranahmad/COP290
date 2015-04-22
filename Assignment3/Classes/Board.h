@@ -127,6 +127,8 @@ class Board
 		std::string GenerateShipInsForAI();
 		void ApplyInstructionsToShipAI(std::string);
 
+		bool CheckGameOver();
+
 	private:
 		std::vector<Ship> VectorShips;
 		std::vector<Bullet> VectorBullets;		

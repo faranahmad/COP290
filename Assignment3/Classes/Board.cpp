@@ -1135,3 +1135,15 @@ void Board::ApplyInstructionsToShipAI(std::string information)
 // 2) Split by \t
 // 3) Split by _
 // COnvert string to float in vector 
+
+bool Board::CheckGameOver()
+{
+	for (int i=0; i<VectorShips.size(); i++)
+	{
+		if (VectorShips[i].GetLives()!=0)
+		{
+			return false;
+		}
+	}
+	return true;
+}

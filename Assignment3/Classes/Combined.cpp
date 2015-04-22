@@ -2,6 +2,7 @@
 
 
 GLuint _textureId;
+GLuint _textureGameOver;
 
 
 void *sound_play1(void *x)
@@ -197,6 +198,10 @@ void initRendering()
     Image* image = loadBMP("bottom.bmp");
     _textureId = loadTexture(image);
     delete image;
+
+    Image* image1 = loadBMP("Game_Over.bmp");
+    _textureGameOver = loadTexture(image1);
+    delete image1;
 }
 
 std::vector<Faces> loadOBJ(char * path)
@@ -1260,7 +1265,7 @@ void display(void)
 	glLoadIdentity();
 
 	// std::cout<<"here before the if\n";
-	if (!GameActive)
+	if (!GameActive && !GameOver)
 	{
 	
 	    // std::cout <<"displaying image\n";
@@ -1290,6 +1295,34 @@ void display(void)
 	    glDisable(GL_TEXTURE_2D);
 	
 	}
+	else if(GameOver)
+	{
+		glEnable(GL_TEXTURE_2D);
+	    glBindTexture(GL_TEXTURE_2D, _textureGameOver);
+	    
+	    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	    glColor3f(1.0f, 1.0f, 1.0f);
+	
+	
+	    glBegin(GL_QUADS);
+	
+	    glNormal3f(0.0, 1.0f, 0.0f);
+	    glTexCoord2f(0.0f, 1.0f);
+	    glVertex3f(-window_width, window_height, 1000);
+	    glTexCoord2f(1.0f, 1.0f);
+	    glVertex3f(window_width,window_height, 1000);
+	    glTexCoord2f(1.0f, 0.0f);
+	    glVertex3f(window_width, -window_height, 1000);
+	    glTexCoord2f(0.0f, 0.0f);
+	    glVertex3f(-window_width, -window_height, 1000);
+	    
+	    glEnd();
+	
+	
+	    glDisable(GL_TEXTURE_2D);
+
+	}
 	else
 	{
 		// std::cout << "in else\n";
@@ -1306,6 +1339,7 @@ void display(void)
 		ShowBorders();
 		ShowAllText();
 		DisplayExplosions(Explosions);
+		GameOver = newg.PlayerBoard.CheckGameOver();
 	}
 	// for (int i=0; i<newg.PlayerBoard.GetVectorBullets().size();i++)
 	// {
