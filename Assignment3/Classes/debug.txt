@@ -1,0 +1,34 @@
+Opening file
+My IP:10.208.20.157
+Mine:2635386890
+2635386890	1
+Awaiting data...
+Opened file
+pushing stars
+pushed stars: 0
+Generated stars: 449
+board is set up: 0
+You have been disconnected
+First GOTO
+2635386890	1
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+Awaiting data...

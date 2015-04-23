@@ -189,7 +189,7 @@ void* RemovePlayer(void* input)
 		long long now=time(0);
 		for(int i=1;i<IPdata.size();i++)
 		{
-			if((now-TimeStamp[i])>6)
+            if((now-TimeStamp[i])>10)
 			{
                  std::cout<<"Removing: "<<IPdata[i].first<<std::endl;
                  std::cout<<"Time diff:"<<(now-TimeStamp[i])<<std::endl;
