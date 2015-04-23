@@ -1,8 +1,7 @@
-#include "Board.h"
+#include "CompetitiveBoard.h"
 
 
 #define toDigit(c) (c-'0')
-
 
 std::string ToFour(std::string x)
 {
@@ -21,6 +20,8 @@ bool PairCompare(std::pair<int,std::string> x, std::pair<int,std::string> y)
 {
 	return (x.first > y.first);
 }
+
+
 
 
 bool MyFunction (int i,int j) 
@@ -104,7 +105,7 @@ void Board::SetVectorShips(std::vector<Ship> ship_vector)
 
 void Board::SetVectorAliens(std::vector<Alien> alien_vector)
 {
-	VectorAliens = alien_vector;
+	// VectorAliens = alien_vector;
 }
 
 void Board::SetNthBullet(int id,Bullet set_bullet)
@@ -114,7 +115,7 @@ void Board::SetNthBullet(int id,Bullet set_bullet)
 
 void Board::SetNthAlien(int id, Alien set_alien)
 {
-	VectorAliens.at(id) = set_alien;
+	// VectorAliens.at(id) = set_alien;
 }
 
 void Board::SetNthShip(int id, Ship set_ship)
@@ -212,30 +213,30 @@ double Board::MaxDistance()
 //returns -1 if bullets hits no alien
 int Board::CheckBulletHitAlien(int bullet_id)
 {
-	Bullet bullet_hitting = VectorBullets.at(bullet_id);
-	if(bullet_hitting.GetTypePlayer() == true)
-	{
-		for (int i = 0;i < VectorAliens.size();i++)
-		{
-			Alien alien_hit = VectorAliens.at(i);
-			float xdis = bullet_hitting.GetXPos() - alien_hit.GetXPos();
-			float ydis = bullet_hitting.GetYPos() - alien_hit.GetYPos();
-			if ((float) sqrt(xdis*xdis + ydis*ydis) < 50)
-			{
-				return i;
-			}
-		}
-	}
+	// Not to be used
+	// Bullet bullet_hitting = VectorBullets.at(bullet_id);
+	// if(bullet_hitting.GetTypePlayer() == true)
+	// {
+	// 	for (int i = 0;i < VectorAliens.size();i++)
+	// 	{
+	// 		Alien alien_hit = VectorAliens.at(i);
+	// 		float xdis = bullet_hitting.GetXPos() - alien_hit.GetXPos();
+	// 		float ydis = bullet_hitting.GetYPos() - alien_hit.GetYPos();
+	// 		if ((float) sqrt(xdis*xdis + ydis*ydis) < 50)
+	// 		{
+	// 			return i;
+	// 		}
+	// 	}
+	// }
 	return -1;
-
 }
 
 int Board::CheckBulletHitShip(int id)
 {
 	Bullet bullet_hitting = VectorBullets.at(id);
-	if(bullet_hitting.GetTypePlayer() == false)
+	for (int i = 0;i < VectorShips.size();i++)
 	{
-		for (int i = 0;i < VectorShips.size();i++)
+		if (bullet_hitting.GetShipId() != i)
 		{
 			float xdis = bullet_hitting.GetXPos() - VectorShips.at(i).GetXPos();
 			float ydis = bullet_hitting.GetYPos() - VectorShips.at(i).GetYPos();
@@ -338,7 +339,7 @@ void Board::InsertBullet(Bullet new_bullet)
 
 void Board::InsertAlien(Alien new_alien)
 {
-	VectorAliens.push_back(new_alien);
+	// VectorAliens.push_back(new_alien);
 }
 
 void Board::InsertShip(Ship new_ship)
@@ -379,23 +380,23 @@ void Board::MoveNthShip(int ship_id,int mov_type)
 	Ship ship_to_move = VectorShips.at(ship_id);
 	if(mov_type == 0)
 	{
-		ship_to_move.SetXPos(ship_to_move.GetXPos() - 10.0*cos((double) ship_to_move.GetAngle()*PI/180));
-		ship_to_move.SetYPos(ship_to_move.GetYPos() - 10.0*sin((double) ship_to_move.GetAngle()*PI/180));			
+		ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180));			
 	}
 	else if(mov_type == 1)
 	{
-		ship_to_move.SetXPos(ship_to_move.GetXPos() + 10.0*cos((double) ship_to_move.GetAngle()*PI/180));
-		ship_to_move.SetYPos(ship_to_move.GetYPos() + 10.0*sin((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
 	}
 	else if(mov_type == 2)
 	{
-		ship_to_move.SetYPos(ship_to_move.GetYPos() + 10.0*cos((double) ship_to_move.GetAngle()*PI/180));
-		ship_to_move.SetXPos(ship_to_move.GetXPos() - 10.0*sin((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
 	}
 	else if(mov_type == 3)
 	{
-		ship_to_move.SetYPos(ship_to_move.GetYPos() - 10.0*cos((double) ship_to_move.GetAngle()*PI/180));
-		ship_to_move.SetXPos(ship_to_move.GetXPos() + 10.0*sin((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
+		ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
 	}
 	else if(mov_type == 4)
 	{
@@ -426,63 +427,13 @@ void Board::MoveNthShip(int ship_id,int mov_type)
 	VectorShips.at(ship_id) = ship_to_move; 
 }
 
-// void Board::MoveNthShip(int ship_id,int mov_type)
-// {
-// 	Ship ship_to_move = VectorShips.at(ship_id);
-// 	if(mov_type == 0)
-// 	{
-// 		if(ship_to_move.GetXPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180) > -(DimensionNegX) || 
-// 		   ship_to_move.GetYPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180) > -(DimensionNegY))
-// 		{
-// 			ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
-// 			ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180));			
-// 		}
-// 	}
-// 	else if(mov_type == 1)
-// 	{
-// 		if(ship_to_move.GetXPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180) < DimensionPosX ||
-// 		   ship_to_move.GetYPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180) < DimensionPosY)
-// 		{
-// 			ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
-// 			ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
-// 		}
-// 	}
-// 	else if(mov_type == 2)
-// 	{
-// 		if(ship_to_move.GetYPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180) < DimensionPosY ||
-// 		   ship_to_move.GetXPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180) > -(DimensionNegX))
-// 		ship_to_move.SetYPos(ship_to_move.GetYPos() + 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
-// 		ship_to_move.SetXPos(ship_to_move.GetXPos() - 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
-// 	}
-// 	else if(mov_type == 3)
-// 	{
-// 		if(ship_to_move.GetYPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180) > -(DimensionNegY) ||
-// 		   ship_to_move.GetXPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180) < DimensionPosX)
-// 		ship_to_move.SetYPos(ship_to_move.GetYPos() - 5.0*cos((double) ship_to_move.GetAngle()*PI/180));
-// 		ship_to_move.SetXPos(ship_to_move.GetXPos() + 5.0*sin((double) ship_to_move.GetAngle()*PI/180));
-// 	}
-// 	else if(mov_type == 4)
-// 	{
-// 		ship_to_move.SetAngle(ship_to_move.GetAngle() - 5.0);
-// 		std::cout<<ship_to_move.GetAngle() <<"\n";
-// 	}
-// 	else if(mov_type == 5)
-// 	{
-// 		ship_to_move.SetAngle(ship_to_move.GetAngle() + 5.0);
-// 		std::cout<<ship_to_move.GetAngle() <<"\n";
-// 	}
-// 	VectorShips.at(ship_id) = ship_to_move; 
-// }
-
 void Board::AddRandomShip()
 {
 	Ship random_ship;
 	random_ship.SetXPos(RandomFloat(-(DimensionNegX),DimensionPosX));
-	random_ship.SetYPos(RandomFloat(-(DimensionNegY) + 60,-(DimensionNegY) + 120));
+	random_ship.SetYPos(RandomFloat(-(DimensionNegY),DimensionPosY));
 	random_ship.SetColorFloat(rand() % 255,rand() % 255,rand() % 255);
 	random_ship.SetAngle(RandomFloat(0.0,360.0));
-	random_ship.SetId(VectorShips.size());
-	random_ship.SetAIControlLevel(1);
 	VectorShips.push_back(random_ship);
 }
 
@@ -490,10 +441,9 @@ void Board::AddRandomAlien()
 {
 	Alien random_alien;
 	random_alien.SetXPos(RandomFloat(-(DimensionNegX),DimensionPosX));
-	random_alien.SetYPos(RandomFloat((DimensionPosY)-10,DimensionPosY));
+	random_alien.SetYPos(RandomFloat(-(DimensionNegY),DimensionPosY));
 	random_alien.SetColorFloat(rand() % 255,rand() % 255,rand() % 255);
-	random_alien.SetAngle(RandomFloat(0.0,360.0));
-	random_alien.SetType(rand() % 2);	
+	random_alien.SetAngle(RandomFloat(0.0,360.0));	
 	VectorAliens.push_back(random_alien);
 }
 
@@ -555,7 +505,7 @@ std::string Board::GeneratePlayerBulletInstructions(std::vector<Bullet> vector_b
 		
 	}
 	return answer;
-
+get_summary_ship
 
 }
 
@@ -566,43 +516,6 @@ std::string Board::GeneratePlayerInstructions(int player_id,std::vector<Bullet> 
 
 }
 
-// Ship parseship(std::string shipinfo,Ship ship_parsed)
-// {
-// 	int count = 0;
-// 	std::string getting_name = "";
-// 	while(shipinfo[count] != '_')
-//ApplyInsToShip 	{
-// 		gettingname = gettingname + shipinfo[count];
-// 		count = count + 1;
-// 	}
-// 	count = count + 1;
-// 	ship_parsed.SetName(getting_name);
-// 	std::string gettingxpos = "";
-// 	while(shipinfo[count] != '_')
-// 	{
-// 		gettingxpos = gettingxpos + shipinfo[count];
-// 		count += 1;
-// 	}
-// 	count = count + 1;
-// 	ship_parsed.SetXPos(std::atof(gettingxpos));
-// 	std::string gettingypos = "";
-// 	while(shipinfo[count] != '_')
-// 	{
-// 		gettingypos = gettingypos + shipinfo[count];
-// 		count += 1;
-// 	}
-// 	count = count + 1;
-// 	ship_parsed.SetYPos(std::atof(gettingypos));
-// 	std::string gettingangle = "";
-// 	while(shipinfo[count] != '_')
-// 	{
-// 		gettingangle = gettingangle + shipinfo[count];
-// 		count += 1;
-// 	}
-// 	count = count + 1;
-// 	ship_parsed.SetAngle(std::atof(gettingangle));
-
-// }
 std::vector<std::string> Board::SplitString(std::string s, char chartosplit)
 {
 	// Break the string s into substrings wherever the chartosplit appears
@@ -631,29 +544,19 @@ std::vector<std::string> Board::SplitString(std::string s, char chartosplit)
 
 void Board::ApplyInsToShip(std::vector<std::string> s,Ship shiptochange)
 {
-	// std::cout << "0\t" <<s[0] <<"\n";
-	// std::cout << "1\t" <<s[1] <<"\n";
-	// std::cout << "2\t" <<s[2] <<"\n";
-	// std::cout << "3\t" <<s[3] <<"\n";
-	// std::cout << "4\t" <<s[4] <<"\n";
-	// std::cout << "5\t" <<s[5] <<"\n";
-	// std::cout << "6\t" <<s[6] <<"\n";
-	// std::cout << "7\t" <<s[7] <<"\n";
-	// std::cout << "8\t" <<s[8] <<"\n";
 	shiptochange.SetName(s[2]);
 	shiptochange.SetXPos(std::stof(s[3]));
 	shiptochange.SetYPos(std::stof(s[4]));
 	shiptochange.SetAngle(std::stof(s[5]));
 	shiptochange.SetColorFloatInp(std::stof(s[6]),std::stof(s[7]),std::stof(s[8]));
-	// shiptochange.SetLives(std::stoi(s[9]));
-	// shiptochange.SetScore(std::stoi(s[10]));
-	// shiptochange.SetMultiplier(std::stoi(s[11]));
-	// shiptochange.SetKills(std::stoi(s[12]));
-	// shiptochange.SetNumberBullets(std::stoi(s[13]));
-	// shiptochange.SetNumberMissiles(std::stoi(s[14]));
+	shiptochange.SetLives(std::stoi(s[9]));
+	shiptochange.SetScore(std::stoi(s[10]));
+	shiptochange.SetMultiplier(std::stoi(s[11]));
+	shiptochange.SetKills(std::stoi(s[12]));
+	shiptochange.SetNumberBullets(std::stoi(s[13]));
+	shiptochange.SetNumberMissiles(std::stoi(s[14]));
 	shiptochange.SetAIControlLevel(std::stoi(s[15]));
-	VectorShips[std::stoi(s[1])] = shiptochange;	
-	// std::cout << "applied all\n";
+	VectorShips[std::stoi(s[1])] = shiptochange;
 }
 
 void Board::ApplyInsToBullets(std::string bulletinfostring)
@@ -670,20 +573,6 @@ void Board::ApplyInsToBullets(std::string bulletinfostring)
 	bullettoadd.SetTypePlayer(ExtractBool(std::stoi(bulletinfo[10])));
 	VectorBullets.push_back(bullettoadd);
 }
-
-// void Board::ApplyShipInstructions(std::string information)
-// {
-// 	std::vector<std::string> ship_bullets = SplitString(information,'\n');	
-// 	std::vector<std::string> shipinfo = SplitString(ship_bullets[0],'_');
-// 	int shipid = std::stoi(shipinfo[1]);
-// 	ApplyInsToShip(shipinfo,VectorShips[shipid]);
-// 	for (int i = 1;i<ship_bullets.size();i++)
-// 	{
-// 		std::vector<std::string> bulletinfo = SplitString(ship_bullets[i],'\t');
-// 		ApplyInsToBullets(bulletinfo);
-// 	}
-// }
-
 
 void Board::ApplyShipInstructions(std::string information,int t)
 {
@@ -708,7 +597,7 @@ void Board::ApplyShipInstructions(std::string information,int t)
 			VectorShips[shipid].SetLives(std::stoi(shipinfo[9]));
 			VectorShips[shipid].SetScore(std::stoi(shipinfo[10]));
 			VectorShips[shipid].SetMultiplier(std::stoi(shipinfo[11]));
-			VectorShips[shipid].SetKills(std::stoi(shipinfo[12]));
+			VectorShips[shipid].SetKillget_summary_ships(std::stoi(shipinfo[12]));
 			VectorShips[shipid].SetNumberBullets(std::stoi(shipinfo[13]));
 			VectorShips[shipid].SetAIControlLevel(std::stoi(shipinfo[15]));
 		}
@@ -806,7 +695,7 @@ std::string Board::GenerateOnlyPlayerInstructions(int player_id,std::vector<Bull
 
 std::string Board::GenerateAllInstructions(int player_id,std::vector<Points> points)
 {
-	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation() + "\n" + GetStringPoints(points) + "\n" + GenerateShipInsForAI()); 
+	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GetStringPoints(points)); 
 }
 
 std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
@@ -844,10 +733,6 @@ std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
 		{
 			//std::cout <<"applying aliens\n";
 			ApplyAllAlienInstructions(infosplitted[i]);
-		}
-		else if(infosplitted[i][0] == 't')
-		{
-			ApplyInstructionsToShipAI(infosplitted[i]);
 		}
 	}
 	return vanswer;
@@ -1000,10 +885,7 @@ std::string Board::GetNthPlayerScore(int shipid)
 	return (VectorShips.at(shipid).GetName() + " " + std::to_string(VectorShips.at(shipid).GetScore()));
 }
 
-std::string Board::GetNthPlayerName(int shipid)
-{
-	return VectorShips.at(shipid).GetName();
-}
+
 
 std::string Board::GetStringPoints(std::vector<Points> points)
 {
@@ -1042,38 +924,8 @@ std::vector<Points> Board::GetVectorPoints(std::string information)
 		}
 	}
 	return answer;
-}
+}get_summary_ship
 
-std::string Board::GenerateShipInsForAI()
-{
-	std::string answer = "";
-	for(int i=0;i<VectorShips.size() - 1;i++)
-	{
-		answer = answer + "t_" + std::to_string(i) + "_" 
-							   + std::to_string(VectorShips.at(i).GetLives()) + "_" 
-							   + std::to_string(VectorShips.at(i).GetScore()) + "_" 
-							   + std::to_string(VectorShips.at(i).GetNumberMissiles()) + "\t"; 
-	}
-	answer = answer + "t_" + std::to_string(VectorShips.size()-1) + "_" 
-						   + std::to_string(VectorShips.at(VectorShips.size()-1).GetLives()) + "_" 
-						   + std::to_string(VectorShips.at(VectorShips.size()-1).GetScore()) + "_" 
-						   + std::to_string(VectorShips.at(VectorShips.size()-1).GetNumberMissiles());
-
-	return answer;
-}
-
-void Board::ApplyInstructionsToShipAI(std::string information)
-{
-	std::vector<std::string> AllShipsInfo = SplitString(information,'\t');
-	for(int i = 0;i<AllShipsInfo.size();i++)
-	{
-		std::vector<std::string> shipinfo = SplitString(AllShipsInfo[i],'_');
-		int id  = std::stoi(shipinfo[1]);
-		VectorShips.at(id).SetLives(std::stoi(shipinfo[2]));
-		VectorShips.at(id).SetScore(std::stoi(shipinfo[3]));
-		// VectorShips.at(id).SetNumberMissiles(std::stoi(shipinfo[4])); 
-	}
-}
 // 1) split by \n
 // 2) Split by \t
 // 3) Split by _
@@ -1113,4 +965,4 @@ std::vector<std::string> Board::GetRanking()
 	}
 	return answer;
 
-}
+}get_summary_ship

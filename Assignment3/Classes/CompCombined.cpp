@@ -1367,10 +1367,10 @@ void ShowGameOver()
 void display(void)
 {
 	ProcessKeys();
-	std::cout << "starting display\n";
+	// std::cout << "starting display\n";
 	presentf+=1;
 
-	std::cout << "Starting display work\n";
+	// std::cout << "Starting display work\n";
 	int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
 	int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
 	// float const window_aspect = (float)window_width / (float)window_height;
@@ -1396,7 +1396,7 @@ void display(void)
 	}
 
 
-	std::cout<<"here before the if\n";
+	// std::cout<<"here before the if\n";
 	if (!GameActive && !GameOver)
 	{
 	    // std::cout <<"displaying image\n";
@@ -1526,7 +1526,7 @@ void display(void)
 	}
 	else
 	{
-		std::cout << "in else\n";
+		// std::cout << "in else\n";
 		for (int i=0; i<Stars.size() ; i++)
 		{
 			glPushMatrix();
@@ -1568,19 +1568,19 @@ void *UpdateGameThread(void *x)
 {
 	while(true)
 	{
-		std::cout <<"getting lives\n";
+		// std::cout <<"getting lives\n";
 		newg.IsActive=(newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()>0);
-		std::cout <<"got lives\n";
+		// std::cout <<"got lives\n";
 
 		while (!Instructions.empty())
 		{
-       		std::cout <<"in instructions\n";
+       		// std::cout <<"in instructions\n";
         	std::string s=Instructions.front();
 //        std::cout <<s.size() <<"\n";
 			Instructions.pop();
-			std::cout <<"popped 1\n";
+			// std::cout <<"popped 1\n";
 			std::vector<Points> newexp= newg.PlayerBoard.ApplyInstructions(s,newg.PlayerId);
-			std::cout << "applied\n";
+			// std::cout << "applied\n";
 			if (newexp.size()>0)
 			{
 				Is_SoundExpl=true;
@@ -1598,23 +1598,23 @@ void *UpdateGameThread(void *x)
 		// {
 		// 	Explosions.push_back(newExplosion(newexp[j].x,newexp[j].y,0));
 		// }
-		std::cout << "pushed new explosions\n";
+		// std::cout << "pushed new explosions\n";
 	}
-	std::cout <<"applied instructions if any\n";
+	// std::cout <<"applied instructions if any\n";
 	std::vector<Bullet> bulltoadd;
 	while (!BulletsToAdd.empty())
 	{
 		bulltoadd.push_back(BulletsToAdd.front());
 		BulletsToAdd.pop();
 	}
-	std::cout <<"bullets work done\n";
+	// std::cout <<"bullets work done\n";
 	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,bulltoadd);
    // std::cout << "sending" << message1.size() <<"\n";
     SendMessageToAll(message1);
 
 		if (IsBaap() && GameActive)
 		{
-       std::cout << "in baap\n";
+       // std::cout << "in baap\n";
 		// std::cout<<"Lives before: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 		// std::cout << "It is in the baap case\n";
 		OPUpdateAIBoard(newg.PlayerBoard);
@@ -1623,7 +1623,7 @@ void *UpdateGameThread(void *x)
 		{
 			Is_SoundExpl=true;
 		}
-		std::cout<<"Lives after: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
+		// std::cout<<"Lives after: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 
 		// std::cout << "starting for loop\n";
 		// for (int j=0; j<Explosions.size(); j++)
@@ -1650,14 +1650,14 @@ void *UpdateGameThread(void *x)
 		// std::cout <<" generated instructions\n";
 		// std::cout << message1;
 		SendMessageToAll(message1);
-		std::cout << "done sent\n";
+		// std::cout << "done sent\n";
 	}
 	else if (GameActive)
 	{
 		// std::cout << "updateing bullets without killing\n";
 		newg.PlayerBoard.UpdateBulletsWithoutKilling();
 	}
-	std::cout << "starting sleep\n";
+	// std::cout << "starting sleep\n";
 
 		usleep(40000);	
 	// std::cout <<"sleep over\n";
