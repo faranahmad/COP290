@@ -1617,7 +1617,7 @@ void display(void)
 			// std::cout << p[j].x <<"\t" <<p[j].y << "\n";
 		}
 
-        while (newg.PlayerBoard.GetNumberAliens()<=newg.LastBulletTime/50)
+        while (newg.PlayerBoard.GetNumberAliens()<=15)
 		{
 			newg.PlayerBoard.AddRandomAlien();
 		}
