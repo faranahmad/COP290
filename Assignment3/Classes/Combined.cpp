@@ -1575,6 +1575,7 @@ void *UpdateGameThread(void *x)
 		Instructions.pop();
 		std::cout <<"popped 1\n";
 		std::vector<Points> newexp= newg.PlayerBoard.ApplyInstructions(s,newg.PlayerId);
+		std::cout << "applied\n";
 		if (newexp.size()>0)
 		{
 			Is_SoundExpl=true;
@@ -1588,11 +1589,11 @@ void *UpdateGameThread(void *x)
 		// 	}
 		// }
 		// std::cout <<"erased any explosions\n";
-		for (int j=0; j<newexp.size(); j++)
-		{
-			Explosions.push_back(newExplosion(newexp[j].x,newexp[j].y,0));
-		}
-		// std::cout << "pushed new explosions\n";
+		// for (int j=0; j<newexp.size(); j++)
+		// {
+		// 	Explosions.push_back(newExplosion(newexp[j].x,newexp[j].y,0));
+		// }
+		std::cout << "pushed new explosions\n";
 	}
 	std::cout <<"applied instructions if any\n";
 	std::vector<Bullet> bulltoadd;
