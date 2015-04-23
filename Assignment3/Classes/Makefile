@@ -3,7 +3,7 @@ ver = -std=c++11
 all: Game CompGame Test
 
 RunGame: Game
-	./Game $(ip) $(name) > debug.txt
+	./Game $(ip) $(name)
 
 RunTest: Test
 	./Test
