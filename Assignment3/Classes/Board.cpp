@@ -4,6 +4,24 @@
 #define toDigit(c) (c-'0')
 
 
+std::string ToFour(std::string x)
+{
+	if(x.length() == 0) 
+		return ("0000"); 
+	else if(x.length() == 1) 
+		return (("000") + x);
+	else if(x.length() == 2) 
+		return (("00") + x);
+	else if(x.length() == 3) 
+		return (("0") + x);
+	else  
+		return x;
+}
+bool PairCompare(std::pair<int,std::string> x, std::pair<int,std::string> y)
+{
+	return (x.first > y.first);
+}
+
 
 bool MyFunction (int i,int j) 
 { 
@@ -1146,4 +1164,28 @@ bool Board::CheckGameOver()
 		}
 	}
 	return true;
+} 
+
+std::vector<std::string> Board::GetRanking()
+{
+	std::vector< std::pair<int,std::string> > player_score; 
+	for (int i=0;i<VectorShips.size();i++)
+	{
+		std::pair<int,std::string> x; 
+		x.first = VectorShips.at(i).GetScore();
+		x.second = VectorShips.at(i).GetName();
+		player_score.push_back(x);
+	} 
+	std::sort (player_score.begin(),player_score.end(), PairCompare);
+	std::string rank = "Rank";
+	std::string name =  "Name";
+	std::string score  = "Score";
+	std::vector<std::string> answer;
+	answer.push_back(rank + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + score + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + name );
+	for(int i=0;i<player_score.size();i++)
+	{
+		answer.push_back(std::to_string(i+1) + "."  + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" +"\t" +"\t" + ToFour(std::to_string(player_score.at(i).first)) +  "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" +  player_score.at(i).second );
+	}
+	return answer;
+
 }
