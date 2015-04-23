@@ -1,11 +1,11 @@
-#ifndef COMBINED_H
-#define COMBINED_H
+#ifndef COMPCOMBINED_H
+#define COMPCOMBINED_H
 
 
-#include "Board.h"
+#include "CompetitiveBoard.h"
 #include "udp.h"
 #include <time.h>
-#include "AI.h"
+#include "OPAI.h"
 #include <GL/glut.h>
 #include <GL/gl.h>
 #include <iostream>
@@ -14,6 +14,9 @@
 #include <cstring>
 #include <pthread.h>
 #include <GL/freeglut.h>
+#include <fstream>
+#include "Image.h"
+#include "Highscore.h"
 
 #define NUM_PARTICLES    1000          /* Number of particles  */
 #define NUM_DEBRIS       70            /* Number of debris     */
@@ -53,6 +56,7 @@ struct GamePlay
 	Board PlayerBoard;
 	int PlayerId;
 	int LastBulletTime;
+	bool IsActive;
 };
 
 struct Graph 
@@ -72,22 +76,58 @@ struct SmokePoint
 	float 	initpos[3];
 };
 
-std::vector<Faces> alien;
-std::vector<Faces> ship;
-std::vector<Faces> missile;
-std::vector<Faces> bullet;
+struct FirePoint
+{
+	float position[3];
+	float color[4];
+	int life;
+	float radius;
+};
+
+
+std::vector<Faces> alien1gun;
+std::vector<Faces> alien1col;
+std::vector<Faces> alien1top;
+std::vector<Faces> alien1mid;
+
+std::vector<Faces> alien2gun;
+std::vector<Faces> alien2eye;
+std::vector<Faces> alien2body;
+std::vector<Faces> alien2top;
+
+
+std::vector<Faces> shipcol;
+std::vector<Faces> shipmid;
+std::vector<Faces> shipfir;
+
+std::vector<Faces> missiletop;
+std::vector<Faces> missilemid;
+std::vector<Faces> missileend;
+
+std::vector<Faces> bullettop;
+std::vector<Faces> bulletmid;
+
 std::vector<Points> Stars;
 std::vector<Expl> Explosions;
 std::vector<SmokePoint> SmokePoints;
 std::vector<SmokePoint> SmokePointsMissile;
+std::vector<FirePoint> FirePoints;
 std::queue<Bullet> BulletsToAdd;
+int presentf;
 
-
+bool viewtotake;
 extern std::queue<std::string> Instructions;
 extern bool playersReady;
 extern bool isOffline;
+bool Is_SoundExpl;
+bool Is_SoundBullet;
 float PX,PY,NX,NY;
+int POSX,POSY,NEGX,NEGY;
 std::string IPAddress;
+
+
+bool NewHighScore;
+int ID;
 
 unsigned char *titleptr;
 
@@ -95,6 +135,13 @@ bool Keys[9];
 int SpaceBarFree;
 
 GamePlay newg;
+
+bool GameActive;
+bool GameOver;
+bool doneonce;
+std::vector<std::string> highscorestodisplay;
+std::vector<std::string> rankingtodisplay;
+
 
 std::vector<Faces> loadOBJ(char * path);
 void ProcessKeys();
@@ -115,6 +162,8 @@ void ShowScores();
 void ShowAllText();
 void ShowBoard(Board &);
 Expl newExplosion (float x, float y, float z);
+void AddNewExplosion(float x, float y, float z);
+void UpdateFireExplosions();
 void ShowExplosion(Expl &);
 void UpdateAllExplosions();
 void ShowSmokePoint(SmokePoint &);

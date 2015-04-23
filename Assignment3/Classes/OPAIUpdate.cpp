@@ -1,4 +1,4 @@
-#include "AI.h" 
+#include "OPAI.h" 
 
 
 
@@ -6,10 +6,10 @@
 void OPUpdateAIBoard(Board &board)
 {
 
-	UpdatePlayerAI(board);
+	OPUpdatePlayerAI(board);
 	//UpdateAlien(board);
 	// if (board.GetVectorBullets().size()>0)
-	UpdateMissile(board);
+	OPUpdateMissile(board);
 }
 
  void OPUpdatePlayerAI(Board &board)
@@ -37,7 +37,7 @@ void OPUpdateAIBoard(Board &board)
 			{
 				bool finished=false;
 				OPTurnShipInDirectionOfShip(CurrentShips[i],CurrentShips[nearestShip],finished);
-				if(rand()%3==1)
+			if(rand()%3==1)
 						OPMoveShipInDirectionOfShip(CurrentShips[i],CurrentShips[nearestShip]);
 		//		std::cout<<"Turning Alien in Direction of Ship \n";
 				if (finished==true)

@@ -2,9 +2,9 @@ soccer
 1500
 faran
 1380
+./Game
+795
 ronak
 475
-soccer
-270
-soccer
-265
+legend
+420

@@ -123,6 +123,12 @@ class Board
 		std::vector<Points> GetVectorPoints(std::string);
 		std::string GetStringPoints(std::vector<Points>);
 
+		
+		bool CheckGameOver();
+		std::vector<std::string> GetRanking();
+		// Return a vector of strings in ehich each string is rank name score and sorted in descending order by score
+		// eg. <"1 kg 295", "2 soccer 235 ","3 faran 200">
+
 	private:
 		std::vector<Ship> VectorShips;
 		std::vector<Bullet> VectorBullets;		

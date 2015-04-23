@@ -1,4 +1,4 @@
-#include "AI.h"
+#include "OPAI.h"
 
 std::pair<int,bool> OPFindNearestShip(Ship &ship, std::vector<Ship> &CurrentShips)
 {
@@ -10,7 +10,7 @@ std::pair<int,bool> OPFindNearestShip(Ship &ship, std::vector<Ship> &CurrentShip
 	bool checker=false;
 	for (int j=0; j<CurrentShips.size(); j++)
 	{
-		if(CurrentShips[j]==ship)
+		if(j==ship.GetId())
 			continue;
 		if (CurrentShips[j].GetLives()>0)
 		{
@@ -38,6 +38,29 @@ std::pair<int,bool> OPFindNearestShip(Ship &ship, std::vector<Ship> &CurrentShip
 	return std::pair<int,bool> (nearestShip,nearEnough);
 
 }
+
+float OPRelativeAngleShipFromMissile(Ship &ship,Bullet &actualmissile)
+{
+	float angle;
+
+	if (ship.GetXPos()-actualmissile.GetXPos() == 0.0)
+	{
+		if ((ship.GetYPos()-actualmissile.GetYPos())>0)
+			angle= (float) 0.0;
+		else
+			angle= 180.0;
+	} 
+	else
+	{
+		if (ship.GetXPos()-actualmissile.GetXPos()>0)
+			angle= ((float) atan( (ship.GetYPos()-actualmissile.GetYPos())/ (ship.GetXPos()-actualmissile.GetXPos())) * 180/PI - 90.0);
+		else
+			angle= ((float) atan((ship.GetYPos()-actualmissile.GetYPos()) / (ship.GetXPos()-actualmissile.GetXPos())) * 180/PI + 90.0);
+	}
+
+	return (actualmissile.GetAngle()-angle)*PI/180.0;
+}
+
 
 float OPDistanceOfShipFromShip(Ship &ship1, Ship &ship2)
 {
@@ -92,7 +115,7 @@ int OPClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actualm
 	float leastDistance = maxDistance; //Infinity
 	for (int i=0; i<NumberShips;i++)
 	{
-		if (i==actualmissile.GetShipId)
+		if (i==actualmissile.GetShipId())
 			continue;
 
 		if (OPShipInArc(Ships[i],actualmissile) && OPDistanceOfShipFromMissile(Ships[i],actualmissile) < leastDistance)
@@ -107,7 +130,7 @@ int OPClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actualm
 
 bool OPShipInArc(Ship &ship, Bullet &actualmissile)
 {
-	if (fabs(RelativeAngleShipFromMissile(ship,actualmissile)*180/PI)<theta)
+	if (fabs(OPRelativeAngleShipFromMissile(ship,actualmissile)*180/PI)<theta)
 		return true;
 	else 
 		return false;

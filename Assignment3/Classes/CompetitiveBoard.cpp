@@ -3,6 +3,25 @@
 
 #define toDigit(c) (c-'0')
 
+std::string ToFour(std::string x)
+{
+	if(x.length() == 0) 
+		return ("0000"); 
+	else if(x.length() == 1) 
+		return (("000") + x);
+	else if(x.length() == 2) 
+		return (("00") + x);
+	else if(x.length() == 3) 
+		return (("0") + x);
+	else  
+		return x;
+}
+bool PairCompare(std::pair<int,std::string> x, std::pair<int,std::string> y)
+{
+	return (x.first > y.first);
+}
+
+
 
 
 bool MyFunction (int i,int j) 
@@ -86,7 +105,7 @@ void Board::SetVectorShips(std::vector<Ship> ship_vector)
 
 void Board::SetVectorAliens(std::vector<Alien> alien_vector)
 {
-	VectorAliens = alien_vector;
+	// VectorAliens = alien_vector;
 }
 
 void Board::SetNthBullet(int id,Bullet set_bullet)
@@ -96,7 +115,7 @@ void Board::SetNthBullet(int id,Bullet set_bullet)
 
 void Board::SetNthAlien(int id, Alien set_alien)
 {
-	VectorAliens.at(id) = set_alien;
+	// VectorAliens.at(id) = set_alien;
 }
 
 void Board::SetNthShip(int id, Ship set_ship)
@@ -195,20 +214,20 @@ double Board::MaxDistance()
 int Board::CheckBulletHitAlien(int bullet_id)
 {
 	// Not to be used
-	Bullet bullet_hitting = VectorBullets.at(bullet_id);
-	if(bullet_hitting.GetTypePlayer() == true)
-	{
-		for (int i = 0;i < VectorAliens.size();i++)
-		{
-			Alien alien_hit = VectorAliens.at(i);
-			float xdis = bullet_hitting.GetXPos() - alien_hit.GetXPos();
-			float ydis = bullet_hitting.GetYPos() - alien_hit.GetYPos();
-			if ((float) sqrt(xdis*xdis + ydis*ydis) < 50)
-			{
-				return i;
-			}
-		}
-	}
+	// Bullet bullet_hitting = VectorBullets.at(bullet_id);
+	// if(bullet_hitting.GetTypePlayer() == true)
+	// {
+	// 	for (int i = 0;i < VectorAliens.size();i++)
+	// 	{
+	// 		Alien alien_hit = VectorAliens.at(i);
+	// 		float xdis = bullet_hitting.GetXPos() - alien_hit.GetXPos();
+	// 		float ydis = bullet_hitting.GetYPos() - alien_hit.GetYPos();
+	// 		if ((float) sqrt(xdis*xdis + ydis*ydis) < 50)
+	// 		{
+	// 			return i;
+	// 		}
+	// 	}
+	// }
 	return -1;
 }
 
@@ -278,7 +297,7 @@ std::vector<Points> Board::UpdateAllBullets()
 			VectorShips.at(ships_lives_reduce.at(i)).SetLives(VectorShips.at(ships_lives_reduce.at(i)).GetLives()-1);
 		}
 	}
-	for (int i = aliens_delete_size-1;i>=0;i--)
+	// for (int i = aliens_delete_size-1;i>=0;i--)
 	for (int i=VectorBullets.size()-1;i>=0;i--)
 	{
 		if(VectorBullets.at(i).GetXPos()+2.0 > DimensionPosX 
@@ -294,7 +313,7 @@ std::vector<Points> Board::UpdateAllBullets()
 		VectorBullets.at(i).SetXPos(VectorBullets.at(i).GetXPos()+VectorBullets.at(i).GetVelX());
 		VectorBullets.at(i).SetYPos(VectorBullets.at(i).GetYPos()+VectorBullets.at(i).GetVelY());
 	}
-	
+	return ship_pos;	
 }
 
 void Board::UpdateAliens()
@@ -315,7 +334,7 @@ void Board::InsertBullet(Bullet new_bullet)
 
 void Board::InsertAlien(Alien new_alien)
 {
-	VectorAliens.push_back(new_alien);
+	// VectorAliens.push_back(new_alien);
 }
 
 void Board::InsertShip(Ship new_ship)
@@ -906,3 +925,39 @@ std::vector<Points> Board::GetVectorPoints(std::string information)
 // 2) Split by \t
 // 3) Split by _
 // COnvert string to float in vector 
+
+bool Board::CheckGameOver()
+{
+	for (int i=0; i<VectorShips.size(); i++)
+	{
+		if (VectorShips[i].GetLives()!=0)
+		{
+			return false;
+		}
+	}
+	return true;
+} 
+
+std::vector<std::string> Board::GetRanking()
+{
+	std::vector< std::pair<int,std::string> > player_score; 
+	for (int i=0;i<VectorShips.size();i++)
+	{
+		std::pair<int,std::string> x; 
+		x.first = VectorShips.at(i).GetScore();
+		x.second = VectorShips.at(i).GetName();
+		player_score.push_back(x);
+	} 
+	std::sort (player_score.begin(),player_score.end(), PairCompare);
+	std::string rank = "Rank";
+	std::string name =  "Name";
+	std::string score  = "Score";
+	std::vector<std::string> answer;
+	answer.push_back(rank + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + score + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + name );
+	for(int i=0;i<player_score.size();i++)
+	{
+		answer.push_back(std::to_string(i+1) + "."  + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" +"\t" +"\t" + ToFour(std::to_string(player_score.at(i).first)) +  "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" +  player_score.at(i).second );
+	}
+	return answer;
+
+}

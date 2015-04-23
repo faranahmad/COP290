@@ -1,3 +1,5 @@
+#include "OPAI.h"
+
 void OPUpdateShipMissile(Board &board)
 {
 	// std::cout<<"Update Ship missile called\n";

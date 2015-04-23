@@ -1,3 +1,5 @@
+#include "OPAI.h"
+
 void OPMoveShipInDirectionOfShip(Ship &ship1, Ship &ship2)
 {
 	float relativeangle;
@@ -95,4 +97,20 @@ void OPTurnShipInDirectionOfShip(Ship &ship1, Ship &ship2, bool &finished)
 		//change the sign of this according to where the alien is
 	}
 
+}
+
+void OPFireBulletForShip(Ship &ship, Board &board)
+{
+	Bullet newb = Bullet();
+	
+	float velx = 0- 10*sin(PI*ship.GetAngle()/180);
+	float vely = 10* cos(PI*ship.GetAngle()/180);
+	newb.SetXPos(ship.GetXPos());
+	newb.SetYPos(ship.GetYPos());
+	newb.SetVelX(velx);
+	newb.SetVelY(vely);
+	newb.SetShipID(ship.GetId());
+	newb.SetTypeAI(false);
+	newb.SetTypePlayer(true);
+	board.InsertBullet(newb);
 }

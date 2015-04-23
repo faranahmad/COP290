@@ -5,14 +5,17 @@ all: Game CompGame Test
 RunGame: Game
 	./Game $(ip) $(name)
 
+RunCompGame: CompGame
+	./CompGame $(ip) $(name)
+
 RunTest: Test
 	./Test
 
 Game: Alien.o Ship.o Color.o Bullet.o Board.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o Image.o Highscore.o Combined.o
 	g++ $(ver) -o Game Color.o Ship.o Bullet.o Alien.o Board.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o Image.o Highscore.o Combined.o -lGL -lGLU -lglut -lpthread
 
-CompGame: Alien.o Ship.o Color.o Bullet.o CompetitiveBoard.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o CompCombined.o
-	g++ $(ver) -o Game Color.o Ship.o Bullet.o Alien.o CompetitiveBoard.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o CompCombined.o -lGL -lGLU -lglut -lpthread
+CompGame: Alien.o Ship.o Color.o Bullet.o CompetitiveBoard.o OPAIcomputation.o OPAIMissile.o OPAIPlayer.o OPAIUpdate.o udp.o Image.o Highscore.o  CompCombined.o
+	g++ $(ver) -o CompGame Color.o Ship.o Bullet.o Alien.o CompetitiveBoard.o OPAIcomputation.o OPAIMissile.o OPAIPlayer.o OPAIUpdate.o udp.o Image.o Highscore.o  CompCombined.o -lGL -lGLU -lglut -lpthread
 
 Color.o: Color.cpp
 	g++ $(ver) -c Color.cpp
@@ -46,6 +49,18 @@ AIPlayer.o: AIPlayer.cpp
 
 AIUpdate.o: AIUpdate.cpp
 	g++ $(ver) -c AIUpdate.cpp
+
+OPAIcomputation.o: OPAIcomputation.cpp
+	g++ $(ver) -c OPAIcomputation.cpp
+
+OPAIMissile.o: OPAIMissile.cpp
+	g++ $(ver) -c OPAIMissile.cpp
+
+OPAIPlayer.o: OPAIPlayer.cpp
+	g++ $(ver) -c OPAIPlayer.cpp
+
+OPAIUpdate.o: OPAIUpdate.cpp
+	g++ $(ver) -c OPAIUpdate.cpp
 
 AI.o: AI.cpp
 	g++ $(ver) -c AI.cpp
