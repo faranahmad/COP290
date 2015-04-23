@@ -233,9 +233,9 @@ int Board::CheckBulletHitAlien(int bullet_id)
 int Board::CheckBulletHitShip(int id)
 {
 	Bullet bullet_hitting = VectorBullets.at(id);
-	if(bullet_hitting.GetTypePlayer() == false)
+	for (int i = 0;i < VectorShips.size();i++)
 	{
-		for (int i = 0;i < VectorShips.size();i++)
+		if(bullet_hitting.GetShipId()!= i)
 		{
 			float xdis = bullet_hitting.GetXPos() - VectorShips.at(i).GetXPos();
 			float ydis = bullet_hitting.GetYPos() - VectorShips.at(i).GetYPos();
@@ -1081,14 +1081,15 @@ void Board::ApplyInstructionsToShipAI(std::string information)
 
 bool Board::CheckGameOver()
 {
+	int num_ships=0;
 	for (int i=0; i<VectorShips.size(); i++)
 	{
 		if (VectorShips[i].GetLives()!=0)
 		{
-			return false;
+			num_ships+=1;
 		}
 	}
-	return true;
+	return (num_ships==1);
 } 
 
 std::vector<std::string> Board::GetRanking()
