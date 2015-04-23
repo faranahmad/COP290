@@ -1,10 +1,10 @@
 kg
+495
+kg
 285
+kg
+140
 ./Game
 125
 ./Game
 35
-./Game
-35
-./Game
-30
