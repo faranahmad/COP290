@@ -36,13 +36,14 @@ void UpdateAIBoard(Board &board)
 			{
 				bool finished=false;
 				TurnShipInDirectionOfAlien(CurrentShips[i],CurrentAliens[nearestAlien],finished);
+				if(rand()%3==1)
+						MoveShipInDirectionOfAlien(CurrentShips[i],CurrentAliens[nearestAlien]);
 		//		std::cout<<"Turning Alien in Direction of Ship \n";
 				if (finished==true)
 				{
 					// std::cout<<"Finished set to true \n";
-					if(rand()%3==1)
-						MoveShipInDirectionOfAlien(CurrentShips[i],CurrentAliens[nearestAlien]);
-					else if (rand()%10==9)
+					
+					if (rand()%10==9)
 						FireBulletForShip(CurrentShips[i],board);
 					
 				}
@@ -97,14 +98,20 @@ void UpdateAlien(Board &board)
 		if (nearEnough==1)
 		{
 			bool finished=false;
+			//MoveAlienInDirectionOfShip(CurrentAliens[i],CurrentShips[nearestShip]);
+			
 			TurnAlienInDirectionOfShip(CurrentAliens[i],CurrentShips[nearestShip],finished);
 	//		std::cout<<"Turning Alien in Direction of Ship \n";
 			MoveAlienInDirectionOfShip(CurrentAliens[i],CurrentShips[nearestShip]);
+			//MoveAlienInDirectionOfShip(CurrentAliens[i],CurrentShips[nearestShip]);
+			//MoveAlienInDirectionOfShip(CurrentAliens[i],CurrentShips[nearestShip]);
 			if (finished==true)
 			{
+				//if(rand()%2==1)
+					
 				// std::cout<<"Finished set to true \n";
 				//if(rand()%3==1)
-				if (rand()%(120/(CurrentAliens[i].GetLevel()))==9)
+				if (rand()%(60/(CurrentAliens[i].GetLevel()))==9)
 					FireBulletForAlien(CurrentAliens[i],board);
 				
 			}

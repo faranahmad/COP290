@@ -497,7 +497,11 @@ void handleKeypress(unsigned char key, int x, int y)
 
 			break;
 		}
-
+		case 'c':
+		{
+			viewtotake=!viewtotake;
+			break;
+		}
 		case 's':
 		{
 			// Fire Missile
@@ -627,8 +631,18 @@ void ShowBullet(Bullet &b)
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
 	glRotatef(b.GetAngle(),0,0,1);
 	Color col_bul=b.GetColorOfBullet();
+	
+	glPushMatrix();
 	glColor3f(col_bul.GetR(),col_bul.GetG(),col_bul.GetB());
-	ShowObject(bullet);
+	ShowObject(bullettop);
+	glPopMatrix();
+
+	glPushMatrix();
+	glColor3f(0.5,0.25,0.36);
+	ShowObject(bulletmid);
+	glPopMatrix();
+	
+
 	glPopMatrix();
 }
 
@@ -636,12 +650,31 @@ void ShowMissile(Bullet &b)
 {
 	// std::cout <<"Showing missile now\n";
 	glPushMatrix();
+
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
 	glRotatef(b.GetAngle(),0,0,1);
+	
+	glScalef (0.8,0.8,0.8);
+
 	// std::cout << b.GetXPos() <<"\t"<< b.GetYPos() <<"\n";
-	Color col_bul=b.GetColorOfBullet();
-	glColor3f(col_bul.GetR(),col_bul.GetG(),col_bul.GetB());
-	ShowObject(missile);
+	// Color col_bul=b.GetColorOfBullet();
+	
+	glPushMatrix();
+	glColor3f(1,0,0);
+	ShowObject(missiletop);
+	glPopMatrix();
+
+	glPushMatrix();
+	glColor3f(0,1,0);
+	ShowObject(missilemid);
+	glPopMatrix();
+
+	glPushMatrix();
+	glColor3f(0,0,1);
+	ShowObject(missileend);
+	glPopMatrix();
+
+
 	glPopMatrix();
 
 	glPushMatrix();
@@ -667,9 +700,31 @@ void ShowShip(Ship &shiptodisplay)
 		glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
 		glRotatef(shiptodisplay.GetAngle(),0,0,1);
 		Color col_ship=shiptodisplay.GetColor();
-		glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
 		// std::cout << shiptodisplay.GetXPos() << "\t" << shiptodisplay.GetYPos() <<"\n";
-		ShowObject(ship);
+		
+		// glRotatef(180,0,1,0);
+
+
+		glPushMatrix();
+		glColor4f(1,1,1,0.5);
+		ShowObject(shipmid);
+		glPopMatrix();
+
+		// ShowObject(ship);
+		glPushMatrix();
+		glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
+		ShowObject(shipcol);
+		glPopMatrix();
+
+
+		glPushMatrix();
+		glColor3f(1, 0, 0);
+		ShowObject(shipfir);
+		glPopMatrix();
+	
+		
+
+
 		glPopMatrix();
 	
 		glPushMatrix();
@@ -1265,10 +1320,21 @@ void display(void)
 	glEnable(GL_COLOR_MATERIAL);
 	glViewport(0, 0, window_width, window_height);
 	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glOrtho(0-window_width, window_width,0- window_height,window_height,-2000,2000);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+	if (viewtotake)
+	{
+		glLoadIdentity();
+		glOrtho(0-window_width, window_width,0- window_height,window_height,-2000,2000);
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+	}
+	else
+	{
+		glLoadIdentity();
+		gluPerspective(60,16.0/9.0,200,9000);
+		Ship myship= newg.PlayerBoard.GetNthShip(newg.PlayerId); 
+		gluLookAt(myship.GetXPos()+600*sin(PI*myship.GetAngle()/180),myship.GetYPos()-600*cos(PI*myship.GetAngle()/180),300,myship.GetXPos(),myship.GetYPos()+5,0,0,0,1);
+	}
+
 
 	// std::cout<<"here before the if\n";
 	if (!GameActive && !GameOver)
@@ -1307,7 +1373,7 @@ void display(void)
 		{
 			ID= newg.PlayerId;
 			highscorestodisplay=UpdateHighScores(newg.PlayerBoard);
-			rankingtodisplay=newg.PlayerBoard.GetRanking();
+			// rankingtodisplay=newg.PlayerBoard.GetRanking();
 			doneonce=true;
 		}
 
@@ -1524,6 +1590,7 @@ int main(int argc,char *argv[])
 	GameActive=false;
 	GameOver=false;
 	doneonce=false;
+	viewtotake=true;
 	Is_SoundExpl=false;
 	Is_SoundBullet=false;
 	pthread_t networkthread;
@@ -1540,10 +1607,16 @@ int main(int argc,char *argv[])
 
 	srand (time(NULL));
 	std::cout << "Opening file\n";
-	missile = loadOBJ("Missile.obj");
-	bullet = loadOBJ("Bullet.obj");
+	missiletop = loadOBJ("MissileTop.obj");
+	missilemid = loadOBJ("MissileMid.obj");
+	missileend = loadOBJ("MissileEnd.obj");
+	bullettop = loadOBJ("BulletTop.obj");
+	bulletmid = loadOBJ("BulletEnd.obj");
 	alien = loadOBJ("Alien1.obj");
-	ship = loadOBJ("Ship3.obj");
+	shipcol = loadOBJ("NewShipCol.obj");
+	shipmid = loadOBJ("NewShipMid.obj");
+	shipfir = loadOBJ("NewShipFir.obj");
+
 	std::cout << "Opened file\n";
 	PX=1400;
 	NX=1850;
