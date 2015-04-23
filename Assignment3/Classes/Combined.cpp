@@ -497,7 +497,11 @@ void handleKeypress(unsigned char key, int x, int y)
 
 			break;
 		}
-
+		case 'c':
+		{
+			viewtotake=!viewtotake;
+			break;
+		}
 		case 's':
 		{
 			// Fire Missile
@@ -705,7 +709,7 @@ void ShowShip(Ship &shiptodisplay)
 		glColor4f(1,1,1,0.5);
 		ShowObject(shipmid);
 		glPopMatrix();
-		
+
 		// ShowObject(ship);
 		glPushMatrix();
 		glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
@@ -1316,13 +1320,20 @@ void display(void)
 	glEnable(GL_COLOR_MATERIAL);
 	glViewport(0, 0, window_width, window_height);
 	glMatrixMode(GL_PROJECTION);
-	// glLoadIdentity();
-	// glOrtho(0-window_width, window_width,0- window_height,window_height,-2000,2000);
-	// glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	gluPerspective(60,16.0/9.0,200,9000);
-	Ship myship= newg.PlayerBoard.GetNthShip(newg.PlayerId); 
-	gluLookAt(myship.GetXPos()+600*sin(PI*myship.GetAngle()/180),myship.GetYPos()-600*cos(PI*myship.GetAngle()/180),300,myship.GetXPos(),myship.GetYPos()+5,0,0,0,1);
+	if (viewtotake)
+	{
+		glLoadIdentity();
+		glOrtho(0-window_width, window_width,0- window_height,window_height,-2000,2000);
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+	}
+	else
+	{
+		glLoadIdentity();
+		gluPerspective(60,16.0/9.0,200,9000);
+		Ship myship= newg.PlayerBoard.GetNthShip(newg.PlayerId); 
+		gluLookAt(myship.GetXPos()+600*sin(PI*myship.GetAngle()/180),myship.GetYPos()-600*cos(PI*myship.GetAngle()/180),300,myship.GetXPos(),myship.GetYPos()+5,0,0,0,1);
+	}
 
 
 	// std::cout<<"here before the if\n";
@@ -1579,6 +1590,7 @@ int main(int argc,char *argv[])
 	GameActive=false;
 	GameOver=false;
 	doneonce=false;
+	viewtotake=true;
 	Is_SoundExpl=false;
 	Is_SoundBullet=false;
 	pthread_t networkthread;

@@ -102,7 +102,7 @@ std::vector<FirePoint> FirePoints;
 std::queue<Bullet> BulletsToAdd;
 int presentf;
 
-
+bool viewtotake;
 extern std::queue<std::string> Instructions;
 extern bool playersReady;
 extern bool isOffline;
