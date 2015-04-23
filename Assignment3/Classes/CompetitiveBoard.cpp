@@ -277,7 +277,7 @@ std::vector<Points> Board::UpdateAllBullets()
 		int hit_ship = CheckBulletHitShip(i);
 		if(hit_ship > -1)
 		{	
-			if(VectorShips.at(i).GetLives() > 0)
+			if(VectorShips.at(hit_ship).GetLives() > 0)
 			{
 				ships_lives_reduce.push_back(hit_ship);
 				bullets_delete.push_back(i);
@@ -286,6 +286,7 @@ std::vector<Points> Board::UpdateAllBullets()
 	}
 	int bullets_delete_size  = bullets_delete.size();
 	int ships_lives_reduce_size = ships_lives_reduce.size();
+	
 	for (int i = bullets_delete_size - 1;i >= 0;i--)
 	{
 		VectorBullets.erase(VectorBullets.begin() + bullets_delete.at(i));
