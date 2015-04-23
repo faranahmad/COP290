@@ -1370,9 +1370,9 @@ void display(void)
 	newg.IsActive=(newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()>0);
 	while (!Instructions.empty())
 	{
-        std::cout <<"in instructions\n";
-		std::string s=Instructions.front();
-        std::cout <<s.size() <<"\n";
+//        std::cout <<"in instructions\n";
+        std::string s=Instructions.front();
+//        std::cout <<s.size() <<"\n";
 		Instructions.pop();
 		std::vector<Points> newexp= newg.PlayerBoard.ApplyInstructions(s,newg.PlayerId);
 		if (newexp.size()>0)
@@ -1402,7 +1402,7 @@ void display(void)
 		BulletsToAdd.pop();
 	}
 	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,bulltoadd);
-    std::cout << "sending" << message1.size() <<"\n";
+//    std::cout << "sending" << message1.size() <<"\n";
     SendMessageToAll(message1);
 
 	// std::cout << "Starting display work\n";
@@ -1590,7 +1590,7 @@ void display(void)
 	// std::cout <<"Buffers swapped\n";
 	if (IsBaap() && GameActive)
 	{
-        std::cout << "in baap\n";
+//        std::cout << "in baap\n";
 		// std::cout<<"Lives before: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 		// std::cout << "It is in the baap case\n";
 		UpdateAIBoard(newg.PlayerBoard);
@@ -1617,7 +1617,7 @@ void display(void)
 			// std::cout << p[j].x <<"\t" <<p[j].y << "\n";
 		}
 
-        while (newg.PlayerBoard.GetNumberAliens()<=4)
+        while (newg.PlayerBoard.GetNumberAliens()<=newg.LastBulletTime/50)
 		{
 			newg.PlayerBoard.AddRandomAlien();
 		}
