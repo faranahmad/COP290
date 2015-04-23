@@ -7,7 +7,7 @@
 #include <string>
 #include <cstdio>
 #include <algorithm>
-#include "Board.h" 
+#include "CompetitiveBoard.h" 
 
 extern bool NewHighScore;
 extern int ID;

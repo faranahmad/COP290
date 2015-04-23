@@ -74,6 +74,9 @@ Image.o: Image.cpp
 Highscore.o: Highscore.cpp
 	g++ $(ver) -c Highscore.cpp
 
+CompHighscore.o: CompHighscore.cpp
+	g++ $(ver) -c CompHighscore.cpp
+
 Combined.o: Combined.cpp
 	g++ $(ver) -c Combined.cpp
 
