@@ -806,7 +806,7 @@ std::string Board::GenerateOnlyPlayerInstructions(int player_id,std::vector<Bull
 
 std::string Board::GenerateAllInstructions(int player_id,std::vector<Points> points)
 {
-	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n"  + GetStringPoints(points) + "\n" + GenerateShipInsForAI()); 
+	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n"  /*+ GetStringPoints(points) + "\n"*/ + GenerateShipInsForAI()); 
 }
 
 std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
@@ -957,7 +957,7 @@ void Board::ApplyAllAlienInstructions(std::string information)
 		VectorAliens.erase(VectorAliens.begin()+allaliensinfo.size(),VectorAliens.end());
 	}
 }
-
+GetSt
 void Board::ApplyPlayerBulletInstructions(std::string information)
 {
 	std::vector<std::string> allbullets = SplitString(information,'\t');
@@ -967,7 +967,7 @@ void Board::ApplyPlayerBulletInstructions(std::string information)
 	}
 }
 
-void Board::UpdateBulletsWithoutKilling()
+void Board::UpdateBulletsWithoutKillingGetSt()
 {
 	for (int i=VectorBullets.size()-1;i>=0;i--)
 	{

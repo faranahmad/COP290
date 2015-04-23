@@ -1635,7 +1635,7 @@ if (IsBaap() && GameActive)
 		// 	// std::cout << p[j].x <<"\t" <<p[j].y << "\n";
 		// }
 
-        while (newg.PlayerBoard.GetNumberAliens()<=10)
+        while (newg.PlayerBoard.GetNumberAliens()<=newg.LastBulletTime/50)
 		{
 			newg.PlayerBoard.AddRandomAlien();
 		}
