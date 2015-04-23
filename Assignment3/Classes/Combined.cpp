@@ -639,9 +639,24 @@ void ShowMissile(Bullet &b)
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
 	glRotatef(b.GetAngle(),0,0,1);
 	// std::cout << b.GetXPos() <<"\t"<< b.GetYPos() <<"\n";
-	Color col_bul=b.GetColorOfBullet();
-	glColor3f(col_bul.GetR(),col_bul.GetG(),col_bul.GetB());
-	ShowObject(missile);
+	// Color col_bul=b.GetColorOfBullet();
+	
+	glPushMatrix();
+	glColor3f(1,0,0);
+	ShowObject(missiletop);
+	glPopMatrix();
+
+	glPushMatrix();
+	glColor3f(0,1,0);
+	ShowObject(missilemid);
+	glPopMatrix();
+
+	glPushMatrix();
+	glColor3f(0,0,1);
+	ShowObject(missileend);
+	glPopMatrix();
+
+
 	glPopMatrix();
 
 	glPushMatrix();
@@ -1307,7 +1322,7 @@ void display(void)
 		{
 			ID= newg.PlayerId;
 			highscorestodisplay=UpdateHighScores(newg.PlayerBoard);
-			rankingtodisplay=newg.PlayerBoard.GetRanking();
+			// rankingtodisplay=newg.PlayerBoard.GetRanking();
 			doneonce=true;
 		}
 
@@ -1540,10 +1555,12 @@ int main(int argc,char *argv[])
 
 	srand (time(NULL));
 	std::cout << "Opening file\n";
-	missile = loadOBJ("Missile.obj");
+	missiletop = loadOBJ("MissileTop.obj");
+	missilemid = loadOBJ("MissileMid.obj");
+	missileend = loadOBJ("MissileEnd.obj");
 	bullet = loadOBJ("Bullet.obj");
 	alien = loadOBJ("Alien1.obj");
-	ship = loadOBJ("Ship3.obj");
+	ship = loadOBJ("NewShip.obj");
 	std::cout << "Opened file\n";
 	PX=1400;
 	NX=1850;
