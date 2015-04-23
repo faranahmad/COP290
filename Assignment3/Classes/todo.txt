@@ -1,0 +1,13 @@
+//TODO
+//fix missile degree - Done
+//fix far enough - Done
+//fix movement\
+//high scores
+//fix difficulty
+//make changes for competitive mode
+//Push for teams in competitive
+//The idea of target for an AI
+
+
+
+//set initial alien to one and missiles to infinity

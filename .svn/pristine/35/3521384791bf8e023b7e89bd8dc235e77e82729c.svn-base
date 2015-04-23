@@ -1,0 +1,297 @@
+#include "AI.h" 
+
+int ClosestAlienEnemy(std::vector<Alien> &Aliens,int NumberAliens, Bullet &actualmissile, double maxDistance)
+{
+	int closestAlien = -1;
+	float leastDistance = maxDistance; //Infinity
+	for (int i=0; i<NumberAliens;i++)
+	{
+		// std::cout<<"AlienInarc "<<AlienInArc(Aliens[i],actualmissile)<<" Distance of alien from missile "<<DistanceOfAlienFromMissile(Aliens[i],actualmissile)<<"\n";
+		if (AlienInArc(Aliens[i],actualmissile)==true && DistanceOfAlienFromMissile(Aliens[i],actualmissile) < leastDistance)
+		{
+			leastDistance = DistanceOfAlienFromMissile(Aliens[i],actualmissile);
+			closestAlien = i;
+			//std::cout<<"closest alien "<<closestAlien<<"\n";
+		}
+	}
+	return closestAlien;
+}
+
+int ClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actualmissile, double maxDistance)
+{
+	int closestShip = -1;
+	float leastDistance = maxDistance; //Infinity
+	for (int i=0; i<NumberShips;i++)
+	{
+		if (ShipInArc(Ships[i],actualmissile) && DistanceOfShipFromMissile(Ships[i],actualmissile) < leastDistance)
+		{
+			leastDistance = DistanceOfShipFromMissile(Ships[i],actualmissile);
+			closestShip = i;
+		}
+	}
+	return closestShip;
+}
+
+bool AlienInArc(Alien &alien, Bullet &actualmissile)
+{
+	if (fabs((RelativeAngleAlienFromMissile(alien,actualmissile)*180.0)/PI)<theta)
+		return true;
+	else 
+		return false;
+}
+
+bool ShipInArc(Ship &ship, Bullet &actualmissile)
+{
+	if (fabs((RelativeAngleShipFromMissile(ship,actualmissile)*180.0)/PI)<theta)
+		return true;
+	else 
+		return false;
+}
+
+float RelativeAngleAlienFromMissile(Alien &alien,Bullet &actualmissile)
+{
+	float angle;
+
+	if (alien.GetXPos()-actualmissile.GetXPos() == 0.0)
+	{
+		if ((alien.GetYPos()-actualmissile.GetYPos())>0)
+			angle= (float) 0.0;
+		else
+			angle= 180.0;
+	} 
+	else
+	{
+		if (alien.GetXPos()-actualmissile.GetXPos()>0)
+			angle= ((float) atan( (alien.GetYPos()-actualmissile.GetYPos())/ (alien.GetXPos()-actualmissile.GetXPos())) * 180/PI - 90.0);
+		else
+			angle= ((float) atan((alien.GetYPos()-actualmissile.GetYPos()) / (alien.GetXPos()-actualmissile.GetXPos())) * 180/PI + 90.0);
+	}
+
+	//std::cout<<"angle "<<angle<<"\n";
+	//std::cout<<"relative angle"<<actualmissile.GetAngle()-angle<<"\n";
+	return (actualmissile.GetAngle()-angle)*PI/180.0;
+}
+
+float RelativeAngleShipFromMissile(Ship &ship,Bullet &actualmissile)
+{
+	float angle;
+
+	if (ship.GetXPos()-actualmissile.GetXPos() == 0.0)
+	{
+		if ((ship.GetYPos()-actualmissile.GetYPos())>0)
+			angle= (float) 0.0;
+		else
+			angle= 180.0;
+	} 
+	else
+	{
+		if (ship.GetXPos()-actualmissile.GetXPos()>0)
+			angle= ((float) atan( (ship.GetYPos()-actualmissile.GetYPos())/ (ship.GetXPos()-actualmissile.GetXPos())) * 180/PI - 90.0);
+		else
+			angle= ((float) atan((ship.GetYPos()-actualmissile.GetYPos()) / (ship.GetXPos()-actualmissile.GetXPos())) * 180/PI + 90.0);
+	}
+
+	return (actualmissile.GetAngle()-angle)*PI/180.0;
+}
+
+float RelativeAngleAlientoMissilePosition(Alien &alien, Bullet &actualmissile)
+{
+	float angle;
+
+	if (alien.GetXPos()-actualmissile.GetXPos() == 0.0)
+	{
+		if ((alien.GetYPos()-actualmissile.GetYPos())>0)
+			angle= (float) 0.0;
+		else
+			angle= 180.0;
+	} 
+	else
+	{
+		if (alien.GetXPos()-actualmissile.GetXPos()>0)
+			angle= ((float) atan( (alien.GetYPos()-actualmissile.GetYPos())/ (alien.GetXPos()-actualmissile.GetXPos())) * 180/PI - 90.0);
+		else
+			angle= ((float) atan((alien.GetYPos()-actualmissile.GetYPos()) / (alien.GetXPos()-actualmissile.GetXPos())) * 180/PI + 90.0);
+	}
+
+	return angle;
+
+}
+
+
+float RelativeAngleShiptoMissilePosition(Ship &ship, Bullet &actualmissile)
+{
+	float angle;
+
+	if (ship.GetXPos()-actualmissile.GetXPos() == 0.0)
+	{
+		if ((ship.GetYPos()-actualmissile.GetYPos())>0)
+			angle= (float) 0.0;
+		else
+			angle= 180.0;
+	} 
+	else
+	{
+		if (ship.GetXPos()-actualmissile.GetXPos()>0)
+			angle= ((float) atan( (ship.GetYPos()-actualmissile.GetYPos())/ (ship.GetXPos()-actualmissile.GetXPos())) * 180/PI - 90.0);
+		else
+			angle= ((float) atan((ship.GetYPos()-actualmissile.GetYPos()) / (ship.GetXPos()-actualmissile.GetXPos())) * 180/PI + 90.0);
+	}
+
+	return angle;
+
+}
+
+float RelativeAngleOfShipFromAlien(Ship &ship,Alien &alien)//returns angle in degress
+{
+	float angle;
+
+	if (ship.GetXPos()-alien.GetXPos() == 0.0)
+	{
+		if ((ship.GetYPos()-alien.GetYPos())>0)
+			angle= (float) 0.0;
+		else
+			angle= 180.0;
+	} 
+	else
+	{
+		if (ship.GetXPos()-alien.GetXPos()>0)
+			angle= ((float) atan( (ship.GetYPos()-alien.GetYPos())/ (ship.GetXPos()-alien.GetXPos())) * 180/PI - 90.0);
+		else
+			angle= ((float) atan((ship.GetYPos()-alien.GetYPos()) / (ship.GetXPos()-alien.GetXPos())) * 180/PI + 90.0);
+	}
+
+	return angle;
+}
+
+
+
+float RelativeAngleOfAlienFromShip(Alien& alien,Ship &ship)//returns angles in degrees
+{
+	float angle;
+
+	if (alien.GetXPos()-ship.GetXPos() == 0.0)
+	{
+		if ((alien.GetYPos()-ship.GetYPos())>0)
+			angle= (float) 0.0;
+		else
+			angle= 180.0;
+	} 
+	else
+	{
+		if (alien.GetXPos()-ship.GetXPos()>0)
+			angle= ((float) atan( (alien.GetYPos()-ship.GetYPos())/ (alien.GetXPos()-ship.GetXPos())) * 180/PI - 90.0);
+		else
+			angle= ((float) atan((alien.GetYPos()-ship.GetYPos()) / (alien.GetXPos()-ship.GetXPos())) * 180/PI + 90.0);
+	}
+
+	return angle;
+}
+
+std::pair<int,bool> FindNearestAlien(Ship &ship, std::vector<Alien> &CurrentAliens)
+{
+	bool nearEnough;
+	float min = INT_MAX;
+	int nearestAlien = -1;
+	for (int j=0; j<CurrentAliens.size(); j++)
+	{
+		float dist = DistanceOfAlienFromShip(CurrentAliens[j],ship);
+		
+		if (dist < min)
+		{
+
+			min = dist;
+			nearestAlien = j;
+		}
+	}
+
+	//if (min<=minDistanceforRotation)
+	if(nearestAlien!=-1)
+		nearEnough = true;
+	else 
+		nearEnough = false;
+
+	return std::pair<int,bool> (nearestAlien,nearEnough);
+
+}
+
+std::pair<int,bool> FindNearestShip(Alien &alien, std::vector<Ship> &CurrentShips)
+{
+	bool nearEnough;
+	//std::cout<<"Entered here \n";
+	float min = INT_MAX;
+	//std::cout<<"maximumdistance = "<<min<<"\n";
+	int nearestShip = -1;
+	for (int j=0; j<CurrentShips.size(); j++)
+	{
+		if (CurrentShips[j].GetLives()>0)
+		{
+			//std::cout<<"Entered Ship loop \n";
+			float dist=DistanceOfShipFromAlien(CurrentShips[j],alien);
+			//std::cout<<"Distance "<<dist<<"\n";
+			//std::cout<<"Distance is "<<dist<<" \n";
+			if (dist < min)
+			{
+				//std::cout<<"Updating min \n";
+				min = dist;
+				nearestShip = j;
+			}
+		}
+	}
+	//std::cout<<"minimum dist "<<min<<"\n";
+	//std::cout<<"minDistanceforRotation "<<minDistanceforRotation<<"\n";
+
+	if (nearestShip!=-1)
+			nearEnough = true;
+	else 
+		nearEnough = false;
+
+	return std::pair<int,bool> (nearestShip,nearEnough);
+
+}
+
+float DistanceOfAlienFromMissile(Alien &alien, Bullet &actualmissile)
+{
+	//include math.h
+	return pow((alien.GetXPos() - actualmissile.GetXPos()),2) + pow((alien.GetYPos()-actualmissile.GetYPos()),2);
+}
+
+float DistanceOfShipFromMissile(Ship &ship, Bullet &actualmissile)
+{
+	//include math.h
+	return pow((ship.GetXPos()-actualmissile.GetXPos()),2) + pow((ship.GetYPos()-actualmissile.GetYPos()),2);
+}
+
+float DistanceOfShipFromAlien(Ship &ship, Alien &alien)
+{
+	return pow((alien.GetXPos()-ship.GetXPos()),2) + pow((alien.GetYPos()-ship.GetYPos()),2);
+
+}
+
+float DistanceOfAlienFromShip(Alien &alien, Ship &ship)
+{
+	return pow((alien.GetXPos()-ship.GetXPos()),2) + pow((alien.GetYPos()-ship.GetYPos()),2);
+
+}
+
+bool AlienIsInViewOfShip(Board &board, Ship &ship)
+{
+	std::vector<Alien> CurrentAliens = board.GetVectorAliens();
+	for (int i=0 ; i< CurrentAliens.size(); i++ )
+	{
+		if (fabs(RelativeAngleOfAlienFromShip(CurrentAliens[i],ship)-ship.GetAngle()) < ANGLEOFVIEW)
+			return true;
+	}
+	return false;
+}
+
+bool ShipIsInViewOfAlien(Board &board, Alien &alien)
+{
+	std::vector<Ship> CurrentShips = board.GetVectorShips();
+	for (int i=0 ; i< CurrentShips.size(); i++ )
+	{
+		if (fabs(RelativeAngleOfShipFromAlien(CurrentShips[i],alien)-alien.GetAngle()) < ANGLEOFVIEW)
+			return true;
+	}
+	return false;
+}
+
