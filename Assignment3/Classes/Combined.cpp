@@ -1006,8 +1006,8 @@ void ShowBoard(Board &boardtodisplay)
 	glVertex3f( PX, -1080  , 0);
 	glEnd();
 	glPopMatrix();
-	UpdateAllSmokePoints(SmokePointsMissile);
-	UpdateAllSmokePoints(SmokePoints);
+	// UpdateAllSmokePoints(SmokePointsMissile);
+	// UpdateAllSmokePoints(SmokePoints);
 
 }
 
@@ -1309,28 +1309,28 @@ void UpdateSmokePoint(SmokePoint &p)
 
 void UpdateAllSmokePoints(std::vector<SmokePoint> &v)
 {
-	for (int i=0; i<v.size(); i++)
-	{
-		UpdateSmokePoint(v[i]);
-	}
+	// for (int i=0; i<v.size(); i++)
+	// {
+	// 	UpdateSmokePoint(v[i]);
+	// }
 
-	for (int i=0; i<v.size(); i++)
-	{
-		if (v[i].life==0)
-		{
-			v.erase(v.begin()+i);
-			i-=1;
-		}
-	}
+	// for (int i=0; i<v.size(); i++)
+	// {
+	// 	if (v[i].life==0)
+	// 	{
+	// 		v.erase(v.begin()+i);
+	// 		i-=1;
+	// 	}
+	// }
 }
 
 void DisplaySmokePoints(std::vector<SmokePoint> &v)
 {
-	for (int i=0; i<v.size(); i++)
-	{
-		// std::cout << "Showing point:" << i <<"\n";
-		ShowSmokePoint(v[i]);
-	}
+	// for (int i=0; i<v.size(); i++)
+	// {
+	// 	// std::cout << "Showing point:" << i <<"\n";
+	// 	ShowSmokePoint(v[i]);
+	// }
 }
 
 void DisplayExplosions(std::vector<Expl> &v)
