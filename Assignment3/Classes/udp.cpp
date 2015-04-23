@@ -58,7 +58,7 @@ int GetNumPlayers()
 void AddPlayers(char players [])
 {
 	std::string s;
-     std::cout<<"Adding player:"<<ToStr(players);
+    // std::cout<<"Adding player:"<<ToStr(players);
 	for(int i=2;players[i]!=0;i++)
 	{
 		if(players[i]!=' ' && players[i]!='\n')
@@ -76,12 +76,12 @@ void AddPlayers(char players [])
 
 			const char * ipchar = s.c_str();
 			p.first=atoll(ipchar);
-             std::cout<<"first element of p:"<<p.first<<std::endl;
-             std::cout<<"second element of p:"<<p.second<<std::endl;
+            // std::cout<<"first element of p:"<<p.first<<std::endl;
+            // std::cout<<"second element of p:"<<p.second<<std::endl;
 			TimeStamp.push_back(time(0));
 			IPdata.push_back(p);
-             for(int i=0;i<IPdata.size();i++)
-                 std::cout<<IPdata[i].first<<std::endl;
+            // for(int i=0;i<IPdata.size();i++)
+                // std::cout<<IPdata[i].first<<std::endl;
 			s="";
 		}
 	}
@@ -177,7 +177,7 @@ void SendMessageToAll(std::string message)
 			pthread_create(&threads[i],NULL,SendMessage,&im);
 			usleep(1);
 		}
-         std::cout<<"Messages sent!!!!!!!!!!!!!!!!!!!!!!\n";
+        // std::cout<<"Messages sent!!!!!!!!!!!!!!!!!!!!!!\n";
 	}
 }
 
@@ -524,8 +524,8 @@ int networkmain(int argc, char** argv)
 			// exit(0);
 			if(IPdata.size()<=2)
 			{
-                 IPdata.erase(IPdata.begin()+1);
-                 TimeStamp.erase(TimeStamp.begin()+1);
+//                 IPdata.erase(IPdata.begin()+1);
+//                 TimeStamp.erase(TimeStamp.begin()+1);
 				IPdata[0].second=1;
                  std::cout<<"First GOTO\n";
 				goto RECV;
