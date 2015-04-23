@@ -1608,9 +1608,9 @@ void *UpdateGameThread(void *x)
 		BulletsToAdd.pop();
 	}
 	// std::cout <<"bullets work done\n";
-	// std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,bulltoadd);
+	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,bulltoadd);
    // std::cout << "sending" << message1.size() <<"\n";
-    // SendMessageToAll(message1);
+    SendMessageToAll(message1);
 
 		if (IsBaap() && GameActive)
 		{
@@ -1646,10 +1646,10 @@ void *UpdateGameThread(void *x)
 		// 	newg.PlayerBoard.AddRandomAlien();
 		// }
 		// std::cout << "starting ins gen\n";
-		// message1 = newg.PlayerBoard.GenerateAllInstructions(newg.PlayerId,p);
+		message1 = newg.PlayerBoard.GenerateAllInstructions(newg.PlayerId,p);
 		// std::cout <<" generated instructions\n";
 		// std::cout << message1;
-		// SendMessageToAll(message1);
+		SendMessageToAll(message1);
 		// std::cout << "done sent\n";
 	}
 	else if (GameActive)
