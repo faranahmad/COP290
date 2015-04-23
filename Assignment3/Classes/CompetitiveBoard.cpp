@@ -969,6 +969,7 @@ void Board::ApplyPlayerBulletInstructions(std::string information)
 
 void Board::UpdateBulletsWithoutKilling()
 {
+	std::cout<<"starting without killing\n";
 	for (int i=VectorBullets.size()-1;i>=0;i--)
 	{
 		if(VectorBullets.at(i).GetXPos()+2.0 > DimensionPosX 
@@ -987,7 +988,7 @@ void Board::UpdateBulletsWithoutKilling()
 			VectorBullets.at(i).SetYPos(VectorBullets.at(i).GetYPos()+VectorBullets.at(i).GetVelY());
 		}
 	}
-	
+	std::cout<<"ending without killing\n";
 }	
 
 std::string Board::GetNthPlayerScore(int shipid)
