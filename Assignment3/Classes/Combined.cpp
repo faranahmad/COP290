@@ -1401,8 +1401,8 @@ void display(void)
 		BulletsToAdd.pop();
 	}
 	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,bulltoadd);
-	// std::cout << "sending" << message1 <<"\n";
-	SendMessageToAll(message1);
+    std::cout << "sending" << message1.size() <<"\n";
+    SendMessageToAll(message1);
 
 	// std::cout << "Starting display work\n";
 	int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
