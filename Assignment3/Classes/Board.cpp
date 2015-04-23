@@ -568,7 +568,8 @@ void Board::AddRandomAlien()
 	random_alien.SetXPos(RandomFloat(-(DimensionNegX),DimensionPosX));
 	random_alien.SetYPos(RandomFloat((DimensionPosY)-10,DimensionPosY));
 	random_alien.SetColorFloat(rand() % 255,rand() % 255,rand() % 255);
-	random_alien.SetAngle(RandomFloat(0.0,360.0));	
+	random_alien.SetAngle(RandomFloat(0.0,360.0));
+	random_alien.SetType(rand() % 2);	
 	VectorAliens.push_back(random_alien);
 }
 
