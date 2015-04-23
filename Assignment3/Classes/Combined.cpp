@@ -156,11 +156,13 @@ Image* loadBMP(const char* filename) {
     
     //Get the data into the right format
     auto_array<char> pixels2(new char[width * height * 3]);
-    for(int y = 0; y < height; y++) {
-        for(int x = 0; x < width; x++) {
-            for(int c = 0; c < 3; c++) {
-                pixels2[3 * (width * y + x) + c] =
-                    pixels[bytesPerRow * y + 3 * x + (2 - c)];
+    for(int y = 0; y < height; y++) 
+    {
+        for(int x = 0; x < width; x++) 
+        {
+            for(int c = 0; c < 3; c++) 
+            {
+                pixels2[3 * (width * y + x) + c] = pixels[bytesPerRow * y + 3 * x + (2 - c)];
             }
         }
     }
@@ -747,11 +749,44 @@ void ShowAlien(Alien &alientodisplay)
 	// std::cout << "displaying alien\n";
 	// std::cout << alientodisplay.GetSummary() <<"\n";
 	glPushMatrix();
+
 	glTranslatef(alientodisplay.GetXPos(),alientodisplay.GetYPos(),0);
 	glRotatef(alientodisplay.GetAngle(),0,0,1);
+
+	if (!viewtotake)
+	{
+		glRotatef(90,1,0,0);
+	}
+	else
+	{
+		glRotatef(180,0,0,1);
+	}
+
+
+	glPushMatrix();
+	glColor3f(1,0,0);
+	ShowObject(alien1gun);
+	glPopMatrix();
+
+	glPushMatrix();
 	Color col_ship=alientodisplay.GetColor();
 	glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
-	ShowObject(alien);
+	ShowObject(alien1col);
+	glPopMatrix();
+
+
+
+	glPushMatrix();
+	glColor3f(1,1,1);
+	ShowObject(alien1top);	
+	glPopMatrix();
+
+
+	glPushMatrix();
+	glColor3f(0,0,0);
+	ShowObject(alien1mid);
+	glPopMatrix();
+
 	glPopMatrix();
 }
 
@@ -1373,7 +1408,7 @@ void display(void)
 		{
 			ID= newg.PlayerId;
 			highscorestodisplay=UpdateHighScores(newg.PlayerBoard);
-			// rankingtodisplay=newg.PlayerBoard.GetRanking();
+			rankingtodisplay=newg.PlayerBoard.GetRanking();
 			doneonce=true;
 		}
 
@@ -1607,12 +1642,19 @@ int main(int argc,char *argv[])
 
 	srand (time(NULL));
 	std::cout << "Opening file\n";
+	
 	missiletop = loadOBJ("MissileTop.obj");
 	missilemid = loadOBJ("MissileMid.obj");
 	missileend = loadOBJ("MissileEnd.obj");
+	
 	bullettop = loadOBJ("BulletTop.obj");
 	bulletmid = loadOBJ("BulletEnd.obj");
-	alien = loadOBJ("Alien1.obj");
+	
+	alien1gun = loadOBJ("Alien2Gun.obj");
+	alien1col = loadOBJ("Alien2Bod.obj");
+	alien1top = loadOBJ("Alien2Mid.obj");
+	alien1mid = loadOBJ("Alien2Eye.obj");
+
 	shipcol = loadOBJ("NewShipCol.obj");
 	shipmid = loadOBJ("NewShipMid.obj");
 	shipfir = loadOBJ("NewShipFir.obj");

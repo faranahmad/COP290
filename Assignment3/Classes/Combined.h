@@ -85,15 +85,22 @@ struct FirePoint
 };
 
 
-std::vector<Faces> alien;
+std::vector<Faces> alien1gun;
+std::vector<Faces> alien1col;
+std::vector<Faces> alien1top;
+std::vector<Faces> alien1mid;
+
 std::vector<Faces> shipcol;
 std::vector<Faces> shipmid;
 std::vector<Faces> shipfir;
+
 std::vector<Faces> missiletop;
 std::vector<Faces> missilemid;
 std::vector<Faces> missileend;
+
 std::vector<Faces> bullettop;
 std::vector<Faces> bulletmid;
+
 std::vector<Points> Stars;
 std::vector<Expl> Explosions;
 std::vector<SmokePoint> SmokePoints;
