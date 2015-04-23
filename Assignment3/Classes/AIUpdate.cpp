@@ -32,7 +32,7 @@ void UpdateAIBoard(Board &board)
  			nearEnough = NearestAlienPair.second;
  			nearestAlien= NearestAlienPair.first;
 
- 			std::cout<<"nearestAlien "<<nearestAlien<<"\n";
+ 			// std::cout<<"nearestAlien "<<nearestAlien<<"\n";
 
  			if (nearEnough==1)
 			{

@@ -364,8 +364,9 @@ void ProcessKeys()
 			// Fire Missile
 			Bullet newb = Bullet();
 			Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
-			if (present.GetNumberMissiles()>0)
+			if (present.GetNumberMissiles()>0 && (presentf-newg.LastMissileTime>10))
 			{
+				newg.LastMissileTime=presentf;
 				present.ReduceMissile();
 	
 				float velx = -20* sin(PI*present.GetAngle()/180);
@@ -483,8 +484,11 @@ void handleKeypress(unsigned char key, int x, int y)
 		}
 		case 'f':
 		{
-			// std::cout << "f was pressed\n";
-			newg.PlayerBoard.AddRandomShip();
+			if (!GameActive && IsBaap() && SingleMode)
+			{
+				// std::cout << "f was pressed\n";
+				newg.PlayerBoard.AddRandomShip();
+			}
 			// glutPostRedisplay();
 			break;
 		}
@@ -522,7 +526,11 @@ void handleKeypress(unsigned char key, int x, int y)
 		}
 		case 'o':
 		{
-			GameActive=true;
+			if ((SingleMode || MultiMode) && !GameActive)
+			{
+				GameActive=true;
+				presentf=0;
+			}
 			break;
 		}
 		case 27: //Escape key
@@ -583,8 +591,30 @@ void mouseclick(int button,int state,int x,int y )
     // Functions for the mouse click locations
     if(state== GLUT_UP )
     {
-    	AddNewExplosion(2*x-PX, PY-2*y,0);
-  //   	Bullet newb = Bullet();
+    	int x1= 2*x -1920;
+    	int y1= 1080 -2*y;
+    	if (OnFrontScreen)
+    	{
+    		if (x1>-1770 && x1<-520)
+    		{
+    			if (y1<-80 && y1>-200)
+    			{
+    				OnFrontScreen=false;
+    				SingleMode=true;
+    			}
+    		}
+    		if (x1>-1770 && x1<-560)
+    		{
+    			if (y1<-230 && y1>-460)
+    			{
+    				OnFrontScreen=false;
+    				MultiMode=true;
+    			}
+    		}
+    	}
+    	// std::cout<< 2*x-1920 <<"\t" << 1080 -2*y <<"\n";
+    	// AddNewExplosion(2*x-PX, PY-2*y,0);
+ 		 //   	Bullet newb = Bullet();
 		// Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
 		// float velx = 0- 10*sin(PI*present.GetAngle()/180);
 		// float vely = 10* cos(PI*present.GetAngle()/180);
@@ -608,10 +638,6 @@ void ShowObject(std::vector<Faces> &facevect)
 	glRotatef (90,1,0,0);
 	for (int i=0; i<facevect.size() ; i++)
 	{
-
-
-
-		
 		Faces currentface= facevect[i];
 		Points point1,point2,point3;
 		point1= currentface.p1;
@@ -885,29 +911,30 @@ void ShowBorders()
 
 void ShowTitle()
 {
-	glPushMatrix();
-	glRasterPos2f(  50+ PX, PY -50);
-	glColor3f(0,0,1);
-	// glutStrokeString(GLUT_STROKE_ROMAN, y);
-	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, titleptr);
-	glPopMatrix();
+	// glPushMatrix();
+	// glRasterPos2f(  50+ PX, PY -50);
+	// glColor3f(0,0,1);
+	// // glutStrokeString(GLUT_STROKE_ROMAN, y);
+	// glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, titleptr);
+	// glPopMatrix();
 }
 
 void ShowIp()
 {
-	unsigned char *y123= (unsigned char*) ("IP: "+ GetIP()).c_str();
+	// unsigned char *y123= (unsigned char*) ("IP: "+ GetIP()).c_str();
 
-	// std::cout <<GetIP() <<"\n";
-	glPushMatrix();
-	glRasterPos2f(  50+ PX, PY -150);
-	glColor3f(1,0,1);
-	// glutStrokeString(GLUT_STROKE_ROMAN, y);
-	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y123);
-	glPopMatrix();
+	// // std::cout <<GetIP() <<"\n";
+	// glPushMatrix();
+	// glRasterPos2f(  50+ PX, PY -150);
+	// glColor3f(1,0,1);
+	// // glutStrokeString(GLUT_STROKE_ROMAN, y);
+	// glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y123);
+	// glPopMatrix();
 }
 
 void ShowLives()
 {
+	
 	const char * livesS="Lives: ";
 	unsigned char *y= (unsigned char*) livesS;
 
@@ -924,40 +951,92 @@ void ShowLives()
 	unsigned char *pchar2 = (unsigned char*) s2.c_str();
 	
 
-
-	glPushMatrix();
-	glRasterPos2f(   PX+100, 0 );
-	// glColor3f(0,1,1);
-	// glutStrokeString(GLUT_STROKE_ROMAN, y);
-	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
-	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar1);
-	glPopMatrix();
-
-	glPushMatrix();
-	glRasterPos2f( PX +100,-50);
-	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y2);
-	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar2);
-	glPopMatrix();
+	if (viewtotake)
+	{
+		glPushMatrix();
+		glRasterPos2f(   PX+100, 0 );
+		// glColor3f(0,1,1);
+		// glutStrokeString(GLUT_STROKE_ROMAN, y);
+		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
+		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar1);
+		glPopMatrix();
+	
+		glPushMatrix();
+		glRasterPos2f( PX +100,-50);
+		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y2);
+		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar2);
+		glPopMatrix();
+	}
+	else
+	{
+		glPushMatrix();
+		glRasterPos3f(   -200, 1080, -80  );
+		// glColor3f(0,1,1);
+		// glutStrokeString(GLUT_STROKE_ROMAN, y);
+		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
+		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar1);
+		glPopMatrix();
+	
+		glPushMatrix();
+		glRasterPos3f( 200, 1080, -80);
+		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y2);
+		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar2);
+		glPopMatrix();	
+	}
 }
 
 void ShowScores()
 {
 	// const char * kg="kartikeya";
 	// unsigned char *y= (unsigned char*) kg;
-	
-	float iniy = -200;
-
-	for (int i=0; i<newg.PlayerBoard.GetNumberShips(); i++)
+	if (viewtotake)
 	{
-		std::string l1 = newg.PlayerBoard.GetNthPlayerScore(i);
-		unsigned char *pchar3= (unsigned char*) l1.c_str();
+		float iniy = -200;
 	
+		for (int i=0; i<newg.PlayerBoard.GetNumberShips(); i++)
+		{
+			std::string l1 = newg.PlayerBoard.GetNthPlayerScore(i);
+			unsigned char *pchar3= (unsigned char*) l1.c_str();
+		
+			glPushMatrix();
+			glRasterPos3f( PX +100, iniy, 0 );
+			glColor3f(0,0,1);
+			iniy -=60;
+			glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
+			glPopMatrix();
+		}
+	}
+	else
+	{
+		float iniz = -200;
+		
+
+		std::string l12 = "Scores: ";
+		unsigned char *pchar7= (unsigned char*) l12.c_str();
+		
+
 		glPushMatrix();
-		glRasterPos3f( PX +100, iniy,-1000 );
-		glColor3f(0,0,1);
-		iniy -=60;
-		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
+		glRasterPos3f( 0, 1080 , -160 );
+		glColor4f(0.5,0.25,1,1);
+		iniz -=60;
+		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar7);
 		glPopMatrix();
+		
+		
+		for (int i=0; i<newg.PlayerBoard.GetNumberShips(); i++)
+		{
+			std::string l1 = newg.PlayerBoard.GetNthPlayerScore(i);
+			unsigned char *pchar3= (unsigned char*) l1.c_str();
+		
+			glPushMatrix();
+			glRasterPos3f( 0, 1080 , iniz );
+			glColor3f(0,0,1);
+			iniz -=60;
+			glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
+			glPopMatrix();
+		}
+
+
 	}
 }
 
@@ -997,15 +1076,18 @@ void ShowBoard(Board &boardtodisplay)
 		}
 	}
 
-	glPushMatrix();
-	glColor3f(1.0,1.0,1.0);
-	glBegin(GL_POLYGON);
-	glVertex3f( PX , 1080 , 0);
-	glVertex3f( 1920 , 1080 , 0);
-	glVertex3f( 1920 , -1080  ,0);
-	glVertex3f( PX, -1080  , 0);
-	glEnd();
-	glPopMatrix();
+	if (viewtotake)
+	{
+		glPushMatrix();
+		glColor3f(1.0,1.0,1.0);
+		glBegin(GL_POLYGON);
+		glVertex3f( PX , 1080 , 0);
+		glVertex3f( 1920 , 1080 , 0);
+		glVertex3f( 1920 , -1080  ,0);
+		glVertex3f( PX, -1080  , 0);
+		glEnd();
+		glPopMatrix();
+	}
 	// UpdateAllSmokePoints(SmokePointsMissile);
 	// UpdateAllSmokePoints(SmokePoints);
 
@@ -1395,7 +1477,8 @@ void display(void)
 
 
 	// std::cout<<"here before the if\n";
-	if (!GameActive && !GameOver)
+	// if (!GameActive && !GameOver)
+	if (OnFrontScreen)
 	{
 	    // std::cout <<"displaying image\n";
 		glEnable(GL_TEXTURE_2D);
@@ -1425,6 +1508,7 @@ void display(void)
 	}
 	else if(GameOver)
 	{
+		viewtotake=true;
 		if (!doneonce)
 		{
 			ID= newg.PlayerId;
@@ -1517,28 +1601,70 @@ void display(void)
 			glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar4);
 			glPopMatrix();
 		}
-
-
-
-
 	}
-	else
+	else if (SingleMode)
 	{
-		// std::cout << "in else\n";
-		for (int i=0; i<Stars.size() ; i++)
+		if (GameActive)
+		{
+			// std::cout << "in else\n";
+			for (int i=0; i<Stars.size() ; i++)
+			{
+				glPushMatrix();
+				glColor3f(0.5,0.8,0.2);
+				glTranslatef(Stars[i].x,Stars[i].y,Stars[i].z);
+				glutSolidSphere(3, 31, 10);
+				glPopMatrix();
+			}
+			ShowBoard(newg.PlayerBoard);
+			ShowAllFirePoints();
+			ShowBorders();
+			ShowAllText();
+			DisplayExplosions(Explosions);
+			GameOver = newg.PlayerBoard.CheckGameOver();
+		}
+		else
 		{
 			glPushMatrix();
-			glColor3f(0.5,0.8,0.2);
-			glTranslatef(Stars[i].x,Stars[i].y,Stars[i].z);
-			glutSolidSphere(3, 31, 10);
+			glRasterPos2i(-300, 0);
+			glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
+			glutBitmapString(GLUT_BITMAP_HELVETICA_18, (unsigned char*) "Press f to add more AI ships");
 			glPopMatrix();
+
+			glPushMatrix();
+			glRasterPos2i(-300, -60);
+			glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
+			glutBitmapString(GLUT_BITMAP_HELVETICA_18, (unsigned char*) "Presently number of ships are: ");
+			glPopMatrix();
+
+			glPushMatrix();
+			glRasterPos2i(-300, -120);
+			glColor4f(0.0f, 0.5f, 1.0f, 1.0f);
+			glutBitmapString(GLUT_BITMAP_HELVETICA_18, (unsigned char*) "Press o to start the game. ");
+			glPopMatrix();
+
+
 		}
-		ShowBoard(newg.PlayerBoard);
-		ShowAllFirePoints();
-		ShowBorders();
-		ShowAllText();
-		DisplayExplosions(Explosions);
-		GameOver = newg.PlayerBoard.CheckGameOver();
+	}
+	else if (MultiMode)
+	{
+		if (GameActive)
+		{
+			// std::cout << "in else\n";
+			for (int i=0; i<Stars.size() ; i++)
+			{
+				glPushMatrix();
+				glColor3f(0.5,0.8,0.2);
+				glTranslatef(Stars[i].x,Stars[i].y,Stars[i].z);
+				glutSolidSphere(3, 31, 10);
+				glPopMatrix();
+			}
+			ShowBoard(newg.PlayerBoard);
+			ShowAllFirePoints();
+			ShowBorders();
+			ShowAllText();
+			DisplayExplosions(Explosions);
+			GameOver = newg.PlayerBoard.CheckGameOver();
+		}	
 	}
 	// for (int i=0; i<newg.PlayerBoard.GetVectorBullets().size();i++)
 	// {
@@ -1566,16 +1692,17 @@ void *UpdateGameThread(void *x)
 {
 	while(true)
 	{
-			newg.IsActive=(newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()>0);
+		newg.IsActive=(newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()>0);
+		
 	while (!Instructions.empty())
 	{
-       std::cout <<"in instructions\n";
+       // std::cout <<"in instructions\n";
         std::string s=Instructions.front();
 //        std::cout <<s.size() <<"\n";
 		Instructions.pop();
-		std::cout <<"popped 1\n";
+		// std::cout <<"popped 1\n";
 		std::vector<Points> newexp= newg.PlayerBoard.ApplyInstructions(s,newg.PlayerId);
-		std::cout << "applied\n";
+		// std::cout << "applied\n";
 		if (newexp.size()>0)
 		{
 			Is_SoundExpl=true;
@@ -1593,9 +1720,9 @@ void *UpdateGameThread(void *x)
 		// {
 		// 	Explosions.push_back(newExplosion(newexp[j].x,newexp[j].y,0));
 		// }
-		std::cout << "pushed new explosions\n";
+		// std::cout << "pushed new explosions\n";
 	}
-	std::cout <<"applied instructions if any\n";
+	// std::cout <<"applied instructions if any\n";
 	std::vector<Bullet> bulltoadd;
 	while (!BulletsToAdd.empty())
 	{
@@ -1603,12 +1730,12 @@ void *UpdateGameThread(void *x)
 		BulletsToAdd.pop();
 	}
 	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,bulltoadd);
-   std::cout << "sending" << message1.size() <<"\n";
+   // std::cout << "sending" << message1.size() <<"\n";
     SendMessageToAll(message1);
 
 if (IsBaap() && GameActive)
 	{
-       std::cout << "in baap\n";
+       // std::cout << "in baap\n";
 		// std::cout<<"Lives before: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 		// std::cout << "It is in the baap case\n";
 		UpdateAIBoard(newg.PlayerBoard);
@@ -1619,7 +1746,7 @@ if (IsBaap() && GameActive)
 		}
 		// std::cout<<"Lives after: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 
-		std::cout << "starting for loop\n";
+		// std::cout << "starting for loop\n";
 		// for (int j=0; j<Explosions.size(); j++)
 		// {
 		// 	if (Explosions[j].fuel==0)
@@ -1648,13 +1775,13 @@ if (IsBaap() && GameActive)
 	}
 	else if (GameActive)
 	{
-		std::cout << "updateing bullets without killing\n";
+		// std::cout << "updateing bullets without killing\n";
 		newg.PlayerBoard.UpdateBulletsWithoutKilling();
 	}
-	std::cout << "starting sleep\n";
+	// std::cout << "starting sleep\n";
 
 		usleep(40000);	
-	std::cout <<"sleep over\n";
+	// std::cout <<"sleep over\n";
 	}
 }
 
@@ -1703,6 +1830,9 @@ int main(int argc,char *argv[])
 	viewtotake=true;
 	Is_SoundExpl=false;
 	Is_SoundBullet=false;
+	OnFrontScreen=true;
+	SingleMode=false;
+	MultiMode=false;
 	pthread_t networkthread;
 	Graph datagraph;
 	datagraph.x1=argc-1;
@@ -1736,8 +1866,6 @@ int main(int argc,char *argv[])
 	alien2eye = loadOBJ("Alien3Eye.obj");
 	alien2body = loadOBJ("Alien3Body.obj");
 	alien2top = loadOBJ("Alien3Top.obj");
-
-
 
 	shipcol = loadOBJ("NewShipCol.obj");
 	shipmid = loadOBJ("NewShipMid.obj");
@@ -1819,6 +1947,7 @@ int main(int argc,char *argv[])
 	// Alien newa= Alien();
 	// newg.PlayerBoard.InsertAlien(newa);
 	newg.LastBulletTime=0;
+	newg.LastMissileTime=0;
 	presentf=0;
 
 	pthread_create(&backendthread,NULL,UpdateGameThread,NULL);
