@@ -806,7 +806,7 @@ std::string Board::GenerateOnlyPlayerInstructions(int player_id,std::vector<Bull
 
 std::string Board::GenerateAllInstructions(int player_id,std::vector<Points> points)
 {
-	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation() + "\n" + GetStringPoints(points) + "\n" + GenerateShipInsForAI()); 
+	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n"  + GetStringPoints(points) + "\n" + GenerateShipInsForAI()); 
 }
 
 std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
@@ -858,8 +858,7 @@ std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
 std::string Board::GeneratingCount()
 {
 	return ("6_" + std::to_string(VectorShips.size()) + "_" + 
-			std::to_string(VectorBullets.size()) + "_" + 
-			std::to_string(VectorAliens.size()));
+			std::to_string(VectorBullets.size()) );
 }
 
 void Board::ApplyInstruction6(std::string information)
@@ -869,10 +868,6 @@ void Board::ApplyInstruction6(std::string information)
 	{
 		VectorBullets.clear();
 	}
-	if(std::stoi(s[3]) == 0)
-	{
-		VectorAliens.clear();
-	} 
 }
 
 std::string Board::GenerateAliensInformation()
