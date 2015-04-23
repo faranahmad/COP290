@@ -146,4 +146,4 @@ AllTests.o: AllTests.cpp
 
 clean:
 	rm -rf *.o
-	rm -rf Test Game Debug.txt
+	rm -rf Test Game CompGame  Debug.txt
