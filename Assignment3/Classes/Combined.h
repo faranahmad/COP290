@@ -90,6 +90,12 @@ std::vector<Faces> alien1col;
 std::vector<Faces> alien1top;
 std::vector<Faces> alien1mid;
 
+std::vector<Faces> alien2gun;
+std::vector<Faces> alien2eye;
+std::vector<Faces> alien2body;
+std::vector<Faces> alien2top;
+
+
 std::vector<Faces> shipcol;
 std::vector<Faces> shipmid;
 std::vector<Faces> shipfir;

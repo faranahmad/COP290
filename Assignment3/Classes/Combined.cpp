@@ -691,7 +691,7 @@ void ShowMissile(Bullet &b)
 	DisplaySmokePoints(SmokePointsMissile);
 	// std::cout << SmokePointsMissile.size() <<"\n";
 	glPopMatrix();
-	UpdateAllSmokePoints(SmokePointsMissile);
+	// UpdateAllSmokePoints(SmokePointsMissile);
 }
 
 void ShowShip(Ship &shiptodisplay)
@@ -740,7 +740,7 @@ void ShowShip(Ship &shiptodisplay)
 		glTranslatef(0,-67,0);
 		DisplaySmokePoints(SmokePoints);
 		glPopMatrix();
-		UpdateAllSmokePoints(SmokePoints);
+		// UpdateAllSmokePoints(SmokePoints);
 	}
 }
 
@@ -753,78 +753,134 @@ void ShowAlien(Alien &alientodisplay)
 	glTranslatef(alientodisplay.GetXPos(),alientodisplay.GetYPos(),0);
 	glRotatef(alientodisplay.GetAngle(),0,0,1);
 
-	if (!viewtotake)
+	if (alientodisplay.GetType()==0)
 	{
-		glRotatef(90,1,0,0);
+		if (!viewtotake)
+		{
+			glRotatef(90,1,0,0);
+		}
+		else
+		{
+			glRotatef(180,0,0,1);
+		}
+	
+	
+		glPushMatrix();
+		glColor3f(1,0,0);
+		ShowObject(alien1gun);
+		glPopMatrix();
+	
+		glPushMatrix();
+		Color col_ship=alientodisplay.GetColor();
+		glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
+		ShowObject(alien1col);
+		glPopMatrix();
+	
+	
+	
+		glPushMatrix();
+		glColor3f(1,1,1);
+		ShowObject(alien1top);	
+		glPopMatrix();
+	
+	
+		glPushMatrix();
+		glColor3f(0,0,0);
+		ShowObject(alien1mid);
+		glPopMatrix();
 	}
-	else
+	else if (alientodisplay.GetType()==1)
 	{
-		glRotatef(180,0,0,1);
+		if (!viewtotake)
+		{
+			glRotatef(90,1,0,0);
+			glRotatef(90,0,0,1);
+		}
+		else
+		{
+			glRotatef(-90,0,0,1);
+		}
+
+	
+		glPushMatrix();
+		glColor3f(1,0,0);
+		ShowObject(alien2gun);
+		glPopMatrix();
+	
+		glPushMatrix();
+		Color col_ship=alientodisplay.GetColor();
+		glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
+		ShowObject(alien2body);
+		glPopMatrix();
+	
+	
+	
+		glPushMatrix();
+		glColor3f(0,0,0);
+		ShowObject(alien2eye);	
+		glPopMatrix();
+	
+	
+		glPushMatrix();
+		glColor3f(1,1,1);
+		ShowObject(alien2top);
+		glPopMatrix();
+
+
+
+
+
+
+
+		// glPushMatrix();
+		// Color col_ship=alientodisplay.GetColor();
+		// glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
+		// ShowObject(alien2body);
+		// glPopMatrix();
+
+
 	}
-
-
-	glPushMatrix();
-	glColor3f(1,0,0);
-	ShowObject(alien1gun);
-	glPopMatrix();
-
-	glPushMatrix();
-	Color col_ship=alientodisplay.GetColor();
-	glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
-	ShowObject(alien1col);
-	glPopMatrix();
-
-
-
-	glPushMatrix();
-	glColor3f(1,1,1);
-	ShowObject(alien1top);	
-	glPopMatrix();
-
-
-	glPushMatrix();
-	glColor3f(0,0,0);
-	ShowObject(alien1mid);
-	glPopMatrix();
-
 	glPopMatrix();
 }
 
 void ShowBorders()
 {
-	glPushMatrix();
-	float tk=30.0;  // Thickness of the border
-	glColor3f(0,0,1.0);
-
-	glBegin(GL_POLYGON);
-	glVertex3f( -NX -tk, PY +tk , 0.0);
-	glVertex3f( PX +tk , PY +tk , 0.0);
-	glVertex3f( PX +tk , PY  , 0.0);
-	glVertex3f( -NX -tk, PY  , 0.0);
-	glEnd();
+	if (viewtotake)
+	{
+		glPushMatrix();
+		float tk=30.0;  // Thickness of the border
+		glColor3f(0,0,1.0);
 	
-	glBegin(GL_POLYGON);
-	glVertex3f( -NX -tk , PY + tk , 0.0);
-	glVertex3f( -NX -tk , -NY -tk , 0.0);
-	glVertex3f( -NX , -NY -tk , 0.0);
-	glVertex3f( -NX , PY +tk , 0.0);
-	glEnd();
+		glBegin(GL_POLYGON);
+		glVertex3f( -NX -tk, PY +tk , 0.0);
+		glVertex3f( PX +tk , PY +tk , 0.0);
+		glVertex3f( PX +tk , PY  , 0.0);
+		glVertex3f( -NX -tk, PY  , 0.0);
+		glEnd();
+		
+		glBegin(GL_POLYGON);
+		glVertex3f( -NX -tk , PY + tk , 0.0);
+		glVertex3f( -NX -tk , -NY -tk , 0.0);
+		glVertex3f( -NX , -NY -tk , 0.0);
+		glVertex3f( -NX , PY +tk , 0.0);
+		glEnd();
+		
+		glBegin(GL_POLYGON);
+		glVertex3f( -NX -tk , -NY , 0.0);
+		glVertex3f( -NX -tk , -NY -tk , 0.0);
+		glVertex3f(  PX +tk , -NY -tk , 0.0);
+		glVertex3f(  PX +tk , -NY , 0.0);
+		glEnd();
+		
+		glBegin(GL_POLYGON);
+		glVertex3f( PX , PY , 0.0);
+		glVertex3f( PX , -NY , 0.0);
+		glVertex3f( PX + tk , -NY , 0.0);
+		glVertex3f( PX + tk, PY , 0.0);
+		glEnd();
 	
-	glBegin(GL_POLYGON);
-	glVertex3f( -NX -tk , -NY , 0.0);
-	glVertex3f( -NX -tk , -NY -tk , 0.0);
-	glVertex3f(  PX +tk , -NY -tk , 0.0);
-	glVertex3f(  PX +tk , -NY , 0.0);
-	glEnd();
-	
-	glBegin(GL_POLYGON);
-	glVertex3f( PX , PY , 0.0);
-	glVertex3f( PX , -NY , 0.0);
-	glVertex3f( PX + tk , -NY , 0.0);
-	glVertex3f( PX + tk, PY , 0.0);
-	glEnd();
-
-	glPopMatrix();
+		glPopMatrix();
+	}
 }
 
 void ShowTitle()
@@ -950,6 +1006,8 @@ void ShowBoard(Board &boardtodisplay)
 	glVertex3f( PX, -1080  , 0);
 	glEnd();
 	glPopMatrix();
+	UpdateAllSmokePoints(SmokePointsMissile);
+	UpdateAllSmokePoints(SmokePoints);
 
 }
 
@@ -1042,6 +1100,7 @@ void UpdateFireExplosions()
 		else
 		{
 			// FirePoints.
+			FirePoints.erase(FirePoints.begin()+i);
 			i-=1;
 		}
 	}
@@ -1374,7 +1433,6 @@ void display(void)
 	// std::cout<<"here before the if\n";
 	if (!GameActive && !GameOver)
 	{
-	
 	    // std::cout <<"displaying image\n";
 		glEnable(GL_TEXTURE_2D);
 	    glBindTexture(GL_TEXTURE_2D, _textureId);
@@ -1400,7 +1458,6 @@ void display(void)
 	
 	
 	    glDisable(GL_TEXTURE_2D);
-	
 	}
 	else if(GameOver)
 	{
@@ -1655,6 +1712,13 @@ int main(int argc,char *argv[])
 	alien1top = loadOBJ("Alien2Mid.obj");
 	alien1mid = loadOBJ("Alien2Eye.obj");
 
+	alien2gun = loadOBJ("Alien3Guns.obj");
+	alien2eye = loadOBJ("Alien3Eye.obj");
+	alien2body = loadOBJ("Alien3Body.obj");
+	alien2top = loadOBJ("Alien3Top.obj");
+
+
+
 	shipcol = loadOBJ("NewShipCol.obj");
 	shipmid = loadOBJ("NewShipMid.obj");
 	shipfir = loadOBJ("NewShipFir.obj");
@@ -1687,9 +1751,9 @@ int main(int argc,char *argv[])
 	for (int i =0 ; i<limt ; i++)
 	{
 		int X,Y,Z;
-		X = (rand()%int(PX+NX)) -NX;
-		Y = (rand()%int(PY+NY)) -NY;
-		Z = 500;
+		X = (rand()%int(2*(PX+NX))) -2*NX;
+		Y = (rand()%int(2*(PY+NY))) -2*NY;
+		Z = (rand()%int(500)) -250;
 		Points p;
 		p.x=X;
 		p.y=Y;
