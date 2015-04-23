@@ -1562,7 +1562,7 @@ void display(void)
 	glutPostRedisplay();
 }
 
-void *UpdateGameThread(void *x)
+void UpdateThread()
 {
 	while(true)
 	{
@@ -1650,7 +1650,7 @@ if (IsBaap() && GameActive)
 	}
 
 
-		usleep(40000);	
+		usleep(1000);	
 	}
 }
 
@@ -1817,7 +1817,7 @@ int main(int argc,char *argv[])
 	newg.LastBulletTime=0;
 	presentf=0;
 
-	pthread_create(&backendthread,NULL,UpdateGameThread,NULL);
+	pthread_create(&backendthread,NULL,UpdateThread,NULL);
 
 
 	// Wrapper function for graphics
