@@ -1569,23 +1569,24 @@ void *UpdateGameThread(void *x)
 			newg.IsActive=(newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()>0);
 	while (!Instructions.empty())
 	{
-//        std::cout <<"in instructions\n";
+       std::cout <<"in instructions\n";
         std::string s=Instructions.front();
 //        std::cout <<s.size() <<"\n";
 		Instructions.pop();
+		std::cout <<"popped 1\n";
 		std::vector<Points> newexp= newg.PlayerBoard.ApplyInstructions(s,newg.PlayerId);
 		if (newexp.size()>0)
 		{
 			Is_SoundExpl=true;
 		}
-		for (int j=0; j<Explosions.size(); j++)
-		{
-			if (Explosions[j].fuel==0)
-			{
-				Explosions.erase(Explosions.begin()+j);
-				j-=1;
-			}
-		}
+		// for (int j=0; j<Explosions.size(); j++)
+		// {
+		// 	if (Explosions[j].fuel==0)
+		// 	{
+		// 		Explosions.erase(Explosions.begin()+j);
+		// 		j-=1;
+		// 	}
+		// }
 		// std::cout <<"erased any explosions\n";
 		for (int j=0; j<newexp.size(); j++)
 		{
@@ -1593,7 +1594,7 @@ void *UpdateGameThread(void *x)
 		}
 		// std::cout << "pushed new explosions\n";
 	}
-	// std::cout <<"applied instructions if any\n";
+	std::cout <<"applied instructions if any\n";
 	std::vector<Bullet> bulltoadd;
 	while (!BulletsToAdd.empty())
 	{
@@ -1601,12 +1602,12 @@ void *UpdateGameThread(void *x)
 		BulletsToAdd.pop();
 	}
 	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,bulltoadd);
-//    std::cout << "sending" << message1.size() <<"\n";
+   std::cout << "sending" << message1.size() <<"\n";
     SendMessageToAll(message1);
 
 if (IsBaap() && GameActive)
 	{
-//        std::cout << "in baap\n";
+       std::cout << "in baap\n";
 		// std::cout<<"Lives before: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 		// std::cout << "It is in the baap case\n";
 		UpdateAIBoard(newg.PlayerBoard);
@@ -1617,7 +1618,7 @@ if (IsBaap() && GameActive)
 		}
 		// std::cout<<"Lives after: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 
-		// std::cout << "starting for loop\n";
+		std::cout << "starting for loop\n";
 		for (int j=0; j<Explosions.size(); j++)
 		{
 			if (Explosions[j].fuel==0)
@@ -1646,11 +1647,13 @@ if (IsBaap() && GameActive)
 	}
 	else if (GameActive)
 	{
+		std::cout << "updateing bullets without killing\n";
 		newg.PlayerBoard.UpdateBulletsWithoutKilling();
 	}
-
+	std::cout << "starting sleep\n";
 
 		usleep(40000);	
+	std::cout <<"sleep over\n";
 	}
 }
 

@@ -65,11 +65,12 @@ Combined.o: Combined.cpp
 CompCombined.o: CompCombined.cpp
 	g++ $(ver) -c CompCombined.cpp
 
-GameDebug: AlienD.o ShipD.o ColorD.o BulletD.o BoardD.o AID.o udpD.o CombinedD.o
-	g++ $(ver) -o GameDebug ColorD.o ShipD.o BulletD.o AlienD.o BoardD.o AID.o udpD.o CombinedD.o -g -lGL -lGLU -lglut -lpthread
+GameDebug: AlienD.o ShipD.o ColorD.o BulletD.o BoardD.o AIcomputationD.o AIalienD.o AIMissileD.o AIPlayerD.o AIUpdateD.o udpD.o ImageD.o HighscoreD.o CombinedD.o
+	g++ $(ver) -o Game Color.o Ship.o Bullet.o Alien.o Board.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o Image.o Highscore.o Combined.o -g -lGL -lGLU -lglut -lpthread
 
 Test: Test.o Alien.o Ship.o Color.o Bullet.o Board.o ShipTest.o AllTests.o
 	g++ $(ver) -o Test Test.o Alien.o Ship.o Color.o Bullet.o Board.o ShipTest.o AllTests.o
+
 
 ColorD.o: Color.cpp
 	g++ $(ver) -c Color.cpp -g
@@ -86,11 +87,35 @@ BulletD.o: Bullet.cpp
 BoardD.o: Board.cpp
 	g++ $(ver) -c Board.cpp -g
 
+CompetitiveBoardD.o: CompetitiveBoard.cpp
+	g++ $(ver) -c CompetitiveBoard.cpp -g
+
+AIcomputationD.o: AIcomputation.cpp
+	g++ $(ver) -c AIcomputation.cpp -g
+
+AIalienD.o: AIalien.cpp
+	g++ $(ver) -c AIalien.cpp -g
+
+AIMissileD.o: AIMissile.cpp
+	g++ $(ver) -c AIMissile.cpp -g
+
+AIPlayerD.o: AIPlayer.cpp
+	g++ $(ver) -c AIPlayer.cpp -g
+
+AIUpdateD.o: AIUpdate.cpp
+	g++ $(ver) -c AIUpdate.cpp -g
+
 AID.o: AI.cpp
 	g++ $(ver) -c AI.cpp -g
 
 udpD.o: udp.cpp
 	g++ $(ver) -c udp.cpp -g
+
+ImageD.o: Image.cpp
+	g++ $(ver) -c Image.cpp -g
+
+HighscoreD.o: Highscore.cpp
+	g++ $(ver) -c Highscore.cpp -g
 
 CombinedD.o: Combined.cpp
 	g++ $(ver) -c Combined.cpp -g
