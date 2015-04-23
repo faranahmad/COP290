@@ -14,6 +14,7 @@ bool noIP;
 std::string ipadr;
 
 int sid;
+int LastTime;
 
 struct IPMessage {
     long long ip;
@@ -268,6 +269,122 @@ void* OutMessage(void* input)
 	}
 
 }
+void* ReceiveData(void* input)
+{
+		char recvmsg[BUFSIZE];
+		struct sockaddr_in myaddr, remaddr;
+		socklen_t addrlen=sizeof(remaddr);
+         for(int i=0;i<IPdata.size();i++)
+             std::cout<<IPdata[i].first<<'\t'<<IPdata[i].second<<std::endl;
+         std::cout<<"Awaiting data...\n";
+		int recvlen = recvfrom(sid,recvmsg , BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
+		if(recvmsg[0]!='0' && recvlen>0)
+		{
+			TimeStamp[FindIndex((long long)remaddr.sin_addr.s_addr)]=time(0);
+		}
+
+		// std::cout<<"Recieved message:"<<ToStr(recvmsg)<<" Bytes recv:"<<recvlen<<std::endl;
+		if (recvlen>0) 
+		{
+			LastTime=time(0);
+			recvmsg[recvlen] = 0;
+			switch(recvmsg[0])
+			{
+				case '0':
+				{	
+					// std::cout<<"case 0\n";
+					std::pair<long long,long long> p;
+					// std::cout<<"case 0\n";
+					p.first=(long long)remaddr.sin_addr.s_addr;
+                     std::cout<<p.first<<std::endl;
+					p.second=0;
+                     std::cout<<p.second<<std::endl;
+					TimeStamp.push_back(time(0));
+					IPdata.push_back(p);
+                     std::cout<<time(0)<<std::endl;
+                     std::cout<<"case 0\n";
+					char sendmsg[BUFSIZE];
+					sendmsg[0]='1';
+					sendmsg[1]=' ';
+					int j=2;
+					// std::cout<<"case 0\n";
+					for(int i=0;i<IPdata.size()-1;i++)
+					{
+						char temp[20];
+                        sprintf(temp,"%lld",IPdata[i].first);
+                        int lenll=LengthNum(IPdata[i].first);
+                        for(int k=0;k<lenll;k++)
+                        {
+                        	sendmsg[j]=temp[k];
+                        	j++;
+                        }
+                        if(IPdata[i].second==1)
+                        {
+                        	sendmsg[j]='*';
+                        	j++;
+                        }
+                        sendmsg[j]=' ';
+                        j++;
+					}
+					j--;
+					sendmsg[j]='\n';
+					sendmsg[j+1]='\0';
+//					 std::cout<<"First message sent:"<<ToStr(sendmsg);
+					int slen=sizeof(remaddr);
+					sendto(sid, sendmsg, strlen(sendmsg), 0, (struct sockaddr *)&remaddr, slen);
+			        std::vector<pthread_t> threads= std::vector<pthread_t>(IPdata.size()-2);
+			        
+			        IPMessage im;
+			        
+			        char temp[20];
+			        sprintf(temp,"%lld",(long long)remaddr.sin_addr.s_addr);
+			        char sendmsg2[BUFSIZE];
+			        sendmsg2[0]='2';
+			        sendmsg2[1]=' ';
+			        j=2;
+			        for(int k=0;k<LengthNum((long long)remaddr.sin_addr.s_addr);k++)
+			        {
+			        	sendmsg2[j]=temp[k];
+			        	j++;
+			        }
+			        sendmsg2[j]='\n';
+			        sendmsg2[j+1]='\0';
+			        im.message=sendmsg2;
+			        im.sockid=sid;
+                     for(int i=0;i<IPdata.size();i++)
+                         std::cout<<IPdata[i].first<<std::endl;
+			        for(int i=0;i<threads.size();i++)
+			        {
+//			        	 std::cout<<"sendmsg2:"<<ToStr(sendmsg2)<<"to:"<<IPdata[i+1].first<<std::endl;
+			        	im.ip=IPdata[i+1].first;
+			        	pthread_create(&threads[i],NULL,SendMessage,&im);
+			        }
+			        break;
+				}
+				case '2':
+				{
+	    	    	AddPlayers(recvmsg);
+					break;
+				}
+				case 'C':
+				{
+					break;
+				}
+				case 'P':
+				{
+					break;
+				}
+				default:
+				{	
+					// Instructions.push_back(ToStr(recvmsg));
+					Instructions.push(ToStr(recvmsg));
+					break;
+				}
+			}
+		}
+
+}
+
 
 int networkmain(int argc, char** argv)
 {
@@ -403,118 +520,121 @@ int networkmain(int argc, char** argv)
 	long long dummy=0;
 	pthread_create(&remplayer,NULL, RemovePlayer,(void *)dummy);
 
+	LastTime=time(0);
+	pthread_t receive;
+	pthread_create(&remplayer,NULL, ReceiveData,(void *)dummy);
 
 	RECV:Connect=true;
 	while(true)
 	{	
-		socklen_t addrlen=sizeof(remaddr);
-         for(int i=0;i<IPdata.size();i++)
-             std::cout<<IPdata[i].first<<'\t'<<IPdata[i].second<<std::endl;
-         std::cout<<"Awaiting data...\n";
-		int recvlen = recvfrom(sockid,recvmsg , BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
-		if(recvmsg[0]!='0' && recvlen>0)
-		{
-			TimeStamp[FindIndex((long long)remaddr.sin_addr.s_addr)]=time(0);
-		}
+		// socklen_t addrlen=sizeof(remaddr);
+  //        for(int i=0;i<IPdata.size();i++)
+  //            std::cout<<IPdata[i].first<<'\t'<<IPdata[i].second<<std::endl;
+  //        std::cout<<"Awaiting data...\n";
+		// int recvlen = recvfrom(sockid,recvmsg , BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
+		// if(recvmsg[0]!='0' && recvlen>0)
+		// {
+		// 	TimeStamp[FindIndex((long long)remaddr.sin_addr.s_addr)]=time(0);
+		// }
 		// std::cout<<"Recieved message:"<<ToStr(recvmsg)<<" Bytes recv:"<<recvlen<<std::endl;
-		if (recvlen > 0) 
-		{
-			recvmsg[recvlen] = 0;
-			switch(recvmsg[0])
-			{
-				case '0':
-				{	
-					// std::cout<<"case 0\n";
-					std::pair<long long,long long> p;
-					// std::cout<<"case 0\n";
-					p.first=(long long)remaddr.sin_addr.s_addr;
-                     std::cout<<p.first<<std::endl;
-					p.second=0;
-                     std::cout<<p.second<<std::endl;
-					TimeStamp.push_back(time(0));
-					IPdata.push_back(p);
-                     std::cout<<time(0)<<std::endl;
-                     std::cout<<"case 0\n";
-					char sendmsg[BUFSIZE];
-					sendmsg[0]='1';
-					sendmsg[1]=' ';
-					int j=2;
-					// std::cout<<"case 0\n";
-					for(int i=0;i<IPdata.size()-1;i++)
-					{
-						char temp[20];
-                        sprintf(temp,"%lld",IPdata[i].first);
-                        int lenll=LengthNum(IPdata[i].first);
-                        for(int k=0;k<lenll;k++)
-                        {
-                        	sendmsg[j]=temp[k];
-                        	j++;
-                        }
-                        if(IPdata[i].second==1)
-                        {
-                        	sendmsg[j]='*';
-                        	j++;
-                        }
-                        sendmsg[j]=' ';
-                        j++;
-					}
-					j--;
-					sendmsg[j]='\n';
-					sendmsg[j+1]='\0';
-//					 std::cout<<"First message sent:"<<ToStr(sendmsg);
-					int slen=sizeof(remaddr);
-					sendto(sockid, sendmsg, strlen(sendmsg), 0, (struct sockaddr *)&remaddr, slen);
-			        std::vector<pthread_t> threads= std::vector<pthread_t>(IPdata.size()-2);
+		if ((time(0)-LastTime)>10) 
+// 		{
+// 			recvmsg[recvlen] = 0;
+// 			switch(recvmsg[0])
+// 			{
+// 				case '0':
+// 				{	
+// 					// std::cout<<"case 0\n";
+// 					std::pair<long long,long long> p;
+// 					// std::cout<<"case 0\n";
+// 					p.first=(long long)remaddr.sin_addr.s_addr;
+//                      std::cout<<p.first<<std::endl;
+// 					p.second=0;
+//                      std::cout<<p.second<<std::endl;
+// 					TimeStamp.push_back(time(0));
+// 					IPdata.push_back(p);
+//                      std::cout<<time(0)<<std::endl;
+//                      std::cout<<"case 0\n";
+// 					char sendmsg[BUFSIZE];
+// 					sendmsg[0]='1';
+// 					sendmsg[1]=' ';
+// 					int j=2;
+// 					// std::cout<<"case 0\n";
+// 					for(int i=0;i<IPdata.size()-1;i++)
+// 					{
+// 						char temp[20];
+//                         sprintf(temp,"%lld",IPdata[i].first);
+//                         int lenll=LengthNum(IPdata[i].first);
+//                         for(int k=0;k<lenll;k++)
+//                         {
+//                         	sendmsg[j]=temp[k];
+//                         	j++;
+//                         }
+//                         if(IPdata[i].second==1)
+//                         {
+//                         	sendmsg[j]='*';
+//                         	j++;
+//                         }
+//                         sendmsg[j]=' ';
+//                         j++;
+// 					}
+// 					j--;
+// 					sendmsg[j]='\n';
+// 					sendmsg[j+1]='\0';
+// //					 std::cout<<"First message sent:"<<ToStr(sendmsg);
+// 					int slen=sizeof(remaddr);
+// 					sendto(sockid, sendmsg, strlen(sendmsg), 0, (struct sockaddr *)&remaddr, slen);
+// 			        std::vector<pthread_t> threads= std::vector<pthread_t>(IPdata.size()-2);
 			        
-			        IPMessage im;
+// 			        IPMessage im;
 			        
-			        char temp[20];
-			        sprintf(temp,"%lld",(long long)remaddr.sin_addr.s_addr);
-			        char sendmsg2[BUFSIZE];
-			        sendmsg2[0]='2';
-			        sendmsg2[1]=' ';
-			        j=2;
-			        for(int k=0;k<LengthNum((long long)remaddr.sin_addr.s_addr);k++)
-			        {
-			        	sendmsg2[j]=temp[k];
-			        	j++;
-			        }
-			        sendmsg2[j]='\n';
-			        sendmsg2[j+1]='\0';
-			        im.message=sendmsg2;
-			        im.sockid=sockid;
-                     for(int i=0;i<IPdata.size();i++)
-                         std::cout<<IPdata[i].first<<std::endl;
-			        for(int i=0;i<threads.size();i++)
-			        {
-//			        	 std::cout<<"sendmsg2:"<<ToStr(sendmsg2)<<"to:"<<IPdata[i+1].first<<std::endl;
-			        	im.ip=IPdata[i+1].first;
-			        	pthread_create(&threads[i],NULL,SendMessage,&im);
-			        }
-			        break;
-				}
-				case '2':
-				{
-	    	    	AddPlayers(recvmsg);
-					break;
-				}
-				case 'C':
-				{
-					break;
-				}
-				case 'P':
-				{
-					break;
-				}
-				default:
-				{	
-					// Instructions.push_back(ToStr(recvmsg));
-					Instructions.push(ToStr(recvmsg));
-					break;
-				}
-			}
-		}
-		else
+// 			        char temp[20];
+// 			        sprintf(temp,"%lld",(long long)remaddr.sin_addr.s_addr);
+// 			        char sendmsg2[BUFSIZE];
+// 			        sendmsg2[0]='2';
+// 			        sendmsg2[1]=' ';
+// 			        j=2;
+// 			        for(int k=0;k<LengthNum((long long)remaddr.sin_addr.s_addr);k++)
+// 			        {
+// 			        	sendmsg2[j]=temp[k];
+// 			        	j++;
+// 			        }
+// 			        sendmsg2[j]='\n';
+// 			        sendmsg2[j+1]='\0';
+// 			        im.message=sendmsg2;
+// 			        im.sockid=sockid;
+//                      for(int i=0;i<IPdata.size();i++)
+//                          std::cout<<IPdata[i].first<<std::endl;
+// 			        for(int i=0;i<threads.size();i++)
+// 			        {
+// //			        	 std::cout<<"sendmsg2:"<<ToStr(sendmsg2)<<"to:"<<IPdata[i+1].first<<std::endl;
+// 			        	im.ip=IPdata[i+1].first;
+// 			        	pthread_create(&threads[i],NULL,SendMessage,&im);
+// 			        }
+// 			        break;
+// 				}
+// 				case '2':
+// 				{
+// 	    	    	AddPlayers(recvmsg);
+// 					break;
+// 				}
+// 				case 'C':
+// 				{
+// 					break;
+// 				}
+// 				case 'P':
+// 				{
+// 					break;
+// 				}
+// 				default:
+// 				{	
+// 					// Instructions.push_back(ToStr(recvmsg));
+// 					Instructions.push(ToStr(recvmsg));
+// 					break;
+// 				}
+// 			}
+// 		}
+// 		else
 		{	
 			std::cout<<"You have been disconnected\n";
 			First=false;
