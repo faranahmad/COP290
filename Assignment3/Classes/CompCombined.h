@@ -16,7 +16,7 @@
 #include <GL/freeglut.h>
 #include <fstream>
 #include "Image.h"
-#include "Highscore.h"
+#include "CompHighscore.h"
 
 #define NUM_PARTICLES    1000          /* Number of particles  */
 #define NUM_DEBRIS       70            /* Number of debris     */

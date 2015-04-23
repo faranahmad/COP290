@@ -14,8 +14,8 @@ RunTest: Test
 Game: Alien.o Ship.o Color.o Bullet.o Board.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o Image.o Highscore.o Combined.o
 	g++ $(ver) -o Game Color.o Ship.o Bullet.o Alien.o Board.o AIcomputation.o AIalien.o AIMissile.o AIPlayer.o AIUpdate.o udp.o Image.o Highscore.o Combined.o -lGL -lGLU -lglut -lpthread
 
-CompGame: Alien.o Ship.o Color.o Bullet.o CompetitiveBoard.o OPAIcomputation.o OPAIMissile.o OPAIPlayer.o OPAIUpdate.o udp.o Image.o Highscore.o  CompCombined.o
-	g++ $(ver) -o CompGame Color.o Ship.o Bullet.o Alien.o CompetitiveBoard.o OPAIcomputation.o OPAIMissile.o OPAIPlayer.o OPAIUpdate.o udp.o Image.o Highscore.o  CompCombined.o -lGL -lGLU -lglut -lpthread
+CompGame: Alien.o Ship.o Color.o Bullet.o CompetitiveBoard.o OPAIcomputation.o OPAIMissile.o OPAIPlayer.o OPAIUpdate.o udp.o Image.o CompHighscore.o  CompCombined.o
+	g++ $(ver) -o CompGame Color.o Ship.o Bullet.o Alien.o CompetitiveBoard.o OPAIcomputation.o OPAIMissile.o OPAIPlayer.o OPAIUpdate.o udp.o Image.o CompHighscore.o  CompCombined.o -lGL -lGLU -lglut -lpthread
 
 Color.o: Color.cpp
 	g++ $(ver) -c Color.cpp
