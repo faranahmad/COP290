@@ -1305,6 +1305,7 @@ void display(void)
 	{
 		if (!doneonce)
 		{
+			ID= newg.PlayerId;
 			highscorestodisplay=UpdateHighScores(newg.PlayerBoard);
 			doneonce=true;
 		}
