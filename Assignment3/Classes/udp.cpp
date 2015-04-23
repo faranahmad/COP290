@@ -58,7 +58,7 @@ int GetNumPlayers()
 void AddPlayers(char players [])
 {
 	std::string s;
-	// std::cout<<"Adding player:"<<ToStr(players);
+     std::cout<<"Adding player:"<<ToStr(players);
 	for(int i=2;players[i]!=0;i++)
 	{
 		if(players[i]!=' ' && players[i]!='\n')
@@ -76,12 +76,12 @@ void AddPlayers(char players [])
 
 			const char * ipchar = s.c_str();
 			p.first=atoll(ipchar);
-			// std::cout<<"first element of p:"<<p.first<<std::endl;
-			// std::cout<<"second element of p:"<<p.second<<std::endl;
+             std::cout<<"first element of p:"<<p.first<<std::endl;
+             std::cout<<"second element of p:"<<p.second<<std::endl;
 			TimeStamp.push_back(time(0));
 			IPdata.push_back(p);
-	        // for(int i=0;i<IPdata.size();i++)
-	        	// std::cout<<IPdata[i].first<<std::endl;
+             for(int i=0;i<IPdata.size();i++)
+                 std::cout<<IPdata[i].first<<std::endl;
 			s="";
 		}
 	}
@@ -177,7 +177,7 @@ void SendMessageToAll(std::string message)
 			pthread_create(&threads[i],NULL,SendMessage,&im);
 			usleep(1);
 		}
-		// std::cout<<"Messages sent!!!!!!!!!!!!!!!!!!!!!!\n";
+         std::cout<<"Messages sent!!!!!!!!!!!!!!!!!!!!!!\n";
 	}
 }
 
@@ -191,8 +191,8 @@ void* RemovePlayer(void* input)
 		{
 			if((now-TimeStamp[i])>6)
 			{
-				// std::cout<<"Removing: "<<IPdata[i].first<<std::endl;
-				// std::cout<<"Time diff:"<<(now-TimeStamp[i])<<std::endl;
+                 std::cout<<"Removing: "<<IPdata[i].first<<std::endl;
+                 std::cout<<"Time diff:"<<(now-TimeStamp[i])<<std::endl;
 				if(Connect)
 				{
 					long long temp=IPdata[i].second;
@@ -408,9 +408,9 @@ int networkmain(int argc, char** argv)
 	while(true)
 	{	
 		socklen_t addrlen=sizeof(remaddr);
-		// for(int i=0;i<IPdata.size();i++)
-	        // std::cout<<IPdata[i].first<<'\t'<<IPdata[i].second<<std::endl;
-		// std::cout<<"Awaiting data...\n";
+         for(int i=0;i<IPdata.size();i++)
+             std::cout<<IPdata[i].first<<'\t'<<IPdata[i].second<<std::endl;
+         std::cout<<"Awaiting data...\n";
 		int recvlen = recvfrom(sockid,recvmsg , BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
 		if(recvmsg[0]!='0' && recvlen>0)
 		{
@@ -428,13 +428,13 @@ int networkmain(int argc, char** argv)
 					std::pair<long long,long long> p;
 					// std::cout<<"case 0\n";
 					p.first=(long long)remaddr.sin_addr.s_addr;
-					// std::cout<<p.first<<std::endl;
+                     std::cout<<p.first<<std::endl;
 					p.second=0;
-					// std::cout<<p.second<<std::endl;
+                     std::cout<<p.second<<std::endl;
 					TimeStamp.push_back(time(0));
 					IPdata.push_back(p);
-					// std::cout<<time(0)<<std::endl;
-					// std::cout<<"case 0\n";
+                     std::cout<<time(0)<<std::endl;
+                     std::cout<<"case 0\n";
 					char sendmsg[BUFSIZE];
 					sendmsg[0]='1';
 					sendmsg[1]=' ';
@@ -461,7 +461,7 @@ int networkmain(int argc, char** argv)
 					j--;
 					sendmsg[j]='\n';
 					sendmsg[j+1]='\0';
-					// std::cout<<"First message sent:"<<ToStr(sendmsg);
+//					 std::cout<<"First message sent:"<<ToStr(sendmsg);
 					int slen=sizeof(remaddr);
 					sendto(sockid, sendmsg, strlen(sendmsg), 0, (struct sockaddr *)&remaddr, slen);
 			        std::vector<pthread_t> threads= std::vector<pthread_t>(IPdata.size()-2);
@@ -483,11 +483,11 @@ int networkmain(int argc, char** argv)
 			        sendmsg2[j+1]='\0';
 			        im.message=sendmsg2;
 			        im.sockid=sockid;
-			        // for(int i=0;i<IPdata.size();i++)
-			        	// std::cout<<IPdata[i].first<<std::endl;
+                     for(int i=0;i<IPdata.size();i++)
+                         std::cout<<IPdata[i].first<<std::endl;
 			        for(int i=0;i<threads.size();i++)
 			        {
-			        	// std::cout<<"sendmsg2:"<<ToStr(sendmsg2)<<"to:"<<IPdata[i+1].first<<std::endl;
+//			        	 std::cout<<"sendmsg2:"<<ToStr(sendmsg2)<<"to:"<<IPdata[i+1].first<<std::endl;
 			        	im.ip=IPdata[i+1].first;
 			        	pthread_create(&threads[i],NULL,SendMessage,&im);
 			        }
@@ -524,15 +524,15 @@ int networkmain(int argc, char** argv)
 			// exit(0);
 			if(IPdata.size()<=2)
 			{
-				// IPdata.erase(IPdata.begin()+1);
-				// TimeStamp.erase(TimeStamp.begin()+1);
+                 IPdata.erase(IPdata.begin()+1);
+                 TimeStamp.erase(TimeStamp.begin()+1);
 				IPdata[0].second=1;
-				// std::cout<<"First GOTO\n";
+                 std::cout<<"First GOTO\n";
 				goto RECV;
 			}
 			else
 			{
-				// std::cout<<"Second GOTO\n";
+                 std::cout<<"Second GOTO\n";
 				Connect=false;
 				playersReady=false;
 				IPdata[0].second=0;
