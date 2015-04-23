@@ -1307,8 +1307,10 @@ void display(void)
 		{
 			ID= newg.PlayerId;
 			highscorestodisplay=UpdateHighScores(newg.PlayerBoard);
+			rankingtodisplay=newg.PlayerBoard.GetRanking();
 			doneonce=true;
 		}
+
 
 		glEnable(GL_TEXTURE_2D);
 	    glBindTexture(GL_TEXTURE_2D, _textureGameOver);
@@ -1378,6 +1380,23 @@ void display(void)
 			glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
 			glPopMatrix();
 		}
+
+		iniy = 800;
+
+		for (int i=0; i<rankingtodisplay.size(); i++)
+		{
+			std::string l1 = rankingtodisplay[i];
+			unsigned char *pchar4= (unsigned char*) l1.c_str();
+		
+			glPushMatrix();
+			glColor3f(0,0,1);
+			glRasterPos3f( -200, iniy, 1000 );
+			iniy -=60;
+			glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar4);
+			glPopMatrix();
+		}
+
+
 
 
 	}
