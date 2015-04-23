@@ -1608,9 +1608,9 @@ void *UpdateGameThread(void *x)
 		BulletsToAdd.pop();
 	}
 	// std::cout <<"bullets work done\n";
-	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,bulltoadd);
+	// std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,bulltoadd);
    // std::cout << "sending" << message1.size() <<"\n";
-    SendMessageToAll(message1);
+    // SendMessageToAll(message1);
 
 		if (IsBaap() && GameActive)
 		{
