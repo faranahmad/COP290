@@ -6,7 +6,7 @@ Awaiting data...
 Opened file
 pushing stars
 pushed stars: 0
-Generated stars: 635
+Generated stars: 401
 board is set up: 0
 sending80
 sending80
@@ -40,81 +40,2469 @@ sending80
 sending80
 sending80
 sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+2333397002
+0
+1429799012
+case 0
+2635386890
+2333397002
+2635386890	1
+2333397002	0
+Awaiting data...
+sending80
+sending80
+sending80
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+in instructions
+79
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+in instructions
+79
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+79
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+83
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+83
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+83
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+83
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+83
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+83
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+83
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+83
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+83
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
 sending80
 in baap
 sending80
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
 sending80
 in baap
 sending80
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
 sending80
 in baap
 sending80
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
 sending80
 in baap
 sending80
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending80
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
 sending80
 in baap
 sending80
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending80
+in instructions
+85
+sending82
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending80
+in instructions
+85
+sending82
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending80
+in instructions
+85
+sending82
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending81
+in instructions
+85
+sending82
+in baap
+sending82
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending82
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending82
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending82
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending82
 in baap
 sending83
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
+in instructions
+85
 sending83
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
+in instructions
+85
 sending83
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending83
+in instructions
+85
+sending84
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending83
+in instructions
+85
+sending84
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending83
-in baap
-sending83
-in baap
-sending83
-in baap
+in instructions
+85
 sending84
 in baap
+sending84
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending157
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending84
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending84
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending84
+in baap
+sending84
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending159
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
 sending85
 in baap
 sending85
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+162
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending159
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
 sending85
 in baap
 sending85
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+162
+sending159
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
 sending85
 in baap
 sending85
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
+in instructions
+85
 sending85
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
+in instructions
+85
 sending85
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
+in instructions
+85
 sending85
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
+in instructions
+85
 sending159
 in baap
 sending85
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
+in instructions
+162
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending159
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+162
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending159
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+162
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+in baap
+sending159
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+162
+sending160
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending161
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+162
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+162
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending161
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+162
+sending85
+in baap
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+162
+sending85
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+in baap
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+162
+sending85
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
 sending85
 in baap
 sending85
 in baap
 sending85
 in baap
+sending85
+in baap
+sending85
+in baap
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+162
+sending85
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+in baap
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending85
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+162
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending161
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending162
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+162
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending86
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+85
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending162
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+162
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending162
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+85
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending86
+in baap
+sending162
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+164
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+165
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending164
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+165
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+in baap
+sending163
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+165
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending163
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+165
+sending86
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending161
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+165
+sending86
+in baap
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+165
+sending86
+in baap
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+165
+sending86
+in baap
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+165
+sending161
+in baap
+sending86
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+87
+sending86
+in baap
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending161
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+165
+sending86
+in baap
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+87
+sending86
+in baap
+sending161
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+165
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending161
+in baap
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending161
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+165
+sending162
+in baap
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending162
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+in baap
+sending162
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+165
+sending86
+in baap
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending162
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending85
+in baap
+sending85
+in baap
+sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
 sending85
 in baap
 sending160
@@ -124,182 +2512,3628 @@ in baap
 sending85
 in baap
 sending85
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending84
+in baap
+sending86
+in baap
+sending162
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+165
+sending86
+in baap
+sending86
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending86
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+87
+sending162
+in baap
+sending86
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+165
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending164
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending86
+in baap
+sending162
+in baap
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending86
 in baap
-sending85
+sending86
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending161
+in instructions
+87
+sending86
+in baap
+sending86
 in baap
-sending85
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+165
+sending87
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending85
+sending87
 in baap
-sending161
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending164
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending85
+sending87
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending161
+in instructions
+87
+sending87
 in baap
-sending85
+sending164
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+165
+sending87
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending161
+sending87
 in baap
-sending85
+sending164
 in baap
-sending85
+sending87
 in baap
-sending85
+sending87
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending161
+sending87
 in baap
-sending85
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending85
+sending87
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending161
+sending87
 in baap
-sending85
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending85
+sending87
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+165
+sending87
 in baap
-sending161
+sending87
 in baap
-sending85
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending85
+sending87
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending161
+sending87
 in baap
-sending85
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending85
+sending87
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending161
+sending87
 in baap
-sending85
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending85
+sending87
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+165
+sending87
 in baap
-sending161
+sending87
 in baap
-sending85
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending85
+sending87
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending85
+sending87
 in baap
-sending85
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending85
+sending87
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending85
+sending87
 in baap
-sending85
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+165
+sending87
 in baap
-sending85
+sending87
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending164
 in baap
-sending85
+sending87
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending85
+sending87
 in baap
-sending85
+sending87
 in baap
-sending85
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending85
+sending87
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
-sending85
+in instructions
+87
+sending87
 in baap
-sending85
+sending87
 in baap
-sending85
+sending164
 in baap
-sending85
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+165
+sending87
+in baap
+sending164
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending164
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending164
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+165
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+in baap
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+in baap
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+in baap
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+165
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending164
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending164
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+in baap
+sending164
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+163
+sending87
+in baap
+sending164
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending164
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending164
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+sending87
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+163
+sending164
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending87
+in baap
+sending163
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending162
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending162
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+163
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+163
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+163
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+86
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending88
+in baap
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+164
+sending88
+in baap
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending88
+in baap
+sending166
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending88
+in baap
+sending166
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+164
+sending88
+in baap
+sending88
+in baap
+sending166
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+87
+sending88
+in baap
+sending88
+in baap
+sending166
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+88
+sending88
+in baap
+sending88
+in baap
+sending88
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+88
+sending88
+in baap
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+88
+sending88
+in baap
+sending88
+in baap
+sending166
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+166
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+88
+sending88
+in baap
+sending88
+in baap
+sending166
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+88
+sending88
+in baap
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+88
+sending88
+in baap
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+88
+sending88
+in baap
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+88
+sending88
+in baap
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+166
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+88
+sending88
+in baap
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+88
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+88
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+167
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+167
+sending89
+in baap
+sending90
+in baap
+sending90
+in baap
+sending90
+in baap
+sending90
+in baap
+sending90
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+in baap
+sending90
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+89
+sending90
+in baap
+sending90
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+in baap
+sending90
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+167
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+167
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+167
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+167
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending86
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending87
+in baap
+sending87
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending87
+in baap
+sending87
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending88
+in baap
+sending88
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending89
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending89
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+89
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+89
+sending90
+in baap
+sending90
+Rank							Score							Name
+1.												0475								ronak
+2.												0265								soccer
+3.												0260								soccer
+4.												0245								soccer
+in baap
+sending90
+in baap
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+in baap
+2635386890	1
+2333397002	0
+Awaiting data...
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+2635386890	1
+2333397002	0
+Awaiting data...
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+in instructions
+89
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+You have been disconnected
+First GOTO
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
+in baap
+in instructions
+89
+sending90
+2635386890	1
+2333397002	0
+Awaiting data...
 in baap
