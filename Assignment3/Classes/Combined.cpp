@@ -1617,7 +1617,7 @@ void display(void)
 			// std::cout << p[j].x <<"\t" <<p[j].y << "\n";
 		}
 
-        while (newg.PlayerBoard.GetNumberAliens()<=15)
+        while (newg.PlayerBoard.GetNumberAliens()<=10)
 		{
 			newg.PlayerBoard.AddRandomAlien();
 		}
@@ -1633,7 +1633,7 @@ void display(void)
 		newg.PlayerBoard.UpdateBulletsWithoutKilling();
 	}
 	// std::cout << "starting explosion update\n";
-	UpdateAllExplosions();
+//	UpdateAllExplosions();
 	// std::cout << "Updated\n";
 	// std::cout << "Done operations, time for re display\n";
 	// UpdatePlayerAI(newg.PlayerBoard);

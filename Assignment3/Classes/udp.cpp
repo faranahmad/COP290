@@ -192,8 +192,8 @@ void* RemovePlayer(void* input)
 		{
             if((now-TimeStamp[i])>10)
 			{
-                 std::cout<<"Removing: "<<IPdata[i].first<<std::endl;
-                 std::cout<<"Time diff:"<<(now-TimeStamp[i])<<std::endl;
+                 // std::cout<<"Removing: "<<IPdata[i].first<<std::endl;
+                 // std::cout<<"Time diff:"<<(now-TimeStamp[i])<<std::endl;
 				if(Connect)
 				{
 					long long temp=IPdata[i].second;
@@ -276,9 +276,9 @@ void* ReceiveData(void* input)
 		char recvmsg[BUFSIZE];
 		struct sockaddr_in myaddr, remaddr;
 		socklen_t addrlen=sizeof(remaddr);
-         for(int i=0;i<IPdata.size();i++)
-             std::cout<<IPdata[i].first<<'\t'<<IPdata[i].second<<std::endl;
-         std::cout<<"Awaiting data...\n";
+         // for(int i=0;i<IPdata.size();i++)
+         //     std::cout<<IPdata[i].first<<'\t'<<IPdata[i].second<<std::endl;
+         // std::cout<<"Awaiting data...\n";
 		int recvlen = recvfrom(sid,recvmsg , BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
 		if(recvmsg[0]!='0' && recvlen>0)
 		{
@@ -297,13 +297,13 @@ void* ReceiveData(void* input)
 					std::pair<long long,long long> p;
 					// std::cout<<"case 0\n";
 					p.first=(long long)remaddr.sin_addr.s_addr;
-                     std::cout<<p.first<<std::endl;
+                     // std::cout<<p.first<<std::endl;
 					p.second=0;
-                     std::cout<<p.second<<std::endl;
+                     // std::cout<<p.second<<std::endl;
 					TimeStamp.push_back(time(0));
 					IPdata.push_back(p);
-                     std::cout<<time(0)<<std::endl;
-                     std::cout<<"case 0\n";
+                     // std::cout<<time(0)<<std::endl;
+                     // std::cout<<"case 0\n";
 					char sendmsg[BUFSIZE];
 					sendmsg[0]='1';
 					sendmsg[1]=' ';
@@ -352,8 +352,8 @@ void* ReceiveData(void* input)
 			        sendmsg2[j+1]='\0';
 			        im.message=sendmsg2;
 			        im.sockid=sid;
-                     for(int i=0;i<IPdata.size();i++)
-                         std::cout<<IPdata[i].first<<std::endl;
+                     // for(int i=0;i<IPdata.size();i++)
+                         // std::cout<<IPdata[i].first<<std::endl;
 			        for(int i=0;i<threads.size();i++)
 			        {
 //			        	 std::cout<<"sendmsg2:"<<ToStr(sendmsg2)<<"to:"<<IPdata[i+1].first<<std::endl;
