@@ -202,6 +202,8 @@ void initRendering()
     Image* image2 = loadBMP("highsc.bmp");
     _textureHighScore = loadTexture(image2);
     delete image2;
+
+
 }
 
 std::vector<Faces> loadOBJ(char * path)
@@ -600,6 +602,10 @@ void ShowObject(std::vector<Faces> &facevect)
 	glRotatef (90,1,0,0);
 	for (int i=0; i<facevect.size() ; i++)
 	{
+
+
+
+		
 		Faces currentface= facevect[i];
 		Points point1,point2,point3;
 		point1= currentface.p1;

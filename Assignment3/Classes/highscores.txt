@@ -4,7 +4,7 @@
 35
 ./Game
 35
+./Game
+30
 faran
 15
-kartikeya
-10
