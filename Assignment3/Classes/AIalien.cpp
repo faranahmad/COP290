@@ -45,15 +45,15 @@ void MoveAlienInDirectionOfShip(Alien &alien, Ship &ship)
 	float relativeangle;
 	relativeangle=RelativeAngleOfShipFromAlien(ship,alien);
 	// if (alien.GetAngle()<180)
-	// 	angle=alien.GetAngle();
-	// else 
-	// 	angle =360-alien.GetAngle();
+	//  	angle=alien.GetAngle();
+	//  else 
+	//  	angle =alien.GetAngle()-360;
 	//std::cout<<"Angle of alien"<<angle<<"\n";
 	// std::cout<<"Relative angle"<<relativeangle<<"\n";
 	//if (fabs(RelativeAngleOfShipFromAlien(ship,alien)-angle)<RIGHTANGLE)
 	//{
-		alien.SetXPos(alien.GetXPos()-5*sin(relativeangle));
-		alien.SetYPos(alien.GetYPos()+5*cos(relativeangle));
+		alien.SetXPos(alien.GetXPos()-5*sin(PI*relativeangle/180));
+		alien.SetYPos(alien.GetYPos()+5*cos(PI*relativeangle/180));
 		if(alien.GetXPos() < -(NEGX))
 		{
 			alien.SetXPos(-(NEGX));
@@ -99,15 +99,20 @@ void TurnAlienInDirectionOfShip(Alien &alien, Ship &ship,bool &finished)
 	float alienAngle;
 
 	float relativeangle=RelativeAngleOfShipFromAlien(ship,alien);
-
-	if (alien.GetAngle()<180)
+	if (fabs(relativeangle-180.0)<0.2 || fabs(180+relativeangle)<0.2)
+	{
+		// CHill
+	}
+	else
+	{
+	if (alien.GetAngle()<=180)
 	 	alienAngle=alien.GetAngle();
 	else 
 	 	alienAngle =alien.GetAngle()-360;
 
 	// std::cout<<"Relative Angle "<<relativeangle<<" Alien angle "<<alienAngle<<"\n";
 	
-	if (fabs(relativeangle-alienAngle)<=5 )
+	if (fabs(relativeangle-alienAngle)<= 1 )
 	{
 
 		// std::cout<<"setting finished true \n";
@@ -135,6 +140,7 @@ void TurnAlienInDirectionOfShip(Alien &alien, Ship &ship,bool &finished)
 			alien.SetAngle(alien.GetAngle()-angularvelocity);
 		//change the sign of this according to where the alien is
 	}
+}
 }
 
 void FireBulletForAlien(Alien &alien, Board &board)

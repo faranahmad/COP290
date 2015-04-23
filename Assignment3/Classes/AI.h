@@ -8,8 +8,8 @@
 //change these defines for ship and alien for different levels of difficulty
 #define theta 15
 #define minDistanceforRotation 5000000 //important to set this	//decides whether an alien should turn or move i.e affects nearEnough
-#define minAngleofRotation 50	//should be same as angular velocity shouldnt it??
-#define angularvelocity 50 		//turning velocity of ship / alien
+#define minAngleofRotation 5	//should be same as angular velocity shouldnt it??
+#define angularvelocity 5 		//turning velocity of ship / alien
 //#define maximumdistance 100000 //not required 
 #define RIGHTANGLE 90		//for moving alien/ship
 #define ALIENMISSILE -1

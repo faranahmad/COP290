@@ -29,8 +29,8 @@ void MoveShipInDirectionOfAlien(Ship &ship, Alien &alien)
 	// if (abs(RelativeAngleOfAlienFromShip(alien,ship)-ship.GetAngle())<RIGHTANGLE)
 	// {
 		
-		ship.SetXPos(ship.GetXPos()-5*sin(relativeangle));
-		ship.SetYPos(ship.GetYPos()+5*cos(relativeangle));
+		ship.SetXPos(ship.GetXPos()-5*sin(PI*relativeangle/180));
+		ship.SetYPos(ship.GetYPos()+5*cos(PI*relativeangle/180));
 		if(ship.GetXPos() < -(NEGX))
 		{
 			ship.SetXPos(-(NEGX));
@@ -81,7 +81,7 @@ void TurnShipInDirectionOfAlien(Ship &ship, Alien &alien, bool &finished)
 
 	float relativeangle=RelativeAngleOfAlienFromShip(alien,ship);
 
-	if (ship.GetAngle()<180)
+	if (ship.GetAngle()<=180)
 	 	shipAngle=ship.GetAngle();
 	else 
 	 	shipAngle =ship.GetAngle()-360;
