@@ -1,3 +1,5 @@
+./Game
+25
 ronak
 20
 ronak
