@@ -822,7 +822,7 @@ std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
 		}
 		else if(infosplitted[i][0] == '9')
 		{
-			vanswer=GetVectorPoints(infosplitted[i]);
+			// vanswer=GetVectorPoints(infosplitted[i]);
 		}
 		else if(infosplitted[i][0] == '6')
 		{
@@ -843,7 +843,7 @@ std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
 		else if(infosplitted[i][0] == '7')
 		{
 			//std::cout <<"applying aliens\n";
-			ApplyAllAlienInstructions(infosplitted[i]);
+			// ApplyAllAlienInstructions(infosplitted[i]);
 		}
 		else if(infosplitted[i][0] == 't')
 		{
