@@ -1620,20 +1620,20 @@ if (IsBaap() && GameActive)
 		// std::cout<<"Lives after: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 
 		std::cout << "starting for loop\n";
-		for (int j=0; j<Explosions.size(); j++)
-		{
-			if (Explosions[j].fuel==0)
-			{
-				Explosions.erase(Explosions.begin()+j);
-				j-=1;
-			}
-		}
+		// for (int j=0; j<Explosions.size(); j++)
+		// {
+		// 	if (Explosions[j].fuel==0)
+		// 	{
+		// 		Explosions.erase(Explosions.begin()+j);
+		// 		j-=1;
+		// 	}
+		// }
 		// std::cout <<"done with for 1\n";
-		for (int j=0; j<p.size(); j++)
-		{
-			Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
-			// std::cout << p[j].x <<"\t" <<p[j].y << "\n";
-		}
+		// for (int j=0; j<p.size(); j++)
+		// {
+		// 	Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
+		// 	// std::cout << p[j].x <<"\t" <<p[j].y << "\n";
+		// }
 
         while (newg.PlayerBoard.GetNumberAliens()<=10)
 		{
