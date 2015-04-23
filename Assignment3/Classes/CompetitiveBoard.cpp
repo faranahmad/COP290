@@ -957,7 +957,7 @@ void Board::ApplyAllAlienInstructions(std::string information)
 		VectorAliens.erase(VectorAliens.begin()+allaliensinfo.size(),VectorAliens.end());
 	}
 }
-GetSt
+
 void Board::ApplyPlayerBulletInstructions(std::string information)
 {
 	std::vector<std::string> allbullets = SplitString(information,'\t');
@@ -967,7 +967,7 @@ void Board::ApplyPlayerBulletInstructions(std::string information)
 	}
 }
 
-void Board::UpdateBulletsWithoutKillingGetSt()
+void Board::UpdateBulletsWithoutKilling()
 {
 	for (int i=VectorBullets.size()-1;i>=0;i--)
 	{
