@@ -6,7 +6,7 @@ Awaiting data...
 Opened file
 pushing stars
 pushed stars: 0
-Generated stars: 268
+Generated stars: 635
 board is set up: 0
 sending80
 sending80
@@ -40,31 +40,6 @@ sending80
 sending80
 sending80
 sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
-sending80
 in baap
 sending80
 in baap
@@ -92,687 +67,23 @@ sending80
 in baap
 sending80
 in baap
-sending80
+sending81
 in baap
-sending80
+sending83
 in baap
-sending80
+sending83
 in baap
-sending80
+sending83
 in baap
-sending80
+sending83
 in baap
-sending80
+sending83
 in baap
-sending80
+sending83
 in baap
-sending80
+sending83
 in baap
-sending80
-in baap
-sending80
-in baap
-sending80
-in baap
-sending82
-in baap
-sending82
-in baap
-sending84
-in baap
-sending84
-in baap
-sending84
-in baap
-sending84
-in baap
-sending84
-in baap
-sending84
-in baap
-sending84
-in baap
-sending85
-in baap
-sending85
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending161
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending161
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending161
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending161
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending161
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending161
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending161
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending161
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending161
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending161
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending161
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending161
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending161
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending165
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending165
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending165
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending165
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending165
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending88
-in baap
-sending166
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending166
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending166
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending166
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending166
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending166
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending166
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending88
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-You have been disconnected
-First GOTO
-2635386890	1
-Awaiting data...
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-You have been disconnected
-First GOTO
-2635386890	1
-Awaiting data...
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-You have been disconnected
-First GOTO
-2635386890	1
-Awaiting data...
-You have been disconnected
-First GOTO
-2635386890	1
-Awaiting data...
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
+sending83
 in baap
 sending84
 in baap
@@ -781,10 +92,28 @@ in baap
 sending85
 in baap
 sending85
-You have been disconnected
-First GOTO
-2635386890	1
-Awaiting data...
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending159
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
 in baap
 sending85
 in baap
@@ -798,301 +127,179 @@ sending85
 in baap
 sending85
 in baap
-sending86
+sending85
 in baap
-sending162
+sending161
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending162
+sending161
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending162
+sending161
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending162
+sending161
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending162
+sending161
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending162
+sending161
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending162
+sending161
 in baap
-sending86
+sending85
 in baap
-sending86
-You have been disconnected
-First GOTO
-2635386890	1
-Awaiting data...
-You have been disconnected
-First GOTO
-2635386890	1
-Awaiting data...
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending162
+sending161
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending162
+sending161
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending162
+sending161
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending162
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
-You have been disconnected
-First GOTO
-2635386890	1
-Awaiting data...
+sending85
 in baap
-sending162
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending162
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending162
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending162
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-You have been disconnected
-First GOTO
-2635386890	1
-Awaiting data...
-You have been disconnected
-First GOTO
-2635386890	1
-Awaiting data...
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-You have been disconnected
-First GOTO
-2635386890	1
-Awaiting data...
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
+sending85
 in baap

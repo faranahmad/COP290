@@ -298,7 +298,7 @@ int networkmain(int argc, char** argv)
 	int sockid=socket(AF_INET, SOCK_DGRAM, 0);
 	sid=sockid;
 	struct timeval tv;
-	tv.tv_sec = 5;
+    tv.tv_sec = 10;
 	tv.tv_usec = 100000;
 	if (setsockopt(sockid, SOL_SOCKET, SO_RCVTIMEO,&tv,sizeof(tv)) < 0) 
 	{
@@ -398,7 +398,7 @@ int networkmain(int argc, char** argv)
 
 	pthread_t remplayer;
 	pthread_t output;
-	pthread_create(&output,NULL,OutMessage,(void *)(long long)sockid);
+//	pthread_create(&output,NULL,OutMessage,(void *)(long long)sockid);
 	
 	long long dummy=0;
 	pthread_create(&remplayer,NULL, RemovePlayer,(void *)dummy);

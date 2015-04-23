@@ -1370,8 +1370,9 @@ void display(void)
 	newg.IsActive=(newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()>0);
 	while (!Instructions.empty())
 	{
-		// std::cout <<"in instructions\n";
+        std::cout <<"in instructions\n";
 		std::string s=Instructions.front();
+        std::cout <<s.size() <<"\n";
 		Instructions.pop();
 		std::vector<Points> newexp= newg.PlayerBoard.ApplyInstructions(s,newg.PlayerId);
 		if (newexp.size()>0)
