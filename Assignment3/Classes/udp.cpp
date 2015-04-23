@@ -271,6 +271,8 @@ void* OutMessage(void* input)
 }
 void* ReceiveData(void* input)
 {
+	while(true)
+	{
 		char recvmsg[BUFSIZE];
 		struct sockaddr_in myaddr, remaddr;
 		socklen_t addrlen=sizeof(remaddr);
@@ -282,7 +284,6 @@ void* ReceiveData(void* input)
 		{
 			TimeStamp[FindIndex((long long)remaddr.sin_addr.s_addr)]=time(0);
 		}
-
 		// std::cout<<"Recieved message:"<<ToStr(recvmsg)<<" Bytes recv:"<<recvlen<<std::endl;
 		if (recvlen>0) 
 		{
@@ -382,6 +383,7 @@ void* ReceiveData(void* input)
 				}
 			}
 		}
+	}
 
 }
 
@@ -636,7 +638,7 @@ int networkmain(int argc, char** argv)
 // 		}
 // 		else
 		{	
-			std::cout<<"You have been disconnected\n";
+			// std::cout<<"You have been disconnected\n";
 			First=false;
 			// pthread_join(output,NULL);
 			// pthread_join(remplayer,NULL);
@@ -647,12 +649,12 @@ int networkmain(int argc, char** argv)
 //                 IPdata.erase(IPdata.begin()+1);
 //                 TimeStamp.erase(TimeStamp.begin()+1);
 				IPdata[0].second=1;
-                 std::cout<<"First GOTO\n";
+                 // std::cout<<"First GOTO\n";
 				goto RECV;
 			}
 			else
 			{
-                 std::cout<<"Second GOTO\n";
+                 // std::cout<<"Second GOTO\n";
 				Connect=false;
 				playersReady=false;
 				IPdata[0].second=0;

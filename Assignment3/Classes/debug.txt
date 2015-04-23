@@ -6,7 +6,7 @@ Awaiting data...
 Opened file
 pushing stars
 pushed stars: 0
-Generated stars: 367
+Generated stars: 401
 board is set up: 0
 sending80
 sending80
@@ -70,8 +70,6 @@ sending80
 sending80
 sending80
 sending80
-sending80
-sending80
 in baap
 sending80
 in baap
@@ -141,39 +139,187 @@ sending82
 in baap
 sending82
 in baap
-sending82
+sending157
 in baap
 sending82
 in baap
 sending82
 in baap
 sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending157
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending80
+in baap
+sending81
 in baap
 sending155
 in baap
-sending83
+sending81
 in baap
-sending83
+sending81
 in baap
-sending83
+sending81
 in baap
-sending83
+sending81
 in baap
-sending83
+sending81
 in baap
 sending155
 in baap
-sending83
+sending81
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending157
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending157
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending157
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending157
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending157
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending157
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending157
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending157
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending157
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending157
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
+in baap
+sending157
+in baap
+sending82
+in baap
+sending82
+in baap
+sending82
 in baap
 sending83
 in baap
 sending83
 in baap
-sending83
-in baap
-sending83
-in baap
-sending156
+sending158
 in baap
 sending83
 in baap
@@ -186,6 +332,18 @@ in baap
 sending83
 in baap
 sending158
+in baap
+sending83
+in baap
+sending83
+in baap
+sending83
+in baap
+sending83
+in baap
+sending83
+in baap
+sending159
 in baap
 sending84
 in baap
@@ -209,7 +367,7 @@ sending85
 in baap
 sending85
 in baap
-sending161
+sending160
 in baap
 sending85
 in baap
@@ -220,242 +378,38 @@ in baap
 sending85
 in baap
 sending85
-in baap
-sending161
-in baap
-sending85
-in baap
-sending85
-in baap
-sending85
-in baap
-sending85
-in baap
-sending85
-in baap
-sending161
-in baap
-sending85
-in baap
-sending85
-in baap
-sending85
-in baap
-sending85
-in baap
-sending85
-in baap
-sending161
-in baap
-sending85
-in baap
-sending85
-in baap
-sending85
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending161
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
 in baap
 sending160
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
 sending160
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending160
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
 in baap
 sending85
 in baap
@@ -507,7 +461,91 @@ sending85
 in baap
 sending85
 in baap
-sending86
+sending85
+in baap
+sending160
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending160
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending160
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending160
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending159
+in baap
+sending84
+in baap
+sending84
+in baap
+sending84
+in baap
+sending84
+in baap
+sending84
+in baap
+sending159
+in baap
+sending84
+in baap
+sending84
+in baap
+sending83
+in baap
+sending85
+in baap
+sending85
+in baap
+sending160
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
 in baap
 sending160
 in baap
@@ -515,13 +553,25 @@ sending86
 in baap
 sending86
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending86
+sending85
 in baap
-sending160
+sending158
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending157
 in baap
 sending86
 in baap
@@ -541,43 +591,31 @@ sending86
 in baap
 sending86
 in baap
-sending86
+sending87
 in baap
-sending86
+sending87
 in baap
-sending161
+sending164
 in baap
-sending86
+sending87
 in baap
-sending86
+sending87
 in baap
-sending86
+sending87
 in baap
-sending86
+sending87
 in baap
-sending86
+sending87
 in baap
-sending162
+sending164
 in baap
-sending86
+sending87
 in baap
-sending86
+sending87
 in baap
-sending86
+sending87
 in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
+sending87
 in baap
 sending86
 in baap
@@ -597,21 +635,9 @@ sending162
 in baap
 sending86
 in baap
-sending86
+sending84
 in baap
-sending86
-in baap
-sending86
-in baap
-sending86
-in baap
-sending162
-in baap
-sending86
-in baap
-sending86
-in baap
-sending86
+sending85
 in baap
 sending85
 in baap
@@ -629,7 +655,9 @@ sending85
 in baap
 sending85
 in baap
-sending160
+sending159
+in baap
+sending85
 in baap
 sending84
 in baap
@@ -639,6 +667,88 @@ sending86
 in baap
 sending86
 in baap
+sending161
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending164
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending164
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending87
+in baap
+sending162
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending162
+in baap
+sending86
+in baap
+sending86
+in baap
+sending84
+in baap
+sending85
+in baap
+sending85
+in baap
+sending160
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending160
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
 sending86
 in baap
 sending162
@@ -651,321 +761,435 @@ sending86
 in baap
 sending86
 in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending164
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending163
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
+sending86
 in baap
 sending162
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
-in baap
-sending162
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
+sending86
 in baap
 sending162
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
-in baap
-sending162
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
-in baap
-sending87
+sending86
 in baap
 sending162
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
 sending162
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending163
+sending162
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending162
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending162
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending162
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending162
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending86
 in baap
-sending87
+sending162
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending161
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending161
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending160
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending160
+in baap
+sending86
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending160
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending83
+in baap
+sending159
+in baap
+sending84
+in baap
+sending84
+in baap
+sending84
+in baap
+sending84
+in baap
+sending84
+in baap
+sending159
+in baap
+sending84
+in baap
+sending84
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending160
+in baap
+sending86
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending160
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending160
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending160
+in baap
+sending85
+in baap
+sending84
+in baap
+sending84
+in baap
+sending84
+in baap
+sending84
+in baap
+sending159
+in baap
+sending84
+in baap
+sending84
+in baap
+sending84
+in baap
+sending84
+in baap
+sending83
+in baap
+sending160
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending160
+in baap
+sending85
+in baap
+sending85
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending160
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending160
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending161
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending162
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending162
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending162
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending162
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending162
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending162
+in baap
+sending86
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+2635386890	1
+Awaiting data...
+in baap
+sending85
+in baap
+sending160
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending85
+in baap
+sending84
+in baap
+sending162
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending86
+in baap
+sending162
+in baap
+sending86
+in baap
+sending86
 in baap
 sending87
 in baap
