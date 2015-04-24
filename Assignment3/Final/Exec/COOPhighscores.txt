@@ -1,8 +1,8 @@
-kg
-310
+mumein
+355
 faran
 300
-kc
-300
 abc
+0
+legend
 0

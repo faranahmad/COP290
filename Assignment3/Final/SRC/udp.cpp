@@ -69,8 +69,11 @@ void AddPlayers(char players [])
 {
 	std::string s;
     // std::cout<<"Adding player:"<<ToStr(players);
-	for(int i=2;players[i]!=0;i++)
+    int i;
+	for(i=2;players[i]!=0;i++)
 	{
+		if(players[i]=='\t')
+			break;
 		if(players[i]!=' ' && players[i]!='\n')
 			s=s+players[i];
 		else
@@ -90,12 +93,12 @@ void AddPlayers(char players [])
             // std::cout<<"second element of p:"<<p.second<<std::endl;
 			TimeStamp.push_back(time(0));
 			IPdata.push_back(p);
-			TotalPlayers++;
             // for(int i=0;i<IPdata.size();i++)
                 // std::cout<<IPdata[i].first<<std::endl;
 			s="";
 		}
 	}
+	TotalPlayers= (int(players[i+1]) -int('0'));
 }
 
 int LengthNum(long long num)
@@ -341,8 +344,10 @@ void* ReceiveData(void* input)
                         j++;
 					}
 					j--;
-					sendmsg[j]='\n';
-					sendmsg[j+1]='\0';
+					sendmsg[j]='\t';
+					sendmsg[j+1]=(char)(TotalPlayers+int('0'));
+					sendmsg[j+2]='\n';
+					sendmsg[j+3]='\0';
 //					 std::cout<<"First message sent:"<<ToStr(sendmsg);
 					int slen=sizeof(remaddr);
 					sendto(sid, sendmsg, strlen(sendmsg), 0, (struct sockaddr *)&remaddr, slen);
