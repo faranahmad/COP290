@@ -3,7 +3,7 @@
 
 #define toDigit(c) (c-'0')
 
-
+//to convert string to 4 letters
 std::string ToFour(std::string x)
 {
 	if(x.length() == 0) 
@@ -17,17 +17,20 @@ std::string ToFour(std::string x)
 	else  
 		return x;
 }
+
+//compare pairs for sorting
 bool PairCompare(std::pair<int,std::string> x, std::pair<int,std::string> y)
 {
 	return (x.first > y.first);
 }
 
-
+//compare int for sorting
 bool MyFunction (int i,int j) 
 { 
 	return (i<j); 
 }
 
+//to generate random floating point bw a and b 
 float RandomFloat(float a, float b) 
 {
     float random = ((float) rand()) / (float) RAND_MAX;
@@ -36,6 +39,7 @@ float RandomFloat(float a, float b)
     return a + r;
 }
 
+//convert bool to int
 int ConvertBool(bool a)
 {
 	if(a == true)
@@ -48,6 +52,7 @@ int ConvertBool(bool a)
 	}
 }
 
+//convert int to bool
 bool ExtractBool(int i)
 {
 	if(i == 0)
@@ -60,11 +65,13 @@ bool ExtractBool(int i)
 	}
 }
 
+//constructor
 Board::Board()
 {
 
 }
 
+//taking in dimensions in constructor
 Board::Board(double posx,double negx,double posy,double negy)
 {
 	DimensionPosX = posx;
@@ -73,6 +80,8 @@ Board::Board(double posx,double negx,double posy,double negy)
 	DimensionNegY = negy;
 } 
 
+
+//set functions
 void Board::SetPosXDimension(double posx)
 {
 	DimensionPosX = posx;
@@ -123,7 +132,7 @@ void Board::SetNthShip(int id, Ship set_ship)
 }
 
 
-
+//getting functions
 std::vector<Bullet> Board::GetVectorBullets()
 {
 	return VectorBullets;
@@ -203,13 +212,14 @@ void Board::RemoveNthShip(int id)
 	VectorShips.erase(VectorShips.begin() + id);
 }
 
+//to get maximum distance
 double Board::MaxDistance()
 {
 	return pow(DimensionPosX+DimensionNegX,2) + pow (DimensionPosY+DimensionNegY,2);
 }
 
 
-//returns -1 if bullets hits no alien
+//returns -1 if bullets hits no alien and returns alien pos in vector aliens
 int Board::CheckBulletHitAlien(int bullet_id)
 {
 	Bullet bullet_hitting = VectorBullets.at(bullet_id);
@@ -230,6 +240,7 @@ int Board::CheckBulletHitAlien(int bullet_id)
 
 }
 
+//returns ship id of the bullet id hitting a ship
 int Board::CheckBulletHitShip(int id)
 {
 	Bullet bullet_hitting = VectorBullets.at(id);
@@ -248,6 +259,8 @@ int Board::CheckBulletHitShip(int id)
 	return -1;
 }
 
+
+//takes in ship id to give vector of positions of aliens hitting ship
 std::vector<int> Board::CheckAlienHitShip(int shipid)
 {
 	std::vector<int> answer;
@@ -263,19 +276,20 @@ std::vector<int> Board::CheckAlienHitShip(int shipid)
 	return answer;
 }
 
+//upadate the position of all bullets
 std::vector<Points> Board::UpdateAllBullets()
 {
-	std::vector<Points> ship_pos_vec;
+	std::vector<Points> ship_pos_vec; 		//returns the points of ship undergoing bullet or ship collision
 	int bullet_size = VectorBullets.size();
-	std::vector<int> bullets_delete;
-	std::vector<int> ships_lives_reduce;
-	std::vector<int> aliens_delete;
+	std::vector<int> bullets_delete;		//vector of bullet numbers in vector bullets to be deleted
+	std::vector<int> ships_lives_reduce;	//vector of ship positions of lives to reduce
+	std::vector<int> aliens_delete;			//returns the alien positions in alien vector of aliens to be deleted 
 
 	for (int i = 0;i < bullet_size ;i++)
 	{
-		if(VectorBullets.at(i).GetTypePlayer() == false)
+		if(VectorBullets.at(i).GetTypePlayer() == false)//check bullet hit ship
 		{
-			int hit_ship = CheckBulletHitShip(i);
+			int hit_ship = CheckBulletHitShip(i);		//ship id of ship being hit
 			if(hit_ship > -1)
 			{
 				if(VectorShips.at(hit_ship).GetLives() > 0)
@@ -292,7 +306,7 @@ std::vector<Points> Board::UpdateAllBullets()
 		}
 		else 
 		{
-			bool repeat = false;
+			bool repeat = false;					//check bullet hit alien
 			int hit_alien = CheckBulletHitAlien(i);
 			if(hit_alien > -1)
 			{
@@ -304,7 +318,7 @@ std::vector<Points> Board::UpdateAllBullets()
 						break;
 					}	
 				}
-				if(repeat == false)
+				if(repeat == false)					//to avoid repetition of alien to be deleted
 				{	
 					int ship_score_to_inc = VectorBullets.at(i).GetShipId();
 					VectorShips.at(ship_score_to_inc).SetScore(VectorShips.at(ship_score_to_inc).GetScore() + 5);
@@ -320,14 +334,14 @@ std::vector<Points> Board::UpdateAllBullets()
 		}
 	}
 
-	for(int i = 0;i < VectorShips.size();i++)
+	for(int i = 0;i < VectorShips.size();i++)		//checking bullet hit ship or not 
 	{
 		if(VectorShips.at(i).GetLives() != 0)
 		{
 			std::vector<int> alientodel = CheckAlienHitShip(i);
 			if(alientodel.size() != 0)
 			{ 
-				ships_lives_reduce.push_back(i);
+				ships_lives_reduce.push_back(i);	//getting ship positions of the ones being hit
 				Points ship_pos;
 				ship_pos.x = VectorShips.at(i).GetXPos();
 				ship_pos.y = VectorShips.at(i).GetYPos();
@@ -351,10 +365,9 @@ std::vector<Points> Board::UpdateAllBullets()
 						// newpoint.y = VectorAliens.at(alientodel.at(j)).GetYPos();
 						// newpoint.z = 0.0;
 						// aliens_pos.push_back(newpoint);
-	
-							aliens_delete.push_back(alientodel.at(j));
-						}
+						aliens_delete.push_back(alientodel.at(j));	//aliens to be deleted due to collision with the ships
 					}
+				}
 			} 
 		}
 	}
@@ -362,22 +375,22 @@ std::vector<Points> Board::UpdateAllBullets()
 	int ships_lives_reduce_size = ships_lives_reduce.size();
 	int aliens_delete_size = aliens_delete.size();
 	std::sort (aliens_delete.begin(), aliens_delete.end(), MyFunction);
-	for (int i = bullets_delete_size - 1;i >= 0;i--)
+	for (int i = bullets_delete_size - 1;i >= 0;i--)						//deleting bullets from the ships
 	{
 		VectorBullets.erase(VectorBullets.begin() + bullets_delete.at(i));
 	} 
-	for(int i = ships_lives_reduce_size - 1;i>=0;i--)
+	for(int i = ships_lives_reduce_size - 1;i>=0;i--) 						//reducing lives of the ship
 	{
 		if(VectorShips.at(ships_lives_reduce.at(i)).GetLives() > 0)
 		{
 			VectorShips.at(ships_lives_reduce.at(i)).SetLives(VectorShips.at(ships_lives_reduce.at(i)).GetLives()-1);
 		}
 	}
-	for (int i = aliens_delete_size-1;i>=0;i--)
+	for (int i = aliens_delete_size-1;i>=0;i--)								//deleting aliens hit by bullets and ship
 	{
 		VectorAliens.erase(VectorAliens.begin()+aliens_delete.at(i));
 	}
-	for (int i=VectorBullets.size()-1;i>=0;i--)
+	for (int i=VectorBullets.size()-1;i>=0;i--)								//checking if bullets went out of board
 	{
 		if(VectorBullets.at(i).GetXPos()+2.0 > DimensionPosX 
 		|| VectorBullets.at(i).GetXPos()-2.0 < -(DimensionNegX) 
@@ -387,7 +400,7 @@ std::vector<Points> Board::UpdateAllBullets()
 			VectorBullets.erase(VectorBullets.begin() + i);
 		}
 	}
-	for (int i=VectorBullets.size() - 1;i >= 0;i--)
+	for (int i=VectorBullets.size() - 1;i >= 0;i--)							//finally updating bullets positions
 	{
 		if(VectorBullets.at(i).GetTypeAI() == false)
 		{
@@ -407,15 +420,15 @@ std::vector<Points> Board::UpdateAllBullets()
 
 void Board::UpdateAliens()
 {
-	//to do
+	//not required till now
 }
 
 void Board::UpdatePlayerAI()
 {
-	//to do
+	//not required till now
 }
 
-
+//adding bullets ships and aliens in their respective functions
 void Board::InsertBullet(Bullet new_bullet)
 {
 	VectorBullets.push_back(new_bullet);
@@ -431,6 +444,8 @@ void Board::InsertShip(Ship new_ship)
 	VectorShips.push_back(new_ship);
 }
 
+
+//get all the info of bullets ships and aliens in the form of string for debugging purposes
 std::string Board::GetSummary()
 {
 	std::string get_summary_ship = "";
@@ -459,8 +474,11 @@ std::string Board::GetSummary()
 	return (get_summary_ship + get_summary_bullet + get_summary_alien);
 }
 
+
+// to move ones own ship
 void Board::MoveNthShip(int ship_id,int mov_type)
 {
+	//move types mapped according to different buttons
 	Ship ship_to_move = VectorShips.at(ship_id);
 	if(mov_type == 0)
 	{
@@ -559,6 +577,8 @@ void Board::MoveNthShip(int ship_id,int mov_type)
 // 	VectorShips.at(ship_id) = ship_to_move; 
 // }
 
+//adding a random ship to the board
+//the ship would be controlled by the AI initially and then added to the vector of ships
 void Board::AddRandomShip()
 {
 	Ship random_ship;
@@ -571,6 +591,7 @@ void Board::AddRandomShip()
 	VectorShips.push_back(random_ship);
 }
 
+//adding random aliens being used in aliens coming from the top
 void Board::AddRandomAlien()
 {
 	Alien random_alien;
@@ -582,6 +603,8 @@ void Board::AddRandomAlien()
 	VectorAliens.push_back(random_alien);
 }
 
+//opcode 3 in ISA
+//generating instructions of the ships to be sent as string over the network
 std::string Board::GeneratePlayerPositionInstructions(int player_id)
 {
 	Ship player = VectorShips.at(player_id);
@@ -604,6 +627,9 @@ std::string Board::GeneratePlayerPositionInstructions(int player_id)
 
 }
 
+//used in opcode 4 in ISA
+//generating the informations of new bullets created by the ship to be sent over the network so that others can also see their positions
+//these bullets to be added to the vector bullets in apply instructions 
 std::string Board::GeneratePlayerBulletInstructions(std::vector<Bullet> vector_bullet)
 {
 	std::string answer = "";
@@ -644,6 +670,7 @@ std::string Board::GeneratePlayerBulletInstructions(std::vector<Bullet> vector_b
 
 }
 
+//contains the information about the players and new bullets created by them
 std::string Board::GeneratePlayerInstructions(int player_id,std::vector<Bullet> vector_bullet)
 {
 	return (GeneratePlayerPositionInstructions(player_id) + "\n" + 
@@ -651,43 +678,7 @@ std::string Board::GeneratePlayerInstructions(int player_id,std::vector<Bullet> 
 
 }
 
-// Ship parseship(std::string shipinfo,Ship ship_parsed)
-// {
-// 	int count = 0;
-// 	std::string getting_name = "";
-// 	while(shipinfo[count] != '_')
-// 	{
-// 		gettingname = gettingname + shipinfo[count];
-// 		count = count + 1;
-// 	}
-// 	count = count + 1;
-// 	ship_parsed.SetName(getting_name);
-// 	std::string gettingxpos = "";
-// 	while(shipinfo[count] != '_')
-// 	{
-// 		gettingxpos = gettingxpos + shipinfo[count];
-// 		count += 1;
-// 	}
-// 	count = count + 1;
-// 	ship_parsed.SetXPos(std::atof(gettingxpos));
-// 	std::string gettingypos = "";
-// 	while(shipinfo[count] != '_')
-// 	{
-// 		gettingypos = gettingypos + shipinfo[count];
-// 		count += 1;
-// 	}
-// 	count = count + 1;
-// 	ship_parsed.SetYPos(std::atof(gettingypos));
-// 	std::string gettingangle = "";
-// 	while(shipinfo[count] != '_')
-// 	{
-// 		gettingangle = gettingangle + shipinfo[count];
-// 		count += 1;
-// 	}
-// 	count = count + 1;
-// 	ship_parsed.SetAngle(std::atof(gettingangle));
-
-// }
+//split string s into vector of strings based on chartosplit
 std::vector<std::string> Board::SplitString(std::string s, char chartosplit)
 {
 	// Break the string s into substrings wherever the chartosplit appears
@@ -714,6 +705,8 @@ std::vector<std::string> Board::SplitString(std::string s, char chartosplit)
 	return answer;
 }
 
+
+//apply all the informations of a particular ship to update its status 
 void Board::ApplyInsToShip(std::vector<std::string> s,Ship shiptochange)
 {
 	// std::cout << "0\t" <<s[0] <<"\n";
@@ -741,6 +734,7 @@ void Board::ApplyInsToShip(std::vector<std::string> s,Ship shiptochange)
 	// std::cout << "applied all\n";
 }
 
+//apply informations of a particular bullet generated by ship so that it would be added to the vector ships
 void Board::ApplyInsToBullets(std::string bulletinfostring)
 {
 	Bullet bullettoadd;
@@ -770,6 +764,7 @@ void Board::ApplyInsToBullets(std::string bulletinfostring)
 // }
 
 
+//apply instructions coming in the form of string for all the ships 
 void Board::ApplyShipInstructions(std::string information,int t)
 {
 	//std::vector<std::string> ship_bullets = SplitString(information,'\n');	
@@ -800,7 +795,8 @@ void Board::ApplyShipInstructions(std::string information,int t)
 	}
 }
 
-
+//generate all instructions string to all the bullets in vector bullets to be sent to ships other than the one which
+//is controlling the AI
 std::string Board::GenerateAllBulletInstructions()
 {
 	std::string answer = "";
@@ -840,6 +836,7 @@ std::string Board::GenerateAllBulletInstructions()
 	return answer;
 }
 
+//apply the informations of bullets coming from the server 
 void Board::ApplySingleBulletInstructions(Bullet bullet_applied,std::string information)
 {
 	std::vector<std::string> bulletinfo = SplitString(information,'_');
@@ -1083,8 +1080,15 @@ void Board::UpdateBulletsWithoutKilling()
 }	
 
 std::string Board::GetNthPlayerScore(int shipid)
-{
-	return (ToFour(std::to_string(VectorShips.at(shipid).GetScore())) +"\t\t\t" + VectorShips.at(shipid).GetName());
+{ 
+	if(VectorShips.at(shipid).GetLives() == 0)
+	{
+		return "";
+	}
+	else
+	{
+		return (ToFour(std::to_string(VectorShips.at(shipid).GetScore())) +"\t\t\t" + VectorShips.at(shipid).GetName());
+	}
 }
 
 std::string Board::GetNthPlayerName(int shipid)
