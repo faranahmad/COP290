@@ -1846,7 +1846,7 @@ if (IsBaap() && GameActive)
 
         while (newg.PlayerBoard.GetNumberAliens()<=15)
 		{
-			newg.PlayerBoard.AddRandomAlien();
+			newg.PlayerBoard.AddRandomRock();
 		}
 		// std::cout << "starting ins gen\n";
 		message1 = newg.PlayerBoard.GenerateAllInstructions(newg.PlayerId,p);
