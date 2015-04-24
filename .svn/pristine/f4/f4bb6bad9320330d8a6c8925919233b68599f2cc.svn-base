@@ -1,0 +1,44 @@
+\hypertarget{structGamePlay}{\section{Game\-Play Struct Reference}
+\label{structGamePlay}\index{Game\-Play@{Game\-Play}}
+}
+
+
+{\ttfamily \#include $<$Combined.\-h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBoard}{Board} \hyperlink{structGamePlay_a39c04914ca869ee339464e75b2477466}{Player\-Board}
+\item 
+int \hyperlink{structGamePlay_acd6b4be0629dac15c7ea5154ce4ff392}{Player\-Id}
+\item 
+int \hyperlink{structGamePlay_a3953c8c4a1da0dd46a3ef927e31f6632}{Last\-Bullet\-Time}
+\item 
+int \hyperlink{structGamePlay_ae141282049dcb7b13d1186472cfd4e88}{Last\-Missile\-Time}
+\item 
+bool \hyperlink{structGamePlay_af408f47ae31ed92aedd293a42ab0e098}{Is\-Active}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structGamePlay_af408f47ae31ed92aedd293a42ab0e098}{\index{Game\-Play@{Game\-Play}!Is\-Active@{Is\-Active}}
+\index{Is\-Active@{Is\-Active}!GamePlay@{Game\-Play}}
+\subsubsection[{Is\-Active}]{\setlength{\rightskip}{0pt plus 5cm}bool Game\-Play\-::\-Is\-Active}}\label{structGamePlay_af408f47ae31ed92aedd293a42ab0e098}
+\hypertarget{structGamePlay_a3953c8c4a1da0dd46a3ef927e31f6632}{\index{Game\-Play@{Game\-Play}!Last\-Bullet\-Time@{Last\-Bullet\-Time}}
+\index{Last\-Bullet\-Time@{Last\-Bullet\-Time}!GamePlay@{Game\-Play}}
+\subsubsection[{Last\-Bullet\-Time}]{\setlength{\rightskip}{0pt plus 5cm}int Game\-Play\-::\-Last\-Bullet\-Time}}\label{structGamePlay_a3953c8c4a1da0dd46a3ef927e31f6632}
+\hypertarget{structGamePlay_ae141282049dcb7b13d1186472cfd4e88}{\index{Game\-Play@{Game\-Play}!Last\-Missile\-Time@{Last\-Missile\-Time}}
+\index{Last\-Missile\-Time@{Last\-Missile\-Time}!GamePlay@{Game\-Play}}
+\subsubsection[{Last\-Missile\-Time}]{\setlength{\rightskip}{0pt plus 5cm}int Game\-Play\-::\-Last\-Missile\-Time}}\label{structGamePlay_ae141282049dcb7b13d1186472cfd4e88}
+\hypertarget{structGamePlay_a39c04914ca869ee339464e75b2477466}{\index{Game\-Play@{Game\-Play}!Player\-Board@{Player\-Board}}
+\index{Player\-Board@{Player\-Board}!GamePlay@{Game\-Play}}
+\subsubsection[{Player\-Board}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Board} Game\-Play\-::\-Player\-Board}}\label{structGamePlay_a39c04914ca869ee339464e75b2477466}
+\hypertarget{structGamePlay_acd6b4be0629dac15c7ea5154ce4ff392}{\index{Game\-Play@{Game\-Play}!Player\-Id@{Player\-Id}}
+\index{Player\-Id@{Player\-Id}!GamePlay@{Game\-Play}}
+\subsubsection[{Player\-Id}]{\setlength{\rightskip}{0pt plus 5cm}int Game\-Play\-::\-Player\-Id}}\label{structGamePlay_acd6b4be0629dac15c7ea5154ce4ff392}
+
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Combined_8h}{Combined.\-h}\item 
+\hyperlink{CompCombined_8h}{Comp\-Combined.\-h}\end{DoxyCompactItemize}

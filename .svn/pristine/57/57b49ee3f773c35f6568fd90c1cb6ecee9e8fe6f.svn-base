@@ -1,0 +1,302 @@
+\hypertarget{classBullet}{\section{Bullet Class Reference}
+\label{classBullet}\index{Bullet@{Bullet}}
+}
+
+
+{\ttfamily \#include $<$Bullet.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBullet_acd7befc0bc18907cc1d871d37bbdddeb}{Bullet} ()
+\item 
+float \hyperlink{classBullet_a30ac60a82a7321a0069eeffedf09e433}{Get\-X\-Pos} ()
+\item 
+float \hyperlink{classBullet_af6882f549d5da6cbbf2a011cfc82bf27}{Get\-Y\-Pos} ()
+\item 
+float \hyperlink{classBullet_a3cf269950609981f4141a8f75a9c502d}{Get\-Vel\-X} ()
+\item 
+float \hyperlink{classBullet_a0e16627abb39b15ce067a5437457dd01}{Get\-Vel\-Y} ()
+\item 
+float \hyperlink{classBullet_a119acf5239e951ee57614e338852848d}{Get\-Speed} ()
+\item 
+\hyperlink{classColor}{Color} \hyperlink{classBullet_af966bc4a244286b8ef32bbc7721e3139}{Get\-Color\-Of\-Bullet} ()
+\item 
+int \hyperlink{classBullet_a0d045c9caf0e5e970e26de4f8d9f418a}{Get\-Ship\-Id} ()
+\item 
+bool \hyperlink{classBullet_afc90a407f6b5fac42312c7ace7163c88}{Get\-Type\-A\-I} ()
+\item 
+bool \hyperlink{classBullet_a2230bea33068339981834ba0c2899724}{Get\-Type\-Player} ()
+\item 
+int \hyperlink{classBullet_aa8790a7edbf3a5e5c93873ac447a93f2}{Get\-Time\-Created} ()
+\item 
+void \hyperlink{classBullet_ad438171251f1fa8041411ca1fc92b167}{Set\-X\-Pos} (float)
+\item 
+void \hyperlink{classBullet_a2d0a8bed693968075bfd2f39dfc469ce}{Set\-Y\-Pos} (float)
+\item 
+void \hyperlink{classBullet_aabca1d4041756361b9282ddcf2dc2f9f}{Set\-Vel\-X} (float)
+\item 
+void \hyperlink{classBullet_a172b0159992b03376caa047b42ab3fc7}{Set\-Vel\-Y} (float)
+\item 
+void \hyperlink{classBullet_a161ebe9f88bbc9cb727bd4da71616367}{Set\-Color\-Of\-Bullet} (\hyperlink{classColor}{Color})
+\item 
+void \hyperlink{classBullet_a464d27c8b417f0a25f76102e8bfcec5c}{Set\-Color\-Of\-Bulletfloat} (int, int, int)
+\item 
+void \hyperlink{classBullet_aeb22fa988afe4519cb65addc6ff0d363}{Set\-Color\-Float} (float, float, float)
+\item 
+void \hyperlink{classBullet_ae1f001c71db9e1f5eb08e0047ff1eb1a}{Set\-Ship\-I\-D} (int)
+\item 
+void \hyperlink{classBullet_a4a17a8e806971a02302c32c2d0331d1d}{Set\-Type\-A\-I} (bool)
+\item 
+void \hyperlink{classBullet_a631e35cfde7dc1c1f47477008122d9cf}{Set\-Type\-Player} (bool)
+\item 
+void \hyperlink{classBullet_a34f095b721d0ad0b04345c8861fa4c73}{Set\-Time\-Created} (int)
+\item 
+void \hyperlink{classBullet_a7c74be5f1cc64746275ef712b5d2629f}{Reset\-Bullet\-State} ()
+\item 
+std\-::string \hyperlink{classBullet_a5c5905ba79f88856d8180cafd4273aeb}{Get\-Summary} ()
+\item 
+float \hyperlink{classBullet_a0c2fca544c1a34f030f7a619969e384a}{Get\-Angle} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{classBullet_a0516664a95082588f240ea392bb90e38}{X\-Pos}
+\item 
+float \hyperlink{classBullet_a8f577dfde29bbcfcbdb343c888f391d9}{Y\-Pos}
+\item 
+float \hyperlink{classBullet_a4d587ab4f71d1f6d3681507b04674bfb}{Vel\-X}
+\item 
+float \hyperlink{classBullet_a567e3c286f1e47015314b7ef141cf8d9}{Vel\-Y}
+\item 
+\hyperlink{classColor}{Color} \hyperlink{classBullet_a9f3fc8ac1cfc3fe6fe154d4a7065b3bb}{Color\-Of\-Bullet}
+\item 
+int \hyperlink{classBullet_a1a70e1a43ad5f248ebc62214247d3c7b}{Ship\-Id}
+\item 
+bool \hyperlink{classBullet_ae2f8ea9d3c700fc27efafec7d540404a}{Type\-A\-I}
+\item 
+bool \hyperlink{classBullet_ac1315818abe9b9c337af21b14c282868}{Type\-Player}
+\item 
+int \hyperlink{classBullet_ab5cc1b11c455b72423ba9a91962dab6b}{Time\-Created}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classBullet_acd7befc0bc18907cc1d871d37bbdddeb}{\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\subsubsection[{Bullet}]{\setlength{\rightskip}{0pt plus 5cm}Bullet\-::\-Bullet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBullet_acd7befc0bc18907cc1d871d37bbdddeb}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classBullet_a0c2fca544c1a34f030f7a619969e384a}{\index{Bullet@{Bullet}!Get\-Angle@{Get\-Angle}}
+\index{Get\-Angle@{Get\-Angle}!Bullet@{Bullet}}
+\subsubsection[{Get\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}float Bullet\-::\-Get\-Angle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a0c2fca544c1a34f030f7a619969e384a}
+\hypertarget{classBullet_af966bc4a244286b8ef32bbc7721e3139}{\index{Bullet@{Bullet}!Get\-Color\-Of\-Bullet@{Get\-Color\-Of\-Bullet}}
+\index{Get\-Color\-Of\-Bullet@{Get\-Color\-Of\-Bullet}!Bullet@{Bullet}}
+\subsubsection[{Get\-Color\-Of\-Bullet}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Color} Bullet\-::\-Get\-Color\-Of\-Bullet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBullet_af966bc4a244286b8ef32bbc7721e3139}
+\hypertarget{classBullet_a0d045c9caf0e5e970e26de4f8d9f418a}{\index{Bullet@{Bullet}!Get\-Ship\-Id@{Get\-Ship\-Id}}
+\index{Get\-Ship\-Id@{Get\-Ship\-Id}!Bullet@{Bullet}}
+\subsubsection[{Get\-Ship\-Id}]{\setlength{\rightskip}{0pt plus 5cm}int Bullet\-::\-Get\-Ship\-Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a0d045c9caf0e5e970e26de4f8d9f418a}
+\hypertarget{classBullet_a119acf5239e951ee57614e338852848d}{\index{Bullet@{Bullet}!Get\-Speed@{Get\-Speed}}
+\index{Get\-Speed@{Get\-Speed}!Bullet@{Bullet}}
+\subsubsection[{Get\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}float Bullet\-::\-Get\-Speed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a119acf5239e951ee57614e338852848d}
+\hypertarget{classBullet_a5c5905ba79f88856d8180cafd4273aeb}{\index{Bullet@{Bullet}!Get\-Summary@{Get\-Summary}}
+\index{Get\-Summary@{Get\-Summary}!Bullet@{Bullet}}
+\subsubsection[{Get\-Summary}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Bullet\-::\-Get\-Summary (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a5c5905ba79f88856d8180cafd4273aeb}
+\hypertarget{classBullet_aa8790a7edbf3a5e5c93873ac447a93f2}{\index{Bullet@{Bullet}!Get\-Time\-Created@{Get\-Time\-Created}}
+\index{Get\-Time\-Created@{Get\-Time\-Created}!Bullet@{Bullet}}
+\subsubsection[{Get\-Time\-Created}]{\setlength{\rightskip}{0pt plus 5cm}int Bullet\-::\-Get\-Time\-Created (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBullet_aa8790a7edbf3a5e5c93873ac447a93f2}
+\hypertarget{classBullet_afc90a407f6b5fac42312c7ace7163c88}{\index{Bullet@{Bullet}!Get\-Type\-A\-I@{Get\-Type\-A\-I}}
+\index{Get\-Type\-A\-I@{Get\-Type\-A\-I}!Bullet@{Bullet}}
+\subsubsection[{Get\-Type\-A\-I}]{\setlength{\rightskip}{0pt plus 5cm}bool Bullet\-::\-Get\-Type\-A\-I (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBullet_afc90a407f6b5fac42312c7ace7163c88}
+\hypertarget{classBullet_a2230bea33068339981834ba0c2899724}{\index{Bullet@{Bullet}!Get\-Type\-Player@{Get\-Type\-Player}}
+\index{Get\-Type\-Player@{Get\-Type\-Player}!Bullet@{Bullet}}
+\subsubsection[{Get\-Type\-Player}]{\setlength{\rightskip}{0pt plus 5cm}bool Bullet\-::\-Get\-Type\-Player (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a2230bea33068339981834ba0c2899724}
+\hypertarget{classBullet_a3cf269950609981f4141a8f75a9c502d}{\index{Bullet@{Bullet}!Get\-Vel\-X@{Get\-Vel\-X}}
+\index{Get\-Vel\-X@{Get\-Vel\-X}!Bullet@{Bullet}}
+\subsubsection[{Get\-Vel\-X}]{\setlength{\rightskip}{0pt plus 5cm}float Bullet\-::\-Get\-Vel\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a3cf269950609981f4141a8f75a9c502d}
+\hypertarget{classBullet_a0e16627abb39b15ce067a5437457dd01}{\index{Bullet@{Bullet}!Get\-Vel\-Y@{Get\-Vel\-Y}}
+\index{Get\-Vel\-Y@{Get\-Vel\-Y}!Bullet@{Bullet}}
+\subsubsection[{Get\-Vel\-Y}]{\setlength{\rightskip}{0pt plus 5cm}float Bullet\-::\-Get\-Vel\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a0e16627abb39b15ce067a5437457dd01}
+\hypertarget{classBullet_a30ac60a82a7321a0069eeffedf09e433}{\index{Bullet@{Bullet}!Get\-X\-Pos@{Get\-X\-Pos}}
+\index{Get\-X\-Pos@{Get\-X\-Pos}!Bullet@{Bullet}}
+\subsubsection[{Get\-X\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}float Bullet\-::\-Get\-X\-Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a30ac60a82a7321a0069eeffedf09e433}
+\hypertarget{classBullet_af6882f549d5da6cbbf2a011cfc82bf27}{\index{Bullet@{Bullet}!Get\-Y\-Pos@{Get\-Y\-Pos}}
+\index{Get\-Y\-Pos@{Get\-Y\-Pos}!Bullet@{Bullet}}
+\subsubsection[{Get\-Y\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}float Bullet\-::\-Get\-Y\-Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBullet_af6882f549d5da6cbbf2a011cfc82bf27}
+\hypertarget{classBullet_a7c74be5f1cc64746275ef712b5d2629f}{\index{Bullet@{Bullet}!Reset\-Bullet\-State@{Reset\-Bullet\-State}}
+\index{Reset\-Bullet\-State@{Reset\-Bullet\-State}!Bullet@{Bullet}}
+\subsubsection[{Reset\-Bullet\-State}]{\setlength{\rightskip}{0pt plus 5cm}void Bullet\-::\-Reset\-Bullet\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a7c74be5f1cc64746275ef712b5d2629f}
+\hypertarget{classBullet_aeb22fa988afe4519cb65addc6ff0d363}{\index{Bullet@{Bullet}!Set\-Color\-Float@{Set\-Color\-Float}}
+\index{Set\-Color\-Float@{Set\-Color\-Float}!Bullet@{Bullet}}
+\subsubsection[{Set\-Color\-Float}]{\setlength{\rightskip}{0pt plus 5cm}void Bullet\-::\-Set\-Color\-Float (
+\begin{DoxyParamCaption}
+\item[{float}]{r, }
+\item[{float}]{g, }
+\item[{float}]{b}
+\end{DoxyParamCaption}
+)}}\label{classBullet_aeb22fa988afe4519cb65addc6ff0d363}
+\hypertarget{classBullet_a161ebe9f88bbc9cb727bd4da71616367}{\index{Bullet@{Bullet}!Set\-Color\-Of\-Bullet@{Set\-Color\-Of\-Bullet}}
+\index{Set\-Color\-Of\-Bullet@{Set\-Color\-Of\-Bullet}!Bullet@{Bullet}}
+\subsubsection[{Set\-Color\-Of\-Bullet}]{\setlength{\rightskip}{0pt plus 5cm}void Bullet\-::\-Set\-Color\-Of\-Bullet (
+\begin{DoxyParamCaption}
+\item[{{\bf Color}}]{bulletcolor}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a161ebe9f88bbc9cb727bd4da71616367}
+\hypertarget{classBullet_a464d27c8b417f0a25f76102e8bfcec5c}{\index{Bullet@{Bullet}!Set\-Color\-Of\-Bulletfloat@{Set\-Color\-Of\-Bulletfloat}}
+\index{Set\-Color\-Of\-Bulletfloat@{Set\-Color\-Of\-Bulletfloat}!Bullet@{Bullet}}
+\subsubsection[{Set\-Color\-Of\-Bulletfloat}]{\setlength{\rightskip}{0pt plus 5cm}void Bullet\-::\-Set\-Color\-Of\-Bulletfloat (
+\begin{DoxyParamCaption}
+\item[{int}]{red, }
+\item[{int}]{green, }
+\item[{int}]{blue}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a464d27c8b417f0a25f76102e8bfcec5c}
+\hypertarget{classBullet_ae1f001c71db9e1f5eb08e0047ff1eb1a}{\index{Bullet@{Bullet}!Set\-Ship\-I\-D@{Set\-Ship\-I\-D}}
+\index{Set\-Ship\-I\-D@{Set\-Ship\-I\-D}!Bullet@{Bullet}}
+\subsubsection[{Set\-Ship\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}void Bullet\-::\-Set\-Ship\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{ship\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{classBullet_ae1f001c71db9e1f5eb08e0047ff1eb1a}
+\hypertarget{classBullet_a34f095b721d0ad0b04345c8861fa4c73}{\index{Bullet@{Bullet}!Set\-Time\-Created@{Set\-Time\-Created}}
+\index{Set\-Time\-Created@{Set\-Time\-Created}!Bullet@{Bullet}}
+\subsubsection[{Set\-Time\-Created}]{\setlength{\rightskip}{0pt plus 5cm}void Bullet\-::\-Set\-Time\-Created (
+\begin{DoxyParamCaption}
+\item[{int}]{t}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a34f095b721d0ad0b04345c8861fa4c73}
+\hypertarget{classBullet_a4a17a8e806971a02302c32c2d0331d1d}{\index{Bullet@{Bullet}!Set\-Type\-A\-I@{Set\-Type\-A\-I}}
+\index{Set\-Type\-A\-I@{Set\-Type\-A\-I}!Bullet@{Bullet}}
+\subsubsection[{Set\-Type\-A\-I}]{\setlength{\rightskip}{0pt plus 5cm}void Bullet\-::\-Set\-Type\-A\-I (
+\begin{DoxyParamCaption}
+\item[{bool}]{A\-I}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a4a17a8e806971a02302c32c2d0331d1d}
+\hypertarget{classBullet_a631e35cfde7dc1c1f47477008122d9cf}{\index{Bullet@{Bullet}!Set\-Type\-Player@{Set\-Type\-Player}}
+\index{Set\-Type\-Player@{Set\-Type\-Player}!Bullet@{Bullet}}
+\subsubsection[{Set\-Type\-Player}]{\setlength{\rightskip}{0pt plus 5cm}void Bullet\-::\-Set\-Type\-Player (
+\begin{DoxyParamCaption}
+\item[{bool}]{type\-\_\-player}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a631e35cfde7dc1c1f47477008122d9cf}
+\hypertarget{classBullet_aabca1d4041756361b9282ddcf2dc2f9f}{\index{Bullet@{Bullet}!Set\-Vel\-X@{Set\-Vel\-X}}
+\index{Set\-Vel\-X@{Set\-Vel\-X}!Bullet@{Bullet}}
+\subsubsection[{Set\-Vel\-X}]{\setlength{\rightskip}{0pt plus 5cm}void Bullet\-::\-Set\-Vel\-X (
+\begin{DoxyParamCaption}
+\item[{float}]{xvelocity}
+\end{DoxyParamCaption}
+)}}\label{classBullet_aabca1d4041756361b9282ddcf2dc2f9f}
+\hypertarget{classBullet_a172b0159992b03376caa047b42ab3fc7}{\index{Bullet@{Bullet}!Set\-Vel\-Y@{Set\-Vel\-Y}}
+\index{Set\-Vel\-Y@{Set\-Vel\-Y}!Bullet@{Bullet}}
+\subsubsection[{Set\-Vel\-Y}]{\setlength{\rightskip}{0pt plus 5cm}void Bullet\-::\-Set\-Vel\-Y (
+\begin{DoxyParamCaption}
+\item[{float}]{yvelocity}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a172b0159992b03376caa047b42ab3fc7}
+\hypertarget{classBullet_ad438171251f1fa8041411ca1fc92b167}{\index{Bullet@{Bullet}!Set\-X\-Pos@{Set\-X\-Pos}}
+\index{Set\-X\-Pos@{Set\-X\-Pos}!Bullet@{Bullet}}
+\subsubsection[{Set\-X\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}void Bullet\-::\-Set\-X\-Pos (
+\begin{DoxyParamCaption}
+\item[{float}]{xposition}
+\end{DoxyParamCaption}
+)}}\label{classBullet_ad438171251f1fa8041411ca1fc92b167}
+\hypertarget{classBullet_a2d0a8bed693968075bfd2f39dfc469ce}{\index{Bullet@{Bullet}!Set\-Y\-Pos@{Set\-Y\-Pos}}
+\index{Set\-Y\-Pos@{Set\-Y\-Pos}!Bullet@{Bullet}}
+\subsubsection[{Set\-Y\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}void Bullet\-::\-Set\-Y\-Pos (
+\begin{DoxyParamCaption}
+\item[{float}]{yposition}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a2d0a8bed693968075bfd2f39dfc469ce}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classBullet_a9f3fc8ac1cfc3fe6fe154d4a7065b3bb}{\index{Bullet@{Bullet}!Color\-Of\-Bullet@{Color\-Of\-Bullet}}
+\index{Color\-Of\-Bullet@{Color\-Of\-Bullet}!Bullet@{Bullet}}
+\subsubsection[{Color\-Of\-Bullet}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Color} Bullet\-::\-Color\-Of\-Bullet\hspace{0.3cm}{\ttfamily [private]}}}\label{classBullet_a9f3fc8ac1cfc3fe6fe154d4a7065b3bb}
+\hypertarget{classBullet_a1a70e1a43ad5f248ebc62214247d3c7b}{\index{Bullet@{Bullet}!Ship\-Id@{Ship\-Id}}
+\index{Ship\-Id@{Ship\-Id}!Bullet@{Bullet}}
+\subsubsection[{Ship\-Id}]{\setlength{\rightskip}{0pt plus 5cm}int Bullet\-::\-Ship\-Id\hspace{0.3cm}{\ttfamily [private]}}}\label{classBullet_a1a70e1a43ad5f248ebc62214247d3c7b}
+\hypertarget{classBullet_ab5cc1b11c455b72423ba9a91962dab6b}{\index{Bullet@{Bullet}!Time\-Created@{Time\-Created}}
+\index{Time\-Created@{Time\-Created}!Bullet@{Bullet}}
+\subsubsection[{Time\-Created}]{\setlength{\rightskip}{0pt plus 5cm}int Bullet\-::\-Time\-Created\hspace{0.3cm}{\ttfamily [private]}}}\label{classBullet_ab5cc1b11c455b72423ba9a91962dab6b}
+\hypertarget{classBullet_ae2f8ea9d3c700fc27efafec7d540404a}{\index{Bullet@{Bullet}!Type\-A\-I@{Type\-A\-I}}
+\index{Type\-A\-I@{Type\-A\-I}!Bullet@{Bullet}}
+\subsubsection[{Type\-A\-I}]{\setlength{\rightskip}{0pt plus 5cm}bool Bullet\-::\-Type\-A\-I\hspace{0.3cm}{\ttfamily [private]}}}\label{classBullet_ae2f8ea9d3c700fc27efafec7d540404a}
+\hypertarget{classBullet_ac1315818abe9b9c337af21b14c282868}{\index{Bullet@{Bullet}!Type\-Player@{Type\-Player}}
+\index{Type\-Player@{Type\-Player}!Bullet@{Bullet}}
+\subsubsection[{Type\-Player}]{\setlength{\rightskip}{0pt plus 5cm}bool Bullet\-::\-Type\-Player\hspace{0.3cm}{\ttfamily [private]}}}\label{classBullet_ac1315818abe9b9c337af21b14c282868}
+\hypertarget{classBullet_a4d587ab4f71d1f6d3681507b04674bfb}{\index{Bullet@{Bullet}!Vel\-X@{Vel\-X}}
+\index{Vel\-X@{Vel\-X}!Bullet@{Bullet}}
+\subsubsection[{Vel\-X}]{\setlength{\rightskip}{0pt plus 5cm}float Bullet\-::\-Vel\-X\hspace{0.3cm}{\ttfamily [private]}}}\label{classBullet_a4d587ab4f71d1f6d3681507b04674bfb}
+\hypertarget{classBullet_a567e3c286f1e47015314b7ef141cf8d9}{\index{Bullet@{Bullet}!Vel\-Y@{Vel\-Y}}
+\index{Vel\-Y@{Vel\-Y}!Bullet@{Bullet}}
+\subsubsection[{Vel\-Y}]{\setlength{\rightskip}{0pt plus 5cm}float Bullet\-::\-Vel\-Y\hspace{0.3cm}{\ttfamily [private]}}}\label{classBullet_a567e3c286f1e47015314b7ef141cf8d9}
+\hypertarget{classBullet_a0516664a95082588f240ea392bb90e38}{\index{Bullet@{Bullet}!X\-Pos@{X\-Pos}}
+\index{X\-Pos@{X\-Pos}!Bullet@{Bullet}}
+\subsubsection[{X\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}float Bullet\-::\-X\-Pos\hspace{0.3cm}{\ttfamily [private]}}}\label{classBullet_a0516664a95082588f240ea392bb90e38}
+\hypertarget{classBullet_a8f577dfde29bbcfcbdb343c888f391d9}{\index{Bullet@{Bullet}!Y\-Pos@{Y\-Pos}}
+\index{Y\-Pos@{Y\-Pos}!Bullet@{Bullet}}
+\subsubsection[{Y\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}float Bullet\-::\-Y\-Pos\hspace{0.3cm}{\ttfamily [private]}}}\label{classBullet_a8f577dfde29bbcfcbdb343c888f391d9}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Bullet_8h}{Bullet.\-h}\item 
+\hyperlink{Bullet_8cpp}{Bullet.\-cpp}\end{DoxyCompactItemize}

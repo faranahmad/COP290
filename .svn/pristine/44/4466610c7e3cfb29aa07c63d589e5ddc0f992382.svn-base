@@ -1,0 +1,493 @@
+\hypertarget{classShip}{\section{Ship Class Reference}
+\label{classShip}\index{Ship@{Ship}}
+}
+
+
+{\ttfamily \#include $<$Ship.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classShip_ab7608fcfc4d27c678aacaf9bfd68a462}{Ship} ()
+\item 
+\hyperlink{classShip_ab8661dae4897225f6a453544b0d97fd7}{Ship} (int id)
+\item 
+float \hyperlink{classShip_a62d1590ac730f2992ebd1f543a4c080b}{Get\-X\-Pos} ()
+\item 
+float \hyperlink{classShip_a7a21f2cb59b35a7a13c01d46737a2fb6}{Get\-Y\-Pos} ()
+\item 
+float \hyperlink{classShip_a9e8f81b8623d534dc802e60b2191fae2}{Get\-Angle} ()
+\item 
+std\-::string \hyperlink{classShip_a5fb7114f5e303984ff6a732dcba66b34}{Get\-Name} ()
+\item 
+\hyperlink{classColor}{Color} \hyperlink{classShip_a8143324f77feccd1f7818e898c6f2736}{Get\-Color} ()
+\item 
+int \hyperlink{classShip_a7353a3d424dcea7c57e8b4cfeb9d54dc}{Get\-Lives} ()
+\item 
+int \hyperlink{classShip_a3253a348df922814e770d4b59b81c2d4}{Get\-Score} ()
+\item 
+int \hyperlink{classShip_addfa542f5323ee5853c71b627d083d0d}{Get\-Multiplier} ()
+\item 
+int \hyperlink{classShip_a7d400b73d3bd985838be2d5d85e5b2a0}{Get\-Kills} ()
+\item 
+int \hyperlink{classShip_a914fe544089d31e249cac55071fad056}{Get\-Id} ()
+\item 
+int \hyperlink{classShip_a1f9c2ea713767e08fc9a386da29a46f2}{Get\-Number\-Bullets} ()
+\item 
+int \hyperlink{classShip_acd4d05082f4d686b14eba21f484b9eea}{Get\-Number\-Missiles} ()
+\item 
+int \hyperlink{classShip_a509bcaedd75832528d575d9754d5f774}{Get\-A\-I\-Control\-Level} ()
+\item 
+void \hyperlink{classShip_a5e62d51a5644e58f334c9c8db76de1e3}{Set\-X\-Pos} (float)
+\item 
+void \hyperlink{classShip_a5d46b07cad9b73ae02fee947a0906f7c}{Set\-Y\-Pos} (float)
+\item 
+void \hyperlink{classShip_acb0b042f4f9d1dc34531b86ae30ed837}{Set\-Angle} (float)
+\item 
+void \hyperlink{classShip_a48f127705d9da6d35d6e4428ec5e4f04}{Set\-Name} (std\-::string)
+\item 
+void \hyperlink{classShip_ad475785ec2b62e6526a399dc3d310634}{Set\-Color\-Of\-Ship} (\hyperlink{classColor}{Color})
+\item 
+void \hyperlink{classShip_ade5817ead599ccfa01b85e236f30a41b}{Set\-Color\-Float} (int, int, int)
+\item 
+void \hyperlink{classShip_a0c42eb1e45d5d59dcbe0b58709a000ba}{Set\-Color\-Float\-Inp} (float, float, float)
+\item 
+void \hyperlink{classShip_a0ebcfd4b2e8c9ca8923e3aa801fc2217}{Set\-Lives} (int)
+\item 
+void \hyperlink{classShip_a165714274abcab7237b762b952b13921}{Set\-Score} (int)
+\item 
+void \hyperlink{classShip_ac223ae51ffc65f72bb4c38459bf93caa}{Set\-Multiplier} (int)
+\item 
+void \hyperlink{classShip_a3bfb9175373b3364c39196a361601920}{Set\-Kills} (int)
+\item 
+void \hyperlink{classShip_a6c08f99d213ac1d97fd17801fd71a257}{Set\-Id} (int)
+\item 
+void \hyperlink{classShip_a9f14d0fade35ea2a3e86da3080501372}{Set\-Number\-Bullets} (int)
+\item 
+void \hyperlink{classShip_a4f9e8ec89d02f46688deec59c0222aa2}{Set\-Number\-Missiles} (int)
+\item 
+void \hyperlink{classShip_ac15c5a25a8ab9477aa9a1620fd95de15}{Set\-A\-I\-Control\-Level} (int)
+\item 
+bool \hyperlink{classShip_a35c42bebd005d25c7e719f06eb35e0ac}{If\-A\-I\-Control} ()
+\item 
+bool \hyperlink{classShip_a18877582a0ed12a66eb76ab2c4728aa4}{If\-Human\-Control} ()
+\item 
+void \hyperlink{classShip_aea08522dbb68429445f87c07fbee3cbf}{Add\-Life} ()
+\item 
+void \hyperlink{classShip_af0084ae20ec33e01bfbd5167d0972eae}{Reduce\-Life} ()
+\item 
+void \hyperlink{classShip_a782d74acb647734863c446dae2071dbf}{Increment\-Score} ()
+\item 
+void \hyperlink{classShip_a7bfdee46045d9ee5e63d52ac32c04d83}{Increment\-Multiplier} ()
+\item 
+void \hyperlink{classShip_ade17db06c7268be06f76a652d6071eae}{Reset\-Multiplier} ()
+\item 
+void \hyperlink{classShip_ab5c106a5a4dc1611170b3ec0a7c10b3a}{Add\-Kills} ()
+\item 
+void \hyperlink{classShip_af08c10afb76fb3c0f96e6c8f26e9c536}{Reset\-Kills} ()
+\item 
+void \hyperlink{classShip_ad647ae87f5745552f4c0f29abdb40a03}{Add\-Number\-Bullets} ()
+\item 
+void \hyperlink{classShip_a74359ab9ec67a94a00090d4e27e2d6f0}{Reset\-Number\-Bullets} ()
+\item 
+void \hyperlink{classShip_a4e5d0077da3062e6ef260d7917823d33}{Add\-Missile} ()
+\item 
+void \hyperlink{classShip_afd1a875e03e082907b3d8fe80283a096}{Reduce\-Missile} ()
+\item 
+std\-::string \hyperlink{classShip_aa3a10aab791434650749c8c6d435d922}{Get\-Summary} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{classShip_a6549912d1c63b46eb331aca1cf9adea1}{X\-Pos}
+\item 
+float \hyperlink{classShip_a66b847cf1abf5b0102dc769949543322}{Y\-Pos}
+\item 
+float \hyperlink{classShip_a4331a7a2e097b2159c526c574823d140}{Angle}
+\item 
+std\-::string \hyperlink{classShip_a5c247c8fa3b3781733d80ba4afba7eea}{Name}
+\item 
+\hyperlink{classColor}{Color} \hyperlink{classShip_a2c537196cae0ce94a0d21f28299039b0}{Color\-Of\-Ship}
+\item 
+int \hyperlink{classShip_a4a11447f6505ad41ff6ab9cd7b1f55bc}{Lives}
+\item 
+int \hyperlink{classShip_abf2e70f207f8abcec0428b7a12ede9f1}{Score}
+\item 
+int \hyperlink{classShip_a50df120a6410a570b8e5aef1578340cd}{Multiplier}
+\item 
+int \hyperlink{classShip_afdb54a112d7d34efda452155c8e84669}{Kills}
+\item 
+int \hyperlink{classShip_ac48474a3bbe753d862ad7074d2ba9981}{Id}
+\item 
+int \hyperlink{classShip_a37320083d8bab0468569c3e115db262f}{Number\-Bullets}
+\item 
+int \hyperlink{classShip_ab24237be38864d5a3d6ffad7b4d9925b}{Number\-Missiles}
+\item 
+int \hyperlink{classShip_aeb9c8e01a6dd8f6d5a0a9ec7a65a1056}{A\-I\-Level}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classShip_ab7608fcfc4d27c678aacaf9bfd68a462}{\index{Ship@{Ship}!Ship@{Ship}}
+\index{Ship@{Ship}!Ship@{Ship}}
+\subsubsection[{Ship}]{\setlength{\rightskip}{0pt plus 5cm}Ship\-::\-Ship (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_ab7608fcfc4d27c678aacaf9bfd68a462}
+\hypertarget{classShip_ab8661dae4897225f6a453544b0d97fd7}{\index{Ship@{Ship}!Ship@{Ship}}
+\index{Ship@{Ship}!Ship@{Ship}}
+\subsubsection[{Ship}]{\setlength{\rightskip}{0pt plus 5cm}Ship\-::\-Ship (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{classShip_ab8661dae4897225f6a453544b0d97fd7}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classShip_ab5c106a5a4dc1611170b3ec0a7c10b3a}{\index{Ship@{Ship}!Add\-Kills@{Add\-Kills}}
+\index{Add\-Kills@{Add\-Kills}!Ship@{Ship}}
+\subsubsection[{Add\-Kills}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Add\-Kills (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_ab5c106a5a4dc1611170b3ec0a7c10b3a}
+\hypertarget{classShip_aea08522dbb68429445f87c07fbee3cbf}{\index{Ship@{Ship}!Add\-Life@{Add\-Life}}
+\index{Add\-Life@{Add\-Life}!Ship@{Ship}}
+\subsubsection[{Add\-Life}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Add\-Life (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_aea08522dbb68429445f87c07fbee3cbf}
+\hypertarget{classShip_a4e5d0077da3062e6ef260d7917823d33}{\index{Ship@{Ship}!Add\-Missile@{Add\-Missile}}
+\index{Add\-Missile@{Add\-Missile}!Ship@{Ship}}
+\subsubsection[{Add\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Add\-Missile (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a4e5d0077da3062e6ef260d7917823d33}
+\hypertarget{classShip_ad647ae87f5745552f4c0f29abdb40a03}{\index{Ship@{Ship}!Add\-Number\-Bullets@{Add\-Number\-Bullets}}
+\index{Add\-Number\-Bullets@{Add\-Number\-Bullets}!Ship@{Ship}}
+\subsubsection[{Add\-Number\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Add\-Number\-Bullets (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_ad647ae87f5745552f4c0f29abdb40a03}
+\hypertarget{classShip_a509bcaedd75832528d575d9754d5f774}{\index{Ship@{Ship}!Get\-A\-I\-Control\-Level@{Get\-A\-I\-Control\-Level}}
+\index{Get\-A\-I\-Control\-Level@{Get\-A\-I\-Control\-Level}!Ship@{Ship}}
+\subsubsection[{Get\-A\-I\-Control\-Level}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-::\-Get\-A\-I\-Control\-Level (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a509bcaedd75832528d575d9754d5f774}
+\hypertarget{classShip_a9e8f81b8623d534dc802e60b2191fae2}{\index{Ship@{Ship}!Get\-Angle@{Get\-Angle}}
+\index{Get\-Angle@{Get\-Angle}!Ship@{Ship}}
+\subsubsection[{Get\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}float Ship\-::\-Get\-Angle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a9e8f81b8623d534dc802e60b2191fae2}
+\hypertarget{classShip_a8143324f77feccd1f7818e898c6f2736}{\index{Ship@{Ship}!Get\-Color@{Get\-Color}}
+\index{Get\-Color@{Get\-Color}!Ship@{Ship}}
+\subsubsection[{Get\-Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Color} Ship\-::\-Get\-Color (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a8143324f77feccd1f7818e898c6f2736}
+\hypertarget{classShip_a914fe544089d31e249cac55071fad056}{\index{Ship@{Ship}!Get\-Id@{Get\-Id}}
+\index{Get\-Id@{Get\-Id}!Ship@{Ship}}
+\subsubsection[{Get\-Id}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-::\-Get\-Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a914fe544089d31e249cac55071fad056}
+\hypertarget{classShip_a7d400b73d3bd985838be2d5d85e5b2a0}{\index{Ship@{Ship}!Get\-Kills@{Get\-Kills}}
+\index{Get\-Kills@{Get\-Kills}!Ship@{Ship}}
+\subsubsection[{Get\-Kills}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-::\-Get\-Kills (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a7d400b73d3bd985838be2d5d85e5b2a0}
+\hypertarget{classShip_a7353a3d424dcea7c57e8b4cfeb9d54dc}{\index{Ship@{Ship}!Get\-Lives@{Get\-Lives}}
+\index{Get\-Lives@{Get\-Lives}!Ship@{Ship}}
+\subsubsection[{Get\-Lives}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-::\-Get\-Lives (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a7353a3d424dcea7c57e8b4cfeb9d54dc}
+\hypertarget{classShip_addfa542f5323ee5853c71b627d083d0d}{\index{Ship@{Ship}!Get\-Multiplier@{Get\-Multiplier}}
+\index{Get\-Multiplier@{Get\-Multiplier}!Ship@{Ship}}
+\subsubsection[{Get\-Multiplier}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-::\-Get\-Multiplier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_addfa542f5323ee5853c71b627d083d0d}
+\hypertarget{classShip_a5fb7114f5e303984ff6a732dcba66b34}{\index{Ship@{Ship}!Get\-Name@{Get\-Name}}
+\index{Get\-Name@{Get\-Name}!Ship@{Ship}}
+\subsubsection[{Get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Ship\-::\-Get\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a5fb7114f5e303984ff6a732dcba66b34}
+\hypertarget{classShip_a1f9c2ea713767e08fc9a386da29a46f2}{\index{Ship@{Ship}!Get\-Number\-Bullets@{Get\-Number\-Bullets}}
+\index{Get\-Number\-Bullets@{Get\-Number\-Bullets}!Ship@{Ship}}
+\subsubsection[{Get\-Number\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-::\-Get\-Number\-Bullets (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a1f9c2ea713767e08fc9a386da29a46f2}
+\hypertarget{classShip_acd4d05082f4d686b14eba21f484b9eea}{\index{Ship@{Ship}!Get\-Number\-Missiles@{Get\-Number\-Missiles}}
+\index{Get\-Number\-Missiles@{Get\-Number\-Missiles}!Ship@{Ship}}
+\subsubsection[{Get\-Number\-Missiles}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-::\-Get\-Number\-Missiles (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_acd4d05082f4d686b14eba21f484b9eea}
+\hypertarget{classShip_a3253a348df922814e770d4b59b81c2d4}{\index{Ship@{Ship}!Get\-Score@{Get\-Score}}
+\index{Get\-Score@{Get\-Score}!Ship@{Ship}}
+\subsubsection[{Get\-Score}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-::\-Get\-Score (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a3253a348df922814e770d4b59b81c2d4}
+\hypertarget{classShip_aa3a10aab791434650749c8c6d435d922}{\index{Ship@{Ship}!Get\-Summary@{Get\-Summary}}
+\index{Get\-Summary@{Get\-Summary}!Ship@{Ship}}
+\subsubsection[{Get\-Summary}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Ship\-::\-Get\-Summary (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_aa3a10aab791434650749c8c6d435d922}
+\hypertarget{classShip_a62d1590ac730f2992ebd1f543a4c080b}{\index{Ship@{Ship}!Get\-X\-Pos@{Get\-X\-Pos}}
+\index{Get\-X\-Pos@{Get\-X\-Pos}!Ship@{Ship}}
+\subsubsection[{Get\-X\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}float Ship\-::\-Get\-X\-Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a62d1590ac730f2992ebd1f543a4c080b}
+\hypertarget{classShip_a7a21f2cb59b35a7a13c01d46737a2fb6}{\index{Ship@{Ship}!Get\-Y\-Pos@{Get\-Y\-Pos}}
+\index{Get\-Y\-Pos@{Get\-Y\-Pos}!Ship@{Ship}}
+\subsubsection[{Get\-Y\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}float Ship\-::\-Get\-Y\-Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a7a21f2cb59b35a7a13c01d46737a2fb6}
+\hypertarget{classShip_a35c42bebd005d25c7e719f06eb35e0ac}{\index{Ship@{Ship}!If\-A\-I\-Control@{If\-A\-I\-Control}}
+\index{If\-A\-I\-Control@{If\-A\-I\-Control}!Ship@{Ship}}
+\subsubsection[{If\-A\-I\-Control}]{\setlength{\rightskip}{0pt plus 5cm}bool Ship\-::\-If\-A\-I\-Control (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a35c42bebd005d25c7e719f06eb35e0ac}
+\hypertarget{classShip_a18877582a0ed12a66eb76ab2c4728aa4}{\index{Ship@{Ship}!If\-Human\-Control@{If\-Human\-Control}}
+\index{If\-Human\-Control@{If\-Human\-Control}!Ship@{Ship}}
+\subsubsection[{If\-Human\-Control}]{\setlength{\rightskip}{0pt plus 5cm}bool Ship\-::\-If\-Human\-Control (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a18877582a0ed12a66eb76ab2c4728aa4}
+\hypertarget{classShip_a7bfdee46045d9ee5e63d52ac32c04d83}{\index{Ship@{Ship}!Increment\-Multiplier@{Increment\-Multiplier}}
+\index{Increment\-Multiplier@{Increment\-Multiplier}!Ship@{Ship}}
+\subsubsection[{Increment\-Multiplier}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Increment\-Multiplier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a7bfdee46045d9ee5e63d52ac32c04d83}
+\hypertarget{classShip_a782d74acb647734863c446dae2071dbf}{\index{Ship@{Ship}!Increment\-Score@{Increment\-Score}}
+\index{Increment\-Score@{Increment\-Score}!Ship@{Ship}}
+\subsubsection[{Increment\-Score}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Increment\-Score (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a782d74acb647734863c446dae2071dbf}
+\hypertarget{classShip_af0084ae20ec33e01bfbd5167d0972eae}{\index{Ship@{Ship}!Reduce\-Life@{Reduce\-Life}}
+\index{Reduce\-Life@{Reduce\-Life}!Ship@{Ship}}
+\subsubsection[{Reduce\-Life}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Reduce\-Life (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_af0084ae20ec33e01bfbd5167d0972eae}
+\hypertarget{classShip_afd1a875e03e082907b3d8fe80283a096}{\index{Ship@{Ship}!Reduce\-Missile@{Reduce\-Missile}}
+\index{Reduce\-Missile@{Reduce\-Missile}!Ship@{Ship}}
+\subsubsection[{Reduce\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Reduce\-Missile (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_afd1a875e03e082907b3d8fe80283a096}
+\hypertarget{classShip_af08c10afb76fb3c0f96e6c8f26e9c536}{\index{Ship@{Ship}!Reset\-Kills@{Reset\-Kills}}
+\index{Reset\-Kills@{Reset\-Kills}!Ship@{Ship}}
+\subsubsection[{Reset\-Kills}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Reset\-Kills (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_af08c10afb76fb3c0f96e6c8f26e9c536}
+\hypertarget{classShip_ade17db06c7268be06f76a652d6071eae}{\index{Ship@{Ship}!Reset\-Multiplier@{Reset\-Multiplier}}
+\index{Reset\-Multiplier@{Reset\-Multiplier}!Ship@{Ship}}
+\subsubsection[{Reset\-Multiplier}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Reset\-Multiplier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_ade17db06c7268be06f76a652d6071eae}
+\hypertarget{classShip_a74359ab9ec67a94a00090d4e27e2d6f0}{\index{Ship@{Ship}!Reset\-Number\-Bullets@{Reset\-Number\-Bullets}}
+\index{Reset\-Number\-Bullets@{Reset\-Number\-Bullets}!Ship@{Ship}}
+\subsubsection[{Reset\-Number\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Reset\-Number\-Bullets (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShip_a74359ab9ec67a94a00090d4e27e2d6f0}
+\hypertarget{classShip_ac15c5a25a8ab9477aa9a1620fd95de15}{\index{Ship@{Ship}!Set\-A\-I\-Control\-Level@{Set\-A\-I\-Control\-Level}}
+\index{Set\-A\-I\-Control\-Level@{Set\-A\-I\-Control\-Level}!Ship@{Ship}}
+\subsubsection[{Set\-A\-I\-Control\-Level}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Set\-A\-I\-Control\-Level (
+\begin{DoxyParamCaption}
+\item[{int}]{level}
+\end{DoxyParamCaption}
+)}}\label{classShip_ac15c5a25a8ab9477aa9a1620fd95de15}
+\hypertarget{classShip_acb0b042f4f9d1dc34531b86ae30ed837}{\index{Ship@{Ship}!Set\-Angle@{Set\-Angle}}
+\index{Set\-Angle@{Set\-Angle}!Ship@{Ship}}
+\subsubsection[{Set\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Set\-Angle (
+\begin{DoxyParamCaption}
+\item[{float}]{angle}
+\end{DoxyParamCaption}
+)}}\label{classShip_acb0b042f4f9d1dc34531b86ae30ed837}
+\hypertarget{classShip_ade5817ead599ccfa01b85e236f30a41b}{\index{Ship@{Ship}!Set\-Color\-Float@{Set\-Color\-Float}}
+\index{Set\-Color\-Float@{Set\-Color\-Float}!Ship@{Ship}}
+\subsubsection[{Set\-Color\-Float}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Set\-Color\-Float (
+\begin{DoxyParamCaption}
+\item[{int}]{red, }
+\item[{int}]{green, }
+\item[{int}]{blue}
+\end{DoxyParamCaption}
+)}}\label{classShip_ade5817ead599ccfa01b85e236f30a41b}
+\hypertarget{classShip_a0c42eb1e45d5d59dcbe0b58709a000ba}{\index{Ship@{Ship}!Set\-Color\-Float\-Inp@{Set\-Color\-Float\-Inp}}
+\index{Set\-Color\-Float\-Inp@{Set\-Color\-Float\-Inp}!Ship@{Ship}}
+\subsubsection[{Set\-Color\-Float\-Inp}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Set\-Color\-Float\-Inp (
+\begin{DoxyParamCaption}
+\item[{float}]{r, }
+\item[{float}]{g, }
+\item[{float}]{b}
+\end{DoxyParamCaption}
+)}}\label{classShip_a0c42eb1e45d5d59dcbe0b58709a000ba}
+\hypertarget{classShip_ad475785ec2b62e6526a399dc3d310634}{\index{Ship@{Ship}!Set\-Color\-Of\-Ship@{Set\-Color\-Of\-Ship}}
+\index{Set\-Color\-Of\-Ship@{Set\-Color\-Of\-Ship}!Ship@{Ship}}
+\subsubsection[{Set\-Color\-Of\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Set\-Color\-Of\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Color}}]{color\-\_\-ship}
+\end{DoxyParamCaption}
+)}}\label{classShip_ad475785ec2b62e6526a399dc3d310634}
+\hypertarget{classShip_a6c08f99d213ac1d97fd17801fd71a257}{\index{Ship@{Ship}!Set\-Id@{Set\-Id}}
+\index{Set\-Id@{Set\-Id}!Ship@{Ship}}
+\subsubsection[{Set\-Id}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Set\-Id (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{classShip_a6c08f99d213ac1d97fd17801fd71a257}
+\hypertarget{classShip_a3bfb9175373b3364c39196a361601920}{\index{Ship@{Ship}!Set\-Kills@{Set\-Kills}}
+\index{Set\-Kills@{Set\-Kills}!Ship@{Ship}}
+\subsubsection[{Set\-Kills}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Set\-Kills (
+\begin{DoxyParamCaption}
+\item[{int}]{kills}
+\end{DoxyParamCaption}
+)}}\label{classShip_a3bfb9175373b3364c39196a361601920}
+\hypertarget{classShip_a0ebcfd4b2e8c9ca8923e3aa801fc2217}{\index{Ship@{Ship}!Set\-Lives@{Set\-Lives}}
+\index{Set\-Lives@{Set\-Lives}!Ship@{Ship}}
+\subsubsection[{Set\-Lives}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Set\-Lives (
+\begin{DoxyParamCaption}
+\item[{int}]{lives}
+\end{DoxyParamCaption}
+)}}\label{classShip_a0ebcfd4b2e8c9ca8923e3aa801fc2217}
+\hypertarget{classShip_ac223ae51ffc65f72bb4c38459bf93caa}{\index{Ship@{Ship}!Set\-Multiplier@{Set\-Multiplier}}
+\index{Set\-Multiplier@{Set\-Multiplier}!Ship@{Ship}}
+\subsubsection[{Set\-Multiplier}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Set\-Multiplier (
+\begin{DoxyParamCaption}
+\item[{int}]{mult}
+\end{DoxyParamCaption}
+)}}\label{classShip_ac223ae51ffc65f72bb4c38459bf93caa}
+\hypertarget{classShip_a48f127705d9da6d35d6e4428ec5e4f04}{\index{Ship@{Ship}!Set\-Name@{Set\-Name}}
+\index{Set\-Name@{Set\-Name}!Ship@{Ship}}
+\subsubsection[{Set\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Set\-Name (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name}
+\end{DoxyParamCaption}
+)}}\label{classShip_a48f127705d9da6d35d6e4428ec5e4f04}
+\hypertarget{classShip_a9f14d0fade35ea2a3e86da3080501372}{\index{Ship@{Ship}!Set\-Number\-Bullets@{Set\-Number\-Bullets}}
+\index{Set\-Number\-Bullets@{Set\-Number\-Bullets}!Ship@{Ship}}
+\subsubsection[{Set\-Number\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Set\-Number\-Bullets (
+\begin{DoxyParamCaption}
+\item[{int}]{no\-\_\-of\-\_\-bullets}
+\end{DoxyParamCaption}
+)}}\label{classShip_a9f14d0fade35ea2a3e86da3080501372}
+\hypertarget{classShip_a4f9e8ec89d02f46688deec59c0222aa2}{\index{Ship@{Ship}!Set\-Number\-Missiles@{Set\-Number\-Missiles}}
+\index{Set\-Number\-Missiles@{Set\-Number\-Missiles}!Ship@{Ship}}
+\subsubsection[{Set\-Number\-Missiles}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Set\-Number\-Missiles (
+\begin{DoxyParamCaption}
+\item[{int}]{no\-\_\-of\-\_\-missiles}
+\end{DoxyParamCaption}
+)}}\label{classShip_a4f9e8ec89d02f46688deec59c0222aa2}
+\hypertarget{classShip_a165714274abcab7237b762b952b13921}{\index{Ship@{Ship}!Set\-Score@{Set\-Score}}
+\index{Set\-Score@{Set\-Score}!Ship@{Ship}}
+\subsubsection[{Set\-Score}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Set\-Score (
+\begin{DoxyParamCaption}
+\item[{int}]{score}
+\end{DoxyParamCaption}
+)}}\label{classShip_a165714274abcab7237b762b952b13921}
+\hypertarget{classShip_a5e62d51a5644e58f334c9c8db76de1e3}{\index{Ship@{Ship}!Set\-X\-Pos@{Set\-X\-Pos}}
+\index{Set\-X\-Pos@{Set\-X\-Pos}!Ship@{Ship}}
+\subsubsection[{Set\-X\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Set\-X\-Pos (
+\begin{DoxyParamCaption}
+\item[{float}]{posx}
+\end{DoxyParamCaption}
+)}}\label{classShip_a5e62d51a5644e58f334c9c8db76de1e3}
+\hypertarget{classShip_a5d46b07cad9b73ae02fee947a0906f7c}{\index{Ship@{Ship}!Set\-Y\-Pos@{Set\-Y\-Pos}}
+\index{Set\-Y\-Pos@{Set\-Y\-Pos}!Ship@{Ship}}
+\subsubsection[{Set\-Y\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}void Ship\-::\-Set\-Y\-Pos (
+\begin{DoxyParamCaption}
+\item[{float}]{posy}
+\end{DoxyParamCaption}
+)}}\label{classShip_a5d46b07cad9b73ae02fee947a0906f7c}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classShip_aeb9c8e01a6dd8f6d5a0a9ec7a65a1056}{\index{Ship@{Ship}!A\-I\-Level@{A\-I\-Level}}
+\index{A\-I\-Level@{A\-I\-Level}!Ship@{Ship}}
+\subsubsection[{A\-I\-Level}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-::\-A\-I\-Level\hspace{0.3cm}{\ttfamily [private]}}}\label{classShip_aeb9c8e01a6dd8f6d5a0a9ec7a65a1056}
+\hypertarget{classShip_a4331a7a2e097b2159c526c574823d140}{\index{Ship@{Ship}!Angle@{Angle}}
+\index{Angle@{Angle}!Ship@{Ship}}
+\subsubsection[{Angle}]{\setlength{\rightskip}{0pt plus 5cm}float Ship\-::\-Angle\hspace{0.3cm}{\ttfamily [private]}}}\label{classShip_a4331a7a2e097b2159c526c574823d140}
+\hypertarget{classShip_a2c537196cae0ce94a0d21f28299039b0}{\index{Ship@{Ship}!Color\-Of\-Ship@{Color\-Of\-Ship}}
+\index{Color\-Of\-Ship@{Color\-Of\-Ship}!Ship@{Ship}}
+\subsubsection[{Color\-Of\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Color} Ship\-::\-Color\-Of\-Ship\hspace{0.3cm}{\ttfamily [private]}}}\label{classShip_a2c537196cae0ce94a0d21f28299039b0}
+\hypertarget{classShip_ac48474a3bbe753d862ad7074d2ba9981}{\index{Ship@{Ship}!Id@{Id}}
+\index{Id@{Id}!Ship@{Ship}}
+\subsubsection[{Id}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-::\-Id\hspace{0.3cm}{\ttfamily [private]}}}\label{classShip_ac48474a3bbe753d862ad7074d2ba9981}
+\hypertarget{classShip_afdb54a112d7d34efda452155c8e84669}{\index{Ship@{Ship}!Kills@{Kills}}
+\index{Kills@{Kills}!Ship@{Ship}}
+\subsubsection[{Kills}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-::\-Kills\hspace{0.3cm}{\ttfamily [private]}}}\label{classShip_afdb54a112d7d34efda452155c8e84669}
+\hypertarget{classShip_a4a11447f6505ad41ff6ab9cd7b1f55bc}{\index{Ship@{Ship}!Lives@{Lives}}
+\index{Lives@{Lives}!Ship@{Ship}}
+\subsubsection[{Lives}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-::\-Lives\hspace{0.3cm}{\ttfamily [private]}}}\label{classShip_a4a11447f6505ad41ff6ab9cd7b1f55bc}
+\hypertarget{classShip_a50df120a6410a570b8e5aef1578340cd}{\index{Ship@{Ship}!Multiplier@{Multiplier}}
+\index{Multiplier@{Multiplier}!Ship@{Ship}}
+\subsubsection[{Multiplier}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-::\-Multiplier\hspace{0.3cm}{\ttfamily [private]}}}\label{classShip_a50df120a6410a570b8e5aef1578340cd}
+\hypertarget{classShip_a5c247c8fa3b3781733d80ba4afba7eea}{\index{Ship@{Ship}!Name@{Name}}
+\index{Name@{Name}!Ship@{Ship}}
+\subsubsection[{Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Ship\-::\-Name\hspace{0.3cm}{\ttfamily [private]}}}\label{classShip_a5c247c8fa3b3781733d80ba4afba7eea}
+\hypertarget{classShip_a37320083d8bab0468569c3e115db262f}{\index{Ship@{Ship}!Number\-Bullets@{Number\-Bullets}}
+\index{Number\-Bullets@{Number\-Bullets}!Ship@{Ship}}
+\subsubsection[{Number\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-::\-Number\-Bullets\hspace{0.3cm}{\ttfamily [private]}}}\label{classShip_a37320083d8bab0468569c3e115db262f}
+\hypertarget{classShip_ab24237be38864d5a3d6ffad7b4d9925b}{\index{Ship@{Ship}!Number\-Missiles@{Number\-Missiles}}
+\index{Number\-Missiles@{Number\-Missiles}!Ship@{Ship}}
+\subsubsection[{Number\-Missiles}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-::\-Number\-Missiles\hspace{0.3cm}{\ttfamily [private]}}}\label{classShip_ab24237be38864d5a3d6ffad7b4d9925b}
+\hypertarget{classShip_abf2e70f207f8abcec0428b7a12ede9f1}{\index{Ship@{Ship}!Score@{Score}}
+\index{Score@{Score}!Ship@{Ship}}
+\subsubsection[{Score}]{\setlength{\rightskip}{0pt plus 5cm}int Ship\-::\-Score\hspace{0.3cm}{\ttfamily [private]}}}\label{classShip_abf2e70f207f8abcec0428b7a12ede9f1}
+\hypertarget{classShip_a6549912d1c63b46eb331aca1cf9adea1}{\index{Ship@{Ship}!X\-Pos@{X\-Pos}}
+\index{X\-Pos@{X\-Pos}!Ship@{Ship}}
+\subsubsection[{X\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}float Ship\-::\-X\-Pos\hspace{0.3cm}{\ttfamily [private]}}}\label{classShip_a6549912d1c63b46eb331aca1cf9adea1}
+\hypertarget{classShip_a66b847cf1abf5b0102dc769949543322}{\index{Ship@{Ship}!Y\-Pos@{Y\-Pos}}
+\index{Y\-Pos@{Y\-Pos}!Ship@{Ship}}
+\subsubsection[{Y\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}float Ship\-::\-Y\-Pos\hspace{0.3cm}{\ttfamily [private]}}}\label{classShip_a66b847cf1abf5b0102dc769949543322}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Ship_8h}{Ship.\-h}\item 
+\hyperlink{Ship_8cpp}{Ship.\-cpp}\end{DoxyCompactItemize}

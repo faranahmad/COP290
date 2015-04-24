@@ -1,0 +1,34 @@
+\hypertarget{structFaces}{\section{Faces Struct Reference}
+\label{structFaces}\index{Faces@{Faces}}
+}
+
+
+{\ttfamily \#include $<$Combined.\-h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structPoints}{Points} \hyperlink{structFaces_affa54ad811780dcb36b758062292796d}{p1}
+\item 
+\hyperlink{structPoints}{Points} \hyperlink{structFaces_a9ea0191a28ddad90a266c2c290f565b3}{p2}
+\item 
+\hyperlink{structPoints}{Points} \hyperlink{structFaces_a25826f1e127e8f799ba33d3daaa2589b}{p3}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structFaces_affa54ad811780dcb36b758062292796d}{\index{Faces@{Faces}!p1@{p1}}
+\index{p1@{p1}!Faces@{Faces}}
+\subsubsection[{p1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Points} Faces\-::p1}}\label{structFaces_affa54ad811780dcb36b758062292796d}
+\hypertarget{structFaces_a9ea0191a28ddad90a266c2c290f565b3}{\index{Faces@{Faces}!p2@{p2}}
+\index{p2@{p2}!Faces@{Faces}}
+\subsubsection[{p2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Points} Faces\-::p2}}\label{structFaces_a9ea0191a28ddad90a266c2c290f565b3}
+\hypertarget{structFaces_a25826f1e127e8f799ba33d3daaa2589b}{\index{Faces@{Faces}!p3@{p3}}
+\index{p3@{p3}!Faces@{Faces}}
+\subsubsection[{p3}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Points} Faces\-::p3}}\label{structFaces_a25826f1e127e8f799ba33d3daaa2589b}
+
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Combined_8h}{Combined.\-h}\item 
+\hyperlink{CompCombined_8h}{Comp\-Combined.\-h}\end{DoxyCompactItemize}

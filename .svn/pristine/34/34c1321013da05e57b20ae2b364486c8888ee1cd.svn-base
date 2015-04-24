@@ -1,0 +1,49 @@
+\hypertarget{structSmokePoint}{\section{Smoke\-Point Struct Reference}
+\label{structSmokePoint}\index{Smoke\-Point@{Smoke\-Point}}
+}
+
+
+{\ttfamily \#include $<$Combined.\-h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{structSmokePoint_a22381f122e299bee69b85d2b40719f11}{position} \mbox{[}3\mbox{]}
+\item 
+float \hyperlink{structSmokePoint_ae7202bd58d1a2027aa8d9018d97826d2}{speed} \mbox{[}3\mbox{]}
+\item 
+float \hyperlink{structSmokePoint_a080d4d23d1dbfe8241a04bf8e2a3c3f1}{color} \mbox{[}3\mbox{]}
+\item 
+float \hyperlink{structSmokePoint_ae1552d6e7a1e25de7a6288fec1ab4a44}{radius}
+\item 
+int \hyperlink{structSmokePoint_a3626308f38791545126a0e98edcdaf1b}{life}
+\item 
+float \hyperlink{structSmokePoint_ae104cf7c9bcad2b578a9f3d3134a5e05}{initpos} \mbox{[}3\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structSmokePoint_a080d4d23d1dbfe8241a04bf8e2a3c3f1}{\index{Smoke\-Point@{Smoke\-Point}!color@{color}}
+\index{color@{color}!SmokePoint@{Smoke\-Point}}
+\subsubsection[{color}]{\setlength{\rightskip}{0pt plus 5cm}float Smoke\-Point\-::color}}\label{structSmokePoint_a080d4d23d1dbfe8241a04bf8e2a3c3f1}
+\hypertarget{structSmokePoint_ae104cf7c9bcad2b578a9f3d3134a5e05}{\index{Smoke\-Point@{Smoke\-Point}!initpos@{initpos}}
+\index{initpos@{initpos}!SmokePoint@{Smoke\-Point}}
+\subsubsection[{initpos}]{\setlength{\rightskip}{0pt plus 5cm}float Smoke\-Point\-::initpos}}\label{structSmokePoint_ae104cf7c9bcad2b578a9f3d3134a5e05}
+\hypertarget{structSmokePoint_a3626308f38791545126a0e98edcdaf1b}{\index{Smoke\-Point@{Smoke\-Point}!life@{life}}
+\index{life@{life}!SmokePoint@{Smoke\-Point}}
+\subsubsection[{life}]{\setlength{\rightskip}{0pt plus 5cm}int Smoke\-Point\-::life}}\label{structSmokePoint_a3626308f38791545126a0e98edcdaf1b}
+\hypertarget{structSmokePoint_a22381f122e299bee69b85d2b40719f11}{\index{Smoke\-Point@{Smoke\-Point}!position@{position}}
+\index{position@{position}!SmokePoint@{Smoke\-Point}}
+\subsubsection[{position}]{\setlength{\rightskip}{0pt plus 5cm}float Smoke\-Point\-::position}}\label{structSmokePoint_a22381f122e299bee69b85d2b40719f11}
+\hypertarget{structSmokePoint_ae1552d6e7a1e25de7a6288fec1ab4a44}{\index{Smoke\-Point@{Smoke\-Point}!radius@{radius}}
+\index{radius@{radius}!SmokePoint@{Smoke\-Point}}
+\subsubsection[{radius}]{\setlength{\rightskip}{0pt plus 5cm}float Smoke\-Point\-::radius}}\label{structSmokePoint_ae1552d6e7a1e25de7a6288fec1ab4a44}
+\hypertarget{structSmokePoint_ae7202bd58d1a2027aa8d9018d97826d2}{\index{Smoke\-Point@{Smoke\-Point}!speed@{speed}}
+\index{speed@{speed}!SmokePoint@{Smoke\-Point}}
+\subsubsection[{speed}]{\setlength{\rightskip}{0pt plus 5cm}float Smoke\-Point\-::speed}}\label{structSmokePoint_ae7202bd58d1a2027aa8d9018d97826d2}
+
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Combined_8h}{Combined.\-h}\item 
+\hyperlink{CompCombined_8h}{Comp\-Combined.\-h}\end{DoxyCompactItemize}

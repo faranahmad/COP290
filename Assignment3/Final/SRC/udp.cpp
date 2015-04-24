@@ -11,6 +11,7 @@ bool playersReady;
 bool isOffline;
 bool noIP;
 
+int TotalPlayers=0;
 std::string ipadr;
 
 int sid;
@@ -53,7 +54,7 @@ std::string ToStr(char* arr)
 
 int GetNumPlayers()
 {
-	return IPdata.size();
+	return TotalPlayers;
 }
 
 void PrintCurrentIP()
@@ -89,6 +90,7 @@ void AddPlayers(char players [])
             // std::cout<<"second element of p:"<<p.second<<std::endl;
 			TimeStamp.push_back(time(0));
 			IPdata.push_back(p);
+			TotalPlayers++;
             // for(int i=0;i<IPdata.size();i++)
                 // std::cout<<IPdata[i].first<<std::endl;
 			s="";
@@ -312,6 +314,7 @@ void* ReceiveData(void* input)
                      // std::cout<<p.second<<std::endl;
 					TimeStamp.push_back(time(0));
 					IPdata.push_back(p);
+					TotalPlayers++;
                      // std::cout<<time(0)<<std::endl;
                      // std::cout<<"case 0\n";
 					char sendmsg[BUFSIZE];
@@ -457,6 +460,7 @@ int networkmain(int argc, char** argv)
 	}
 	TimeStamp.push_back(time(0));
 	IPdata.push_back(myself);
+	TotalPlayers++;
 	if(argc>1)
 	{
 		playersReady=false;

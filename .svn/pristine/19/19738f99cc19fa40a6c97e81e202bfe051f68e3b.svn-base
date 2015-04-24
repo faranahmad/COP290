@@ -1,0 +1,48 @@
+\hypertarget{AIMissile_8cpp}{\section{A\-I\-Missile.\-cpp File Reference}
+\label{AIMissile_8cpp}\index{A\-I\-Missile.\-cpp@{A\-I\-Missile.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}A\-I.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{AIMissile_8cpp_adfda284ddd764dec36a07358a9872902}{Update\-Alien\-Missile} (\hyperlink{classBoard}{Board} \&board)
+\item 
+void \hyperlink{AIMissile_8cpp_a3e8e7bdd05f927858084c7a52a5ef9e5}{Update\-Ship\-Missile} (\hyperlink{classBoard}{Board} \&board)
+\item 
+void \hyperlink{AIMissile_8cpp_ad00b7b4d5785c15a0ffc56dd2a1675b0}{Update\-Alien\-Missile\-Velocity} (\hyperlink{classBullet}{Bullet} \&actualmissile, \hyperlink{classShip}{Ship} \&ship)
+\item 
+void \hyperlink{AIMissile_8cpp_ab4f349489dce243f4546c5c7c673627e}{Update\-Ship\-Missile\-Velocity} (\hyperlink{classBullet}{Bullet} \&actualmissile, \hyperlink{classAlien}{Alien} \&alien)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{AIMissile_8cpp_adfda284ddd764dec36a07358a9872902}{\index{A\-I\-Missile.\-cpp@{A\-I\-Missile.\-cpp}!Update\-Alien\-Missile@{Update\-Alien\-Missile}}
+\index{Update\-Alien\-Missile@{Update\-Alien\-Missile}!AIMissile.cpp@{A\-I\-Missile.\-cpp}}
+\subsubsection[{Update\-Alien\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}void Update\-Alien\-Missile (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} \&}]{board}
+\end{DoxyParamCaption}
+)}}\label{AIMissile_8cpp_adfda284ddd764dec36a07358a9872902}
+\hypertarget{AIMissile_8cpp_ad00b7b4d5785c15a0ffc56dd2a1675b0}{\index{A\-I\-Missile.\-cpp@{A\-I\-Missile.\-cpp}!Update\-Alien\-Missile\-Velocity@{Update\-Alien\-Missile\-Velocity}}
+\index{Update\-Alien\-Missile\-Velocity@{Update\-Alien\-Missile\-Velocity}!AIMissile.cpp@{A\-I\-Missile.\-cpp}}
+\subsubsection[{Update\-Alien\-Missile\-Velocity}]{\setlength{\rightskip}{0pt plus 5cm}void Update\-Alien\-Missile\-Velocity (
+\begin{DoxyParamCaption}
+\item[{{\bf Bullet} \&}]{actualmissile, }
+\item[{{\bf Ship} \&}]{ship}
+\end{DoxyParamCaption}
+)}}\label{AIMissile_8cpp_ad00b7b4d5785c15a0ffc56dd2a1675b0}
+\hypertarget{AIMissile_8cpp_a3e8e7bdd05f927858084c7a52a5ef9e5}{\index{A\-I\-Missile.\-cpp@{A\-I\-Missile.\-cpp}!Update\-Ship\-Missile@{Update\-Ship\-Missile}}
+\index{Update\-Ship\-Missile@{Update\-Ship\-Missile}!AIMissile.cpp@{A\-I\-Missile.\-cpp}}
+\subsubsection[{Update\-Ship\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}void Update\-Ship\-Missile (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} \&}]{board}
+\end{DoxyParamCaption}
+)}}\label{AIMissile_8cpp_a3e8e7bdd05f927858084c7a52a5ef9e5}
+\hypertarget{AIMissile_8cpp_ab4f349489dce243f4546c5c7c673627e}{\index{A\-I\-Missile.\-cpp@{A\-I\-Missile.\-cpp}!Update\-Ship\-Missile\-Velocity@{Update\-Ship\-Missile\-Velocity}}
+\index{Update\-Ship\-Missile\-Velocity@{Update\-Ship\-Missile\-Velocity}!AIMissile.cpp@{A\-I\-Missile.\-cpp}}
+\subsubsection[{Update\-Ship\-Missile\-Velocity}]{\setlength{\rightskip}{0pt plus 5cm}void Update\-Ship\-Missile\-Velocity (
+\begin{DoxyParamCaption}
+\item[{{\bf Bullet} \&}]{actualmissile, }
+\item[{{\bf Alien} \&}]{alien}
+\end{DoxyParamCaption}
+)}}\label{AIMissile_8cpp_ab4f349489dce243f4546c5c7c673627e}

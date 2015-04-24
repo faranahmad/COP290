@@ -1,0 +1,60 @@
+\hypertarget{classImage}{\section{Image Class Reference}
+\label{classImage}\index{Image@{Image}}
+}
+
+
+{\ttfamily \#include $<$Image.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classImage_a68e85406b33c38cc93a22b0121da47d9}{Image} (char $\ast$ps, int w, int h)
+\item 
+\hyperlink{classImage_a0294f63700543e11c0f0da85601c7ae5}{$\sim$\-Image} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{classImage_a6afbcf4b0a2774f020ce350bff9d0d6c}{pixels}
+\item 
+int \hyperlink{classImage_ab8d12f635013c04159cd4d3d972bac88}{width}
+\item 
+int \hyperlink{classImage_a51df43db420c9c0b57536cb2dd36de5c}{height}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classImage_a68e85406b33c38cc93a22b0121da47d9}{\index{Image@{Image}!Image@{Image}}
+\index{Image@{Image}!Image@{Image}}
+\subsubsection[{Image}]{\setlength{\rightskip}{0pt plus 5cm}Image\-::\-Image (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{ps, }
+\item[{int}]{w, }
+\item[{int}]{h}
+\end{DoxyParamCaption}
+)}}\label{classImage_a68e85406b33c38cc93a22b0121da47d9}
+\hypertarget{classImage_a0294f63700543e11c0f0da85601c7ae5}{\index{Image@{Image}!$\sim$\-Image@{$\sim$\-Image}}
+\index{$\sim$\-Image@{$\sim$\-Image}!Image@{Image}}
+\subsubsection[{$\sim$\-Image}]{\setlength{\rightskip}{0pt plus 5cm}Image\-::$\sim$\-Image (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classImage_a0294f63700543e11c0f0da85601c7ae5}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classImage_a51df43db420c9c0b57536cb2dd36de5c}{\index{Image@{Image}!height@{height}}
+\index{height@{height}!Image@{Image}}
+\subsubsection[{height}]{\setlength{\rightskip}{0pt plus 5cm}int Image\-::height}}\label{classImage_a51df43db420c9c0b57536cb2dd36de5c}
+\hypertarget{classImage_a6afbcf4b0a2774f020ce350bff9d0d6c}{\index{Image@{Image}!pixels@{pixels}}
+\index{pixels@{pixels}!Image@{Image}}
+\subsubsection[{pixels}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Image\-::pixels}}\label{classImage_a6afbcf4b0a2774f020ce350bff9d0d6c}
+\hypertarget{classImage_ab8d12f635013c04159cd4d3d972bac88}{\index{Image@{Image}!width@{width}}
+\index{width@{width}!Image@{Image}}
+\subsubsection[{width}]{\setlength{\rightskip}{0pt plus 5cm}int Image\-::width}}\label{classImage_ab8d12f635013c04159cd4d3d972bac88}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Image_8h}{Image.\-h}\item 
+\hyperlink{Image_8cpp}{Image.\-cpp}\end{DoxyCompactItemize}

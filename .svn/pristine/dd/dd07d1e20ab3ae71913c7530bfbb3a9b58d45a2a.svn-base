@@ -1,0 +1,92 @@
+\hypertarget{OPAIcomputation_8cpp}{\section{O\-P\-A\-Icomputation.\-cpp File Reference}
+\label{OPAIcomputation_8cpp}\index{O\-P\-A\-Icomputation.\-cpp@{O\-P\-A\-Icomputation.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}O\-P\-A\-I.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::pair$<$ int, bool $>$ \hyperlink{OPAIcomputation_8cpp_ac0ccbd8e2bb2c09d3d62c1fe88fa0f10}{O\-P\-Find\-Nearest\-Ship} (\hyperlink{classShip}{Ship} \&ship, std\-::vector$<$ \hyperlink{classShip}{Ship} $>$ \&Current\-Ships)
+\item 
+float \hyperlink{OPAIcomputation_8cpp_a61055ee323df56e07c4a651dcf13bf60}{O\-P\-Relative\-Angle\-Ship\-From\-Missile} (\hyperlink{classShip}{Ship} \&ship, \hyperlink{classBullet}{Bullet} \&actualmissile)
+\item 
+float \hyperlink{OPAIcomputation_8cpp_a77517c811a3382ee858717faf7d1080c}{O\-P\-Distance\-Of\-Ship\-From\-Ship} (\hyperlink{classShip}{Ship} \&ship1, \hyperlink{classShip}{Ship} \&ship2)
+\item 
+float \hyperlink{OPAIcomputation_8cpp_ae6d85f8d40f0e9bc2143173c4b0638a2}{O\-P\-Relative\-Angle\-Of\-Ship\-From\-Ship} (\hyperlink{classShip}{Ship} \&ship2, \hyperlink{classShip}{Ship} \&ship1)
+\item 
+int \hyperlink{OPAIcomputation_8cpp_aa946e5845186eb5778472f3bd7e19a57}{O\-P\-Closest\-Ship\-Enemy} (std\-::vector$<$ \hyperlink{classShip}{Ship} $>$ \&Ships, int Number\-Ships, \hyperlink{classBullet}{Bullet} \&actualmissile, double max\-Distance)
+\item 
+bool \hyperlink{OPAIcomputation_8cpp_aeae16566b4cef5cbad3dcb78b0fb50d0}{O\-P\-Ship\-In\-Arc} (\hyperlink{classShip}{Ship} \&ship, \hyperlink{classBullet}{Bullet} \&actualmissile)
+\item 
+float \hyperlink{OPAIcomputation_8cpp_af21afdcc6bc130bbeacc1d3193c68fe7}{O\-P\-Distance\-Of\-Ship\-From\-Missile} (\hyperlink{classShip}{Ship} \&ship, \hyperlink{classBullet}{Bullet} \&actualmissile)
+\item 
+float \hyperlink{OPAIcomputation_8cpp_af9c4b9363b3c609b314e865d00300c59}{O\-P\-Relative\-Angle\-Shipto\-Missile\-Position} (\hyperlink{classShip}{Ship} \&ship, \hyperlink{classBullet}{Bullet} \&actualmissile)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{OPAIcomputation_8cpp_aa946e5845186eb5778472f3bd7e19a57}{\index{O\-P\-A\-Icomputation.\-cpp@{O\-P\-A\-Icomputation.\-cpp}!O\-P\-Closest\-Ship\-Enemy@{O\-P\-Closest\-Ship\-Enemy}}
+\index{O\-P\-Closest\-Ship\-Enemy@{O\-P\-Closest\-Ship\-Enemy}!OPAIcomputation.cpp@{O\-P\-A\-Icomputation.\-cpp}}
+\subsubsection[{O\-P\-Closest\-Ship\-Enemy}]{\setlength{\rightskip}{0pt plus 5cm}int O\-P\-Closest\-Ship\-Enemy (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Ship} $>$ \&}]{Ships, }
+\item[{int}]{Number\-Ships, }
+\item[{{\bf Bullet} \&}]{actualmissile, }
+\item[{double}]{max\-Distance}
+\end{DoxyParamCaption}
+)}}\label{OPAIcomputation_8cpp_aa946e5845186eb5778472f3bd7e19a57}
+\hypertarget{OPAIcomputation_8cpp_af21afdcc6bc130bbeacc1d3193c68fe7}{\index{O\-P\-A\-Icomputation.\-cpp@{O\-P\-A\-Icomputation.\-cpp}!O\-P\-Distance\-Of\-Ship\-From\-Missile@{O\-P\-Distance\-Of\-Ship\-From\-Missile}}
+\index{O\-P\-Distance\-Of\-Ship\-From\-Missile@{O\-P\-Distance\-Of\-Ship\-From\-Missile}!OPAIcomputation.cpp@{O\-P\-A\-Icomputation.\-cpp}}
+\subsubsection[{O\-P\-Distance\-Of\-Ship\-From\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}float O\-P\-Distance\-Of\-Ship\-From\-Missile (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{{\bf Bullet} \&}]{actualmissile}
+\end{DoxyParamCaption}
+)}}\label{OPAIcomputation_8cpp_af21afdcc6bc130bbeacc1d3193c68fe7}
+\hypertarget{OPAIcomputation_8cpp_a77517c811a3382ee858717faf7d1080c}{\index{O\-P\-A\-Icomputation.\-cpp@{O\-P\-A\-Icomputation.\-cpp}!O\-P\-Distance\-Of\-Ship\-From\-Ship@{O\-P\-Distance\-Of\-Ship\-From\-Ship}}
+\index{O\-P\-Distance\-Of\-Ship\-From\-Ship@{O\-P\-Distance\-Of\-Ship\-From\-Ship}!OPAIcomputation.cpp@{O\-P\-A\-Icomputation.\-cpp}}
+\subsubsection[{O\-P\-Distance\-Of\-Ship\-From\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}float O\-P\-Distance\-Of\-Ship\-From\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship1, }
+\item[{{\bf Ship} \&}]{ship2}
+\end{DoxyParamCaption}
+)}}\label{OPAIcomputation_8cpp_a77517c811a3382ee858717faf7d1080c}
+\hypertarget{OPAIcomputation_8cpp_ac0ccbd8e2bb2c09d3d62c1fe88fa0f10}{\index{O\-P\-A\-Icomputation.\-cpp@{O\-P\-A\-Icomputation.\-cpp}!O\-P\-Find\-Nearest\-Ship@{O\-P\-Find\-Nearest\-Ship}}
+\index{O\-P\-Find\-Nearest\-Ship@{O\-P\-Find\-Nearest\-Ship}!OPAIcomputation.cpp@{O\-P\-A\-Icomputation.\-cpp}}
+\subsubsection[{O\-P\-Find\-Nearest\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}std\-::pair$<$int,bool$>$ O\-P\-Find\-Nearest\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{std\-::vector$<$ {\bf Ship} $>$ \&}]{Current\-Ships}
+\end{DoxyParamCaption}
+)}}\label{OPAIcomputation_8cpp_ac0ccbd8e2bb2c09d3d62c1fe88fa0f10}
+\hypertarget{OPAIcomputation_8cpp_ae6d85f8d40f0e9bc2143173c4b0638a2}{\index{O\-P\-A\-Icomputation.\-cpp@{O\-P\-A\-Icomputation.\-cpp}!O\-P\-Relative\-Angle\-Of\-Ship\-From\-Ship@{O\-P\-Relative\-Angle\-Of\-Ship\-From\-Ship}}
+\index{O\-P\-Relative\-Angle\-Of\-Ship\-From\-Ship@{O\-P\-Relative\-Angle\-Of\-Ship\-From\-Ship}!OPAIcomputation.cpp@{O\-P\-A\-Icomputation.\-cpp}}
+\subsubsection[{O\-P\-Relative\-Angle\-Of\-Ship\-From\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}float O\-P\-Relative\-Angle\-Of\-Ship\-From\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship2, }
+\item[{{\bf Ship} \&}]{ship1}
+\end{DoxyParamCaption}
+)}}\label{OPAIcomputation_8cpp_ae6d85f8d40f0e9bc2143173c4b0638a2}
+\hypertarget{OPAIcomputation_8cpp_a61055ee323df56e07c4a651dcf13bf60}{\index{O\-P\-A\-Icomputation.\-cpp@{O\-P\-A\-Icomputation.\-cpp}!O\-P\-Relative\-Angle\-Ship\-From\-Missile@{O\-P\-Relative\-Angle\-Ship\-From\-Missile}}
+\index{O\-P\-Relative\-Angle\-Ship\-From\-Missile@{O\-P\-Relative\-Angle\-Ship\-From\-Missile}!OPAIcomputation.cpp@{O\-P\-A\-Icomputation.\-cpp}}
+\subsubsection[{O\-P\-Relative\-Angle\-Ship\-From\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}float O\-P\-Relative\-Angle\-Ship\-From\-Missile (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{{\bf Bullet} \&}]{actualmissile}
+\end{DoxyParamCaption}
+)}}\label{OPAIcomputation_8cpp_a61055ee323df56e07c4a651dcf13bf60}
+\hypertarget{OPAIcomputation_8cpp_af9c4b9363b3c609b314e865d00300c59}{\index{O\-P\-A\-Icomputation.\-cpp@{O\-P\-A\-Icomputation.\-cpp}!O\-P\-Relative\-Angle\-Shipto\-Missile\-Position@{O\-P\-Relative\-Angle\-Shipto\-Missile\-Position}}
+\index{O\-P\-Relative\-Angle\-Shipto\-Missile\-Position@{O\-P\-Relative\-Angle\-Shipto\-Missile\-Position}!OPAIcomputation.cpp@{O\-P\-A\-Icomputation.\-cpp}}
+\subsubsection[{O\-P\-Relative\-Angle\-Shipto\-Missile\-Position}]{\setlength{\rightskip}{0pt plus 5cm}float O\-P\-Relative\-Angle\-Shipto\-Missile\-Position (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{{\bf Bullet} \&}]{actualmissile}
+\end{DoxyParamCaption}
+)}}\label{OPAIcomputation_8cpp_af9c4b9363b3c609b314e865d00300c59}
+\hypertarget{OPAIcomputation_8cpp_aeae16566b4cef5cbad3dcb78b0fb50d0}{\index{O\-P\-A\-Icomputation.\-cpp@{O\-P\-A\-Icomputation.\-cpp}!O\-P\-Ship\-In\-Arc@{O\-P\-Ship\-In\-Arc}}
+\index{O\-P\-Ship\-In\-Arc@{O\-P\-Ship\-In\-Arc}!OPAIcomputation.cpp@{O\-P\-A\-Icomputation.\-cpp}}
+\subsubsection[{O\-P\-Ship\-In\-Arc}]{\setlength{\rightskip}{0pt plus 5cm}bool O\-P\-Ship\-In\-Arc (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{{\bf Bullet} \&}]{actualmissile}
+\end{DoxyParamCaption}
+)}}\label{OPAIcomputation_8cpp_aeae16566b4cef5cbad3dcb78b0fb50d0}

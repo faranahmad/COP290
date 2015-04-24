@@ -1,0 +1,284 @@
+\hypertarget{classAlien}{\section{Alien Class Reference}
+\label{classAlien}\index{Alien@{Alien}}
+}
+
+
+{\ttfamily \#include $<$Alien.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAlien_af4b2bc9e4071152d6aead3be07fa9690}{Alien} ()
+\item 
+float \hyperlink{classAlien_a40d01d7934a988b200efa5d192f0c041}{Get\-X\-Pos} ()
+\item 
+float \hyperlink{classAlien_ad98b811292fb223efce8e42ab774857c}{Get\-Y\-Pos} ()
+\item 
+float \hyperlink{classAlien_ab154af67eeeea07f96d03e6eff716bee}{Get\-Angle} ()
+\item 
+\hyperlink{classColor}{Color} \hyperlink{classAlien_a973ec4ad00d90e2b10264d9d1394a7ec}{Get\-Color} ()
+\item 
+int \hyperlink{classAlien_a50df27fb530e0aa49eabca1e1a56e5d7}{Get\-Level} ()
+\item 
+int \hyperlink{classAlien_a115861c98c20482436614c479894968c}{Get\-Lives} ()
+\item 
+int \hyperlink{classAlien_a007ec6561d0361e872062d5e4da6ecd5}{Get\-Bullets} ()
+\item 
+int \hyperlink{classAlien_a8324ee6950df510211cfcbc7268a25de}{Get\-Missiles} ()
+\item 
+int \hyperlink{classAlien_a1838252ed547cfb0d52f097e37017988}{Get\-Type} ()
+\item 
+void \hyperlink{classAlien_a80653749b30d97b3442a963d49470c7f}{Set\-X\-Pos} (float)
+\item 
+void \hyperlink{classAlien_aad8bbe5b3eea716fd2218ba21c5d1e44}{Set\-Y\-Pos} (float)
+\item 
+void \hyperlink{classAlien_ae930da13ce098cb677ead054bc71f56e}{Set\-Angle} (float)
+\item 
+void \hyperlink{classAlien_aabdbc28fd6b473e37f07ef7e806a1393}{Set\-Color} (\hyperlink{classColor}{Color})
+\item 
+void \hyperlink{classAlien_a1d39ab82b1be707802b8ab846ff2278a}{Set\-Color\-Float} (int, int, int)
+\item 
+void \hyperlink{classAlien_a8a8e0e614c30954ab311fc702407aff9}{Set\-Color\-Float2} (float, float, float)
+\item 
+void \hyperlink{classAlien_ad9bb066fa34d2dc8606326a1858b3442}{Set\-Level} (int)
+\item 
+void \hyperlink{classAlien_a49256ba5e5e18f79c1a681b8fd873467}{Set\-Lives} (int)
+\item 
+void \hyperlink{classAlien_aaa3e0fa270530204284e02eaa4d691d0}{Set\-Bullets} (int)
+\item 
+void \hyperlink{classAlien_a7e3e4ae779fd37271580f3a8bcf9e3e7}{Set\-Missiles} (int)
+\item 
+void \hyperlink{classAlien_a382b0daa689740c38dfd5bab422f8eb9}{Set\-Type} (int)
+\item 
+void \hyperlink{classAlien_a6e6efc07a6300bb67abcd1e3257ec258}{Reduce\-Missile} ()
+\item 
+std\-::string \hyperlink{classAlien_a09680d12365187158f510e6f689d6c1f}{Get\-Summary} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{classAlien_a96c0ea999273c8c9866bd173d8f903b6}{X\-Pos}
+\item 
+float \hyperlink{classAlien_a89b5e19378646e2a81440ab030cdd6e3}{Y\-Pos}
+\item 
+float \hyperlink{classAlien_ab6cbf1c61145bcfad50b113ff6f50df4}{Angle}
+\item 
+\hyperlink{classColor}{Color} \hyperlink{classAlien_af40f8716e363c89fafada132762d3292}{Color\-Of\-Alien}
+\item 
+int \hyperlink{classAlien_a42b68f9cb4113b51ee2c8ade1ec2bda3}{Level}
+\item 
+int \hyperlink{classAlien_ab52ccb6a1c9947a2023b509ef989a249}{Present\-Lives}
+\item 
+int \hyperlink{classAlien_a0759bffcb3f5e8e50f94c4238df3572f}{Number\-Bullets}
+\item 
+int \hyperlink{classAlien_acef360d7d4e79ad81fdabacc9c999674}{Number\-Missiles}
+\item 
+int \hyperlink{classAlien_a61485dedd63ff541e37532225f4398d6}{Alien\-Type}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classAlien_af4b2bc9e4071152d6aead3be07fa9690}{\index{Alien@{Alien}!Alien@{Alien}}
+\index{Alien@{Alien}!Alien@{Alien}}
+\subsubsection[{Alien}]{\setlength{\rightskip}{0pt plus 5cm}Alien\-::\-Alien (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAlien_af4b2bc9e4071152d6aead3be07fa9690}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classAlien_ab154af67eeeea07f96d03e6eff716bee}{\index{Alien@{Alien}!Get\-Angle@{Get\-Angle}}
+\index{Get\-Angle@{Get\-Angle}!Alien@{Alien}}
+\subsubsection[{Get\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}float Alien\-::\-Get\-Angle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAlien_ab154af67eeeea07f96d03e6eff716bee}
+\hypertarget{classAlien_a007ec6561d0361e872062d5e4da6ecd5}{\index{Alien@{Alien}!Get\-Bullets@{Get\-Bullets}}
+\index{Get\-Bullets@{Get\-Bullets}!Alien@{Alien}}
+\subsubsection[{Get\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}int Alien\-::\-Get\-Bullets (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAlien_a007ec6561d0361e872062d5e4da6ecd5}
+\hypertarget{classAlien_a973ec4ad00d90e2b10264d9d1394a7ec}{\index{Alien@{Alien}!Get\-Color@{Get\-Color}}
+\index{Get\-Color@{Get\-Color}!Alien@{Alien}}
+\subsubsection[{Get\-Color}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Color} Alien\-::\-Get\-Color (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAlien_a973ec4ad00d90e2b10264d9d1394a7ec}
+\hypertarget{classAlien_a50df27fb530e0aa49eabca1e1a56e5d7}{\index{Alien@{Alien}!Get\-Level@{Get\-Level}}
+\index{Get\-Level@{Get\-Level}!Alien@{Alien}}
+\subsubsection[{Get\-Level}]{\setlength{\rightskip}{0pt plus 5cm}int Alien\-::\-Get\-Level (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAlien_a50df27fb530e0aa49eabca1e1a56e5d7}
+\hypertarget{classAlien_a115861c98c20482436614c479894968c}{\index{Alien@{Alien}!Get\-Lives@{Get\-Lives}}
+\index{Get\-Lives@{Get\-Lives}!Alien@{Alien}}
+\subsubsection[{Get\-Lives}]{\setlength{\rightskip}{0pt plus 5cm}int Alien\-::\-Get\-Lives (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAlien_a115861c98c20482436614c479894968c}
+\hypertarget{classAlien_a8324ee6950df510211cfcbc7268a25de}{\index{Alien@{Alien}!Get\-Missiles@{Get\-Missiles}}
+\index{Get\-Missiles@{Get\-Missiles}!Alien@{Alien}}
+\subsubsection[{Get\-Missiles}]{\setlength{\rightskip}{0pt plus 5cm}int Alien\-::\-Get\-Missiles (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAlien_a8324ee6950df510211cfcbc7268a25de}
+\hypertarget{classAlien_a09680d12365187158f510e6f689d6c1f}{\index{Alien@{Alien}!Get\-Summary@{Get\-Summary}}
+\index{Get\-Summary@{Get\-Summary}!Alien@{Alien}}
+\subsubsection[{Get\-Summary}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Alien\-::\-Get\-Summary (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAlien_a09680d12365187158f510e6f689d6c1f}
+\hypertarget{classAlien_a1838252ed547cfb0d52f097e37017988}{\index{Alien@{Alien}!Get\-Type@{Get\-Type}}
+\index{Get\-Type@{Get\-Type}!Alien@{Alien}}
+\subsubsection[{Get\-Type}]{\setlength{\rightskip}{0pt plus 5cm}int Alien\-::\-Get\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAlien_a1838252ed547cfb0d52f097e37017988}
+\hypertarget{classAlien_a40d01d7934a988b200efa5d192f0c041}{\index{Alien@{Alien}!Get\-X\-Pos@{Get\-X\-Pos}}
+\index{Get\-X\-Pos@{Get\-X\-Pos}!Alien@{Alien}}
+\subsubsection[{Get\-X\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}float Alien\-::\-Get\-X\-Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAlien_a40d01d7934a988b200efa5d192f0c041}
+\hypertarget{classAlien_ad98b811292fb223efce8e42ab774857c}{\index{Alien@{Alien}!Get\-Y\-Pos@{Get\-Y\-Pos}}
+\index{Get\-Y\-Pos@{Get\-Y\-Pos}!Alien@{Alien}}
+\subsubsection[{Get\-Y\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}float Alien\-::\-Get\-Y\-Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAlien_ad98b811292fb223efce8e42ab774857c}
+\hypertarget{classAlien_a6e6efc07a6300bb67abcd1e3257ec258}{\index{Alien@{Alien}!Reduce\-Missile@{Reduce\-Missile}}
+\index{Reduce\-Missile@{Reduce\-Missile}!Alien@{Alien}}
+\subsubsection[{Reduce\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}void Alien\-::\-Reduce\-Missile (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAlien_a6e6efc07a6300bb67abcd1e3257ec258}
+\hypertarget{classAlien_ae930da13ce098cb677ead054bc71f56e}{\index{Alien@{Alien}!Set\-Angle@{Set\-Angle}}
+\index{Set\-Angle@{Set\-Angle}!Alien@{Alien}}
+\subsubsection[{Set\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}void Alien\-::\-Set\-Angle (
+\begin{DoxyParamCaption}
+\item[{float}]{inclination\-\_\-angle}
+\end{DoxyParamCaption}
+)}}\label{classAlien_ae930da13ce098cb677ead054bc71f56e}
+\hypertarget{classAlien_aaa3e0fa270530204284e02eaa4d691d0}{\index{Alien@{Alien}!Set\-Bullets@{Set\-Bullets}}
+\index{Set\-Bullets@{Set\-Bullets}!Alien@{Alien}}
+\subsubsection[{Set\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}void Alien\-::\-Set\-Bullets (
+\begin{DoxyParamCaption}
+\item[{int}]{bullet\-\_\-number}
+\end{DoxyParamCaption}
+)}}\label{classAlien_aaa3e0fa270530204284e02eaa4d691d0}
+\hypertarget{classAlien_aabdbc28fd6b473e37f07ef7e806a1393}{\index{Alien@{Alien}!Set\-Color@{Set\-Color}}
+\index{Set\-Color@{Set\-Color}!Alien@{Alien}}
+\subsubsection[{Set\-Color}]{\setlength{\rightskip}{0pt plus 5cm}void Alien\-::\-Set\-Color (
+\begin{DoxyParamCaption}
+\item[{{\bf Color}}]{alien\-\_\-color}
+\end{DoxyParamCaption}
+)}}\label{classAlien_aabdbc28fd6b473e37f07ef7e806a1393}
+\hypertarget{classAlien_a1d39ab82b1be707802b8ab846ff2278a}{\index{Alien@{Alien}!Set\-Color\-Float@{Set\-Color\-Float}}
+\index{Set\-Color\-Float@{Set\-Color\-Float}!Alien@{Alien}}
+\subsubsection[{Set\-Color\-Float}]{\setlength{\rightskip}{0pt plus 5cm}void Alien\-::\-Set\-Color\-Float (
+\begin{DoxyParamCaption}
+\item[{int}]{red, }
+\item[{int}]{green, }
+\item[{int}]{blue}
+\end{DoxyParamCaption}
+)}}\label{classAlien_a1d39ab82b1be707802b8ab846ff2278a}
+\hypertarget{classAlien_a8a8e0e614c30954ab311fc702407aff9}{\index{Alien@{Alien}!Set\-Color\-Float2@{Set\-Color\-Float2}}
+\index{Set\-Color\-Float2@{Set\-Color\-Float2}!Alien@{Alien}}
+\subsubsection[{Set\-Color\-Float2}]{\setlength{\rightskip}{0pt plus 5cm}void Alien\-::\-Set\-Color\-Float2 (
+\begin{DoxyParamCaption}
+\item[{float}]{r, }
+\item[{float}]{g, }
+\item[{float}]{b}
+\end{DoxyParamCaption}
+)}}\label{classAlien_a8a8e0e614c30954ab311fc702407aff9}
+\hypertarget{classAlien_ad9bb066fa34d2dc8606326a1858b3442}{\index{Alien@{Alien}!Set\-Level@{Set\-Level}}
+\index{Set\-Level@{Set\-Level}!Alien@{Alien}}
+\subsubsection[{Set\-Level}]{\setlength{\rightskip}{0pt plus 5cm}void Alien\-::\-Set\-Level (
+\begin{DoxyParamCaption}
+\item[{int}]{alien\-\_\-level}
+\end{DoxyParamCaption}
+)}}\label{classAlien_ad9bb066fa34d2dc8606326a1858b3442}
+\hypertarget{classAlien_a49256ba5e5e18f79c1a681b8fd873467}{\index{Alien@{Alien}!Set\-Lives@{Set\-Lives}}
+\index{Set\-Lives@{Set\-Lives}!Alien@{Alien}}
+\subsubsection[{Set\-Lives}]{\setlength{\rightskip}{0pt plus 5cm}void Alien\-::\-Set\-Lives (
+\begin{DoxyParamCaption}
+\item[{int}]{alien\-\_\-lives}
+\end{DoxyParamCaption}
+)}}\label{classAlien_a49256ba5e5e18f79c1a681b8fd873467}
+\hypertarget{classAlien_a7e3e4ae779fd37271580f3a8bcf9e3e7}{\index{Alien@{Alien}!Set\-Missiles@{Set\-Missiles}}
+\index{Set\-Missiles@{Set\-Missiles}!Alien@{Alien}}
+\subsubsection[{Set\-Missiles}]{\setlength{\rightskip}{0pt plus 5cm}void Alien\-::\-Set\-Missiles (
+\begin{DoxyParamCaption}
+\item[{int}]{missile\-\_\-number}
+\end{DoxyParamCaption}
+)}}\label{classAlien_a7e3e4ae779fd37271580f3a8bcf9e3e7}
+\hypertarget{classAlien_a382b0daa689740c38dfd5bab422f8eb9}{\index{Alien@{Alien}!Set\-Type@{Set\-Type}}
+\index{Set\-Type@{Set\-Type}!Alien@{Alien}}
+\subsubsection[{Set\-Type}]{\setlength{\rightskip}{0pt plus 5cm}void Alien\-::\-Set\-Type (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-\_\-alien}
+\end{DoxyParamCaption}
+)}}\label{classAlien_a382b0daa689740c38dfd5bab422f8eb9}
+\hypertarget{classAlien_a80653749b30d97b3442a963d49470c7f}{\index{Alien@{Alien}!Set\-X\-Pos@{Set\-X\-Pos}}
+\index{Set\-X\-Pos@{Set\-X\-Pos}!Alien@{Alien}}
+\subsubsection[{Set\-X\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}void Alien\-::\-Set\-X\-Pos (
+\begin{DoxyParamCaption}
+\item[{float}]{xposition}
+\end{DoxyParamCaption}
+)}}\label{classAlien_a80653749b30d97b3442a963d49470c7f}
+\hypertarget{classAlien_aad8bbe5b3eea716fd2218ba21c5d1e44}{\index{Alien@{Alien}!Set\-Y\-Pos@{Set\-Y\-Pos}}
+\index{Set\-Y\-Pos@{Set\-Y\-Pos}!Alien@{Alien}}
+\subsubsection[{Set\-Y\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}void Alien\-::\-Set\-Y\-Pos (
+\begin{DoxyParamCaption}
+\item[{float}]{yposition}
+\end{DoxyParamCaption}
+)}}\label{classAlien_aad8bbe5b3eea716fd2218ba21c5d1e44}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classAlien_a61485dedd63ff541e37532225f4398d6}{\index{Alien@{Alien}!Alien\-Type@{Alien\-Type}}
+\index{Alien\-Type@{Alien\-Type}!Alien@{Alien}}
+\subsubsection[{Alien\-Type}]{\setlength{\rightskip}{0pt plus 5cm}int Alien\-::\-Alien\-Type\hspace{0.3cm}{\ttfamily [private]}}}\label{classAlien_a61485dedd63ff541e37532225f4398d6}
+\hypertarget{classAlien_ab6cbf1c61145bcfad50b113ff6f50df4}{\index{Alien@{Alien}!Angle@{Angle}}
+\index{Angle@{Angle}!Alien@{Alien}}
+\subsubsection[{Angle}]{\setlength{\rightskip}{0pt plus 5cm}float Alien\-::\-Angle\hspace{0.3cm}{\ttfamily [private]}}}\label{classAlien_ab6cbf1c61145bcfad50b113ff6f50df4}
+\hypertarget{classAlien_af40f8716e363c89fafada132762d3292}{\index{Alien@{Alien}!Color\-Of\-Alien@{Color\-Of\-Alien}}
+\index{Color\-Of\-Alien@{Color\-Of\-Alien}!Alien@{Alien}}
+\subsubsection[{Color\-Of\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Color} Alien\-::\-Color\-Of\-Alien\hspace{0.3cm}{\ttfamily [private]}}}\label{classAlien_af40f8716e363c89fafada132762d3292}
+\hypertarget{classAlien_a42b68f9cb4113b51ee2c8ade1ec2bda3}{\index{Alien@{Alien}!Level@{Level}}
+\index{Level@{Level}!Alien@{Alien}}
+\subsubsection[{Level}]{\setlength{\rightskip}{0pt plus 5cm}int Alien\-::\-Level\hspace{0.3cm}{\ttfamily [private]}}}\label{classAlien_a42b68f9cb4113b51ee2c8ade1ec2bda3}
+\hypertarget{classAlien_a0759bffcb3f5e8e50f94c4238df3572f}{\index{Alien@{Alien}!Number\-Bullets@{Number\-Bullets}}
+\index{Number\-Bullets@{Number\-Bullets}!Alien@{Alien}}
+\subsubsection[{Number\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}int Alien\-::\-Number\-Bullets\hspace{0.3cm}{\ttfamily [private]}}}\label{classAlien_a0759bffcb3f5e8e50f94c4238df3572f}
+\hypertarget{classAlien_acef360d7d4e79ad81fdabacc9c999674}{\index{Alien@{Alien}!Number\-Missiles@{Number\-Missiles}}
+\index{Number\-Missiles@{Number\-Missiles}!Alien@{Alien}}
+\subsubsection[{Number\-Missiles}]{\setlength{\rightskip}{0pt plus 5cm}int Alien\-::\-Number\-Missiles\hspace{0.3cm}{\ttfamily [private]}}}\label{classAlien_acef360d7d4e79ad81fdabacc9c999674}
+\hypertarget{classAlien_ab52ccb6a1c9947a2023b509ef989a249}{\index{Alien@{Alien}!Present\-Lives@{Present\-Lives}}
+\index{Present\-Lives@{Present\-Lives}!Alien@{Alien}}
+\subsubsection[{Present\-Lives}]{\setlength{\rightskip}{0pt plus 5cm}int Alien\-::\-Present\-Lives\hspace{0.3cm}{\ttfamily [private]}}}\label{classAlien_ab52ccb6a1c9947a2023b509ef989a249}
+\hypertarget{classAlien_a96c0ea999273c8c9866bd173d8f903b6}{\index{Alien@{Alien}!X\-Pos@{X\-Pos}}
+\index{X\-Pos@{X\-Pos}!Alien@{Alien}}
+\subsubsection[{X\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}float Alien\-::\-X\-Pos\hspace{0.3cm}{\ttfamily [private]}}}\label{classAlien_a96c0ea999273c8c9866bd173d8f903b6}
+\hypertarget{classAlien_a89b5e19378646e2a81440ab030cdd6e3}{\index{Alien@{Alien}!Y\-Pos@{Y\-Pos}}
+\index{Y\-Pos@{Y\-Pos}!Alien@{Alien}}
+\subsubsection[{Y\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}float Alien\-::\-Y\-Pos\hspace{0.3cm}{\ttfamily [private]}}}\label{classAlien_a89b5e19378646e2a81440ab030cdd6e3}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Alien_8h}{Alien.\-h}\item 
+\hyperlink{Alien_8cpp}{Alien.\-cpp}\end{DoxyCompactItemize}

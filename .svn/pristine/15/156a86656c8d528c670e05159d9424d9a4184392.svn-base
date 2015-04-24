@@ -1,0 +1,46 @@
+\hypertarget{CompHighscore_8cpp}{\section{Comp\-Highscore.\-cpp File Reference}
+\label{CompHighscore_8cpp}\index{Comp\-Highscore.\-cpp@{Comp\-Highscore.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}Comp\-Highscore.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structIDScore}{I\-D\-Score}
+\item 
+struct \hyperlink{structsortclass}{sortclass}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::string \hyperlink{CompHighscore_8cpp_ac3175009e67642ac49f8b6a5d003c3a8}{To\-Four1} (std\-::string x)
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{CompHighscore_8cpp_a80b8c8340ca0d48e9f08f349660e7260}{Update\-High\-Scores} (\hyperlink{classBoard}{Board} \&board)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structsortclass}{sortclass} \hyperlink{CompHighscore_8cpp_a9a71132b3a673b5d9bb813097131dddd}{sortobject}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{CompHighscore_8cpp_ac3175009e67642ac49f8b6a5d003c3a8}{\index{Comp\-Highscore.\-cpp@{Comp\-Highscore.\-cpp}!To\-Four1@{To\-Four1}}
+\index{To\-Four1@{To\-Four1}!CompHighscore.cpp@{Comp\-Highscore.\-cpp}}
+\subsubsection[{To\-Four1}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string To\-Four1 (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{x}
+\end{DoxyParamCaption}
+)}}\label{CompHighscore_8cpp_ac3175009e67642ac49f8b6a5d003c3a8}
+\hypertarget{CompHighscore_8cpp_a80b8c8340ca0d48e9f08f349660e7260}{\index{Comp\-Highscore.\-cpp@{Comp\-Highscore.\-cpp}!Update\-High\-Scores@{Update\-High\-Scores}}
+\index{Update\-High\-Scores@{Update\-High\-Scores}!CompHighscore.cpp@{Comp\-Highscore.\-cpp}}
+\subsubsection[{Update\-High\-Scores}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::string$>$ Update\-High\-Scores (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} \&}]{board}
+\end{DoxyParamCaption}
+)}}\label{CompHighscore_8cpp_a80b8c8340ca0d48e9f08f349660e7260}
+
+
+\subsection{Variable Documentation}
+\hypertarget{CompHighscore_8cpp_a9a71132b3a673b5d9bb813097131dddd}{\index{Comp\-Highscore.\-cpp@{Comp\-Highscore.\-cpp}!sortobject@{sortobject}}
+\index{sortobject@{sortobject}!CompHighscore.cpp@{Comp\-Highscore.\-cpp}}
+\subsubsection[{sortobject}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf sortclass}  sortobject}}\label{CompHighscore_8cpp_a9a71132b3a673b5d9bb813097131dddd}

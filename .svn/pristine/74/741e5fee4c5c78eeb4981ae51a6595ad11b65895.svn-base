@@ -1,0 +1,37 @@
+\hypertarget{OPAIUpdate_8cpp}{\section{O\-P\-A\-I\-Update.\-cpp File Reference}
+\label{OPAIUpdate_8cpp}\index{O\-P\-A\-I\-Update.\-cpp@{O\-P\-A\-I\-Update.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}O\-P\-A\-I.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{OPAIUpdate_8cpp_a6c3c0f454bf74e10d45e82bce7b04433}{O\-P\-Update\-A\-I\-Board} (\hyperlink{classBoard}{Board} \&board)
+\item 
+void \hyperlink{OPAIUpdate_8cpp_afa99d19ea457599a17459485c4261978}{O\-P\-Update\-Player\-A\-I} (\hyperlink{classBoard}{Board} \&board)
+\item 
+void \hyperlink{OPAIUpdate_8cpp_a3787d05459c41ec2e693464813020bf9}{O\-P\-Update\-Missile} (\hyperlink{classBoard}{Board} \&board)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{OPAIUpdate_8cpp_a6c3c0f454bf74e10d45e82bce7b04433}{\index{O\-P\-A\-I\-Update.\-cpp@{O\-P\-A\-I\-Update.\-cpp}!O\-P\-Update\-A\-I\-Board@{O\-P\-Update\-A\-I\-Board}}
+\index{O\-P\-Update\-A\-I\-Board@{O\-P\-Update\-A\-I\-Board}!OPAIUpdate.cpp@{O\-P\-A\-I\-Update.\-cpp}}
+\subsubsection[{O\-P\-Update\-A\-I\-Board}]{\setlength{\rightskip}{0pt plus 5cm}void O\-P\-Update\-A\-I\-Board (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} \&}]{board}
+\end{DoxyParamCaption}
+)}}\label{OPAIUpdate_8cpp_a6c3c0f454bf74e10d45e82bce7b04433}
+\hypertarget{OPAIUpdate_8cpp_a3787d05459c41ec2e693464813020bf9}{\index{O\-P\-A\-I\-Update.\-cpp@{O\-P\-A\-I\-Update.\-cpp}!O\-P\-Update\-Missile@{O\-P\-Update\-Missile}}
+\index{O\-P\-Update\-Missile@{O\-P\-Update\-Missile}!OPAIUpdate.cpp@{O\-P\-A\-I\-Update.\-cpp}}
+\subsubsection[{O\-P\-Update\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}void O\-P\-Update\-Missile (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} \&}]{board}
+\end{DoxyParamCaption}
+)}}\label{OPAIUpdate_8cpp_a3787d05459c41ec2e693464813020bf9}
+\hypertarget{OPAIUpdate_8cpp_afa99d19ea457599a17459485c4261978}{\index{O\-P\-A\-I\-Update.\-cpp@{O\-P\-A\-I\-Update.\-cpp}!O\-P\-Update\-Player\-A\-I@{O\-P\-Update\-Player\-A\-I}}
+\index{O\-P\-Update\-Player\-A\-I@{O\-P\-Update\-Player\-A\-I}!OPAIUpdate.cpp@{O\-P\-A\-I\-Update.\-cpp}}
+\subsubsection[{O\-P\-Update\-Player\-A\-I}]{\setlength{\rightskip}{0pt plus 5cm}void O\-P\-Update\-Player\-A\-I (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} \&}]{board}
+\end{DoxyParamCaption}
+)}}\label{OPAIUpdate_8cpp_afa99d19ea457599a17459485c4261978}

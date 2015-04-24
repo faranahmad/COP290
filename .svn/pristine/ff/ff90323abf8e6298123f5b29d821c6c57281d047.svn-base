@@ -1,0 +1,48 @@
+\hypertarget{ShipTest_8cpp}{\section{Ship\-Test.\-cpp File Reference}
+\label{ShipTest_8cpp}\index{Ship\-Test.\-cpp@{Ship\-Test.\-cpp}}
+}
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$algorithm$>$}\\*
+{\ttfamily \#include \char`\"{}Ship\-Test.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{ShipTest_8cpp_a468548d2b6861231a5a02f8fc55fd546}{Run\-All\-Ship\-Tests} ()
+\item 
+bool \hyperlink{ShipTest_8cpp_a83698ab50d87b74d66ed24f6e76f206d}{Ship\-Initialisation\-Tests} ()
+\item 
+bool \hyperlink{ShipTest_8cpp_ae5b0ed93e0c0123046f022bfbf038948}{Setting\-Ship\-Tests} ()
+\item 
+bool \hyperlink{ShipTest_8cpp_a88751be42964843f0a2d1bbb88625aee}{Update\-Ship\-Tests} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{ShipTest_8cpp_a468548d2b6861231a5a02f8fc55fd546}{\index{Ship\-Test.\-cpp@{Ship\-Test.\-cpp}!Run\-All\-Ship\-Tests@{Run\-All\-Ship\-Tests}}
+\index{Run\-All\-Ship\-Tests@{Run\-All\-Ship\-Tests}!ShipTest.cpp@{Ship\-Test.\-cpp}}
+\subsubsection[{Run\-All\-Ship\-Tests}]{\setlength{\rightskip}{0pt plus 5cm}bool Run\-All\-Ship\-Tests (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ShipTest_8cpp_a468548d2b6861231a5a02f8fc55fd546}
+\hypertarget{ShipTest_8cpp_ae5b0ed93e0c0123046f022bfbf038948}{\index{Ship\-Test.\-cpp@{Ship\-Test.\-cpp}!Setting\-Ship\-Tests@{Setting\-Ship\-Tests}}
+\index{Setting\-Ship\-Tests@{Setting\-Ship\-Tests}!ShipTest.cpp@{Ship\-Test.\-cpp}}
+\subsubsection[{Setting\-Ship\-Tests}]{\setlength{\rightskip}{0pt plus 5cm}bool Setting\-Ship\-Tests (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ShipTest_8cpp_ae5b0ed93e0c0123046f022bfbf038948}
+\hypertarget{ShipTest_8cpp_a83698ab50d87b74d66ed24f6e76f206d}{\index{Ship\-Test.\-cpp@{Ship\-Test.\-cpp}!Ship\-Initialisation\-Tests@{Ship\-Initialisation\-Tests}}
+\index{Ship\-Initialisation\-Tests@{Ship\-Initialisation\-Tests}!ShipTest.cpp@{Ship\-Test.\-cpp}}
+\subsubsection[{Ship\-Initialisation\-Tests}]{\setlength{\rightskip}{0pt plus 5cm}bool Ship\-Initialisation\-Tests (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ShipTest_8cpp_a83698ab50d87b74d66ed24f6e76f206d}
+\hypertarget{ShipTest_8cpp_a88751be42964843f0a2d1bbb88625aee}{\index{Ship\-Test.\-cpp@{Ship\-Test.\-cpp}!Update\-Ship\-Tests@{Update\-Ship\-Tests}}
+\index{Update\-Ship\-Tests@{Update\-Ship\-Tests}!ShipTest.cpp@{Ship\-Test.\-cpp}}
+\subsubsection[{Update\-Ship\-Tests}]{\setlength{\rightskip}{0pt plus 5cm}bool Update\-Ship\-Tests (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ShipTest_8cpp_a88751be42964843f0a2d1bbb88625aee}

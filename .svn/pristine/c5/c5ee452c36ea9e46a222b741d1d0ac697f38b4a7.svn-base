@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['checkalienhitship',['CheckAlienHitShip',['../classBoard.html#acea1951ab72b463854e33f9c934251ff',1,'Board::CheckAlienHitShip(int)'],['../classBoard.html#a4283790d3df6d888690636b3c18a62a0',1,'Board::CheckAlienHitShip(int)']]],
+  ['checkbullethitalien',['CheckBulletHitAlien',['../classBoard.html#a429eee3494a6d2f0537a9090d8234e7c',1,'Board::CheckBulletHitAlien(int)'],['../classBoard.html#a429eee3494a6d2f0537a9090d8234e7c',1,'Board::CheckBulletHitAlien(int)']]],
+  ['checkbullethitship',['CheckBulletHitShip',['../classBoard.html#a54db8325f1f8469ed203d2a7d92173e0',1,'Board::CheckBulletHitShip(int)'],['../classBoard.html#a54db8325f1f8469ed203d2a7d92173e0',1,'Board::CheckBulletHitShip(int)']]],
+  ['checkgameover',['CheckGameOver',['../classBoard.html#ae656233bce0aca3e6a11364f06f02d8d',1,'Board::CheckGameOver()'],['../classBoard.html#ae656233bce0aca3e6a11364f06f02d8d',1,'Board::CheckGameOver()']]],
+  ['closestalienenemy',['ClosestAlienEnemy',['../AI_8cpp.html#a07f6177a8b3539415bc1c3d1d407c71d',1,'ClosestAlienEnemy(std::vector&lt; Alien &gt; &amp;Aliens, int NumberAliens, Bullet &amp;actualmissile, double maxDistance):&#160;AI.cpp'],['../AI_8h.html#a07f6177a8b3539415bc1c3d1d407c71d',1,'ClosestAlienEnemy(std::vector&lt; Alien &gt; &amp;Aliens, int NumberAliens, Bullet &amp;actualmissile, double maxDistance):&#160;AI.cpp'],['../AIcomputation_8cpp.html#a07f6177a8b3539415bc1c3d1d407c71d',1,'ClosestAlienEnemy(std::vector&lt; Alien &gt; &amp;Aliens, int NumberAliens, Bullet &amp;actualmissile, double maxDistance):&#160;AIcomputation.cpp'],['../OriginalAI_8cpp.html#a07f6177a8b3539415bc1c3d1d407c71d',1,'ClosestAlienEnemy(std::vector&lt; Alien &gt; &amp;Aliens, int NumberAliens, Bullet &amp;actualmissile, double maxDistance):&#160;OriginalAI.cpp']]],
+  ['closestshipenemy',['ClosestShipEnemy',['../AI_8cpp.html#aef1431d8449fdaa29f2502388525419a',1,'ClosestShipEnemy(std::vector&lt; Ship &gt; &amp;Ships, int NumberShips, Bullet &amp;actualmissile):&#160;AI.cpp'],['../AI_8h.html#a03e704d20ee8cde04afa53aa0c2d67c7',1,'ClosestShipEnemy(std::vector&lt; Ship &gt; &amp;Ships, int NumberShips, Bullet &amp;actualmissile, double maxDistance):&#160;AIcomputation.cpp'],['../AIcomputation_8cpp.html#a03e704d20ee8cde04afa53aa0c2d67c7',1,'ClosestShipEnemy(std::vector&lt; Ship &gt; &amp;Ships, int NumberShips, Bullet &amp;actualmissile, double maxDistance):&#160;AIcomputation.cpp'],['../OriginalAI_8cpp.html#aef1431d8449fdaa29f2502388525419a',1,'ClosestShipEnemy(std::vector&lt; Ship &gt; &amp;Ships, int NumberShips, Bullet &amp;actualmissile):&#160;OriginalAI.cpp']]],
+  ['color',['Color',['../classColor.html',1,'Color'],['../structparticleData.html#ad9150b7c23a39667acef205b798d412b',1,'particleData::color()'],['../structdebrisData.html#a780787eca7eef881b736db2190cc641e',1,'debrisData::color()'],['../structSmokePoint.html#a080d4d23d1dbfe8241a04bf8e2a3c3f1',1,'SmokePoint::color()'],['../structFirePoint.html#a0de87a3a5374fd7250e38300fd87a456',1,'FirePoint::color()'],['../classColor.html#a9a742cbe9f9f4037f5d9f4e81a9b2428',1,'Color::Color()'],['../classColor.html#a2a0f8ff83645300ce27b8195e5ab20f9',1,'Color::Color(int, int, int)']]],
+  ['color_2ecpp',['Color.cpp',['../Color_8cpp.html',1,'']]],
+  ['color_2eh',['Color.h',['../Color_8h.html',1,'']]],
+  ['colorofalien',['ColorOfAlien',['../classAlien.html#af40f8716e363c89fafada132762d3292',1,'Alien']]],
+  ['colorofbullet',['ColorOfBullet',['../classBullet.html#a9f3fc8ac1cfc3fe6fe154d4a7065b3bb',1,'Bullet']]],
+  ['colorofship',['ColorOfShip',['../classShip.html#a2c537196cae0ce94a0d21f28299039b0',1,'Ship']]],
+  ['combined_2ecpp',['Combined.cpp',['../Combined_8cpp.html',1,'']]],
+  ['combined_2eh',['Combined.h',['../Combined_8h.html',1,'']]],
+  ['compcombined_2ecpp',['CompCombined.cpp',['../CompCombined_8cpp.html',1,'']]],
+  ['compcombined_2eh',['CompCombined.h',['../CompCombined_8h.html',1,'']]],
+  ['competitiveboard_2ecpp',['CompetitiveBoard.cpp',['../CompetitiveBoard_8cpp.html',1,'']]],
+  ['competitiveboard_2eh',['CompetitiveBoard.h',['../CompetitiveBoard_8h.html',1,'']]],
+  ['comphighscore_2ecpp',['CompHighscore.cpp',['../CompHighscore_8cpp.html',1,'']]],
+  ['comphighscore_2eh',['CompHighscore.h',['../CompHighscore_8h.html',1,'']]],
+  ['connect',['Connect',['../udp_8cpp.html#abf3a0ae8c79752332d4f72020f9e4b5e',1,'udp.cpp']]],
+  ['convertbool',['ConvertBool',['../backupcoop_8cpp.html#a7c07c9513448bb57459b5eb37f49b82b',1,'ConvertBool(bool a):&#160;backupcoop.cpp'],['../Board_8cpp.html#a7c07c9513448bb57459b5eb37f49b82b',1,'ConvertBool(bool a):&#160;Board.cpp'],['../CompetitiveBoard_8cpp.html#a7c07c9513448bb57459b5eb37f49b82b',1,'ConvertBool(bool a):&#160;CompetitiveBoard.cpp']]]
+];

@@ -1,0 +1,29 @@
+\hypertarget{OPAIMissile_8cpp}{\section{O\-P\-A\-I\-Missile.\-cpp File Reference}
+\label{OPAIMissile_8cpp}\index{O\-P\-A\-I\-Missile.\-cpp@{O\-P\-A\-I\-Missile.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}O\-P\-A\-I.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{OPAIMissile_8cpp_acad3c6976aed46cfe2b98ff7f9736763}{O\-P\-Update\-Ship\-Missile} (\hyperlink{classBoard}{Board} \&board)
+\item 
+void \hyperlink{OPAIMissile_8cpp_aa4b52d2d85da49264b74ed9023a98e67}{O\-P\-Update\-Ship\-Missile\-Velocity} (\hyperlink{classBullet}{Bullet} \&actualmissile, \hyperlink{classShip}{Ship} \&ship2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{OPAIMissile_8cpp_acad3c6976aed46cfe2b98ff7f9736763}{\index{O\-P\-A\-I\-Missile.\-cpp@{O\-P\-A\-I\-Missile.\-cpp}!O\-P\-Update\-Ship\-Missile@{O\-P\-Update\-Ship\-Missile}}
+\index{O\-P\-Update\-Ship\-Missile@{O\-P\-Update\-Ship\-Missile}!OPAIMissile.cpp@{O\-P\-A\-I\-Missile.\-cpp}}
+\subsubsection[{O\-P\-Update\-Ship\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}void O\-P\-Update\-Ship\-Missile (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} \&}]{board}
+\end{DoxyParamCaption}
+)}}\label{OPAIMissile_8cpp_acad3c6976aed46cfe2b98ff7f9736763}
+\hypertarget{OPAIMissile_8cpp_aa4b52d2d85da49264b74ed9023a98e67}{\index{O\-P\-A\-I\-Missile.\-cpp@{O\-P\-A\-I\-Missile.\-cpp}!O\-P\-Update\-Ship\-Missile\-Velocity@{O\-P\-Update\-Ship\-Missile\-Velocity}}
+\index{O\-P\-Update\-Ship\-Missile\-Velocity@{O\-P\-Update\-Ship\-Missile\-Velocity}!OPAIMissile.cpp@{O\-P\-A\-I\-Missile.\-cpp}}
+\subsubsection[{O\-P\-Update\-Ship\-Missile\-Velocity}]{\setlength{\rightskip}{0pt plus 5cm}void O\-P\-Update\-Ship\-Missile\-Velocity (
+\begin{DoxyParamCaption}
+\item[{{\bf Bullet} \&}]{actualmissile, }
+\item[{{\bf Ship} \&}]{ship2}
+\end{DoxyParamCaption}
+)}}\label{OPAIMissile_8cpp_aa4b52d2d85da49264b74ed9023a98e67}
