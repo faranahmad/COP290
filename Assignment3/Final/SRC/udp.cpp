@@ -352,7 +352,6 @@ void* ReceiveData(void* input)
                         sendmsg[j]=' ';
                         j++;
 					}
-					j--;
 					sendmsg[j]='@';
 					sendmsg[j+1]=(char)(TotalPlayers+int('0'));
 					sendmsg[j+2]='\n';
