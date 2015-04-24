@@ -105,7 +105,10 @@ void AddPlayers(char players [])
 		}
 	}
 	std::cout<<players[i]<<'\t'<<players[i+1]<<'\t'<<players[i+2]<<std::endl;
-	TotalPlayers= (int(players[i+1]) -int('0'));
+	int t=(int)(players[i+1]);
+	int u=(int)('0');
+	std::cout<<t<<'\t'<<u<<std::endl;
+	TotalPlayers= t-u;
 }
 
 int LengthNum(long long num)
