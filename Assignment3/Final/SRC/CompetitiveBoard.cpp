@@ -279,8 +279,9 @@ std::vector<Points> Board::UpdateAllBullets()
 			if(VectorShips.at(hit_ship).GetLives() > 0)
 			{
 				ships_lives_reduce.push_back(hit_ship);
-				std::cout << hit_ship << std::endl;
-				bullets_delete.push_back(i);
+				bullets_delete.push_back(i); 
+				int shipscoreinc = VectorBullets.at(i).GetShipId();
+				VectorShips.at(shipscoreinc).SetScore(VectorShips.at(shipscoreinc).GetScore() + 100);
 			}
 		}
 	}
