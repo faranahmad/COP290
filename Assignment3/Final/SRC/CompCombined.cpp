@@ -964,7 +964,7 @@ void ShowLives()
 	if (viewtotake)
 	{
 		glPushMatrix();
-		glRasterPos2f(   PX+100, 0 );
+		glRasterPos2f(   PX+100, 800 );
 		// glColor3f(0,1,1);
 		// glutStrokeString(GLUT_STROKE_ROMAN, y);
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
@@ -972,7 +972,7 @@ void ShowLives()
 		glPopMatrix();
 	
 		glPushMatrix();
-		glRasterPos2f( PX +100,-50);
+		glRasterPos2f( PX +100,750);
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y2);
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar2);
 		glPopMatrix();
@@ -1001,19 +1001,26 @@ void ShowScores()
 	// unsigned char *y= (unsigned char*) kg;
 	if (viewtotake)
 	{
-		float iniy = -200;
+		float iniy = 200;
 	
 		for (int i=0; i<newg.PlayerBoard.GetNumberShips(); i++)
 		{
 			std::string l1 = newg.PlayerBoard.GetNthPlayerScore(i);
-			unsigned char *pchar3= (unsigned char*) l1.c_str();
-		
-			glPushMatrix();
-			glRasterPos3f( PX +100, iniy, 0 );
-			glColor3f(0,0,1);
-			iniy -=60;
-			glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
-			glPopMatrix();
+			if (l1.length()==0)
+			{
+				// Do nothing
+			}
+			else
+			{
+				unsigned char *pchar3= (unsigned char*) l1.c_str();
+			
+				glPushMatrix();
+				glRasterPos3f( PX +50, iniy, 0 );
+				glColor3f(0,0,1);
+				iniy -=60;
+				glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
+				glPopMatrix();
+			}
 		}
 	}
 	else
@@ -1037,16 +1044,20 @@ void ShowScores()
 		{
 			std::string l1 = newg.PlayerBoard.GetNthPlayerScore(i);
 			unsigned char *pchar3= (unsigned char*) l1.c_str();
-		
-			glPushMatrix();
-			glRasterPos3f( 0, 1080 , iniz );
-			glColor3f(0,0,1);
-			iniz -=60;
-			glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
-			glPopMatrix();
+			if (l1.length()==0)
+			{
+				// Do nothing
+			}
+			else
+			{
+				glPushMatrix();
+				glRasterPos3f( 0, 1080 , iniz );
+				glColor3f(0,0,1);
+				iniz -=60;
+				glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
+				glPopMatrix();
+			}
 		}
-
-
 	}
 }
 
@@ -1608,15 +1619,15 @@ void display(void)
 		
 		    glNormal3f(0.0, 1.0f, 0.0f);
 		    glTexCoord2f(0.0f, 1.0f);
-		    glVertex3f(-250, 600, 1000);
+		    glVertex3f(-250, 500, 1000);
 		    glTexCoord2f(1.0f, 1.0f);
-		    glVertex3f(250,600, 1000);
+		    glVertex3f(250,500, 1000);
 		    glTexCoord2f(1.0f, 0.0f);
-		    glVertex3f( 250, 300, 1000);
+		    glVertex3f( 250, 200, 1000);
 		    glTexCoord2f(0.0f, 0.0f);
-		    glVertex3f( -250, 300, 1000);
+		    glVertex3f( -250, 200, 1000);
 		    
-		    glEnd();
+		    glEnd();	
 		
 		
 		    glDisable(GL_TEXTURE_2D);

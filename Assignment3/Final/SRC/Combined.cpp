@@ -8,12 +8,10 @@ GLuint _textureHighScore;
 
 void *sound_play1(void *x)
 {
-	// std::cout <<"in sound play explosion\n";
 	while (true)
 	{
 		if (Is_SoundExpl)
 		{
-			// std::cout <<"playing found for missile\n";
 			system("canberra-gtk-play -f explosion1.wav");
 			Is_SoundExpl=false;
 		}
@@ -23,17 +21,24 @@ void *sound_play1(void *x)
 
 void *sound_play2(void *x)
 {
-	// std::cout <<" In sound play bullet\n";
 	while (true)
 	{
 		if (Is_SoundBullet)
 		{
-			// std::cout << "playing sound for bullet\n";
 			system("canberra-gtk-play -f bullet1.wav");
 			Is_SoundBullet=false;
 		}
 		usleep(1000);
 	}
+}
+
+void *sound_play3(void *x)
+{
+	while (backgroundmusic)
+	{
+		system("canberra-gtk-play -f background.wav");
+	}
+	outofmusic=true;
 }
 
 namespace {
@@ -513,7 +518,6 @@ void handleKeypress(unsigned char key, int x, int y)
 		case 's':
 		{
 			// Fire Missile
-			// std::cout << "space bar presed\n";
 			Keys[7]=true;
 			break;
 		}
@@ -524,7 +528,7 @@ void handleKeypress(unsigned char key, int x, int y)
 		}
 		case 'y':
 		{
-			Keys[8]=true;
+			// Keys[8]=true;
 			break;
 		}
 		case 43: //+ key
@@ -542,6 +546,13 @@ void handleKeypress(unsigned char key, int x, int y)
 		}
 		case 27: //Escape key
 		{
+			backgroundmusic=false;
+			system("killall -9 canberra-gtk-play");
+			usleep(1000);
+			while (!outofmusic)
+			{
+				// Keep waiting
+			}
 			exit(0);
 		}
     }
@@ -735,45 +746,54 @@ void ShowShip(Ship &shiptodisplay)
 		glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
 		glRotatef(shiptodisplay.GetAngle(),0,0,1);
 		Color col_ship=shiptodisplay.GetColor();
-		// std::cout << shiptodisplay.GetXPos() << "\t" << shiptodisplay.GetYPos() <<"\n";
-		
-		// glRotatef(180,0,1,0);
+		if (!viewtotake)
+		{
+			glPushMatrix();
 
+			int livesofship=shiptodisplay.GetLives();
 
+			if (livesofship>=4)
+			{
+				glColor3f(0.0,1.0,0.0);
+			}
+			else if (livesofship>=2)
+			{
+				glColor3f(1.0,1.0,0.0);
+			}
+			else
+			{
+				glColor3f(1.0,0.0,0.0);
+			}
+
+		    glBegin(GL_QUADS);
+	
+	    	glVertex3f(-100, -80, 0);
+	    	glVertex3f(40*livesofship -100,-80, 0);
+	    	glVertex3f(40*livesofship -100, -80, -20);
+	    	glVertex3f(-100, -80, -20);
+	    	
+	    	glEnd();
+
+			glPopMatrix();
+		}
+	
 		glPushMatrix();
 		glColor4f(1,1,1,0.5);
 		ShowObject(shipmid);
 		glPopMatrix();
 
-		// ShowObject(ship);
 		glPushMatrix();
 		glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
 		ShowObject(shipcol);
 		glPopMatrix();
 
-
 		glPushMatrix();
 		glColor3f(1, 0, 0);
 		ShowObject(shipfir);
 		glPopMatrix();
-	
-		
 
 
 		glPopMatrix();
-	
-		// glPushMatrix();
-		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		// glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
-		// glRotatef(shiptodisplay.GetAngle(),0,0,1);
-		// glTranslatef(0,-67,0);
-		// DisplaySmokePoints(SmokePoints);
-		// glPopMatrix();
-		// // UpdateAllSmokePoints(SmokePoints);
 	}
 }
 
@@ -961,7 +981,7 @@ void ShowLives()
 	if (viewtotake)
 	{
 		glPushMatrix();
-		glRasterPos2f(   PX+100, 0 );
+		glRasterPos2f(   PX+100, 800 );
 		// glColor3f(0,1,1);
 		// glutStrokeString(GLUT_STROKE_ROMAN, y);
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
@@ -969,7 +989,7 @@ void ShowLives()
 		glPopMatrix();
 	
 		glPushMatrix();
-		glRasterPos2f( PX +100,-50);
+		glRasterPos2f( PX +100,750);
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y2);
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar2);
 		glPopMatrix();
@@ -998,19 +1018,25 @@ void ShowScores()
 	// unsigned char *y= (unsigned char*) kg;
 	if (viewtotake)
 	{
-		float iniy = -200;
+		float iniy = 200;
 	
 		for (int i=0; i<newg.PlayerBoard.GetNumberShips(); i++)
 		{
 			std::string l1 = newg.PlayerBoard.GetNthPlayerScore(i);
 			unsigned char *pchar3= (unsigned char*) l1.c_str();
-		
-			glPushMatrix();
-			glRasterPos3f( PX +100, iniy, 0 );
-			glColor3f(0,0,1);
-			iniy -=60;
-			glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
-			glPopMatrix();
+			if (l1.length()==0)
+			{
+				// Do nothing
+			}
+			else
+			{
+				glPushMatrix();
+				glRasterPos3f( PX +50, iniy, 0 );
+				glColor3f(0,0,1);
+				iniy -=60;
+				glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
+				glPopMatrix();
+			}
 		}
 	}
 	else
@@ -1034,13 +1060,19 @@ void ShowScores()
 		{
 			std::string l1 = newg.PlayerBoard.GetNthPlayerScore(i);
 			unsigned char *pchar3= (unsigned char*) l1.c_str();
-		
-			glPushMatrix();
-			glRasterPos3f( 0, 1080 , iniz );
-			glColor3f(0,0,1);
-			iniz -=60;
-			glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
-			glPopMatrix();
+			if (l1.length()==0)
+			{
+				// Do nothing
+			}
+			else
+			{
+				glPushMatrix();
+				glRasterPos3f( 0, 1080 , iniz );
+				glColor3f(0,0,1);
+				iniz -=60;
+				glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar3);
+				glPopMatrix();
+			}
 		}
 
 
@@ -1213,42 +1245,11 @@ void ShowAllFirePoints()
 	}
 }
 
-// void updatesphere(Sphere &sphere1,int decide){
-// 	// sphere1.position[0]+=random()%10;
-// 	// if(count<5){
-// 	// 	sphere1.position[2]=random()%10;
-// 	// }
-// 	// else{
-// 		sphere1.position[1]+=random()%30;
-// 	// }
-// 	sphere1.position[2]+=random()%50;
-
-// 	// sphere1.radius -= 5-random()%10;
-// 	sphere1.radius -= 2;
-// 	if(decide<sphere.size()/2){
-// 		sphere1.color[0] -= 0.0149*3;
-// 		sphere1.color[1] += 0.005*3;
-// 		sphere1.color[2] += 0.005*3;
-// 	}
-// 	else{
-// 		sphere1.color[0] -= 0.0149*3;
-// 		sphere1.color[1] -= 0.0149*3;
-// 		sphere1.color[2] += 0.005*3;
-// 	}
-
-// 	sphere1.color[3] -= 0.02;
-// 	sphere1.life = sphere1.life-3;
-
-
 void ShowExplosion(Expl &exptodisplay)
 {
 	if (exptodisplay.fuel == 0)
 	{
-		// std::cout << "fuel is 0\n";
-		// glEnable (GL_LIGHTING);
-		// glDisable (GL_LIGHT0);
-		// glEnable (GL_DEPTH_TEST);
-		// glutSolidCube (1.0);
+		// Do nothing
 	}
 	else
 	{
@@ -1564,13 +1565,13 @@ void display(void)
 		
 		    glNormal3f(0.0, 1.0f, 0.0f);
 		    glTexCoord2f(0.0f, 1.0f);
-		    glVertex3f(-250, 600, 1000);
+		    glVertex3f(-250, 500, 1000);
 		    glTexCoord2f(1.0f, 1.0f);
-		    glVertex3f(250,600, 1000);
+		    glVertex3f(250,500, 1000);
 		    glTexCoord2f(1.0f, 0.0f);
-		    glVertex3f( 250, 300, 1000);
+		    glVertex3f( 250, 200, 1000);
 		    glTexCoord2f(0.0f, 0.0f);
-		    glVertex3f( -250, 300, 1000);
+		    glVertex3f( -250, 200, 1000);
 		    
 		    glEnd();
 		
@@ -1836,43 +1837,16 @@ if (IsBaap() && GameActive)
 
 void mousepos(int x, int y)
 {
-	// double convx=2*x-1920;
-	// double convy=-2*y+1080;
-	// Ship n1=newg.PlayerBoard.GetNthShip(newg.PlayerId);
-	// double dy=convy-n1.GetYPos();
-	// double dx=convx-n1.GetXPos();
-	// float theta1;
-	// if (dx == 0.0)
-	// {
-	// 	if (dy>0)
-	// 	{
-	// 		theta1=0;
-	// 	}
-	// 	else
-	// 	{
-	// 		theta1=180;
-	// 	}
-	// }
-	// else
-	// {
-	// 	if (dx>0)
-	// 	{
-	// 		theta1 = (float) (atan(dy/dx)*180/PI) -90.0 ;
-	// 	}
-	// 	else
-	// 	{
-	// 		theta1 = (float) (atan(dy/dx)*180/PI) +90.0 ;
-	// 	}
-	// }
-	// n1.SetAngle(theta1);
-	// newg.PlayerBoard.SetNthShip(newg.PlayerId,n1);
-	// std::cout<< "Mouse is at: "<<convx <<"\t" <<convy <<"\n";
+
 }
 
 int main(int argc,char *argv[])
 {
+	backgroundmusic=true;
+	outofmusic=false;
+
 	FirePoints = std::vector<FirePoint> ();
-	// initRendering();
+	
 	GameActive=false;
 	GameOver=false;
 	doneonce=false;
@@ -1897,7 +1871,8 @@ int main(int argc,char *argv[])
 	}
 
 	srand (time(NULL));
-	std::cout << "Opening file\n";
+
+	// std::cout << "Opening file\n";
 	
 	missiletop = loadOBJ("MissileTop.obj");
 	missilemid = loadOBJ("MissileMid.obj");
@@ -1920,7 +1895,7 @@ int main(int argc,char *argv[])
 	shipmid = loadOBJ("NewShipMid.obj");
 	shipfir = loadOBJ("NewShipFir.obj");
 
-	std::cout << "Opened file\n";
+	// std::cout << "Opened file\n";
 	PX=1400;
 	NX=1850;
 	PY=1040;
@@ -1932,9 +1907,10 @@ int main(int argc,char *argv[])
 
 	pthread_t soundthread1;
 	pthread_t soundthread2;
+	pthread_t soundthread3;
 	pthread_create(&soundthread1,NULL,sound_play1,NULL);
 	pthread_create(&soundthread2,NULL,sound_play2,NULL);
-    
+	pthread_create(&soundthread3,NULL,sound_play3,NULL);
 
 	std::string title ="Space Invaders";
 	titleptr= (unsigned char*) title.c_str();
@@ -1944,7 +1920,7 @@ int main(int argc,char *argv[])
 
 	IPAddress= GetIP();
 
-	std::cout <<"pushing stars\n";
+	// std::cout <<"pushing stars\n";
 	for (int i =0 ; i<limt ; i++)
 	{
 		int X,Y,Z;
@@ -1957,7 +1933,7 @@ int main(int argc,char *argv[])
 		p.z=Z;
 		Stars.push_back(p);
 	}
-	std::cout <<"pushed stars: " <<isOffline <<"\n";
+	// std::cout <<"pushed stars: " <<isOffline <<"\n";
 	int numplayers;
 	if (!isOffline)
 	{
@@ -1974,13 +1950,13 @@ int main(int argc,char *argv[])
 	
 
 	// std::cout <<"Generated stars: " << Stars.size() <<"\n";
-	std::cout << "number of total players from start: " << numplayers <<"\n";
+	// std::cout << "number of total players from start: " << numplayers <<"\n";
 	newg.PlayerId = numplayers-1;
 	newg.PlayerBoard = Board(PX,NX,PY,NY);
 
 	for (int k=0; k<numplayers; k++)
 	{
-		std::cout << "pushing player: " <<k <<"\t" << newg.PlayerBoard.GetNumberShips() <<"\n";;
+		// std::cout << "pushing player: " <<k <<"\t" << newg.PlayerBoard.GetNumberShips() <<"\n";;
 		Ship news= Ship(k);
 		news.SetColorFloat(rand()%255,rand()%255,rand()%255);
 		newg.PlayerBoard.InsertShip(news);
@@ -1989,7 +1965,7 @@ int main(int argc,char *argv[])
 	Pship.SetName(argv[argc-1]);
 	newg.PlayerBoard.SetNthShip(newg.PlayerId,Pship);
 
-	std::cout << "board is set up: " <<newg.PlayerId<<"\n";
+	// std::cout << "board is set up: " <<newg.PlayerId<<"\n";
 
 	
 

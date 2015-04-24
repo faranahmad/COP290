@@ -488,7 +488,7 @@ int networkmain(int argc, char** argv)
 	{
 		playersReady=true;
 	}
-	std::cout<<"Mine:"<<myaddr.sin_addr.s_addr<<std::endl;
+	// std::cout<<"Mine:"<<myaddr.sin_addr.s_addr<<std::endl;
 
 	memset((char *) &remaddr, 0, sizeof(remaddr));
 	

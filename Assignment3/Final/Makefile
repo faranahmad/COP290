@@ -105,10 +105,10 @@ $(OBJ)CompHighscore.o: $(SRC)CompHighscore.cpp
 	g++ $(ver) -c -o $(OBJ)CompHighscore.o $(SRC)CompHighscore.cpp
 
 $(OBJ)Combined.o: $(SRC)Combined.cpp
-	g++ $(ver) -c -o $(OBJ)Combined.o $(SRC)Combined.cpp
+	g++ $(ver) -c -o $(OBJ)Combined.o $(SRC)Combined.cpp -w
 
 $(OBJ)CompCombined.o: $(SRC)CompCombined.cpp
-	g++ $(ver) -c -o $(OBJ)CompCombined.o $(SRC)CompCombined.cpp
+	g++ $(ver) -c -o $(OBJ)CompCombined.o $(SRC)CompCombined.cpp -w
 
 $(EXE)GameDebug: $(SRC)Alien.cpp $(SRC)Ship.cpp $(SRC)Color.cpp $(SRC)Bullet.cpp $(SRC)Board.cpp $(SRC)AIcomputation.cpp $(SRC)AIalien.cpp $(SRC)AIMissile.cpp $(SRC)AIPlayer.cpp $(SRC)AIUpdate.cpp $(SRC)udp.cpp $(SRC)Image.cpp $(SRC)Highscore.cpp $(SRC)Combined.cpp
 	g++ $(ver) -o $(EXE)GameDebug $(SRC)Alien.cpp $(SRC)Ship.cpp $(SRC)Color.cpp $(SRC)Bullet.cpp $(SRC)Board.cpp $(SRC)AIcomputation.cpp $(SRC)AIalien.cpp $(SRC)AIMissile.cpp $(SRC)AIPlayer.cpp $(SRC)AIUpdate.cpp $(SRC)udp.cpp $(SRC)Image.cpp $(SRC)Highscore.cpp $(SRC)Combined.cpp -g -lGL -lGLU -lglut -lpthread

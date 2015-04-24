@@ -4,9 +4,9 @@ Ship::Ship()
 {
 	Angle = 0.0;
 	NumberMissiles = 500;
-	Name = "abc";
+	Name = "DefaultPlayer";
 	Score  = 0;
-	Lives=3;
+	Lives=5;
 	AILevel = -1;
 }
 
@@ -15,11 +15,10 @@ Ship::Ship(int id)
 	Id = id;
 	Angle = 0.0;
 	NumberMissiles = 5;
-	Name = "abc";
+	Name = "DefaultPlayer";
 	Score = 0;
-	Lives=3;
+	Lives=5;
 	AILevel = -1;
-	//add something
 }
 
 float Ship::GetXPos()

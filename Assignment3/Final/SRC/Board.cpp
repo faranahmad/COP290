@@ -1219,7 +1219,7 @@ std::vector<std::string> Board::GetRanking()
 	std::string score  = "Score";
 	std::vector<std::string> answer;
 	answer.push_back(rank + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + score + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + name );
-	for(int i=0;i<player_score.size();i++)
+	for(int i=0;i<player_score.size() && i<5 ;i++)
 	{
 		answer.push_back(std::to_string(i+1) + "."  + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" +"\t" +"\t" + ToFour(std::to_string(player_score.at(i).first)) +  "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" +  player_score.at(i).second );
 	}

@@ -143,6 +143,10 @@ bool doneonce;
 bool SingleMode;
 bool MultiMode;
 bool OnFrontScreen;
+
+bool backgroundmusic;
+bool outofmusic;
+
 std::vector<std::string> highscorestodisplay;
 std::vector<std::string> rankingtodisplay;
 
