@@ -30,8 +30,8 @@ void OPUpdateAIBoard(Board &board)
 			
  			std::pair<int,bool> NearestShipPair = OPFindNearestShip(CurrentShips[i],CurrentShips);
 			
- 			nearEnough = NearestShipPair.first;
- 			nearestShip= NearestShipPair.second;
+ 			nearEnough = NearestShipPair.second;
+ 			nearestShip= NearestShipPair.first;
 
  			if (nearEnough==1)
 			{
