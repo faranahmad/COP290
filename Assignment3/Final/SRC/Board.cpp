@@ -1114,20 +1114,26 @@ std::string Board::GetStringPoints(std::vector<Points> points)
 
 std::vector<Points> Board::GetVectorPoints(std::string information)
 {
+	// std::cout << "info\t" << information <<"\n";
 	std::vector<Points> answer;
 	std::vector<std::string> splitted = SplitString(information,'\t'); 
 	for(int i = 0;i<splitted.size();i++)
 	{
 		std::vector<std::string> pointinfo = SplitString(splitted.at(i),'_');
-		for(int i = 0;i<pointinfo.size();i++)
-		{
-			Points newpoint;
-			newpoint.x = std::stof(pointinfo.at(1));
-			newpoint.y = std::stof(pointinfo.at(2));
-			newpoint.z = std::stof(pointinfo.at(3));
-			answer.push_back(newpoint);
-		}
+		// for(int j = 0;j<pointinfo.size();j++)
+		// {
+		Points newpoint;
+		newpoint.x = std::stof(pointinfo.at(1));
+		newpoint.y = std::stof(pointinfo.at(2));
+		newpoint.z = std::stof(pointinfo.at(3));
+		answer.push_back(newpoint);
+		// }
 	}
+	// std::cout << answer.size() <<" these many explosions will come\n";
+	// if (answer.size())
+	// {
+	// 	std::cout <<answer[0].x <<"\t" << answer[0].y <<"\t" <<answer[0].z <<"\n";
+	// }
 	return answer;
 }
 

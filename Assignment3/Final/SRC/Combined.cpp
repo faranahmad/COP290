@@ -1674,7 +1674,7 @@ void display(void)
 			// ShowAllFirePoints();
 			ShowBorders();
 			ShowAllText();
-			// DisplayExplosions(Explosions);
+			DisplayExplosions(Explosions);
 			GameOver = newg.PlayerBoard.CheckGameOver();
 		}	
 		else
@@ -1743,7 +1743,7 @@ void *UpdateGameThread(void *x)
 		// std::cout << "applied\n";
 		if (newexp.size()>0)
 		{
-			std::cout << newexp.size() <<" these many explosions\n";
+			// std::cout << newexp.size() <<" these many explosions\n";
 			Is_SoundExpl=true;
 		}
 		for (int j=0; j<Explosions.size(); j++)
@@ -1757,9 +1757,10 @@ void *UpdateGameThread(void *x)
 		// std::cout <<"erased any explosions\n";
 		for (int j=0; j<newexp.size(); j++)
 		{
+			// std::cout <<Explosions.size() <<" before\n";
 			Explosions.push_back(newExplosion(newexp[j].x,newexp[j].y,0));
+			// std::cout <<Explosions.size() << " pushed new explosions\n";
 		}
-		// std::cout << "pushed new explosions\n";
 	}
 	// std::cout <<"applied instructions if any\n";
 	std::vector<Bullet> bulltoadd;
@@ -1774,7 +1775,7 @@ void *UpdateGameThread(void *x)
 
 if (IsBaap() && GameActive)
 	{
-       // std::cout << "in baap\n";
+       std::cout << "in baap\n";
 		// std::cout<<"Lives before: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 		// std::cout << "It is in the baap case\n";
 		UpdateAIBoard(newg.PlayerBoard);
