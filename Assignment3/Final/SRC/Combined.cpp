@@ -1743,6 +1743,7 @@ void *UpdateGameThread(void *x)
 		// std::cout << "applied\n";
 		if (newexp.size()>0)
 		{
+			std::cout << newexp.size() <<" these many explosions\n";
 			Is_SoundExpl=true;
 		}
 		for (int j=0; j<Explosions.size(); j++)
