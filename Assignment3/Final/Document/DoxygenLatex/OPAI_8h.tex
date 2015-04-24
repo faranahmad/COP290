@@ -1,0 +1,244 @@
+\hypertarget{OPAI_8h}{\section{O\-P\-A\-I.\-h File Reference}
+\label{OPAI_8h}\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}}
+}
+{\ttfamily \#include \char`\"{}Competitive\-Board.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$cstdlib$>$}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include $<$limits.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{OPAI_8h_aef99e10165c67d902d3caf23b5944c6d}{theta}~15
+\item 
+\#define \hyperlink{OPAI_8h_aa9f6f99b26c45a8b855bfc6c170bf560}{min\-Distancefor\-Rotation}~5000000
+\item 
+\#define \hyperlink{OPAI_8h_a3f93ce40393c09a5ce19c9e8d0fccebd}{min\-Angleof\-Rotation}~5
+\item 
+\#define \hyperlink{OPAI_8h_aba133ea90f08c6bae43f58d88ece882a}{angularvelocity}~5
+\item 
+\#define \hyperlink{OPAI_8h_a041ce9f7a094e479ea0aa364ea792788}{R\-I\-G\-H\-T\-A\-N\-G\-L\-E}~90
+\item 
+\#define \hyperlink{OPAI_8h_a4462496ebcf002e16c62e59a8459cb46}{A\-L\-I\-E\-N\-M\-I\-S\-S\-I\-L\-E}~-\/1
+\item 
+\#define \hyperlink{OPAI_8h_a5945c286d42dc61348c977958e0705e0}{N\-O\-S\-H\-I\-P}~-\/1
+\item 
+\#define \hyperlink{OPAI_8h_a89b09b78406eb976f8996ae9020598f7}{A\-N\-G\-L\-E\-O\-F\-V\-I\-E\-W}~45
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{OPAI_8h_abee5ba3060f41ad97909e33561550ca7}{O\-P\-Move\-Ship\-In\-Direction\-Of\-Ship} (\hyperlink{classShip}{Ship} \&ship1, \hyperlink{classShip}{Ship} \&ship2)
+\item 
+void \hyperlink{OPAI_8h_a03ed54377f4be8e4fe7074660c99bb12}{O\-P\-Turn\-Ship\-In\-Direction\-Of\-Ship} (\hyperlink{classShip}{Ship} \&ship1, \hyperlink{classShip}{Ship} \&ship2, bool \&finished)
+\item 
+void \hyperlink{OPAI_8h_a6c3c0f454bf74e10d45e82bce7b04433}{O\-P\-Update\-A\-I\-Board} (\hyperlink{classBoard}{Board} \&board)
+\item 
+void \hyperlink{OPAI_8h_afa99d19ea457599a17459485c4261978}{O\-P\-Update\-Player\-A\-I} (\hyperlink{classBoard}{Board} \&board)
+\item 
+void \hyperlink{OPAI_8h_a3787d05459c41ec2e693464813020bf9}{O\-P\-Update\-Missile} (\hyperlink{classBoard}{Board} \&board)
+\item 
+void \hyperlink{OPAI_8h_acad3c6976aed46cfe2b98ff7f9736763}{O\-P\-Update\-Ship\-Missile} (\hyperlink{classBoard}{Board} \&board)
+\item 
+float \hyperlink{OPAI_8h_a61055ee323df56e07c4a651dcf13bf60}{O\-P\-Relative\-Angle\-Ship\-From\-Missile} (\hyperlink{classShip}{Ship} \&ship, \hyperlink{classBullet}{Bullet} \&actualmissile)
+\item 
+void \hyperlink{OPAI_8h_aa4b52d2d85da49264b74ed9023a98e67}{O\-P\-Update\-Ship\-Missile\-Velocity} (\hyperlink{classBullet}{Bullet} \&actualmissile, \hyperlink{classShip}{Ship} \&ship2)
+\item 
+void \hyperlink{OPAI_8h_a36d8108cbff989c9b7031d2267352700}{O\-P\-Fire\-Bullet\-For\-Ship} (\hyperlink{classShip}{Ship} \&ship, \hyperlink{classBoard}{Board} \&board)
+\item 
+std\-::pair$<$ int, bool $>$ \hyperlink{OPAI_8h_ac0ccbd8e2bb2c09d3d62c1fe88fa0f10}{O\-P\-Find\-Nearest\-Ship} (\hyperlink{classShip}{Ship} \&ship, std\-::vector$<$ \hyperlink{classShip}{Ship} $>$ \&Current\-Ships)
+\item 
+float \hyperlink{OPAI_8h_a77517c811a3382ee858717faf7d1080c}{O\-P\-Distance\-Of\-Ship\-From\-Ship} (\hyperlink{classShip}{Ship} \&ship1, \hyperlink{classShip}{Ship} \&ship2)
+\item 
+float \hyperlink{OPAI_8h_ae6d85f8d40f0e9bc2143173c4b0638a2}{O\-P\-Relative\-Angle\-Of\-Ship\-From\-Ship} (\hyperlink{classShip}{Ship} \&ship2, \hyperlink{classShip}{Ship} \&ship1)
+\item 
+int \hyperlink{OPAI_8h_aa946e5845186eb5778472f3bd7e19a57}{O\-P\-Closest\-Ship\-Enemy} (std\-::vector$<$ \hyperlink{classShip}{Ship} $>$ \&Ships, int Number\-Ships, \hyperlink{classBullet}{Bullet} \&actualmissile, double max\-Distance)
+\item 
+bool \hyperlink{OPAI_8h_aeae16566b4cef5cbad3dcb78b0fb50d0}{O\-P\-Ship\-In\-Arc} (\hyperlink{classShip}{Ship} \&ship, \hyperlink{classBullet}{Bullet} \&actualmissile)
+\item 
+float \hyperlink{OPAI_8h_af21afdcc6bc130bbeacc1d3193c68fe7}{O\-P\-Distance\-Of\-Ship\-From\-Missile} (\hyperlink{classShip}{Ship} \&ship, \hyperlink{classBullet}{Bullet} \&actualmissile)
+\item 
+float \hyperlink{OPAI_8h_af9c4b9363b3c609b314e865d00300c59}{O\-P\-Relative\-Angle\-Shipto\-Missile\-Position} (\hyperlink{classShip}{Ship} \&ship, \hyperlink{classBullet}{Bullet} \&actualmissile)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{OPAI_8h_a852bcaf15ef9b08c80dfa899078baa3d}{P\-O\-S\-X}
+\item 
+int \hyperlink{OPAI_8h_a2d5cf866f344aa65a85828e075e4b3e9}{N\-E\-G\-X}
+\item 
+int \hyperlink{OPAI_8h_ab911c8aec787739bcd40d1d3d620ad44}{P\-O\-S\-Y}
+\item 
+int \hyperlink{OPAI_8h_abc10d7ef05980ba384e5d8f63fb96f54}{N\-E\-G\-Y}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{OPAI_8h_a4462496ebcf002e16c62e59a8459cb46}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!A\-L\-I\-E\-N\-M\-I\-S\-S\-I\-L\-E@{A\-L\-I\-E\-N\-M\-I\-S\-S\-I\-L\-E}}
+\index{A\-L\-I\-E\-N\-M\-I\-S\-S\-I\-L\-E@{A\-L\-I\-E\-N\-M\-I\-S\-S\-I\-L\-E}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{A\-L\-I\-E\-N\-M\-I\-S\-S\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-L\-I\-E\-N\-M\-I\-S\-S\-I\-L\-E~-\/1}}\label{OPAI_8h_a4462496ebcf002e16c62e59a8459cb46}
+\hypertarget{OPAI_8h_a89b09b78406eb976f8996ae9020598f7}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!A\-N\-G\-L\-E\-O\-F\-V\-I\-E\-W@{A\-N\-G\-L\-E\-O\-F\-V\-I\-E\-W}}
+\index{A\-N\-G\-L\-E\-O\-F\-V\-I\-E\-W@{A\-N\-G\-L\-E\-O\-F\-V\-I\-E\-W}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{A\-N\-G\-L\-E\-O\-F\-V\-I\-E\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-N\-G\-L\-E\-O\-F\-V\-I\-E\-W~45}}\label{OPAI_8h_a89b09b78406eb976f8996ae9020598f7}
+\hypertarget{OPAI_8h_aba133ea90f08c6bae43f58d88ece882a}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!angularvelocity@{angularvelocity}}
+\index{angularvelocity@{angularvelocity}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{angularvelocity}]{\setlength{\rightskip}{0pt plus 5cm}\#define angularvelocity~5}}\label{OPAI_8h_aba133ea90f08c6bae43f58d88ece882a}
+\hypertarget{OPAI_8h_a3f93ce40393c09a5ce19c9e8d0fccebd}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!min\-Angleof\-Rotation@{min\-Angleof\-Rotation}}
+\index{min\-Angleof\-Rotation@{min\-Angleof\-Rotation}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{min\-Angleof\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}\#define min\-Angleof\-Rotation~5}}\label{OPAI_8h_a3f93ce40393c09a5ce19c9e8d0fccebd}
+\hypertarget{OPAI_8h_aa9f6f99b26c45a8b855bfc6c170bf560}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!min\-Distancefor\-Rotation@{min\-Distancefor\-Rotation}}
+\index{min\-Distancefor\-Rotation@{min\-Distancefor\-Rotation}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{min\-Distancefor\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}\#define min\-Distancefor\-Rotation~5000000}}\label{OPAI_8h_aa9f6f99b26c45a8b855bfc6c170bf560}
+\hypertarget{OPAI_8h_a5945c286d42dc61348c977958e0705e0}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!N\-O\-S\-H\-I\-P@{N\-O\-S\-H\-I\-P}}
+\index{N\-O\-S\-H\-I\-P@{N\-O\-S\-H\-I\-P}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{N\-O\-S\-H\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-O\-S\-H\-I\-P~-\/1}}\label{OPAI_8h_a5945c286d42dc61348c977958e0705e0}
+\hypertarget{OPAI_8h_a041ce9f7a094e479ea0aa364ea792788}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!R\-I\-G\-H\-T\-A\-N\-G\-L\-E@{R\-I\-G\-H\-T\-A\-N\-G\-L\-E}}
+\index{R\-I\-G\-H\-T\-A\-N\-G\-L\-E@{R\-I\-G\-H\-T\-A\-N\-G\-L\-E}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{R\-I\-G\-H\-T\-A\-N\-G\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-I\-G\-H\-T\-A\-N\-G\-L\-E~90}}\label{OPAI_8h_a041ce9f7a094e479ea0aa364ea792788}
+\hypertarget{OPAI_8h_aef99e10165c67d902d3caf23b5944c6d}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!theta@{theta}}
+\index{theta@{theta}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{theta}]{\setlength{\rightskip}{0pt plus 5cm}\#define theta~15}}\label{OPAI_8h_aef99e10165c67d902d3caf23b5944c6d}
+
+
+\subsection{Function Documentation}
+\hypertarget{OPAI_8h_aa946e5845186eb5778472f3bd7e19a57}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!O\-P\-Closest\-Ship\-Enemy@{O\-P\-Closest\-Ship\-Enemy}}
+\index{O\-P\-Closest\-Ship\-Enemy@{O\-P\-Closest\-Ship\-Enemy}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{O\-P\-Closest\-Ship\-Enemy}]{\setlength{\rightskip}{0pt plus 5cm}int O\-P\-Closest\-Ship\-Enemy (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Ship} $>$ \&}]{Ships, }
+\item[{int}]{Number\-Ships, }
+\item[{{\bf Bullet} \&}]{actualmissile, }
+\item[{double}]{max\-Distance}
+\end{DoxyParamCaption}
+)}}\label{OPAI_8h_aa946e5845186eb5778472f3bd7e19a57}
+\hypertarget{OPAI_8h_af21afdcc6bc130bbeacc1d3193c68fe7}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!O\-P\-Distance\-Of\-Ship\-From\-Missile@{O\-P\-Distance\-Of\-Ship\-From\-Missile}}
+\index{O\-P\-Distance\-Of\-Ship\-From\-Missile@{O\-P\-Distance\-Of\-Ship\-From\-Missile}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{O\-P\-Distance\-Of\-Ship\-From\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}float O\-P\-Distance\-Of\-Ship\-From\-Missile (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{{\bf Bullet} \&}]{actualmissile}
+\end{DoxyParamCaption}
+)}}\label{OPAI_8h_af21afdcc6bc130bbeacc1d3193c68fe7}
+\hypertarget{OPAI_8h_a77517c811a3382ee858717faf7d1080c}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!O\-P\-Distance\-Of\-Ship\-From\-Ship@{O\-P\-Distance\-Of\-Ship\-From\-Ship}}
+\index{O\-P\-Distance\-Of\-Ship\-From\-Ship@{O\-P\-Distance\-Of\-Ship\-From\-Ship}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{O\-P\-Distance\-Of\-Ship\-From\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}float O\-P\-Distance\-Of\-Ship\-From\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship1, }
+\item[{{\bf Ship} \&}]{ship2}
+\end{DoxyParamCaption}
+)}}\label{OPAI_8h_a77517c811a3382ee858717faf7d1080c}
+\hypertarget{OPAI_8h_ac0ccbd8e2bb2c09d3d62c1fe88fa0f10}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!O\-P\-Find\-Nearest\-Ship@{O\-P\-Find\-Nearest\-Ship}}
+\index{O\-P\-Find\-Nearest\-Ship@{O\-P\-Find\-Nearest\-Ship}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{O\-P\-Find\-Nearest\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}std\-::pair$<$int,bool$>$ O\-P\-Find\-Nearest\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{std\-::vector$<$ {\bf Ship} $>$ \&}]{Current\-Ships}
+\end{DoxyParamCaption}
+)}}\label{OPAI_8h_ac0ccbd8e2bb2c09d3d62c1fe88fa0f10}
+\hypertarget{OPAI_8h_a36d8108cbff989c9b7031d2267352700}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!O\-P\-Fire\-Bullet\-For\-Ship@{O\-P\-Fire\-Bullet\-For\-Ship}}
+\index{O\-P\-Fire\-Bullet\-For\-Ship@{O\-P\-Fire\-Bullet\-For\-Ship}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{O\-P\-Fire\-Bullet\-For\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void O\-P\-Fire\-Bullet\-For\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{{\bf Board} \&}]{board}
+\end{DoxyParamCaption}
+)}}\label{OPAI_8h_a36d8108cbff989c9b7031d2267352700}
+\hypertarget{OPAI_8h_abee5ba3060f41ad97909e33561550ca7}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!O\-P\-Move\-Ship\-In\-Direction\-Of\-Ship@{O\-P\-Move\-Ship\-In\-Direction\-Of\-Ship}}
+\index{O\-P\-Move\-Ship\-In\-Direction\-Of\-Ship@{O\-P\-Move\-Ship\-In\-Direction\-Of\-Ship}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{O\-P\-Move\-Ship\-In\-Direction\-Of\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void O\-P\-Move\-Ship\-In\-Direction\-Of\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship1, }
+\item[{{\bf Ship} \&}]{ship2}
+\end{DoxyParamCaption}
+)}}\label{OPAI_8h_abee5ba3060f41ad97909e33561550ca7}
+\hypertarget{OPAI_8h_ae6d85f8d40f0e9bc2143173c4b0638a2}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!O\-P\-Relative\-Angle\-Of\-Ship\-From\-Ship@{O\-P\-Relative\-Angle\-Of\-Ship\-From\-Ship}}
+\index{O\-P\-Relative\-Angle\-Of\-Ship\-From\-Ship@{O\-P\-Relative\-Angle\-Of\-Ship\-From\-Ship}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{O\-P\-Relative\-Angle\-Of\-Ship\-From\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}float O\-P\-Relative\-Angle\-Of\-Ship\-From\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship2, }
+\item[{{\bf Ship} \&}]{ship1}
+\end{DoxyParamCaption}
+)}}\label{OPAI_8h_ae6d85f8d40f0e9bc2143173c4b0638a2}
+\hypertarget{OPAI_8h_a61055ee323df56e07c4a651dcf13bf60}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!O\-P\-Relative\-Angle\-Ship\-From\-Missile@{O\-P\-Relative\-Angle\-Ship\-From\-Missile}}
+\index{O\-P\-Relative\-Angle\-Ship\-From\-Missile@{O\-P\-Relative\-Angle\-Ship\-From\-Missile}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{O\-P\-Relative\-Angle\-Ship\-From\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}float O\-P\-Relative\-Angle\-Ship\-From\-Missile (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{{\bf Bullet} \&}]{actualmissile}
+\end{DoxyParamCaption}
+)}}\label{OPAI_8h_a61055ee323df56e07c4a651dcf13bf60}
+\hypertarget{OPAI_8h_af9c4b9363b3c609b314e865d00300c59}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!O\-P\-Relative\-Angle\-Shipto\-Missile\-Position@{O\-P\-Relative\-Angle\-Shipto\-Missile\-Position}}
+\index{O\-P\-Relative\-Angle\-Shipto\-Missile\-Position@{O\-P\-Relative\-Angle\-Shipto\-Missile\-Position}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{O\-P\-Relative\-Angle\-Shipto\-Missile\-Position}]{\setlength{\rightskip}{0pt plus 5cm}float O\-P\-Relative\-Angle\-Shipto\-Missile\-Position (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{{\bf Bullet} \&}]{actualmissile}
+\end{DoxyParamCaption}
+)}}\label{OPAI_8h_af9c4b9363b3c609b314e865d00300c59}
+\hypertarget{OPAI_8h_aeae16566b4cef5cbad3dcb78b0fb50d0}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!O\-P\-Ship\-In\-Arc@{O\-P\-Ship\-In\-Arc}}
+\index{O\-P\-Ship\-In\-Arc@{O\-P\-Ship\-In\-Arc}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{O\-P\-Ship\-In\-Arc}]{\setlength{\rightskip}{0pt plus 5cm}bool O\-P\-Ship\-In\-Arc (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{{\bf Bullet} \&}]{actualmissile}
+\end{DoxyParamCaption}
+)}}\label{OPAI_8h_aeae16566b4cef5cbad3dcb78b0fb50d0}
+\hypertarget{OPAI_8h_a03ed54377f4be8e4fe7074660c99bb12}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!O\-P\-Turn\-Ship\-In\-Direction\-Of\-Ship@{O\-P\-Turn\-Ship\-In\-Direction\-Of\-Ship}}
+\index{O\-P\-Turn\-Ship\-In\-Direction\-Of\-Ship@{O\-P\-Turn\-Ship\-In\-Direction\-Of\-Ship}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{O\-P\-Turn\-Ship\-In\-Direction\-Of\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void O\-P\-Turn\-Ship\-In\-Direction\-Of\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship1, }
+\item[{{\bf Ship} \&}]{ship2, }
+\item[{bool \&}]{finished}
+\end{DoxyParamCaption}
+)}}\label{OPAI_8h_a03ed54377f4be8e4fe7074660c99bb12}
+\hypertarget{OPAI_8h_a6c3c0f454bf74e10d45e82bce7b04433}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!O\-P\-Update\-A\-I\-Board@{O\-P\-Update\-A\-I\-Board}}
+\index{O\-P\-Update\-A\-I\-Board@{O\-P\-Update\-A\-I\-Board}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{O\-P\-Update\-A\-I\-Board}]{\setlength{\rightskip}{0pt plus 5cm}void O\-P\-Update\-A\-I\-Board (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} \&}]{board}
+\end{DoxyParamCaption}
+)}}\label{OPAI_8h_a6c3c0f454bf74e10d45e82bce7b04433}
+\hypertarget{OPAI_8h_a3787d05459c41ec2e693464813020bf9}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!O\-P\-Update\-Missile@{O\-P\-Update\-Missile}}
+\index{O\-P\-Update\-Missile@{O\-P\-Update\-Missile}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{O\-P\-Update\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}void O\-P\-Update\-Missile (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} \&}]{board}
+\end{DoxyParamCaption}
+)}}\label{OPAI_8h_a3787d05459c41ec2e693464813020bf9}
+\hypertarget{OPAI_8h_afa99d19ea457599a17459485c4261978}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!O\-P\-Update\-Player\-A\-I@{O\-P\-Update\-Player\-A\-I}}
+\index{O\-P\-Update\-Player\-A\-I@{O\-P\-Update\-Player\-A\-I}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{O\-P\-Update\-Player\-A\-I}]{\setlength{\rightskip}{0pt plus 5cm}void O\-P\-Update\-Player\-A\-I (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} \&}]{board}
+\end{DoxyParamCaption}
+)}}\label{OPAI_8h_afa99d19ea457599a17459485c4261978}
+\hypertarget{OPAI_8h_acad3c6976aed46cfe2b98ff7f9736763}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!O\-P\-Update\-Ship\-Missile@{O\-P\-Update\-Ship\-Missile}}
+\index{O\-P\-Update\-Ship\-Missile@{O\-P\-Update\-Ship\-Missile}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{O\-P\-Update\-Ship\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}void O\-P\-Update\-Ship\-Missile (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} \&}]{board}
+\end{DoxyParamCaption}
+)}}\label{OPAI_8h_acad3c6976aed46cfe2b98ff7f9736763}
+\hypertarget{OPAI_8h_aa4b52d2d85da49264b74ed9023a98e67}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!O\-P\-Update\-Ship\-Missile\-Velocity@{O\-P\-Update\-Ship\-Missile\-Velocity}}
+\index{O\-P\-Update\-Ship\-Missile\-Velocity@{O\-P\-Update\-Ship\-Missile\-Velocity}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{O\-P\-Update\-Ship\-Missile\-Velocity}]{\setlength{\rightskip}{0pt plus 5cm}void O\-P\-Update\-Ship\-Missile\-Velocity (
+\begin{DoxyParamCaption}
+\item[{{\bf Bullet} \&}]{actualmissile, }
+\item[{{\bf Ship} \&}]{ship2}
+\end{DoxyParamCaption}
+)}}\label{OPAI_8h_aa4b52d2d85da49264b74ed9023a98e67}
+
+
+\subsection{Variable Documentation}
+\hypertarget{OPAI_8h_a2d5cf866f344aa65a85828e075e4b3e9}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!N\-E\-G\-X@{N\-E\-G\-X}}
+\index{N\-E\-G\-X@{N\-E\-G\-X}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{N\-E\-G\-X}]{\setlength{\rightskip}{0pt plus 5cm}int N\-E\-G\-X}}\label{OPAI_8h_a2d5cf866f344aa65a85828e075e4b3e9}
+\hypertarget{OPAI_8h_abc10d7ef05980ba384e5d8f63fb96f54}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!N\-E\-G\-Y@{N\-E\-G\-Y}}
+\index{N\-E\-G\-Y@{N\-E\-G\-Y}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{N\-E\-G\-Y}]{\setlength{\rightskip}{0pt plus 5cm}int N\-E\-G\-Y}}\label{OPAI_8h_abc10d7ef05980ba384e5d8f63fb96f54}
+\hypertarget{OPAI_8h_a852bcaf15ef9b08c80dfa899078baa3d}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!P\-O\-S\-X@{P\-O\-S\-X}}
+\index{P\-O\-S\-X@{P\-O\-S\-X}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{P\-O\-S\-X}]{\setlength{\rightskip}{0pt plus 5cm}int P\-O\-S\-X}}\label{OPAI_8h_a852bcaf15ef9b08c80dfa899078baa3d}
+\hypertarget{OPAI_8h_ab911c8aec787739bcd40d1d3d620ad44}{\index{O\-P\-A\-I.\-h@{O\-P\-A\-I.\-h}!P\-O\-S\-Y@{P\-O\-S\-Y}}
+\index{P\-O\-S\-Y@{P\-O\-S\-Y}!OPAI.h@{O\-P\-A\-I.\-h}}
+\subsubsection[{P\-O\-S\-Y}]{\setlength{\rightskip}{0pt plus 5cm}int P\-O\-S\-Y}}\label{OPAI_8h_ab911c8aec787739bcd40d1d3d620ad44}

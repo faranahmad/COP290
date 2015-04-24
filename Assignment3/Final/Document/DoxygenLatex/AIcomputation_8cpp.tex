@@ -1,0 +1,194 @@
+\hypertarget{AIcomputation_8cpp}{\section{A\-Icomputation.\-cpp File Reference}
+\label{AIcomputation_8cpp}\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}A\-I.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{AIcomputation_8cpp_a07f6177a8b3539415bc1c3d1d407c71d}{Closest\-Alien\-Enemy} (std\-::vector$<$ \hyperlink{classAlien}{Alien} $>$ \&Aliens, int Number\-Aliens, \hyperlink{classBullet}{Bullet} \&actualmissile, double max\-Distance)
+\item 
+int \hyperlink{AIcomputation_8cpp_a03e704d20ee8cde04afa53aa0c2d67c7}{Closest\-Ship\-Enemy} (std\-::vector$<$ \hyperlink{classShip}{Ship} $>$ \&Ships, int Number\-Ships, \hyperlink{classBullet}{Bullet} \&actualmissile, double max\-Distance)
+\item 
+bool \hyperlink{AIcomputation_8cpp_a9e923a4fe22f03dfcf2bdd100fdda0fb}{Alien\-In\-Arc} (\hyperlink{classAlien}{Alien} \&alien, \hyperlink{classBullet}{Bullet} \&actualmissile)
+\item 
+bool \hyperlink{AIcomputation_8cpp_af24d530645b5fa5cf17b5eff30fe067f}{Ship\-In\-Arc} (\hyperlink{classShip}{Ship} \&ship, \hyperlink{classBullet}{Bullet} \&actualmissile)
+\item 
+float \hyperlink{AIcomputation_8cpp_a1eb97aa095bd78822483a5c3d4f83803}{Relative\-Angle\-Alien\-From\-Missile} (\hyperlink{classAlien}{Alien} \&alien, \hyperlink{classBullet}{Bullet} \&actualmissile)
+\item 
+float \hyperlink{AIcomputation_8cpp_a70b3b9db448a4710a5789eb2fe276d89}{Relative\-Angle\-Ship\-From\-Missile} (\hyperlink{classShip}{Ship} \&ship, \hyperlink{classBullet}{Bullet} \&actualmissile)
+\item 
+float \hyperlink{AIcomputation_8cpp_a4a060ae07668c0aa29fc1046111df8e8}{Relative\-Angle\-Aliento\-Missile\-Position} (\hyperlink{classAlien}{Alien} \&alien, \hyperlink{classBullet}{Bullet} \&actualmissile)
+\item 
+float \hyperlink{AIcomputation_8cpp_a06930498d9aaa5e1c519134df969e746}{Relative\-Angle\-Shipto\-Missile\-Position} (\hyperlink{classShip}{Ship} \&ship, \hyperlink{classBullet}{Bullet} \&actualmissile)
+\item 
+float \hyperlink{AIcomputation_8cpp_a6f2f2359f19dee93931f3fef54fd66b6}{Relative\-Angle\-Of\-Ship\-From\-Alien} (\hyperlink{classShip}{Ship} \&ship, \hyperlink{classAlien}{Alien} \&alien)
+\item 
+float \hyperlink{AIcomputation_8cpp_a3d4c7a9682b7b55cd77cea8074e1190c}{Relative\-Angle\-Of\-Alien\-From\-Ship} (\hyperlink{classAlien}{Alien} \&alien, \hyperlink{classShip}{Ship} \&ship)
+\item 
+std\-::pair$<$ int, bool $>$ \hyperlink{AIcomputation_8cpp_a2885e1001eaa896b7427eceb3061bd43}{Find\-Nearest\-Alien} (\hyperlink{classShip}{Ship} \&ship, std\-::vector$<$ \hyperlink{classAlien}{Alien} $>$ \&Current\-Aliens)
+\item 
+std\-::pair$<$ int, bool $>$ \hyperlink{AIcomputation_8cpp_a9ddf57a66d17a6f41e4fa4e3eb44172f}{Find\-Nearest\-Ship} (\hyperlink{classAlien}{Alien} \&alien, std\-::vector$<$ \hyperlink{classShip}{Ship} $>$ \&Current\-Ships)
+\item 
+float \hyperlink{AIcomputation_8cpp_ae006eaaa4c4bb80ea2cd7219b05aae8d}{Distance\-Of\-Alien\-From\-Missile} (\hyperlink{classAlien}{Alien} \&alien, \hyperlink{classBullet}{Bullet} \&actualmissile)
+\item 
+float \hyperlink{AIcomputation_8cpp_a31b957777068b6e454134f3933509824}{Distance\-Of\-Ship\-From\-Missile} (\hyperlink{classShip}{Ship} \&ship, \hyperlink{classBullet}{Bullet} \&actualmissile)
+\item 
+float \hyperlink{AIcomputation_8cpp_a13583474ff0eae3353678dce9300d320}{Distance\-Of\-Ship\-From\-Alien} (\hyperlink{classShip}{Ship} \&ship, \hyperlink{classAlien}{Alien} \&alien)
+\item 
+float \hyperlink{AIcomputation_8cpp_a218c9824dc19806d5b1de209aa9877b8}{Distance\-Of\-Alien\-From\-Ship} (\hyperlink{classAlien}{Alien} \&alien, \hyperlink{classShip}{Ship} \&ship)
+\item 
+bool \hyperlink{AIcomputation_8cpp_a3a2694367f0935710def798dee24e7fc}{Alien\-Is\-In\-View\-Of\-Ship} (\hyperlink{classBoard}{Board} \&board, \hyperlink{classShip}{Ship} \&ship)
+\item 
+bool \hyperlink{AIcomputation_8cpp_a40ea60336a8305f1d1531ea184f23028}{Ship\-Is\-In\-View\-Of\-Alien} (\hyperlink{classBoard}{Board} \&board, \hyperlink{classAlien}{Alien} \&alien)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{AIcomputation_8cpp_a9e923a4fe22f03dfcf2bdd100fdda0fb}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Alien\-In\-Arc@{Alien\-In\-Arc}}
+\index{Alien\-In\-Arc@{Alien\-In\-Arc}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Alien\-In\-Arc}]{\setlength{\rightskip}{0pt plus 5cm}bool Alien\-In\-Arc (
+\begin{DoxyParamCaption}
+\item[{{\bf Alien} \&}]{alien, }
+\item[{{\bf Bullet} \&}]{actualmissile}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_a9e923a4fe22f03dfcf2bdd100fdda0fb}
+\hypertarget{AIcomputation_8cpp_a3a2694367f0935710def798dee24e7fc}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Alien\-Is\-In\-View\-Of\-Ship@{Alien\-Is\-In\-View\-Of\-Ship}}
+\index{Alien\-Is\-In\-View\-Of\-Ship@{Alien\-Is\-In\-View\-Of\-Ship}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Alien\-Is\-In\-View\-Of\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}bool Alien\-Is\-In\-View\-Of\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} \&}]{board, }
+\item[{{\bf Ship} \&}]{ship}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_a3a2694367f0935710def798dee24e7fc}
+\hypertarget{AIcomputation_8cpp_a07f6177a8b3539415bc1c3d1d407c71d}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Closest\-Alien\-Enemy@{Closest\-Alien\-Enemy}}
+\index{Closest\-Alien\-Enemy@{Closest\-Alien\-Enemy}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Closest\-Alien\-Enemy}]{\setlength{\rightskip}{0pt plus 5cm}int Closest\-Alien\-Enemy (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Alien} $>$ \&}]{Aliens, }
+\item[{int}]{Number\-Aliens, }
+\item[{{\bf Bullet} \&}]{actualmissile, }
+\item[{double}]{max\-Distance}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_a07f6177a8b3539415bc1c3d1d407c71d}
+\hypertarget{AIcomputation_8cpp_a03e704d20ee8cde04afa53aa0c2d67c7}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Closest\-Ship\-Enemy@{Closest\-Ship\-Enemy}}
+\index{Closest\-Ship\-Enemy@{Closest\-Ship\-Enemy}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Closest\-Ship\-Enemy}]{\setlength{\rightskip}{0pt plus 5cm}int Closest\-Ship\-Enemy (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Ship} $>$ \&}]{Ships, }
+\item[{int}]{Number\-Ships, }
+\item[{{\bf Bullet} \&}]{actualmissile, }
+\item[{double}]{max\-Distance}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_a03e704d20ee8cde04afa53aa0c2d67c7}
+\hypertarget{AIcomputation_8cpp_ae006eaaa4c4bb80ea2cd7219b05aae8d}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Distance\-Of\-Alien\-From\-Missile@{Distance\-Of\-Alien\-From\-Missile}}
+\index{Distance\-Of\-Alien\-From\-Missile@{Distance\-Of\-Alien\-From\-Missile}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Distance\-Of\-Alien\-From\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}float Distance\-Of\-Alien\-From\-Missile (
+\begin{DoxyParamCaption}
+\item[{{\bf Alien} \&}]{alien, }
+\item[{{\bf Bullet} \&}]{actualmissile}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_ae006eaaa4c4bb80ea2cd7219b05aae8d}
+\hypertarget{AIcomputation_8cpp_a218c9824dc19806d5b1de209aa9877b8}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Distance\-Of\-Alien\-From\-Ship@{Distance\-Of\-Alien\-From\-Ship}}
+\index{Distance\-Of\-Alien\-From\-Ship@{Distance\-Of\-Alien\-From\-Ship}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Distance\-Of\-Alien\-From\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}float Distance\-Of\-Alien\-From\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Alien} \&}]{alien, }
+\item[{{\bf Ship} \&}]{ship}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_a218c9824dc19806d5b1de209aa9877b8}
+\hypertarget{AIcomputation_8cpp_a13583474ff0eae3353678dce9300d320}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Distance\-Of\-Ship\-From\-Alien@{Distance\-Of\-Ship\-From\-Alien}}
+\index{Distance\-Of\-Ship\-From\-Alien@{Distance\-Of\-Ship\-From\-Alien}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Distance\-Of\-Ship\-From\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}float Distance\-Of\-Ship\-From\-Alien (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{{\bf Alien} \&}]{alien}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_a13583474ff0eae3353678dce9300d320}
+\hypertarget{AIcomputation_8cpp_a31b957777068b6e454134f3933509824}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Distance\-Of\-Ship\-From\-Missile@{Distance\-Of\-Ship\-From\-Missile}}
+\index{Distance\-Of\-Ship\-From\-Missile@{Distance\-Of\-Ship\-From\-Missile}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Distance\-Of\-Ship\-From\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}float Distance\-Of\-Ship\-From\-Missile (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{{\bf Bullet} \&}]{actualmissile}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_a31b957777068b6e454134f3933509824}
+\hypertarget{AIcomputation_8cpp_a2885e1001eaa896b7427eceb3061bd43}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Find\-Nearest\-Alien@{Find\-Nearest\-Alien}}
+\index{Find\-Nearest\-Alien@{Find\-Nearest\-Alien}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Find\-Nearest\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}std\-::pair$<$int,bool$>$ Find\-Nearest\-Alien (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{std\-::vector$<$ {\bf Alien} $>$ \&}]{Current\-Aliens}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_a2885e1001eaa896b7427eceb3061bd43}
+\hypertarget{AIcomputation_8cpp_a9ddf57a66d17a6f41e4fa4e3eb44172f}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Find\-Nearest\-Ship@{Find\-Nearest\-Ship}}
+\index{Find\-Nearest\-Ship@{Find\-Nearest\-Ship}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Find\-Nearest\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}std\-::pair$<$int,bool$>$ Find\-Nearest\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Alien} \&}]{alien, }
+\item[{std\-::vector$<$ {\bf Ship} $>$ \&}]{Current\-Ships}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_a9ddf57a66d17a6f41e4fa4e3eb44172f}
+\hypertarget{AIcomputation_8cpp_a1eb97aa095bd78822483a5c3d4f83803}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Relative\-Angle\-Alien\-From\-Missile@{Relative\-Angle\-Alien\-From\-Missile}}
+\index{Relative\-Angle\-Alien\-From\-Missile@{Relative\-Angle\-Alien\-From\-Missile}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Relative\-Angle\-Alien\-From\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}float Relative\-Angle\-Alien\-From\-Missile (
+\begin{DoxyParamCaption}
+\item[{{\bf Alien} \&}]{alien, }
+\item[{{\bf Bullet} \&}]{actualmissile}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_a1eb97aa095bd78822483a5c3d4f83803}
+\hypertarget{AIcomputation_8cpp_a4a060ae07668c0aa29fc1046111df8e8}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Relative\-Angle\-Aliento\-Missile\-Position@{Relative\-Angle\-Aliento\-Missile\-Position}}
+\index{Relative\-Angle\-Aliento\-Missile\-Position@{Relative\-Angle\-Aliento\-Missile\-Position}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Relative\-Angle\-Aliento\-Missile\-Position}]{\setlength{\rightskip}{0pt plus 5cm}float Relative\-Angle\-Aliento\-Missile\-Position (
+\begin{DoxyParamCaption}
+\item[{{\bf Alien} \&}]{alien, }
+\item[{{\bf Bullet} \&}]{actualmissile}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_a4a060ae07668c0aa29fc1046111df8e8}
+\hypertarget{AIcomputation_8cpp_a3d4c7a9682b7b55cd77cea8074e1190c}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Relative\-Angle\-Of\-Alien\-From\-Ship@{Relative\-Angle\-Of\-Alien\-From\-Ship}}
+\index{Relative\-Angle\-Of\-Alien\-From\-Ship@{Relative\-Angle\-Of\-Alien\-From\-Ship}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Relative\-Angle\-Of\-Alien\-From\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}float Relative\-Angle\-Of\-Alien\-From\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Alien} \&}]{alien, }
+\item[{{\bf Ship} \&}]{ship}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_a3d4c7a9682b7b55cd77cea8074e1190c}
+\hypertarget{AIcomputation_8cpp_a6f2f2359f19dee93931f3fef54fd66b6}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Relative\-Angle\-Of\-Ship\-From\-Alien@{Relative\-Angle\-Of\-Ship\-From\-Alien}}
+\index{Relative\-Angle\-Of\-Ship\-From\-Alien@{Relative\-Angle\-Of\-Ship\-From\-Alien}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Relative\-Angle\-Of\-Ship\-From\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}float Relative\-Angle\-Of\-Ship\-From\-Alien (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{{\bf Alien} \&}]{alien}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_a6f2f2359f19dee93931f3fef54fd66b6}
+\hypertarget{AIcomputation_8cpp_a70b3b9db448a4710a5789eb2fe276d89}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Relative\-Angle\-Ship\-From\-Missile@{Relative\-Angle\-Ship\-From\-Missile}}
+\index{Relative\-Angle\-Ship\-From\-Missile@{Relative\-Angle\-Ship\-From\-Missile}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Relative\-Angle\-Ship\-From\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}float Relative\-Angle\-Ship\-From\-Missile (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{{\bf Bullet} \&}]{actualmissile}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_a70b3b9db448a4710a5789eb2fe276d89}
+\hypertarget{AIcomputation_8cpp_a06930498d9aaa5e1c519134df969e746}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Relative\-Angle\-Shipto\-Missile\-Position@{Relative\-Angle\-Shipto\-Missile\-Position}}
+\index{Relative\-Angle\-Shipto\-Missile\-Position@{Relative\-Angle\-Shipto\-Missile\-Position}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Relative\-Angle\-Shipto\-Missile\-Position}]{\setlength{\rightskip}{0pt plus 5cm}float Relative\-Angle\-Shipto\-Missile\-Position (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{{\bf Bullet} \&}]{actualmissile}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_a06930498d9aaa5e1c519134df969e746}
+\hypertarget{AIcomputation_8cpp_af24d530645b5fa5cf17b5eff30fe067f}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Ship\-In\-Arc@{Ship\-In\-Arc}}
+\index{Ship\-In\-Arc@{Ship\-In\-Arc}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Ship\-In\-Arc}]{\setlength{\rightskip}{0pt plus 5cm}bool Ship\-In\-Arc (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{ship, }
+\item[{{\bf Bullet} \&}]{actualmissile}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_af24d530645b5fa5cf17b5eff30fe067f}
+\hypertarget{AIcomputation_8cpp_a40ea60336a8305f1d1531ea184f23028}{\index{A\-Icomputation.\-cpp@{A\-Icomputation.\-cpp}!Ship\-Is\-In\-View\-Of\-Alien@{Ship\-Is\-In\-View\-Of\-Alien}}
+\index{Ship\-Is\-In\-View\-Of\-Alien@{Ship\-Is\-In\-View\-Of\-Alien}!AIcomputation.cpp@{A\-Icomputation.\-cpp}}
+\subsubsection[{Ship\-Is\-In\-View\-Of\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}bool Ship\-Is\-In\-View\-Of\-Alien (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} \&}]{board, }
+\item[{{\bf Alien} \&}]{alien}
+\end{DoxyParamCaption}
+)}}\label{AIcomputation_8cpp_a40ea60336a8305f1d1531ea184f23028}
