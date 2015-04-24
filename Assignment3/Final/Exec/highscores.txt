@@ -1,6 +1,6 @@
 abc
 300
 abc
-300
+100
 faran
 0

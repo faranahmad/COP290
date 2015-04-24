@@ -222,10 +222,13 @@ int Board::CheckBulletHitAlien(int bullet_id)
 			float ydis = bullet_hitting.GetYPos() - alien_hit.GetYPos();
 			if ((float) sqrt(xdis*xdis + ydis*ydis) < 50)
 			{
+				//std::cout <<"prateek chutiya\t" << i << std::endl;
 				return i;
+			
 			}
 		}
 	}
+	
 	return -1;
 
 }
@@ -292,6 +295,7 @@ std::vector<Points> Board::UpdateAllBullets()
 			int hit_alien = CheckBulletHitAlien(i);
 			if(hit_alien > -1)
 			{
+				//std::cout << "yo\t" << hit_alien << std::endl;
 				if(VectorAliens.at(hit_alien).GetLives() > 0)
 				{
 					VectorAliens.at(hit_alien).SetLives(VectorAliens.at(hit_alien).GetLives() - 1);
@@ -300,6 +304,7 @@ std::vector<Points> Board::UpdateAllBullets()
 				if(VectorAliens.at(hit_alien).GetLives() == 0)
 				{
 					aliens_delete.push_back(hit_alien);
+					//std::cout << "came here " <<std::endl;
 				}
 			}
 		}
@@ -322,10 +327,14 @@ std::vector<Points> Board::UpdateAllBullets()
 		}
 	}
 
-	std::sort (aliens_delete.begin(), aliens_delete.end(), MyFunction); 
+	std::sort (aliens_delete.begin(), aliens_delete.end(), MyFunction);
+	//std::cout << "legend" << std::endl; 
 
-	for(int i = aliens_delete.size() - 1;i>=0;i++)
+	for(int i = aliens_delete.size() - 1;i>=0;i--)
 	{
+		//std::cout <<"faran genius\t" <<  VectorAliens.size() << std::endl;
+		//std::cout <<"kg ka kat gaya\t" <<  aliens_delete.at(i) << std::endl;
+		
 		VectorAliens.erase(VectorAliens.begin() + aliens_delete.at(i));
 	}
 
