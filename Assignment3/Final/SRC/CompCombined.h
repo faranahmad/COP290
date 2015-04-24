@@ -56,6 +56,7 @@ struct GamePlay
 	Board PlayerBoard;
 	int PlayerId;
 	int LastBulletTime;
+	int LastMissileTime;
 	bool IsActive;
 };
 
@@ -139,9 +140,11 @@ GamePlay newg;
 bool GameActive;
 bool GameOver;
 bool doneonce;
+bool SingleMode;
+bool MultiMode;
+bool OnFrontScreen;
 std::vector<std::string> highscorestodisplay;
 std::vector<std::string> rankingtodisplay;
-
 
 std::vector<Faces> loadOBJ(char * path);
 void ProcessKeys();
