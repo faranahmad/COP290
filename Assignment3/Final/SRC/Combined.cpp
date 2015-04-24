@@ -1775,14 +1775,14 @@ void *UpdateGameThread(void *x)
 
 if (IsBaap() && GameActive)
 	{
-       std::cout << "in baap\n";
+       // std::cout << "in baap\n";
 		// std::cout<<"Lives before: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 		// std::cout << "It is in the baap case\n";
 		UpdateAIBoard(newg.PlayerBoard);
 		std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
 		if (p.size()>0)
 		{
-			std::cout <<p.size() <<" these many points from AI\n";
+			// std::cout <<p.size() <<" these many points from AI\n";
 			Is_SoundExpl=true;
 		}
 		// std::cout<<"Lives after: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
