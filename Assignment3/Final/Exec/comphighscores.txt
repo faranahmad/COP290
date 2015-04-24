@@ -1,10 +1,10 @@
+abc
+1000
 kg
 500
 faran
 400
+legend
+400
 abc
-300
-kg
-300
-faran
 300
