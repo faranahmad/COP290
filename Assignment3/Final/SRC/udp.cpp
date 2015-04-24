@@ -552,7 +552,7 @@ int networkmain(int argc, char** argv)
 	pthread_t remplayer;
 	pthread_t output;
 //	pthread_create(&output,NULL,OutMessage,(void *)(long long)sockid);
-	
+	Connect=true;
 	long long dummy=0;
 	pthread_create(&remplayer,NULL, RemovePlayer,(void *)dummy);
 
@@ -560,7 +560,7 @@ int networkmain(int argc, char** argv)
 	pthread_t receive;
 	pthread_create(&remplayer,NULL, ReceiveData,(void *)dummy);
 
-	RECV:Connect=true;
+	RECV:dummy++;
 	while(true)
 	{	
 		// socklen_t addrlen=sizeof(remaddr);
