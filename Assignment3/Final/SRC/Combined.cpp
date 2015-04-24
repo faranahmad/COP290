@@ -1677,6 +1677,32 @@ void display(void)
 			// DisplayExplosions(Explosions);
 			GameOver = newg.PlayerBoard.CheckGameOver();
 		}	
+		else
+		{
+			unsigned char *y123= (unsigned char*) ("IP: "+ GetIP()).c_str();
+
+			glPushMatrix();
+			glRasterPos2f(  -300, 60);
+			glColor3f(1,0,1);
+			glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y123);
+			glPopMatrix();
+
+			std::string numships= "Presently number of players are: ";
+			numships += std::to_string(newg.PlayerBoard.GetNumberShips());
+			unsigned char *numshipschar= (unsigned char*) numships.c_str();
+
+			glPushMatrix();
+			glRasterPos2i(-300, 0);
+			glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
+			glutBitmapString(GLUT_BITMAP_HELVETICA_18, numshipschar);
+			glPopMatrix();
+
+			glPushMatrix();
+			glRasterPos2i(-300, -60);
+			glColor4f(0.0f, 0.5f, 1.0f, 1.0f);
+			glutBitmapString(GLUT_BITMAP_HELVETICA_18, (unsigned char*) "Press o to start the game. ");
+			glPopMatrix();	
+		}
 	}
 	// for (int i=0; i<newg.PlayerBoard.GetVectorBullets().size();i++)
 	// {
