@@ -218,7 +218,7 @@ void* RemovePlayer(void* input)
 		long long now=time(0);
 		for(int i=1;i<IPdata.size();i++)
 		{
-            if((now-TimeStamp[i])>10)
+            if((now-TimeStamp[i])>6)
 			{
                  std::cout<<"Removing: "<<IPdata[i].first<<std::endl;
                  std::cout<<"Time diff:"<<(now-TimeStamp[i])<<std::endl;
@@ -573,7 +573,7 @@ int networkmain(int argc, char** argv)
 		// 	TimeStamp[FindIndex((long long)remaddr.sin_addr.s_addr)]=time(0);
 		// }
 		// std::cout<<"Recieved message:"<<ToStr(recvmsg)<<" Bytes recv:"<<recvlen<<std::endl;
-		if ((time(0)-LastTime)>5) 
+		if ((time(0)-LastTime)>10) 
 // 		{
 // 			recvmsg[recvlen] = 0;
 // 			switch(recvmsg[0])
