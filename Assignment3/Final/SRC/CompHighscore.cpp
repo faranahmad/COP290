@@ -63,7 +63,7 @@ std::vector<std::string> UpdateHighScores(Board &board)
 
 	Ship CurrentShip = board.GetNthShip(ID);
 	std::ifstream filin;
-	filin.open("Comphighscores.txt");
+	filin.open("comphighscores.txt");
 	std::string reader;
 	int score;
 	std::vector<IDScore> HighScores;
@@ -86,7 +86,7 @@ std::vector<std::string> UpdateHighScores(Board &board)
 
 	filin.close();
 	std::ofstream filout;
-	filout.open("highscores.txt");
+	filout.open("comphighscores.txt");
 	std::vector<Ship> Ships=board.GetVectorShips();
 	
 
@@ -167,10 +167,10 @@ std::vector<std::string> UpdateHighScores(Board &board)
 
 	}
 
-	for (int i=0;(i<5) && (i<Combined.size());i++)
-	{
-		std::cout<<answer[i]<<"\n";
-	}
+	// for (int i=0;(i<5) && (i<Combined.size());i++)
+	// {
+	// 	std::cout<<answer[i]<<"\n";
+	// }
 
 	return answer;
 	
