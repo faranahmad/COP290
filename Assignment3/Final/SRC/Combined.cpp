@@ -346,8 +346,8 @@ void ProcessKeys()
 				Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
 				float velx = 0- 20*sin(PI*present.GetAngle()/180);
 				float vely = 20* cos(PI*present.GetAngle()/180);
-				newb.SetXPos(present.GetXPos()+10*velx);
-				newb.SetYPos(present.GetYPos() +10*vely);
+				newb.SetXPos(present.GetXPos()+6*velx);
+				newb.SetYPos(present.GetYPos() +6*vely);
 				newb.SetVelX(velx);
 				newb.SetVelY(vely);
 				newb.SetColorOfBulletfloat(125,255,127);
@@ -515,6 +515,11 @@ void handleKeypress(unsigned char key, int x, int y)
 			// Fire Missile
 			// std::cout << "space bar presed\n";
 			Keys[7]=true;
+			break;
+		}
+		case 'p':
+		{
+			PrintCurrentIP();
 			break;
 		}
 		case 'y':
@@ -1782,9 +1787,9 @@ if (IsBaap() && GameActive)
 	}
 	else if (GameActive)
 	{
-		std::cout << "updateing bullets without killing\n";
+		// std::cout << "updateing bullets without killing\n";
 		newg.PlayerBoard.UpdateBulletsWithoutKilling();
-		std::cout <<"updated\n";
+		// std::cout <<"updated\n";
 	}
 	// std::cout << "starting sleep\n";
 

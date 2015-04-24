@@ -8,8 +8,8 @@ void OPMoveShipInDirectionOfShip(Ship &ship1, Ship &ship2)
 	// if (abs(RelativeAngleOfAlienFromShip(alien,ship)-ship.GetAngle())<RIGHTANGLE)
 	// {
 		
-		ship1.SetXPos(ship1.GetXPos()-5*sin(relativeangle));
-		ship1.SetYPos(ship1.GetYPos()+5*cos(relativeangle));
+		ship1.SetXPos(ship1.GetXPos()-5*sin(PI*relativeangle/180));
+		ship1.SetYPos(ship1.GetYPos()+5*cos(PI*relativeangle/180));
 		if(ship1.GetXPos() < -(NEGX))
 		{
 			ship1.SetXPos(-(NEGX));

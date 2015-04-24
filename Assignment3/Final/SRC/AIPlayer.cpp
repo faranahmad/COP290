@@ -1,33 +1,12 @@
 #include "AI.h" 
 
-WhatItShouldDo DecideActionForShip(Board &board, Ship &ship, bool nearEnough)
-{
-	//herein lies the magic
-	bool InView = AlienIsInViewOfShip(board,ship);
-	WhatItShouldDo action;
-	if ( InView && ship.GetNumberMissiles() > 0) // add some randomness here
-		action = FireMissile;
-	else if (nearEnough==true)	// add some randomness here
-	{	
-		if ( InView )
-			action = FireBullet;
-		else
-			action = Turn;
-	}
-	else 
-		action = Move;
-	
-	return action;	
-	
-}
 
-void MoveShipInDirectionOfAlien(Ship &ship, Alien &alien)
+
+void MoveShipInDirectionOfAlien(Ship &ship, Alien &alien)			//Moves Ship in Direction of ALien
 {
 	float relativeangle;
 	relativeangle=RelativeAngleOfAlienFromShip(alien,ship);
-	// float angle=ship.GetAngle();
-	// if (abs(RelativeAngleOfAlienFromShip(alien,ship)-ship.GetAngle())<RIGHTANGLE)
-	// {
+	
 		
 		ship.SetXPos(ship.GetXPos()-5*sin(PI*relativeangle/180));
 		ship.SetYPos(ship.GetYPos()+5*cos(PI*relativeangle/180));
@@ -47,36 +26,11 @@ void MoveShipInDirectionOfAlien(Ship &ship, Alien &alien)
 		{
 			ship.SetYPos(-(NEGY));
 		}
-	// }
-	// else
-	// {
-	// 	ship.SetXPos(ship.GetXPos()-5*cos(angle));
-	// 	ship.SetYPos(ship.GetYPos()-5*sin(angle));
-	// 	if(ship.GetXPos() < -(NEGX))
-	// 	{
-	// 		ship.SetXPos(-(NEGX));
-	// 	}
-	// 	if(ship.GetXPos() > POSX)
-	// 	{
-	// 		ship.SetXPos(POSX);		
-	// 	}
-	// 	if(ship.GetYPos() > POSY)
-	// 	{
-	// 		ship.SetYPos(POSY);
-	// 	}
-	// 	if(ship.GetYPos() < -(NEGY))
-	// 	{
-	// 		ship.SetYPos(-(NEGY));
-	// 	}
-	// }
+	
 }
-void TurnShipInDirectionOfAlien(Ship &ship, Alien &alien, bool &finished)
+void TurnShipInDirectionOfAlien(Ship &ship, Alien &alien, bool &finished)					//Turns Ship in direction of ALien
 {
-	// float shipAngle = ship.GetAngle();
-	// if (abs(RelativeAngleOfAlienFromShip(alien,ship)) < minAngleofRotation)
-	// 	ship.SetAngle(shipAngle+RelativeAngleOfAlienFromShip(alien,ship));//check
-	// else
-	// 	ship.SetAngle(shipAngle+angularvelocity);//change the sign of this according to where the alien is
+	
 	float shipAngle;
 
 	float relativeangle=RelativeAngleOfAlienFromShip(alien,ship);
@@ -86,14 +40,12 @@ void TurnShipInDirectionOfAlien(Ship &ship, Alien &alien, bool &finished)
 	else 
 	 	shipAngle =ship.GetAngle()-360;
 
-	// std::cout<<"Relative Angle "<<relativeangle<<" Ship angle "<<shipAngle<<"\n";
+	
 	
 	if (fabs(relativeangle-shipAngle)<=5 )
 	{
 
-		// std::cout<<"setting finished true \n";
-		// std::cout<<"Relative angle "<<relativeangle<<"\n";
-		// std::cout<<"Alien angle "<<shipAngle<<"\n";
+		
 		finished=true;
 	}
 	else if (fabs(relativeangle-shipAngle) < minAngleofRotation && fabs(relativeangle-shipAngle)>1)
@@ -119,7 +71,7 @@ void TurnShipInDirectionOfAlien(Ship &ship, Alien &alien, bool &finished)
 
 }
 
-void FireBulletForShip(Ship &ship, Board &board)
+void FireBulletForShip(Ship &ship, Board &board)				//Fires a bullet for the ship
 {
 	Bullet newb = Bullet();
 	
@@ -135,7 +87,7 @@ void FireBulletForShip(Ship &ship, Board &board)
 	board.InsertBullet(newb);
 }
 
-void FireMissileForShip(Ship &ship, Board &board)
+void FireMissileForShip(Ship &ship, Board &board)			//Fires a missile for ship
 {
 	// Fire Missile 
 	Bullet newb = Bullet();

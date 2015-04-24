@@ -1,6 +1,6 @@
 #include "AI.h" 
 
-int ClosestAlienEnemy(std::vector<Alien> &Aliens,int NumberAliens, Bullet &actualmissile, double maxDistance)
+int ClosestAlienEnemy(std::vector<Alien> &Aliens,int NumberAliens, Bullet &actualmissile, double maxDistance) //Finds the closest alien to a missile in its field of view
 {
 	int closestAlien = -1;
 	float leastDistance = maxDistance; //Infinity
@@ -17,7 +17,7 @@ int ClosestAlienEnemy(std::vector<Alien> &Aliens,int NumberAliens, Bullet &actua
 	return closestAlien;
 }
 
-int ClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actualmissile, double maxDistance)
+int ClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actualmissile, double maxDistance) //Finds the closest ship to a missile in its field of view
 {
 	int closestShip = -1;
 	float leastDistance = maxDistance; //Infinity
