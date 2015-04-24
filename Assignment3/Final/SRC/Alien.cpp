@@ -12,6 +12,7 @@ Alien::Alien()
 	AlienType = 0;
 }
 
+//getting alien info
 float Alien::GetXPos()
 {
 	return XPos;
@@ -58,6 +59,7 @@ int Alien::GetMissiles()
 }
 
 
+//setting aien info
 void Alien::SetXPos(float xposition)
 {
 	XPos = xposition;
@@ -120,6 +122,8 @@ void Alien::ReduceMissile()
 		NumberMissiles -= 1;
 	}
 }
+
+//get info in string for debugging 
 std::string Alien::GetSummary()
 {
 	return std::to_string(XPos) + "\t" + 

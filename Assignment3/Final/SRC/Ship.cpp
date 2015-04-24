@@ -21,6 +21,8 @@ Ship::Ship(int id)
 	AILevel = -1;
 }
 
+
+//getting functions
 float Ship::GetXPos()
 {
 	return XPos;
@@ -72,6 +74,7 @@ int Ship::GetNumberBullets()
 	return NumberBullets;
 }
 
+//no of missiles that player has
 int Ship::GetNumberMissiles()
 {
 	return NumberMissiles;
@@ -213,6 +216,7 @@ void Ship::AddKills()
 	Kills += 1;
 }
 
+//no of aliens hit by bullet
 void Ship::ResetKills()
 {
 	Kills = 0;
@@ -238,6 +242,7 @@ void Ship::ReduceMissile()
 	NumberMissiles -= 1;
 }
 
+//get all info instrings for debugging
 std::string Ship::GetSummary()
 {
 	return(

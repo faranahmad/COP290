@@ -36,3 +36,4 @@
 \contentsline {subsection}{\numberline {6.2}3D Game-play}{11}
 \contentsline {subsection}{\numberline {6.3}Sound Effects}{11}
 \contentsline {subsection}{\numberline {6.4}Replacement of Player by AI}{11}
+\contentsline {section}{\numberline {7}Deviations and New Features}{12}

@@ -11,6 +11,7 @@ Bullet::Bullet()
 	TimeCreated = time(0);
 
 }
+//getting functions
 
 //get the x axis position of bullet
 float Bullet::GetXPos()
@@ -33,6 +34,7 @@ float Bullet::GetVelY()
 	return VelY;
 }
 
+
 float Bullet::GetSpeed()
 {
 	return ((float) sqrt(VelX*VelX + VelY*VelY)); 
@@ -43,27 +45,32 @@ Color Bullet::GetColorOfBullet()
 	return ColorOfBullet;
 } 
 
-
+//position of the ship in the vectorships from which bullet is fired 
 int Bullet::GetShipId()
 {
 	return ShipId;
 }
 
+//for missiles controlled by AI
 bool Bullet::GetTypeAI()
 {
 	return TypeAI;
 }
 
+//get if its alien's bullet or player's bullet
 bool Bullet::GetTypePlayer()
 {
 	return TypePlayer;
 }
 
+//getting the current system time at which bullet was created
 int Bullet::GetTimeCreated()
 {
 	return TimeCreated;
 }
 
+
+//setting functions
 void Bullet::SetXPos(float xposition)
 {
 	XPos = xposition;
@@ -141,6 +148,7 @@ std::string Bullet::GetSummary()
 	+ std::to_string(TypeAI) + "\t" + std::to_string(TypePlayer));
 }
 
+//return anfle of inclination with xaxis
 float Bullet::GetAngle()
 {
 	if (VelX == 0.0)
