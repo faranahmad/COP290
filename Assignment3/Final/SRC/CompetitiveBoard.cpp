@@ -1,4 +1,4 @@
-#include "Board.h"
+#include "CompetitiveBoard.h"
 
 
 #define toDigit(c) (c-'0')
@@ -248,19 +248,19 @@ int Board::CheckBulletHitShip(int id)
 	return -1;
 }
 
-std::vector<int> Board::CheckAlienHitShip(int shipid)
+//return id of ship whose life is to be reduced
+int Board::CheckAlienHitShip(int alienno)
 {
-	std::vector<int> answer;
-	for(int i = 0;i < VectorAliens.size();i++)
+	for(int i = 0;i < VectorShips.size();i++)
 	{
-		float xdis = VectorShips.at(shipid).GetXPos() - VectorAliens.at(i).GetXPos();
-		float ydis = VectorShips.at(shipid).GetYPos() - VectorAliens.at(i).GetYPos();
+		float xdis = VectorAliens.at(alienno).GetXPos() - VectorShips.at(i).GetXPos();
+		float ydis = VectorAliens.at(alienno).GetYPos() - VectorShips.at(i).GetYPos();
 		if ((float) sqrt(xdis*xdis + ydis*ydis) < 50)
 		{
-			answer.push_back(i);
+			return i;
 		}
 	}
-	return answer;
+	return -1;
 }
 
 std::vector<Points> Board::UpdateAllBullets()
@@ -269,7 +269,9 @@ std::vector<Points> Board::UpdateAllBullets()
 	std::vector<Points> ship_pos;
 	int bullet_size = VectorBullets.size();
 	std::vector<int> bullets_delete;
-	std::vector<int> ships_lives_reduce;
+	//std::vector<int> ships_lives_reduce;
+	//std::vector<int> aliens_lives_reduce;
+	std::vector<int> aliens_delete;
 
 	for (int i = 0;i < bullet_size ;i++)
 	{
@@ -278,29 +280,74 @@ std::vector<Points> Board::UpdateAllBullets()
 		{	
 			if(VectorShips.at(hit_ship).GetLives() > 0)
 			{
-				ships_lives_reduce.push_back(hit_ship);
+				//ships_lives_reduce.push_back(hit_ship);
+				VectorShips.at(hit_ship).SetLives(VectorShips.at(hit_ship).GetLives() - 1);
 				bullets_delete.push_back(i); 
 				int shipscoreinc = VectorBullets.at(i).GetShipId();
 				VectorShips.at(shipscoreinc).SetScore(VectorShips.at(shipscoreinc).GetScore() + 100);
 			}
 		}
+		else
+		{
+			int hit_alien = CheckBulletHitAlien(i);
+			if(hit_alien > -1)
+			{
+				if(VectorAliens.at(hit_alien).GetLives() > 0)
+				{
+					VectorAliens.at(hit_alien).SetLives(VectorAliens.at(hit_alien).GetLives() - 1);
+					bullets_delete.push_back(i);
+				}
+				if(VectorAliens.at(hit_alien).GetLives() == 0)
+				{
+					aliens_delete.push_back(hit_alien);
+				}
+			}
+		}
+
 	}
+
+	for(int i = 0;i < VectorAliens.size();i++)
+	{
+		if(VectorAliens.at(i).GetLives() > 0)
+		{
+			int hit_ship2 = CheckAlienHitShip(i);
+			if(hit_ship2 > -1)
+			{
+				aliens_delete.push_back(i);
+				if(VectorShips.at(hit_ship2).GetLives() > 0)
+				{
+					VectorShips.at(hit_ship2).SetLives(VectorShips.at(hit_ship2).GetLives() - 1);
+				}
+			}
+		}
+	}
+
+	std::sort (aliens_delete.begin(), aliens_delete.end(), MyFunction); 
+
+	for(int i = aliens_delete.size() - 1;i>=0;i++)
+	{
+		VectorAliens.erase(VectorAliens.begin() + aliens_delete.at(i));
+	}
+
+
+
+
 	int bullets_delete_size  = bullets_delete.size();
-	int ships_lives_reduce_size = ships_lives_reduce.size();
+	// int ships_lives_reduce_size = ships_lives_reduce.size();
 
 	for (int i = bullets_delete_size - 1;i >= 0;i--)
 	{
 		VectorBullets.erase(VectorBullets.begin() + bullets_delete.at(i));
 	} 
-	for(int i = ships_lives_reduce_size - 1;i>=0;i--)
-	{
-		if(VectorShips.at(ships_lives_reduce.at(i)).GetLives() > 0)
-		{
-			VectorShips.at(ships_lives_reduce.at(i)).SetLives(VectorShips.at(ships_lives_reduce.at(i)).GetLives()-1);
-			// std::cout << VectorShips[0].GetLives<<"\t done\n";
-			// std::cout << VectorShips[1].GetLives<<"\t done\n";
-		}
-	}
+	// for(int i = ships_lives_reduce_size - 1;i>=0;i--)
+	// {
+	// 	if(VectorShips.at(ships_lives_reduce.at(i)).GetLives() > 0)
+	// 	{
+	// 		VectorShips.at(ships_lives_reduce.at(i)).SetLives(VectorShips.at(ships_lives_reduce.at(i)).GetLives()-1);
+	// 		// std::cout << VectorShips[0].GetLives<<"\t done\n";
+	// 		// std::cout << VectorShips[1].GetLives<<"\t done\n";
+	// 	}
+	// }
 
 	// for (int i = aliens_delete_size-1;i>=0;i--)
 	for (int i=VectorBullets.size()-1;i>=0;i--)
@@ -1111,5 +1158,20 @@ std::vector<std::string> Board::GetRanking()
 		answer.push_back(std::to_string(i+1) + "."  + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" +"\t" +"\t" + ToFour(std::to_string(player_score.at(i).first)) +  "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" +  player_score.at(i).second );
 	}
 	return answer;
+
+}
+
+
+void Board::AddRandomRock()
+{
+	Alien random_alien;
+	random_alien.SetXPos(RandomFloat(-(DimensionNegX),DimensionPosX));
+	random_alien.SetYPos(RandomFloat((DimensionPosY)-10,DimensionPosY));
+	//random_alien.SetColorFloat(rand() % 255,rand() % 255,rand() % 255);
+	random_alien.SetAngle(RandomFloat(0.0,360.0));
+	//random_alien.SetType(rand() % 2);
+	random_alien.SetLives(2);	
+	random_alien.SetLevel(rand()%3);
+	VectorAliens.push_back(random_alien);
 
 }
