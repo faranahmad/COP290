@@ -581,7 +581,7 @@ void Board::MoveNthShip(int ship_id,int mov_type)
 
 void Board::AddRandomShip()
 {
-	std::cout<<"Starting random_ship\n";
+	// std::cout<<"Starting random_ship\n";
 	Ship random_ship;
 	random_ship.SetXPos(RandomFloat(-(DimensionNegX),DimensionPosX));
 	random_ship.SetYPos(RandomFloat(-(DimensionNegY) + 60,-(DimensionNegY) + 120));
@@ -590,7 +590,7 @@ void Board::AddRandomShip()
 	random_ship.SetId(VectorShips.size());
 	random_ship.SetAIControlLevel(1);
 	VectorShips.push_back(random_ship);
-	std::cout<<"Starting random_ship\n";
+	// std::cout<<"Starting random_ship\n";
 }
 
 void Board::AddRandomAlien()
@@ -1071,7 +1071,7 @@ void Board::ApplyAllAlienInstructions(std::string information)
 
 void Board::ApplyPlayerBulletInstructions(std::string information)
 {
-	std::cout << information <<"\n";
+	// std::cout << information <<"\n";
 	std::vector<std::string> allbullets = SplitString(information,'\t');
 	for (int i = 0;i<allbullets.size();i++)
 	{

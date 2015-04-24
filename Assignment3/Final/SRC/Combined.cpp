@@ -689,7 +689,7 @@ void ShowMissile(Bullet &b)
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
 	glRotatef(b.GetAngle(),0,0,1);
 	
-	glScalef (0.8,0.8,0.8);
+	// glScalef (0.9,0.9,0.9);
 
 	// std::cout << b.GetXPos() <<"\t"<< b.GetYPos() <<"\n";
 	// Color col_bul=b.GetColorOfBullet();
@@ -700,7 +700,7 @@ void ShowMissile(Bullet &b)
 	glPopMatrix();
 
 	glPushMatrix();
-	glColor3f(0,1,0);
+	glColor3f(1,1,1);
 	ShowObject(missilemid);
 	glPopMatrix();
 
@@ -720,11 +720,11 @@ void ShowMissile(Bullet &b)
 	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
 	glRotatef(b.GetAngle(),0,0,1);
-	glTranslatef(0,-110,0);
+	glTranslatef(0,-70,0);
 	DisplaySmokePoints(SmokePointsMissile);
 	// std::cout << SmokePointsMissile.size() <<"\n";
 	glPopMatrix();
-	// UpdateAllSmokePoints(SmokePointsMissile);
+	UpdateAllSmokePoints(SmokePointsMissile);
 }
 
 void ShowShip(Ship &shiptodisplay)
@@ -762,18 +762,18 @@ void ShowShip(Ship &shiptodisplay)
 
 		glPopMatrix();
 	
-		glPushMatrix();
-		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
-		glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
-		glRotatef(shiptodisplay.GetAngle(),0,0,1);
-		glTranslatef(0,-67,0);
-		DisplaySmokePoints(SmokePoints);
-		glPopMatrix();
-		// UpdateAllSmokePoints(SmokePoints);
+		// glPushMatrix();
+		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+		// SmokePoints.push_back(NewSmokePoint(shiptodisplay.GetXPos(),shiptodisplay.GetYPos()));
+		// glTranslatef(shiptodisplay.GetXPos(),shiptodisplay.GetYPos(),0);
+		// glRotatef(shiptodisplay.GetAngle(),0,0,1);
+		// glTranslatef(0,-67,0);
+		// DisplaySmokePoints(SmokePoints);
+		// glPopMatrix();
+		// // UpdateAllSmokePoints(SmokePoints);
 	}
 }
 
@@ -1102,11 +1102,11 @@ void ShowBoard(Board &boardtodisplay)
 
 void newSpeed (float dest[3])
 {
-	float v = (20.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 10.0;
+	float v = (5.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 2.5;
 	float theta1= (PI* (((GLfloat) rand ()) / ((GLfloat) RAND_MAX)));
 	float x= v*cos(theta1);
 	float y= v*sin(theta1); 
-	float z = (20.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 10.0;
+	float z = (5.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 2.5;
 
 	dest[0] = x;
 	dest[1] = y;
@@ -1362,17 +1362,17 @@ SmokePoint NewSmokePoint(float x, float y)
 	p.position[2]=0;
 
 
-	p.speed[0] = (5.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 2.0;
-	p.speed[1] = - (10.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) ;
-	p.speed[2] = (5.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 10.0;
+	p.speed[0] = (2.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 1.0;
+	p.speed[1] = - (5.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) ;
+	p.speed[2] = (2.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 1.0;
 
 	p.color[0] = 0.5;
 	p.color[1] = 0.5;
 	p.color[2] = 1.0;
 
-	p.radius = rand()%10;
+	p.radius = rand()%5;
 
-	p.life = 49;
+	p.life = 19;
 
 	return p;
 }
@@ -1398,28 +1398,28 @@ void UpdateSmokePoint(SmokePoint &p)
 
 void UpdateAllSmokePoints(std::vector<SmokePoint> &v)
 {
-	// for (int i=0; i<v.size(); i++)
-	// {
-	// 	UpdateSmokePoint(v[i]);
-	// }
+	for (int i=0; i<v.size(); i++)
+	{
+		UpdateSmokePoint(v[i]);
+	}
 
-	// for (int i=0; i<v.size(); i++)
-	// {
-	// 	if (v[i].life==0)
-	// 	{
-	// 		v.erase(v.begin()+i);
-	// 		i-=1;
-	// 	}
-	// }
+	for (int i=0; i<v.size(); i++)
+	{
+		if (v[i].life==0)
+		{
+			v.erase(v.begin()+i);
+			i-=1;
+		}
+	}
 }
 
 void DisplaySmokePoints(std::vector<SmokePoint> &v)
 {
-	// for (int i=0; i<v.size(); i++)
-	// {
-	// 	// std::cout << "Showing point:" << i <<"\n";
-	// 	ShowSmokePoint(v[i]);
-	// }
+	for (int i=0; i<v.size(); i++)
+	{
+		// std::cout << "Showing point:" << i <<"\n";
+		ShowSmokePoint(v[i]);
+	}
 }
 
 void DisplayExplosions(std::vector<Expl> &v)

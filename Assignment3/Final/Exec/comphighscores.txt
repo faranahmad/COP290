@@ -1,10 +1,10 @@
 kg
 500
+faran
+400
 abc
 300
 kg
 300
 faran
 300
-abc
-200
