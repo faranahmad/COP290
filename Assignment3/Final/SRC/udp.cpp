@@ -196,7 +196,7 @@ void SendMessageToAll(std::string message)
 		{
 			// std::cout<<"Sending Message:"<<message<<" to:"<<IPdata[i+1].first<<std::endl;
 			im.ip=IPdata[i+1].first;
-			std::cout<<"Sending to:"<<im.ip<<std::endl;
+			// std::cout<<"Sending to:"<<im.ip<<std::endl;
 			pthread_create(&threads[i],NULL,SendMessage,&im);
 			usleep(1);
 		}
