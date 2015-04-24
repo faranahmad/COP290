@@ -56,6 +56,14 @@ int GetNumPlayers()
 	return IPdata.size();
 }
 
+void PrintCurrentIP()
+{
+	for(int i=0;i<IPdata.size();i++)
+	{
+		std::cout<<IPdata[i].first<<std::endl;
+	}
+}
+
 void AddPlayers(char players [])
 {
 	std::string s;
@@ -192,15 +200,16 @@ void* RemovePlayer(void* input)
 		{
             if((now-TimeStamp[i])>10)
 			{
-                 // std::cout<<"Removing: "<<IPdata[i].first<<std::endl;
-                 // std::cout<<"Time diff:"<<(now-TimeStamp[i])<<std::endl;
+                 std::cout<<"Removing: "<<IPdata[i].first<<std::endl;
+                 std::cout<<"Time diff:"<<(now-TimeStamp[i])<<std::endl;
 				if(Connect)
 				{
 					long long temp=IPdata[i].second;
 					IPdata.erase(IPdata.begin()+i);
 					TimeStamp.erase(TimeStamp.begin()+i);
 					if(temp==1)
-					{
+					{	
+						std::cout<<"removing baap\n";
 						long long min=IPdata[0].first;
 						int j=0;
 						for(int k=1;k<IPdata.size();k++)
@@ -283,6 +292,7 @@ void* ReceiveData(void* input)
 		if(recvmsg[0]!='0' && recvlen>0)
 		{
 			TimeStamp[FindIndex((long long)remaddr.sin_addr.s_addr)]=time(0);
+			std::cout<<"Recieved from:"<<(long long)remaddr.sin_addr.s_addr<<std::endl;
 		}
 		// std::cout<<"Recieved message:"<<ToStr(recvmsg)<<" Bytes recv:"<<recvlen<<std::endl;
 		if (recvlen>0) 
