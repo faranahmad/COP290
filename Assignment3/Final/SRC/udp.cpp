@@ -61,7 +61,7 @@ void PrintCurrentIP()
 {
 	for(int i=0;i<IPdata.size();i++)
 	{
-		std::cout<<IPdata[i].first<<std::endl;
+		std::cout<<IPdata[i].first<<'\t'<<IPdata[i].second<<'\t'<<TimeStamp[i]<<std::endl;
 	}
 }
 
@@ -218,7 +218,7 @@ void* RemovePlayer(void* input)
 		long long now=time(0);
 		for(int i=1;i<IPdata.size();i++)
 		{
-            if((now-TimeStamp[i])>10)
+            if((now-TimeStamp[i])>6)
 			{
                  std::cout<<"Removing: "<<IPdata[i].first<<std::endl;
                  std::cout<<"Time diff:"<<(now-TimeStamp[i])<<std::endl;
@@ -552,7 +552,7 @@ int networkmain(int argc, char** argv)
 	pthread_t remplayer;
 	pthread_t output;
 //	pthread_create(&output,NULL,OutMessage,(void *)(long long)sockid);
-	
+	Connect=true;
 	long long dummy=0;
 	pthread_create(&remplayer,NULL, RemovePlayer,(void *)dummy);
 
@@ -560,7 +560,7 @@ int networkmain(int argc, char** argv)
 	pthread_t receive;
 	pthread_create(&remplayer,NULL, ReceiveData,(void *)dummy);
 
-	RECV:Connect=true;
+	RECV:dummy++;
 	while(true)
 	{	
 		// socklen_t addrlen=sizeof(remaddr);
@@ -573,7 +573,7 @@ int networkmain(int argc, char** argv)
 		// 	TimeStamp[FindIndex((long long)remaddr.sin_addr.s_addr)]=time(0);
 		// }
 		// std::cout<<"Recieved message:"<<ToStr(recvmsg)<<" Bytes recv:"<<recvlen<<std::endl;
-		if ((time(0)-LastTime)>5) 
+		if ((time(0)-LastTime)>10) 
 // 		{
 // 			recvmsg[recvlen] = 0;
 // 			switch(recvmsg[0])
