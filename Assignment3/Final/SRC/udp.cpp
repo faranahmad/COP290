@@ -292,7 +292,7 @@ void* ReceiveData(void* input)
 		if(recvmsg[0]!='0' && recvlen>0)
 		{
 			TimeStamp[FindIndex((long long)remaddr.sin_addr.s_addr)]=time(0);
-			std::cout<<"Recieved from:"<<(long long)remaddr.sin_addr.s_addr<<std::endl;
+			// std::cout<<"Recieved from:"<<(long long)remaddr.sin_addr.s_addr<<std::endl;
 		}
 		// std::cout<<"Recieved message:"<<ToStr(recvmsg)<<" Bytes recv:"<<recvlen<<std::endl;
 		if (recvlen>0) 
