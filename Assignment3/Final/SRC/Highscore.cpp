@@ -167,10 +167,10 @@ std::vector<std::string> UpdateHighScores(Board &board)
 
 	}
 
-	for (int i=0;(i<5) && (i<Combined.size());i++)
-	{
-		std::cout<<answer[i]<<"\n";
-	}
+	// for (int i=0;(i<5) && (i<Combined.size());i++)
+	// {
+	// 	std::cout<<answer[i]<<"\n";
+	// }
 
 	return answer;
 	

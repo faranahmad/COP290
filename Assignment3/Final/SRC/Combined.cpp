@@ -977,7 +977,7 @@ void ShowLives()
 	else
 	{
 		glPushMatrix();
-		glRasterPos3f(   -200, 1080, -80  );
+		glRasterPos3f(   -200, 1080, 380  );
 		// glColor3f(0,1,1);
 		// glutStrokeString(GLUT_STROKE_ROMAN, y);
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
@@ -985,7 +985,7 @@ void ShowLives()
 		glPopMatrix();
 	
 		glPushMatrix();
-		glRasterPos3f( 200, 1080, -80);
+		glRasterPos3f( 200, 1080, 380);
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y2);
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar2);
 		glPopMatrix();	
@@ -1015,7 +1015,7 @@ void ShowScores()
 	}
 	else
 	{
-		float iniz = -200;
+		float iniz = 360;
 		
 
 		std::string l12 = "Scores: ";
@@ -1023,7 +1023,7 @@ void ShowScores()
 		
 
 		glPushMatrix();
-		glRasterPos3f( 0, 1080 , -160 );
+		glRasterPos3f( 0, 1080 , 360 );
 		glColor4f(0.5,0.25,1,1);
 		iniz -=60;
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar7);
