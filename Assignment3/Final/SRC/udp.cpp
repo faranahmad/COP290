@@ -72,12 +72,17 @@ void AddPlayers(char players [])
     int i;
 	for(i=2;players[i]!=0;i++)
 	{
-		if(players[i]=='\t')
-			break;
 		if(players[i]!=' ' && players[i]!='\n')
+		{
 			s=s+players[i];
+		}
+		else if(players[i]=='\t')
+		{
+			break;
+		}
 		else
 		{	
+			std::cout<<"#########inelse######\n";
 			std::pair<long long,long long> p;
 			if(s[s.size()-1]=='*')
 			{	
@@ -89,7 +94,7 @@ void AddPlayers(char players [])
 
 			const char * ipchar = s.c_str();
 			p.first=atoll(ipchar);
-            // std::cout<<"first element of p:"<<p.first<<std::endl;
+            std::cout<<"first element of p:"<<p.first<<std::endl;
             // std::cout<<"second element of p:"<<p.second<<std::endl;
 			TimeStamp.push_back(time(0));
 			IPdata.push_back(p);
@@ -176,6 +181,7 @@ char* ToArr(std::string str)
 
 void SendMessageToAll(std::string message)
 {
+	std::cout<<"function called\n";
 	if(IPdata.size()>0)
 	{
 		// std::cout<<"Sending message to all\t" <<message<<"\n";
@@ -188,6 +194,7 @@ void SendMessageToAll(std::string message)
 		{
 			// std::cout<<"Sending Message:"<<message<<" to:"<<IPdata[i+1].first<<std::endl;
 			im.ip=IPdata[i+1].first;
+			std::cout<<"Sending to:"<<im.ip<<std::endl;
 			pthread_create(&threads[i],NULL,SendMessage,&im);
 			usleep(1);
 		}
@@ -526,6 +533,7 @@ int networkmain(int argc, char** argv)
 				TimeStamp.erase(TimeStamp.begin()+i);
 			}
     	    recvmsg[recvlen] = 0;
+    	    std::cout<<ToStr(recvmsg)<<std::endl;
     	    if(recvmsg[0]=='1')
     	    	AddPlayers(recvmsg);
     	}
