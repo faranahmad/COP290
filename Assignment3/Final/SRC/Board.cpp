@@ -882,6 +882,7 @@ std::string Board::GenerateOnlyPlayerInstructions(int player_id,std::vector<Bull
 
 std::string Board::GenerateAllInstructions(int player_id,std::vector<Points> points)
 {
+
 	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation() + "\n" + GetStringPoints(points) + "\n" + GenerateShipInsForAI()); 
 }
 
@@ -1074,7 +1075,7 @@ void Board::UpdateBulletsWithoutKilling()
 
 std::string Board::GetNthPlayerScore(int shipid)
 {
-	return (VectorShips.at(shipid).GetName() + " " + std::to_string(VectorShips.at(shipid).GetScore()));
+	return (ToFour(std::to_string(VectorShips.at(shipid).GetScore())) +"\t\t\t" + VectorShips.at(shipid).GetName());
 }
 
 std::string Board::GetNthPlayerName(int shipid)

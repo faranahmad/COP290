@@ -1103,7 +1103,7 @@ void Board::UpdateBulletsWithoutKilling()
 
 std::string Board::GetNthPlayerScore(int shipid)
 {
-	return (VectorShips.at(shipid).GetName() + " " + std::to_string(VectorShips.at(shipid).GetScore()));
+	return (ToFour(std::to_string(VectorShips.at(shipid).GetScore())) +"\t\t\t" + VectorShips.at(shipid).GetName() );
 }
 
 std::string Board::GetNthPlayerName(int shipid)
