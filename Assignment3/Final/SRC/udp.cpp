@@ -61,7 +61,7 @@ void PrintCurrentIP()
 {
 	for(int i=0;i<IPdata.size();i++)
 	{
-		std::cout<<IPdata[i].first<<std::endl;
+		std::cout<<IPdata[i].first<<'\t'<<IPdata[i].second<<'\t'<<TimeStamp[i]<<std::endl;
 	}
 }
 
