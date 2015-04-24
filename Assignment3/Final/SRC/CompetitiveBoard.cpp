@@ -1097,7 +1097,14 @@ void Board::UpdateBulletsWithoutKilling()
 //get the score of ship given its id
 std::string Board::GetNthPlayerScore(int shipid)
 {
-	return (ToFour(std::to_string(VectorShips.at(shipid).GetScore())) +"\t\t\t" + VectorShips.at(shipid).GetName() );
+	if(VectorShips.at(shipid).GetScore() == 0)
+	{
+		return "";
+	}
+	else
+	{
+		return (ToFour(std::to_string(VectorShips.at(shipid).GetScore())) +"\t\t\t" + VectorShips.at(shipid).GetName() );
+	}
 }
 
 //get the name of the player given shipid
