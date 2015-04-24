@@ -1,8 +1,6 @@
+kg
+635
 faran
 300
-kg
-150
-abc
-15
 abc
 0

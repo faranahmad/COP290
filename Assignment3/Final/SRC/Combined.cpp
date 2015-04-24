@@ -1102,11 +1102,11 @@ void ShowBoard(Board &boardtodisplay)
 
 void newSpeed (float dest[3])
 {
-	float v = (5.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 2.5;
+	float v = (15.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 7.5;
 	float theta1= (PI* (((GLfloat) rand ()) / ((GLfloat) RAND_MAX)));
 	float x= v*cos(theta1);
 	float y= v*sin(theta1); 
-	float z = (5.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 2.5;
+	float z = (10.0 * ((GLfloat) rand ()) / ((GLfloat) RAND_MAX)) - 5.0;
 
 	dest[0] = x;
 	dest[1] = y;
@@ -1717,7 +1717,7 @@ void display(void)
 	// std::cout <<"Buffers swapped\n";
 	
 	// std::cout << "starting explosion update\n";
-//	UpdateAllExplosions();
+	UpdateAllExplosions();
 	// std::cout << "Updated\n";
 	// std::cout << "Done operations, time for re display\n";
 	// UpdatePlayerAI(newg.PlayerBoard);
@@ -1745,19 +1745,19 @@ void *UpdateGameThread(void *x)
 		{
 			Is_SoundExpl=true;
 		}
-		// for (int j=0; j<Explosions.size(); j++)
-		// {
-		// 	if (Explosions[j].fuel==0)
-		// 	{
-		// 		Explosions.erase(Explosions.begin()+j);
-		// 		j-=1;
-		// 	}
-		// }
+		for (int j=0; j<Explosions.size(); j++)
+		{
+			if (Explosions[j].fuel==0)
+			{
+				Explosions.erase(Explosions.begin()+j);
+				j-=1;
+			}
+		}
 		// std::cout <<"erased any explosions\n";
-		// for (int j=0; j<newexp.size(); j++)
-		// {
-		// 	Explosions.push_back(newExplosion(newexp[j].x,newexp[j].y,0));
-		// }
+		for (int j=0; j<newexp.size(); j++)
+		{
+			Explosions.push_back(newExplosion(newexp[j].x,newexp[j].y,0));
+		}
 		// std::cout << "pushed new explosions\n";
 	}
 	// std::cout <<"applied instructions if any\n";
@@ -1785,20 +1785,20 @@ if (IsBaap() && GameActive)
 		// std::cout<<"Lives after: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
 
 		// std::cout << "starting for loop\n";
-		// for (int j=0; j<Explosions.size(); j++)
-		// {
-		// 	if (Explosions[j].fuel==0)
-		// 	{
-		// 		Explosions.erase(Explosions.begin()+j);
-		// 		j-=1;
-		// 	}
-		// }
+		for (int j=0; j<Explosions.size(); j++)
+		{
+			if (Explosions[j].fuel==0)
+			{
+				Explosions.erase(Explosions.begin()+j);
+				j-=1;
+			}
+		}
 		// std::cout <<"done with for 1\n";
-		// for (int j=0; j<p.size(); j++)
-		// {
-		// 	Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
-		// 	// std::cout << p[j].x <<"\t" <<p[j].y << "\n";
-		// }
+		for (int j=0; j<p.size(); j++)
+		{
+			Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
+			// std::cout << p[j].x <<"\t" <<p[j].y << "\n";
+		}
 
         while (newg.PlayerBoard.GetNumberAliens()<=newg.LastBulletTime/50)
 		{
