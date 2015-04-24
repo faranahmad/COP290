@@ -754,7 +754,38 @@ void ShowShip(Ship &shiptodisplay)
 		// std::cout << shiptodisplay.GetXPos() << "\t" << shiptodisplay.GetYPos() <<"\n";
 		
 		// glRotatef(180,0,1,0);
+		if (!viewtotake)
+		{
+			// Power Bar at the bottom in 3D mode
+			glPushMatrix();
 
+			int livesofship=shiptodisplay.GetLives();
+
+			if (livesofship>=4)
+			{
+				glColor3f(0.0,1.0,0.0);
+			}
+			else if (livesofship>=2)
+			{
+				glColor3f(1.0,1.0,0.0);
+			}
+			else
+			{
+				glColor3f(1.0,0.0,0.0);
+			}
+
+		    glBegin(GL_QUADS);
+	
+	    	glVertex3f(-100, -80, 0);
+	    	glVertex3f(40*livesofship -100,-80, 0);
+	    	glVertex3f(40*livesofship -100, -80, -20);
+	    	glVertex3f(-100, -80, -20);
+	    	
+	    	glEnd();
+
+			glPopMatrix();
+		}
+	
 
 		glPushMatrix();
 		glColor4f(1,1,1,0.5);
@@ -874,20 +905,6 @@ void ShowAlien(Alien &alientodisplay)
 		glColor3f(1,1,1);
 		ShowObject(alien2top);
 		glPopMatrix();
-
-
-
-
-
-
-
-		// glPushMatrix();
-		// Color col_ship=alientodisplay.GetColor();
-		// glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
-		// ShowObject(alien2body);
-		// glPopMatrix();
-
-
 	}
 	glPopMatrix();
 }
@@ -1864,7 +1881,7 @@ void *UpdateGameThread(void *x)
 				// std::cout << p[j].x <<"\t" <<p[j].y << "\n";
 			}
 	
-	        while (newg.PlayerBoard.GetNumberAliens()<=15)
+	        while (newg.PlayerBoard.GetNumberAliens()<=15 + newg.LastBulletTime/200)
 			{
 				newg.PlayerBoard.AddRandomRock();
 			}

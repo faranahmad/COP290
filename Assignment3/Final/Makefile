@@ -175,7 +175,7 @@ AllTests.o: AllTests.cpp
 
 clean:
 	cd $(OBJ);	rm -rf *.o
-	cd $(EXE);  rm -rf Test Game CompGame Debug.txt
+	cd $(EXE);  rm -rf Test Game CompGame GameDebug
 	cd $(DOXY); make clean
 	cd $(DOC) ; make clean
 	cd $(Pres) ; make clean 
