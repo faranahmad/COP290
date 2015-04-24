@@ -1,12 +1,10 @@
 #include "OPAI.h"
 
-void OPMoveShipInDirectionOfShip(Ship &ship1, Ship &ship2)
+void OPMoveShipInDirectionOfShip(Ship &ship1, Ship &ship2) //Moves ship in direction of the other ship
 {
 	float relativeangle;
 	relativeangle=OPRelativeAngleOfShipFromShip(ship2,ship1);
-	// float angle=ship.GetAngle();
-	// if (abs(RelativeAngleOfAlienFromShip(alien,ship)-ship.GetAngle())<RIGHTANGLE)
-	// {
+	
 		
 		ship1.SetXPos(ship1.GetXPos()-5*sin(PI*relativeangle/180));
 		ship1.SetYPos(ship1.GetYPos()+5*cos(PI*relativeangle/180));
@@ -26,37 +24,12 @@ void OPMoveShipInDirectionOfShip(Ship &ship1, Ship &ship2)
 		{
 			ship1.SetYPos(-(NEGY));
 		}
-	// }
-	// else
-	// {
-	// 	ship.SetXPos(ship.GetXPos()-5*cos(angle));
-	// 	ship.SetYPos(ship.GetYPos()-5*sin(angle));
-	// 	if(ship.GetXPos() < -(NEGX))
-	// 	{
-	// 		ship.SetXPos(-(NEGX));
-	// 	}
-	// 	if(ship.GetXPos() > POSX)
-	// 	{
-	// 		ship.SetXPos(POSX);		
-	// 	}
-	// 	if(ship.GetYPos() > POSY)
-	// 	{
-	// 		ship.SetYPos(POSY);
-	// 	}
-	// 	if(ship.GetYPos() < -(NEGY))
-	// 	{
-	// 		ship.SetYPos(-(NEGY));
-	// 	}
-	// }
+	
 }
 
-void OPTurnShipInDirectionOfShip(Ship &ship1, Ship &ship2, bool &finished)
+void OPTurnShipInDirectionOfShip(Ship &ship1, Ship &ship2, bool &finished) //turns ship in direction of ship
 {
-	// float shipAngle = ship.GetAngle();
-	// if (abs(RelativeAngleOfAlienFromShip(alien,ship)) < minAngleofRotation)
-	// 	ship.SetAngle(shipAngle+RelativeAngleOfAlienFromShip(alien,ship));//check
-	// else
-	// 	ship.SetAngle(shipAngle+angularvelocity);//change the sign of this according to where the alien is
+	
 	float shipAngle;
 
 	float relativeangle=OPRelativeAngleOfShipFromShip(ship2,ship1);
@@ -66,14 +39,11 @@ void OPTurnShipInDirectionOfShip(Ship &ship1, Ship &ship2, bool &finished)
 	else 
 	 	shipAngle =ship1.GetAngle()-360;
 
-	// std::cout<<"Relative Angle "<<relativeangle<<" Ship angle "<<shipAngle<<"\n";
 	
-	if (fabs(relativeangle-shipAngle)<=5 )//FINAL CHANGES HASH DEFINE THIS!!!!
+	if (fabs(relativeangle-shipAngle)<=5 )
 	{
 
-		// std::cout<<"setting finished true \n";
-		// std::cout<<"Relative angle "<<relativeangle<<"\n";
-		// std::cout<<"Alien angle "<<shipAngle<<"\n";
+	
 		finished=true;
 	}
 	else if (fabs(relativeangle-shipAngle) < minAngleofRotation && fabs(relativeangle-shipAngle)>1)
@@ -99,7 +69,7 @@ void OPTurnShipInDirectionOfShip(Ship &ship1, Ship &ship2, bool &finished)
 
 }
 
-void OPFireBulletForShip(Ship &ship, Board &board)
+void OPFireBulletForShip(Ship &ship, Board &board) // fires bullet for ship
 {
 	Bullet newb = Bullet();
 	

@@ -1,11 +1,9 @@
 #include "OPAI.h"
 
-std::pair<int,bool> OPFindNearestShip(Ship &ship, std::vector<Ship> &CurrentShips)
+std::pair<int,bool> OPFindNearestShip(Ship &ship, std::vector<Ship> &CurrentShips) // Finds the nearest ship to given ship
 {
 	bool nearEnough;
-	//std::cout<<"Entered here \n";
 	float min = INT_MAX;
-	//std::cout<<"maximumdistance = "<<min<<"\n";
 	int nearestShip = -1;
 	bool checker=false;
 	for (int j=0; j<CurrentShips.size(); j++)
@@ -14,21 +12,18 @@ std::pair<int,bool> OPFindNearestShip(Ship &ship, std::vector<Ship> &CurrentShip
 			continue;
 		if (CurrentShips[j].GetLives()>0)
 		{
-			//std::cout<<"Entered Ship loop \n";
 			float dist=OPDistanceOfShipFromShip(CurrentShips[j],ship);
-			//std::cout<<"Distance "<<dist<<"\n";
-			//std::cout<<"Distance is "<<dist<<" \n";
+			
 			if (dist < min)
 			{
 				checker=true;
-				//std::cout<<"Updating min \n";
+				
 				min = dist;
 				nearestShip = j;
 			}
 		}
 	}
-	//std::cout<<"minimum dist "<<min<<"\n";
-	//std::cout<<"minDistanceforRotation "<<minDistanceforRotation<<"\n";
+
 
 	if (checker==true)
 			nearEnough = true;
@@ -39,7 +34,7 @@ std::pair<int,bool> OPFindNearestShip(Ship &ship, std::vector<Ship> &CurrentShip
 
 }
 
-float OPRelativeAngleShipFromMissile(Ship &ship,Bullet &actualmissile)
+float OPRelativeAngleShipFromMissile(Ship &ship,Bullet &actualmissile) // Relative angle of ship from missile
 {
 	float angle;
 
@@ -62,7 +57,7 @@ float OPRelativeAngleShipFromMissile(Ship &ship,Bullet &actualmissile)
 }
 
 
-float OPDistanceOfShipFromShip(Ship &ship1, Ship &ship2)
+float OPDistanceOfShipFromShip(Ship &ship1, Ship &ship2) // Finds the distance between two ships
 {
 	return pow((ship2.GetXPos()-ship1.GetXPos()),2) + pow((ship2.GetYPos()-ship1.GetYPos()),2);
 
@@ -90,26 +85,9 @@ float OPRelativeAngleOfShipFromShip(Ship& ship2,Ship &ship1)//returns angles in 
 	return angle;
 }
 
-// int OPClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actualmissile, double maxDistance)
-// {
-// 	int closestAlien = -1;
-// 	float leastDistance = maxDistance; //Infinity
-// 	for (int i=0; i<NumberShips;i++)
-// 	{
-// 		if (i==actualmissile.GetShipId())
-// 			continue;
-// 		// std::cout<<"AlienInarc "<<AlienInArc(Aliens[i],actualmissile)<<" Distance of alien from missile "<<DistanceOfAlienFromMissile(Aliens[i],actualmissile)<<"\n";
-// 		if (ShipInArc(Aliens[i],actualmissile)==true && DistanceOfAlienFromMissile(Aliens[i],actualmissile) < leastDistance)
-// 		{
-// 			leastDistance=DistanceOfAlienFromMissile(Aliens[i],actualmissile);
-// 			closestAlien = i;
-// 			//std::cout<<"closest alien "<<closestAlien<<"\n";
-// 		}
-// 	}
-// 	return closestAlien;
-// }
 
-int OPClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actualmissile, double maxDistance)
+
+int OPClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actualmissile, double maxDistance) // finds closest ship 
 {
 	int closestShip = -1;
 	float leastDistance = maxDistance; //Infinity
@@ -128,7 +106,7 @@ int OPClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actualm
 }
 
 
-bool OPShipInArc(Ship &ship, Bullet &actualmissile)
+bool OPShipInArc(Ship &ship, Bullet &actualmissile) //checks whether the ship is in field of view of missile
 {
 	if (fabs(OPRelativeAngleShipFromMissile(ship,actualmissile)*180/PI)<theta)
 		return true;
@@ -136,13 +114,12 @@ bool OPShipInArc(Ship &ship, Bullet &actualmissile)
 		return false;
 }
 
-float OPDistanceOfShipFromMissile(Ship &ship, Bullet &actualmissile)
+float OPDistanceOfShipFromMissile(Ship &ship, Bullet &actualmissile) // Finds the distance between ship and missile
 {
-	//include math.h
 	return pow((ship.GetXPos()-actualmissile.GetXPos()),2) + pow((ship.GetYPos()-actualmissile.GetYPos()),2);
 }
 
-float OPRelativeAngleShiptoMissilePosition(Ship &ship, Bullet &actualmissile)
+float OPRelativeAngleShiptoMissilePosition(Ship &ship, Bullet &actualmissile) // finds the relative angle between ship and missile position
 {
 	float angle;
 

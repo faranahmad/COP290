@@ -3,7 +3,7 @@
 
 
 
-void OPUpdateAIBoard(Board &board)
+void OPUpdateAIBoard(Board &board) //Calls the update functions of the entire board
 {
 
 	OPUpdatePlayerAI(board);
@@ -12,7 +12,7 @@ void OPUpdateAIBoard(Board &board)
 	OPUpdateMissile(board);
 }
 
-void OPUpdateAlien(Board &board)
+void OPUpdateAlien(Board &board) // Updates aliens
 {
 	std::vector<Alien> CurrentAliens = board.GetVectorAliens();
 	for (int i=0;i<CurrentAliens.size();i++)
@@ -22,14 +22,13 @@ void OPUpdateAlien(Board &board)
 	board.SetVectorAliens(CurrentAliens);
 }
 
- void OPUpdatePlayerAI(Board &board)
+ void OPUpdatePlayerAI(Board &board) // Updates all AI ships
  {
  	std::vector<Bullet> CurrentBullets = board.GetVectorBullets();
  	std::vector<Ship> CurrentShips = board.GetVectorShips();
- 	//std::vector<Alien> CurrentAliens = board.GetVectorAliens();
-// 	WhatItShouldDo action;
+ 	
 	bool nearEnough;
- 	//int nearestAlien;
+ 	
  	int nearestShip;
  	for (int i=0;i<CurrentShips.size();i++)
  	{
@@ -46,13 +45,11 @@ void OPUpdateAlien(Board &board)
  			if (nearEnough==1)
 			{
 				bool finished=false;
-				OPTurnShipInDirectionOfShip(CurrentShips[i],CurrentShips[nearestShip],finished);
+				OPTurnShipInDirectionOfShip(CurrentShips[i],CurrentShips[nearestShip],finished); // turns ship in direction of other ship
 	
-				OPMoveShipInDirectionOfShip(CurrentShips[i],CurrentShips[nearestShip]);
-		//		std::cout<<"Turning Alien in Direction of Ship \n";
+				OPMoveShipInDirectionOfShip(CurrentShips[i],CurrentShips[nearestShip]); // moves ship in direction of other ship
 				if (finished==true)
 				{
-					// std::cout<<"Finished set to true \n";
 					
 					if (rand()%10==9)
 						OPFireBulletForShip(CurrentShips[i],board);
@@ -63,33 +60,16 @@ void OPUpdateAlien(Board &board)
 			}
 
 
-// 			action = DecideActionForShip(board,CurrentShips[i],nearEnough);
-// 			switch (action)
-// 			{
-// 				case Move:
-// 					MoveShipInDirectionOfAlien(CurrentShips[i],CurrentAliens[nearestAlien]);
-// 					break;
-// 				case Turn:
-// 					TurnShipInDirectionOfAlien(CurrentShips[i],CurrentAliens[nearestAlien]);
-// 					break;
-// 				case FireBullet:
-// 					FireBulletForShip(CurrentShips[i],board);
-// 					break;
-// 				case FireMissile:
-// 					FireMissileForShip(CurrentShips[i],board);
-// 					break;
 
- //			}
 				
  		}
  	}
  	board.SetVectorShips(CurrentShips); 	//actual updation
 }
 
-void OPUpdateMissile(Board &board)
+void OPUpdateMissile(Board &board) //Updates all missiles on board
 {
-	// std::cout<<"Update Missile called\n";
-	//UpdateAlienMissile(board);
+	
 	OPUpdateShipMissile(board);
 	std::vector<Bullet> VectorBullets=board.GetVectorBullets();
 			
@@ -97,7 +77,7 @@ void OPUpdateMissile(Board &board)
 	{
 		if(VectorBullets.at(i).GetTypeAI() == true)
 		{
-			VectorBullets.at(i).SetXPos(VectorBullets.at(i).GetXPos()+VectorBullets.at(i).GetVelX());
+			VectorBullets.at(i).SetXPos(VectorBullets.at(i).GetXPos()+VectorBullets.at(i).GetVelX()); //setting new position of missiles
 			VectorBullets.at(i).SetYPos(VectorBullets.at(i).GetYPos()+VectorBullets.at(i).GetVelY());
 		}
 	}
