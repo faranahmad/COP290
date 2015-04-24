@@ -265,7 +265,7 @@ std::vector<int> Board::CheckAlienHitShip(int shipid)
 
 std::vector<Points> Board::UpdateAllBullets()
 {
-	std::vector<Points> aliens_pos;
+	std::vector<Points> ship_pos_vec;
 	int bullet_size = VectorBullets.size();
 	std::vector<int> bullets_delete;
 	std::vector<int> ships_lives_reduce;
@@ -281,6 +281,11 @@ std::vector<Points> Board::UpdateAllBullets()
 				if(VectorShips.at(hit_ship).GetLives() > 0)
 				{	
 					ships_lives_reduce.push_back(hit_ship);
+					Points ship_pos;
+					ship_pos.x = VectorShips.at(hit_ship).GetXPos();
+					ship_pos.y = VectorShips.at(hit_ship).GetYPos();
+					ship_pos.z = 0.0;
+					ship_pos_vec.push_back(ship_pos);
 					bullets_delete.push_back(i);
 				}
 			}
@@ -304,11 +309,11 @@ std::vector<Points> Board::UpdateAllBullets()
 					int ship_score_to_inc = VectorBullets.at(i).GetShipId();
 					VectorShips.at(ship_score_to_inc).SetScore(VectorShips.at(ship_score_to_inc).GetScore() + 5);
 					aliens_delete.push_back((hit_alien));
-					Points alien_del_pos;
-					alien_del_pos.x = VectorAliens.at(hit_alien).GetXPos();
-					alien_del_pos.y = VectorAliens.at(hit_alien).GetYPos();
-					alien_del_pos.z = 0.0;
-					aliens_pos.push_back(alien_del_pos);
+					//Points alien_del_pos;
+					// alien_del_pos.x = VectorAliens.at(hit_alien).GetXPos();
+					// alien_del_pos.y = VectorAliens.at(hit_alien).GetYPos();
+					// alien_del_pos.z = 0.0;
+					// aliens_pos.push_back(alien_del_pos);
 				}
 				bullets_delete.push_back(i);
 			}	
@@ -322,8 +327,12 @@ std::vector<Points> Board::UpdateAllBullets()
 			std::vector<int> alientodel = CheckAlienHitShip(i);
 			if(alientodel.size() != 0)
 			{ 
-				//cout << "chutiya prateek"
 				ships_lives_reduce.push_back(i);
+				Points ship_pos;
+				ship_pos.x = VectorShips.at(i).GetXPos();
+				ship_pos.y = VectorShips.at(i).GetYPos();
+				ship_pos.z = 0.0;
+				ship_pos_vec.push_back(ship_pos);
 				for(int j = 0;j<alientodel.size();j++)
 				{
 					bool repeat  = false;
@@ -337,11 +346,11 @@ std::vector<Points> Board::UpdateAllBullets()
 					}
 					if(!repeat)
 					{
-						Points newpoint;
-						newpoint.x = VectorAliens.at(alientodel.at(j)).GetXPos();
-						newpoint.y = VectorAliens.at(alientodel.at(j)).GetYPos();
-						newpoint.z = 0.0;
-						aliens_pos.push_back(newpoint);
+						// Points newpoint;
+						// newpoint.x = VectorAliens.at(alientodel.at(j)).GetXPos();
+						// newpoint.y = VectorAliens.at(alientodel.at(j)).GetYPos();
+						// newpoint.z = 0.0;
+						// aliens_pos.push_back(newpoint);
 	
 							aliens_delete.push_back(alientodel.at(j));
 						}
@@ -393,7 +402,7 @@ std::vector<Points> Board::UpdateAllBullets()
 			}
 		}
 	}
-	return aliens_pos;
+	return ship_pos_vec;
 }
 
 void Board::UpdateAliens()

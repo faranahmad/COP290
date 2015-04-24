@@ -269,7 +269,7 @@ int Board::CheckAlienHitShip(int alienno)
 std::vector<Points> Board::UpdateAllBullets()
 {
 	// TODO RE WRITE
-	std::vector<Points> ship_pos;
+	std::vector<Points> ship_pos_vec;
 	int bullet_size = VectorBullets.size();
 	std::vector<int> bullets_delete;
 	//std::vector<int> ships_lives_reduce;
@@ -285,6 +285,11 @@ std::vector<Points> Board::UpdateAllBullets()
 			{
 				//ships_lives_reduce.push_back(hit_ship);
 				VectorShips.at(hit_ship).SetLives(VectorShips.at(hit_ship).GetLives() - 1);
+				Points ship_pos;
+				ship_pos.x = VectorShips.at(hit_ship).GetXPos();
+				ship_pos.y = VectorShips.at(hit_ship).GetYPos();
+				ship_pos.z = 0.0;
+				ship_pos_vec.push_back(ship_pos);
 				bullets_delete.push_back(i); 
 				int shipscoreinc = VectorBullets.at(i).GetShipId();
 				VectorShips.at(shipscoreinc).SetScore(VectorShips.at(shipscoreinc).GetScore() + 100);
@@ -322,6 +327,11 @@ std::vector<Points> Board::UpdateAllBullets()
 				if(VectorShips.at(hit_ship2).GetLives() > 0)
 				{
 					VectorShips.at(hit_ship2).SetLives(VectorShips.at(hit_ship2).GetLives() - 1);
+					Points ship_pos;
+					ship_pos.x = VectorShips.at(hit_ship2).GetXPos();
+					ship_pos.y = VectorShips.at(hit_ship2).GetYPos();
+					ship_pos.z = 0.0;
+					ship_pos_vec.push_back(ship_pos);
 				}
 			}
 		}
@@ -422,7 +432,7 @@ std::vector<Points> Board::UpdateAllBullets()
 	
 			
 	
-	return ship_pos;	
+	return ship_pos_vec;	
 }
 
 void Board::UpdateAliens()
@@ -913,7 +923,7 @@ std::string Board::GenerateOnlyPlayerInstructions(int player_id,std::vector<Bull
 
 std::string Board::GenerateAllInstructions(int player_id,std::vector<Points> points)
 {
-	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation() + "\n" +  GenerateShipInsForAI()); 
+	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation() + "\n" + GetStringPoints(points) + "\n" +  GenerateShipInsForAI()); 
 }
 
 std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
@@ -929,7 +939,7 @@ std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
 		}
 		else if(infosplitted[i][0] == '9')
 		{
-			// vanswer=GetVectorPoints(infosplitted[i]);
+			vanswer=GetVectorPoints(infosplitted[i]);
 		}
 		else if(infosplitted[i][0] == '6')
 		{
