@@ -1781,6 +1781,7 @@ if (IsBaap() && GameActive)
 		std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
 		if (p.size()>0)
 		{
+			std::cout <<p.size() <<" these many points from AI\n";
 			Is_SoundExpl=true;
 		}
 		// std::cout<<"Lives after: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";

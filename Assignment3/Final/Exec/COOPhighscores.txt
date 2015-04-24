@@ -1,8 +1,8 @@
 faran
 300
+kc
+50
+kg
+5
 abc
-10
-abc
-0
-faran
 0

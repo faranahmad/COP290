@@ -1051,7 +1051,7 @@ void Board::ApplyAllAlienInstructions(std::string information)
 
 void Board::ApplyPlayerBulletInstructions(std::string information)
 {
-	std::cout << information <<"\n";
+	// std::cout << information <<"\n";
 	std::vector<std::string> allbullets = SplitString(information,'\t');
 	for (int i = 0;i<allbullets.size();i++)
 	{
