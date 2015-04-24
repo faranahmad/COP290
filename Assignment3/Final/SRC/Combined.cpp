@@ -1666,10 +1666,10 @@ void display(void)
 				glPopMatrix();
 			}
 			ShowBoard(newg.PlayerBoard);
-			ShowAllFirePoints();
+			// ShowAllFirePoints();
 			ShowBorders();
 			ShowAllText();
-			DisplayExplosions(Explosions);
+			// DisplayExplosions(Explosions);
 			GameOver = newg.PlayerBoard.CheckGameOver();
 		}	
 	}

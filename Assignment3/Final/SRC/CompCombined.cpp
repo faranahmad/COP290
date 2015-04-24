@@ -1652,7 +1652,7 @@ void *UpdateGameThread(void *x)
 		SendMessageToAll(message1);
 		// std::cout << "done sent\n";
 	}
-	else if (!GameActive)
+	else if (GameActive)
 	{
 		// std::cout << "updateing bullets without killing\n";
 		newg.PlayerBoard.UpdateBulletsWithoutKilling();
