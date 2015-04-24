@@ -374,6 +374,54 @@ std::vector<Points> Board::UpdateAllBullets()
 		VectorBullets.at(i).SetXPos(VectorBullets.at(i).GetXPos()+VectorBullets.at(i).GetVelX());
 		VectorBullets.at(i).SetYPos(VectorBullets.at(i).GetYPos()+VectorBullets.at(i).GetVelY());
 	}
+	
+	for(int i = VectorAliens.size()-1;i>=0;i--)
+	{
+		if (VectorAliens.at(i).GetLevel()==0)
+		{
+			if(VectorAliens.at(i).GetYPos()-(5) < -(DimensionNegY) || VectorAliens.at(i).GetXPos()+3 > DimensionPosX)
+			{
+				VectorAliens.erase(VectorAliens.begin() + i);
+			}
+			// else
+			// {
+			// 	VectorAliens.at(i).SetYPos(VectorAliens.at(i).GetYPos()-(5));
+			// 	VectorAliens.at(i).SetXPos(VectorAliens.at(i).GetXPos()+3);
+			
+			// } 
+
+		}
+		else if (VectorAliens.at(i).GetLevel()==1)
+		{
+			if(VectorAliens.at(i).GetYPos()-(10) < -(DimensionNegY) || VectorAliens.at(i).GetXPos()-5 > -(DimensionNegX))
+			{
+				VectorAliens.erase(VectorAliens.begin() + i);
+			}
+			// else
+			// {
+			// 	VectorAliens.at(i).SetYPos(VectorAliens.at(i).GetYPos()-(10));
+			// 	VectorAliens.at(i).SetXPos(VectorAliens.at(i).GetXPos()-5);
+			// // 
+			// } 
+
+		}
+		else if (VectorAliens.at(i).GetLevel()==2)
+		{
+			if(VectorAliens.at(i).GetYPos()-(7) < -(DimensionNegY))
+			{
+				VectorAliens.erase(VectorAliens.begin() + i);
+			}
+			// else
+			// {
+			// 	VectorAliens.at(i).SetYPos(VectorAliens.at(i).GetYPos()-(10));
+			
+			// } 
+		}
+
+	}
+	
+			
+	
 	return ship_pos;	
 }
 
@@ -1175,7 +1223,7 @@ void Board::AddRandomRock()
 {
 	Alien random_alien;
 	random_alien.SetXPos(RandomFloat(-(DimensionNegX),DimensionPosX));
-	random_alien.SetYPos(RandomFloat((DimensionPosY)-10,DimensionPosY));
+	random_alien.SetYPos(RandomFloat((DimensionPosY)-50,DimensionPosY-40));
 	//random_alien.SetColorFloat(rand() % 255,rand() % 255,rand() % 255);
 	random_alien.SetAngle(RandomFloat(0.0,360.0));
 	//random_alien.SetType(rand() % 2);

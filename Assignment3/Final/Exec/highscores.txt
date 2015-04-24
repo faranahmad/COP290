@@ -1,6 +1,4 @@
-abc
+faran
 300
 abc
-100
-faran
 0
