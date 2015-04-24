@@ -1,6 +1,6 @@
 #include "OPAI.h"
 
-void OPMoveAlien(Alien &alien)
+void OPMoveAlien(Alien &alien) // Moves the rocks downwards
 {
 	if (alien.GetLevel()==0)
 	{

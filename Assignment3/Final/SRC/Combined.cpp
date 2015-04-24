@@ -340,10 +340,6 @@ void ProcessKeys()
 		if (Keys[6])
 		{
 			// Fire Bullet
-			// if (clock()-newg.LastBulletTime>75000)
-			// {
-			// 	newg.LastBulletTime=clock();
-			// std::cout << SpaceBarFree <<"  number of times spacebar pressed\n";
 			if (presentf-newg.LastBulletTime>5)
 			{
 				newg.LastBulletTime=presentf;
@@ -364,7 +360,6 @@ void ProcessKeys()
 				Is_SoundBullet=true;
 				SpaceBarFree+=1;
 			}
-			// }
 		}
 		if (Keys[7])
 		{
@@ -407,13 +402,11 @@ void specialKeys( int key, int x, int y )
 	{
 		Keys[0]=true;
 		// Move the player ship to the right
-		// rotate_x +=2;
 	}
 	if (key == GLUT_KEY_LEFT)
 	{
 		Keys[1]=true;
 		// Move player ship to left
-		// rotate_y +=2;
 	}
 	if (key == GLUT_KEY_UP)
 	{
@@ -425,9 +418,6 @@ void specialKeys( int key, int x, int y )
 		Keys[3]=true;
 		// Move player ship down
 	}
-	// ProcessKeys();
-	// std::cout << rotate_x <<"\t"<<rotate_y<<"\n";
-	// glutPostRedisplay();
 }
 
 
@@ -437,55 +427,38 @@ void specialKeysUp( int key, int x, int y )
 	{
 		Keys[0]=false;
 		// Move the player ship to the right
-		// rotate_x +=2;
-		// newg.PlayerBoard.MoveNthShip(newg.PlayerId,1);
 	}
 	if (key == GLUT_KEY_LEFT)
 	{
 		Keys[1]=false;
 		// Move player ship to left
-		// rotate_y +=2;
-		// newg.PlayerBoard.MoveNthShip(newg.PlayerId,0);
 	}
 	if (key == GLUT_KEY_UP)
 	{
-
 		Keys[2]=false;
-		// newg.PlayerBoard.MoveNthShip(newg.PlayerId,2);
 		// Move player ship up
 	}
 	if (key == GLUT_KEY_DOWN)
 	{
 		Keys[3]=false;
-		// std::cout << "down key left\n";
-		// newg.PlayerBoard.MoveNthShip(newg.PlayerId,3);
 		// Move player ship down
 	}
-	// ProcessKeys();
-	// std::cout << rotate_x <<"\t"<<rotate_y<<"\n";
-	// glutPostRedisplay();
 }
 
 
 void handleKeypress(unsigned char key, int x, int y)
 {
-	// std::cout << key << "\n";
 	switch (key)
 	{
 		case 'a':
 		{
-			// std::cout <<"a was pressed\n";
 			Keys[4]=true;
-			// glutPostRedisplay();
 			// Rotate the ship to the left
 			break;
 		}
 		case 'd':
 		{
-			// std::cout <<"d was pressed\n";
 			Keys[5]=true;
-			// newg.PlayerBoard.MoveNthShip(newg.PlayerId,5);
-    		// glutPostRedisplay();
 			// Rotate the ship to the right
 			break;
 		}
@@ -493,25 +466,22 @@ void handleKeypress(unsigned char key, int x, int y)
 		{
 			if (!GameActive && IsBaap() && SingleMode)
 			{
-				// std::cout << "f was pressed\n";
+				// Adding an alien
 				newg.PlayerBoard.AddRandomShip();
 			}
-			// glutPostRedisplay();
 			break;
 		}
 
 		case 32: //SpaceBar
 		{
 			// Fire bullet
-			// TODO: incorporate multiplier
 			Keys[6]=true;
 			SpaceBarFree+=1;
-			// std::cout << "space bar presed\n";
-
 			break;
 		}
 		case 'c':
 		{
+			// Changing camera view
 			viewtotake=!viewtotake;
 			break;
 		}
@@ -556,37 +526,27 @@ void handleKeypress(unsigned char key, int x, int y)
 			exit(0);
 		}
     }
-    // ProcessKeys();
 }
 
 void handleKeypressUp(unsigned char key, int x, int y)
 {
-	// std::cout << key << "\n";
 	switch (key)
 	{
 		case 'a':
 		{
 			Keys[4]=false;
-			// std::cout << " a lifted\n";
-			// std::cout <<"a was pressed\n";
-			// newg.PlayerBoard.MoveNthShip(newg.PlayerId,4);
-			// glutPostRedisplay();
 			// Rotate the ship to the left
 			break;
 		}
 		case 'd':
 		{
 			Keys[5]=false;
-			// std::cout <<"d was pressed\n";
-			// newg.PlayerBoard.MoveNthShip(newg.PlayerId,5);
-   			//glutPostRedisplay();
 			// Rotate the ship to the right
 			break;
 		}
 		case 32:
 		{
 			SpaceBarFree=0;
-			// std::cout <<" In spacebar up case\n";
 			Keys[6]=false;
 			break;
 		}
@@ -601,7 +561,6 @@ void handleKeypressUp(unsigned char key, int x, int y)
 			break;
 		}
 	}
-    // ProcessKeys();
 }
 
 void mouseclick(int button,int state,int x,int y )
@@ -613,15 +572,15 @@ void mouseclick(int button,int state,int x,int y )
     	int y1= 1080 -2*y;
     	if (OnFrontScreen)
     	{
-    		if (x1>-1770 && x1<-520)
+    		if (x1>-1800 && x1<-480)
     		{
-    			if (y1<-80 && y1>-200)
+    			if (y1<-15 && y1>-200)
     			{
     				OnFrontScreen=false;
     				SingleMode=true;
     			}
     		}
-    		if (x1>-1770 && x1<-560)
+    		if (x1>-1760 && x1<-520)
     		{
     			if (y1<-230 && y1>-460)
     			{
@@ -630,29 +589,12 @@ void mouseclick(int button,int state,int x,int y )
     			}
     		}
     	}
-    	// std::cout<< 2*x-1920 <<"\t" << 1080 -2*y <<"\n";
-    	// AddNewExplosion(2*x-PX, PY-2*y,0);
- 		 //   	Bullet newb = Bullet();
-		// Ship present = newg.PlayerBoard.GetNthShip(newg.PlayerId);
-		// float velx = 0- 10*sin(PI*present.GetAngle()/180);
-		// float vely = 10* cos(PI*present.GetAngle()/180);
-		// newb.SetXPos(present.GetXPos());
-		// newb.SetYPos(present.GetYPos());
-		// newb.SetVelX(velx);
-		// newb.SetVelY(vely);
-		// newb.SetShipID(newg.PlayerId);
-		// newb.SetTypeAI(false);
-		// newb.SetTypePlayer(true);
-		// newg.PlayerBoard.InsertBullet(newb);
-		// BulletsToAdd.push(newb);
-  //   	// Explosions.push_back(newExplosion(2*x-newg.PlayerBoard.GetPosXDimension(),-2*y+newg.PlayerBoard.GetPosYDimension(),0));
     }
 }
 
 void ShowObject(std::vector<Faces> &facevect)
 {
-	// glPushMatrix();
-	// glTranslatef(500,500,1000);
+	// Showing a blender object
 	glRotatef (90,1,0,0);
 	for (int i=0; i<facevect.size() ; i++)
 	{
@@ -667,12 +609,11 @@ void ShowObject(std::vector<Faces> &facevect)
 		glVertex3f(point3.x,point3.y,point3.z);
 		glEnd();
 	}
-	// glPopMatrix();
 }
 
 void ShowBullet(Bullet &b)
 {
-	// std::cout <<"Showing bullet now\n";
+	// Display bullet
 	glPushMatrix();
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
 	glRotatef(b.GetAngle(),0,0,1);
@@ -694,16 +635,11 @@ void ShowBullet(Bullet &b)
 
 void ShowMissile(Bullet &b)
 {
-	// std::cout <<"Showing missile now\n";
+	// Displaying missile
 	glPushMatrix();
 
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
 	glRotatef(b.GetAngle(),0,0,1);
-	
-	// glScalef (0.9,0.9,0.9);
-
-	// std::cout << b.GetXPos() <<"\t"<< b.GetYPos() <<"\n";
-	// Color col_bul=b.GetColorOfBullet();
 	
 	glPushMatrix();
 	glColor3f(1,0,0);
@@ -720,26 +656,24 @@ void ShowMissile(Bullet &b)
 	ShowObject(missileend);
 	glPopMatrix();
 
-
 	glPopMatrix();
 
+	// Showing the smoke at the end of the missile
 	glPushMatrix();
 	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
-	// SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
-	// SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
-	// SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
 	SmokePointsMissile.push_back(NewSmokePoint(b.GetXPos(),b.GetYPos()));
 	glTranslatef(b.GetXPos(),b.GetYPos(),0);
 	glRotatef(b.GetAngle(),0,0,1);
 	glTranslatef(0,-70,0);
 	DisplaySmokePoints(SmokePointsMissile);
-	// std::cout << SmokePointsMissile.size() <<"\n";
 	glPopMatrix();
+	
 	UpdateAllSmokePoints(SmokePointsMissile);
 }
 
 void ShowShip(Ship &shiptodisplay)
 {
+	// Displaying ship
 	if (shiptodisplay.GetLives()>0)
 	{
 		glPushMatrix();
@@ -748,6 +682,7 @@ void ShowShip(Ship &shiptodisplay)
 		Color col_ship=shiptodisplay.GetColor();
 		if (!viewtotake)
 		{
+			// Power Bar at the bottom in 3D mode
 			glPushMatrix();
 
 			int livesofship=shiptodisplay.GetLives();
@@ -799,8 +734,7 @@ void ShowShip(Ship &shiptodisplay)
 
 void ShowAlien(Alien &alientodisplay)
 {
-	// std::cout << "displaying alien\n";
-	// std::cout << alientodisplay.GetSummary() <<"\n";
+	// Displaying alien
 	glPushMatrix();
 
 	glTranslatef(alientodisplay.GetXPos(),alientodisplay.GetYPos(),0);
@@ -879,19 +813,6 @@ void ShowAlien(Alien &alientodisplay)
 		ShowObject(alien2top);
 		glPopMatrix();
 
-
-
-
-
-
-
-		// glPushMatrix();
-		// Color col_ship=alientodisplay.GetColor();
-		// glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
-		// ShowObject(alien2body);
-		// glPopMatrix();
-
-
 	}
 	glPopMatrix();
 }
@@ -938,36 +859,24 @@ void ShowBorders()
 
 void ShowTitle()
 {
-	// glPushMatrix();
-	// glRasterPos2f(  50+ PX, PY -50);
-	// glColor3f(0,0,1);
-	// // glutStrokeString(GLUT_STROKE_ROMAN, y);
-	// glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, titleptr);
-	// glPopMatrix();
+	// Showing th title
 }
 
 void ShowIp()
 {
-	// unsigned char *y123= (unsigned char*) ("IP: "+ GetIP()).c_str();
-
-	// // std::cout <<GetIP() <<"\n";
-	// glPushMatrix();
-	// glRasterPos2f(  50+ PX, PY -150);
-	// glColor3f(1,0,1);
-	// // glutStrokeString(GLUT_STROKE_ROMAN, y);
-	// glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y123);
-	// glPopMatrix();
+	// Displaying the ip
 }
 
 void ShowLives()
 {
+	// Displaying the lives and missiles
 	
 	const char * livesS="Lives: ";
 	unsigned char *y= (unsigned char*) livesS;
 
 	int lives= newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives();
 	std::string s1 = std::to_string(lives);
-	// std::cout <<s1 <<"\n";
+	
 	unsigned char *pchar1 = (unsigned char*) s1.c_str();
 	
 	const char * MissilesS="Missiles: ";
@@ -982,8 +891,6 @@ void ShowLives()
 	{
 		glPushMatrix();
 		glRasterPos2f(   PX+100, 800 );
-		// glColor3f(0,1,1);
-		// glutStrokeString(GLUT_STROKE_ROMAN, y);
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar1);
 		glPopMatrix();
@@ -998,8 +905,6 @@ void ShowLives()
 	{
 		glPushMatrix();
 		glRasterPos3f(   -200, 1080, 380  );
-		// glColor3f(0,1,1);
-		// glutStrokeString(GLUT_STROKE_ROMAN, y);
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, y);
 		glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, pchar1);
 		glPopMatrix();
@@ -1014,8 +919,6 @@ void ShowLives()
 
 void ShowScores()
 {
-	// const char * kg="kartikeya";
-	// unsigned char *y= (unsigned char*) kg;
 	if (viewtotake)
 	{
 		float iniy = 200;
@@ -1127,9 +1030,6 @@ void ShowBoard(Board &boardtodisplay)
 		glEnd();
 		glPopMatrix();
 	}
-	// UpdateAllSmokePoints(SmokePointsMissile);
-	// UpdateAllSmokePoints(SmokePoints);
-
 }
 
 void newSpeed (float dest[3])
@@ -1211,7 +1111,6 @@ void UpdateFireExplosions()
 		if (FirePoints[i].life>0)
 		{
 			FirePoints[i].life -=1;
-			// FirePoints[i].z +=
 			FirePoints[i].position[1] += rand()%20;
 			FirePoints[i].color[0] -= 0.0149*3;
 			FirePoints[i].color[1] += 0.005*3;
@@ -1220,7 +1119,6 @@ void UpdateFireExplosions()
 		}
 		else
 		{
-			// FirePoints.
 			FirePoints.erase(FirePoints.begin()+i);
 			i-=1;
 		}
@@ -1347,7 +1245,6 @@ void UpdateAllExplosions()
 
 void ShowSmokePoint(SmokePoint &p)
 {
-	// glTranslatef(-,0,0);
 	glPushMatrix();
 	glTranslatef(p.position[0],p.position[1],p.position[2]);
 	glColor3f(p.color[0],p.color[1],p.color[2]);
@@ -1393,8 +1290,6 @@ void UpdateSmokePoint(SmokePoint &p)
 	p.color[2] -=0.02;
 
 	p.life -= 1;
-
-	// return p;
 }
 
 void UpdateAllSmokePoints(std::vector<SmokePoint> &v)
@@ -1418,7 +1313,6 @@ void DisplaySmokePoints(std::vector<SmokePoint> &v)
 {
 	for (int i=0; i<v.size(); i++)
 	{
-		// std::cout << "Showing point:" << i <<"\n";
 		ShowSmokePoint(v[i]);
 	}
 }
@@ -1439,29 +1333,19 @@ void *networkmainhelper(void* inp)
 
 void ShowGameOver()
 {
-	// glPushMatrix();
-	// glColor3f(1.0,1.0,1.0);
-
-	// glBegin(GL_POLYGON);
-	// glVertex3f( -NX, PY, 0.0);
-	// glVertex3f(  PX , PY, 0.0);
-	// glVertex3f( PX , -NY  , 0.0);
-	// glVertex3f( -NX, -NY  , 0.0);
-	// glEnd();
-	// glPopMatrix();
-	
+	// Game over 
 }
 
 void display(void)
 {
-	ProcessKeys();
-	// std::cout << "starting display\n";
-	presentf+=1;
+	// Display function
 
-	// std::cout << "Starting display work\n";
+	ProcessKeys();
+	presentf+=1;
+	
 	int const window_width  = glutGet(GLUT_WINDOW_WIDTH);
 	int const window_height = glutGet(GLUT_WINDOW_HEIGHT);
-	// float const window_aspect = (float)window_width / (float)window_height;
+	
 	glClearColor(0, 0, 0.0, 1.0);
 	glClearDepth(1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -1483,12 +1367,8 @@ void display(void)
 		gluLookAt(myship.GetXPos()+600*sin(PI*myship.GetAngle()/180),myship.GetYPos()-600*cos(PI*myship.GetAngle()/180),300,myship.GetXPos(),myship.GetYPos()+5,0,0,0,1);
 	}
 
-
-	// std::cout<<"here before the if\n";
-	// if (!GameActive && !GameOver)
 	if (OnFrontScreen)
 	{
-	    // std::cout <<"displaying image\n";
 		glEnable(GL_TEXTURE_2D);
 	    glBindTexture(GL_TEXTURE_2D, _textureId);
 	    
@@ -1579,7 +1459,6 @@ void display(void)
 		    glDisable(GL_TEXTURE_2D);
 	    }
 
-	    // Now show the highscores
 		float iniy = -200;
 
 		for (int i=0; i<highscorestodisplay.size(); i++)
@@ -1614,7 +1493,6 @@ void display(void)
 	{
 		if (GameActive)
 		{
-			// std::cout << "in else\n";
 			for (int i=0; i<Stars.size() ; i++)
 			{
 				glPushMatrix();
@@ -1662,7 +1540,6 @@ void display(void)
 	{
 		if (GameActive)
 		{
-			// std::cout << "in else\n";
 			for (int i=0; i<Stars.size() ; i++)
 			{
 				glPushMatrix();
@@ -1672,7 +1549,6 @@ void display(void)
 				glPopMatrix();
 			}
 			ShowBoard(newg.PlayerBoard);
-			// ShowAllFirePoints();
 			ShowBorders();
 			ShowAllText();
 			DisplayExplosions(Explosions);
@@ -1705,25 +1581,11 @@ void display(void)
 			glPopMatrix();	
 		}
 	}
-	// for (int i=0; i<newg.PlayerBoard.GetVectorBullets().size();i++)
-	// {
-	// 	std::cout << "bullets info: "<< newg.PlayerBoard.GetNthBullet(i).GetSummary()<<"\n";
-	// }
 	
-	// for (int i=0; i<newg.PlayerBoard.GetNumberShips();i++)
-	// {
-	// 	std::cout << "players info: "<< newg.PlayerBoard.GetNthShip(i).GetSummary()<<"\n";
-	// }
 	glutSwapBuffers();
-	// std::cout <<"Buffers swapped\n";
 	
-	// std::cout << "starting explosion update\n";
 	UpdateAllExplosions();
-	// std::cout << "Updated\n";
-	// std::cout << "Done operations, time for re display\n";
-	// UpdatePlayerAI(newg.PlayerBoard);
-	// Update AI
-	//usleep(10000);
+	
 	glutPostRedisplay();
 }
 
@@ -1731,107 +1593,77 @@ void *UpdateGameThread(void *x)
 {
 	while(true)
 	{
-		// while (GetNumPlayers()>newg.PlayerBoard.GetNumberShips())
-		// {
-		// 	std::cout <<"inserting\n";
-		// 	Ship newship1=Ship(newg.PlayerBoard.GetNumberShips());
-		// 	newg.PlayerBoard.InsertShip(newship1);
-		// }
 
 		newg.IsActive=(newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()>0);
 		
-	while (!Instructions.empty())
-	{
-       // std::cout <<"in instructions\n";
-        std::string s=Instructions.front();
-//        std::cout <<s.size() <<"\n";
-		Instructions.pop();
-		// std::cout <<"popped 1\n";
-		std::vector<Points> newexp= newg.PlayerBoard.ApplyInstructions(s,newg.PlayerId);
-		// std::cout << "applied\n";
-		if (newexp.size()>0)
+		while (!Instructions.empty())
 		{
-			// std::cout << newexp.size() <<" these many explosions\n";
-			Is_SoundExpl=true;
-		}
-		for (int j=0; j<Explosions.size(); j++)
-		{
-			if (Explosions[j].fuel==0)
+    	    std::string s=Instructions.front();
+			Instructions.pop();
+			std::vector<Points> newexp= newg.PlayerBoard.ApplyInstructions(s,newg.PlayerId);
+			if (newexp.size()>0)
 			{
-				Explosions.erase(Explosions.begin()+j);
-				j-=1;
+				Is_SoundExpl=true;
+			}
+			for (int j=0; j<Explosions.size(); j++)
+			{
+				if (Explosions[j].fuel==0)
+				{
+					Explosions.erase(Explosions.begin()+j);
+					j-=1;
+				}
+			}
+			for (int j=0; j<newexp.size(); j++)
+			{
+				Explosions.push_back(newExplosion(newexp[j].x,newexp[j].y,0));
 			}
 		}
-		// std::cout <<"erased any explosions\n";
-		for (int j=0; j<newexp.size(); j++)
+		std::vector<Bullet> bulltoadd;
+		while (!BulletsToAdd.empty())
 		{
-			// std::cout <<Explosions.size() <<" before\n";
-			Explosions.push_back(newExplosion(newexp[j].x,newexp[j].y,0));
-			// std::cout <<Explosions.size() << " pushed new explosions\n";
+			bulltoadd.push_back(BulletsToAdd.front());
+			BulletsToAdd.pop();
 		}
-	}
-	// std::cout <<"applied instructions if any\n";
-	std::vector<Bullet> bulltoadd;
-	while (!BulletsToAdd.empty())
-	{
-		bulltoadd.push_back(BulletsToAdd.front());
-		BulletsToAdd.pop();
-	}
-	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,bulltoadd);
-   // std::cout << "sending" << message1.size() <<"\n";
-    SendMessageToAll(message1);
+		std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,bulltoadd);
+	    SendMessageToAll(message1);
 
-if (IsBaap() && GameActive)
-	{
-       // std::cout << "in baap\n";
-		// std::cout<<"Lives before: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
-		// std::cout << "It is in the baap case\n";
-		UpdateAIBoard(newg.PlayerBoard);
-		std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
-		if (p.size()>0)
+		if (IsBaap() && GameActive)
 		{
-			// std::cout <<p.size() <<" these many points from AI\n";
-			Is_SoundExpl=true;
-		}
-		// std::cout<<"Lives after: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
-
-		// std::cout << "starting for loop\n";
-		for (int j=0; j<Explosions.size(); j++)
-		{
-			if (Explosions[j].fuel==0)
+			UpdateAIBoard(newg.PlayerBoard);
+			std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
+			if (p.size()>0)
 			{
-				Explosions.erase(Explosions.begin()+j);
-				j-=1;
+				Is_SoundExpl=true;
 			}
-		}
-		// std::cout <<"done with for 1\n";
-		for (int j=0; j<p.size(); j++)
-		{
-			Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
-			// std::cout << p[j].x <<"\t" <<p[j].y << "\n";
-		}
 
-        while (newg.PlayerBoard.GetNumberAliens()<=newg.LastBulletTime/50)
-		{
-			newg.PlayerBoard.AddRandomAlien();
-		}
-		// std::cout << "starting ins gen\n";
-		message1 = newg.PlayerBoard.GenerateAllInstructions(newg.PlayerId,p);
-		// std::cout <<" generated instructions\n";
-		// std::cout << message1;
-		SendMessageToAll(message1);
-		// std::cout << "done sent\n";
-	}
-	else if (GameActive)
-	{
-		// std::cout << "updateing bullets without killing\n";
-		newg.PlayerBoard.UpdateBulletsWithoutKilling();
-		// std::cout <<"updated\n";
-	}
-	// std::cout << "starting sleep\n";
+			for (int j=0; j<Explosions.size(); j++)
+			{
+				if (Explosions[j].fuel==0)
+				{
+					Explosions.erase(Explosions.begin()+j);
+					j-=1;
+				}
+			}
 
-	usleep(40000);	
-	// std::cout <<"sleep over\n";
+			for (int j=0; j<p.size(); j++)
+			{
+				Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
+			}
+	
+	        while (newg.PlayerBoard.GetNumberAliens()<=newg.LastBulletTime/50)
+			{
+				newg.PlayerBoard.AddRandomAlien();
+			}
+
+			message1 = newg.PlayerBoard.GenerateAllInstructions(newg.PlayerId,p);
+
+			SendMessageToAll(message1);
+		}
+		else if (GameActive)
+		{
+			newg.PlayerBoard.UpdateBulletsWithoutKilling();
+		}
+		usleep(40000);	
 	}
 }
 
@@ -1872,8 +1704,6 @@ int main(int argc,char *argv[])
 
 	srand (time(NULL));
 
-	// std::cout << "Opening file\n";
-	
 	missiletop = loadOBJ("MissileTop.obj");
 	missilemid = loadOBJ("MissileMid.obj");
 	missileend = loadOBJ("MissileEnd.obj");
@@ -1895,7 +1725,6 @@ int main(int argc,char *argv[])
 	shipmid = loadOBJ("NewShipMid.obj");
 	shipfir = loadOBJ("NewShipFir.obj");
 
-	// std::cout << "Opened file\n";
 	PX=1400;
 	NX=1850;
 	PY=1040;
@@ -1920,7 +1749,6 @@ int main(int argc,char *argv[])
 
 	IPAddress= GetIP();
 
-	// std::cout <<"pushing stars\n";
 	for (int i =0 ; i<limt ; i++)
 	{
 		int X,Y,Z;
@@ -1933,7 +1761,7 @@ int main(int argc,char *argv[])
 		p.z=Z;
 		Stars.push_back(p);
 	}
-	// std::cout <<"pushed stars: " <<isOffline <<"\n";
+	
 	int numplayers;
 	if (!isOffline)
 	{
@@ -1948,15 +1776,11 @@ int main(int argc,char *argv[])
 		numplayers=1;
 	}
 	
-
-	// std::cout <<"Generated stars: " << Stars.size() <<"\n";
-	// std::cout << "number of total players from start: " << numplayers <<"\n";
 	newg.PlayerId = numplayers-1;
 	newg.PlayerBoard = Board(PX,NX,PY,NY);
 
 	for (int k=0; k<numplayers; k++)
 	{
-		// std::cout << "pushing player: " <<k <<"\t" << newg.PlayerBoard.GetNumberShips() <<"\n";;
 		Ship news= Ship(k);
 		news.SetColorFloat(rand()%255,rand()%255,rand()%255);
 		newg.PlayerBoard.InsertShip(news);
@@ -1965,19 +1789,11 @@ int main(int argc,char *argv[])
 	Pship.SetName(argv[argc-1]);
 	newg.PlayerBoard.SetNthShip(newg.PlayerId,Pship);
 
-	// std::cout << "board is set up: " <<newg.PlayerId<<"\n";
-
-	
-
-
-	// Alien newa= Alien();
-	// newg.PlayerBoard.InsertAlien(newa);
 	newg.LastBulletTime=0;
 	newg.LastMissileTime=0;
 	presentf=0;
 
 	pthread_create(&backendthread,NULL,UpdateGameThread,NULL);
-
 
 	// Wrapper function for graphics
 	glutInit(&argc, argv);

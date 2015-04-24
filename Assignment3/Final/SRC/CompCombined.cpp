@@ -6,15 +6,12 @@ GLuint _textureGameOver;
 GLuint _textureHighScore;
 GLuint _textureRock;
 
-
 void *sound_play1(void *x)
 {
-	// std::cout <<"in sound play explosion\n";
 	while (true)
 	{
 		if (Is_SoundExpl)
 		{
-			// std::cout <<"playing found for missile\n";
 			system("canberra-gtk-play -f explosion1.wav");
 			Is_SoundExpl=false;
 		}
@@ -29,13 +26,22 @@ void *sound_play2(void *x)
 	{
 		if (Is_SoundBullet)
 		{
-			// std::cout << "playing sound for bullet\n";
 			system("canberra-gtk-play -f bullet1.wav");
 			Is_SoundBullet=false;
 		}
 		usleep(1000);
 	}
 }
+
+void *sound_play3(void *x)
+{
+	while (backgroundmusic)
+	{
+		system("canberra-gtk-play -f background.wav");
+	}
+	outofmusic=true;
+}
+
 
 namespace {
     //Converts a four-character array to an integer, using little-endian form
@@ -545,6 +551,13 @@ void handleKeypress(unsigned char key, int x, int y)
 		}
 		case 27: //Escape key
 		{
+			backgroundmusic=false;
+			system("killall -9 canberra-gtk-play");
+			usleep(1000);
+			while (!outofmusic)
+			{
+				// Keep waiting
+			}
 			exit(0);
 		}
     }
@@ -741,7 +754,38 @@ void ShowShip(Ship &shiptodisplay)
 		// std::cout << shiptodisplay.GetXPos() << "\t" << shiptodisplay.GetYPos() <<"\n";
 		
 		// glRotatef(180,0,1,0);
+		if (!viewtotake)
+		{
+			// Power Bar at the bottom in 3D mode
+			glPushMatrix();
 
+			int livesofship=shiptodisplay.GetLives();
+
+			if (livesofship>=4)
+			{
+				glColor3f(0.0,1.0,0.0);
+			}
+			else if (livesofship>=2)
+			{
+				glColor3f(1.0,1.0,0.0);
+			}
+			else
+			{
+				glColor3f(1.0,0.0,0.0);
+			}
+
+		    glBegin(GL_QUADS);
+	
+	    	glVertex3f(-100, -80, 0);
+	    	glVertex3f(40*livesofship -100,-80, 0);
+	    	glVertex3f(40*livesofship -100, -80, -20);
+	    	glVertex3f(-100, -80, -20);
+	    	
+	    	glEnd();
+
+			glPopMatrix();
+		}
+	
 
 		glPushMatrix();
 		glColor4f(1,1,1,0.5);
@@ -861,20 +905,6 @@ void ShowAlien(Alien &alientodisplay)
 		glColor3f(1,1,1);
 		ShowObject(alien2top);
 		glPopMatrix();
-
-
-
-
-
-
-
-		// glPushMatrix();
-		// Color col_ship=alientodisplay.GetColor();
-		// glColor3f(col_ship.GetR(), col_ship.GetG(), col_ship.GetB());
-		// ShowObject(alien2body);
-		// glPopMatrix();
-
-
 	}
 	glPopMatrix();
 }
@@ -1787,135 +1817,95 @@ void *UpdateGameThread(void *x)
 	{
 		newg.IsActive=(newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()>0);
 		
-	while (!Instructions.empty())
-	{
-       // std::cout <<"in instructions\n";
-        std::string s=Instructions.front();
-//        std::cout <<s.size() <<"\n";
-		Instructions.pop();
-		// std::cout <<"popped 1\n";
-		std::vector<Points> newexp= newg.PlayerBoard.ApplyInstructions(s,newg.PlayerId);
-		// std::cout << "applied\n";
-		if (newexp.size()>0)
+		while (!Instructions.empty())
 		{
-			Is_SoundExpl=true;
-		}
-		for (int j=0; j<Explosions.size(); j++)
-		{
-			if (Explosions[j].fuel==0)
+	       // std::cout <<"in instructions\n";
+	        std::string s=Instructions.front();
+	//        std::cout <<s.size() <<"\n";
+			Instructions.pop();
+			// std::cout <<"popped 1\n";
+			std::vector<Points> newexp= newg.PlayerBoard.ApplyInstructions(s,newg.PlayerId);
+			// std::cout << "applied\n";
+			if (newexp.size()>0)
 			{
-				Explosions.erase(Explosions.begin()+j);
-				j-=1;
+				Is_SoundExpl=true;
 			}
-		}
-		// std::cout <<"erased any explosions\n";
-		for (int j=0; j<newexp.size(); j++)
-		{
-			Explosions.push_back(newExplosion(newexp[j].x,newexp[j].y,0));
-		}
-		// std::cout << "pushed new explosions\n";
-	}
-	// std::cout <<"applied instructions if any\n";
-	std::vector<Bullet> bulltoadd;
-	while (!BulletsToAdd.empty())
-	{
-		bulltoadd.push_back(BulletsToAdd.front());
-		BulletsToAdd.pop();
-	}
-	std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,bulltoadd);
-   // std::cout << "sending" << message1.size() <<"\n";
-    SendMessageToAll(message1);
-
-if (IsBaap() && GameActive)
-	{
-       // std::cout << "in baap\n";
-		// std::cout<<"Lives before: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
-		// std::cout << "It is in the baap case\n";
-		OPUpdateAIBoard(newg.PlayerBoard);
-		std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
-		if (p.size()>0)
-		{
-			Is_SoundExpl=true;
-		}
-		// std::cout<<"Lives after: " <<newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()<<"\n";
-
-		// std::cout << "starting for loop\n";
-		for (int j=0; j<Explosions.size(); j++)
-		{
-			if (Explosions[j].fuel==0)
+			for (int j=0; j<Explosions.size(); j++)
 			{
-				Explosions.erase(Explosions.begin()+j);
-				j-=1;
+				if (Explosions[j].fuel==0)
+				{
+					Explosions.erase(Explosions.begin()+j);
+					j-=1;
+				}
 			}
+			// std::cout <<"erased any explosions\n";
+			for (int j=0; j<newexp.size(); j++)
+			{
+				Explosions.push_back(newExplosion(newexp[j].x,newexp[j].y,0));
+			}
+			// std::cout << "pushed new explosions\n";
 		}
-		// std::cout <<"done with for 1\n";
-		for (int j=0; j<p.size(); j++)
+		// std::cout <<"applied instructions if any\n";
+		std::vector<Bullet> bulltoadd;
+		while (!BulletsToAdd.empty())
 		{
-			Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
-			// std::cout << p[j].x <<"\t" <<p[j].y << "\n";
+			bulltoadd.push_back(BulletsToAdd.front());
+			BulletsToAdd.pop();
 		}
-
-        while (newg.PlayerBoard.GetNumberAliens()<=15)
+		std::string message1 = newg.PlayerBoard.GenerateOnlyPlayerInstructions(newg.PlayerId,bulltoadd);
+	   // std::cout << "sending" << message1.size() <<"\n";
+	    SendMessageToAll(message1);
+	
+		if (IsBaap() && GameActive)
 		{
-			newg.PlayerBoard.AddRandomRock();
-		}
-		// std::cout << "starting ins gen\n";
-		message1 = newg.PlayerBoard.GenerateAllInstructions(newg.PlayerId,p);
-		// std::cout <<" generated instructions\n";
-		// std::cout << message1;
-		SendMessageToAll(message1);
-		// std::cout << "done sent\n";
-	}
-	else if (GameActive)
-	{
-		// std::cout << "updateing bullets without killing\n";
-		newg.PlayerBoard.UpdateBulletsWithoutKilling();
-		// std::cout <<"updated\n";
-	}
-	// std::cout << "starting sleep\n";
+			OPUpdateAIBoard(newg.PlayerBoard);
+			std::vector<Points> p = newg.PlayerBoard.UpdateAllBullets();
 
-	usleep(40000);	
-	// std::cout <<"sleep over\n";
+			if (p.size()>0)
+			{
+				Is_SoundExpl=true;
+			}
+
+			for (int j=0; j<Explosions.size(); j++)
+			{
+				if (Explosions[j].fuel==0)
+				{
+					Explosions.erase(Explosions.begin()+j);
+					j-=1;
+				}
+			}
+			// std::cout <<"done with for 1\n";
+			for (int j=0; j<p.size(); j++)
+			{
+				Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
+				// std::cout << p[j].x <<"\t" <<p[j].y << "\n";
+			}
+	
+	        while (newg.PlayerBoard.GetNumberAliens()<=15 + newg.LastBulletTime/200)
+			{
+				newg.PlayerBoard.AddRandomRock();
+			}
+			message1 = newg.PlayerBoard.GenerateAllInstructions(newg.PlayerId,p);
+			SendMessageToAll(message1);
+		}
+		else if (GameActive)
+		{
+			newg.PlayerBoard.UpdateBulletsWithoutKilling();
+		}
+		usleep(40000);	
 	}
 }
 
 void mousepos(int x, int y)
 {
-	// double convx=2*x-1920;
-	// double convy=-2*y+1080;
-	// Ship n1=newg.PlayerBoard.GetNthShip(newg.PlayerId);
-	// double dy=convy-n1.GetYPos();
-	// double dx=convx-n1.GetXPos();
-	// float theta1;
-	// if (dx == 0.0)
-	// {
-	// 	if (dy>0)
-	// 	{
-	// 		theta1=0;
-	// 	}
-	// 	else
-	// 	{
-	// 		theta1=180;
-	// 	}
-	// }
-	// else
-	// {
-	// 	if (dx>0)
-	// 	{
-	// 		theta1 = (float) (atan(dy/dx)*180/PI) -90.0 ;
-	// 	}
-	// 	else
-	// 	{
-	// 		theta1 = (float) (atan(dy/dx)*180/PI) +90.0 ;
-	// 	}
-	// }
-	// n1.SetAngle(theta1);
-	// newg.PlayerBoard.SetNthShip(newg.PlayerId,n1);
-	// std::cout<< "Mouse is at: "<<convx <<"\t" <<convy <<"\n";
+	// Mouse pointer location
 }
 
 int main(int argc,char *argv[])
 {
+	backgroundmusic=true;
+	outofmusic=false;
+
 	FirePoints = std::vector<FirePoint> ();
 	// initRendering();
 	GameActive=false;
@@ -1942,7 +1932,6 @@ int main(int argc,char *argv[])
 	}
 
 	srand (time(NULL));
-	std::cout << "Opening file\n";
 	
 	missiletop = loadOBJ("MissileTop.obj");
 	missilemid = loadOBJ("MissileMid.obj");
@@ -1966,8 +1955,7 @@ int main(int argc,char *argv[])
 	shipcol = loadOBJ("NewShipCol.obj");
 	shipmid = loadOBJ("NewShipMid.obj");
 	shipfir = loadOBJ("NewShipFir.obj");
-
-	std::cout << "Opened file\n";
+	
 	PX=1400;
 	NX=1850;
 	PY=1040;
@@ -1979,9 +1967,10 @@ int main(int argc,char *argv[])
 
 	pthread_t soundthread1;
 	pthread_t soundthread2;
+	pthread_t soundthread3;
 	pthread_create(&soundthread1,NULL,sound_play1,NULL);
 	pthread_create(&soundthread2,NULL,sound_play2,NULL);
-    
+	pthread_create(&soundthread3,NULL,sound_play3,NULL);
 
 	std::string title ="Space Invaders";
 	titleptr= (unsigned char*) title.c_str();
@@ -1991,7 +1980,6 @@ int main(int argc,char *argv[])
 
 	IPAddress= GetIP();
 
-	std::cout <<"pushing stars\n";
 	for (int i =0 ; i<limt ; i++)
 	{
 		int X,Y,Z;
@@ -2004,7 +1992,7 @@ int main(int argc,char *argv[])
 		p.z=Z;
 		Stars.push_back(p);
 	}
-	std::cout <<"pushed stars: " <<isOffline <<"\n";
+	
 	int numplayers;
 	if (!isOffline)
 	{
@@ -2019,9 +2007,6 @@ int main(int argc,char *argv[])
 		numplayers=1;
 	}
 	
-
-	std::cout <<"Generated stars: " << Stars.size() <<"\n";
-
 	newg.PlayerId = numplayers-1;
 	newg.PlayerBoard = Board(PX,NX,PY,NY);
 
@@ -2034,14 +2019,6 @@ int main(int argc,char *argv[])
 	Ship Pship=newg.PlayerBoard.GetNthShip(newg.PlayerId);
 	Pship.SetName(argv[argc-1]);
 	newg.PlayerBoard.SetNthShip(newg.PlayerId,Pship);
-
-	std::cout << "board is set up: " <<newg.PlayerId<<"\n";
-
-	
-
-
-	// Alien newa= Alien();
-	// newg.PlayerBoard.InsertAlien(newa);
 	newg.LastBulletTime=0;
 	newg.LastMissileTime=0;
 	presentf=0;
