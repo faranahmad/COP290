@@ -913,7 +913,7 @@ std::string Board::GenerateOnlyPlayerInstructions(int player_id,std::vector<Bull
 
 std::string Board::GenerateAllInstructions(int player_id,std::vector<Points> points)
 {
-	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n"   + GenerateShipInsForAI()); 
+	return (GeneratingCount() + "\n" + GenerateAllBulletInstructions() + "\n" + GenerateAliensInformation() + "\n" +  GenerateShipInsForAI()); 
 }
 
 std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
@@ -950,7 +950,7 @@ std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
 		else if(infosplitted[i][0] == '7')
 		{
 			//std::cout <<"applying aliens\n";
-			// ApplyAllAlienInstructions(infosplitted[i]);
+			ApplyAllAlienInstructions(infosplitted[i]);
 		}
 		else if(infosplitted[i][0] == 't')
 		{
@@ -965,7 +965,7 @@ std::vector<Points> Board::ApplyInstructions(std::string information,int shipid)
 std::string Board::GeneratingCount()
 {
 	return ("6_" + std::to_string(VectorShips.size()) + "_" + 
-			std::to_string(VectorBullets.size()) );
+			std::to_string(VectorBullets.size()) + "_" + std::to_string(VectorAliens.size()) );
 }
 
 void Board::ApplyInstruction6(std::string information)
@@ -974,6 +974,10 @@ void Board::ApplyInstruction6(std::string information)
 	if(std::stoi(s[2]) == 0)
 	{
 		VectorBullets.clear();
+	}
+	if(std::stoi(s[3]) == 0)
+	{
+		VectorAliens.clear();
 	}
 }
 
