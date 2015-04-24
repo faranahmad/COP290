@@ -502,12 +502,12 @@ void Board::MoveNthShip(int ship_id,int mov_type)
 	}
 	else if(mov_type == 4)
 	{
-		ship_to_move.SetAngle(ship_to_move.GetAngle() - 5.0);
+		ship_to_move.SetAngle(ship_to_move.GetAngle() - 2.0);
 		//std::cout<<ship_to_move.GetAngle() <<"\n";
 	}
 	else if(mov_type == 5)
 	{
-		ship_to_move.SetAngle(ship_to_move.GetAngle() + 5.0);
+		ship_to_move.SetAngle(ship_to_move.GetAngle() + 2.0);
 		//std::cout<<ship_to_move.GetAngle() <<"\n";
 	}
 	if(ship_to_move.GetXPos() < -(DimensionNegX))
