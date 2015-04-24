@@ -72,13 +72,14 @@ void AddPlayers(char players [])
     int i;
 	for(i=2;players[i]!=0;i++)
 	{
-		if(players[i]!=' ' && players[i]!='\n')
+		if(players[i]=='@')
+		{
+			std::cout<<"break now\n";
+			break;
+		}
+		else if(players[i]!=' ' && players[i]!='\n')
 		{
 			s=s+players[i];
-		}
-		else if(players[i]=='\t')
-		{
-			break;
 		}
 		else
 		{	
@@ -103,6 +104,7 @@ void AddPlayers(char players [])
 			s="";
 		}
 	}
+	std::cout<<players[i]<<'\t'<<players[i+1]<<'\t'<<players[i+2]<<std::endl;
 	TotalPlayers= (int(players[i+1]) -int('0'));
 }
 
@@ -181,7 +183,7 @@ char* ToArr(std::string str)
 
 void SendMessageToAll(std::string message)
 {
-	std::cout<<"function called\n";
+	// std::cout<<"function called\n";
 	if(IPdata.size()>0)
 	{
 		// std::cout<<"Sending message to all\t" <<message<<"\n";
@@ -351,7 +353,7 @@ void* ReceiveData(void* input)
                         j++;
 					}
 					j--;
-					sendmsg[j]='\t';
+					sendmsg[j]='@';
 					sendmsg[j+1]=(char)(TotalPlayers+int('0'));
 					sendmsg[j+2]='\n';
 					sendmsg[j+3]='\0';
