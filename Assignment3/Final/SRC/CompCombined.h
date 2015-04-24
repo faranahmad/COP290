@@ -108,6 +108,8 @@ std::vector<Faces> missileend;
 std::vector<Faces> bullettop;
 std::vector<Faces> bulletmid;
 
+std::vector<Faces> rocktoshow;
+
 std::vector<Points> Stars;
 std::vector<Expl> Explosions;
 std::vector<SmokePoint> SmokePoints;
@@ -159,6 +161,7 @@ void ShowMissile(Bullet &);
 void ShowShip(Ship &);
 void ShowBorders();
 void ShowTitle();
+void ShowRock(Alien &);
 void ShowIp();
 void ShowLives();
 void ShowScores();

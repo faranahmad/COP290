@@ -4,6 +4,7 @@
 GLuint _textureId;
 GLuint _textureGameOver;
 GLuint _textureHighScore;
+GLuint _textureRock;
 
 
 void *sound_play1(void *x)
@@ -207,7 +208,9 @@ void initRendering()
     _textureHighScore = loadTexture(image2);
     delete image2;
 
-
+    Image* image3 = loadBMP("bottom.bmp");
+    _textureRock = loadTexture(image3);
+    delete image3;
 }
 
 std::vector<Faces> loadOBJ(char * path)
@@ -1055,6 +1058,47 @@ void ShowAllText()
 	ShowScores();
 }
 
+void ShowRock(Alien &alientodisplay)
+{
+	glPushMatrix();
+
+	glTranslatef(alientodisplay.GetXPos(),alientodisplay.GetYPos(),0);
+
+	for (int i=0; i<rocktoshow.size() ; i++)
+	{
+		glEnable(GL_TEXTURE_2D);
+	    glBindTexture(GL_TEXTURE_2D, _textureRock);
+    
+	    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	    glColor3f(1.0f,1.0f,1.0f);
+
+		Faces currentface= rocktoshow[i];
+		Points point1,point2,point3;
+		point1= currentface.p1;
+		point2= currentface.p2;
+		point3= currentface.p3;
+		glBegin(GL_POLYGON);
+	    glTexCoord2f(0.0f, 1.0f);
+		glVertex3f(point1.x,point1.y,point1.z);
+	    glTexCoord2f(1.0f, 1.0f);
+		glVertex3f(point2.x,point2.y,point2.z);
+	    glTexCoord2f(0.0f, 0.0f);
+		glVertex3f(point3.x,point3.y,point3.z);
+		glEnd();
+		glDisable(GL_TEXTURE_2D);
+	}
+
+
+	    // glVertex3f(-window_width, window_height, 1000);
+	    // glVertex3f(window_width,window_height, 1000);
+	    // glVertex3f(window_width, -window_height, 1000);
+	    // glTexCoord2f(0.0f, 0.0f);
+	    // glVertex3f(-window_width, -window_height, 1000);
+
+	glPopMatrix();
+}
+
 void ShowBoard(Board &boardtodisplay)
 {
 	std::vector<Ship> ShipsToDisplay= boardtodisplay.GetVectorShips();
@@ -1068,7 +1112,7 @@ void ShowBoard(Board &boardtodisplay)
 
 	for (int i=0; i< AliensToDisplay.size() ; i++)
 	{
-		ShowAlien(AliensToDisplay[i]);
+		ShowRock(AliensToDisplay[i]);
 	}
 
 	for (int i=0; i< BulletsToDisplay.size() ; i++)
@@ -1800,10 +1844,10 @@ if (IsBaap() && GameActive)
 		// 	// std::cout << p[j].x <<"\t" <<p[j].y << "\n";
 		// }
 
-  //       while (newg.PlayerBoard.GetNumberAliens()<=newg.LastBulletTime/50)
-		// {
-		// 	newg.PlayerBoard.AddRandomAlien();
-		// }
+        while (newg.PlayerBoard.GetNumberAliens()<=15)
+		{
+			newg.PlayerBoard.AddRandomAlien();
+		}
 		// std::cout << "starting ins gen\n";
 		message1 = newg.PlayerBoard.GenerateAllInstructions(newg.PlayerId,p);
 		// std::cout <<" generated instructions\n";
@@ -1905,6 +1949,8 @@ int main(int argc,char *argv[])
 	alien2eye = loadOBJ("Alien3Eye.obj");
 	alien2body = loadOBJ("Alien3Body.obj");
 	alien2top = loadOBJ("Alien3Top.obj");
+
+	rocktoshow = loadOBJ("Rock.obj");
 
 	shipcol = loadOBJ("NewShipCol.obj");
 	shipmid = loadOBJ("NewShipMid.obj");
