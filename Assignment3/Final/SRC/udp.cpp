@@ -573,7 +573,7 @@ int networkmain(int argc, char** argv)
 		// 	TimeStamp[FindIndex((long long)remaddr.sin_addr.s_addr)]=time(0);
 		// }
 		// std::cout<<"Recieved message:"<<ToStr(recvmsg)<<" Bytes recv:"<<recvlen<<std::endl;
-		if ((time(0)-LastTime)>10) 
+		if ((time(0)-LastTime)>5) 
 // 		{
 // 			recvmsg[recvlen] = 0;
 // 			switch(recvmsg[0])
