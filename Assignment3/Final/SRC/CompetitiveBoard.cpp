@@ -971,16 +971,16 @@ void Board::ApplyPlayerBulletInstructions(std::string information)
 
 void Board::UpdateBulletsWithoutKilling()
 {
-	for (int i=VectorBullets.size()-1;i>=0;i--)
-	{
-		if(VectorBullets.at(i).GetXPos()+2.0 > DimensionPosX 
-		|| VectorBullets.at(i).GetXPos()-2.0 < -(DimensionNegX) 
-		|| VectorBullets.at(i).GetYPos()+2.0 > DimensionPosY
-		|| VectorBullets.at(i).GetYPos()-2.0 < -(DimensionNegY))
-		{
-			VectorBullets.erase(VectorBullets.begin() + i);
-		}
-	}
+	// for (int i=VectorBullets.size()-1;i>=0;i--)
+	// {
+	// 	if(VectorBullets.at(i).GetXPos()+2.0 > DimensionPosX 
+	// 	|| VectorBullets.at(i).GetXPos()-2.0 < -(DimensionNegX) 
+	// 	|| VectorBullets.at(i).GetYPos()+2.0 > DimensionPosY
+	// 	|| VectorBullets.at(i).GetYPos()-2.0 < -(DimensionNegY))
+	// 	{
+	// 		VectorBullets.erase(VectorBullets.begin() + i);
+	// 	}
+	// }
 	for (int i=0;i<VectorBullets.size();i++)
 	{
 		if(VectorBullets.at(i).GetTypeAI() == false)
