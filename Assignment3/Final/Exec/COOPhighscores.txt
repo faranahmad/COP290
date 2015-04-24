@@ -1,6 +1,10 @@
 mumein
-1620
+560
 faran
 300
+legend
+295
+legend
+195
 abc
 0
