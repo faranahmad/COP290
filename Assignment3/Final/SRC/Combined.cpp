@@ -1730,6 +1730,13 @@ void *UpdateGameThread(void *x)
 {
 	while(true)
 	{
+		// while (GetNumPlayers()>newg.PlayerBoard.GetNumberShips())
+		// {
+		// 	std::cout <<"inserting\n";
+		// 	Ship newship1=Ship(newg.PlayerBoard.GetNumberShips());
+		// 	newg.PlayerBoard.InsertShip(newship1);
+		// }
+
 		newg.IsActive=(newg.PlayerBoard.GetNthShip(newg.PlayerId).GetLives()>0);
 		
 	while (!Instructions.empty())
@@ -1966,13 +1973,14 @@ int main(int argc,char *argv[])
 	}
 	
 
-	std::cout <<"Generated stars: " << Stars.size() <<"\n";
-
+	// std::cout <<"Generated stars: " << Stars.size() <<"\n";
+	std::cout << "number of total players from start: " << numplayers <<"\n";
 	newg.PlayerId = numplayers-1;
 	newg.PlayerBoard = Board(PX,NX,PY,NY);
 
 	for (int k=0; k<numplayers; k++)
 	{
+		std::cout << "pushing player: " <<k <<"\t" << newg.PlayerBoard.GetNumberShips() <<"\n";;
 		Ship news= Ship(k);
 		news.SetColorFloat(rand()%255,rand()%255,rand()%255);
 		newg.PlayerBoard.InsertShip(news);
