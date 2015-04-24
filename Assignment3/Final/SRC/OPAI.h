@@ -23,6 +23,9 @@ extern int NEGY;
 #define ANGLEOFVIEW 45 //view of ship/alien to decide what to do
 //import these defines from somewhere
 
+void OPMoveAlien(Alien &alien);
+void OPUpdateAlien(Board &board);
+
 void OPMoveShipInDirectionOfShip(Ship &ship1, Ship &ship2);
 void OPTurnShipInDirectionOfShip(Ship &ship1, Ship &ship2, bool &finished);
 void OPUpdateAIBoard(Board &board);

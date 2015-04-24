@@ -32,7 +32,7 @@ int ClosestShipEnemy(std::vector<Ship> &Ships,int NumberShips, Bullet &actualmis
 	return closestShip;
 }
 
-bool AlienInArc(Alien &alien, Bullet &actualmissile)
+bool AlienInArc(Alien &alien, Bullet &actualmissile)						//checks if alien is in field of view of missile
 {
 	if (fabs(RelativeAngleAlienFromMissile(alien,actualmissile)*180/PI)<theta)
 		return true;
@@ -40,7 +40,7 @@ bool AlienInArc(Alien &alien, Bullet &actualmissile)
 		return false;
 }
 
-bool ShipInArc(Ship &ship, Bullet &actualmissile)
+bool ShipInArc(Ship &ship, Bullet &actualmissile)                          //checks if ship is in field of view of missile
 {
 	if (fabs(RelativeAngleShipFromMissile(ship,actualmissile)*180/PI)<theta)
 		return true;

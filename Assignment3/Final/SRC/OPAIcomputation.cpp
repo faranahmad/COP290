@@ -72,7 +72,7 @@ float OPRelativeAngleOfShipFromShip(Ship& ship2,Ship &ship1)//returns angles in 
 {
 	float angle;
 
-	if (ship2.GetXPos()-ship2.GetXPos() == 0.0)
+	if (ship2.GetXPos()-ship1.GetXPos() == 0.0)
 	{
 		if ((ship2.GetYPos()-ship1.GetYPos())>0)
 			angle= (float) 0.0;

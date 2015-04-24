@@ -38,8 +38,8 @@ RunTest: Test
 $(EXE)Game: $(OBJ)Alien.o $(OBJ)Ship.o $(OBJ)Color.o $(OBJ)Bullet.o $(OBJ)Board.o $(OBJ)AIcomputation.o $(OBJ)AIalien.o $(OBJ)AIMissile.o $(OBJ)AIPlayer.o $(OBJ)AIUpdate.o $(OBJ)udp.o $(OBJ)Image.o $(OBJ)Highscore.o $(OBJ)Combined.o
 	g++ $(ver) -o $(EXE)Game $(OBJ)Color.o $(OBJ)Ship.o $(OBJ)Bullet.o $(OBJ)Alien.o $(OBJ)Board.o $(OBJ)AIcomputation.o $(OBJ)AIalien.o $(OBJ)AIMissile.o $(OBJ)AIPlayer.o $(OBJ)AIUpdate.o $(OBJ)udp.o $(OBJ)Image.o $(OBJ)Highscore.o $(OBJ)Combined.o -lGL -lGLU -lglut -lpthread
 
-$(EXE)CompGame: $(OBJ)Alien.o $(OBJ)Ship.o $(OBJ)Color.o $(OBJ)Bullet.o $(OBJ)CompetitiveBoard.o $(OBJ)OPAIcomputation.o $(OBJ)OPAIMissile.o $(OBJ)OPAIPlayer.o $(OBJ)OPAIUpdate.o $(OBJ)udp.o $(OBJ)Image.o $(OBJ)CompHighscore.o $(OBJ)CompCombined.o
-	g++ $(ver) -o $(EXE)CompGame $(OBJ)Alien.o $(OBJ)Ship.o $(OBJ)Color.o $(OBJ)Bullet.o $(OBJ)CompetitiveBoard.o $(OBJ)OPAIcomputation.o $(OBJ)OPAIMissile.o $(OBJ)OPAIPlayer.o $(OBJ)OPAIUpdate.o $(OBJ)udp.o $(OBJ)Image.o $(OBJ)CompHighscore.o $(OBJ)CompCombined.o -lGL -lGLU -lglut -lpthread
+$(EXE)CompGame: $(OBJ)Alien.o $(OBJ)Ship.o $(OBJ)Color.o $(OBJ)Bullet.o $(OBJ)CompetitiveBoard.o $(OBJ)OPAIcomputation.o $(OBJ)OPAIalien.o $(OBJ)OPAIMissile.o $(OBJ)OPAIPlayer.o $(OBJ)OPAIUpdate.o $(OBJ)udp.o $(OBJ)Image.o $(OBJ)CompHighscore.o $(OBJ)CompCombined.o
+	g++ $(ver) -o $(EXE)CompGame $(OBJ)Alien.o $(OBJ)Ship.o $(OBJ)Color.o $(OBJ)Bullet.o $(OBJ)CompetitiveBoard.o $(OBJ)OPAIcomputation.o $(OBJ)OPAIalien.o $(OBJ)OPAIMissile.o $(OBJ)OPAIPlayer.o $(OBJ)OPAIUpdate.o $(OBJ)udp.o $(OBJ)Image.o $(OBJ)CompHighscore.o $(OBJ)CompCombined.o -lGL -lGLU -lglut -lpthread
 
 $(OBJ)Color.o: $(SRC)Color.cpp
 	g++ $(ver) -c -o $(OBJ)Color.o $(SRC)Color.cpp
@@ -76,6 +76,9 @@ $(OBJ)AIUpdate.o: $(SRC)AIUpdate.cpp
 
 $(OBJ)OPAIcomputation.o: $(SRC)OPAIcomputation.cpp
 	g++ $(ver) -c -o $(OBJ)OPAIcomputation.o $(SRC)OPAIcomputation.cpp
+
+$(OBJ)OPAIalien.o: $(SRC)OPAIalien.cpp
+	g++ $(ver) -c -o $(OBJ)OPAIalien.o $(SRC)OPAIalien.cpp
 
 $(OBJ)OPAIMissile.o: $(SRC)OPAIMissile.cpp
 	g++ $(ver) -c -o $(OBJ)OPAIMissile.o $(SRC)OPAIMissile.cpp

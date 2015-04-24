@@ -86,7 +86,7 @@ std::vector<std::string> UpdateHighScores(Board &board)
 
 	filin.close();
 	std::ofstream filout;
-	filout.open("highscores.txt");
+	filout.open("COOPhighscores.txt");
 	std::vector<Ship> Ships=board.GetVectorShips();
 	
 

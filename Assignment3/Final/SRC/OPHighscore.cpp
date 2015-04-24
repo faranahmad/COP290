@@ -1,4 +1,4 @@
-#include "CompHighscore.h"
+#include "Highscore.h"
 
 /*std::vector<std::string> UpdateHighScores(Board &)
 {
@@ -63,7 +63,7 @@ std::vector<std::string> UpdateHighScores(Board &board)
 
 	Ship CurrentShip = board.GetNthShip(ID);
 	std::ifstream filin;
-	filin.open("Comphighscores.txt");
+	filin.open("highscores.txt");
 	std::string reader;
 	int score;
 	std::vector<IDScore> HighScores;
