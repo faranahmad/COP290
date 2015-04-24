@@ -1881,7 +1881,7 @@ void *UpdateGameThread(void *x)
 				// std::cout << p[j].x <<"\t" <<p[j].y << "\n";
 			}
 	
-	        while (newg.PlayerBoard.GetNumberAliens()<=15 + newg.LastBulletTime/200)
+	        while (newg.PlayerBoard.GetNumberAliens()<=15)
 			{
 				newg.PlayerBoard.AddRandomRock();
 			}

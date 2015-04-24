@@ -1,6 +1,10 @@
-pratee
-1560
-faran
-300
-abc
-0
+legend
+1260
+dude
+1010
+kg
+785
+DefaultPlayer
+605
+DefaultPlayer
+540

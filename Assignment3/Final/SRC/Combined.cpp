@@ -1650,7 +1650,7 @@ void *UpdateGameThread(void *x)
 				Explosions.push_back(newExplosion(p[j].x,p[j].y,0));
 			}
 	
-	        while (newg.PlayerBoard.GetNumberAliens()<=newg.LastBulletTime/50)
+	        while (newg.PlayerBoard.GetNumberAliens()<=int(sqrt(newg.LastBulletTime/50)))
 			{
 				newg.PlayerBoard.AddRandomAlien();
 			}
