@@ -1783,7 +1783,7 @@ if (IsBaap() && GameActive)
 	else if (GameActive)
 	{
 		// std::cout << "updateing bullets without killing\n";
-		newg.PlayerBoard.UpdateBulletsWithoutKilling();
+		// newg.PlayerBoard.UpdateBulletsWithoutKilling();
 	}
 	// std::cout << "starting sleep\n";
 
