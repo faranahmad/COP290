@@ -1,0 +1,66 @@
+Space Invaders Application Version 1.1 24/04/14
+
+Available for Linux only. Coming soon for Windows!
+
+The application is a real-time multi-player game. It consists of two modes, Co-operative Mode and Competitive Mode. In Co-operative Mode, players shall team up with each other and try to kill as many aliens as possible. In Competitive Mode, players play against each other.
+
+-----------------------
+Running Under Linux OS
+-----------------------
+
+#########Co-Operative Mode########
+
+--To start the application in the Co-Operative Mode, go to the directory containing Makefile using `cd' command.
+
+--Type the following command in the terminal to start the Co-Operative Mode.
+
+	make RunGame name=<PlayerName>
+
+--Click on multi-player or single-player according  to the choice.
+
+--In multi-player, IP will be displayed.
+
+--To connect to this player, the other player must type the following in the terminal
+
+	make RunGame ip=<IP address of the other player> name=<PlayerName>
+
+--More players can connect to the game by typing the IP address of any of the players connected to the game.
+
+
+#########Competitive Mode#########
+
+--To start the application in the Co-Operative Mode, go to the directory containing Makefile using `cd' command.
+
+--Type the following command in the terminal to start the Co-Operative Mode.
+
+	make RunCompGame name=<PlayerName>
+
+--Click on multi-player or single-player according  to the choice.
+
+--In multi-player, IP will be displayed.
+
+--To connect to this player, the other player must type the following in the terminal
+
+	make RunCompGame ip=<IP address of the other player> name=<PlayerName>
+
+--More players can connect to the game by typing the IP address of any of the players connected to the game.
+
+
+--------------------
+General Controls
+--------------------
+
+--Use the arrow keys to move the ship in that direction
+
+--Use 'a' and 'd' to rotate the ship in the anti-clockwise and clockwise direction respectively.
+
+--Press the space-bar to fire bullets. There is no limit on the number of bullets
+
+--Press 's' to fire missiles. These are 'heat seeking' missiles which follow their target with 5 seconds time-out. A player is allowed to use only 5 missiles
+
+--Press 'f' at the waiting screen to add AI players
+
+--Press 'o' to start the game at the waiting screen
+
+
+

@@ -1,0 +1,2922 @@
+\begin{theindex}
+
+  \item {$\sim $\discretionary {-}{}{}Image}
+    \subitem {Image}, \hyperpage{23}
+  \item {$\sim $\discretionary {-}{}{}Test}
+    \subitem {Test}, \hyperpage{30}
+  \item {\discretionary {-}{}{}\_\discretionary {-}{}{}texture\discretionary {-}{}{}Game\discretionary {-}{}{}Over}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{46}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+  \item {\discretionary {-}{}{}\_\discretionary {-}{}{}texture\discretionary {-}{}{}High\discretionary {-}{}{}Score}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{46}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+  \item {\discretionary {-}{}{}\_\discretionary {-}{}{}texture\discretionary {-}{}{}Id}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{46}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+
+  \indexspace
+
+  \item {A\-I.\-h}
+    \subitem {Fire\-Bullet}, \hyperpage{35}
+    \subitem {Fire\-Missile}, \hyperpage{35}
+    \subitem {Move}, \hyperpage{35}
+    \subitem {Turn}, \hyperpage{35}
+  \item {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{31}
+    \subitem {angularvelocity}, \hyperpage{32}
+    \subitem {Closest\discretionary {-}{}{}Alien\discretionary {-}{}{}Enemy}, 
+		\hyperpage{32}
+    \subitem {Closest\discretionary {-}{}{}Ship\discretionary {-}{}{}Enemy}, 
+		\hyperpage{32}
+    \subitem {Distance}, \hyperpage{32}
+    \subitem {Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Alien}, 
+		\hyperpage{32}
+    \subitem {Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Ship}, 
+		\hyperpage{32}
+    \subitem {In\discretionary {-}{}{}Arc}, \hyperpage{32}
+    \subitem {maximumdistance}, \hyperpage{32}
+    \subitem {min\discretionary {-}{}{}Angleof\discretionary {-}{}{}Rotation}, 
+		\hyperpage{32}
+    \subitem {min\discretionary {-}{}{}Distancefor\discretionary {-}{}{}Rotation}, 
+		\hyperpage{32}
+    \subitem {Move\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of}, 
+		\hyperpage{32}
+    \subitem {relative\discretionary {-}{}{}Angle}, \hyperpage{32}
+    \subitem {relative\discretionary {-}{}{}Angleto\discretionary {-}{}{}Missile}, 
+		\hyperpage{32}
+    \subitem {theta}, \hyperpage{32}
+    \subitem {Turn\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of}, 
+		\hyperpage{32, 33}
+    \subitem {Update\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Board}, 
+		\hyperpage{33}
+    \subitem {Update\discretionary {-}{}{}Alien}, \hyperpage{33}
+    \subitem {Update\discretionary {-}{}{}Alien\discretionary {-}{}{}Missile}, 
+		\hyperpage{33}
+    \subitem {Update\discretionary {-}{}{}Missile}, \hyperpage{33}
+    \subitem {Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}, 
+		\hyperpage{33}
+    \subitem {Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile}, 
+		\hyperpage{33}
+    \subitem {Update\discretionary {-}{}{}Velocity}, \hyperpage{33}
+  \item {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{33}
+    \subitem {A\discretionary {-}{}{}L\discretionary {-}{}{}I\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}M\discretionary {-}{}{}I\discretionary {-}{}{}S\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E}, 
+		\hyperpage{34}
+    \subitem {A\discretionary {-}{}{}N\discretionary {-}{}{}G\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}O\discretionary {-}{}{}F\discretionary {-}{}{}V\discretionary {-}{}{}I\discretionary {-}{}{}E\discretionary {-}{}{}W}, 
+		\hyperpage{34}
+    \subitem {Alien\discretionary {-}{}{}In\discretionary {-}{}{}Arc}, 
+		\hyperpage{35}
+    \subitem {Alien\discretionary {-}{}{}Is\discretionary {-}{}{}In\discretionary {-}{}{}View\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}, 
+		\hyperpage{35}
+    \subitem {angularvelocity}, \hyperpage{34}
+    \subitem {Closest\discretionary {-}{}{}Alien\discretionary {-}{}{}Enemy}, 
+		\hyperpage{35}
+    \subitem {Closest\discretionary {-}{}{}Ship\discretionary {-}{}{}Enemy}, 
+		\hyperpage{35}
+    \subitem {Decide\discretionary {-}{}{}Action\discretionary {-}{}{}For\discretionary {-}{}{}Alien}, 
+		\hyperpage{35}
+    \subitem {Decide\discretionary {-}{}{}Action\discretionary {-}{}{}For\discretionary {-}{}{}Ship}, 
+		\hyperpage{35}
+    \subitem {Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Missile}, 
+		\hyperpage{35}
+    \subitem {Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Ship}, 
+		\hyperpage{35}
+    \subitem {Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Alien}, 
+		\hyperpage{35}
+    \subitem {Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}, 
+		\hyperpage{35}
+    \subitem {Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Alien}, 
+		\hyperpage{35}
+    \subitem {Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Ship}, 
+		\hyperpage{35}
+    \subitem {Fire\discretionary {-}{}{}Bullet\discretionary {-}{}{}For\discretionary {-}{}{}Alien}, 
+		\hyperpage{35}
+    \subitem {Fire\discretionary {-}{}{}Bullet\discretionary {-}{}{}For\discretionary {-}{}{}Ship}, 
+		\hyperpage{35}
+    \subitem {Fire\discretionary {-}{}{}Missile\discretionary {-}{}{}For\discretionary {-}{}{}Alien}, 
+		\hyperpage{35}
+    \subitem {Fire\discretionary {-}{}{}Missile\discretionary {-}{}{}For\discretionary {-}{}{}Ship}, 
+		\hyperpage{35}
+    \subitem {min\discretionary {-}{}{}Angleof\discretionary {-}{}{}Rotation}, 
+		\hyperpage{34}
+    \subitem {min\discretionary {-}{}{}Distancefor\discretionary {-}{}{}Rotation}, 
+		\hyperpage{34}
+    \subitem {Move\discretionary {-}{}{}Alien\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}, 
+		\hyperpage{35}
+    \subitem {Move\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}, 
+		\hyperpage{35}
+    \subitem {N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}X}, 
+		\hyperpage{36}
+    \subitem {N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}Y}, 
+		\hyperpage{36}
+    \subitem {N\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}H\discretionary {-}{}{}I\discretionary {-}{}{}P}, 
+		\hyperpage{34}
+    \subitem {P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}X}, 
+		\hyperpage{36}
+    \subitem {P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}Y}, 
+		\hyperpage{36}
+    \subitem {R\discretionary {-}{}{}I\discretionary {-}{}{}G\discretionary {-}{}{}H\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}N\discretionary {-}{}{}G\discretionary {-}{}{}L\discretionary {-}{}{}E}, 
+		\hyperpage{34}
+    \subitem {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Missile}, 
+		\hyperpage{35}
+    \subitem {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Aliento\discretionary {-}{}{}Missile\discretionary {-}{}{}Position}, 
+		\hyperpage{35}
+    \subitem {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Of\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Ship}, 
+		\hyperpage{36}
+    \subitem {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Alien}, 
+		\hyperpage{36}
+    \subitem {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}, 
+		\hyperpage{36}
+    \subitem {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Shipto\discretionary {-}{}{}Missile\discretionary {-}{}{}Position}, 
+		\hyperpage{36}
+    \subitem {Ship\discretionary {-}{}{}In\discretionary {-}{}{}Arc}, 
+		\hyperpage{36}
+    \subitem {Ship\discretionary {-}{}{}Is\discretionary {-}{}{}In\discretionary {-}{}{}View\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}, 
+		\hyperpage{36}
+    \subitem {theta}, \hyperpage{34}
+    \subitem {Turn\discretionary {-}{}{}Alien\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}, 
+		\hyperpage{36}
+    \subitem {Turn\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}, 
+		\hyperpage{36}
+    \subitem {Update\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Board}, 
+		\hyperpage{36}
+    \subitem {Update\discretionary {-}{}{}Alien}, \hyperpage{36}
+    \subitem {Update\discretionary {-}{}{}Alien\discretionary {-}{}{}Missile}, 
+		\hyperpage{36}
+    \subitem {Update\discretionary {-}{}{}Alien\discretionary {-}{}{}Missile\discretionary {-}{}{}Velocity}, 
+		\hyperpage{36}
+    \subitem {Update\discretionary {-}{}{}Missile}, \hyperpage{36}
+    \subitem {Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}, 
+		\hyperpage{36}
+    \subitem {Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile}, 
+		\hyperpage{36}
+    \subitem {Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile\discretionary {-}{}{}Velocity}, 
+		\hyperpage{36}
+    \subitem {What\discretionary {-}{}{}It\discretionary {-}{}{}Should\discretionary {-}{}{}Do}, 
+		\hyperpage{35}
+  \item {A\discretionary {-}{}{}I\discretionary {-}{}{}Level}
+    \subitem {Ship}, \hyperpage{27}
+  \item {A\discretionary {-}{}{}I\discretionary {-}{}{}Missile.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+    \subitem {Update\discretionary {-}{}{}Alien\discretionary {-}{}{}Missile}, 
+		\hyperpage{38}
+    \subitem {Update\discretionary {-}{}{}Alien\discretionary {-}{}{}Missile\discretionary {-}{}{}Velocity}, 
+		\hyperpage{38}
+    \subitem {Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile}, 
+		\hyperpage{38}
+    \subitem {Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile\discretionary {-}{}{}Velocity}, 
+		\hyperpage{38}
+  \item {A\discretionary {-}{}{}I\discretionary {-}{}{}O\discretionary {-}{}{}P.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+  \item {A\discretionary {-}{}{}I\discretionary {-}{}{}Player.\discretionary {-}{}{}cpp}, 
+		\hyperpage{39}
+    \subitem {Decide\discretionary {-}{}{}Action\discretionary {-}{}{}For\discretionary {-}{}{}Ship}, 
+		\hyperpage{39}
+    \subitem {Fire\discretionary {-}{}{}Bullet\discretionary {-}{}{}For\discretionary {-}{}{}Ship}, 
+		\hyperpage{39}
+    \subitem {Fire\discretionary {-}{}{}Missile\discretionary {-}{}{}For\discretionary {-}{}{}Ship}, 
+		\hyperpage{39}
+    \subitem {Move\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}, 
+		\hyperpage{39}
+    \subitem {Turn\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}, 
+		\hyperpage{39}
+  \item {A\discretionary {-}{}{}I\discretionary {-}{}{}Update.\discretionary {-}{}{}cpp}, 
+		\hyperpage{39}
+    \subitem {Update\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Board}, 
+		\hyperpage{39}
+    \subitem {Update\discretionary {-}{}{}Alien}, \hyperpage{39}
+    \subitem {Update\discretionary {-}{}{}Missile}, \hyperpage{39}
+    \subitem {Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}, 
+		\hyperpage{39}
+  \item {A\discretionary {-}{}{}Ialien.\discretionary {-}{}{}cpp}, 
+		\hyperpage{36}
+    \subitem {Decide\discretionary {-}{}{}Action\discretionary {-}{}{}For\discretionary {-}{}{}Alien}, 
+		\hyperpage{37}
+    \subitem {Fire\discretionary {-}{}{}Bullet\discretionary {-}{}{}For\discretionary {-}{}{}Alien}, 
+		\hyperpage{37}
+    \subitem {Fire\discretionary {-}{}{}Missile\discretionary {-}{}{}For\discretionary {-}{}{}Alien}, 
+		\hyperpage{37}
+    \subitem {Move\discretionary {-}{}{}Alien\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}, 
+		\hyperpage{37}
+    \subitem {Turn\discretionary {-}{}{}Alien\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}, 
+		\hyperpage{37}
+  \item {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{37}
+    \subitem {Alien\discretionary {-}{}{}In\discretionary {-}{}{}Arc}, 
+		\hyperpage{37}
+    \subitem {Alien\discretionary {-}{}{}Is\discretionary {-}{}{}In\discretionary {-}{}{}View\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}, 
+		\hyperpage{37}
+    \subitem {Closest\discretionary {-}{}{}Alien\discretionary {-}{}{}Enemy}, 
+		\hyperpage{37}
+    \subitem {Closest\discretionary {-}{}{}Ship\discretionary {-}{}{}Enemy}, 
+		\hyperpage{37}
+    \subitem {Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Missile}, 
+		\hyperpage{37}
+    \subitem {Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Ship}, 
+		\hyperpage{38}
+    \subitem {Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Alien}, 
+		\hyperpage{38}
+    \subitem {Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}, 
+		\hyperpage{38}
+    \subitem {Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Alien}, 
+		\hyperpage{38}
+    \subitem {Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Ship}, 
+		\hyperpage{38}
+    \subitem {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Missile}, 
+		\hyperpage{38}
+    \subitem {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Aliento\discretionary {-}{}{}Missile\discretionary {-}{}{}Position}, 
+		\hyperpage{38}
+    \subitem {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Of\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Ship}, 
+		\hyperpage{38}
+    \subitem {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Alien}, 
+		\hyperpage{38}
+    \subitem {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}, 
+		\hyperpage{38}
+    \subitem {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Shipto\discretionary {-}{}{}Missile\discretionary {-}{}{}Position}, 
+		\hyperpage{38}
+    \subitem {Ship\discretionary {-}{}{}In\discretionary {-}{}{}Arc}, 
+		\hyperpage{38}
+    \subitem {Ship\discretionary {-}{}{}Is\discretionary {-}{}{}In\discretionary {-}{}{}View\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}, 
+		\hyperpage{38}
+  \item {A\discretionary {-}{}{}L\discretionary {-}{}{}I\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}M\discretionary {-}{}{}I\discretionary {-}{}{}S\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{34}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{65}
+  \item {A\discretionary {-}{}{}N\discretionary {-}{}{}G\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}O\discretionary {-}{}{}F\discretionary {-}{}{}V\discretionary {-}{}{}I\discretionary {-}{}{}E\discretionary {-}{}{}W}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{34}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{65}
+  \item {Add\discretionary {-}{}{}Kills}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Add\discretionary {-}{}{}Life}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Add\discretionary {-}{}{}Missile}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Add\discretionary {-}{}{}New\discretionary {-}{}{}Explosion}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{44}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{48}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {Add\discretionary {-}{}{}Number\discretionary {-}{}{}Bullets}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Add\discretionary {-}{}{}Players}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{73}
+    \subitem {udp.\discretionary {-}{}{}h}, \hyperpage{75}
+  \item {Add\discretionary {-}{}{}Random\discretionary {-}{}{}Alien}
+    \subitem {Board}, \hyperpage{10}
+  \item {Add\discretionary {-}{}{}Random\discretionary {-}{}{}Ship}
+    \subitem {Board}, \hyperpage{10}
+  \item {Alien}, \hyperpage{5}
+    \subitem {Alien}, \hyperpage{6}
+    \subitem {Alien\discretionary {-}{}{}Type}, \hyperpage{6}
+    \subitem {Angle}, \hyperpage{7}
+    \subitem {Color\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}, 
+		\hyperpage{7}
+    \subitem {Get\discretionary {-}{}{}Angle}, \hyperpage{6}
+    \subitem {Get\discretionary {-}{}{}Bullets}, \hyperpage{6}
+    \subitem {Get\discretionary {-}{}{}Color}, \hyperpage{6}
+    \subitem {Get\discretionary {-}{}{}Level}, \hyperpage{6}
+    \subitem {Get\discretionary {-}{}{}Lives}, \hyperpage{6}
+    \subitem {Get\discretionary {-}{}{}Missiles}, \hyperpage{6}
+    \subitem {Get\discretionary {-}{}{}Summary}, \hyperpage{6}
+    \subitem {Get\discretionary {-}{}{}Type}, \hyperpage{6}
+    \subitem {Get\discretionary {-}{}{}X\discretionary {-}{}{}Pos}, 
+		\hyperpage{6}
+    \subitem {Get\discretionary {-}{}{}Y\discretionary {-}{}{}Pos}, 
+		\hyperpage{6}
+    \subitem {Level}, \hyperpage{7}
+    \subitem {Number\discretionary {-}{}{}Bullets}, \hyperpage{7}
+    \subitem {Number\discretionary {-}{}{}Missiles}, \hyperpage{7}
+    \subitem {Present\discretionary {-}{}{}Lives}, \hyperpage{7}
+    \subitem {Reduce\discretionary {-}{}{}Missile}, \hyperpage{6}
+    \subitem {Set\discretionary {-}{}{}Angle}, \hyperpage{6}
+    \subitem {Set\discretionary {-}{}{}Bullets}, \hyperpage{6}
+    \subitem {Set\discretionary {-}{}{}Color}, \hyperpage{6}
+    \subitem {Set\discretionary {-}{}{}Color\discretionary {-}{}{}Float}, 
+		\hyperpage{6}
+    \subitem {Set\discretionary {-}{}{}Color\discretionary {-}{}{}Float2}, 
+		\hyperpage{6}
+    \subitem {Set\discretionary {-}{}{}Level}, \hyperpage{6}
+    \subitem {Set\discretionary {-}{}{}Lives}, \hyperpage{6}
+    \subitem {Set\discretionary {-}{}{}Missiles}, \hyperpage{6}
+    \subitem {Set\discretionary {-}{}{}Type}, \hyperpage{6}
+    \subitem {Set\discretionary {-}{}{}X\discretionary {-}{}{}Pos}, 
+		\hyperpage{6}
+    \subitem {Set\discretionary {-}{}{}Y\discretionary {-}{}{}Pos}, 
+		\hyperpage{6}
+    \subitem {X\discretionary {-}{}{}Pos}, \hyperpage{7}
+    \subitem {Y\discretionary {-}{}{}Pos}, \hyperpage{7}
+  \item {Alien.\discretionary {-}{}{}cpp}, \hyperpage{39}
+  \item {Alien.\discretionary {-}{}{}h}, \hyperpage{40}
+  \item {alien1col}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {alien1gun}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {alien1mid}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {alien1top}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {alien2body}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {alien2eye}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {alien2gun}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {alien2top}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {Alien\discretionary {-}{}{}In\discretionary {-}{}{}Arc}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{37}
+  \item {Alien\discretionary {-}{}{}Is\discretionary {-}{}{}In\discretionary {-}{}{}View\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{37}
+  \item {Alien\discretionary {-}{}{}Type}
+    \subitem {Alien}, \hyperpage{6}
+  \item {All\discretionary {-}{}{}Tests.\discretionary {-}{}{}cpp}, 
+		\hyperpage{40}
+    \subitem {main}, \hyperpage{40}
+    \subitem {Run\discretionary {-}{}{}All\discretionary {-}{}{}Tests}, 
+		\hyperpage{40}
+  \item {All\discretionary {-}{}{}Tests.\discretionary {-}{}{}h}, 
+		\hyperpage{40}
+    \subitem {Run\discretionary {-}{}{}All\discretionary {-}{}{}Tests}, 
+		\hyperpage{40}
+  \item {Angle}
+    \subitem {Alien}, \hyperpage{7}
+    \subitem {Ship}, \hyperpage{27}
+  \item {angle}
+    \subitem {Expl}, \hyperpage{20}
+  \item {angularvelocity}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{32}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{34}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{65}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{69}
+  \item {Apply\discretionary {-}{}{}All\discretionary {-}{}{}Alien\discretionary {-}{}{}Instructions}
+    \subitem {Board}, \hyperpage{10}
+  \item {Apply\discretionary {-}{}{}All\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}
+    \subitem {Board}, \hyperpage{10}
+  \item {Apply\discretionary {-}{}{}Ins\discretionary {-}{}{}To\discretionary {-}{}{}Bullets}
+    \subitem {Board}, \hyperpage{10}
+  \item {Apply\discretionary {-}{}{}Ins\discretionary {-}{}{}To\discretionary {-}{}{}Ship}
+    \subitem {Board}, \hyperpage{10}
+  \item {Apply\discretionary {-}{}{}Instruction6}
+    \subitem {Board}, \hyperpage{10}
+  \item {Apply\discretionary {-}{}{}Instructions}
+    \subitem {Board}, \hyperpage{10}
+  \item {Apply\discretionary {-}{}{}Instructions\discretionary {-}{}{}To\discretionary {-}{}{}Ship\discretionary {-}{}{}A\discretionary {-}{}{}I}
+    \subitem {Board}, \hyperpage{10}
+  \item {Apply\discretionary {-}{}{}Player\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}
+    \subitem {Board}, \hyperpage{10, 11}
+  \item {Apply\discretionary {-}{}{}Ship\discretionary {-}{}{}Instructions}
+    \subitem {Board}, \hyperpage{11}
+  \item {Apply\discretionary {-}{}{}Single\discretionary {-}{}{}Alien\discretionary {-}{}{}Instructions}
+    \subitem {Board}, \hyperpage{11}
+  \item {Apply\discretionary {-}{}{}Single\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}
+    \subitem {Board}, \hyperpage{11}
+
+  \indexspace
+
+  \item {B}
+    \subitem {Color}, \hyperpage{18}
+  \item {B\discretionary {-}{}{}U\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}Z\discretionary {-}{}{}E}
+    \subitem {udp.\discretionary {-}{}{}h}, \hyperpage{75}
+  \item {backupcoop.\discretionary {-}{}{}cpp}, \hyperpage{40}
+    \subitem {Convert\discretionary {-}{}{}Bool}, \hyperpage{41}
+    \subitem {Extract\discretionary {-}{}{}Bool}, \hyperpage{41}
+    \subitem {My\discretionary {-}{}{}Function}, \hyperpage{41}
+    \subitem {Pair\discretionary {-}{}{}Compare}, \hyperpage{41}
+    \subitem {Random\discretionary {-}{}{}Float}, \hyperpage{41}
+    \subitem {to\discretionary {-}{}{}Digit}, \hyperpage{41}
+    \subitem {To\discretionary {-}{}{}Four}, \hyperpage{41}
+  \item {Board}, \hyperpage{7}
+    \subitem {Add\discretionary {-}{}{}Random\discretionary {-}{}{}Alien}, 
+		\hyperpage{10}
+    \subitem {Add\discretionary {-}{}{}Random\discretionary {-}{}{}Ship}, 
+		\hyperpage{10}
+    \subitem {Apply\discretionary {-}{}{}All\discretionary {-}{}{}Alien\discretionary {-}{}{}Instructions}, 
+		\hyperpage{10}
+    \subitem {Apply\discretionary {-}{}{}All\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}, 
+		\hyperpage{10}
+    \subitem {Apply\discretionary {-}{}{}Ins\discretionary {-}{}{}To\discretionary {-}{}{}Bullets}, 
+		\hyperpage{10}
+    \subitem {Apply\discretionary {-}{}{}Ins\discretionary {-}{}{}To\discretionary {-}{}{}Ship}, 
+		\hyperpage{10}
+    \subitem {Apply\discretionary {-}{}{}Instruction6}, \hyperpage{10}
+    \subitem {Apply\discretionary {-}{}{}Instructions}, \hyperpage{10}
+    \subitem {Apply\discretionary {-}{}{}Instructions\discretionary {-}{}{}To\discretionary {-}{}{}Ship\discretionary {-}{}{}A\discretionary {-}{}{}I}, 
+		\hyperpage{10}
+    \subitem {Apply\discretionary {-}{}{}Player\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}, 
+		\hyperpage{10, 11}
+    \subitem {Apply\discretionary {-}{}{}Ship\discretionary {-}{}{}Instructions}, 
+		\hyperpage{11}
+    \subitem {Apply\discretionary {-}{}{}Single\discretionary {-}{}{}Alien\discretionary {-}{}{}Instructions}, 
+		\hyperpage{11}
+    \subitem {Apply\discretionary {-}{}{}Single\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}, 
+		\hyperpage{11}
+    \subitem {Board}, \hyperpage{10}
+    \subitem {Check\discretionary {-}{}{}Alien\discretionary {-}{}{}Hit\discretionary {-}{}{}Ship}, 
+		\hyperpage{11}
+    \subitem {Check\discretionary {-}{}{}Bullet\discretionary {-}{}{}Hit\discretionary {-}{}{}Alien}, 
+		\hyperpage{11}
+    \subitem {Check\discretionary {-}{}{}Bullet\discretionary {-}{}{}Hit\discretionary {-}{}{}Ship}, 
+		\hyperpage{11}
+    \subitem {Check\discretionary {-}{}{}Game\discretionary {-}{}{}Over}, 
+		\hyperpage{11}
+    \subitem {Dimension\discretionary {-}{}{}Neg\discretionary {-}{}{}X}, 
+		\hyperpage{15}
+    \subitem {Dimension\discretionary {-}{}{}Neg\discretionary {-}{}{}Y}, 
+		\hyperpage{15}
+    \subitem {Dimension\discretionary {-}{}{}Pos\discretionary {-}{}{}X}, 
+		\hyperpage{15}
+    \subitem {Dimension\discretionary {-}{}{}Pos\discretionary {-}{}{}Y}, 
+		\hyperpage{15}
+    \subitem {Generate\discretionary {-}{}{}Aliens\discretionary {-}{}{}Information}, 
+		\hyperpage{11}
+    \subitem {Generate\discretionary {-}{}{}All\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}, 
+		\hyperpage{11}
+    \subitem {Generate\discretionary {-}{}{}All\discretionary {-}{}{}Instructions}, 
+		\hyperpage{11}
+    \subitem {Generate\discretionary {-}{}{}Only\discretionary {-}{}{}Player\discretionary {-}{}{}Instructions}, 
+		\hyperpage{11}
+    \subitem {Generate\discretionary {-}{}{}Player\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}, 
+		\hyperpage{11}
+    \subitem {Generate\discretionary {-}{}{}Player\discretionary {-}{}{}Instructions}, 
+		\hyperpage{11}
+    \subitem {Generate\discretionary {-}{}{}Player\discretionary {-}{}{}Position\discretionary {-}{}{}Instructions}, 
+		\hyperpage{11, 12}
+    \subitem {Generate\discretionary {-}{}{}Ship\discretionary {-}{}{}Ins\discretionary {-}{}{}For\discretionary {-}{}{}A\discretionary {-}{}{}I}, 
+		\hyperpage{12}
+    \subitem {Generating\discretionary {-}{}{}Count}, \hyperpage{12}
+    \subitem {Get\discretionary {-}{}{}Neg\discretionary {-}{}{}X\discretionary {-}{}{}Dimension}, 
+		\hyperpage{12}
+    \subitem {Get\discretionary {-}{}{}Neg\discretionary {-}{}{}Y\discretionary {-}{}{}Dimension}, 
+		\hyperpage{12}
+    \subitem {Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Alien}, 
+		\hyperpage{12}
+    \subitem {Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Bullet}, 
+		\hyperpage{12}
+    \subitem {Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Player\discretionary {-}{}{}Name}, 
+		\hyperpage{12}
+    \subitem {Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Player\discretionary {-}{}{}Score}, 
+		\hyperpage{12}
+    \subitem {Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Ship}, 
+		\hyperpage{12}
+    \subitem {Get\discretionary {-}{}{}Number\discretionary {-}{}{}Aliens}, 
+		\hyperpage{12}
+    \subitem {Get\discretionary {-}{}{}Number\discretionary {-}{}{}Bullets}, 
+		\hyperpage{12}
+    \subitem {Get\discretionary {-}{}{}Number\discretionary {-}{}{}Ships}, 
+		\hyperpage{12}
+    \subitem {Get\discretionary {-}{}{}Pos\discretionary {-}{}{}X\discretionary {-}{}{}Dimension}, 
+		\hyperpage{12}
+    \subitem {Get\discretionary {-}{}{}Pos\discretionary {-}{}{}Y\discretionary {-}{}{}Dimension}, 
+		\hyperpage{12}
+    \subitem {Get\discretionary {-}{}{}Ranking}, \hyperpage{12, 13}
+    \subitem {Get\discretionary {-}{}{}String\discretionary {-}{}{}Points}, 
+		\hyperpage{13}
+    \subitem {Get\discretionary {-}{}{}Summary}, \hyperpage{13}
+    \subitem {Get\discretionary {-}{}{}Vector\discretionary {-}{}{}Aliens}, 
+		\hyperpage{13}
+    \subitem {Get\discretionary {-}{}{}Vector\discretionary {-}{}{}Bullets}, 
+		\hyperpage{13}
+    \subitem {Get\discretionary {-}{}{}Vector\discretionary {-}{}{}Points}, 
+		\hyperpage{13}
+    \subitem {Get\discretionary {-}{}{}Vector\discretionary {-}{}{}Ships}, 
+		\hyperpage{13}
+    \subitem {Insert\discretionary {-}{}{}Alien}, \hyperpage{13}
+    \subitem {Insert\discretionary {-}{}{}Bullet}, \hyperpage{13}
+    \subitem {Insert\discretionary {-}{}{}Ship}, \hyperpage{13}
+    \subitem {Max\discretionary {-}{}{}Distance}, \hyperpage{13}
+    \subitem {Move\discretionary {-}{}{}Nth\discretionary {-}{}{}Ship}, 
+		\hyperpage{13}
+    \subitem {Remove\discretionary {-}{}{}Nth\discretionary {-}{}{}Alien}, 
+		\hyperpage{13}
+    \subitem {Remove\discretionary {-}{}{}Nth\discretionary {-}{}{}Bullet}, 
+		\hyperpage{13}
+    \subitem {Remove\discretionary {-}{}{}Nth\discretionary {-}{}{}Ship}, 
+		\hyperpage{13, 14}
+    \subitem {Set\discretionary {-}{}{}Neg\discretionary {-}{}{}X\discretionary {-}{}{}Dimension}, 
+		\hyperpage{14}
+    \subitem {Set\discretionary {-}{}{}Neg\discretionary {-}{}{}Y\discretionary {-}{}{}Dimension}, 
+		\hyperpage{14}
+    \subitem {Set\discretionary {-}{}{}Nth\discretionary {-}{}{}Alien}, 
+		\hyperpage{14}
+    \subitem {Set\discretionary {-}{}{}Nth\discretionary {-}{}{}Bullet}, 
+		\hyperpage{14}
+    \subitem {Set\discretionary {-}{}{}Nth\discretionary {-}{}{}Ship}, 
+		\hyperpage{14}
+    \subitem {Set\discretionary {-}{}{}Pos\discretionary {-}{}{}X\discretionary {-}{}{}Dimension}, 
+		\hyperpage{14}
+    \subitem {Set\discretionary {-}{}{}Pos\discretionary {-}{}{}Y\discretionary {-}{}{}Dimension}, 
+		\hyperpage{14}
+    \subitem {Set\discretionary {-}{}{}Vector\discretionary {-}{}{}Aliens}, 
+		\hyperpage{14}
+    \subitem {Set\discretionary {-}{}{}Vector\discretionary {-}{}{}Bullets}, 
+		\hyperpage{14}
+    \subitem {Set\discretionary {-}{}{}Vector\discretionary {-}{}{}Ships}, 
+		\hyperpage{14}
+    \subitem {Split\discretionary {-}{}{}String}, \hyperpage{14}
+    \subitem {Update\discretionary {-}{}{}Aliens}, \hyperpage{14}
+    \subitem {Update\discretionary {-}{}{}All\discretionary {-}{}{}Bullets}, 
+		\hyperpage{14}
+    \subitem {Update\discretionary {-}{}{}Bullets\discretionary {-}{}{}Without\discretionary {-}{}{}Killing}, 
+		\hyperpage{14, 15}
+    \subitem {Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}, 
+		\hyperpage{15}
+    \subitem {Vector\discretionary {-}{}{}Aliens}, \hyperpage{15}
+    \subitem {Vector\discretionary {-}{}{}Bullets}, \hyperpage{15}
+    \subitem {Vector\discretionary {-}{}{}Ships}, \hyperpage{15}
+  \item {Board.\discretionary {-}{}{}cpp}, \hyperpage{41}
+    \subitem {Convert\discretionary {-}{}{}Bool}, \hyperpage{41}
+    \subitem {Extract\discretionary {-}{}{}Bool}, \hyperpage{41}
+    \subitem {My\discretionary {-}{}{}Function}, \hyperpage{42}
+    \subitem {Pair\discretionary {-}{}{}Compare}, \hyperpage{42}
+    \subitem {Random\discretionary {-}{}{}Float}, \hyperpage{42}
+    \subitem {to\discretionary {-}{}{}Digit}, \hyperpage{41}
+    \subitem {To\discretionary {-}{}{}Four}, \hyperpage{42}
+  \item {Board.\discretionary {-}{}{}h}, \hyperpage{42}
+    \subitem {Random\discretionary {-}{}{}Float}, \hyperpage{42}
+  \item {Bullet}, \hyperpage{15}
+    \subitem {Bullet}, \hyperpage{16}
+    \subitem {Color\discretionary {-}{}{}Of\discretionary {-}{}{}Bullet}, 
+		\hyperpage{17}
+    \subitem {Get\discretionary {-}{}{}Angle}, \hyperpage{16}
+    \subitem {Get\discretionary {-}{}{}Color\discretionary {-}{}{}Of\discretionary {-}{}{}Bullet}, 
+		\hyperpage{16}
+    \subitem {Get\discretionary {-}{}{}Ship\discretionary {-}{}{}Id}, 
+		\hyperpage{16}
+    \subitem {Get\discretionary {-}{}{}Speed}, \hyperpage{16}
+    \subitem {Get\discretionary {-}{}{}Summary}, \hyperpage{16}
+    \subitem {Get\discretionary {-}{}{}Time\discretionary {-}{}{}Created}, 
+		\hyperpage{16}
+    \subitem {Get\discretionary {-}{}{}Type\discretionary {-}{}{}A\discretionary {-}{}{}I}, 
+		\hyperpage{16}
+    \subitem {Get\discretionary {-}{}{}Type\discretionary {-}{}{}Player}, 
+		\hyperpage{16}
+    \subitem {Get\discretionary {-}{}{}Vel\discretionary {-}{}{}X}, 
+		\hyperpage{16}
+    \subitem {Get\discretionary {-}{}{}Vel\discretionary {-}{}{}Y}, 
+		\hyperpage{16}
+    \subitem {Get\discretionary {-}{}{}X\discretionary {-}{}{}Pos}, 
+		\hyperpage{16}
+    \subitem {Get\discretionary {-}{}{}Y\discretionary {-}{}{}Pos}, 
+		\hyperpage{16}
+    \subitem {Reset\discretionary {-}{}{}Bullet\discretionary {-}{}{}State}, 
+		\hyperpage{16}
+    \subitem {Set\discretionary {-}{}{}Color\discretionary {-}{}{}Float}, 
+		\hyperpage{16}
+    \subitem {Set\discretionary {-}{}{}Color\discretionary {-}{}{}Of\discretionary {-}{}{}Bullet}, 
+		\hyperpage{17}
+    \subitem {Set\discretionary {-}{}{}Color\discretionary {-}{}{}Of\discretionary {-}{}{}Bulletfloat}, 
+		\hyperpage{17}
+    \subitem {Set\discretionary {-}{}{}Ship\discretionary {-}{}{}I\discretionary {-}{}{}D}, 
+		\hyperpage{17}
+    \subitem {Set\discretionary {-}{}{}Time\discretionary {-}{}{}Created}, 
+		\hyperpage{17}
+    \subitem {Set\discretionary {-}{}{}Type\discretionary {-}{}{}A\discretionary {-}{}{}I}, 
+		\hyperpage{17}
+    \subitem {Set\discretionary {-}{}{}Type\discretionary {-}{}{}Player}, 
+		\hyperpage{17}
+    \subitem {Set\discretionary {-}{}{}Vel\discretionary {-}{}{}X}, 
+		\hyperpage{17}
+    \subitem {Set\discretionary {-}{}{}Vel\discretionary {-}{}{}Y}, 
+		\hyperpage{17}
+    \subitem {Set\discretionary {-}{}{}X\discretionary {-}{}{}Pos}, 
+		\hyperpage{17}
+    \subitem {Set\discretionary {-}{}{}Y\discretionary {-}{}{}Pos}, 
+		\hyperpage{17}
+    \subitem {Ship\discretionary {-}{}{}Id}, \hyperpage{17}
+    \subitem {Time\discretionary {-}{}{}Created}, \hyperpage{17}
+    \subitem {Type\discretionary {-}{}{}A\discretionary {-}{}{}I}, 
+		\hyperpage{17}
+    \subitem {Type\discretionary {-}{}{}Player}, \hyperpage{17}
+    \subitem {Vel\discretionary {-}{}{}X}, \hyperpage{17}
+    \subitem {Vel\discretionary {-}{}{}Y}, \hyperpage{17}
+    \subitem {X\discretionary {-}{}{}Pos}, \hyperpage{17}
+    \subitem {Y\discretionary {-}{}{}Pos}, \hyperpage{17}
+  \item {Bullet.\discretionary {-}{}{}cpp}, \hyperpage{42}
+  \item {Bullet.\discretionary {-}{}{}h}, \hyperpage{42}
+    \subitem {P\discretionary {-}{}{}I}, \hyperpage{43}
+  \item {bulletmid}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {Bullets\discretionary {-}{}{}To\discretionary {-}{}{}Add}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {bullettop}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+
+  \indexspace
+
+  \item {Check\discretionary {-}{}{}Alien\discretionary {-}{}{}Hit\discretionary {-}{}{}Ship}
+    \subitem {Board}, \hyperpage{11}
+  \item {Check\discretionary {-}{}{}Bullet\discretionary {-}{}{}Hit\discretionary {-}{}{}Alien}
+    \subitem {Board}, \hyperpage{11}
+  \item {Check\discretionary {-}{}{}Bullet\discretionary {-}{}{}Hit\discretionary {-}{}{}Ship}
+    \subitem {Board}, \hyperpage{11}
+  \item {Check\discretionary {-}{}{}Game\discretionary {-}{}{}Over}
+    \subitem {Board}, \hyperpage{11}
+  \item {Closest\discretionary {-}{}{}Alien\discretionary {-}{}{}Enemy}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{32}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{37}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{69}
+  \item {Closest\discretionary {-}{}{}Ship\discretionary {-}{}{}Enemy}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{32}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{37}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{69}
+  \item {Color}, \hyperpage{17}
+    \subitem {B}, \hyperpage{18}
+    \subitem {Color}, \hyperpage{18}
+    \subitem {G}, \hyperpage{19}
+    \subitem {Get\discretionary {-}{}{}B}, \hyperpage{18}
+    \subitem {Get\discretionary {-}{}{}G}, \hyperpage{18}
+    \subitem {Get\discretionary {-}{}{}R}, \hyperpage{18}
+    \subitem {R}, \hyperpage{19}
+    \subitem {Set\discretionary {-}{}{}B}, \hyperpage{18}
+    \subitem {Set\discretionary {-}{}{}G}, \hyperpage{18}
+    \subitem {Set\discretionary {-}{}{}R}, \hyperpage{18}
+    \subitem {Set\discretionary {-}{}{}R\discretionary {-}{}{}G\discretionary {-}{}{}B}, 
+		\hyperpage{18}
+    \subitem {Set\discretionary {-}{}{}R\discretionary {-}{}{}G\discretionary {-}{}{}B\discretionary {-}{}{}Float}, 
+		\hyperpage{18}
+  \item {color}
+    \subitem {debris\discretionary {-}{}{}Data}, \hyperpage{19}
+    \subitem {Fire\discretionary {-}{}{}Point}, \hyperpage{21}
+    \subitem {particle\discretionary {-}{}{}Data}, \hyperpage{24}
+    \subitem {Smoke\discretionary {-}{}{}Point}, \hyperpage{28}
+  \item {Color.\discretionary {-}{}{}cpp}, \hyperpage{43}
+  \item {Color.\discretionary {-}{}{}h}, \hyperpage{43}
+  \item {Color\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}
+    \subitem {Alien}, \hyperpage{7}
+  \item {Color\discretionary {-}{}{}Of\discretionary {-}{}{}Bullet}
+    \subitem {Bullet}, \hyperpage{17}
+  \item {Color\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}
+    \subitem {Ship}, \hyperpage{28}
+  \item {Combined.\discretionary {-}{}{}cpp}, \hyperpage{43}
+    \subitem {\discretionary {-}{}{}\_\discretionary {-}{}{}texture\discretionary {-}{}{}Game\discretionary {-}{}{}Over}, 
+		\hyperpage{46}
+    \subitem {\discretionary {-}{}{}\_\discretionary {-}{}{}texture\discretionary {-}{}{}High\discretionary {-}{}{}Score}, 
+		\hyperpage{46}
+    \subitem {\discretionary {-}{}{}\_\discretionary {-}{}{}texture\discretionary {-}{}{}Id}, 
+		\hyperpage{46}
+    \subitem {Add\discretionary {-}{}{}New\discretionary {-}{}{}Explosion}, 
+		\hyperpage{44}
+    \subitem {display}, \hyperpage{44}
+    \subitem {Display\discretionary {-}{}{}Explosions}, \hyperpage{44}
+    \subitem {Display\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}, 
+		\hyperpage{44}
+    \subitem {handle\discretionary {-}{}{}Keypress}, \hyperpage{44}
+    \subitem {handle\discretionary {-}{}{}Keypress\discretionary {-}{}{}Up}, 
+		\hyperpage{44}
+    \subitem {init\discretionary {-}{}{}Rendering}, \hyperpage{44}
+    \subitem {load\discretionary {-}{}{}B\discretionary {-}{}{}M\discretionary {-}{}{}P}, 
+		\hyperpage{44}
+    \subitem {load\discretionary {-}{}{}O\discretionary {-}{}{}B\discretionary {-}{}{}J}, 
+		\hyperpage{44}
+    \subitem {load\discretionary {-}{}{}Texture}, \hyperpage{44}
+    \subitem {main}, \hyperpage{44}
+    \subitem {mouseclick}, \hyperpage{45}
+    \subitem {mousepos}, \hyperpage{45}
+    \subitem {networkmainhelper}, \hyperpage{45}
+    \subitem {new\discretionary {-}{}{}Explosion}, \hyperpage{45}
+    \subitem {New\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}, 
+		\hyperpage{45}
+    \subitem {new\discretionary {-}{}{}Speed}, \hyperpage{45}
+    \subitem {Process\discretionary {-}{}{}Keys}, \hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}Alien}, \hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}All\discretionary {-}{}{}Fire\discretionary {-}{}{}Points}, 
+		\hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}All\discretionary {-}{}{}Text}, 
+		\hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}Board}, \hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}Borders}, \hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}Bullet}, \hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}Explosion}, \hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}Fire\discretionary {-}{}{}Point}, 
+		\hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}Game\discretionary {-}{}{}Over}, 
+		\hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}Ip}, \hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}Lives}, \hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}Missile}, \hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}Object}, \hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}Scores}, \hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}Ship}, \hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}, 
+		\hyperpage{45}
+    \subitem {Show\discretionary {-}{}{}Title}, \hyperpage{45}
+    \subitem {sound\discretionary {-}{}{}\_\discretionary {-}{}{}play1}, 
+		\hyperpage{45}
+    \subitem {sound\discretionary {-}{}{}\_\discretionary {-}{}{}play2}, 
+		\hyperpage{45}
+    \subitem {special\discretionary {-}{}{}Keys}, \hyperpage{45}
+    \subitem {special\discretionary {-}{}{}Keys\discretionary {-}{}{}Up}, 
+		\hyperpage{45}
+    \subitem {Update\discretionary {-}{}{}All\discretionary {-}{}{}Explosions}, 
+		\hyperpage{46}
+    \subitem {Update\discretionary {-}{}{}All\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}, 
+		\hyperpage{46}
+    \subitem {Update\discretionary {-}{}{}Explosion}, \hyperpage{46}
+    \subitem {Update\discretionary {-}{}{}Fire\discretionary {-}{}{}Explosions}, 
+		\hyperpage{46}
+    \subitem {Update\discretionary {-}{}{}Game\discretionary {-}{}{}Thread}, 
+		\hyperpage{46}
+    \subitem {Update\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}, 
+		\hyperpage{46}
+  \item {Combined.\discretionary {-}{}{}h}, \hyperpage{46}
+    \subitem {Add\discretionary {-}{}{}New\discretionary {-}{}{}Explosion}, 
+		\hyperpage{48}
+    \subitem {alien1col}, \hyperpage{49}
+    \subitem {alien1gun}, \hyperpage{49}
+    \subitem {alien1mid}, \hyperpage{50}
+    \subitem {alien1top}, \hyperpage{50}
+    \subitem {alien2body}, \hyperpage{50}
+    \subitem {alien2eye}, \hyperpage{50}
+    \subitem {alien2gun}, \hyperpage{50}
+    \subitem {alien2top}, \hyperpage{50}
+    \subitem {bulletmid}, \hyperpage{50}
+    \subitem {Bullets\discretionary {-}{}{}To\discretionary {-}{}{}Add}, 
+		\hyperpage{50}
+    \subitem {bullettop}, \hyperpage{50}
+    \subitem {display}, \hyperpage{48}
+    \subitem {Display\discretionary {-}{}{}Explosions}, \hyperpage{48}
+    \subitem {Display\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}, 
+		\hyperpage{48}
+    \subitem {doneonce}, \hyperpage{50}
+    \subitem {Explosions}, \hyperpage{50}
+    \subitem {Fire\discretionary {-}{}{}Points}, \hyperpage{50}
+    \subitem {Game\discretionary {-}{}{}Active}, \hyperpage{50}
+    \subitem {Game\discretionary {-}{}{}Over}, \hyperpage{50}
+    \subitem {handle\discretionary {-}{}{}Keypress}, \hyperpage{48}
+    \subitem {handle\discretionary {-}{}{}Keypress\discretionary {-}{}{}Up}, 
+		\hyperpage{48}
+    \subitem {highscorestodisplay}, \hyperpage{50}
+    \subitem {I\discretionary {-}{}{}D}, \hyperpage{50}
+    \subitem {I\discretionary {-}{}{}P\discretionary {-}{}{}Address}, 
+		\hyperpage{50}
+    \subitem {Instructions}, \hyperpage{50}
+    \subitem {Is\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Sound\discretionary {-}{}{}Bullet}, 
+		\hyperpage{50}
+    \subitem {Is\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Sound\discretionary {-}{}{}Expl}, 
+		\hyperpage{50}
+    \subitem {is\discretionary {-}{}{}Offline}, \hyperpage{50}
+    \subitem {Keys}, \hyperpage{50}
+    \subitem {load\discretionary {-}{}{}O\discretionary {-}{}{}B\discretionary {-}{}{}J}, 
+		\hyperpage{49}
+    \subitem {missileend}, \hyperpage{50}
+    \subitem {missilemid}, \hyperpage{50}
+    \subitem {missiletop}, \hyperpage{50}
+    \subitem {mouseclick}, \hyperpage{49}
+    \subitem {Multi\discretionary {-}{}{}Mode}, \hyperpage{50}
+    \subitem {N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}X}, 
+		\hyperpage{50}
+    \subitem {N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}Y}, 
+		\hyperpage{50}
+    \subitem {N\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}B\discretionary {-}{}{}R\discretionary {-}{}{}I\discretionary {-}{}{}S}, 
+		\hyperpage{48}
+    \subitem {N\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}C\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}S}, 
+		\hyperpage{48}
+    \subitem {N\discretionary {-}{}{}X}, \hyperpage{51}
+    \subitem {N\discretionary {-}{}{}Y}, \hyperpage{51}
+    \subitem {networkmainhelper}, \hyperpage{49}
+    \subitem {new\discretionary {-}{}{}Explosion}, \hyperpage{49}
+    \subitem {New\discretionary {-}{}{}High\discretionary {-}{}{}Score}, 
+		\hyperpage{51}
+    \subitem {New\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}, 
+		\hyperpage{49}
+    \subitem {newg}, \hyperpage{51}
+    \subitem {On\discretionary {-}{}{}Front\discretionary {-}{}{}Screen}, 
+		\hyperpage{51}
+    \subitem {P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}X}, 
+		\hyperpage{51}
+    \subitem {P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}Y}, 
+		\hyperpage{51}
+    \subitem {P\discretionary {-}{}{}X}, \hyperpage{51}
+    \subitem {P\discretionary {-}{}{}Y}, \hyperpage{51}
+    \subitem {players\discretionary {-}{}{}Ready}, \hyperpage{51}
+    \subitem {presentf}, \hyperpage{51}
+    \subitem {Process\discretionary {-}{}{}Keys}, \hyperpage{49}
+    \subitem {rankingtodisplay}, \hyperpage{51}
+    \subitem {shipcol}, \hyperpage{51}
+    \subitem {shipfir}, \hyperpage{51}
+    \subitem {shipmid}, \hyperpage{51}
+    \subitem {Show\discretionary {-}{}{}All\discretionary {-}{}{}Text}, 
+		\hyperpage{49}
+    \subitem {Show\discretionary {-}{}{}Board}, \hyperpage{49}
+    \subitem {Show\discretionary {-}{}{}Borders}, \hyperpage{49}
+    \subitem {Show\discretionary {-}{}{}Bullet}, \hyperpage{49}
+    \subitem {Show\discretionary {-}{}{}Explosion}, \hyperpage{49}
+    \subitem {Show\discretionary {-}{}{}Ip}, \hyperpage{49}
+    \subitem {Show\discretionary {-}{}{}Lives}, \hyperpage{49}
+    \subitem {Show\discretionary {-}{}{}Missile}, \hyperpage{49}
+    \subitem {Show\discretionary {-}{}{}Object}, \hyperpage{49}
+    \subitem {Show\discretionary {-}{}{}Scores}, \hyperpage{49}
+    \subitem {Show\discretionary {-}{}{}Ship}, \hyperpage{49}
+    \subitem {Show\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}, 
+		\hyperpage{49}
+    \subitem {Show\discretionary {-}{}{}Title}, \hyperpage{49}
+    \subitem {Single\discretionary {-}{}{}Mode}, \hyperpage{51}
+    \subitem {Smoke\discretionary {-}{}{}Points}, \hyperpage{51}
+    \subitem {Smoke\discretionary {-}{}{}Points\discretionary {-}{}{}Missile}, 
+		\hyperpage{51}
+    \subitem {Space\discretionary {-}{}{}Bar\discretionary {-}{}{}Free}, 
+		\hyperpage{51}
+    \subitem {special\discretionary {-}{}{}Keys}, \hyperpage{49}
+    \subitem {special\discretionary {-}{}{}Keys\discretionary {-}{}{}Up}, 
+		\hyperpage{49}
+    \subitem {Stars}, \hyperpage{51}
+    \subitem {titleptr}, \hyperpage{51}
+    \subitem {Update\discretionary {-}{}{}All\discretionary {-}{}{}Explosions}, 
+		\hyperpage{49}
+    \subitem {Update\discretionary {-}{}{}All\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}, 
+		\hyperpage{49}
+    \subitem {Update\discretionary {-}{}{}Fire\discretionary {-}{}{}Explosions}, 
+		\hyperpage{49}
+    \subitem {Update\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}, 
+		\hyperpage{49}
+    \subitem {viewtotake}, \hyperpage{51}
+  \item {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{51}
+    \subitem {\discretionary {-}{}{}\_\discretionary {-}{}{}texture\discretionary {-}{}{}Game\discretionary {-}{}{}Over}, 
+		\hyperpage{54}
+    \subitem {\discretionary {-}{}{}\_\discretionary {-}{}{}texture\discretionary {-}{}{}High\discretionary {-}{}{}Score}, 
+		\hyperpage{54}
+    \subitem {\discretionary {-}{}{}\_\discretionary {-}{}{}texture\discretionary {-}{}{}Id}, 
+		\hyperpage{54}
+    \subitem {Add\discretionary {-}{}{}New\discretionary {-}{}{}Explosion}, 
+		\hyperpage{53}
+    \subitem {display}, \hyperpage{53}
+    \subitem {Display\discretionary {-}{}{}Explosions}, \hyperpage{53}
+    \subitem {Display\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}, 
+		\hyperpage{53}
+    \subitem {handle\discretionary {-}{}{}Keypress}, \hyperpage{53}
+    \subitem {handle\discretionary {-}{}{}Keypress\discretionary {-}{}{}Up}, 
+		\hyperpage{53}
+    \subitem {init\discretionary {-}{}{}Rendering}, \hyperpage{53}
+    \subitem {load\discretionary {-}{}{}B\discretionary {-}{}{}M\discretionary {-}{}{}P}, 
+		\hyperpage{53}
+    \subitem {load\discretionary {-}{}{}O\discretionary {-}{}{}B\discretionary {-}{}{}J}, 
+		\hyperpage{53}
+    \subitem {load\discretionary {-}{}{}Texture}, \hyperpage{53}
+    \subitem {main}, \hyperpage{53}
+    \subitem {mouseclick}, \hyperpage{53}
+    \subitem {mousepos}, \hyperpage{53}
+    \subitem {networkmainhelper}, \hyperpage{53}
+    \subitem {new\discretionary {-}{}{}Explosion}, \hyperpage{53}
+    \subitem {New\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}, 
+		\hyperpage{53}
+    \subitem {new\discretionary {-}{}{}Speed}, \hyperpage{53}
+    \subitem {Process\discretionary {-}{}{}Keys}, \hyperpage{53}
+    \subitem {Show\discretionary {-}{}{}Alien}, \hyperpage{53}
+    \subitem {Show\discretionary {-}{}{}All\discretionary {-}{}{}Fire\discretionary {-}{}{}Points}, 
+		\hyperpage{53}
+    \subitem {Show\discretionary {-}{}{}All\discretionary {-}{}{}Text}, 
+		\hyperpage{53}
+    \subitem {Show\discretionary {-}{}{}Board}, \hyperpage{53}
+    \subitem {Show\discretionary {-}{}{}Borders}, \hyperpage{53}
+    \subitem {Show\discretionary {-}{}{}Bullet}, \hyperpage{53}
+    \subitem {Show\discretionary {-}{}{}Explosion}, \hyperpage{53}
+    \subitem {Show\discretionary {-}{}{}Fire\discretionary {-}{}{}Point}, 
+		\hyperpage{53}
+    \subitem {Show\discretionary {-}{}{}Game\discretionary {-}{}{}Over}, 
+		\hyperpage{53}
+    \subitem {Show\discretionary {-}{}{}Ip}, \hyperpage{53}
+    \subitem {Show\discretionary {-}{}{}Lives}, \hyperpage{54}
+    \subitem {Show\discretionary {-}{}{}Missile}, \hyperpage{54}
+    \subitem {Show\discretionary {-}{}{}Object}, \hyperpage{54}
+    \subitem {Show\discretionary {-}{}{}Scores}, \hyperpage{54}
+    \subitem {Show\discretionary {-}{}{}Ship}, \hyperpage{54}
+    \subitem {Show\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}, 
+		\hyperpage{54}
+    \subitem {Show\discretionary {-}{}{}Title}, \hyperpage{54}
+    \subitem {sound\discretionary {-}{}{}\_\discretionary {-}{}{}play1}, 
+		\hyperpage{54}
+    \subitem {sound\discretionary {-}{}{}\_\discretionary {-}{}{}play2}, 
+		\hyperpage{54}
+    \subitem {special\discretionary {-}{}{}Keys}, \hyperpage{54}
+    \subitem {special\discretionary {-}{}{}Keys\discretionary {-}{}{}Up}, 
+		\hyperpage{54}
+    \subitem {Update\discretionary {-}{}{}All\discretionary {-}{}{}Explosions}, 
+		\hyperpage{54}
+    \subitem {Update\discretionary {-}{}{}All\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}, 
+		\hyperpage{54}
+    \subitem {Update\discretionary {-}{}{}Explosion}, \hyperpage{54}
+    \subitem {Update\discretionary {-}{}{}Fire\discretionary {-}{}{}Explosions}, 
+		\hyperpage{54}
+    \subitem {Update\discretionary {-}{}{}Game\discretionary {-}{}{}Thread}, 
+		\hyperpage{54}
+    \subitem {Update\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}, 
+		\hyperpage{54}
+  \item {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{55}
+    \subitem {Add\discretionary {-}{}{}New\discretionary {-}{}{}Explosion}, 
+		\hyperpage{57}
+    \subitem {alien1col}, \hyperpage{58}
+    \subitem {alien1gun}, \hyperpage{58}
+    \subitem {alien1mid}, \hyperpage{58}
+    \subitem {alien1top}, \hyperpage{58}
+    \subitem {alien2body}, \hyperpage{58}
+    \subitem {alien2eye}, \hyperpage{58}
+    \subitem {alien2gun}, \hyperpage{58}
+    \subitem {alien2top}, \hyperpage{58}
+    \subitem {bulletmid}, \hyperpage{58}
+    \subitem {Bullets\discretionary {-}{}{}To\discretionary {-}{}{}Add}, 
+		\hyperpage{58}
+    \subitem {bullettop}, \hyperpage{58}
+    \subitem {display}, \hyperpage{57}
+    \subitem {Display\discretionary {-}{}{}Explosions}, \hyperpage{57}
+    \subitem {Display\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}, 
+		\hyperpage{57}
+    \subitem {doneonce}, \hyperpage{58}
+    \subitem {Explosions}, \hyperpage{58}
+    \subitem {Fire\discretionary {-}{}{}Points}, \hyperpage{58}
+    \subitem {Game\discretionary {-}{}{}Active}, \hyperpage{59}
+    \subitem {Game\discretionary {-}{}{}Over}, \hyperpage{59}
+    \subitem {handle\discretionary {-}{}{}Keypress}, \hyperpage{57}
+    \subitem {handle\discretionary {-}{}{}Keypress\discretionary {-}{}{}Up}, 
+		\hyperpage{57}
+    \subitem {highscorestodisplay}, \hyperpage{59}
+    \subitem {I\discretionary {-}{}{}D}, \hyperpage{59}
+    \subitem {I\discretionary {-}{}{}P\discretionary {-}{}{}Address}, 
+		\hyperpage{59}
+    \subitem {Instructions}, \hyperpage{59}
+    \subitem {Is\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Sound\discretionary {-}{}{}Bullet}, 
+		\hyperpage{59}
+    \subitem {Is\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Sound\discretionary {-}{}{}Expl}, 
+		\hyperpage{59}
+    \subitem {is\discretionary {-}{}{}Offline}, \hyperpage{59}
+    \subitem {Keys}, \hyperpage{59}
+    \subitem {load\discretionary {-}{}{}O\discretionary {-}{}{}B\discretionary {-}{}{}J}, 
+		\hyperpage{57}
+    \subitem {missileend}, \hyperpage{59}
+    \subitem {missilemid}, \hyperpage{59}
+    \subitem {missiletop}, \hyperpage{59}
+    \subitem {mouseclick}, \hyperpage{57}
+    \subitem {N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}X}, 
+		\hyperpage{59}
+    \subitem {N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}Y}, 
+		\hyperpage{59}
+    \subitem {N\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}B\discretionary {-}{}{}R\discretionary {-}{}{}I\discretionary {-}{}{}S}, 
+		\hyperpage{57}
+    \subitem {N\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}C\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}S}, 
+		\hyperpage{57}
+    \subitem {N\discretionary {-}{}{}X}, \hyperpage{59}
+    \subitem {N\discretionary {-}{}{}Y}, \hyperpage{59}
+    \subitem {networkmainhelper}, \hyperpage{57}
+    \subitem {new\discretionary {-}{}{}Explosion}, \hyperpage{57}
+    \subitem {New\discretionary {-}{}{}High\discretionary {-}{}{}Score}, 
+		\hyperpage{59}
+    \subitem {New\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}, 
+		\hyperpage{57}
+    \subitem {newg}, \hyperpage{59}
+    \subitem {P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}X}, 
+		\hyperpage{59}
+    \subitem {P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}Y}, 
+		\hyperpage{59}
+    \subitem {P\discretionary {-}{}{}X}, \hyperpage{59}
+    \subitem {P\discretionary {-}{}{}Y}, \hyperpage{59}
+    \subitem {players\discretionary {-}{}{}Ready}, \hyperpage{59}
+    \subitem {presentf}, \hyperpage{59}
+    \subitem {Process\discretionary {-}{}{}Keys}, \hyperpage{57}
+    \subitem {rankingtodisplay}, \hyperpage{59}
+    \subitem {shipcol}, \hyperpage{59}
+    \subitem {shipfir}, \hyperpage{59}
+    \subitem {shipmid}, \hyperpage{60}
+    \subitem {Show\discretionary {-}{}{}All\discretionary {-}{}{}Text}, 
+		\hyperpage{57}
+    \subitem {Show\discretionary {-}{}{}Board}, \hyperpage{57}
+    \subitem {Show\discretionary {-}{}{}Borders}, \hyperpage{57}
+    \subitem {Show\discretionary {-}{}{}Bullet}, \hyperpage{57}
+    \subitem {Show\discretionary {-}{}{}Explosion}, \hyperpage{57}
+    \subitem {Show\discretionary {-}{}{}Ip}, \hyperpage{57}
+    \subitem {Show\discretionary {-}{}{}Lives}, \hyperpage{58}
+    \subitem {Show\discretionary {-}{}{}Missile}, \hyperpage{58}
+    \subitem {Show\discretionary {-}{}{}Object}, \hyperpage{58}
+    \subitem {Show\discretionary {-}{}{}Scores}, \hyperpage{58}
+    \subitem {Show\discretionary {-}{}{}Ship}, \hyperpage{58}
+    \subitem {Show\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}, 
+		\hyperpage{58}
+    \subitem {Show\discretionary {-}{}{}Title}, \hyperpage{58}
+    \subitem {Smoke\discretionary {-}{}{}Points}, \hyperpage{60}
+    \subitem {Smoke\discretionary {-}{}{}Points\discretionary {-}{}{}Missile}, 
+		\hyperpage{60}
+    \subitem {Space\discretionary {-}{}{}Bar\discretionary {-}{}{}Free}, 
+		\hyperpage{60}
+    \subitem {special\discretionary {-}{}{}Keys}, \hyperpage{58}
+    \subitem {special\discretionary {-}{}{}Keys\discretionary {-}{}{}Up}, 
+		\hyperpage{58}
+    \subitem {Stars}, \hyperpage{60}
+    \subitem {titleptr}, \hyperpage{60}
+    \subitem {Update\discretionary {-}{}{}All\discretionary {-}{}{}Explosions}, 
+		\hyperpage{58}
+    \subitem {Update\discretionary {-}{}{}All\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}, 
+		\hyperpage{58}
+    \subitem {Update\discretionary {-}{}{}Fire\discretionary {-}{}{}Explosions}, 
+		\hyperpage{58}
+    \subitem {Update\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}, 
+		\hyperpage{58}
+    \subitem {viewtotake}, \hyperpage{60}
+  \item {Comp\discretionary {-}{}{}Highscore.\discretionary {-}{}{}cpp}, 
+		\hyperpage{61}
+    \subitem {sortobject}, \hyperpage{62}
+    \subitem {To\discretionary {-}{}{}Four1}, \hyperpage{61}
+    \subitem {Update\discretionary {-}{}{}High\discretionary {-}{}{}Scores}, 
+		\hyperpage{61}
+  \item {Comp\discretionary {-}{}{}Highscore.\discretionary {-}{}{}h}, 
+		\hyperpage{62}
+    \subitem {I\discretionary {-}{}{}D}, \hyperpage{62}
+    \subitem {New\discretionary {-}{}{}High\discretionary {-}{}{}Score}, 
+		\hyperpage{62}
+    \subitem {Update\discretionary {-}{}{}High\discretionary {-}{}{}Scores}, 
+		\hyperpage{62}
+  \item {Competitive\discretionary {-}{}{}Board.\discretionary {-}{}{}cpp}, 
+		\hyperpage{60}
+    \subitem {Convert\discretionary {-}{}{}Bool}, \hyperpage{60}
+    \subitem {Extract\discretionary {-}{}{}Bool}, \hyperpage{60}
+    \subitem {My\discretionary {-}{}{}Function}, \hyperpage{60}
+    \subitem {Pair\discretionary {-}{}{}Compare}, \hyperpage{60}
+    \subitem {Random\discretionary {-}{}{}Float}, \hyperpage{60}
+    \subitem {to\discretionary {-}{}{}Digit}, \hyperpage{60}
+    \subitem {To\discretionary {-}{}{}Four}, \hyperpage{60}
+  \item {Competitive\discretionary {-}{}{}Board.\discretionary {-}{}{}h}, 
+		\hyperpage{61}
+    \subitem {Random\discretionary {-}{}{}Float}, \hyperpage{61}
+  \item {Connect}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{74}
+  \item {Convert\discretionary {-}{}{}Bool}
+    \subitem {backupcoop.\discretionary {-}{}{}cpp}, \hyperpage{41}
+    \subitem {Board.\discretionary {-}{}{}cpp}, \hyperpage{41}
+    \subitem {Competitive\discretionary {-}{}{}Board.\discretionary {-}{}{}cpp}, 
+		\hyperpage{60}
+
+  \indexspace
+
+  \item {debris}
+    \subitem {Expl}, \hyperpage{20}
+  \item {debris\discretionary {-}{}{}Data}, \hyperpage{19}
+    \subitem {color}, \hyperpage{19}
+    \subitem {orientation}, \hyperpage{19}
+    \subitem {orientation\discretionary {-}{}{}Speed}, \hyperpage{19}
+    \subitem {position}, \hyperpage{19}
+    \subitem {scale}, \hyperpage{19}
+    \subitem {speed}, \hyperpage{19}
+  \item {Decide\discretionary {-}{}{}Action\discretionary {-}{}{}For\discretionary {-}{}{}Alien}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}Ialien.\discretionary {-}{}{}cpp}, 
+		\hyperpage{37}
+  \item {Decide\discretionary {-}{}{}Action\discretionary {-}{}{}For\discretionary {-}{}{}Ship}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}I\discretionary {-}{}{}Player.\discretionary {-}{}{}cpp}, 
+		\hyperpage{39}
+  \item {description}
+    \subitem {Test}, \hyperpage{30}
+  \item {Dimension\discretionary {-}{}{}Neg\discretionary {-}{}{}X}
+    \subitem {Board}, \hyperpage{15}
+  \item {Dimension\discretionary {-}{}{}Neg\discretionary {-}{}{}Y}
+    \subitem {Board}, \hyperpage{15}
+  \item {Dimension\discretionary {-}{}{}Pos\discretionary {-}{}{}X}
+    \subitem {Board}, \hyperpage{15}
+  \item {Dimension\discretionary {-}{}{}Pos\discretionary {-}{}{}Y}
+    \subitem {Board}, \hyperpage{15}
+  \item {display}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{44}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{48}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {Display\discretionary {-}{}{}Explosions}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{44}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{48}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {Display\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{44}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{48}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {Distance}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{32}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{69}
+  \item {Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Missile}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{37}
+  \item {Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Ship}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+  \item {Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Alien}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+  \item {Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+  \item {doneonce}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+
+  \indexspace
+
+  \item {Expl}, \hyperpage{19}
+    \subitem {angle}, \hyperpage{20}
+    \subitem {debris}, \hyperpage{20}
+    \subitem {fuel}, \hyperpage{20}
+    \subitem {particles}, \hyperpage{20}
+  \item {Explosions}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {Extract\discretionary {-}{}{}Bool}
+    \subitem {backupcoop.\discretionary {-}{}{}cpp}, \hyperpage{41}
+    \subitem {Board.\discretionary {-}{}{}cpp}, \hyperpage{41}
+    \subitem {Competitive\discretionary {-}{}{}Board.\discretionary {-}{}{}cpp}, 
+		\hyperpage{60}
+
+  \indexspace
+
+  \item {Faces}, \hyperpage{20}
+    \subitem {p1}, \hyperpage{20}
+    \subitem {p2}, \hyperpage{20}
+    \subitem {p3}, \hyperpage{20}
+  \item {Find\discretionary {-}{}{}Index}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{73}
+    \subitem {udp.\discretionary {-}{}{}h}, \hyperpage{75}
+  \item {Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Alien}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{32}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{69}
+  \item {Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Ship}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{32}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{69}
+  \item {Fire\-Bullet}
+    \subitem {A\-I.\-h}, \hyperpage{35}
+  \item {Fire\-Missile}
+    \subitem {A\-I.\-h}, \hyperpage{35}
+  \item {Fire\discretionary {-}{}{}Bullet\discretionary {-}{}{}For\discretionary {-}{}{}Alien}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}Ialien.\discretionary {-}{}{}cpp}, 
+		\hyperpage{37}
+  \item {Fire\discretionary {-}{}{}Bullet\discretionary {-}{}{}For\discretionary {-}{}{}Ship}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}I\discretionary {-}{}{}Player.\discretionary {-}{}{}cpp}, 
+		\hyperpage{39}
+  \item {Fire\discretionary {-}{}{}Missile\discretionary {-}{}{}For\discretionary {-}{}{}Alien}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}Ialien.\discretionary {-}{}{}cpp}, 
+		\hyperpage{37}
+  \item {Fire\discretionary {-}{}{}Missile\discretionary {-}{}{}For\discretionary {-}{}{}Ship}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}I\discretionary {-}{}{}Player.\discretionary {-}{}{}cpp}, 
+		\hyperpage{39}
+  \item {Fire\discretionary {-}{}{}Point}, \hyperpage{20}
+    \subitem {color}, \hyperpage{21}
+    \subitem {life}, \hyperpage{21}
+    \subitem {position}, \hyperpage{21}
+    \subitem {radius}, \hyperpage{21}
+  \item {Fire\discretionary {-}{}{}Points}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {First}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{74}
+  \item {fuel}
+    \subitem {Expl}, \hyperpage{20}
+
+  \indexspace
+
+  \item {G}
+    \subitem {Color}, \hyperpage{19}
+  \item {Game\discretionary {-}{}{}Active}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {Game\discretionary {-}{}{}Over}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {Game\discretionary {-}{}{}Play}, \hyperpage{21}
+    \subitem {Is\discretionary {-}{}{}Active}, \hyperpage{21}
+    \subitem {Last\discretionary {-}{}{}Bullet\discretionary {-}{}{}Time}, 
+		\hyperpage{21}
+    \subitem {Last\discretionary {-}{}{}Missile\discretionary {-}{}{}Time}, 
+		\hyperpage{21}
+    \subitem {Player\discretionary {-}{}{}Board}, \hyperpage{21}
+    \subitem {Player\discretionary {-}{}{}Id}, \hyperpage{21}
+  \item {Generate\discretionary {-}{}{}Aliens\discretionary {-}{}{}Information}
+    \subitem {Board}, \hyperpage{11}
+  \item {Generate\discretionary {-}{}{}All\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}
+    \subitem {Board}, \hyperpage{11}
+  \item {Generate\discretionary {-}{}{}All\discretionary {-}{}{}Instructions}
+    \subitem {Board}, \hyperpage{11}
+  \item {Generate\discretionary {-}{}{}Only\discretionary {-}{}{}Player\discretionary {-}{}{}Instructions}
+    \subitem {Board}, \hyperpage{11}
+  \item {Generate\discretionary {-}{}{}Player\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}
+    \subitem {Board}, \hyperpage{11}
+  \item {Generate\discretionary {-}{}{}Player\discretionary {-}{}{}Instructions}
+    \subitem {Board}, \hyperpage{11}
+  \item {Generate\discretionary {-}{}{}Player\discretionary {-}{}{}Position\discretionary {-}{}{}Instructions}
+    \subitem {Board}, \hyperpage{11, 12}
+  \item {Generate\discretionary {-}{}{}Ship\discretionary {-}{}{}Ins\discretionary {-}{}{}For\discretionary {-}{}{}A\discretionary {-}{}{}I}
+    \subitem {Board}, \hyperpage{12}
+  \item {Generating\discretionary {-}{}{}Count}
+    \subitem {Board}, \hyperpage{12}
+  \item {Get\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Control\discretionary {-}{}{}Level}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Get\discretionary {-}{}{}Angle}
+    \subitem {Alien}, \hyperpage{6}
+    \subitem {Bullet}, \hyperpage{16}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Get\discretionary {-}{}{}B}
+    \subitem {Color}, \hyperpage{18}
+  \item {Get\discretionary {-}{}{}Bullets}
+    \subitem {Alien}, \hyperpage{6}
+  \item {Get\discretionary {-}{}{}Color}
+    \subitem {Alien}, \hyperpage{6}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Get\discretionary {-}{}{}Color\discretionary {-}{}{}Of\discretionary {-}{}{}Bullet}
+    \subitem {Bullet}, \hyperpage{16}
+  \item {Get\discretionary {-}{}{}G}
+    \subitem {Color}, \hyperpage{18}
+  \item {Get\discretionary {-}{}{}I\discretionary {-}{}{}P}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{73}
+    \subitem {udp.\discretionary {-}{}{}h}, \hyperpage{75}
+  \item {Get\discretionary {-}{}{}Id}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Get\discretionary {-}{}{}Kills}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Get\discretionary {-}{}{}Level}
+    \subitem {Alien}, \hyperpage{6}
+  \item {Get\discretionary {-}{}{}Lives}
+    \subitem {Alien}, \hyperpage{6}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Get\discretionary {-}{}{}Missiles}
+    \subitem {Alien}, \hyperpage{6}
+  \item {Get\discretionary {-}{}{}Multiplier}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Get\discretionary {-}{}{}Name}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Get\discretionary {-}{}{}Neg\discretionary {-}{}{}X\discretionary {-}{}{}Dimension}
+    \subitem {Board}, \hyperpage{12}
+  \item {Get\discretionary {-}{}{}Neg\discretionary {-}{}{}Y\discretionary {-}{}{}Dimension}
+    \subitem {Board}, \hyperpage{12}
+  \item {Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Alien}
+    \subitem {Board}, \hyperpage{12}
+  \item {Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Bullet}
+    \subitem {Board}, \hyperpage{12}
+  \item {Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Player\discretionary {-}{}{}Name}
+    \subitem {Board}, \hyperpage{12}
+  \item {Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Player\discretionary {-}{}{}Score}
+    \subitem {Board}, \hyperpage{12}
+  \item {Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Ship}
+    \subitem {Board}, \hyperpage{12}
+  \item {Get\discretionary {-}{}{}Num\discretionary {-}{}{}Players}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{73}
+    \subitem {udp.\discretionary {-}{}{}h}, \hyperpage{75}
+  \item {Get\discretionary {-}{}{}Number\discretionary {-}{}{}Aliens}
+    \subitem {Board}, \hyperpage{12}
+  \item {Get\discretionary {-}{}{}Number\discretionary {-}{}{}Bullets}
+    \subitem {Board}, \hyperpage{12}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Get\discretionary {-}{}{}Number\discretionary {-}{}{}Missiles}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Get\discretionary {-}{}{}Number\discretionary {-}{}{}Ships}
+    \subitem {Board}, \hyperpage{12}
+  \item {Get\discretionary {-}{}{}Pos\discretionary {-}{}{}X\discretionary {-}{}{}Dimension}
+    \subitem {Board}, \hyperpage{12}
+  \item {Get\discretionary {-}{}{}Pos\discretionary {-}{}{}Y\discretionary {-}{}{}Dimension}
+    \subitem {Board}, \hyperpage{12}
+  \item {Get\discretionary {-}{}{}R}
+    \subitem {Color}, \hyperpage{18}
+  \item {Get\discretionary {-}{}{}Ranking}
+    \subitem {Board}, \hyperpage{12, 13}
+  \item {Get\discretionary {-}{}{}Score}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Get\discretionary {-}{}{}Ship\discretionary {-}{}{}Id}
+    \subitem {Bullet}, \hyperpage{16}
+  \item {Get\discretionary {-}{}{}Speed}
+    \subitem {Bullet}, \hyperpage{16}
+  \item {Get\discretionary {-}{}{}String\discretionary {-}{}{}Points}
+    \subitem {Board}, \hyperpage{13}
+  \item {Get\discretionary {-}{}{}Summary}
+    \subitem {Alien}, \hyperpage{6}
+    \subitem {Board}, \hyperpage{13}
+    \subitem {Bullet}, \hyperpage{16}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Get\discretionary {-}{}{}Time\discretionary {-}{}{}Created}
+    \subitem {Bullet}, \hyperpage{16}
+  \item {Get\discretionary {-}{}{}Type}
+    \subitem {Alien}, \hyperpage{6}
+  \item {Get\discretionary {-}{}{}Type\discretionary {-}{}{}A\discretionary {-}{}{}I}
+    \subitem {Bullet}, \hyperpage{16}
+  \item {Get\discretionary {-}{}{}Type\discretionary {-}{}{}Player}
+    \subitem {Bullet}, \hyperpage{16}
+  \item {Get\discretionary {-}{}{}Vector\discretionary {-}{}{}Aliens}
+    \subitem {Board}, \hyperpage{13}
+  \item {Get\discretionary {-}{}{}Vector\discretionary {-}{}{}Bullets}
+    \subitem {Board}, \hyperpage{13}
+  \item {Get\discretionary {-}{}{}Vector\discretionary {-}{}{}Points}
+    \subitem {Board}, \hyperpage{13}
+  \item {Get\discretionary {-}{}{}Vector\discretionary {-}{}{}Ships}
+    \subitem {Board}, \hyperpage{13}
+  \item {Get\discretionary {-}{}{}Vel\discretionary {-}{}{}X}
+    \subitem {Bullet}, \hyperpage{16}
+  \item {Get\discretionary {-}{}{}Vel\discretionary {-}{}{}Y}
+    \subitem {Bullet}, \hyperpage{16}
+  \item {Get\discretionary {-}{}{}X\discretionary {-}{}{}Pos}
+    \subitem {Alien}, \hyperpage{6}
+    \subitem {Bullet}, \hyperpage{16}
+    \subitem {Ship}, \hyperpage{26}
+  \item {Get\discretionary {-}{}{}Y\discretionary {-}{}{}Pos}
+    \subitem {Alien}, \hyperpage{6}
+    \subitem {Bullet}, \hyperpage{16}
+    \subitem {Ship}, \hyperpage{27}
+  \item {glut\discretionary {-}{}{}Passive\discretionary {-}{}{}Motion\discretionary {-}{}{}Func}
+    \subitem {mousepos.\discretionary {-}{}{}cpp}, \hyperpage{64}
+  \item {Graph}, \hyperpage{21}
+    \subitem {s1}, \hyperpage{22}
+    \subitem {x1}, \hyperpage{22}
+
+  \indexspace
+
+  \item {handle\discretionary {-}{}{}Keypress}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{44}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{48}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {handle\discretionary {-}{}{}Keypress\discretionary {-}{}{}Up}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{44}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{48}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {height}
+    \subitem {Image}, \hyperpage{23}
+  \item {Highscore.\discretionary {-}{}{}cpp}, \hyperpage{62}
+    \subitem {sortobject}, \hyperpage{63}
+    \subitem {To\discretionary {-}{}{}Four1}, \hyperpage{63}
+    \subitem {Update\discretionary {-}{}{}High\discretionary {-}{}{}Scores}, 
+		\hyperpage{63}
+  \item {Highscore.\discretionary {-}{}{}h}, \hyperpage{63}
+    \subitem {I\discretionary {-}{}{}D}, \hyperpage{63}
+    \subitem {New\discretionary {-}{}{}High\discretionary {-}{}{}Score}, 
+		\hyperpage{63}
+    \subitem {Update\discretionary {-}{}{}High\discretionary {-}{}{}Scores}, 
+		\hyperpage{63}
+  \item {highscorestodisplay}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+
+  \indexspace
+
+  \item {I\discretionary {-}{}{}D}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+    \subitem {Comp\discretionary {-}{}{}Highscore.\discretionary {-}{}{}h}, 
+		\hyperpage{62}
+    \subitem {Highscore.\discretionary {-}{}{}h}, \hyperpage{63}
+    \subitem {I\discretionary {-}{}{}D\discretionary {-}{}{}Score}, 
+		\hyperpage{22}
+  \item {I\discretionary {-}{}{}D\discretionary {-}{}{}Score}, 
+		\hyperpage{22}
+    \subitem {I\discretionary {-}{}{}D}, \hyperpage{22}
+    \subitem {I\discretionary {-}{}{}D\discretionary {-}{}{}Score}, 
+		\hyperpage{22}
+    \subitem {I\discretionary {-}{}{}D\discretionary {-}{}{}Score}, 
+		\hyperpage{22}
+    \subitem {name}, \hyperpage{22}
+    \subitem {Score}, \hyperpage{22}
+  \item {I\discretionary {-}{}{}P\discretionary {-}{}{}Address}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {I\discretionary {-}{}{}P\discretionary {-}{}{}Message}, 
+		\hyperpage{23}
+    \subitem {ip}, \hyperpage{23}
+    \subitem {message}, \hyperpage{23}
+    \subitem {sockid}, \hyperpage{23}
+  \item {I\discretionary {-}{}{}Pdata}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{74}
+  \item {Id}
+    \subitem {Ship}, \hyperpage{28}
+  \item {If\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Control}
+    \subitem {Ship}, \hyperpage{27}
+  \item {If\discretionary {-}{}{}Human\discretionary {-}{}{}Control}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Image}, \hyperpage{22}
+    \subitem {$\sim $\discretionary {-}{}{}Image}, \hyperpage{23}
+    \subitem {height}, \hyperpage{23}
+    \subitem {Image}, \hyperpage{23}
+    \subitem {pixels}, \hyperpage{23}
+    \subitem {width}, \hyperpage{23}
+  \item {Image.\discretionary {-}{}{}cpp}, \hyperpage{63}
+  \item {Image.\discretionary {-}{}{}h}, \hyperpage{64}
+    \subitem {load\discretionary {-}{}{}B\discretionary {-}{}{}M\discretionary {-}{}{}P}, 
+		\hyperpage{64}
+  \item {In\discretionary {-}{}{}Arc}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{32}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{69}
+  \item {Increment\discretionary {-}{}{}Multiplier}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Increment\discretionary {-}{}{}Score}
+    \subitem {Ship}, \hyperpage{27}
+  \item {init\discretionary {-}{}{}Rendering}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{44}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+  \item {initpos}
+    \subitem {Smoke\discretionary {-}{}{}Point}, \hyperpage{28}
+  \item {Insert\discretionary {-}{}{}Alien}
+    \subitem {Board}, \hyperpage{13}
+  \item {Insert\discretionary {-}{}{}Bullet}
+    \subitem {Board}, \hyperpage{13}
+  \item {Insert\discretionary {-}{}{}Ship}
+    \subitem {Board}, \hyperpage{13}
+  \item {Instructions}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{74}
+  \item {ip}
+    \subitem {I\discretionary {-}{}{}P\discretionary {-}{}{}Message}, 
+		\hyperpage{23}
+  \item {ipadr}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{74}
+  \item {Is\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Sound\discretionary {-}{}{}Bullet}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {Is\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Sound\discretionary {-}{}{}Expl}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {Is\discretionary {-}{}{}Active}
+    \subitem {Game\discretionary {-}{}{}Play}, \hyperpage{21}
+  \item {Is\discretionary {-}{}{}Baap}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{73}
+    \subitem {udp.\discretionary {-}{}{}h}, \hyperpage{75}
+  \item {is\discretionary {-}{}{}Offline}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{74}
+  \item {is\discretionary {-}{}{}Pass}
+    \subitem {Test}, \hyperpage{30}
+  \item {is\discretionary {-}{}{}Passed}
+    \subitem {Test}, \hyperpage{30}
+
+  \indexspace
+
+  \item {Keys}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {Kills}
+    \subitem {Ship}, \hyperpage{28}
+
+  \indexspace
+
+  \item {Last\discretionary {-}{}{}Bullet\discretionary {-}{}{}Time}
+    \subitem {Game\discretionary {-}{}{}Play}, \hyperpage{21}
+  \item {Last\discretionary {-}{}{}Missile\discretionary {-}{}{}Time}
+    \subitem {Game\discretionary {-}{}{}Play}, \hyperpage{21}
+  \item {Last\discretionary {-}{}{}Time}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{74}
+  \item {Length\discretionary {-}{}{}Num}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{73}
+    \subitem {udp.\discretionary {-}{}{}h}, \hyperpage{75}
+  \item {Level}
+    \subitem {Alien}, \hyperpage{7}
+  \item {life}
+    \subitem {Fire\discretionary {-}{}{}Point}, \hyperpage{21}
+    \subitem {Smoke\discretionary {-}{}{}Point}, \hyperpage{28}
+  \item {Lives}
+    \subitem {Ship}, \hyperpage{28}
+  \item {load\discretionary {-}{}{}B\discretionary {-}{}{}M\discretionary {-}{}{}P}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{44}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Image.\discretionary {-}{}{}h}, \hyperpage{64}
+  \item {load\discretionary {-}{}{}O\discretionary {-}{}{}B\discretionary {-}{}{}J}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{44}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {load\discretionary {-}{}{}Texture}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{44}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+
+  \indexspace
+
+  \item {main}
+    \subitem {All\discretionary {-}{}{}Tests.\discretionary {-}{}{}cpp}, 
+		\hyperpage{40}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{44}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {testmera.\discretionary {-}{}{}cpp}, \hyperpage{72}
+  \item {Max\discretionary {-}{}{}Distance}
+    \subitem {Board}, \hyperpage{13}
+  \item {maximumdistance}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{32}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{69}
+  \item {message}
+    \subitem {I\discretionary {-}{}{}P\discretionary {-}{}{}Message}, 
+		\hyperpage{23}
+  \item {min\discretionary {-}{}{}Angleof\discretionary {-}{}{}Rotation}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{32}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{34}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{65}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{69}
+  \item {min\discretionary {-}{}{}Distancefor\discretionary {-}{}{}Rotation}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{32}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{34}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{65}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{69}
+  \item {missileend}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {missilemid}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {missiletop}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {mouseclick}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {mousepos}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {mousepos.\discretionary {-}{}{}cpp}, \hyperpage{64}
+  \item {mousepos.\discretionary {-}{}{}cpp}, \hyperpage{64}
+    \subitem {glut\discretionary {-}{}{}Passive\discretionary {-}{}{}Motion\discretionary {-}{}{}Func}, 
+		\hyperpage{64}
+    \subitem {mousepos}, \hyperpage{64}
+  \item {Move}
+    \subitem {A\-I.\-h}, \hyperpage{35}
+  \item {Move\discretionary {-}{}{}Alien\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}Ialien.\discretionary {-}{}{}cpp}, 
+		\hyperpage{37}
+  \item {Move\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{32}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{69}
+  \item {Move\discretionary {-}{}{}Nth\discretionary {-}{}{}Ship}
+    \subitem {Board}, \hyperpage{13}
+  \item {Move\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}I\discretionary {-}{}{}Player.\discretionary {-}{}{}cpp}, 
+		\hyperpage{39}
+  \item {Multi\discretionary {-}{}{}Mode}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+  \item {Multiplier}
+    \subitem {Ship}, \hyperpage{28}
+  \item {My\discretionary {-}{}{}Function}
+    \subitem {backupcoop.\discretionary {-}{}{}cpp}, \hyperpage{41}
+    \subitem {Board.\discretionary {-}{}{}cpp}, \hyperpage{42}
+    \subitem {Competitive\discretionary {-}{}{}Board.\discretionary {-}{}{}cpp}, 
+		\hyperpage{60}
+
+  \indexspace
+
+  \item {N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}X}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{66}
+  \item {N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}Y}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{50}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{66}
+  \item {N\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}H\discretionary {-}{}{}I\discretionary {-}{}{}P}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{34}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{65}
+  \item {N\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}B\discretionary {-}{}{}R\discretionary {-}{}{}I\discretionary {-}{}{}S}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{48}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {N\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}C\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}S}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{48}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {N\discretionary {-}{}{}X}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {N\discretionary {-}{}{}Y}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {Name}
+    \subitem {Ship}, \hyperpage{28}
+  \item {name}
+    \subitem {I\discretionary {-}{}{}D\discretionary {-}{}{}Score}, 
+		\hyperpage{22}
+  \item {networkmain}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{73}
+    \subitem {udp.\discretionary {-}{}{}h}, \hyperpage{75}
+  \item {networkmainhelper}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {new\discretionary {-}{}{}Explosion}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {New\discretionary {-}{}{}High\discretionary {-}{}{}Score}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+    \subitem {Comp\discretionary {-}{}{}Highscore.\discretionary {-}{}{}h}, 
+		\hyperpage{62}
+    \subitem {Highscore.\discretionary {-}{}{}h}, \hyperpage{63}
+  \item {New\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {new\discretionary {-}{}{}Speed}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+  \item {newg}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {no\discretionary {-}{}{}I\discretionary {-}{}{}P}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{74}
+  \item {Number\discretionary {-}{}{}Bullets}
+    \subitem {Alien}, \hyperpage{7}
+    \subitem {Ship}, \hyperpage{28}
+  \item {Number\discretionary {-}{}{}Missiles}
+    \subitem {Alien}, \hyperpage{7}
+    \subitem {Ship}, \hyperpage{28}
+
+  \indexspace
+
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{64}
+    \subitem {A\discretionary {-}{}{}L\discretionary {-}{}{}I\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}M\discretionary {-}{}{}I\discretionary {-}{}{}S\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E}, 
+		\hyperpage{65}
+    \subitem {A\discretionary {-}{}{}N\discretionary {-}{}{}G\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}O\discretionary {-}{}{}F\discretionary {-}{}{}V\discretionary {-}{}{}I\discretionary {-}{}{}E\discretionary {-}{}{}W}, 
+		\hyperpage{65}
+    \subitem {angularvelocity}, \hyperpage{65}
+    \subitem {min\discretionary {-}{}{}Angleof\discretionary {-}{}{}Rotation}, 
+		\hyperpage{65}
+    \subitem {min\discretionary {-}{}{}Distancefor\discretionary {-}{}{}Rotation}, 
+		\hyperpage{65}
+    \subitem {N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}X}, 
+		\hyperpage{66}
+    \subitem {N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}Y}, 
+		\hyperpage{66}
+    \subitem {N\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}H\discretionary {-}{}{}I\discretionary {-}{}{}P}, 
+		\hyperpage{65}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Closest\discretionary {-}{}{}Ship\discretionary {-}{}{}Enemy}, 
+		\hyperpage{65}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}, 
+		\hyperpage{65}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Ship}, 
+		\hyperpage{65}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Ship}, 
+		\hyperpage{65}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Fire\discretionary {-}{}{}Bullet\discretionary {-}{}{}For\discretionary {-}{}{}Ship}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Move\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Ship}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Shipto\discretionary {-}{}{}Missile\discretionary {-}{}{}Position}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Arc}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Turn\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Board}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Missile}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile\discretionary {-}{}{}Velocity}, 
+		\hyperpage{66}
+    \subitem {P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}X}, 
+		\hyperpage{66}
+    \subitem {P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}Y}, 
+		\hyperpage{66}
+    \subitem {R\discretionary {-}{}{}I\discretionary {-}{}{}G\discretionary {-}{}{}H\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}N\discretionary {-}{}{}G\discretionary {-}{}{}L\discretionary {-}{}{}E}, 
+		\hyperpage{65}
+    \subitem {theta}, \hyperpage{65}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Missile.\discretionary {-}{}{}cpp}, 
+		\hyperpage{67}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile}, 
+		\hyperpage{67}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile\discretionary {-}{}{}Velocity}, 
+		\hyperpage{67}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Player.\discretionary {-}{}{}cpp}, 
+		\hyperpage{67}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Fire\discretionary {-}{}{}Bullet\discretionary {-}{}{}For\discretionary {-}{}{}Ship}, 
+		\hyperpage{67}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Move\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}, 
+		\hyperpage{67}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Turn\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}, 
+		\hyperpage{67}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Update.\discretionary {-}{}{}cpp}, 
+		\hyperpage{68}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Board}, 
+		\hyperpage{68}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Missile}, 
+		\hyperpage{68}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}, 
+		\hyperpage{68}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Closest\discretionary {-}{}{}Ship\discretionary {-}{}{}Enemy}, 
+		\hyperpage{67}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}, 
+		\hyperpage{67}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Ship}, 
+		\hyperpage{67}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Ship}, 
+		\hyperpage{67}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Ship}, 
+		\hyperpage{67}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}, 
+		\hyperpage{67}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Shipto\discretionary {-}{}{}Missile\discretionary {-}{}{}Position}, 
+		\hyperpage{67}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Arc}, 
+		\hyperpage{67}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}Closest\discretionary {-}{}{}Ship\discretionary {-}{}{}Enemy}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{65}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{67}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{65}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{67}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Ship}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{65}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{67}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Ship}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{65}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{67}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}Fire\discretionary {-}{}{}Bullet\discretionary {-}{}{}For\discretionary {-}{}{}Ship}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Player.\discretionary {-}{}{}cpp}, 
+		\hyperpage{67}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}Move\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Player.\discretionary {-}{}{}cpp}, 
+		\hyperpage{67}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Ship}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{67}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{67}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Shipto\discretionary {-}{}{}Missile\discretionary {-}{}{}Position}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{67}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Arc}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{67}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}Turn\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Player.\discretionary {-}{}{}cpp}, 
+		\hyperpage{67}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Board}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Update.\discretionary {-}{}{}cpp}, 
+		\hyperpage{68}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Missile}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Update.\discretionary {-}{}{}cpp}, 
+		\hyperpage{68}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Update.\discretionary {-}{}{}cpp}, 
+		\hyperpage{68}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Missile.\discretionary {-}{}{}cpp}, 
+		\hyperpage{67}
+  \item {O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile\discretionary {-}{}{}Velocity}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{66}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Missile.\discretionary {-}{}{}cpp}, 
+		\hyperpage{67}
+  \item {On\discretionary {-}{}{}Front\discretionary {-}{}{}Screen}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+  \item {operator()}
+    \subitem {sortclass}, \hyperpage{29}
+  \item {orientation}
+    \subitem {debris\discretionary {-}{}{}Data}, \hyperpage{19}
+  \item {orientation\discretionary {-}{}{}Speed}
+    \subitem {debris\discretionary {-}{}{}Data}, \hyperpage{19}
+  \item {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{68}
+    \subitem {angularvelocity}, \hyperpage{69}
+    \subitem {Closest\discretionary {-}{}{}Alien\discretionary {-}{}{}Enemy}, 
+		\hyperpage{69}
+    \subitem {Closest\discretionary {-}{}{}Ship\discretionary {-}{}{}Enemy}, 
+		\hyperpage{69}
+    \subitem {Distance}, \hyperpage{69}
+    \subitem {Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Alien}, 
+		\hyperpage{69}
+    \subitem {Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Ship}, 
+		\hyperpage{69}
+    \subitem {In\discretionary {-}{}{}Arc}, \hyperpage{69}
+    \subitem {maximumdistance}, \hyperpage{69}
+    \subitem {min\discretionary {-}{}{}Angleof\discretionary {-}{}{}Rotation}, 
+		\hyperpage{69}
+    \subitem {min\discretionary {-}{}{}Distancefor\discretionary {-}{}{}Rotation}, 
+		\hyperpage{69}
+    \subitem {Move\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of}, 
+		\hyperpage{69}
+    \subitem {relative\discretionary {-}{}{}Angle}, \hyperpage{69, 70}
+    \subitem {relative\discretionary {-}{}{}Angleto\discretionary {-}{}{}Missile}, 
+		\hyperpage{70}
+    \subitem {theta}, \hyperpage{69}
+    \subitem {Turn\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of}, 
+		\hyperpage{70}
+    \subitem {Update\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Board}, 
+		\hyperpage{70}
+    \subitem {Update\discretionary {-}{}{}Alien}, \hyperpage{70}
+    \subitem {Update\discretionary {-}{}{}Alien\discretionary {-}{}{}Missile}, 
+		\hyperpage{70}
+    \subitem {Update\discretionary {-}{}{}Missile}, \hyperpage{70}
+    \subitem {Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}, 
+		\hyperpage{70}
+    \subitem {Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile}, 
+		\hyperpage{70}
+    \subitem {Update\discretionary {-}{}{}Velocity}, \hyperpage{70}
+  \item {Out\discretionary {-}{}{}Message}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{73}
+    \subitem {udp.\discretionary {-}{}{}h}, \hyperpage{75}
+
+  \indexspace
+
+  \item {p1}
+    \subitem {Faces}, \hyperpage{20}
+  \item {p2}
+    \subitem {Faces}, \hyperpage{20}
+  \item {p3}
+    \subitem {Faces}, \hyperpage{20}
+  \item {P\discretionary {-}{}{}I}
+    \subitem {Bullet.\discretionary {-}{}{}h}, \hyperpage{43}
+  \item {P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}X}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{66}
+  \item {P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}Y}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{66}
+  \item {P\discretionary {-}{}{}X}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {P\discretionary {-}{}{}Y}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {Pair\discretionary {-}{}{}Compare}
+    \subitem {backupcoop.\discretionary {-}{}{}cpp}, \hyperpage{41}
+    \subitem {Board.\discretionary {-}{}{}cpp}, \hyperpage{42}
+    \subitem {Competitive\discretionary {-}{}{}Board.\discretionary {-}{}{}cpp}, 
+		\hyperpage{60}
+  \item {particle\discretionary {-}{}{}Data}, \hyperpage{24}
+    \subitem {color}, \hyperpage{24}
+    \subitem {position}, \hyperpage{24}
+    \subitem {speed}, \hyperpage{24}
+  \item {particles}
+    \subitem {Expl}, \hyperpage{20}
+  \item {pixels}
+    \subitem {Image}, \hyperpage{23}
+  \item {Player\discretionary {-}{}{}Board}
+    \subitem {Game\discretionary {-}{}{}Play}, \hyperpage{21}
+  \item {Player\discretionary {-}{}{}Id}
+    \subitem {Game\discretionary {-}{}{}Play}, \hyperpage{21}
+  \item {players\discretionary {-}{}{}Ready}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{74}
+  \item {Points}, \hyperpage{24}
+    \subitem {x}, \hyperpage{24}
+    \subitem {y}, \hyperpage{24}
+    \subitem {z}, \hyperpage{24}
+  \item {port.\discretionary {-}{}{}h}, \hyperpage{70}
+    \subitem {S\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}V\discretionary {-}{}{}I\discretionary {-}{}{}C\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}T}, 
+		\hyperpage{70}
+  \item {position}
+    \subitem {debris\discretionary {-}{}{}Data}, \hyperpage{19}
+    \subitem {Fire\discretionary {-}{}{}Point}, \hyperpage{21}
+    \subitem {particle\discretionary {-}{}{}Data}, \hyperpage{24}
+    \subitem {Smoke\discretionary {-}{}{}Point}, \hyperpage{28}
+  \item {Present\discretionary {-}{}{}Lives}
+    \subitem {Alien}, \hyperpage{7}
+  \item {presentf}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {Print\discretionary {-}{}{}Pass\discretionary {-}{}{}Fail}
+    \subitem {Test}, \hyperpage{30}
+  \item {Process\discretionary {-}{}{}Keys}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+
+  \indexspace
+
+  \item {R}
+    \subitem {Color}, \hyperpage{19}
+  \item {R\discretionary {-}{}{}I\discretionary {-}{}{}G\discretionary {-}{}{}H\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}N\discretionary {-}{}{}G\discretionary {-}{}{}L\discretionary {-}{}{}E}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{34}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{65}
+  \item {radius}
+    \subitem {Fire\discretionary {-}{}{}Point}, \hyperpage{21}
+    \subitem {Smoke\discretionary {-}{}{}Point}, \hyperpage{28}
+  \item {Random\discretionary {-}{}{}Float}
+    \subitem {backupcoop.\discretionary {-}{}{}cpp}, \hyperpage{41}
+    \subitem {Board.\discretionary {-}{}{}cpp}, \hyperpage{42}
+    \subitem {Board.\discretionary {-}{}{}h}, \hyperpage{42}
+    \subitem {Competitive\discretionary {-}{}{}Board.\discretionary {-}{}{}cpp}, 
+		\hyperpage{60}
+    \subitem {Competitive\discretionary {-}{}{}Board.\discretionary {-}{}{}h}, 
+		\hyperpage{61}
+  \item {rankingtodisplay}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {Receive\discretionary {-}{}{}Data}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{73}
+  \item {Reduce\discretionary {-}{}{}Life}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Reduce\discretionary {-}{}{}Missile}
+    \subitem {Alien}, \hyperpage{6}
+    \subitem {Ship}, \hyperpage{27}
+  \item {relative\discretionary {-}{}{}Angle}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{32}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{69, 70}
+  \item {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Missile}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+  \item {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Aliento\discretionary {-}{}{}Missile\discretionary {-}{}{}Position}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+  \item {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Of\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Ship}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+  \item {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Alien}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+  \item {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+  \item {Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Shipto\discretionary {-}{}{}Missile\discretionary {-}{}{}Position}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+  \item {relative\discretionary {-}{}{}Angleto\discretionary {-}{}{}Missile}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{32}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{70}
+  \item {Remove\discretionary {-}{}{}Nth\discretionary {-}{}{}Alien}
+    \subitem {Board}, \hyperpage{13}
+  \item {Remove\discretionary {-}{}{}Nth\discretionary {-}{}{}Bullet}
+    \subitem {Board}, \hyperpage{13}
+  \item {Remove\discretionary {-}{}{}Nth\discretionary {-}{}{}Ship}
+    \subitem {Board}, \hyperpage{13, 14}
+  \item {Remove\discretionary {-}{}{}Player}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{74}
+    \subitem {udp.\discretionary {-}{}{}h}, \hyperpage{75}
+  \item {Reset\discretionary {-}{}{}Bullet\discretionary {-}{}{}State}
+    \subitem {Bullet}, \hyperpage{16}
+  \item {Reset\discretionary {-}{}{}Kills}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Reset\discretionary {-}{}{}Multiplier}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Reset\discretionary {-}{}{}Number\discretionary {-}{}{}Bullets}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Run\discretionary {-}{}{}All\discretionary {-}{}{}Ship\discretionary {-}{}{}Tests}
+    \subitem {Ship\discretionary {-}{}{}Test.\discretionary {-}{}{}cpp}, 
+		\hyperpage{71}
+    \subitem {Ship\discretionary {-}{}{}Test.\discretionary {-}{}{}h}, 
+		\hyperpage{71}
+  \item {Run\discretionary {-}{}{}All\discretionary {-}{}{}Tests}
+    \subitem {All\discretionary {-}{}{}Tests.\discretionary {-}{}{}cpp}, 
+		\hyperpage{40}
+    \subitem {All\discretionary {-}{}{}Tests.\discretionary {-}{}{}h}, 
+		\hyperpage{40}
+
+  \indexspace
+
+  \item {s1}
+    \subitem {Graph}, \hyperpage{22}
+  \item {S\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}V\discretionary {-}{}{}I\discretionary {-}{}{}C\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}T}
+    \subitem {port.\discretionary {-}{}{}h}, \hyperpage{70}
+  \item {scale}
+    \subitem {debris\discretionary {-}{}{}Data}, \hyperpage{19}
+  \item {Score}
+    \subitem {I\discretionary {-}{}{}D\discretionary {-}{}{}Score}, 
+		\hyperpage{22}
+    \subitem {Ship}, \hyperpage{28}
+  \item {Send\discretionary {-}{}{}Message}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{74}
+    \subitem {udp.\discretionary {-}{}{}h}, \hyperpage{75}
+  \item {Send\discretionary {-}{}{}Message\discretionary {-}{}{}To\discretionary {-}{}{}All}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{74}
+    \subitem {udp.\discretionary {-}{}{}h}, \hyperpage{75}
+  \item {Set\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Control\discretionary {-}{}{}Level}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Set\discretionary {-}{}{}Angle}
+    \subitem {Alien}, \hyperpage{6}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Set\discretionary {-}{}{}B}
+    \subitem {Color}, \hyperpage{18}
+  \item {Set\discretionary {-}{}{}Bullets}
+    \subitem {Alien}, \hyperpage{6}
+  \item {Set\discretionary {-}{}{}Color}
+    \subitem {Alien}, \hyperpage{6}
+  \item {Set\discretionary {-}{}{}Color\discretionary {-}{}{}Float}
+    \subitem {Alien}, \hyperpage{6}
+    \subitem {Bullet}, \hyperpage{16}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Set\discretionary {-}{}{}Color\discretionary {-}{}{}Float2}
+    \subitem {Alien}, \hyperpage{6}
+  \item {Set\discretionary {-}{}{}Color\discretionary {-}{}{}Float\discretionary {-}{}{}Inp}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Set\discretionary {-}{}{}Color\discretionary {-}{}{}Of\discretionary {-}{}{}Bullet}
+    \subitem {Bullet}, \hyperpage{17}
+  \item {Set\discretionary {-}{}{}Color\discretionary {-}{}{}Of\discretionary {-}{}{}Bulletfloat}
+    \subitem {Bullet}, \hyperpage{17}
+  \item {Set\discretionary {-}{}{}Color\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Set\discretionary {-}{}{}G}
+    \subitem {Color}, \hyperpage{18}
+  \item {Set\discretionary {-}{}{}Id}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Set\discretionary {-}{}{}Kills}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Set\discretionary {-}{}{}Level}
+    \subitem {Alien}, \hyperpage{6}
+  \item {Set\discretionary {-}{}{}Lives}
+    \subitem {Alien}, \hyperpage{6}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Set\discretionary {-}{}{}Missiles}
+    \subitem {Alien}, \hyperpage{6}
+  \item {Set\discretionary {-}{}{}Multiplier}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Set\discretionary {-}{}{}Name}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Set\discretionary {-}{}{}Neg\discretionary {-}{}{}X\discretionary {-}{}{}Dimension}
+    \subitem {Board}, \hyperpage{14}
+  \item {Set\discretionary {-}{}{}Neg\discretionary {-}{}{}Y\discretionary {-}{}{}Dimension}
+    \subitem {Board}, \hyperpage{14}
+  \item {Set\discretionary {-}{}{}Nth\discretionary {-}{}{}Alien}
+    \subitem {Board}, \hyperpage{14}
+  \item {Set\discretionary {-}{}{}Nth\discretionary {-}{}{}Bullet}
+    \subitem {Board}, \hyperpage{14}
+  \item {Set\discretionary {-}{}{}Nth\discretionary {-}{}{}Ship}
+    \subitem {Board}, \hyperpage{14}
+  \item {Set\discretionary {-}{}{}Number\discretionary {-}{}{}Bullets}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Set\discretionary {-}{}{}Number\discretionary {-}{}{}Missiles}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Set\discretionary {-}{}{}Pos\discretionary {-}{}{}X\discretionary {-}{}{}Dimension}
+    \subitem {Board}, \hyperpage{14}
+  \item {Set\discretionary {-}{}{}Pos\discretionary {-}{}{}Y\discretionary {-}{}{}Dimension}
+    \subitem {Board}, \hyperpage{14}
+  \item {Set\discretionary {-}{}{}R}
+    \subitem {Color}, \hyperpage{18}
+  \item {Set\discretionary {-}{}{}R\discretionary {-}{}{}G\discretionary {-}{}{}B}
+    \subitem {Color}, \hyperpage{18}
+  \item {Set\discretionary {-}{}{}R\discretionary {-}{}{}G\discretionary {-}{}{}B\discretionary {-}{}{}Float}
+    \subitem {Color}, \hyperpage{18}
+  \item {Set\discretionary {-}{}{}Score}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Set\discretionary {-}{}{}Ship\discretionary {-}{}{}I\discretionary {-}{}{}D}
+    \subitem {Bullet}, \hyperpage{17}
+  \item {Set\discretionary {-}{}{}Time\discretionary {-}{}{}Created}
+    \subitem {Bullet}, \hyperpage{17}
+  \item {Set\discretionary {-}{}{}Type}
+    \subitem {Alien}, \hyperpage{6}
+  \item {Set\discretionary {-}{}{}Type\discretionary {-}{}{}A\discretionary {-}{}{}I}
+    \subitem {Bullet}, \hyperpage{17}
+  \item {Set\discretionary {-}{}{}Type\discretionary {-}{}{}Player}
+    \subitem {Bullet}, \hyperpage{17}
+  \item {Set\discretionary {-}{}{}Vector\discretionary {-}{}{}Aliens}
+    \subitem {Board}, \hyperpage{14}
+  \item {Set\discretionary {-}{}{}Vector\discretionary {-}{}{}Bullets}
+    \subitem {Board}, \hyperpage{14}
+  \item {Set\discretionary {-}{}{}Vector\discretionary {-}{}{}Ships}
+    \subitem {Board}, \hyperpage{14}
+  \item {Set\discretionary {-}{}{}Vel\discretionary {-}{}{}X}
+    \subitem {Bullet}, \hyperpage{17}
+  \item {Set\discretionary {-}{}{}Vel\discretionary {-}{}{}Y}
+    \subitem {Bullet}, \hyperpage{17}
+  \item {Set\discretionary {-}{}{}X\discretionary {-}{}{}Pos}
+    \subitem {Alien}, \hyperpage{6}
+    \subitem {Bullet}, \hyperpage{17}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Set\discretionary {-}{}{}Y\discretionary {-}{}{}Pos}
+    \subitem {Alien}, \hyperpage{6}
+    \subitem {Bullet}, \hyperpage{17}
+    \subitem {Ship}, \hyperpage{27}
+  \item {Setting\discretionary {-}{}{}Ship\discretionary {-}{}{}Tests}
+    \subitem {Ship\discretionary {-}{}{}Test.\discretionary {-}{}{}cpp}, 
+		\hyperpage{71}
+    \subitem {Ship\discretionary {-}{}{}Test.\discretionary {-}{}{}h}, 
+		\hyperpage{71}
+  \item {Ship}, \hyperpage{24}
+    \subitem {A\discretionary {-}{}{}I\discretionary {-}{}{}Level}, 
+		\hyperpage{27}
+    \subitem {Add\discretionary {-}{}{}Kills}, \hyperpage{26}
+    \subitem {Add\discretionary {-}{}{}Life}, \hyperpage{26}
+    \subitem {Add\discretionary {-}{}{}Missile}, \hyperpage{26}
+    \subitem {Add\discretionary {-}{}{}Number\discretionary {-}{}{}Bullets}, 
+		\hyperpage{26}
+    \subitem {Angle}, \hyperpage{27}
+    \subitem {Color\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}, 
+		\hyperpage{28}
+    \subitem {Get\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Control\discretionary {-}{}{}Level}, 
+		\hyperpage{26}
+    \subitem {Get\discretionary {-}{}{}Angle}, \hyperpage{26}
+    \subitem {Get\discretionary {-}{}{}Color}, \hyperpage{26}
+    \subitem {Get\discretionary {-}{}{}Id}, \hyperpage{26}
+    \subitem {Get\discretionary {-}{}{}Kills}, \hyperpage{26}
+    \subitem {Get\discretionary {-}{}{}Lives}, \hyperpage{26}
+    \subitem {Get\discretionary {-}{}{}Multiplier}, \hyperpage{26}
+    \subitem {Get\discretionary {-}{}{}Name}, \hyperpage{26}
+    \subitem {Get\discretionary {-}{}{}Number\discretionary {-}{}{}Bullets}, 
+		\hyperpage{26}
+    \subitem {Get\discretionary {-}{}{}Number\discretionary {-}{}{}Missiles}, 
+		\hyperpage{26}
+    \subitem {Get\discretionary {-}{}{}Score}, \hyperpage{26}
+    \subitem {Get\discretionary {-}{}{}Summary}, \hyperpage{26}
+    \subitem {Get\discretionary {-}{}{}X\discretionary {-}{}{}Pos}, 
+		\hyperpage{26}
+    \subitem {Get\discretionary {-}{}{}Y\discretionary {-}{}{}Pos}, 
+		\hyperpage{27}
+    \subitem {Id}, \hyperpage{28}
+    \subitem {If\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Control}, 
+		\hyperpage{27}
+    \subitem {If\discretionary {-}{}{}Human\discretionary {-}{}{}Control}, 
+		\hyperpage{27}
+    \subitem {Increment\discretionary {-}{}{}Multiplier}, 
+		\hyperpage{27}
+    \subitem {Increment\discretionary {-}{}{}Score}, \hyperpage{27}
+    \subitem {Kills}, \hyperpage{28}
+    \subitem {Lives}, \hyperpage{28}
+    \subitem {Multiplier}, \hyperpage{28}
+    \subitem {Name}, \hyperpage{28}
+    \subitem {Number\discretionary {-}{}{}Bullets}, \hyperpage{28}
+    \subitem {Number\discretionary {-}{}{}Missiles}, \hyperpage{28}
+    \subitem {Reduce\discretionary {-}{}{}Life}, \hyperpage{27}
+    \subitem {Reduce\discretionary {-}{}{}Missile}, \hyperpage{27}
+    \subitem {Reset\discretionary {-}{}{}Kills}, \hyperpage{27}
+    \subitem {Reset\discretionary {-}{}{}Multiplier}, \hyperpage{27}
+    \subitem {Reset\discretionary {-}{}{}Number\discretionary {-}{}{}Bullets}, 
+		\hyperpage{27}
+    \subitem {Score}, \hyperpage{28}
+    \subitem {Set\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Control\discretionary {-}{}{}Level}, 
+		\hyperpage{27}
+    \subitem {Set\discretionary {-}{}{}Angle}, \hyperpage{27}
+    \subitem {Set\discretionary {-}{}{}Color\discretionary {-}{}{}Float}, 
+		\hyperpage{27}
+    \subitem {Set\discretionary {-}{}{}Color\discretionary {-}{}{}Float\discretionary {-}{}{}Inp}, 
+		\hyperpage{27}
+    \subitem {Set\discretionary {-}{}{}Color\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}, 
+		\hyperpage{27}
+    \subitem {Set\discretionary {-}{}{}Id}, \hyperpage{27}
+    \subitem {Set\discretionary {-}{}{}Kills}, \hyperpage{27}
+    \subitem {Set\discretionary {-}{}{}Lives}, \hyperpage{27}
+    \subitem {Set\discretionary {-}{}{}Multiplier}, \hyperpage{27}
+    \subitem {Set\discretionary {-}{}{}Name}, \hyperpage{27}
+    \subitem {Set\discretionary {-}{}{}Number\discretionary {-}{}{}Bullets}, 
+		\hyperpage{27}
+    \subitem {Set\discretionary {-}{}{}Number\discretionary {-}{}{}Missiles}, 
+		\hyperpage{27}
+    \subitem {Set\discretionary {-}{}{}Score}, \hyperpage{27}
+    \subitem {Set\discretionary {-}{}{}X\discretionary {-}{}{}Pos}, 
+		\hyperpage{27}
+    \subitem {Set\discretionary {-}{}{}Y\discretionary {-}{}{}Pos}, 
+		\hyperpage{27}
+    \subitem {Ship}, \hyperpage{26}
+    \subitem {X\discretionary {-}{}{}Pos}, \hyperpage{28}
+    \subitem {Y\discretionary {-}{}{}Pos}, \hyperpage{28}
+  \item {Ship.\discretionary {-}{}{}cpp}, \hyperpage{70}
+  \item {Ship.\discretionary {-}{}{}h}, \hyperpage{70}
+  \item {Ship\discretionary {-}{}{}Id}
+    \subitem {Bullet}, \hyperpage{17}
+  \item {Ship\discretionary {-}{}{}In\discretionary {-}{}{}Arc}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+  \item {Ship\discretionary {-}{}{}Initialisation\discretionary {-}{}{}Tests}
+    \subitem {Ship\discretionary {-}{}{}Test.\discretionary {-}{}{}cpp}, 
+		\hyperpage{71}
+    \subitem {Ship\discretionary {-}{}{}Test.\discretionary {-}{}{}h}, 
+		\hyperpage{71}
+  \item {Ship\discretionary {-}{}{}Is\discretionary {-}{}{}In\discretionary {-}{}{}View\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+  \item {Ship\discretionary {-}{}{}Test.\discretionary {-}{}{}cpp}, 
+		\hyperpage{71}
+    \subitem {Run\discretionary {-}{}{}All\discretionary {-}{}{}Ship\discretionary {-}{}{}Tests}, 
+		\hyperpage{71}
+    \subitem {Setting\discretionary {-}{}{}Ship\discretionary {-}{}{}Tests}, 
+		\hyperpage{71}
+    \subitem {Ship\discretionary {-}{}{}Initialisation\discretionary {-}{}{}Tests}, 
+		\hyperpage{71}
+    \subitem {Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Tests}, 
+		\hyperpage{71}
+  \item {Ship\discretionary {-}{}{}Test.\discretionary {-}{}{}h}, 
+		\hyperpage{71}
+    \subitem {Run\discretionary {-}{}{}All\discretionary {-}{}{}Ship\discretionary {-}{}{}Tests}, 
+		\hyperpage{71}
+    \subitem {Setting\discretionary {-}{}{}Ship\discretionary {-}{}{}Tests}, 
+		\hyperpage{71}
+    \subitem {Ship\discretionary {-}{}{}Initialisation\discretionary {-}{}{}Tests}, 
+		\hyperpage{71}
+    \subitem {Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Tests}, 
+		\hyperpage{71}
+  \item {shipcol}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {shipfir}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{59}
+  \item {shipmid}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{60}
+  \item {Show\discretionary {-}{}{}Alien}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+  \item {Show\discretionary {-}{}{}All\discretionary {-}{}{}Fire\discretionary {-}{}{}Points}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+  \item {Show\discretionary {-}{}{}All\discretionary {-}{}{}Text}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {Show\discretionary {-}{}{}Board}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {Show\discretionary {-}{}{}Borders}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {Show\discretionary {-}{}{}Bullet}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {Show\discretionary {-}{}{}Explosion}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {Show\discretionary {-}{}{}Fire\discretionary {-}{}{}Point}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+  \item {Show\discretionary {-}{}{}Game\discretionary {-}{}{}Over}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+  \item {Show\discretionary {-}{}{}Ip}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{53}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{57}
+  \item {Show\discretionary {-}{}{}Lives}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {Show\discretionary {-}{}{}Missile}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {Show\discretionary {-}{}{}Object}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {Show\discretionary {-}{}{}Scores}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {Show\discretionary {-}{}{}Ship}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {Show\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {Show\discretionary {-}{}{}Title}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {sid}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{74}
+  \item {Single\discretionary {-}{}{}Mode}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+  \item {Smoke\discretionary {-}{}{}Point}, \hyperpage{28}
+    \subitem {color}, \hyperpage{28}
+    \subitem {initpos}, \hyperpage{28}
+    \subitem {life}, \hyperpage{28}
+    \subitem {position}, \hyperpage{28}
+    \subitem {radius}, \hyperpage{28}
+    \subitem {speed}, \hyperpage{28}
+  \item {Smoke\discretionary {-}{}{}Points}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{60}
+  \item {Smoke\discretionary {-}{}{}Points\discretionary {-}{}{}Missile}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{60}
+  \item {sockid}
+    \subitem {I\discretionary {-}{}{}P\discretionary {-}{}{}Message}, 
+		\hyperpage{23}
+  \item {sortclass}, \hyperpage{29}
+    \subitem {operator()}, \hyperpage{29}
+  \item {sortobject}
+    \subitem {Comp\discretionary {-}{}{}Highscore.\discretionary {-}{}{}cpp}, 
+		\hyperpage{62}
+    \subitem {Highscore.\discretionary {-}{}{}cpp}, \hyperpage{63}
+    \subitem {testmera.\discretionary {-}{}{}cpp}, \hyperpage{72}
+  \item {sound\discretionary {-}{}{}\_\discretionary {-}{}{}play1}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+  \item {sound\discretionary {-}{}{}\_\discretionary {-}{}{}play2}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+  \item {Space\discretionary {-}{}{}Bar\discretionary {-}{}{}Free}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{60}
+  \item {special\discretionary {-}{}{}Keys}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {special\discretionary {-}{}{}Keys\discretionary {-}{}{}Up}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{45}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {speed}
+    \subitem {debris\discretionary {-}{}{}Data}, \hyperpage{19}
+    \subitem {particle\discretionary {-}{}{}Data}, \hyperpage{24}
+    \subitem {Smoke\discretionary {-}{}{}Point}, \hyperpage{28}
+  \item {Split\discretionary {-}{}{}String}
+    \subitem {Board}, \hyperpage{14}
+  \item {Stars}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{60}
+
+  \indexspace
+
+  \item {Test}, \hyperpage{29}
+    \subitem {$\sim $\discretionary {-}{}{}Test}, \hyperpage{30}
+    \subitem {description}, \hyperpage{30}
+    \subitem {is\discretionary {-}{}{}Pass}, \hyperpage{30}
+    \subitem {is\discretionary {-}{}{}Passed}, \hyperpage{30}
+    \subitem {Print\discretionary {-}{}{}Pass\discretionary {-}{}{}Fail}, 
+		\hyperpage{30}
+    \subitem {Test}, \hyperpage{30}
+    \subitem {verbose}, \hyperpage{30}
+    \subitem {Verify\discretionary {-}{}{}False}, \hyperpage{30}
+    \subitem {Verify\discretionary {-}{}{}True}, \hyperpage{30}
+  \item {Test.\discretionary {-}{}{}cpp}, \hyperpage{71}
+  \item {Test.\discretionary {-}{}{}h}, \hyperpage{72}
+  \item {testmera.\discretionary {-}{}{}cpp}, \hyperpage{72}
+    \subitem {main}, \hyperpage{72}
+    \subitem {sortobject}, \hyperpage{72}
+    \subitem {Update\discretionary {-}{}{}High\discretionary {-}{}{}Scores}, 
+		\hyperpage{72}
+  \item {theta}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{32}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{34}
+    \subitem {O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{65}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{69}
+  \item {Time\discretionary {-}{}{}Created}
+    \subitem {Bullet}, \hyperpage{17}
+  \item {Time\discretionary {-}{}{}Stamp}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{74}
+  \item {titleptr}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{60}
+  \item {To\discretionary {-}{}{}Arr}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{74}
+    \subitem {udp.\discretionary {-}{}{}h}, \hyperpage{75}
+  \item {to\discretionary {-}{}{}Digit}
+    \subitem {backupcoop.\discretionary {-}{}{}cpp}, \hyperpage{41}
+    \subitem {Board.\discretionary {-}{}{}cpp}, \hyperpage{41}
+    \subitem {Competitive\discretionary {-}{}{}Board.\discretionary {-}{}{}cpp}, 
+		\hyperpage{60}
+  \item {To\discretionary {-}{}{}Four}
+    \subitem {backupcoop.\discretionary {-}{}{}cpp}, \hyperpage{41}
+    \subitem {Board.\discretionary {-}{}{}cpp}, \hyperpage{42}
+    \subitem {Competitive\discretionary {-}{}{}Board.\discretionary {-}{}{}cpp}, 
+		\hyperpage{60}
+  \item {To\discretionary {-}{}{}Four1}
+    \subitem {Comp\discretionary {-}{}{}Highscore.\discretionary {-}{}{}cpp}, 
+		\hyperpage{61}
+    \subitem {Highscore.\discretionary {-}{}{}cpp}, \hyperpage{63}
+  \item {To\discretionary {-}{}{}Str}
+    \subitem {udp.\discretionary {-}{}{}cpp}, \hyperpage{74}
+    \subitem {udp.\discretionary {-}{}{}h}, \hyperpage{75}
+  \item {Turn}
+    \subitem {A\-I.\-h}, \hyperpage{35}
+  \item {Turn\discretionary {-}{}{}Alien\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {A\discretionary {-}{}{}Ialien.\discretionary {-}{}{}cpp}, 
+		\hyperpage{37}
+  \item {Turn\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{32, 33}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{70}
+  \item {Turn\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {A\discretionary {-}{}{}I\discretionary {-}{}{}Player.\discretionary {-}{}{}cpp}, 
+		\hyperpage{39}
+  \item {Type\discretionary {-}{}{}A\discretionary {-}{}{}I}
+    \subitem {Bullet}, \hyperpage{17}
+  \item {Type\discretionary {-}{}{}Player}
+    \subitem {Bullet}, \hyperpage{17}
+
+  \indexspace
+
+  \item {udp.\discretionary {-}{}{}cpp}, \hyperpage{72}
+    \subitem {Add\discretionary {-}{}{}Players}, \hyperpage{73}
+    \subitem {Connect}, \hyperpage{74}
+    \subitem {Find\discretionary {-}{}{}Index}, \hyperpage{73}
+    \subitem {First}, \hyperpage{74}
+    \subitem {Get\discretionary {-}{}{}I\discretionary {-}{}{}P}, 
+		\hyperpage{73}
+    \subitem {Get\discretionary {-}{}{}Num\discretionary {-}{}{}Players}, 
+		\hyperpage{73}
+    \subitem {I\discretionary {-}{}{}Pdata}, \hyperpage{74}
+    \subitem {Instructions}, \hyperpage{74}
+    \subitem {ipadr}, \hyperpage{74}
+    \subitem {Is\discretionary {-}{}{}Baap}, \hyperpage{73}
+    \subitem {is\discretionary {-}{}{}Offline}, \hyperpage{74}
+    \subitem {Last\discretionary {-}{}{}Time}, \hyperpage{74}
+    \subitem {Length\discretionary {-}{}{}Num}, \hyperpage{73}
+    \subitem {networkmain}, \hyperpage{73}
+    \subitem {no\discretionary {-}{}{}I\discretionary {-}{}{}P}, 
+		\hyperpage{74}
+    \subitem {Out\discretionary {-}{}{}Message}, \hyperpage{73}
+    \subitem {players\discretionary {-}{}{}Ready}, \hyperpage{74}
+    \subitem {Receive\discretionary {-}{}{}Data}, \hyperpage{73}
+    \subitem {Remove\discretionary {-}{}{}Player}, \hyperpage{74}
+    \subitem {Send\discretionary {-}{}{}Message}, \hyperpage{74}
+    \subitem {Send\discretionary {-}{}{}Message\discretionary {-}{}{}To\discretionary {-}{}{}All}, 
+		\hyperpage{74}
+    \subitem {sid}, \hyperpage{74}
+    \subitem {Time\discretionary {-}{}{}Stamp}, \hyperpage{74}
+    \subitem {To\discretionary {-}{}{}Arr}, \hyperpage{74}
+    \subitem {To\discretionary {-}{}{}Str}, \hyperpage{74}
+  \item {udp.\discretionary {-}{}{}h}, \hyperpage{74}
+    \subitem {Add\discretionary {-}{}{}Players}, \hyperpage{75}
+    \subitem {B\discretionary {-}{}{}U\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}Z\discretionary {-}{}{}E}, 
+		\hyperpage{75}
+    \subitem {Find\discretionary {-}{}{}Index}, \hyperpage{75}
+    \subitem {Get\discretionary {-}{}{}I\discretionary {-}{}{}P}, 
+		\hyperpage{75}
+    \subitem {Get\discretionary {-}{}{}Num\discretionary {-}{}{}Players}, 
+		\hyperpage{75}
+    \subitem {Is\discretionary {-}{}{}Baap}, \hyperpage{75}
+    \subitem {Length\discretionary {-}{}{}Num}, \hyperpage{75}
+    \subitem {networkmain}, \hyperpage{75}
+    \subitem {Out\discretionary {-}{}{}Message}, \hyperpage{75}
+    \subitem {Remove\discretionary {-}{}{}Player}, \hyperpage{75}
+    \subitem {Send\discretionary {-}{}{}Message}, \hyperpage{75}
+    \subitem {Send\discretionary {-}{}{}Message\discretionary {-}{}{}To\discretionary {-}{}{}All}, 
+		\hyperpage{75}
+    \subitem {To\discretionary {-}{}{}Arr}, \hyperpage{75}
+    \subitem {To\discretionary {-}{}{}Str}, \hyperpage{75}
+  \item {Update\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Board}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{33}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {A\discretionary {-}{}{}I\discretionary {-}{}{}Update.\discretionary {-}{}{}cpp}, 
+		\hyperpage{39}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{70}
+  \item {Update\discretionary {-}{}{}Alien}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{33}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {A\discretionary {-}{}{}I\discretionary {-}{}{}Update.\discretionary {-}{}{}cpp}, 
+		\hyperpage{39}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{70}
+  \item {Update\discretionary {-}{}{}Alien\discretionary {-}{}{}Missile}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{33}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {A\discretionary {-}{}{}I\discretionary {-}{}{}Missile.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{70}
+  \item {Update\discretionary {-}{}{}Alien\discretionary {-}{}{}Missile\discretionary {-}{}{}Velocity}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {A\discretionary {-}{}{}I\discretionary {-}{}{}Missile.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+  \item {Update\discretionary {-}{}{}Aliens}
+    \subitem {Board}, \hyperpage{14}
+  \item {Update\discretionary {-}{}{}All\discretionary {-}{}{}Bullets}
+    \subitem {Board}, \hyperpage{14}
+  \item {Update\discretionary {-}{}{}All\discretionary {-}{}{}Explosions}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{46}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {Update\discretionary {-}{}{}All\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{46}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {Update\discretionary {-}{}{}Bullets\discretionary {-}{}{}Without\discretionary {-}{}{}Killing}
+    \subitem {Board}, \hyperpage{14, 15}
+  \item {Update\discretionary {-}{}{}Explosion}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{46}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+  \item {Update\discretionary {-}{}{}Fire\discretionary {-}{}{}Explosions}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{46}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {Update\discretionary {-}{}{}Game\discretionary {-}{}{}Thread}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{46}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+  \item {Update\discretionary {-}{}{}High\discretionary {-}{}{}Scores}
+    \subitem {Comp\discretionary {-}{}{}Highscore.\discretionary {-}{}{}cpp}, 
+		\hyperpage{61}
+    \subitem {Comp\discretionary {-}{}{}Highscore.\discretionary {-}{}{}h}, 
+		\hyperpage{62}
+    \subitem {Highscore.\discretionary {-}{}{}cpp}, \hyperpage{63}
+    \subitem {Highscore.\discretionary {-}{}{}h}, \hyperpage{63}
+    \subitem {testmera.\discretionary {-}{}{}cpp}, \hyperpage{72}
+  \item {Update\discretionary {-}{}{}Missile}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{33}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {A\discretionary {-}{}{}I\discretionary {-}{}{}Update.\discretionary {-}{}{}cpp}, 
+		\hyperpage{39}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{70}
+  \item {Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{33}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {A\discretionary {-}{}{}I\discretionary {-}{}{}Update.\discretionary {-}{}{}cpp}, 
+		\hyperpage{39}
+    \subitem {Board}, \hyperpage{15}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{70}
+  \item {Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{33}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {A\discretionary {-}{}{}I\discretionary {-}{}{}Missile.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{70}
+  \item {Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile\discretionary {-}{}{}Velocity}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{36}
+    \subitem {A\discretionary {-}{}{}I\discretionary {-}{}{}Missile.\discretionary {-}{}{}cpp}, 
+		\hyperpage{38}
+  \item {Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Tests}
+    \subitem {Ship\discretionary {-}{}{}Test.\discretionary {-}{}{}cpp}, 
+		\hyperpage{71}
+    \subitem {Ship\discretionary {-}{}{}Test.\discretionary {-}{}{}h}, 
+		\hyperpage{71}
+  \item {Update\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}
+    \subitem {Combined.\discretionary {-}{}{}cpp}, \hyperpage{46}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{49}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp}, 
+		\hyperpage{54}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{58}
+  \item {Update\discretionary {-}{}{}Velocity}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{33}
+    \subitem {Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp}, 
+		\hyperpage{70}
+
+  \indexspace
+
+  \item {Vector\discretionary {-}{}{}Aliens}
+    \subitem {Board}, \hyperpage{15}
+  \item {Vector\discretionary {-}{}{}Bullets}
+    \subitem {Board}, \hyperpage{15}
+  \item {Vector\discretionary {-}{}{}Ships}
+    \subitem {Board}, \hyperpage{15}
+  \item {Vel\discretionary {-}{}{}X}
+    \subitem {Bullet}, \hyperpage{17}
+  \item {Vel\discretionary {-}{}{}Y}
+    \subitem {Bullet}, \hyperpage{17}
+  \item {verbose}
+    \subitem {Test}, \hyperpage{30}
+  \item {Verify\discretionary {-}{}{}False}
+    \subitem {Test}, \hyperpage{30}
+  \item {Verify\discretionary {-}{}{}True}
+    \subitem {Test}, \hyperpage{30}
+  \item {viewtotake}
+    \subitem {Combined.\discretionary {-}{}{}h}, \hyperpage{51}
+    \subitem {Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h}, 
+		\hyperpage{60}
+
+  \indexspace
+
+  \item {What\discretionary {-}{}{}It\discretionary {-}{}{}Should\discretionary {-}{}{}Do}
+    \subitem {A\discretionary {-}{}{}I.\discretionary {-}{}{}h}, 
+		\hyperpage{35}
+  \item {width}
+    \subitem {Image}, \hyperpage{23}
+
+  \indexspace
+
+  \item {x}
+    \subitem {Points}, \hyperpage{24}
+  \item {x1}
+    \subitem {Graph}, \hyperpage{22}
+  \item {X\discretionary {-}{}{}Pos}
+    \subitem {Alien}, \hyperpage{7}
+    \subitem {Bullet}, \hyperpage{17}
+    \subitem {Ship}, \hyperpage{28}
+
+  \indexspace
+
+  \item {y}
+    \subitem {Points}, \hyperpage{24}
+  \item {Y\discretionary {-}{}{}Pos}
+    \subitem {Alien}, \hyperpage{7}
+    \subitem {Bullet}, \hyperpage{17}
+    \subitem {Ship}, \hyperpage{28}
+
+  \indexspace
+
+  \item {z}
+    \subitem {Points}, \hyperpage{24}
+
+\end{theindex}

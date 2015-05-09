@@ -1,10 +1,10 @@
-abc
+Kartikeya
 1000
-DefaultPlayer
+Faran
 1000
-DefaultPlayer
+Prateek
 900
-DefaultPlayer
+Player
 900
-DefaultPlayer
-700
+dude
+900

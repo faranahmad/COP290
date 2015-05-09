@@ -1,0 +1,154 @@
+\hypertarget{udp_8h}{\section{udp.\-h File Reference}
+\label{udp_8h}\index{udp.\-h@{udp.\-h}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$netdb.\-h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}port.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\-h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\-h$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$pthread.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$algorithm$>$}\\*
+{\ttfamily \#include $<$queue$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{udp_8h_aeca034f67218340ecb2261a22c2f3dcd}{B\-U\-F\-S\-I\-Z\-E}~50000
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::string \hyperlink{udp_8h_a1ff4df031c5f4ef3365e0fe8769f0e46}{Get\-I\-P} ()
+\item 
+bool \hyperlink{udp_8h_acc10d8964835e670898c0f0c674f05ef}{Is\-Baap} ()
+\item 
+std\-::string \hyperlink{udp_8h_a0cde59c431c055ef0fd880ea2a278498}{To\-Str} (char $\ast$arr)
+\item 
+int \hyperlink{udp_8h_a59b33bfa3c973a103d3835b924500a18}{Get\-Num\-Players} ()
+\item 
+void \hyperlink{udp_8h_ad40c3abd195bb7bdf31b1aa2530df7dc}{Add\-Players} (char players\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{udp_8h_a412377b79242c29acf8469b39e126db7}{Length\-Num} (long long num)
+\item 
+int \hyperlink{udp_8h_a87057cbf85bc713c259e2659392dd7fd}{Find\-Index} (long long ip)
+\item 
+void $\ast$ \hyperlink{udp_8h_aed15e65a603f3a4ac19ef6abc8b07a4f}{Send\-Message} (void $\ast$id)
+\item 
+char $\ast$ \hyperlink{udp_8h_ab07990aa563258ba3ec432e705dff1ee}{To\-Arr} (std\-::string str)
+\item 
+void \hyperlink{udp_8h_a5ec65546d59f219b550765a551023eb9}{Send\-Message\-To\-All} (std\-::string message)
+\item 
+void $\ast$ \hyperlink{udp_8h_a204733c6a6db2938d2cf79bfeffb4c6d}{Remove\-Player} (void $\ast$input)
+\item 
+void $\ast$ \hyperlink{udp_8h_afca5266163375b4904280a6c55cef150}{Out\-Message} (void $\ast$input)
+\item 
+int \hyperlink{udp_8h_a238fe05206c564c9141e943bea7fae3d}{networkmain} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{udp_8h_aeca034f67218340ecb2261a22c2f3dcd}{\index{udp.\-h@{udp.\-h}!B\-U\-F\-S\-I\-Z\-E@{B\-U\-F\-S\-I\-Z\-E}}
+\index{B\-U\-F\-S\-I\-Z\-E@{B\-U\-F\-S\-I\-Z\-E}!udp.h@{udp.\-h}}
+\subsubsection[{B\-U\-F\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-U\-F\-S\-I\-Z\-E~50000}}\label{udp_8h_aeca034f67218340ecb2261a22c2f3dcd}
+
+
+\subsection{Function Documentation}
+\hypertarget{udp_8h_ad40c3abd195bb7bdf31b1aa2530df7dc}{\index{udp.\-h@{udp.\-h}!Add\-Players@{Add\-Players}}
+\index{Add\-Players@{Add\-Players}!udp.h@{udp.\-h}}
+\subsubsection[{Add\-Players}]{\setlength{\rightskip}{0pt plus 5cm}void Add\-Players (
+\begin{DoxyParamCaption}
+\item[{char}]{players\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{udp_8h_ad40c3abd195bb7bdf31b1aa2530df7dc}
+\hypertarget{udp_8h_a87057cbf85bc713c259e2659392dd7fd}{\index{udp.\-h@{udp.\-h}!Find\-Index@{Find\-Index}}
+\index{Find\-Index@{Find\-Index}!udp.h@{udp.\-h}}
+\subsubsection[{Find\-Index}]{\setlength{\rightskip}{0pt plus 5cm}int Find\-Index (
+\begin{DoxyParamCaption}
+\item[{long long}]{ip}
+\end{DoxyParamCaption}
+)}}\label{udp_8h_a87057cbf85bc713c259e2659392dd7fd}
+\hypertarget{udp_8h_a1ff4df031c5f4ef3365e0fe8769f0e46}{\index{udp.\-h@{udp.\-h}!Get\-I\-P@{Get\-I\-P}}
+\index{Get\-I\-P@{Get\-I\-P}!udp.h@{udp.\-h}}
+\subsubsection[{Get\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Get\-I\-P (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{udp_8h_a1ff4df031c5f4ef3365e0fe8769f0e46}
+\hypertarget{udp_8h_a59b33bfa3c973a103d3835b924500a18}{\index{udp.\-h@{udp.\-h}!Get\-Num\-Players@{Get\-Num\-Players}}
+\index{Get\-Num\-Players@{Get\-Num\-Players}!udp.h@{udp.\-h}}
+\subsubsection[{Get\-Num\-Players}]{\setlength{\rightskip}{0pt plus 5cm}int Get\-Num\-Players (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{udp_8h_a59b33bfa3c973a103d3835b924500a18}
+\hypertarget{udp_8h_acc10d8964835e670898c0f0c674f05ef}{\index{udp.\-h@{udp.\-h}!Is\-Baap@{Is\-Baap}}
+\index{Is\-Baap@{Is\-Baap}!udp.h@{udp.\-h}}
+\subsubsection[{Is\-Baap}]{\setlength{\rightskip}{0pt plus 5cm}bool Is\-Baap (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{udp_8h_acc10d8964835e670898c0f0c674f05ef}
+\hypertarget{udp_8h_a412377b79242c29acf8469b39e126db7}{\index{udp.\-h@{udp.\-h}!Length\-Num@{Length\-Num}}
+\index{Length\-Num@{Length\-Num}!udp.h@{udp.\-h}}
+\subsubsection[{Length\-Num}]{\setlength{\rightskip}{0pt plus 5cm}int Length\-Num (
+\begin{DoxyParamCaption}
+\item[{long long}]{num}
+\end{DoxyParamCaption}
+)}}\label{udp_8h_a412377b79242c29acf8469b39e126db7}
+\hypertarget{udp_8h_a238fe05206c564c9141e943bea7fae3d}{\index{udp.\-h@{udp.\-h}!networkmain@{networkmain}}
+\index{networkmain@{networkmain}!udp.h@{udp.\-h}}
+\subsubsection[{networkmain}]{\setlength{\rightskip}{0pt plus 5cm}int networkmain (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{udp_8h_a238fe05206c564c9141e943bea7fae3d}
+\hypertarget{udp_8h_afca5266163375b4904280a6c55cef150}{\index{udp.\-h@{udp.\-h}!Out\-Message@{Out\-Message}}
+\index{Out\-Message@{Out\-Message}!udp.h@{udp.\-h}}
+\subsubsection[{Out\-Message}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Out\-Message (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{input}
+\end{DoxyParamCaption}
+)}}\label{udp_8h_afca5266163375b4904280a6c55cef150}
+\hypertarget{udp_8h_a204733c6a6db2938d2cf79bfeffb4c6d}{\index{udp.\-h@{udp.\-h}!Remove\-Player@{Remove\-Player}}
+\index{Remove\-Player@{Remove\-Player}!udp.h@{udp.\-h}}
+\subsubsection[{Remove\-Player}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Remove\-Player (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{input}
+\end{DoxyParamCaption}
+)}}\label{udp_8h_a204733c6a6db2938d2cf79bfeffb4c6d}
+\hypertarget{udp_8h_aed15e65a603f3a4ac19ef6abc8b07a4f}{\index{udp.\-h@{udp.\-h}!Send\-Message@{Send\-Message}}
+\index{Send\-Message@{Send\-Message}!udp.h@{udp.\-h}}
+\subsubsection[{Send\-Message}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Send\-Message (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{id}
+\end{DoxyParamCaption}
+)}}\label{udp_8h_aed15e65a603f3a4ac19ef6abc8b07a4f}
+\hypertarget{udp_8h_a5ec65546d59f219b550765a551023eb9}{\index{udp.\-h@{udp.\-h}!Send\-Message\-To\-All@{Send\-Message\-To\-All}}
+\index{Send\-Message\-To\-All@{Send\-Message\-To\-All}!udp.h@{udp.\-h}}
+\subsubsection[{Send\-Message\-To\-All}]{\setlength{\rightskip}{0pt plus 5cm}void Send\-Message\-To\-All (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{message}
+\end{DoxyParamCaption}
+)}}\label{udp_8h_a5ec65546d59f219b550765a551023eb9}
+\hypertarget{udp_8h_ab07990aa563258ba3ec432e705dff1ee}{\index{udp.\-h@{udp.\-h}!To\-Arr@{To\-Arr}}
+\index{To\-Arr@{To\-Arr}!udp.h@{udp.\-h}}
+\subsubsection[{To\-Arr}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ To\-Arr (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{str}
+\end{DoxyParamCaption}
+)}}\label{udp_8h_ab07990aa563258ba3ec432e705dff1ee}
+\hypertarget{udp_8h_a0cde59c431c055ef0fd880ea2a278498}{\index{udp.\-h@{udp.\-h}!To\-Str@{To\-Str}}
+\index{To\-Str@{To\-Str}!udp.h@{udp.\-h}}
+\subsubsection[{To\-Str}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string To\-Str (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{arr}
+\end{DoxyParamCaption}
+)}}\label{udp_8h_a0cde59c431c055ef0fd880ea2a278498}

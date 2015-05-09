@@ -1,0 +1,1331 @@
+\hypertarget{classBoard}{\section{Board Class Reference}
+\label{classBoard}\index{Board@{Board}}
+}
+
+
+{\ttfamily \#include $<$Board.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBoard_a9ee491d4fea680cf69b033374a9fdfcb}{Board} ()
+\item 
+\hyperlink{classBoard_a165433da04a8e74a38f12ac2e6bd427b}{Board} (double, double, double, double)
+\item 
+void \hyperlink{classBoard_a1f3179789d0cdd0693afe8d86231fefa}{Set\-Pos\-X\-Dimension} (double)
+\item 
+void \hyperlink{classBoard_a3ff5a920c5654a71ce0b5ca746c7c7bb}{Set\-Pos\-Y\-Dimension} (double)
+\item 
+void \hyperlink{classBoard_a502ea2921d60cd7070a7b09113d29c98}{Set\-Neg\-X\-Dimension} (double)
+\item 
+void \hyperlink{classBoard_a76e94bf8cf5c9608d0029bd7a48e849e}{Set\-Neg\-Y\-Dimension} (double)
+\item 
+void \hyperlink{classBoard_a54d9866ac96c6cd290bf33ed20f47b40}{Set\-Vector\-Bullets} (std\-::vector$<$ \hyperlink{classBullet}{Bullet} $>$)
+\item 
+void \hyperlink{classBoard_a06eb221dbe45442ff706bdbb9e16b5ed}{Set\-Vector\-Ships} (std\-::vector$<$ \hyperlink{classShip}{Ship} $>$)
+\item 
+void \hyperlink{classBoard_a1aa91f30ab80521b99633a475065ff2e}{Set\-Vector\-Aliens} (std\-::vector$<$ \hyperlink{classAlien}{Alien} $>$)
+\item 
+void \hyperlink{classBoard_a4ed848f226c934b1b01e42beeeba0df2}{Set\-Nth\-Bullet} (int, \hyperlink{classBullet}{Bullet})
+\item 
+void \hyperlink{classBoard_a0a547801e0b52fc2dc8ec1875b4c2281}{Set\-Nth\-Ship} (int, \hyperlink{classShip}{Ship})
+\item 
+void \hyperlink{classBoard_a14c341a116fe5a799d32e6a1a2ad20ee}{Set\-Nth\-Alien} (int, \hyperlink{classAlien}{Alien})
+\item 
+std\-::vector$<$ \hyperlink{classBullet}{Bullet} $>$ \hyperlink{classBoard_a668fa377b810b29a26f2e2b6ae140884}{Get\-Vector\-Bullets} ()
+\item 
+std\-::vector$<$ \hyperlink{classShip}{Ship} $>$ \hyperlink{classBoard_adfbd6c6064986d8b81c3223539d40e1e}{Get\-Vector\-Ships} ()
+\item 
+std\-::vector$<$ \hyperlink{classAlien}{Alien} $>$ \hyperlink{classBoard_a60a872b112f991ca336ccccf33d05586}{Get\-Vector\-Aliens} ()
+\item 
+double \hyperlink{classBoard_a0d07f4d616e272a1af348b9baa4fbae8}{Get\-Pos\-X\-Dimension} ()
+\item 
+double \hyperlink{classBoard_acab8c54eb132148f63e7a2960e0ebf3b}{Get\-Pos\-Y\-Dimension} ()
+\item 
+double \hyperlink{classBoard_aa1d930101bd156faad5ae1be82d30bbd}{Get\-Neg\-X\-Dimension} ()
+\item 
+double \hyperlink{classBoard_ab0bb449aabb539140862a7ceafaea760}{Get\-Neg\-Y\-Dimension} ()
+\item 
+int \hyperlink{classBoard_a964557fa031a2e5bdc0b2373b6201124}{Get\-Number\-Ships} ()
+\item 
+int \hyperlink{classBoard_a730d8217b0c91db0e107fefd72d07d9c}{Get\-Number\-Aliens} ()
+\item 
+int \hyperlink{classBoard_af62cea43d3a2678ea4c26f0f97a60835}{Get\-Number\-Bullets} ()
+\item 
+\hyperlink{classBullet}{Bullet} \hyperlink{classBoard_a1bc49df815ee87e82febb809740bd18c}{Get\-Nth\-Bullet} (int)
+\item 
+\hyperlink{classAlien}{Alien} \hyperlink{classBoard_a30f5a1320952251822682bac58997802}{Get\-Nth\-Alien} (int)
+\item 
+\hyperlink{classShip}{Ship} \hyperlink{classBoard_aded42838351e68d691569ecb86a457f6}{Get\-Nth\-Ship} (int)
+\item 
+void \hyperlink{classBoard_a292c52a3ce8f34d2c9de72243b674a22}{Remove\-Nth\-Alien} (int)
+\item 
+void \hyperlink{classBoard_a8e4af42b6e217b7a9c0ddd2919af5e4e}{Remove\-Nth\-Bullet} (int)
+\item 
+void \hyperlink{classBoard_a6015ff8cd657852d0cfd2b849346256f}{Remove\-Nth\-Ship} (int)
+\item 
+double \hyperlink{classBoard_a284e60b74483ab485df669249d215ce7}{Max\-Distance} ()
+\item 
+int \hyperlink{classBoard_a429eee3494a6d2f0537a9090d8234e7c}{Check\-Bullet\-Hit\-Alien} (int)
+\item 
+int \hyperlink{classBoard_a54db8325f1f8469ed203d2a7d92173e0}{Check\-Bullet\-Hit\-Ship} (int)
+\item 
+std\-::vector$<$ int $>$ \hyperlink{classBoard_acea1951ab72b463854e33f9c934251ff}{Check\-Alien\-Hit\-Ship} (int)
+\item 
+std\-::vector$<$ \hyperlink{structPoints}{Points} $>$ \hyperlink{classBoard_ac5f4d61e766804fb6594190f291d2609}{Update\-All\-Bullets} ()
+\item 
+void \hyperlink{classBoard_adf79371ed66ad81dd8b9460aab8e6922}{Update\-Aliens} ()
+\item 
+void \hyperlink{classBoard_a55cc3abed148d96fe26d0f7c2c3c1455}{Update\-Player\-A\-I} ()
+\item 
+void \hyperlink{classBoard_ac01669380d6bbbfee220022159b590c5}{Insert\-Bullet} (\hyperlink{classBullet}{Bullet})
+\item 
+void \hyperlink{classBoard_a024eae78fe11e03519d5c0ef58d85db9}{Insert\-Alien} (\hyperlink{classAlien}{Alien})
+\item 
+void \hyperlink{classBoard_a7111111e66c4989f48e65eb81631a3ec}{Insert\-Ship} (\hyperlink{classShip}{Ship})
+\item 
+std\-::string \hyperlink{classBoard_aa3b61b2239e47ef8b15f6f9f0786b429}{Get\-Summary} ()
+\item 
+void \hyperlink{classBoard_afa34ba5e5fb7a536f3a7c7d0f4bfec49}{Move\-Nth\-Ship} (int, int)
+\item 
+void \hyperlink{classBoard_a3d99b005b1f99ccd1def4a702f45f244}{Add\-Random\-Ship} ()
+\item 
+void \hyperlink{classBoard_afcdb74fa821b0e6aa1218499175b2f15}{Add\-Random\-Alien} ()
+\item 
+std\-::string \hyperlink{classBoard_ad5828fd8bee3079d81f95612c0273617}{Generate\-Player\-Position\-Instructions} (int)
+\item 
+std\-::string \hyperlink{classBoard_a28c5886e943bfc4685dee86fead69178}{Generate\-Player\-Bullet\-Instructions} (std\-::vector$<$ \hyperlink{classBullet}{Bullet} $>$)
+\item 
+std\-::string \hyperlink{classBoard_a2d715bf1632a90386ec3ecd97b2a48d5}{Generate\-Player\-Instructions} (int, std\-::vector$<$ \hyperlink{classBullet}{Bullet} $>$)
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{classBoard_a5b2e6f9d556a63610685895d6f795ecb}{Split\-String} (std\-::string, char)
+\item 
+void \hyperlink{classBoard_acf3771b990df448feead07a91cd2d875}{Apply\-Ins\-To\-Ship} (std\-::vector$<$ std\-::string $>$, \hyperlink{classShip}{Ship})
+\item 
+void \hyperlink{classBoard_a23172bed8d2c37d924160bfa2f7ce5d6}{Apply\-Ins\-To\-Bullets} (std\-::string)
+\item 
+void \hyperlink{classBoard_a3f6988dceae7aaffc1b81a019b98e6fd}{Apply\-Ship\-Instructions} (std\-::string, int)
+\item 
+std\-::string \hyperlink{classBoard_a3af7dcf1ed2916ee831b06342ee17ab4}{Generate\-All\-Bullet\-Instructions} ()
+\item 
+void \hyperlink{classBoard_ae3a6257c9312f10907e4df3e08a75073}{Apply\-Single\-Bullet\-Instructions} (\hyperlink{classBullet}{Bullet}, std\-::string)
+\item 
+void \hyperlink{classBoard_aa60144e2c1af9154229961198917ce56}{Apply\-All\-Bullet\-Instructions} (std\-::string)
+\item 
+std\-::string \hyperlink{classBoard_a04b03e340f5b074f9129173575ba46b9}{Generate\-Only\-Player\-Instructions} (int, std\-::vector$<$ \hyperlink{classBullet}{Bullet} $>$)
+\item 
+std\-::string \hyperlink{classBoard_a210c0bcf1937c0ba0d8198cff40c232d}{Generate\-All\-Instructions} (int, std\-::vector$<$ \hyperlink{structPoints}{Points} $>$)
+\item 
+std\-::vector$<$ \hyperlink{structPoints}{Points} $>$ \hyperlink{classBoard_a1cbbfbb26c49b32017d13ec332530247}{Apply\-Instructions} (std\-::string, int)
+\item 
+std\-::string \hyperlink{classBoard_abe8f70187c975e5e68b92bc5f5446e70}{Generating\-Count} ()
+\item 
+void \hyperlink{classBoard_aea97ca6513d5759d9eb37c9483e45367}{Apply\-Instruction6} (std\-::string)
+\item 
+std\-::string \hyperlink{classBoard_a7a4906d19da2e17681df238496d9a310}{Generate\-Aliens\-Information} ()
+\item 
+void \hyperlink{classBoard_a0f7f494542205d13cc2db1001ca5ca26}{Apply\-Single\-Alien\-Instructions} (\hyperlink{classAlien}{Alien}, std\-::string)
+\item 
+void \hyperlink{classBoard_a489defda1d454e9966523c307ff0d782}{Apply\-All\-Alien\-Instructions} (std\-::string information)
+\item 
+void \hyperlink{classBoard_a2312c88b4aa6d2d7a8bcab885fc19616}{Apply\-Player\-Bullet\-Instructions} (std\-::string)
+\item 
+void \hyperlink{classBoard_a24528a3e4b4ec51af758b5852508b491}{Update\-Bullets\-Without\-Killing} ()
+\item 
+std\-::string \hyperlink{classBoard_ac23c3d4b4895b5de1c255e5126cc1005}{Get\-Nth\-Player\-Score} (int)
+\item 
+std\-::string \hyperlink{classBoard_ab5015e28895749c3adc711fa443e298d}{Get\-Nth\-Player\-Name} (int)
+\item 
+std\-::vector$<$ \hyperlink{structPoints}{Points} $>$ \hyperlink{classBoard_abc68bc633d275a98f6fa8c96c6b07294}{Get\-Vector\-Points} (std\-::string)
+\item 
+std\-::string \hyperlink{classBoard_a09a953d90a345ec7c373cc3efc0572f6}{Get\-String\-Points} (std\-::vector$<$ \hyperlink{structPoints}{Points} $>$)
+\item 
+std\-::string \hyperlink{classBoard_a11017929948fe2a12bb8b3dd5c514733}{Generate\-Ship\-Ins\-For\-A\-I} ()
+\item 
+void \hyperlink{classBoard_a5db019489602fd14039df4c3b76b08d2}{Apply\-Instructions\-To\-Ship\-A\-I} (std\-::string)
+\item 
+bool \hyperlink{classBoard_ae656233bce0aca3e6a11364f06f02d8d}{Check\-Game\-Over} ()
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{classBoard_aa62a6d1183307d2c72827b20f69ae722}{Get\-Ranking} ()
+\item 
+\hyperlink{classBoard_a9ee491d4fea680cf69b033374a9fdfcb}{Board} ()
+\item 
+\hyperlink{classBoard_a165433da04a8e74a38f12ac2e6bd427b}{Board} (double, double, double, double)
+\item 
+void \hyperlink{classBoard_a1f3179789d0cdd0693afe8d86231fefa}{Set\-Pos\-X\-Dimension} (double)
+\item 
+void \hyperlink{classBoard_a3ff5a920c5654a71ce0b5ca746c7c7bb}{Set\-Pos\-Y\-Dimension} (double)
+\item 
+void \hyperlink{classBoard_a502ea2921d60cd7070a7b09113d29c98}{Set\-Neg\-X\-Dimension} (double)
+\item 
+void \hyperlink{classBoard_a76e94bf8cf5c9608d0029bd7a48e849e}{Set\-Neg\-Y\-Dimension} (double)
+\item 
+void \hyperlink{classBoard_a54d9866ac96c6cd290bf33ed20f47b40}{Set\-Vector\-Bullets} (std\-::vector$<$ \hyperlink{classBullet}{Bullet} $>$)
+\item 
+void \hyperlink{classBoard_a06eb221dbe45442ff706bdbb9e16b5ed}{Set\-Vector\-Ships} (std\-::vector$<$ \hyperlink{classShip}{Ship} $>$)
+\item 
+void \hyperlink{classBoard_a1aa91f30ab80521b99633a475065ff2e}{Set\-Vector\-Aliens} (std\-::vector$<$ \hyperlink{classAlien}{Alien} $>$)
+\item 
+void \hyperlink{classBoard_a4ed848f226c934b1b01e42beeeba0df2}{Set\-Nth\-Bullet} (int, \hyperlink{classBullet}{Bullet})
+\item 
+void \hyperlink{classBoard_a0a547801e0b52fc2dc8ec1875b4c2281}{Set\-Nth\-Ship} (int, \hyperlink{classShip}{Ship})
+\item 
+void \hyperlink{classBoard_a14c341a116fe5a799d32e6a1a2ad20ee}{Set\-Nth\-Alien} (int, \hyperlink{classAlien}{Alien})
+\item 
+std\-::vector$<$ \hyperlink{classBullet}{Bullet} $>$ \hyperlink{classBoard_aa81904fe02e24f2c5a5a22cc7aa2fb1f}{Get\-Vector\-Bullets} ()
+\item 
+std\-::vector$<$ \hyperlink{classShip}{Ship} $>$ \hyperlink{classBoard_a5e8d02e9707a4d46bfd8e8f65534fef1}{Get\-Vector\-Ships} ()
+\item 
+std\-::vector$<$ \hyperlink{classAlien}{Alien} $>$ \hyperlink{classBoard_a4aa38aba86a511d21c73feca1f5a53fb}{Get\-Vector\-Aliens} ()
+\item 
+double \hyperlink{classBoard_a0d07f4d616e272a1af348b9baa4fbae8}{Get\-Pos\-X\-Dimension} ()
+\item 
+double \hyperlink{classBoard_acab8c54eb132148f63e7a2960e0ebf3b}{Get\-Pos\-Y\-Dimension} ()
+\item 
+double \hyperlink{classBoard_aa1d930101bd156faad5ae1be82d30bbd}{Get\-Neg\-X\-Dimension} ()
+\item 
+double \hyperlink{classBoard_ab0bb449aabb539140862a7ceafaea760}{Get\-Neg\-Y\-Dimension} ()
+\item 
+int \hyperlink{classBoard_a964557fa031a2e5bdc0b2373b6201124}{Get\-Number\-Ships} ()
+\item 
+int \hyperlink{classBoard_a730d8217b0c91db0e107fefd72d07d9c}{Get\-Number\-Aliens} ()
+\item 
+int \hyperlink{classBoard_af62cea43d3a2678ea4c26f0f97a60835}{Get\-Number\-Bullets} ()
+\item 
+\hyperlink{classBullet}{Bullet} \hyperlink{classBoard_a1bc49df815ee87e82febb809740bd18c}{Get\-Nth\-Bullet} (int)
+\item 
+\hyperlink{classAlien}{Alien} \hyperlink{classBoard_a30f5a1320952251822682bac58997802}{Get\-Nth\-Alien} (int)
+\item 
+\hyperlink{classShip}{Ship} \hyperlink{classBoard_aded42838351e68d691569ecb86a457f6}{Get\-Nth\-Ship} (int)
+\item 
+void \hyperlink{classBoard_a292c52a3ce8f34d2c9de72243b674a22}{Remove\-Nth\-Alien} (int)
+\item 
+void \hyperlink{classBoard_a8e4af42b6e217b7a9c0ddd2919af5e4e}{Remove\-Nth\-Bullet} (int)
+\item 
+void \hyperlink{classBoard_a6015ff8cd657852d0cfd2b849346256f}{Remove\-Nth\-Ship} (int)
+\item 
+double \hyperlink{classBoard_a284e60b74483ab485df669249d215ce7}{Max\-Distance} ()
+\item 
+int \hyperlink{classBoard_a429eee3494a6d2f0537a9090d8234e7c}{Check\-Bullet\-Hit\-Alien} (int)
+\item 
+int \hyperlink{classBoard_a54db8325f1f8469ed203d2a7d92173e0}{Check\-Bullet\-Hit\-Ship} (int)
+\item 
+std\-::vector$<$ int $>$ \hyperlink{classBoard_a4283790d3df6d888690636b3c18a62a0}{Check\-Alien\-Hit\-Ship} (int)
+\item 
+std\-::vector$<$ \hyperlink{structPoints}{Points} $>$ \hyperlink{classBoard_af2b83842c75c0488aa75912af5f9f07e}{Update\-All\-Bullets} ()
+\item 
+void \hyperlink{classBoard_adf79371ed66ad81dd8b9460aab8e6922}{Update\-Aliens} ()
+\item 
+void \hyperlink{classBoard_a55cc3abed148d96fe26d0f7c2c3c1455}{Update\-Player\-A\-I} ()
+\item 
+void \hyperlink{classBoard_ac01669380d6bbbfee220022159b590c5}{Insert\-Bullet} (\hyperlink{classBullet}{Bullet})
+\item 
+void \hyperlink{classBoard_a024eae78fe11e03519d5c0ef58d85db9}{Insert\-Alien} (\hyperlink{classAlien}{Alien})
+\item 
+void \hyperlink{classBoard_a7111111e66c4989f48e65eb81631a3ec}{Insert\-Ship} (\hyperlink{classShip}{Ship})
+\item 
+std\-::string \hyperlink{classBoard_aa3b61b2239e47ef8b15f6f9f0786b429}{Get\-Summary} ()
+\item 
+void \hyperlink{classBoard_afa34ba5e5fb7a536f3a7c7d0f4bfec49}{Move\-Nth\-Ship} (int, int)
+\item 
+void \hyperlink{classBoard_a3d99b005b1f99ccd1def4a702f45f244}{Add\-Random\-Ship} ()
+\item 
+void \hyperlink{classBoard_afcdb74fa821b0e6aa1218499175b2f15}{Add\-Random\-Alien} ()
+\item 
+std\-::string \hyperlink{classBoard_ad5828fd8bee3079d81f95612c0273617}{Generate\-Player\-Position\-Instructions} (int)
+\item 
+std\-::string \hyperlink{classBoard_a28c5886e943bfc4685dee86fead69178}{Generate\-Player\-Bullet\-Instructions} (std\-::vector$<$ \hyperlink{classBullet}{Bullet} $>$)
+\item 
+std\-::string \hyperlink{classBoard_a2d715bf1632a90386ec3ecd97b2a48d5}{Generate\-Player\-Instructions} (int, std\-::vector$<$ \hyperlink{classBullet}{Bullet} $>$)
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{classBoard_ab8caeb07fc238bfd70accf256986eadc}{Split\-String} (std\-::string, char)
+\item 
+void \hyperlink{classBoard_acf3771b990df448feead07a91cd2d875}{Apply\-Ins\-To\-Ship} (std\-::vector$<$ std\-::string $>$, \hyperlink{classShip}{Ship})
+\item 
+void \hyperlink{classBoard_a23172bed8d2c37d924160bfa2f7ce5d6}{Apply\-Ins\-To\-Bullets} (std\-::string)
+\item 
+void \hyperlink{classBoard_a3f6988dceae7aaffc1b81a019b98e6fd}{Apply\-Ship\-Instructions} (std\-::string, int)
+\item 
+std\-::string \hyperlink{classBoard_a3af7dcf1ed2916ee831b06342ee17ab4}{Generate\-All\-Bullet\-Instructions} ()
+\item 
+void \hyperlink{classBoard_ae3a6257c9312f10907e4df3e08a75073}{Apply\-Single\-Bullet\-Instructions} (\hyperlink{classBullet}{Bullet}, std\-::string)
+\item 
+void \hyperlink{classBoard_aa60144e2c1af9154229961198917ce56}{Apply\-All\-Bullet\-Instructions} (std\-::string)
+\item 
+std\-::string \hyperlink{classBoard_a04b03e340f5b074f9129173575ba46b9}{Generate\-Only\-Player\-Instructions} (int, std\-::vector$<$ \hyperlink{classBullet}{Bullet} $>$)
+\item 
+std\-::string \hyperlink{classBoard_a210c0bcf1937c0ba0d8198cff40c232d}{Generate\-All\-Instructions} (int, std\-::vector$<$ \hyperlink{structPoints}{Points} $>$)
+\item 
+std\-::vector$<$ \hyperlink{structPoints}{Points} $>$ \hyperlink{classBoard_a37cf5ff03bda32c6c73aa6faefde92cd}{Apply\-Instructions} (std\-::string, int)
+\item 
+std\-::string \hyperlink{classBoard_abe8f70187c975e5e68b92bc5f5446e70}{Generating\-Count} ()
+\item 
+void \hyperlink{classBoard_aea97ca6513d5759d9eb37c9483e45367}{Apply\-Instruction6} (std\-::string)
+\item 
+std\-::string \hyperlink{classBoard_a7a4906d19da2e17681df238496d9a310}{Generate\-Aliens\-Information} ()
+\item 
+void \hyperlink{classBoard_a0f7f494542205d13cc2db1001ca5ca26}{Apply\-Single\-Alien\-Instructions} (\hyperlink{classAlien}{Alien}, std\-::string)
+\item 
+void \hyperlink{classBoard_a489defda1d454e9966523c307ff0d782}{Apply\-All\-Alien\-Instructions} (std\-::string information)
+\item 
+void \hyperlink{classBoard_a2312c88b4aa6d2d7a8bcab885fc19616}{Apply\-Player\-Bullet\-Instructions} (std\-::string)
+\item 
+void \hyperlink{classBoard_a24528a3e4b4ec51af758b5852508b491}{Update\-Bullets\-Without\-Killing} ()
+\item 
+std\-::string \hyperlink{classBoard_ac23c3d4b4895b5de1c255e5126cc1005}{Get\-Nth\-Player\-Score} (int)
+\item 
+std\-::vector$<$ \hyperlink{structPoints}{Points} $>$ \hyperlink{classBoard_a62f321cf4157cd8d0e601bbd541cc637}{Get\-Vector\-Points} (std\-::string)
+\item 
+std\-::string \hyperlink{classBoard_a09a953d90a345ec7c373cc3efc0572f6}{Get\-String\-Points} (std\-::vector$<$ \hyperlink{structPoints}{Points} $>$)
+\item 
+bool \hyperlink{classBoard_ae656233bce0aca3e6a11364f06f02d8d}{Check\-Game\-Over} ()
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{classBoard_a7f68a37c2fcc340b6c96ccd814302cb8}{Get\-Ranking} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::vector$<$ \hyperlink{classShip}{Ship} $>$ \hyperlink{classBoard_a18dfdb96f49cf35d7bd480b22ca232b4}{Vector\-Ships}
+\item 
+std\-::vector$<$ \hyperlink{classBullet}{Bullet} $>$ \hyperlink{classBoard_a2dc362255acf464278a688d03c7d0756}{Vector\-Bullets}
+\item 
+std\-::vector$<$ \hyperlink{classAlien}{Alien} $>$ \hyperlink{classBoard_a8314122d17536c280bebf1c015522175}{Vector\-Aliens}
+\item 
+double \hyperlink{classBoard_ac704686efaa5a36464d53fb7cf4275bc}{Dimension\-Pos\-X}
+\item 
+double \hyperlink{classBoard_abb6a7d3b83b0bba5e8b93ad3c4446777}{Dimension\-Pos\-Y}
+\item 
+double \hyperlink{classBoard_a405af5d01cf8db9e6c08b26c840b1087}{Dimension\-Neg\-X}
+\item 
+double \hyperlink{classBoard_a996f58b7d1c0083ebbcc03ffdbb8e1b1}{Dimension\-Neg\-Y}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classBoard_a9ee491d4fea680cf69b033374a9fdfcb}{\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\subsubsection[{Board}]{\setlength{\rightskip}{0pt plus 5cm}Board\-::\-Board (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a9ee491d4fea680cf69b033374a9fdfcb}
+\hypertarget{classBoard_a165433da04a8e74a38f12ac2e6bd427b}{\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\subsubsection[{Board}]{\setlength{\rightskip}{0pt plus 5cm}Board\-::\-Board (
+\begin{DoxyParamCaption}
+\item[{double}]{posx, }
+\item[{double}]{negx, }
+\item[{double}]{posy, }
+\item[{double}]{negy}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a165433da04a8e74a38f12ac2e6bd427b}
+\hypertarget{classBoard_a9ee491d4fea680cf69b033374a9fdfcb}{\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\subsubsection[{Board}]{\setlength{\rightskip}{0pt plus 5cm}Board\-::\-Board (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a9ee491d4fea680cf69b033374a9fdfcb}
+\hypertarget{classBoard_a165433da04a8e74a38f12ac2e6bd427b}{\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\subsubsection[{Board}]{\setlength{\rightskip}{0pt plus 5cm}Board\-::\-Board (
+\begin{DoxyParamCaption}
+\item[{double}]{, }
+\item[{double}]{, }
+\item[{double}]{, }
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a165433da04a8e74a38f12ac2e6bd427b}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classBoard_afcdb74fa821b0e6aa1218499175b2f15}{\index{Board@{Board}!Add\-Random\-Alien@{Add\-Random\-Alien}}
+\index{Add\-Random\-Alien@{Add\-Random\-Alien}!Board@{Board}}
+\subsubsection[{Add\-Random\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Add\-Random\-Alien (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_afcdb74fa821b0e6aa1218499175b2f15}
+\hypertarget{classBoard_afcdb74fa821b0e6aa1218499175b2f15}{\index{Board@{Board}!Add\-Random\-Alien@{Add\-Random\-Alien}}
+\index{Add\-Random\-Alien@{Add\-Random\-Alien}!Board@{Board}}
+\subsubsection[{Add\-Random\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Add\-Random\-Alien (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_afcdb74fa821b0e6aa1218499175b2f15}
+\hypertarget{classBoard_a3d99b005b1f99ccd1def4a702f45f244}{\index{Board@{Board}!Add\-Random\-Ship@{Add\-Random\-Ship}}
+\index{Add\-Random\-Ship@{Add\-Random\-Ship}!Board@{Board}}
+\subsubsection[{Add\-Random\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Add\-Random\-Ship (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a3d99b005b1f99ccd1def4a702f45f244}
+\hypertarget{classBoard_a3d99b005b1f99ccd1def4a702f45f244}{\index{Board@{Board}!Add\-Random\-Ship@{Add\-Random\-Ship}}
+\index{Add\-Random\-Ship@{Add\-Random\-Ship}!Board@{Board}}
+\subsubsection[{Add\-Random\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Add\-Random\-Ship (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a3d99b005b1f99ccd1def4a702f45f244}
+\hypertarget{classBoard_a489defda1d454e9966523c307ff0d782}{\index{Board@{Board}!Apply\-All\-Alien\-Instructions@{Apply\-All\-Alien\-Instructions}}
+\index{Apply\-All\-Alien\-Instructions@{Apply\-All\-Alien\-Instructions}!Board@{Board}}
+\subsubsection[{Apply\-All\-Alien\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-All\-Alien\-Instructions (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{information}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a489defda1d454e9966523c307ff0d782}
+\hypertarget{classBoard_a489defda1d454e9966523c307ff0d782}{\index{Board@{Board}!Apply\-All\-Alien\-Instructions@{Apply\-All\-Alien\-Instructions}}
+\index{Apply\-All\-Alien\-Instructions@{Apply\-All\-Alien\-Instructions}!Board@{Board}}
+\subsubsection[{Apply\-All\-Alien\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-All\-Alien\-Instructions (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{information}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a489defda1d454e9966523c307ff0d782}
+\hypertarget{classBoard_aa60144e2c1af9154229961198917ce56}{\index{Board@{Board}!Apply\-All\-Bullet\-Instructions@{Apply\-All\-Bullet\-Instructions}}
+\index{Apply\-All\-Bullet\-Instructions@{Apply\-All\-Bullet\-Instructions}!Board@{Board}}
+\subsubsection[{Apply\-All\-Bullet\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-All\-Bullet\-Instructions (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_aa60144e2c1af9154229961198917ce56}
+\hypertarget{classBoard_aa60144e2c1af9154229961198917ce56}{\index{Board@{Board}!Apply\-All\-Bullet\-Instructions@{Apply\-All\-Bullet\-Instructions}}
+\index{Apply\-All\-Bullet\-Instructions@{Apply\-All\-Bullet\-Instructions}!Board@{Board}}
+\subsubsection[{Apply\-All\-Bullet\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-All\-Bullet\-Instructions (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{information}
+\end{DoxyParamCaption}
+)}}\label{classBoard_aa60144e2c1af9154229961198917ce56}
+\hypertarget{classBoard_a23172bed8d2c37d924160bfa2f7ce5d6}{\index{Board@{Board}!Apply\-Ins\-To\-Bullets@{Apply\-Ins\-To\-Bullets}}
+\index{Apply\-Ins\-To\-Bullets@{Apply\-Ins\-To\-Bullets}!Board@{Board}}
+\subsubsection[{Apply\-Ins\-To\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-Ins\-To\-Bullets (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{bulletinfostring}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a23172bed8d2c37d924160bfa2f7ce5d6}
+\hypertarget{classBoard_a23172bed8d2c37d924160bfa2f7ce5d6}{\index{Board@{Board}!Apply\-Ins\-To\-Bullets@{Apply\-Ins\-To\-Bullets}}
+\index{Apply\-Ins\-To\-Bullets@{Apply\-Ins\-To\-Bullets}!Board@{Board}}
+\subsubsection[{Apply\-Ins\-To\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-Ins\-To\-Bullets (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a23172bed8d2c37d924160bfa2f7ce5d6}
+\hypertarget{classBoard_acf3771b990df448feead07a91cd2d875}{\index{Board@{Board}!Apply\-Ins\-To\-Ship@{Apply\-Ins\-To\-Ship}}
+\index{Apply\-Ins\-To\-Ship@{Apply\-Ins\-To\-Ship}!Board@{Board}}
+\subsubsection[{Apply\-Ins\-To\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-Ins\-To\-Ship (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::string $>$}]{s, }
+\item[{{\bf Ship}}]{shiptochange}
+\end{DoxyParamCaption}
+)}}\label{classBoard_acf3771b990df448feead07a91cd2d875}
+\hypertarget{classBoard_acf3771b990df448feead07a91cd2d875}{\index{Board@{Board}!Apply\-Ins\-To\-Ship@{Apply\-Ins\-To\-Ship}}
+\index{Apply\-Ins\-To\-Ship@{Apply\-Ins\-To\-Ship}!Board@{Board}}
+\subsubsection[{Apply\-Ins\-To\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-Ins\-To\-Ship (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::string $>$}]{, }
+\item[{{\bf Ship}}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_acf3771b990df448feead07a91cd2d875}
+\hypertarget{classBoard_aea97ca6513d5759d9eb37c9483e45367}{\index{Board@{Board}!Apply\-Instruction6@{Apply\-Instruction6}}
+\index{Apply\-Instruction6@{Apply\-Instruction6}!Board@{Board}}
+\subsubsection[{Apply\-Instruction6}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-Instruction6 (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{information}
+\end{DoxyParamCaption}
+)}}\label{classBoard_aea97ca6513d5759d9eb37c9483e45367}
+\hypertarget{classBoard_aea97ca6513d5759d9eb37c9483e45367}{\index{Board@{Board}!Apply\-Instruction6@{Apply\-Instruction6}}
+\index{Apply\-Instruction6@{Apply\-Instruction6}!Board@{Board}}
+\subsubsection[{Apply\-Instruction6}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-Instruction6 (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_aea97ca6513d5759d9eb37c9483e45367}
+\hypertarget{classBoard_a1cbbfbb26c49b32017d13ec332530247}{\index{Board@{Board}!Apply\-Instructions@{Apply\-Instructions}}
+\index{Apply\-Instructions@{Apply\-Instructions}!Board@{Board}}
+\subsubsection[{Apply\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf Points} $>$ Board\-::\-Apply\-Instructions (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{information, }
+\item[{int}]{shipid}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a1cbbfbb26c49b32017d13ec332530247}
+\hypertarget{classBoard_a37cf5ff03bda32c6c73aa6faefde92cd}{\index{Board@{Board}!Apply\-Instructions@{Apply\-Instructions}}
+\index{Apply\-Instructions@{Apply\-Instructions}!Board@{Board}}
+\subsubsection[{Apply\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Points}$>$ Board\-::\-Apply\-Instructions (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a37cf5ff03bda32c6c73aa6faefde92cd}
+\hypertarget{classBoard_a5db019489602fd14039df4c3b76b08d2}{\index{Board@{Board}!Apply\-Instructions\-To\-Ship\-A\-I@{Apply\-Instructions\-To\-Ship\-A\-I}}
+\index{Apply\-Instructions\-To\-Ship\-A\-I@{Apply\-Instructions\-To\-Ship\-A\-I}!Board@{Board}}
+\subsubsection[{Apply\-Instructions\-To\-Ship\-A\-I}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-Instructions\-To\-Ship\-A\-I (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{information}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a5db019489602fd14039df4c3b76b08d2}
+\hypertarget{classBoard_a2312c88b4aa6d2d7a8bcab885fc19616}{\index{Board@{Board}!Apply\-Player\-Bullet\-Instructions@{Apply\-Player\-Bullet\-Instructions}}
+\index{Apply\-Player\-Bullet\-Instructions@{Apply\-Player\-Bullet\-Instructions}!Board@{Board}}
+\subsubsection[{Apply\-Player\-Bullet\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-Player\-Bullet\-Instructions (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{information}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a2312c88b4aa6d2d7a8bcab885fc19616}
+\hypertarget{classBoard_a2312c88b4aa6d2d7a8bcab885fc19616}{\index{Board@{Board}!Apply\-Player\-Bullet\-Instructions@{Apply\-Player\-Bullet\-Instructions}}
+\index{Apply\-Player\-Bullet\-Instructions@{Apply\-Player\-Bullet\-Instructions}!Board@{Board}}
+\subsubsection[{Apply\-Player\-Bullet\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-Player\-Bullet\-Instructions (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a2312c88b4aa6d2d7a8bcab885fc19616}
+\hypertarget{classBoard_a3f6988dceae7aaffc1b81a019b98e6fd}{\index{Board@{Board}!Apply\-Ship\-Instructions@{Apply\-Ship\-Instructions}}
+\index{Apply\-Ship\-Instructions@{Apply\-Ship\-Instructions}!Board@{Board}}
+\subsubsection[{Apply\-Ship\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-Ship\-Instructions (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{information, }
+\item[{int}]{t}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a3f6988dceae7aaffc1b81a019b98e6fd}
+\hypertarget{classBoard_a3f6988dceae7aaffc1b81a019b98e6fd}{\index{Board@{Board}!Apply\-Ship\-Instructions@{Apply\-Ship\-Instructions}}
+\index{Apply\-Ship\-Instructions@{Apply\-Ship\-Instructions}!Board@{Board}}
+\subsubsection[{Apply\-Ship\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-Ship\-Instructions (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a3f6988dceae7aaffc1b81a019b98e6fd}
+\hypertarget{classBoard_a0f7f494542205d13cc2db1001ca5ca26}{\index{Board@{Board}!Apply\-Single\-Alien\-Instructions@{Apply\-Single\-Alien\-Instructions}}
+\index{Apply\-Single\-Alien\-Instructions@{Apply\-Single\-Alien\-Instructions}!Board@{Board}}
+\subsubsection[{Apply\-Single\-Alien\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-Single\-Alien\-Instructions (
+\begin{DoxyParamCaption}
+\item[{{\bf Alien}}]{alien\-\_\-applied, }
+\item[{std\-::string}]{information}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a0f7f494542205d13cc2db1001ca5ca26}
+\hypertarget{classBoard_a0f7f494542205d13cc2db1001ca5ca26}{\index{Board@{Board}!Apply\-Single\-Alien\-Instructions@{Apply\-Single\-Alien\-Instructions}}
+\index{Apply\-Single\-Alien\-Instructions@{Apply\-Single\-Alien\-Instructions}!Board@{Board}}
+\subsubsection[{Apply\-Single\-Alien\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-Single\-Alien\-Instructions (
+\begin{DoxyParamCaption}
+\item[{{\bf Alien}}]{, }
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a0f7f494542205d13cc2db1001ca5ca26}
+\hypertarget{classBoard_ae3a6257c9312f10907e4df3e08a75073}{\index{Board@{Board}!Apply\-Single\-Bullet\-Instructions@{Apply\-Single\-Bullet\-Instructions}}
+\index{Apply\-Single\-Bullet\-Instructions@{Apply\-Single\-Bullet\-Instructions}!Board@{Board}}
+\subsubsection[{Apply\-Single\-Bullet\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-Single\-Bullet\-Instructions (
+\begin{DoxyParamCaption}
+\item[{{\bf Bullet}}]{bullet\-\_\-applied, }
+\item[{std\-::string}]{information}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ae3a6257c9312f10907e4df3e08a75073}
+\hypertarget{classBoard_ae3a6257c9312f10907e4df3e08a75073}{\index{Board@{Board}!Apply\-Single\-Bullet\-Instructions@{Apply\-Single\-Bullet\-Instructions}}
+\index{Apply\-Single\-Bullet\-Instructions@{Apply\-Single\-Bullet\-Instructions}!Board@{Board}}
+\subsubsection[{Apply\-Single\-Bullet\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Apply\-Single\-Bullet\-Instructions (
+\begin{DoxyParamCaption}
+\item[{{\bf Bullet}}]{, }
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ae3a6257c9312f10907e4df3e08a75073}
+\hypertarget{classBoard_acea1951ab72b463854e33f9c934251ff}{\index{Board@{Board}!Check\-Alien\-Hit\-Ship@{Check\-Alien\-Hit\-Ship}}
+\index{Check\-Alien\-Hit\-Ship@{Check\-Alien\-Hit\-Ship}!Board@{Board}}
+\subsubsection[{Check\-Alien\-Hit\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ int $>$ Board\-::\-Check\-Alien\-Hit\-Ship (
+\begin{DoxyParamCaption}
+\item[{int}]{shipid}
+\end{DoxyParamCaption}
+)}}\label{classBoard_acea1951ab72b463854e33f9c934251ff}
+\hypertarget{classBoard_a4283790d3df6d888690636b3c18a62a0}{\index{Board@{Board}!Check\-Alien\-Hit\-Ship@{Check\-Alien\-Hit\-Ship}}
+\index{Check\-Alien\-Hit\-Ship@{Check\-Alien\-Hit\-Ship}!Board@{Board}}
+\subsubsection[{Check\-Alien\-Hit\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$int$>$ Board\-::\-Check\-Alien\-Hit\-Ship (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a4283790d3df6d888690636b3c18a62a0}
+\hypertarget{classBoard_a429eee3494a6d2f0537a9090d8234e7c}{\index{Board@{Board}!Check\-Bullet\-Hit\-Alien@{Check\-Bullet\-Hit\-Alien}}
+\index{Check\-Bullet\-Hit\-Alien@{Check\-Bullet\-Hit\-Alien}!Board@{Board}}
+\subsubsection[{Check\-Bullet\-Hit\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}int Board\-::\-Check\-Bullet\-Hit\-Alien (
+\begin{DoxyParamCaption}
+\item[{int}]{bullet\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a429eee3494a6d2f0537a9090d8234e7c}
+\hypertarget{classBoard_a429eee3494a6d2f0537a9090d8234e7c}{\index{Board@{Board}!Check\-Bullet\-Hit\-Alien@{Check\-Bullet\-Hit\-Alien}}
+\index{Check\-Bullet\-Hit\-Alien@{Check\-Bullet\-Hit\-Alien}!Board@{Board}}
+\subsubsection[{Check\-Bullet\-Hit\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}int Board\-::\-Check\-Bullet\-Hit\-Alien (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a429eee3494a6d2f0537a9090d8234e7c}
+\hypertarget{classBoard_a54db8325f1f8469ed203d2a7d92173e0}{\index{Board@{Board}!Check\-Bullet\-Hit\-Ship@{Check\-Bullet\-Hit\-Ship}}
+\index{Check\-Bullet\-Hit\-Ship@{Check\-Bullet\-Hit\-Ship}!Board@{Board}}
+\subsubsection[{Check\-Bullet\-Hit\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}int Board\-::\-Check\-Bullet\-Hit\-Ship (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a54db8325f1f8469ed203d2a7d92173e0}
+\hypertarget{classBoard_a54db8325f1f8469ed203d2a7d92173e0}{\index{Board@{Board}!Check\-Bullet\-Hit\-Ship@{Check\-Bullet\-Hit\-Ship}}
+\index{Check\-Bullet\-Hit\-Ship@{Check\-Bullet\-Hit\-Ship}!Board@{Board}}
+\subsubsection[{Check\-Bullet\-Hit\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}int Board\-::\-Check\-Bullet\-Hit\-Ship (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a54db8325f1f8469ed203d2a7d92173e0}
+\hypertarget{classBoard_ae656233bce0aca3e6a11364f06f02d8d}{\index{Board@{Board}!Check\-Game\-Over@{Check\-Game\-Over}}
+\index{Check\-Game\-Over@{Check\-Game\-Over}!Board@{Board}}
+\subsubsection[{Check\-Game\-Over}]{\setlength{\rightskip}{0pt plus 5cm}bool Board\-::\-Check\-Game\-Over (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ae656233bce0aca3e6a11364f06f02d8d}
+\hypertarget{classBoard_ae656233bce0aca3e6a11364f06f02d8d}{\index{Board@{Board}!Check\-Game\-Over@{Check\-Game\-Over}}
+\index{Check\-Game\-Over@{Check\-Game\-Over}!Board@{Board}}
+\subsubsection[{Check\-Game\-Over}]{\setlength{\rightskip}{0pt plus 5cm}bool Board\-::\-Check\-Game\-Over (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ae656233bce0aca3e6a11364f06f02d8d}
+\hypertarget{classBoard_a7a4906d19da2e17681df238496d9a310}{\index{Board@{Board}!Generate\-Aliens\-Information@{Generate\-Aliens\-Information}}
+\index{Generate\-Aliens\-Information@{Generate\-Aliens\-Information}!Board@{Board}}
+\subsubsection[{Generate\-Aliens\-Information}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generate\-Aliens\-Information (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a7a4906d19da2e17681df238496d9a310}
+\hypertarget{classBoard_a7a4906d19da2e17681df238496d9a310}{\index{Board@{Board}!Generate\-Aliens\-Information@{Generate\-Aliens\-Information}}
+\index{Generate\-Aliens\-Information@{Generate\-Aliens\-Information}!Board@{Board}}
+\subsubsection[{Generate\-Aliens\-Information}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generate\-Aliens\-Information (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a7a4906d19da2e17681df238496d9a310}
+\hypertarget{classBoard_a3af7dcf1ed2916ee831b06342ee17ab4}{\index{Board@{Board}!Generate\-All\-Bullet\-Instructions@{Generate\-All\-Bullet\-Instructions}}
+\index{Generate\-All\-Bullet\-Instructions@{Generate\-All\-Bullet\-Instructions}!Board@{Board}}
+\subsubsection[{Generate\-All\-Bullet\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generate\-All\-Bullet\-Instructions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a3af7dcf1ed2916ee831b06342ee17ab4}
+\hypertarget{classBoard_a3af7dcf1ed2916ee831b06342ee17ab4}{\index{Board@{Board}!Generate\-All\-Bullet\-Instructions@{Generate\-All\-Bullet\-Instructions}}
+\index{Generate\-All\-Bullet\-Instructions@{Generate\-All\-Bullet\-Instructions}!Board@{Board}}
+\subsubsection[{Generate\-All\-Bullet\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generate\-All\-Bullet\-Instructions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a3af7dcf1ed2916ee831b06342ee17ab4}
+\hypertarget{classBoard_a210c0bcf1937c0ba0d8198cff40c232d}{\index{Board@{Board}!Generate\-All\-Instructions@{Generate\-All\-Instructions}}
+\index{Generate\-All\-Instructions@{Generate\-All\-Instructions}!Board@{Board}}
+\subsubsection[{Generate\-All\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generate\-All\-Instructions (
+\begin{DoxyParamCaption}
+\item[{int}]{player\-\_\-id, }
+\item[{std\-::vector$<$ {\bf Points} $>$}]{points}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a210c0bcf1937c0ba0d8198cff40c232d}
+\hypertarget{classBoard_a210c0bcf1937c0ba0d8198cff40c232d}{\index{Board@{Board}!Generate\-All\-Instructions@{Generate\-All\-Instructions}}
+\index{Generate\-All\-Instructions@{Generate\-All\-Instructions}!Board@{Board}}
+\subsubsection[{Generate\-All\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generate\-All\-Instructions (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{std\-::vector$<$ {\bf Points} $>$}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a210c0bcf1937c0ba0d8198cff40c232d}
+\hypertarget{classBoard_a04b03e340f5b074f9129173575ba46b9}{\index{Board@{Board}!Generate\-Only\-Player\-Instructions@{Generate\-Only\-Player\-Instructions}}
+\index{Generate\-Only\-Player\-Instructions@{Generate\-Only\-Player\-Instructions}!Board@{Board}}
+\subsubsection[{Generate\-Only\-Player\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generate\-Only\-Player\-Instructions (
+\begin{DoxyParamCaption}
+\item[{int}]{player\-\_\-id, }
+\item[{std\-::vector$<$ {\bf Bullet} $>$}]{vector\-\_\-bullet}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a04b03e340f5b074f9129173575ba46b9}
+\hypertarget{classBoard_a04b03e340f5b074f9129173575ba46b9}{\index{Board@{Board}!Generate\-Only\-Player\-Instructions@{Generate\-Only\-Player\-Instructions}}
+\index{Generate\-Only\-Player\-Instructions@{Generate\-Only\-Player\-Instructions}!Board@{Board}}
+\subsubsection[{Generate\-Only\-Player\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generate\-Only\-Player\-Instructions (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{std\-::vector$<$ {\bf Bullet} $>$}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a04b03e340f5b074f9129173575ba46b9}
+\hypertarget{classBoard_a28c5886e943bfc4685dee86fead69178}{\index{Board@{Board}!Generate\-Player\-Bullet\-Instructions@{Generate\-Player\-Bullet\-Instructions}}
+\index{Generate\-Player\-Bullet\-Instructions@{Generate\-Player\-Bullet\-Instructions}!Board@{Board}}
+\subsubsection[{Generate\-Player\-Bullet\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generate\-Player\-Bullet\-Instructions (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Bullet} $>$}]{vector\-\_\-bullet}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a28c5886e943bfc4685dee86fead69178}
+\hypertarget{classBoard_a28c5886e943bfc4685dee86fead69178}{\index{Board@{Board}!Generate\-Player\-Bullet\-Instructions@{Generate\-Player\-Bullet\-Instructions}}
+\index{Generate\-Player\-Bullet\-Instructions@{Generate\-Player\-Bullet\-Instructions}!Board@{Board}}
+\subsubsection[{Generate\-Player\-Bullet\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generate\-Player\-Bullet\-Instructions (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Bullet} $>$}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a28c5886e943bfc4685dee86fead69178}
+\hypertarget{classBoard_a2d715bf1632a90386ec3ecd97b2a48d5}{\index{Board@{Board}!Generate\-Player\-Instructions@{Generate\-Player\-Instructions}}
+\index{Generate\-Player\-Instructions@{Generate\-Player\-Instructions}!Board@{Board}}
+\subsubsection[{Generate\-Player\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generate\-Player\-Instructions (
+\begin{DoxyParamCaption}
+\item[{int}]{player\-\_\-id, }
+\item[{std\-::vector$<$ {\bf Bullet} $>$}]{vector\-\_\-bullet}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a2d715bf1632a90386ec3ecd97b2a48d5}
+\hypertarget{classBoard_a2d715bf1632a90386ec3ecd97b2a48d5}{\index{Board@{Board}!Generate\-Player\-Instructions@{Generate\-Player\-Instructions}}
+\index{Generate\-Player\-Instructions@{Generate\-Player\-Instructions}!Board@{Board}}
+\subsubsection[{Generate\-Player\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generate\-Player\-Instructions (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{std\-::vector$<$ {\bf Bullet} $>$}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a2d715bf1632a90386ec3ecd97b2a48d5}
+\hypertarget{classBoard_ad5828fd8bee3079d81f95612c0273617}{\index{Board@{Board}!Generate\-Player\-Position\-Instructions@{Generate\-Player\-Position\-Instructions}}
+\index{Generate\-Player\-Position\-Instructions@{Generate\-Player\-Position\-Instructions}!Board@{Board}}
+\subsubsection[{Generate\-Player\-Position\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generate\-Player\-Position\-Instructions (
+\begin{DoxyParamCaption}
+\item[{int}]{player\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ad5828fd8bee3079d81f95612c0273617}
+\hypertarget{classBoard_ad5828fd8bee3079d81f95612c0273617}{\index{Board@{Board}!Generate\-Player\-Position\-Instructions@{Generate\-Player\-Position\-Instructions}}
+\index{Generate\-Player\-Position\-Instructions@{Generate\-Player\-Position\-Instructions}!Board@{Board}}
+\subsubsection[{Generate\-Player\-Position\-Instructions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generate\-Player\-Position\-Instructions (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ad5828fd8bee3079d81f95612c0273617}
+\hypertarget{classBoard_a11017929948fe2a12bb8b3dd5c514733}{\index{Board@{Board}!Generate\-Ship\-Ins\-For\-A\-I@{Generate\-Ship\-Ins\-For\-A\-I}}
+\index{Generate\-Ship\-Ins\-For\-A\-I@{Generate\-Ship\-Ins\-For\-A\-I}!Board@{Board}}
+\subsubsection[{Generate\-Ship\-Ins\-For\-A\-I}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generate\-Ship\-Ins\-For\-A\-I (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a11017929948fe2a12bb8b3dd5c514733}
+\hypertarget{classBoard_abe8f70187c975e5e68b92bc5f5446e70}{\index{Board@{Board}!Generating\-Count@{Generating\-Count}}
+\index{Generating\-Count@{Generating\-Count}!Board@{Board}}
+\subsubsection[{Generating\-Count}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generating\-Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_abe8f70187c975e5e68b92bc5f5446e70}
+\hypertarget{classBoard_abe8f70187c975e5e68b92bc5f5446e70}{\index{Board@{Board}!Generating\-Count@{Generating\-Count}}
+\index{Generating\-Count@{Generating\-Count}!Board@{Board}}
+\subsubsection[{Generating\-Count}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Generating\-Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_abe8f70187c975e5e68b92bc5f5446e70}
+\hypertarget{classBoard_aa1d930101bd156faad5ae1be82d30bbd}{\index{Board@{Board}!Get\-Neg\-X\-Dimension@{Get\-Neg\-X\-Dimension}}
+\index{Get\-Neg\-X\-Dimension@{Get\-Neg\-X\-Dimension}!Board@{Board}}
+\subsubsection[{Get\-Neg\-X\-Dimension}]{\setlength{\rightskip}{0pt plus 5cm}double Board\-::\-Get\-Neg\-X\-Dimension (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_aa1d930101bd156faad5ae1be82d30bbd}
+\hypertarget{classBoard_aa1d930101bd156faad5ae1be82d30bbd}{\index{Board@{Board}!Get\-Neg\-X\-Dimension@{Get\-Neg\-X\-Dimension}}
+\index{Get\-Neg\-X\-Dimension@{Get\-Neg\-X\-Dimension}!Board@{Board}}
+\subsubsection[{Get\-Neg\-X\-Dimension}]{\setlength{\rightskip}{0pt plus 5cm}double Board\-::\-Get\-Neg\-X\-Dimension (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_aa1d930101bd156faad5ae1be82d30bbd}
+\hypertarget{classBoard_ab0bb449aabb539140862a7ceafaea760}{\index{Board@{Board}!Get\-Neg\-Y\-Dimension@{Get\-Neg\-Y\-Dimension}}
+\index{Get\-Neg\-Y\-Dimension@{Get\-Neg\-Y\-Dimension}!Board@{Board}}
+\subsubsection[{Get\-Neg\-Y\-Dimension}]{\setlength{\rightskip}{0pt plus 5cm}double Board\-::\-Get\-Neg\-Y\-Dimension (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ab0bb449aabb539140862a7ceafaea760}
+\hypertarget{classBoard_ab0bb449aabb539140862a7ceafaea760}{\index{Board@{Board}!Get\-Neg\-Y\-Dimension@{Get\-Neg\-Y\-Dimension}}
+\index{Get\-Neg\-Y\-Dimension@{Get\-Neg\-Y\-Dimension}!Board@{Board}}
+\subsubsection[{Get\-Neg\-Y\-Dimension}]{\setlength{\rightskip}{0pt plus 5cm}double Board\-::\-Get\-Neg\-Y\-Dimension (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ab0bb449aabb539140862a7ceafaea760}
+\hypertarget{classBoard_a30f5a1320952251822682bac58997802}{\index{Board@{Board}!Get\-Nth\-Alien@{Get\-Nth\-Alien}}
+\index{Get\-Nth\-Alien@{Get\-Nth\-Alien}!Board@{Board}}
+\subsubsection[{Get\-Nth\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Alien} Board\-::\-Get\-Nth\-Alien (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a30f5a1320952251822682bac58997802}
+\hypertarget{classBoard_a30f5a1320952251822682bac58997802}{\index{Board@{Board}!Get\-Nth\-Alien@{Get\-Nth\-Alien}}
+\index{Get\-Nth\-Alien@{Get\-Nth\-Alien}!Board@{Board}}
+\subsubsection[{Get\-Nth\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Alien} Board\-::\-Get\-Nth\-Alien (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a30f5a1320952251822682bac58997802}
+\hypertarget{classBoard_a1bc49df815ee87e82febb809740bd18c}{\index{Board@{Board}!Get\-Nth\-Bullet@{Get\-Nth\-Bullet}}
+\index{Get\-Nth\-Bullet@{Get\-Nth\-Bullet}!Board@{Board}}
+\subsubsection[{Get\-Nth\-Bullet}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bullet} Board\-::\-Get\-Nth\-Bullet (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a1bc49df815ee87e82febb809740bd18c}
+\hypertarget{classBoard_a1bc49df815ee87e82febb809740bd18c}{\index{Board@{Board}!Get\-Nth\-Bullet@{Get\-Nth\-Bullet}}
+\index{Get\-Nth\-Bullet@{Get\-Nth\-Bullet}!Board@{Board}}
+\subsubsection[{Get\-Nth\-Bullet}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bullet} Board\-::\-Get\-Nth\-Bullet (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a1bc49df815ee87e82febb809740bd18c}
+\hypertarget{classBoard_ab5015e28895749c3adc711fa443e298d}{\index{Board@{Board}!Get\-Nth\-Player\-Name@{Get\-Nth\-Player\-Name}}
+\index{Get\-Nth\-Player\-Name@{Get\-Nth\-Player\-Name}!Board@{Board}}
+\subsubsection[{Get\-Nth\-Player\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Get\-Nth\-Player\-Name (
+\begin{DoxyParamCaption}
+\item[{int}]{shipid}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ab5015e28895749c3adc711fa443e298d}
+\hypertarget{classBoard_ac23c3d4b4895b5de1c255e5126cc1005}{\index{Board@{Board}!Get\-Nth\-Player\-Score@{Get\-Nth\-Player\-Score}}
+\index{Get\-Nth\-Player\-Score@{Get\-Nth\-Player\-Score}!Board@{Board}}
+\subsubsection[{Get\-Nth\-Player\-Score}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Get\-Nth\-Player\-Score (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ac23c3d4b4895b5de1c255e5126cc1005}
+\hypertarget{classBoard_ac23c3d4b4895b5de1c255e5126cc1005}{\index{Board@{Board}!Get\-Nth\-Player\-Score@{Get\-Nth\-Player\-Score}}
+\index{Get\-Nth\-Player\-Score@{Get\-Nth\-Player\-Score}!Board@{Board}}
+\subsubsection[{Get\-Nth\-Player\-Score}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Get\-Nth\-Player\-Score (
+\begin{DoxyParamCaption}
+\item[{int}]{shipid}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ac23c3d4b4895b5de1c255e5126cc1005}
+\hypertarget{classBoard_aded42838351e68d691569ecb86a457f6}{\index{Board@{Board}!Get\-Nth\-Ship@{Get\-Nth\-Ship}}
+\index{Get\-Nth\-Ship@{Get\-Nth\-Ship}!Board@{Board}}
+\subsubsection[{Get\-Nth\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship} Board\-::\-Get\-Nth\-Ship (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_aded42838351e68d691569ecb86a457f6}
+\hypertarget{classBoard_aded42838351e68d691569ecb86a457f6}{\index{Board@{Board}!Get\-Nth\-Ship@{Get\-Nth\-Ship}}
+\index{Get\-Nth\-Ship@{Get\-Nth\-Ship}!Board@{Board}}
+\subsubsection[{Get\-Nth\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship} Board\-::\-Get\-Nth\-Ship (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{classBoard_aded42838351e68d691569ecb86a457f6}
+\hypertarget{classBoard_a730d8217b0c91db0e107fefd72d07d9c}{\index{Board@{Board}!Get\-Number\-Aliens@{Get\-Number\-Aliens}}
+\index{Get\-Number\-Aliens@{Get\-Number\-Aliens}!Board@{Board}}
+\subsubsection[{Get\-Number\-Aliens}]{\setlength{\rightskip}{0pt plus 5cm}int Board\-::\-Get\-Number\-Aliens (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a730d8217b0c91db0e107fefd72d07d9c}
+\hypertarget{classBoard_a730d8217b0c91db0e107fefd72d07d9c}{\index{Board@{Board}!Get\-Number\-Aliens@{Get\-Number\-Aliens}}
+\index{Get\-Number\-Aliens@{Get\-Number\-Aliens}!Board@{Board}}
+\subsubsection[{Get\-Number\-Aliens}]{\setlength{\rightskip}{0pt plus 5cm}int Board\-::\-Get\-Number\-Aliens (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a730d8217b0c91db0e107fefd72d07d9c}
+\hypertarget{classBoard_af62cea43d3a2678ea4c26f0f97a60835}{\index{Board@{Board}!Get\-Number\-Bullets@{Get\-Number\-Bullets}}
+\index{Get\-Number\-Bullets@{Get\-Number\-Bullets}!Board@{Board}}
+\subsubsection[{Get\-Number\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}int Board\-::\-Get\-Number\-Bullets (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_af62cea43d3a2678ea4c26f0f97a60835}
+\hypertarget{classBoard_af62cea43d3a2678ea4c26f0f97a60835}{\index{Board@{Board}!Get\-Number\-Bullets@{Get\-Number\-Bullets}}
+\index{Get\-Number\-Bullets@{Get\-Number\-Bullets}!Board@{Board}}
+\subsubsection[{Get\-Number\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}int Board\-::\-Get\-Number\-Bullets (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_af62cea43d3a2678ea4c26f0f97a60835}
+\hypertarget{classBoard_a964557fa031a2e5bdc0b2373b6201124}{\index{Board@{Board}!Get\-Number\-Ships@{Get\-Number\-Ships}}
+\index{Get\-Number\-Ships@{Get\-Number\-Ships}!Board@{Board}}
+\subsubsection[{Get\-Number\-Ships}]{\setlength{\rightskip}{0pt plus 5cm}int Board\-::\-Get\-Number\-Ships (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a964557fa031a2e5bdc0b2373b6201124}
+\hypertarget{classBoard_a964557fa031a2e5bdc0b2373b6201124}{\index{Board@{Board}!Get\-Number\-Ships@{Get\-Number\-Ships}}
+\index{Get\-Number\-Ships@{Get\-Number\-Ships}!Board@{Board}}
+\subsubsection[{Get\-Number\-Ships}]{\setlength{\rightskip}{0pt plus 5cm}int Board\-::\-Get\-Number\-Ships (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a964557fa031a2e5bdc0b2373b6201124}
+\hypertarget{classBoard_a0d07f4d616e272a1af348b9baa4fbae8}{\index{Board@{Board}!Get\-Pos\-X\-Dimension@{Get\-Pos\-X\-Dimension}}
+\index{Get\-Pos\-X\-Dimension@{Get\-Pos\-X\-Dimension}!Board@{Board}}
+\subsubsection[{Get\-Pos\-X\-Dimension}]{\setlength{\rightskip}{0pt plus 5cm}double Board\-::\-Get\-Pos\-X\-Dimension (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a0d07f4d616e272a1af348b9baa4fbae8}
+\hypertarget{classBoard_a0d07f4d616e272a1af348b9baa4fbae8}{\index{Board@{Board}!Get\-Pos\-X\-Dimension@{Get\-Pos\-X\-Dimension}}
+\index{Get\-Pos\-X\-Dimension@{Get\-Pos\-X\-Dimension}!Board@{Board}}
+\subsubsection[{Get\-Pos\-X\-Dimension}]{\setlength{\rightskip}{0pt plus 5cm}double Board\-::\-Get\-Pos\-X\-Dimension (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a0d07f4d616e272a1af348b9baa4fbae8}
+\hypertarget{classBoard_acab8c54eb132148f63e7a2960e0ebf3b}{\index{Board@{Board}!Get\-Pos\-Y\-Dimension@{Get\-Pos\-Y\-Dimension}}
+\index{Get\-Pos\-Y\-Dimension@{Get\-Pos\-Y\-Dimension}!Board@{Board}}
+\subsubsection[{Get\-Pos\-Y\-Dimension}]{\setlength{\rightskip}{0pt plus 5cm}double Board\-::\-Get\-Pos\-Y\-Dimension (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_acab8c54eb132148f63e7a2960e0ebf3b}
+\hypertarget{classBoard_acab8c54eb132148f63e7a2960e0ebf3b}{\index{Board@{Board}!Get\-Pos\-Y\-Dimension@{Get\-Pos\-Y\-Dimension}}
+\index{Get\-Pos\-Y\-Dimension@{Get\-Pos\-Y\-Dimension}!Board@{Board}}
+\subsubsection[{Get\-Pos\-Y\-Dimension}]{\setlength{\rightskip}{0pt plus 5cm}double Board\-::\-Get\-Pos\-Y\-Dimension (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_acab8c54eb132148f63e7a2960e0ebf3b}
+\hypertarget{classBoard_a7f68a37c2fcc340b6c96ccd814302cb8}{\index{Board@{Board}!Get\-Ranking@{Get\-Ranking}}
+\index{Get\-Ranking@{Get\-Ranking}!Board@{Board}}
+\subsubsection[{Get\-Ranking}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::string$>$ Board\-::\-Get\-Ranking (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a7f68a37c2fcc340b6c96ccd814302cb8}
+\hypertarget{classBoard_aa62a6d1183307d2c72827b20f69ae722}{\index{Board@{Board}!Get\-Ranking@{Get\-Ranking}}
+\index{Get\-Ranking@{Get\-Ranking}!Board@{Board}}
+\subsubsection[{Get\-Ranking}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::string $>$ Board\-::\-Get\-Ranking (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_aa62a6d1183307d2c72827b20f69ae722}
+\hypertarget{classBoard_a09a953d90a345ec7c373cc3efc0572f6}{\index{Board@{Board}!Get\-String\-Points@{Get\-String\-Points}}
+\index{Get\-String\-Points@{Get\-String\-Points}!Board@{Board}}
+\subsubsection[{Get\-String\-Points}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Get\-String\-Points (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Points} $>$}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a09a953d90a345ec7c373cc3efc0572f6}
+\hypertarget{classBoard_a09a953d90a345ec7c373cc3efc0572f6}{\index{Board@{Board}!Get\-String\-Points@{Get\-String\-Points}}
+\index{Get\-String\-Points@{Get\-String\-Points}!Board@{Board}}
+\subsubsection[{Get\-String\-Points}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Get\-String\-Points (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Points} $>$}]{points}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a09a953d90a345ec7c373cc3efc0572f6}
+\hypertarget{classBoard_aa3b61b2239e47ef8b15f6f9f0786b429}{\index{Board@{Board}!Get\-Summary@{Get\-Summary}}
+\index{Get\-Summary@{Get\-Summary}!Board@{Board}}
+\subsubsection[{Get\-Summary}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Get\-Summary (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_aa3b61b2239e47ef8b15f6f9f0786b429}
+\hypertarget{classBoard_aa3b61b2239e47ef8b15f6f9f0786b429}{\index{Board@{Board}!Get\-Summary@{Get\-Summary}}
+\index{Get\-Summary@{Get\-Summary}!Board@{Board}}
+\subsubsection[{Get\-Summary}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Board\-::\-Get\-Summary (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_aa3b61b2239e47ef8b15f6f9f0786b429}
+\hypertarget{classBoard_a4aa38aba86a511d21c73feca1f5a53fb}{\index{Board@{Board}!Get\-Vector\-Aliens@{Get\-Vector\-Aliens}}
+\index{Get\-Vector\-Aliens@{Get\-Vector\-Aliens}!Board@{Board}}
+\subsubsection[{Get\-Vector\-Aliens}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Alien}$>$ Board\-::\-Get\-Vector\-Aliens (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a4aa38aba86a511d21c73feca1f5a53fb}
+\hypertarget{classBoard_a60a872b112f991ca336ccccf33d05586}{\index{Board@{Board}!Get\-Vector\-Aliens@{Get\-Vector\-Aliens}}
+\index{Get\-Vector\-Aliens@{Get\-Vector\-Aliens}!Board@{Board}}
+\subsubsection[{Get\-Vector\-Aliens}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf Alien} $>$ Board\-::\-Get\-Vector\-Aliens (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a60a872b112f991ca336ccccf33d05586}
+\hypertarget{classBoard_aa81904fe02e24f2c5a5a22cc7aa2fb1f}{\index{Board@{Board}!Get\-Vector\-Bullets@{Get\-Vector\-Bullets}}
+\index{Get\-Vector\-Bullets@{Get\-Vector\-Bullets}!Board@{Board}}
+\subsubsection[{Get\-Vector\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Bullet}$>$ Board\-::\-Get\-Vector\-Bullets (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_aa81904fe02e24f2c5a5a22cc7aa2fb1f}
+\hypertarget{classBoard_a668fa377b810b29a26f2e2b6ae140884}{\index{Board@{Board}!Get\-Vector\-Bullets@{Get\-Vector\-Bullets}}
+\index{Get\-Vector\-Bullets@{Get\-Vector\-Bullets}!Board@{Board}}
+\subsubsection[{Get\-Vector\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf Bullet} $>$ Board\-::\-Get\-Vector\-Bullets (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a668fa377b810b29a26f2e2b6ae140884}
+\hypertarget{classBoard_a62f321cf4157cd8d0e601bbd541cc637}{\index{Board@{Board}!Get\-Vector\-Points@{Get\-Vector\-Points}}
+\index{Get\-Vector\-Points@{Get\-Vector\-Points}!Board@{Board}}
+\subsubsection[{Get\-Vector\-Points}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Points}$>$ Board\-::\-Get\-Vector\-Points (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a62f321cf4157cd8d0e601bbd541cc637}
+\hypertarget{classBoard_abc68bc633d275a98f6fa8c96c6b07294}{\index{Board@{Board}!Get\-Vector\-Points@{Get\-Vector\-Points}}
+\index{Get\-Vector\-Points@{Get\-Vector\-Points}!Board@{Board}}
+\subsubsection[{Get\-Vector\-Points}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf Points} $>$ Board\-::\-Get\-Vector\-Points (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{information}
+\end{DoxyParamCaption}
+)}}\label{classBoard_abc68bc633d275a98f6fa8c96c6b07294}
+\hypertarget{classBoard_a5e8d02e9707a4d46bfd8e8f65534fef1}{\index{Board@{Board}!Get\-Vector\-Ships@{Get\-Vector\-Ships}}
+\index{Get\-Vector\-Ships@{Get\-Vector\-Ships}!Board@{Board}}
+\subsubsection[{Get\-Vector\-Ships}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Ship}$>$ Board\-::\-Get\-Vector\-Ships (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a5e8d02e9707a4d46bfd8e8f65534fef1}
+\hypertarget{classBoard_adfbd6c6064986d8b81c3223539d40e1e}{\index{Board@{Board}!Get\-Vector\-Ships@{Get\-Vector\-Ships}}
+\index{Get\-Vector\-Ships@{Get\-Vector\-Ships}!Board@{Board}}
+\subsubsection[{Get\-Vector\-Ships}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf Ship} $>$ Board\-::\-Get\-Vector\-Ships (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_adfbd6c6064986d8b81c3223539d40e1e}
+\hypertarget{classBoard_a024eae78fe11e03519d5c0ef58d85db9}{\index{Board@{Board}!Insert\-Alien@{Insert\-Alien}}
+\index{Insert\-Alien@{Insert\-Alien}!Board@{Board}}
+\subsubsection[{Insert\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Insert\-Alien (
+\begin{DoxyParamCaption}
+\item[{{\bf Alien}}]{new\-\_\-alien}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a024eae78fe11e03519d5c0ef58d85db9}
+\hypertarget{classBoard_a024eae78fe11e03519d5c0ef58d85db9}{\index{Board@{Board}!Insert\-Alien@{Insert\-Alien}}
+\index{Insert\-Alien@{Insert\-Alien}!Board@{Board}}
+\subsubsection[{Insert\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Insert\-Alien (
+\begin{DoxyParamCaption}
+\item[{{\bf Alien}}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a024eae78fe11e03519d5c0ef58d85db9}
+\hypertarget{classBoard_ac01669380d6bbbfee220022159b590c5}{\index{Board@{Board}!Insert\-Bullet@{Insert\-Bullet}}
+\index{Insert\-Bullet@{Insert\-Bullet}!Board@{Board}}
+\subsubsection[{Insert\-Bullet}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Insert\-Bullet (
+\begin{DoxyParamCaption}
+\item[{{\bf Bullet}}]{new\-\_\-bullet}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ac01669380d6bbbfee220022159b590c5}
+\hypertarget{classBoard_ac01669380d6bbbfee220022159b590c5}{\index{Board@{Board}!Insert\-Bullet@{Insert\-Bullet}}
+\index{Insert\-Bullet@{Insert\-Bullet}!Board@{Board}}
+\subsubsection[{Insert\-Bullet}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Insert\-Bullet (
+\begin{DoxyParamCaption}
+\item[{{\bf Bullet}}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ac01669380d6bbbfee220022159b590c5}
+\hypertarget{classBoard_a7111111e66c4989f48e65eb81631a3ec}{\index{Board@{Board}!Insert\-Ship@{Insert\-Ship}}
+\index{Insert\-Ship@{Insert\-Ship}!Board@{Board}}
+\subsubsection[{Insert\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Insert\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship}}]{new\-\_\-ship}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a7111111e66c4989f48e65eb81631a3ec}
+\hypertarget{classBoard_a7111111e66c4989f48e65eb81631a3ec}{\index{Board@{Board}!Insert\-Ship@{Insert\-Ship}}
+\index{Insert\-Ship@{Insert\-Ship}!Board@{Board}}
+\subsubsection[{Insert\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Insert\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship}}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a7111111e66c4989f48e65eb81631a3ec}
+\hypertarget{classBoard_a284e60b74483ab485df669249d215ce7}{\index{Board@{Board}!Max\-Distance@{Max\-Distance}}
+\index{Max\-Distance@{Max\-Distance}!Board@{Board}}
+\subsubsection[{Max\-Distance}]{\setlength{\rightskip}{0pt plus 5cm}double Board\-::\-Max\-Distance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a284e60b74483ab485df669249d215ce7}
+\hypertarget{classBoard_a284e60b74483ab485df669249d215ce7}{\index{Board@{Board}!Max\-Distance@{Max\-Distance}}
+\index{Max\-Distance@{Max\-Distance}!Board@{Board}}
+\subsubsection[{Max\-Distance}]{\setlength{\rightskip}{0pt plus 5cm}double Board\-::\-Max\-Distance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a284e60b74483ab485df669249d215ce7}
+\hypertarget{classBoard_afa34ba5e5fb7a536f3a7c7d0f4bfec49}{\index{Board@{Board}!Move\-Nth\-Ship@{Move\-Nth\-Ship}}
+\index{Move\-Nth\-Ship@{Move\-Nth\-Ship}!Board@{Board}}
+\subsubsection[{Move\-Nth\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Move\-Nth\-Ship (
+\begin{DoxyParamCaption}
+\item[{int}]{ship\-\_\-id, }
+\item[{int}]{mov\-\_\-type}
+\end{DoxyParamCaption}
+)}}\label{classBoard_afa34ba5e5fb7a536f3a7c7d0f4bfec49}
+\hypertarget{classBoard_afa34ba5e5fb7a536f3a7c7d0f4bfec49}{\index{Board@{Board}!Move\-Nth\-Ship@{Move\-Nth\-Ship}}
+\index{Move\-Nth\-Ship@{Move\-Nth\-Ship}!Board@{Board}}
+\subsubsection[{Move\-Nth\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Move\-Nth\-Ship (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_afa34ba5e5fb7a536f3a7c7d0f4bfec49}
+\hypertarget{classBoard_a292c52a3ce8f34d2c9de72243b674a22}{\index{Board@{Board}!Remove\-Nth\-Alien@{Remove\-Nth\-Alien}}
+\index{Remove\-Nth\-Alien@{Remove\-Nth\-Alien}!Board@{Board}}
+\subsubsection[{Remove\-Nth\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Remove\-Nth\-Alien (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a292c52a3ce8f34d2c9de72243b674a22}
+\hypertarget{classBoard_a292c52a3ce8f34d2c9de72243b674a22}{\index{Board@{Board}!Remove\-Nth\-Alien@{Remove\-Nth\-Alien}}
+\index{Remove\-Nth\-Alien@{Remove\-Nth\-Alien}!Board@{Board}}
+\subsubsection[{Remove\-Nth\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Remove\-Nth\-Alien (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a292c52a3ce8f34d2c9de72243b674a22}
+\hypertarget{classBoard_a8e4af42b6e217b7a9c0ddd2919af5e4e}{\index{Board@{Board}!Remove\-Nth\-Bullet@{Remove\-Nth\-Bullet}}
+\index{Remove\-Nth\-Bullet@{Remove\-Nth\-Bullet}!Board@{Board}}
+\subsubsection[{Remove\-Nth\-Bullet}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Remove\-Nth\-Bullet (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a8e4af42b6e217b7a9c0ddd2919af5e4e}
+\hypertarget{classBoard_a8e4af42b6e217b7a9c0ddd2919af5e4e}{\index{Board@{Board}!Remove\-Nth\-Bullet@{Remove\-Nth\-Bullet}}
+\index{Remove\-Nth\-Bullet@{Remove\-Nth\-Bullet}!Board@{Board}}
+\subsubsection[{Remove\-Nth\-Bullet}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Remove\-Nth\-Bullet (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a8e4af42b6e217b7a9c0ddd2919af5e4e}
+\hypertarget{classBoard_a6015ff8cd657852d0cfd2b849346256f}{\index{Board@{Board}!Remove\-Nth\-Ship@{Remove\-Nth\-Ship}}
+\index{Remove\-Nth\-Ship@{Remove\-Nth\-Ship}!Board@{Board}}
+\subsubsection[{Remove\-Nth\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Remove\-Nth\-Ship (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a6015ff8cd657852d0cfd2b849346256f}
+\hypertarget{classBoard_a6015ff8cd657852d0cfd2b849346256f}{\index{Board@{Board}!Remove\-Nth\-Ship@{Remove\-Nth\-Ship}}
+\index{Remove\-Nth\-Ship@{Remove\-Nth\-Ship}!Board@{Board}}
+\subsubsection[{Remove\-Nth\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Remove\-Nth\-Ship (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a6015ff8cd657852d0cfd2b849346256f}
+\hypertarget{classBoard_a502ea2921d60cd7070a7b09113d29c98}{\index{Board@{Board}!Set\-Neg\-X\-Dimension@{Set\-Neg\-X\-Dimension}}
+\index{Set\-Neg\-X\-Dimension@{Set\-Neg\-X\-Dimension}!Board@{Board}}
+\subsubsection[{Set\-Neg\-X\-Dimension}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Neg\-X\-Dimension (
+\begin{DoxyParamCaption}
+\item[{double}]{negx}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a502ea2921d60cd7070a7b09113d29c98}
+\hypertarget{classBoard_a502ea2921d60cd7070a7b09113d29c98}{\index{Board@{Board}!Set\-Neg\-X\-Dimension@{Set\-Neg\-X\-Dimension}}
+\index{Set\-Neg\-X\-Dimension@{Set\-Neg\-X\-Dimension}!Board@{Board}}
+\subsubsection[{Set\-Neg\-X\-Dimension}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Neg\-X\-Dimension (
+\begin{DoxyParamCaption}
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a502ea2921d60cd7070a7b09113d29c98}
+\hypertarget{classBoard_a76e94bf8cf5c9608d0029bd7a48e849e}{\index{Board@{Board}!Set\-Neg\-Y\-Dimension@{Set\-Neg\-Y\-Dimension}}
+\index{Set\-Neg\-Y\-Dimension@{Set\-Neg\-Y\-Dimension}!Board@{Board}}
+\subsubsection[{Set\-Neg\-Y\-Dimension}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Neg\-Y\-Dimension (
+\begin{DoxyParamCaption}
+\item[{double}]{negy}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a76e94bf8cf5c9608d0029bd7a48e849e}
+\hypertarget{classBoard_a76e94bf8cf5c9608d0029bd7a48e849e}{\index{Board@{Board}!Set\-Neg\-Y\-Dimension@{Set\-Neg\-Y\-Dimension}}
+\index{Set\-Neg\-Y\-Dimension@{Set\-Neg\-Y\-Dimension}!Board@{Board}}
+\subsubsection[{Set\-Neg\-Y\-Dimension}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Neg\-Y\-Dimension (
+\begin{DoxyParamCaption}
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a76e94bf8cf5c9608d0029bd7a48e849e}
+\hypertarget{classBoard_a14c341a116fe5a799d32e6a1a2ad20ee}{\index{Board@{Board}!Set\-Nth\-Alien@{Set\-Nth\-Alien}}
+\index{Set\-Nth\-Alien@{Set\-Nth\-Alien}!Board@{Board}}
+\subsubsection[{Set\-Nth\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Nth\-Alien (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{{\bf Alien}}]{set\-\_\-alien}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a14c341a116fe5a799d32e6a1a2ad20ee}
+\hypertarget{classBoard_a14c341a116fe5a799d32e6a1a2ad20ee}{\index{Board@{Board}!Set\-Nth\-Alien@{Set\-Nth\-Alien}}
+\index{Set\-Nth\-Alien@{Set\-Nth\-Alien}!Board@{Board}}
+\subsubsection[{Set\-Nth\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Nth\-Alien (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf Alien}}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a14c341a116fe5a799d32e6a1a2ad20ee}
+\hypertarget{classBoard_a4ed848f226c934b1b01e42beeeba0df2}{\index{Board@{Board}!Set\-Nth\-Bullet@{Set\-Nth\-Bullet}}
+\index{Set\-Nth\-Bullet@{Set\-Nth\-Bullet}!Board@{Board}}
+\subsubsection[{Set\-Nth\-Bullet}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Nth\-Bullet (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{{\bf Bullet}}]{set\-\_\-bullet}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a4ed848f226c934b1b01e42beeeba0df2}
+\hypertarget{classBoard_a4ed848f226c934b1b01e42beeeba0df2}{\index{Board@{Board}!Set\-Nth\-Bullet@{Set\-Nth\-Bullet}}
+\index{Set\-Nth\-Bullet@{Set\-Nth\-Bullet}!Board@{Board}}
+\subsubsection[{Set\-Nth\-Bullet}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Nth\-Bullet (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf Bullet}}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a4ed848f226c934b1b01e42beeeba0df2}
+\hypertarget{classBoard_a0a547801e0b52fc2dc8ec1875b4c2281}{\index{Board@{Board}!Set\-Nth\-Ship@{Set\-Nth\-Ship}}
+\index{Set\-Nth\-Ship@{Set\-Nth\-Ship}!Board@{Board}}
+\subsubsection[{Set\-Nth\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Nth\-Ship (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{{\bf Ship}}]{set\-\_\-ship}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a0a547801e0b52fc2dc8ec1875b4c2281}
+\hypertarget{classBoard_a0a547801e0b52fc2dc8ec1875b4c2281}{\index{Board@{Board}!Set\-Nth\-Ship@{Set\-Nth\-Ship}}
+\index{Set\-Nth\-Ship@{Set\-Nth\-Ship}!Board@{Board}}
+\subsubsection[{Set\-Nth\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Nth\-Ship (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf Ship}}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a0a547801e0b52fc2dc8ec1875b4c2281}
+\hypertarget{classBoard_a1f3179789d0cdd0693afe8d86231fefa}{\index{Board@{Board}!Set\-Pos\-X\-Dimension@{Set\-Pos\-X\-Dimension}}
+\index{Set\-Pos\-X\-Dimension@{Set\-Pos\-X\-Dimension}!Board@{Board}}
+\subsubsection[{Set\-Pos\-X\-Dimension}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Pos\-X\-Dimension (
+\begin{DoxyParamCaption}
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a1f3179789d0cdd0693afe8d86231fefa}
+\hypertarget{classBoard_a1f3179789d0cdd0693afe8d86231fefa}{\index{Board@{Board}!Set\-Pos\-X\-Dimension@{Set\-Pos\-X\-Dimension}}
+\index{Set\-Pos\-X\-Dimension@{Set\-Pos\-X\-Dimension}!Board@{Board}}
+\subsubsection[{Set\-Pos\-X\-Dimension}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Pos\-X\-Dimension (
+\begin{DoxyParamCaption}
+\item[{double}]{posx}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a1f3179789d0cdd0693afe8d86231fefa}
+\hypertarget{classBoard_a3ff5a920c5654a71ce0b5ca746c7c7bb}{\index{Board@{Board}!Set\-Pos\-Y\-Dimension@{Set\-Pos\-Y\-Dimension}}
+\index{Set\-Pos\-Y\-Dimension@{Set\-Pos\-Y\-Dimension}!Board@{Board}}
+\subsubsection[{Set\-Pos\-Y\-Dimension}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Pos\-Y\-Dimension (
+\begin{DoxyParamCaption}
+\item[{double}]{posy}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a3ff5a920c5654a71ce0b5ca746c7c7bb}
+\hypertarget{classBoard_a3ff5a920c5654a71ce0b5ca746c7c7bb}{\index{Board@{Board}!Set\-Pos\-Y\-Dimension@{Set\-Pos\-Y\-Dimension}}
+\index{Set\-Pos\-Y\-Dimension@{Set\-Pos\-Y\-Dimension}!Board@{Board}}
+\subsubsection[{Set\-Pos\-Y\-Dimension}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Pos\-Y\-Dimension (
+\begin{DoxyParamCaption}
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a3ff5a920c5654a71ce0b5ca746c7c7bb}
+\hypertarget{classBoard_a1aa91f30ab80521b99633a475065ff2e}{\index{Board@{Board}!Set\-Vector\-Aliens@{Set\-Vector\-Aliens}}
+\index{Set\-Vector\-Aliens@{Set\-Vector\-Aliens}!Board@{Board}}
+\subsubsection[{Set\-Vector\-Aliens}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Vector\-Aliens (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Alien} $>$}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a1aa91f30ab80521b99633a475065ff2e}
+\hypertarget{classBoard_a1aa91f30ab80521b99633a475065ff2e}{\index{Board@{Board}!Set\-Vector\-Aliens@{Set\-Vector\-Aliens}}
+\index{Set\-Vector\-Aliens@{Set\-Vector\-Aliens}!Board@{Board}}
+\subsubsection[{Set\-Vector\-Aliens}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Vector\-Aliens (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Alien} $>$}]{alien\-\_\-vector}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a1aa91f30ab80521b99633a475065ff2e}
+\hypertarget{classBoard_a54d9866ac96c6cd290bf33ed20f47b40}{\index{Board@{Board}!Set\-Vector\-Bullets@{Set\-Vector\-Bullets}}
+\index{Set\-Vector\-Bullets@{Set\-Vector\-Bullets}!Board@{Board}}
+\subsubsection[{Set\-Vector\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Vector\-Bullets (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Bullet} $>$}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a54d9866ac96c6cd290bf33ed20f47b40}
+\hypertarget{classBoard_a54d9866ac96c6cd290bf33ed20f47b40}{\index{Board@{Board}!Set\-Vector\-Bullets@{Set\-Vector\-Bullets}}
+\index{Set\-Vector\-Bullets@{Set\-Vector\-Bullets}!Board@{Board}}
+\subsubsection[{Set\-Vector\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Vector\-Bullets (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Bullet} $>$}]{bullet\-\_\-vector}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a54d9866ac96c6cd290bf33ed20f47b40}
+\hypertarget{classBoard_a06eb221dbe45442ff706bdbb9e16b5ed}{\index{Board@{Board}!Set\-Vector\-Ships@{Set\-Vector\-Ships}}
+\index{Set\-Vector\-Ships@{Set\-Vector\-Ships}!Board@{Board}}
+\subsubsection[{Set\-Vector\-Ships}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Vector\-Ships (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Ship} $>$}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a06eb221dbe45442ff706bdbb9e16b5ed}
+\hypertarget{classBoard_a06eb221dbe45442ff706bdbb9e16b5ed}{\index{Board@{Board}!Set\-Vector\-Ships@{Set\-Vector\-Ships}}
+\index{Set\-Vector\-Ships@{Set\-Vector\-Ships}!Board@{Board}}
+\subsubsection[{Set\-Vector\-Ships}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Set\-Vector\-Ships (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Ship} $>$}]{ship\-\_\-vector}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a06eb221dbe45442ff706bdbb9e16b5ed}
+\hypertarget{classBoard_a5b2e6f9d556a63610685895d6f795ecb}{\index{Board@{Board}!Split\-String@{Split\-String}}
+\index{Split\-String@{Split\-String}!Board@{Board}}
+\subsubsection[{Split\-String}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::string $>$ Board\-::\-Split\-String (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{s, }
+\item[{char}]{chartosplit}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a5b2e6f9d556a63610685895d6f795ecb}
+\hypertarget{classBoard_ab8caeb07fc238bfd70accf256986eadc}{\index{Board@{Board}!Split\-String@{Split\-String}}
+\index{Split\-String@{Split\-String}!Board@{Board}}
+\subsubsection[{Split\-String}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::string$>$ Board\-::\-Split\-String (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{, }
+\item[{char}]{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ab8caeb07fc238bfd70accf256986eadc}
+\hypertarget{classBoard_adf79371ed66ad81dd8b9460aab8e6922}{\index{Board@{Board}!Update\-Aliens@{Update\-Aliens}}
+\index{Update\-Aliens@{Update\-Aliens}!Board@{Board}}
+\subsubsection[{Update\-Aliens}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Update\-Aliens (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_adf79371ed66ad81dd8b9460aab8e6922}
+\hypertarget{classBoard_adf79371ed66ad81dd8b9460aab8e6922}{\index{Board@{Board}!Update\-Aliens@{Update\-Aliens}}
+\index{Update\-Aliens@{Update\-Aliens}!Board@{Board}}
+\subsubsection[{Update\-Aliens}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Update\-Aliens (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_adf79371ed66ad81dd8b9460aab8e6922}
+\hypertarget{classBoard_af2b83842c75c0488aa75912af5f9f07e}{\index{Board@{Board}!Update\-All\-Bullets@{Update\-All\-Bullets}}
+\index{Update\-All\-Bullets@{Update\-All\-Bullets}!Board@{Board}}
+\subsubsection[{Update\-All\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Points}$>$ Board\-::\-Update\-All\-Bullets (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_af2b83842c75c0488aa75912af5f9f07e}
+\hypertarget{classBoard_ac5f4d61e766804fb6594190f291d2609}{\index{Board@{Board}!Update\-All\-Bullets@{Update\-All\-Bullets}}
+\index{Update\-All\-Bullets@{Update\-All\-Bullets}!Board@{Board}}
+\subsubsection[{Update\-All\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf Points} $>$ Board\-::\-Update\-All\-Bullets (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_ac5f4d61e766804fb6594190f291d2609}
+\hypertarget{classBoard_a24528a3e4b4ec51af758b5852508b491}{\index{Board@{Board}!Update\-Bullets\-Without\-Killing@{Update\-Bullets\-Without\-Killing}}
+\index{Update\-Bullets\-Without\-Killing@{Update\-Bullets\-Without\-Killing}!Board@{Board}}
+\subsubsection[{Update\-Bullets\-Without\-Killing}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Update\-Bullets\-Without\-Killing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a24528a3e4b4ec51af758b5852508b491}
+\hypertarget{classBoard_a24528a3e4b4ec51af758b5852508b491}{\index{Board@{Board}!Update\-Bullets\-Without\-Killing@{Update\-Bullets\-Without\-Killing}}
+\index{Update\-Bullets\-Without\-Killing@{Update\-Bullets\-Without\-Killing}!Board@{Board}}
+\subsubsection[{Update\-Bullets\-Without\-Killing}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Update\-Bullets\-Without\-Killing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a24528a3e4b4ec51af758b5852508b491}
+\hypertarget{classBoard_a55cc3abed148d96fe26d0f7c2c3c1455}{\index{Board@{Board}!Update\-Player\-A\-I@{Update\-Player\-A\-I}}
+\index{Update\-Player\-A\-I@{Update\-Player\-A\-I}!Board@{Board}}
+\subsubsection[{Update\-Player\-A\-I}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Update\-Player\-A\-I (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a55cc3abed148d96fe26d0f7c2c3c1455}
+\hypertarget{classBoard_a55cc3abed148d96fe26d0f7c2c3c1455}{\index{Board@{Board}!Update\-Player\-A\-I@{Update\-Player\-A\-I}}
+\index{Update\-Player\-A\-I@{Update\-Player\-A\-I}!Board@{Board}}
+\subsubsection[{Update\-Player\-A\-I}]{\setlength{\rightskip}{0pt plus 5cm}void Board\-::\-Update\-Player\-A\-I (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classBoard_a55cc3abed148d96fe26d0f7c2c3c1455}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classBoard_a405af5d01cf8db9e6c08b26c840b1087}{\index{Board@{Board}!Dimension\-Neg\-X@{Dimension\-Neg\-X}}
+\index{Dimension\-Neg\-X@{Dimension\-Neg\-X}!Board@{Board}}
+\subsubsection[{Dimension\-Neg\-X}]{\setlength{\rightskip}{0pt plus 5cm}double Board\-::\-Dimension\-Neg\-X\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoard_a405af5d01cf8db9e6c08b26c840b1087}
+\hypertarget{classBoard_a996f58b7d1c0083ebbcc03ffdbb8e1b1}{\index{Board@{Board}!Dimension\-Neg\-Y@{Dimension\-Neg\-Y}}
+\index{Dimension\-Neg\-Y@{Dimension\-Neg\-Y}!Board@{Board}}
+\subsubsection[{Dimension\-Neg\-Y}]{\setlength{\rightskip}{0pt plus 5cm}double Board\-::\-Dimension\-Neg\-Y\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoard_a996f58b7d1c0083ebbcc03ffdbb8e1b1}
+\hypertarget{classBoard_ac704686efaa5a36464d53fb7cf4275bc}{\index{Board@{Board}!Dimension\-Pos\-X@{Dimension\-Pos\-X}}
+\index{Dimension\-Pos\-X@{Dimension\-Pos\-X}!Board@{Board}}
+\subsubsection[{Dimension\-Pos\-X}]{\setlength{\rightskip}{0pt plus 5cm}double Board\-::\-Dimension\-Pos\-X\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoard_ac704686efaa5a36464d53fb7cf4275bc}
+\hypertarget{classBoard_abb6a7d3b83b0bba5e8b93ad3c4446777}{\index{Board@{Board}!Dimension\-Pos\-Y@{Dimension\-Pos\-Y}}
+\index{Dimension\-Pos\-Y@{Dimension\-Pos\-Y}!Board@{Board}}
+\subsubsection[{Dimension\-Pos\-Y}]{\setlength{\rightskip}{0pt plus 5cm}double Board\-::\-Dimension\-Pos\-Y\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoard_abb6a7d3b83b0bba5e8b93ad3c4446777}
+\hypertarget{classBoard_a8314122d17536c280bebf1c015522175}{\index{Board@{Board}!Vector\-Aliens@{Vector\-Aliens}}
+\index{Vector\-Aliens@{Vector\-Aliens}!Board@{Board}}
+\subsubsection[{Vector\-Aliens}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf Alien} $>$ Board\-::\-Vector\-Aliens\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoard_a8314122d17536c280bebf1c015522175}
+\hypertarget{classBoard_a2dc362255acf464278a688d03c7d0756}{\index{Board@{Board}!Vector\-Bullets@{Vector\-Bullets}}
+\index{Vector\-Bullets@{Vector\-Bullets}!Board@{Board}}
+\subsubsection[{Vector\-Bullets}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf Bullet} $>$ Board\-::\-Vector\-Bullets\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoard_a2dc362255acf464278a688d03c7d0756}
+\hypertarget{classBoard_a18dfdb96f49cf35d7bd480b22ca232b4}{\index{Board@{Board}!Vector\-Ships@{Vector\-Ships}}
+\index{Vector\-Ships@{Vector\-Ships}!Board@{Board}}
+\subsubsection[{Vector\-Ships}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf Ship} $>$ Board\-::\-Vector\-Ships\hspace{0.3cm}{\ttfamily [private]}}}\label{classBoard_a18dfdb96f49cf35d7bd480b22ca232b4}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Board_8h}{Board.\-h}\item 
+\hyperlink{CompetitiveBoard_8h}{Competitive\-Board.\-h}\item 
+\hyperlink{backupcoop_8cpp}{backupcoop.\-cpp}\item 
+\hyperlink{Board_8cpp}{Board.\-cpp}\item 
+\hyperlink{CompetitiveBoard_8cpp}{Competitive\-Board.\-cpp}\end{DoxyCompactItemize}

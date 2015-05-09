@@ -1,0 +1,51 @@
+\documentclass[12pt]{article}
+ \usepackage{setspace} 
+
+\begin{document}
+\title{Space Invaders}
+\author{}
+\date{}
+\maketitle
+
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\begin{itemize}
+	\item Retro graphics and feel in the entire game.
+	\item 3D objects of ships, aliens, missiles made in blender and rendered in openGL using self made object loader. Triangulation of faces was done and different parts were given different looks
+	\item Our game supports two types of modes :- \textbf{Co-op mode} and \textbf{Competitive} mode
+	\item In Co-op mode, players will play with each other against AI aliens. There is an option for having AI ships as well in the single player mode
+	\item In Competitive mode, players will play against each other, with every man for himself
+	\item On starting the game, the player has two options :- \textbf{Single-Player} with only AI and \textbf{Multi-Player} with other players
+	\item Number of connected players before the starting is shown
+	\item IP of the player is shown such that it is easier for the other players to join using this IP
+	\item Ship can move horizontally and vertically. Also, it can rotate clock-wise or anti-clockwise
+	\item Each player has a unique ship with central part of the ship having unique color
+	\item Number of lives of the player is shown
+	\item Score of all the players (including AI) is shown
+	\item High-scores of the players in the game are maintained and updated. 
+	\item Two types of view mode is supported :- \textbf{Bird's Eye View} and \textbf{Third Person's View}
+	\item In Third Person's View, health bar is also shown
+	\item Limited number of heat seeking missile targeting the closest threat
+	\item Gas-particles effect on launching of missiles
+	\item Explosion effect on destroying a ship
+	\item Sound effects have been added throughout the game. Different effects are played on different threads so that no lag takes place
+	\item Doxygen has been used to generate entire documentation of the code
+	\item Very elegant AI for 3 different entities: ships, aliens and missiles
+	\item Missiles are designed to track the enemy and change direction accordingly, but only if its in its field of view.
+	\item Aliens are designed to turn in direction of and hone in to the nearest player .
+	\item Ships are designed to track down the nearest alien and turn in its directon.
+	\item In the competitive mode the AI ships track down other ships and try to shoot them down.
+	\item The mode of aliens changes with time and they become more and more attacking.
+	\item Any number of players can join the game without specifying the number of people
+	\item Entire network component is threaded, all sending and receiving of messages takes place in parallel
+	\item These players can join at any time of the game. Not necessarily before the game is started
+	\item Players who get disconnected(timeout of 10 seconds) will be \textbf{able to join the game once their connection resumes}
+	\item At any given time one player does the computation of the AI. In case this player gets disconnected then the this virtual AI server gets shifted to another PC and a check is kept to ensure that only 1 of them becomes the AI computer.  
+	\item If the player who was the virtual server gets removed, then one of the existing player will become the virtual server
+	\item Very efficient transfer of data. Not transferring the whole data structure, just the required data in form of strings which are parsed and then data is extracted
+	\item Once the game finishes, high scores of the current game is displayed and the high scores of all time
+	\item Proper makefile and read me. Everything that was mentioned in the design doc was implemented.
+\end{itemize}
+
+\end{document}

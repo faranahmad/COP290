@@ -1,0 +1,620 @@
+\hypertarget{Combined_8h}{\section{Combined.\-h File Reference}
+\label{Combined_8h}\index{Combined.\-h@{Combined.\-h}}
+}
+{\ttfamily \#include \char`\"{}Board.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}udp.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}A\-I.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$G\-L/glut.\-h$>$}\\*
+{\ttfamily \#include $<$G\-L/gl.\-h$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$cstdio$>$}\\*
+{\ttfamily \#include $<$cstring$>$}\\*
+{\ttfamily \#include $<$pthread.\-h$>$}\\*
+{\ttfamily \#include $<$G\-L/freeglut.\-h$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include \char`\"{}Image.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Highscore.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structFaces}{Faces}
+\item 
+struct \hyperlink{structparticleData}{particle\-Data}
+\item 
+struct \hyperlink{structdebrisData}{debris\-Data}
+\item 
+struct \hyperlink{structExpl}{Expl}
+\item 
+struct \hyperlink{structGamePlay}{Game\-Play}
+\item 
+struct \hyperlink{structGraph}{Graph}
+\item 
+struct \hyperlink{structSmokePoint}{Smoke\-Point}
+\item 
+struct \hyperlink{structFirePoint}{Fire\-Point}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Combined_8h_a75cbc112dce4b21c13fe7bb671accab1}{N\-U\-M\-\_\-\-P\-A\-R\-T\-I\-C\-L\-E\-S}~1000          /$\ast$ Number of particles  $\ast$/
+\item 
+\#define \hyperlink{Combined_8h_ac62c9bcd0a65a564732dfa7fc84e238c}{N\-U\-M\-\_\-\-D\-E\-B\-R\-I\-S}~70            /$\ast$ Number of debris     $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_a48e705b989d9fd1336b495b9cc61fdf5}{load\-O\-B\-J} (char $\ast$path)
+\item 
+void \hyperlink{Combined_8h_a39ccf856b8d29a28a25eeb4f8fae59a4}{Process\-Keys} ()
+\item 
+void \hyperlink{Combined_8h_adb204205e9da0b007a775e68d1ef6bd5}{special\-Keys} (int key, int x, int y)
+\item 
+void \hyperlink{Combined_8h_a1000d9aa74bc8bc509aa295457823a76}{special\-Keys\-Up} (int key, int x, int y)
+\item 
+void \hyperlink{Combined_8h_a7fccc9dc8048323648486d3414f55394}{handle\-Keypress} (unsigned char key, int x, int y)
+\item 
+void \hyperlink{Combined_8h_a6cc5605e9cbad54041c939a068c637d7}{handle\-Keypress\-Up} (unsigned char key, int x, int y)
+\item 
+void \hyperlink{Combined_8h_ac176ac6f26525975af7b3e4bf1e8705e}{mouseclick} (int, int, int, int)
+\item 
+void \hyperlink{Combined_8h_aac9bf40d087e699dea89c116934509f8}{Show\-Object} (std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \&)
+\item 
+void \hyperlink{Combined_8h_a2f131b009ec8f4adba20d409b2eade68}{Show\-Bullet} (\hyperlink{classBullet}{Bullet} \&)
+\item 
+void \hyperlink{Combined_8h_a99556f0763f7718134bd9075491f15fc}{Show\-Missile} (\hyperlink{classBullet}{Bullet} \&)
+\item 
+void \hyperlink{Combined_8h_aba94ce942378a4cb92228b1c57e9d285}{Show\-Ship} (\hyperlink{classShip}{Ship} \&)
+\item 
+void \hyperlink{Combined_8h_a58191bf148e063b4be8ccf407a044aa2}{Show\-Borders} ()
+\item 
+void \hyperlink{Combined_8h_a537fa332b04f47fc8789b21197418391}{Show\-Title} ()
+\item 
+void \hyperlink{Combined_8h_a3aa78c4f642bf9ae5bf7c8a5fc0c2654}{Show\-Ip} ()
+\item 
+void \hyperlink{Combined_8h_ae2d024a10b3a7919cee57e5715cc3173}{Show\-Lives} ()
+\item 
+void \hyperlink{Combined_8h_ac42ba46b184fcb718874c7ad9756dfa7}{Show\-Scores} ()
+\item 
+void \hyperlink{Combined_8h_afb3cebe6710b6c6efa8d510c2e36b16d}{Show\-All\-Text} ()
+\item 
+void \hyperlink{Combined_8h_a4ef4b3adf9da94cd4f624567eee6e8b4}{Show\-Board} (\hyperlink{classBoard}{Board} \&)
+\item 
+\hyperlink{structExpl}{Expl} \hyperlink{Combined_8h_a4a568818a40e23625c029c15ef002337}{new\-Explosion} (float x, float y, float z)
+\item 
+void \hyperlink{Combined_8h_a739da4e68602acd343a8e3f2416b125d}{Add\-New\-Explosion} (float x, float y, float z)
+\item 
+void \hyperlink{Combined_8h_a5baf2cb4f97d976f636c7f6774abfaa3}{Update\-Fire\-Explosions} ()
+\item 
+void \hyperlink{Combined_8h_ab61ac0855165b4f7a986f6467e08eae3}{Show\-Explosion} (\hyperlink{structExpl}{Expl} \&)
+\item 
+void \hyperlink{Combined_8h_a81d1237271db8fb1ee03ec09a76191fa}{Update\-All\-Explosions} ()
+\item 
+void \hyperlink{Combined_8h_ab3a3e4b94ac80ff23f59cbc5bde70099}{Show\-Smoke\-Point} (\hyperlink{structSmokePoint}{Smoke\-Point} \&)
+\item 
+\hyperlink{structSmokePoint}{Smoke\-Point} \hyperlink{Combined_8h_a421dddfb6a6c90294edeb6fb430534b1}{New\-Smoke\-Point} (float, float)
+\item 
+void \hyperlink{Combined_8h_ae42724b0ef836a78b3b6fd4a1fa0ba1b}{Update\-Smoke\-Point} (\hyperlink{structSmokePoint}{Smoke\-Point} \&)
+\item 
+void \hyperlink{Combined_8h_a4c6bb0dbb5eb94d0795bd1012cee9acd}{Update\-All\-Smoke\-Points} (std\-::vector$<$ \hyperlink{structSmokePoint}{Smoke\-Point} $>$ \&)
+\item 
+void \hyperlink{Combined_8h_af9a8a780b3299106b622749407fb76eb}{Display\-Smoke\-Points} (std\-::vector$<$ \hyperlink{structSmokePoint}{Smoke\-Point} $>$ \&)
+\item 
+void \hyperlink{Combined_8h_aedd27865f005b1bd529d2fa960cf448d}{Display\-Explosions} (std\-::vector$<$ \hyperlink{structExpl}{Expl} $>$ \&)
+\item 
+void $\ast$ \hyperlink{Combined_8h_a4fd8f8a0ab40f770767a006f5ac5531e}{networkmainhelper} (void $\ast$)
+\item 
+void \hyperlink{Combined_8h_a4ea013001a5fb47853d0fab8f8de35cd}{display} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_a880398f8828c8bbe0e7b859bdb920701}{alien1gun}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_a97c855f4677b479893d4bf5dc010336a}{alien1col}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_a9fd161a6beef4a166515b04b39836bb3}{alien1top}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_a7817a784a5cd81b50641d0f02630cfba}{alien1mid}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_aba1e6c099e7a8db9461ccb5931fcae74}{alien2gun}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_af8599bce77a7f55d40d1c079bfa83180}{alien2eye}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_a392eaf43267d9a6598c45be6ffd9db4d}{alien2body}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_a2957fc2febe72747cd12ba7fefa195d2}{alien2top}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_a95d8d8f65d91e10851b9ff39f6cbf7c7}{shipcol}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_a6c78a7d40895a8be0d3bab1521d67983}{shipmid}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_a1da4dc3c912e7e4425429425f845f584}{shipfir}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_a556a662b935506c4df0e96a8a6c339dc}{missiletop}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_adfcc69bbe0dabb038e7eaabcf9a7e09f}{missilemid}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_a5934604c9106d8b7c5cb5a778bb7e96f}{missileend}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_a26ad851643badeace7cc2de46d0343ed}{bullettop}
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{Combined_8h_a6b22f3be2bdc8d3c43c730fb1255abbb}{bulletmid}
+\item 
+std\-::vector$<$ \hyperlink{structPoints}{Points} $>$ \hyperlink{Combined_8h_ab6dce01e09422547498010a3e2d101d9}{Stars}
+\item 
+std\-::vector$<$ \hyperlink{structExpl}{Expl} $>$ \hyperlink{Combined_8h_a206bc841d9677dd433373ba312e63936}{Explosions}
+\item 
+std\-::vector$<$ \hyperlink{structSmokePoint}{Smoke\-Point} $>$ \hyperlink{Combined_8h_afa2359f3b4e5b8fc6e705b3fde21c96c}{Smoke\-Points}
+\item 
+std\-::vector$<$ \hyperlink{structSmokePoint}{Smoke\-Point} $>$ \hyperlink{Combined_8h_ac3088331dd2de53cc9db5369396e58d0}{Smoke\-Points\-Missile}
+\item 
+std\-::vector$<$ \hyperlink{structFirePoint}{Fire\-Point} $>$ \hyperlink{Combined_8h_a47003c2d26cf5a2aaac0329462afde48}{Fire\-Points}
+\item 
+std\-::queue$<$ \hyperlink{classBullet}{Bullet} $>$ \hyperlink{Combined_8h_ad231cef11ba1cd22989dd75b12484104}{Bullets\-To\-Add}
+\item 
+int \hyperlink{Combined_8h_a3cbb8283dc5b7ef7beb65f3fb29bb005}{presentf}
+\item 
+bool \hyperlink{Combined_8h_a33fbcbc90b1d9c65d170911abe24c691}{viewtotake}
+\item 
+std\-::queue$<$ std\-::string $>$ \hyperlink{Combined_8h_aecf596b8f6eb6115cceb14e2646524fb}{Instructions}
+\item 
+bool \hyperlink{Combined_8h_a3f9ba84e57633826faedf04a831e6f14}{players\-Ready}
+\item 
+bool \hyperlink{Combined_8h_a3a72b09590db1b0d3bc94cf2bead2877}{is\-Offline}
+\item 
+bool \hyperlink{Combined_8h_a1082b22dac65aa6d07ff93349e5b8119}{Is\-\_\-\-Sound\-Expl}
+\item 
+bool \hyperlink{Combined_8h_ab19cdd6a8b198f22fcb2b1cba4834778}{Is\-\_\-\-Sound\-Bullet}
+\item 
+float \hyperlink{Combined_8h_ac00ddfad6bf42de42b604b2802c8c196}{P\-X}
+\item 
+float \hyperlink{Combined_8h_a1b4116c60dd87af0d4ad0fd77039a6de}{P\-Y}
+\item 
+float \hyperlink{Combined_8h_a4612f39eb7c9f6765bafb807592b9eb0}{N\-X}
+\item 
+float \hyperlink{Combined_8h_a4db4a3cb70d7b58351ff75716a01c75f}{N\-Y}
+\item 
+int \hyperlink{Combined_8h_a852bcaf15ef9b08c80dfa899078baa3d}{P\-O\-S\-X}
+\item 
+int \hyperlink{Combined_8h_ab911c8aec787739bcd40d1d3d620ad44}{P\-O\-S\-Y}
+\item 
+int \hyperlink{Combined_8h_a2d5cf866f344aa65a85828e075e4b3e9}{N\-E\-G\-X}
+\item 
+int \hyperlink{Combined_8h_abc10d7ef05980ba384e5d8f63fb96f54}{N\-E\-G\-Y}
+\item 
+std\-::string \hyperlink{Combined_8h_a43447de0a729a782db9742c9fa66ed4e}{I\-P\-Address}
+\item 
+bool \hyperlink{Combined_8h_ab5e3710df38ae855f98b3337e9612d3d}{New\-High\-Score}
+\item 
+int \hyperlink{Combined_8h_af180e926633cde08a05ccbc3af397ee4}{I\-D}
+\item 
+unsigned char $\ast$ \hyperlink{Combined_8h_a53ce171bed6a3fd33d31e7c459592aac}{titleptr}
+\item 
+bool \hyperlink{Combined_8h_abc89f711f32a91eb1baf92bca36a9694}{Keys} \mbox{[}9\mbox{]}
+\item 
+int \hyperlink{Combined_8h_ad051cf6c128057061fbb6de14ea63d2e}{Space\-Bar\-Free}
+\item 
+\hyperlink{structGamePlay}{Game\-Play} \hyperlink{Combined_8h_a784e2ef9df4012b6db08050986cd92b7}{newg}
+\item 
+bool \hyperlink{Combined_8h_ad32d11a12382036ad54c13a4d179a2ca}{Game\-Active}
+\item 
+bool \hyperlink{Combined_8h_a24624e67404a49abae1a7cc8b96f7add}{Game\-Over}
+\item 
+bool \hyperlink{Combined_8h_ae0f7ddf8424db026ce2d65f4e2d5ad03}{doneonce}
+\item 
+bool \hyperlink{Combined_8h_a46f9167a739d03509048c6d6e1ebe49e}{Single\-Mode}
+\item 
+bool \hyperlink{Combined_8h_ab7f64ee528f48b7366a918f1d66d5613}{Multi\-Mode}
+\item 
+bool \hyperlink{Combined_8h_ae781ad24081adde82cb31b7d1b9c2840}{On\-Front\-Screen}
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{Combined_8h_a4a4b23af1b2ff9328d1a6a1bda1d210f}{highscorestodisplay}
+\item 
+std\-::vector$<$ std\-::string $>$ \hyperlink{Combined_8h_ae18def5b96b0f06a2c222a2de2717540}{rankingtodisplay}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Combined_8h_ac62c9bcd0a65a564732dfa7fc84e238c}{\index{Combined.\-h@{Combined.\-h}!N\-U\-M\-\_\-\-D\-E\-B\-R\-I\-S@{N\-U\-M\-\_\-\-D\-E\-B\-R\-I\-S}}
+\index{N\-U\-M\-\_\-\-D\-E\-B\-R\-I\-S@{N\-U\-M\-\_\-\-D\-E\-B\-R\-I\-S}!Combined.h@{Combined.\-h}}
+\subsubsection[{N\-U\-M\-\_\-\-D\-E\-B\-R\-I\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-D\-E\-B\-R\-I\-S~70            /$\ast$ Number of debris     $\ast$/}}\label{Combined_8h_ac62c9bcd0a65a564732dfa7fc84e238c}
+\hypertarget{Combined_8h_a75cbc112dce4b21c13fe7bb671accab1}{\index{Combined.\-h@{Combined.\-h}!N\-U\-M\-\_\-\-P\-A\-R\-T\-I\-C\-L\-E\-S@{N\-U\-M\-\_\-\-P\-A\-R\-T\-I\-C\-L\-E\-S}}
+\index{N\-U\-M\-\_\-\-P\-A\-R\-T\-I\-C\-L\-E\-S@{N\-U\-M\-\_\-\-P\-A\-R\-T\-I\-C\-L\-E\-S}!Combined.h@{Combined.\-h}}
+\subsubsection[{N\-U\-M\-\_\-\-P\-A\-R\-T\-I\-C\-L\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-P\-A\-R\-T\-I\-C\-L\-E\-S~1000          /$\ast$ Number of particles  $\ast$/}}\label{Combined_8h_a75cbc112dce4b21c13fe7bb671accab1}
+
+
+\subsection{Function Documentation}
+\hypertarget{Combined_8h_a739da4e68602acd343a8e3f2416b125d}{\index{Combined.\-h@{Combined.\-h}!Add\-New\-Explosion@{Add\-New\-Explosion}}
+\index{Add\-New\-Explosion@{Add\-New\-Explosion}!Combined.h@{Combined.\-h}}
+\subsubsection[{Add\-New\-Explosion}]{\setlength{\rightskip}{0pt plus 5cm}void Add\-New\-Explosion (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a739da4e68602acd343a8e3f2416b125d}
+\hypertarget{Combined_8h_a4ea013001a5fb47853d0fab8f8de35cd}{\index{Combined.\-h@{Combined.\-h}!display@{display}}
+\index{display@{display}!Combined.h@{Combined.\-h}}
+\subsubsection[{display}]{\setlength{\rightskip}{0pt plus 5cm}void display (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a4ea013001a5fb47853d0fab8f8de35cd}
+\hypertarget{Combined_8h_aedd27865f005b1bd529d2fa960cf448d}{\index{Combined.\-h@{Combined.\-h}!Display\-Explosions@{Display\-Explosions}}
+\index{Display\-Explosions@{Display\-Explosions}!Combined.h@{Combined.\-h}}
+\subsubsection[{Display\-Explosions}]{\setlength{\rightskip}{0pt plus 5cm}void Display\-Explosions (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Expl} $>$ \&}]{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_aedd27865f005b1bd529d2fa960cf448d}
+\hypertarget{Combined_8h_af9a8a780b3299106b622749407fb76eb}{\index{Combined.\-h@{Combined.\-h}!Display\-Smoke\-Points@{Display\-Smoke\-Points}}
+\index{Display\-Smoke\-Points@{Display\-Smoke\-Points}!Combined.h@{Combined.\-h}}
+\subsubsection[{Display\-Smoke\-Points}]{\setlength{\rightskip}{0pt plus 5cm}void Display\-Smoke\-Points (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Smoke\-Point} $>$ \&}]{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_af9a8a780b3299106b622749407fb76eb}
+\hypertarget{Combined_8h_a7fccc9dc8048323648486d3414f55394}{\index{Combined.\-h@{Combined.\-h}!handle\-Keypress@{handle\-Keypress}}
+\index{handle\-Keypress@{handle\-Keypress}!Combined.h@{Combined.\-h}}
+\subsubsection[{handle\-Keypress}]{\setlength{\rightskip}{0pt plus 5cm}void handle\-Keypress (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{key, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a7fccc9dc8048323648486d3414f55394}
+\hypertarget{Combined_8h_a6cc5605e9cbad54041c939a068c637d7}{\index{Combined.\-h@{Combined.\-h}!handle\-Keypress\-Up@{handle\-Keypress\-Up}}
+\index{handle\-Keypress\-Up@{handle\-Keypress\-Up}!Combined.h@{Combined.\-h}}
+\subsubsection[{handle\-Keypress\-Up}]{\setlength{\rightskip}{0pt plus 5cm}void handle\-Keypress\-Up (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{key, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a6cc5605e9cbad54041c939a068c637d7}
+\hypertarget{Combined_8h_a48e705b989d9fd1336b495b9cc61fdf5}{\index{Combined.\-h@{Combined.\-h}!load\-O\-B\-J@{load\-O\-B\-J}}
+\index{load\-O\-B\-J@{load\-O\-B\-J}!Combined.h@{Combined.\-h}}
+\subsubsection[{load\-O\-B\-J}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ load\-O\-B\-J (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a48e705b989d9fd1336b495b9cc61fdf5}
+\hypertarget{Combined_8h_ac176ac6f26525975af7b3e4bf1e8705e}{\index{Combined.\-h@{Combined.\-h}!mouseclick@{mouseclick}}
+\index{mouseclick@{mouseclick}!Combined.h@{Combined.\-h}}
+\subsubsection[{mouseclick}]{\setlength{\rightskip}{0pt plus 5cm}void mouseclick (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_ac176ac6f26525975af7b3e4bf1e8705e}
+\hypertarget{Combined_8h_a4fd8f8a0ab40f770767a006f5ac5531e}{\index{Combined.\-h@{Combined.\-h}!networkmainhelper@{networkmainhelper}}
+\index{networkmainhelper@{networkmainhelper}!Combined.h@{Combined.\-h}}
+\subsubsection[{networkmainhelper}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ networkmainhelper (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a4fd8f8a0ab40f770767a006f5ac5531e}
+\hypertarget{Combined_8h_a4a568818a40e23625c029c15ef002337}{\index{Combined.\-h@{Combined.\-h}!new\-Explosion@{new\-Explosion}}
+\index{new\-Explosion@{new\-Explosion}!Combined.h@{Combined.\-h}}
+\subsubsection[{new\-Explosion}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expl} new\-Explosion (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a4a568818a40e23625c029c15ef002337}
+\hypertarget{Combined_8h_a421dddfb6a6c90294edeb6fb430534b1}{\index{Combined.\-h@{Combined.\-h}!New\-Smoke\-Point@{New\-Smoke\-Point}}
+\index{New\-Smoke\-Point@{New\-Smoke\-Point}!Combined.h@{Combined.\-h}}
+\subsubsection[{New\-Smoke\-Point}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Smoke\-Point} New\-Smoke\-Point (
+\begin{DoxyParamCaption}
+\item[{float}]{, }
+\item[{float}]{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a421dddfb6a6c90294edeb6fb430534b1}
+\hypertarget{Combined_8h_a39ccf856b8d29a28a25eeb4f8fae59a4}{\index{Combined.\-h@{Combined.\-h}!Process\-Keys@{Process\-Keys}}
+\index{Process\-Keys@{Process\-Keys}!Combined.h@{Combined.\-h}}
+\subsubsection[{Process\-Keys}]{\setlength{\rightskip}{0pt plus 5cm}void Process\-Keys (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a39ccf856b8d29a28a25eeb4f8fae59a4}
+\hypertarget{Combined_8h_afb3cebe6710b6c6efa8d510c2e36b16d}{\index{Combined.\-h@{Combined.\-h}!Show\-All\-Text@{Show\-All\-Text}}
+\index{Show\-All\-Text@{Show\-All\-Text}!Combined.h@{Combined.\-h}}
+\subsubsection[{Show\-All\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-All\-Text (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_afb3cebe6710b6c6efa8d510c2e36b16d}
+\hypertarget{Combined_8h_a4ef4b3adf9da94cd4f624567eee6e8b4}{\index{Combined.\-h@{Combined.\-h}!Show\-Board@{Show\-Board}}
+\index{Show\-Board@{Show\-Board}!Combined.h@{Combined.\-h}}
+\subsubsection[{Show\-Board}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Board (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} \&}]{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a4ef4b3adf9da94cd4f624567eee6e8b4}
+\hypertarget{Combined_8h_a58191bf148e063b4be8ccf407a044aa2}{\index{Combined.\-h@{Combined.\-h}!Show\-Borders@{Show\-Borders}}
+\index{Show\-Borders@{Show\-Borders}!Combined.h@{Combined.\-h}}
+\subsubsection[{Show\-Borders}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Borders (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a58191bf148e063b4be8ccf407a044aa2}
+\hypertarget{Combined_8h_a2f131b009ec8f4adba20d409b2eade68}{\index{Combined.\-h@{Combined.\-h}!Show\-Bullet@{Show\-Bullet}}
+\index{Show\-Bullet@{Show\-Bullet}!Combined.h@{Combined.\-h}}
+\subsubsection[{Show\-Bullet}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Bullet (
+\begin{DoxyParamCaption}
+\item[{{\bf Bullet} \&}]{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a2f131b009ec8f4adba20d409b2eade68}
+\hypertarget{Combined_8h_ab61ac0855165b4f7a986f6467e08eae3}{\index{Combined.\-h@{Combined.\-h}!Show\-Explosion@{Show\-Explosion}}
+\index{Show\-Explosion@{Show\-Explosion}!Combined.h@{Combined.\-h}}
+\subsubsection[{Show\-Explosion}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Explosion (
+\begin{DoxyParamCaption}
+\item[{{\bf Expl} \&}]{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_ab61ac0855165b4f7a986f6467e08eae3}
+\hypertarget{Combined_8h_a3aa78c4f642bf9ae5bf7c8a5fc0c2654}{\index{Combined.\-h@{Combined.\-h}!Show\-Ip@{Show\-Ip}}
+\index{Show\-Ip@{Show\-Ip}!Combined.h@{Combined.\-h}}
+\subsubsection[{Show\-Ip}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Ip (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a3aa78c4f642bf9ae5bf7c8a5fc0c2654}
+\hypertarget{Combined_8h_ae2d024a10b3a7919cee57e5715cc3173}{\index{Combined.\-h@{Combined.\-h}!Show\-Lives@{Show\-Lives}}
+\index{Show\-Lives@{Show\-Lives}!Combined.h@{Combined.\-h}}
+\subsubsection[{Show\-Lives}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Lives (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_ae2d024a10b3a7919cee57e5715cc3173}
+\hypertarget{Combined_8h_a99556f0763f7718134bd9075491f15fc}{\index{Combined.\-h@{Combined.\-h}!Show\-Missile@{Show\-Missile}}
+\index{Show\-Missile@{Show\-Missile}!Combined.h@{Combined.\-h}}
+\subsubsection[{Show\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Missile (
+\begin{DoxyParamCaption}
+\item[{{\bf Bullet} \&}]{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a99556f0763f7718134bd9075491f15fc}
+\hypertarget{Combined_8h_aac9bf40d087e699dea89c116934509f8}{\index{Combined.\-h@{Combined.\-h}!Show\-Object@{Show\-Object}}
+\index{Show\-Object@{Show\-Object}!Combined.h@{Combined.\-h}}
+\subsubsection[{Show\-Object}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Object (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Faces} $>$ \&}]{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_aac9bf40d087e699dea89c116934509f8}
+\hypertarget{Combined_8h_ac42ba46b184fcb718874c7ad9756dfa7}{\index{Combined.\-h@{Combined.\-h}!Show\-Scores@{Show\-Scores}}
+\index{Show\-Scores@{Show\-Scores}!Combined.h@{Combined.\-h}}
+\subsubsection[{Show\-Scores}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Scores (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_ac42ba46b184fcb718874c7ad9756dfa7}
+\hypertarget{Combined_8h_aba94ce942378a4cb92228b1c57e9d285}{\index{Combined.\-h@{Combined.\-h}!Show\-Ship@{Show\-Ship}}
+\index{Show\-Ship@{Show\-Ship}!Combined.h@{Combined.\-h}}
+\subsubsection[{Show\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_aba94ce942378a4cb92228b1c57e9d285}
+\hypertarget{Combined_8h_ab3a3e4b94ac80ff23f59cbc5bde70099}{\index{Combined.\-h@{Combined.\-h}!Show\-Smoke\-Point@{Show\-Smoke\-Point}}
+\index{Show\-Smoke\-Point@{Show\-Smoke\-Point}!Combined.h@{Combined.\-h}}
+\subsubsection[{Show\-Smoke\-Point}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Smoke\-Point (
+\begin{DoxyParamCaption}
+\item[{{\bf Smoke\-Point} \&}]{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_ab3a3e4b94ac80ff23f59cbc5bde70099}
+\hypertarget{Combined_8h_a537fa332b04f47fc8789b21197418391}{\index{Combined.\-h@{Combined.\-h}!Show\-Title@{Show\-Title}}
+\index{Show\-Title@{Show\-Title}!Combined.h@{Combined.\-h}}
+\subsubsection[{Show\-Title}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Title (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a537fa332b04f47fc8789b21197418391}
+\hypertarget{Combined_8h_adb204205e9da0b007a775e68d1ef6bd5}{\index{Combined.\-h@{Combined.\-h}!special\-Keys@{special\-Keys}}
+\index{special\-Keys@{special\-Keys}!Combined.h@{Combined.\-h}}
+\subsubsection[{special\-Keys}]{\setlength{\rightskip}{0pt plus 5cm}void special\-Keys (
+\begin{DoxyParamCaption}
+\item[{int}]{key, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_adb204205e9da0b007a775e68d1ef6bd5}
+\hypertarget{Combined_8h_a1000d9aa74bc8bc509aa295457823a76}{\index{Combined.\-h@{Combined.\-h}!special\-Keys\-Up@{special\-Keys\-Up}}
+\index{special\-Keys\-Up@{special\-Keys\-Up}!Combined.h@{Combined.\-h}}
+\subsubsection[{special\-Keys\-Up}]{\setlength{\rightskip}{0pt plus 5cm}void special\-Keys\-Up (
+\begin{DoxyParamCaption}
+\item[{int}]{key, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a1000d9aa74bc8bc509aa295457823a76}
+\hypertarget{Combined_8h_a81d1237271db8fb1ee03ec09a76191fa}{\index{Combined.\-h@{Combined.\-h}!Update\-All\-Explosions@{Update\-All\-Explosions}}
+\index{Update\-All\-Explosions@{Update\-All\-Explosions}!Combined.h@{Combined.\-h}}
+\subsubsection[{Update\-All\-Explosions}]{\setlength{\rightskip}{0pt plus 5cm}void Update\-All\-Explosions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a81d1237271db8fb1ee03ec09a76191fa}
+\hypertarget{Combined_8h_a4c6bb0dbb5eb94d0795bd1012cee9acd}{\index{Combined.\-h@{Combined.\-h}!Update\-All\-Smoke\-Points@{Update\-All\-Smoke\-Points}}
+\index{Update\-All\-Smoke\-Points@{Update\-All\-Smoke\-Points}!Combined.h@{Combined.\-h}}
+\subsubsection[{Update\-All\-Smoke\-Points}]{\setlength{\rightskip}{0pt plus 5cm}void Update\-All\-Smoke\-Points (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Smoke\-Point} $>$ \&}]{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a4c6bb0dbb5eb94d0795bd1012cee9acd}
+\hypertarget{Combined_8h_a5baf2cb4f97d976f636c7f6774abfaa3}{\index{Combined.\-h@{Combined.\-h}!Update\-Fire\-Explosions@{Update\-Fire\-Explosions}}
+\index{Update\-Fire\-Explosions@{Update\-Fire\-Explosions}!Combined.h@{Combined.\-h}}
+\subsubsection[{Update\-Fire\-Explosions}]{\setlength{\rightskip}{0pt plus 5cm}void Update\-Fire\-Explosions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_a5baf2cb4f97d976f636c7f6774abfaa3}
+\hypertarget{Combined_8h_ae42724b0ef836a78b3b6fd4a1fa0ba1b}{\index{Combined.\-h@{Combined.\-h}!Update\-Smoke\-Point@{Update\-Smoke\-Point}}
+\index{Update\-Smoke\-Point@{Update\-Smoke\-Point}!Combined.h@{Combined.\-h}}
+\subsubsection[{Update\-Smoke\-Point}]{\setlength{\rightskip}{0pt plus 5cm}void Update\-Smoke\-Point (
+\begin{DoxyParamCaption}
+\item[{{\bf Smoke\-Point} \&}]{}
+\end{DoxyParamCaption}
+)}}\label{Combined_8h_ae42724b0ef836a78b3b6fd4a1fa0ba1b}
+
+
+\subsection{Variable Documentation}
+\hypertarget{Combined_8h_a97c855f4677b479893d4bf5dc010336a}{\index{Combined.\-h@{Combined.\-h}!alien1col@{alien1col}}
+\index{alien1col@{alien1col}!Combined.h@{Combined.\-h}}
+\subsubsection[{alien1col}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ alien1col}}\label{Combined_8h_a97c855f4677b479893d4bf5dc010336a}
+\hypertarget{Combined_8h_a880398f8828c8bbe0e7b859bdb920701}{\index{Combined.\-h@{Combined.\-h}!alien1gun@{alien1gun}}
+\index{alien1gun@{alien1gun}!Combined.h@{Combined.\-h}}
+\subsubsection[{alien1gun}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ alien1gun}}\label{Combined_8h_a880398f8828c8bbe0e7b859bdb920701}
+\hypertarget{Combined_8h_a7817a784a5cd81b50641d0f02630cfba}{\index{Combined.\-h@{Combined.\-h}!alien1mid@{alien1mid}}
+\index{alien1mid@{alien1mid}!Combined.h@{Combined.\-h}}
+\subsubsection[{alien1mid}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ alien1mid}}\label{Combined_8h_a7817a784a5cd81b50641d0f02630cfba}
+\hypertarget{Combined_8h_a9fd161a6beef4a166515b04b39836bb3}{\index{Combined.\-h@{Combined.\-h}!alien1top@{alien1top}}
+\index{alien1top@{alien1top}!Combined.h@{Combined.\-h}}
+\subsubsection[{alien1top}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ alien1top}}\label{Combined_8h_a9fd161a6beef4a166515b04b39836bb3}
+\hypertarget{Combined_8h_a392eaf43267d9a6598c45be6ffd9db4d}{\index{Combined.\-h@{Combined.\-h}!alien2body@{alien2body}}
+\index{alien2body@{alien2body}!Combined.h@{Combined.\-h}}
+\subsubsection[{alien2body}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ alien2body}}\label{Combined_8h_a392eaf43267d9a6598c45be6ffd9db4d}
+\hypertarget{Combined_8h_af8599bce77a7f55d40d1c079bfa83180}{\index{Combined.\-h@{Combined.\-h}!alien2eye@{alien2eye}}
+\index{alien2eye@{alien2eye}!Combined.h@{Combined.\-h}}
+\subsubsection[{alien2eye}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ alien2eye}}\label{Combined_8h_af8599bce77a7f55d40d1c079bfa83180}
+\hypertarget{Combined_8h_aba1e6c099e7a8db9461ccb5931fcae74}{\index{Combined.\-h@{Combined.\-h}!alien2gun@{alien2gun}}
+\index{alien2gun@{alien2gun}!Combined.h@{Combined.\-h}}
+\subsubsection[{alien2gun}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ alien2gun}}\label{Combined_8h_aba1e6c099e7a8db9461ccb5931fcae74}
+\hypertarget{Combined_8h_a2957fc2febe72747cd12ba7fefa195d2}{\index{Combined.\-h@{Combined.\-h}!alien2top@{alien2top}}
+\index{alien2top@{alien2top}!Combined.h@{Combined.\-h}}
+\subsubsection[{alien2top}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ alien2top}}\label{Combined_8h_a2957fc2febe72747cd12ba7fefa195d2}
+\hypertarget{Combined_8h_a6b22f3be2bdc8d3c43c730fb1255abbb}{\index{Combined.\-h@{Combined.\-h}!bulletmid@{bulletmid}}
+\index{bulletmid@{bulletmid}!Combined.h@{Combined.\-h}}
+\subsubsection[{bulletmid}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ bulletmid}}\label{Combined_8h_a6b22f3be2bdc8d3c43c730fb1255abbb}
+\hypertarget{Combined_8h_ad231cef11ba1cd22989dd75b12484104}{\index{Combined.\-h@{Combined.\-h}!Bullets\-To\-Add@{Bullets\-To\-Add}}
+\index{Bullets\-To\-Add@{Bullets\-To\-Add}!Combined.h@{Combined.\-h}}
+\subsubsection[{Bullets\-To\-Add}]{\setlength{\rightskip}{0pt plus 5cm}std\-::queue$<${\bf Bullet}$>$ Bullets\-To\-Add}}\label{Combined_8h_ad231cef11ba1cd22989dd75b12484104}
+\hypertarget{Combined_8h_a26ad851643badeace7cc2de46d0343ed}{\index{Combined.\-h@{Combined.\-h}!bullettop@{bullettop}}
+\index{bullettop@{bullettop}!Combined.h@{Combined.\-h}}
+\subsubsection[{bullettop}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ bullettop}}\label{Combined_8h_a26ad851643badeace7cc2de46d0343ed}
+\hypertarget{Combined_8h_ae0f7ddf8424db026ce2d65f4e2d5ad03}{\index{Combined.\-h@{Combined.\-h}!doneonce@{doneonce}}
+\index{doneonce@{doneonce}!Combined.h@{Combined.\-h}}
+\subsubsection[{doneonce}]{\setlength{\rightskip}{0pt plus 5cm}bool doneonce}}\label{Combined_8h_ae0f7ddf8424db026ce2d65f4e2d5ad03}
+\hypertarget{Combined_8h_a206bc841d9677dd433373ba312e63936}{\index{Combined.\-h@{Combined.\-h}!Explosions@{Explosions}}
+\index{Explosions@{Explosions}!Combined.h@{Combined.\-h}}
+\subsubsection[{Explosions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Expl}$>$ Explosions}}\label{Combined_8h_a206bc841d9677dd433373ba312e63936}
+\hypertarget{Combined_8h_a47003c2d26cf5a2aaac0329462afde48}{\index{Combined.\-h@{Combined.\-h}!Fire\-Points@{Fire\-Points}}
+\index{Fire\-Points@{Fire\-Points}!Combined.h@{Combined.\-h}}
+\subsubsection[{Fire\-Points}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Fire\-Point}$>$ Fire\-Points}}\label{Combined_8h_a47003c2d26cf5a2aaac0329462afde48}
+\hypertarget{Combined_8h_ad32d11a12382036ad54c13a4d179a2ca}{\index{Combined.\-h@{Combined.\-h}!Game\-Active@{Game\-Active}}
+\index{Game\-Active@{Game\-Active}!Combined.h@{Combined.\-h}}
+\subsubsection[{Game\-Active}]{\setlength{\rightskip}{0pt plus 5cm}bool Game\-Active}}\label{Combined_8h_ad32d11a12382036ad54c13a4d179a2ca}
+\hypertarget{Combined_8h_a24624e67404a49abae1a7cc8b96f7add}{\index{Combined.\-h@{Combined.\-h}!Game\-Over@{Game\-Over}}
+\index{Game\-Over@{Game\-Over}!Combined.h@{Combined.\-h}}
+\subsubsection[{Game\-Over}]{\setlength{\rightskip}{0pt plus 5cm}bool Game\-Over}}\label{Combined_8h_a24624e67404a49abae1a7cc8b96f7add}
+\hypertarget{Combined_8h_a4a4b23af1b2ff9328d1a6a1bda1d210f}{\index{Combined.\-h@{Combined.\-h}!highscorestodisplay@{highscorestodisplay}}
+\index{highscorestodisplay@{highscorestodisplay}!Combined.h@{Combined.\-h}}
+\subsubsection[{highscorestodisplay}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::string$>$ highscorestodisplay}}\label{Combined_8h_a4a4b23af1b2ff9328d1a6a1bda1d210f}
+\hypertarget{Combined_8h_af180e926633cde08a05ccbc3af397ee4}{\index{Combined.\-h@{Combined.\-h}!I\-D@{I\-D}}
+\index{I\-D@{I\-D}!Combined.h@{Combined.\-h}}
+\subsubsection[{I\-D}]{\setlength{\rightskip}{0pt plus 5cm}int I\-D}}\label{Combined_8h_af180e926633cde08a05ccbc3af397ee4}
+\hypertarget{Combined_8h_aecf596b8f6eb6115cceb14e2646524fb}{\index{Combined.\-h@{Combined.\-h}!Instructions@{Instructions}}
+\index{Instructions@{Instructions}!Combined.h@{Combined.\-h}}
+\subsubsection[{Instructions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::queue$<$std\-::string$>$ Instructions}}\label{Combined_8h_aecf596b8f6eb6115cceb14e2646524fb}
+\hypertarget{Combined_8h_a43447de0a729a782db9742c9fa66ed4e}{\index{Combined.\-h@{Combined.\-h}!I\-P\-Address@{I\-P\-Address}}
+\index{I\-P\-Address@{I\-P\-Address}!Combined.h@{Combined.\-h}}
+\subsubsection[{I\-P\-Address}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string I\-P\-Address}}\label{Combined_8h_a43447de0a729a782db9742c9fa66ed4e}
+\hypertarget{Combined_8h_ab19cdd6a8b198f22fcb2b1cba4834778}{\index{Combined.\-h@{Combined.\-h}!Is\-\_\-\-Sound\-Bullet@{Is\-\_\-\-Sound\-Bullet}}
+\index{Is\-\_\-\-Sound\-Bullet@{Is\-\_\-\-Sound\-Bullet}!Combined.h@{Combined.\-h}}
+\subsubsection[{Is\-\_\-\-Sound\-Bullet}]{\setlength{\rightskip}{0pt plus 5cm}bool Is\-\_\-\-Sound\-Bullet}}\label{Combined_8h_ab19cdd6a8b198f22fcb2b1cba4834778}
+\hypertarget{Combined_8h_a1082b22dac65aa6d07ff93349e5b8119}{\index{Combined.\-h@{Combined.\-h}!Is\-\_\-\-Sound\-Expl@{Is\-\_\-\-Sound\-Expl}}
+\index{Is\-\_\-\-Sound\-Expl@{Is\-\_\-\-Sound\-Expl}!Combined.h@{Combined.\-h}}
+\subsubsection[{Is\-\_\-\-Sound\-Expl}]{\setlength{\rightskip}{0pt plus 5cm}bool Is\-\_\-\-Sound\-Expl}}\label{Combined_8h_a1082b22dac65aa6d07ff93349e5b8119}
+\hypertarget{Combined_8h_a3a72b09590db1b0d3bc94cf2bead2877}{\index{Combined.\-h@{Combined.\-h}!is\-Offline@{is\-Offline}}
+\index{is\-Offline@{is\-Offline}!Combined.h@{Combined.\-h}}
+\subsubsection[{is\-Offline}]{\setlength{\rightskip}{0pt plus 5cm}bool is\-Offline}}\label{Combined_8h_a3a72b09590db1b0d3bc94cf2bead2877}
+\hypertarget{Combined_8h_abc89f711f32a91eb1baf92bca36a9694}{\index{Combined.\-h@{Combined.\-h}!Keys@{Keys}}
+\index{Keys@{Keys}!Combined.h@{Combined.\-h}}
+\subsubsection[{Keys}]{\setlength{\rightskip}{0pt plus 5cm}bool Keys\mbox{[}9\mbox{]}}}\label{Combined_8h_abc89f711f32a91eb1baf92bca36a9694}
+\hypertarget{Combined_8h_a5934604c9106d8b7c5cb5a778bb7e96f}{\index{Combined.\-h@{Combined.\-h}!missileend@{missileend}}
+\index{missileend@{missileend}!Combined.h@{Combined.\-h}}
+\subsubsection[{missileend}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ missileend}}\label{Combined_8h_a5934604c9106d8b7c5cb5a778bb7e96f}
+\hypertarget{Combined_8h_adfcc69bbe0dabb038e7eaabcf9a7e09f}{\index{Combined.\-h@{Combined.\-h}!missilemid@{missilemid}}
+\index{missilemid@{missilemid}!Combined.h@{Combined.\-h}}
+\subsubsection[{missilemid}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ missilemid}}\label{Combined_8h_adfcc69bbe0dabb038e7eaabcf9a7e09f}
+\hypertarget{Combined_8h_a556a662b935506c4df0e96a8a6c339dc}{\index{Combined.\-h@{Combined.\-h}!missiletop@{missiletop}}
+\index{missiletop@{missiletop}!Combined.h@{Combined.\-h}}
+\subsubsection[{missiletop}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ missiletop}}\label{Combined_8h_a556a662b935506c4df0e96a8a6c339dc}
+\hypertarget{Combined_8h_ab7f64ee528f48b7366a918f1d66d5613}{\index{Combined.\-h@{Combined.\-h}!Multi\-Mode@{Multi\-Mode}}
+\index{Multi\-Mode@{Multi\-Mode}!Combined.h@{Combined.\-h}}
+\subsubsection[{Multi\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}bool Multi\-Mode}}\label{Combined_8h_ab7f64ee528f48b7366a918f1d66d5613}
+\hypertarget{Combined_8h_a2d5cf866f344aa65a85828e075e4b3e9}{\index{Combined.\-h@{Combined.\-h}!N\-E\-G\-X@{N\-E\-G\-X}}
+\index{N\-E\-G\-X@{N\-E\-G\-X}!Combined.h@{Combined.\-h}}
+\subsubsection[{N\-E\-G\-X}]{\setlength{\rightskip}{0pt plus 5cm}int N\-E\-G\-X}}\label{Combined_8h_a2d5cf866f344aa65a85828e075e4b3e9}
+\hypertarget{Combined_8h_abc10d7ef05980ba384e5d8f63fb96f54}{\index{Combined.\-h@{Combined.\-h}!N\-E\-G\-Y@{N\-E\-G\-Y}}
+\index{N\-E\-G\-Y@{N\-E\-G\-Y}!Combined.h@{Combined.\-h}}
+\subsubsection[{N\-E\-G\-Y}]{\setlength{\rightskip}{0pt plus 5cm}int N\-E\-G\-Y}}\label{Combined_8h_abc10d7ef05980ba384e5d8f63fb96f54}
+\hypertarget{Combined_8h_a784e2ef9df4012b6db08050986cd92b7}{\index{Combined.\-h@{Combined.\-h}!newg@{newg}}
+\index{newg@{newg}!Combined.h@{Combined.\-h}}
+\subsubsection[{newg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\-Play} newg}}\label{Combined_8h_a784e2ef9df4012b6db08050986cd92b7}
+\hypertarget{Combined_8h_ab5e3710df38ae855f98b3337e9612d3d}{\index{Combined.\-h@{Combined.\-h}!New\-High\-Score@{New\-High\-Score}}
+\index{New\-High\-Score@{New\-High\-Score}!Combined.h@{Combined.\-h}}
+\subsubsection[{New\-High\-Score}]{\setlength{\rightskip}{0pt plus 5cm}bool New\-High\-Score}}\label{Combined_8h_ab5e3710df38ae855f98b3337e9612d3d}
+\hypertarget{Combined_8h_a4612f39eb7c9f6765bafb807592b9eb0}{\index{Combined.\-h@{Combined.\-h}!N\-X@{N\-X}}
+\index{N\-X@{N\-X}!Combined.h@{Combined.\-h}}
+\subsubsection[{N\-X}]{\setlength{\rightskip}{0pt plus 5cm}float N\-X}}\label{Combined_8h_a4612f39eb7c9f6765bafb807592b9eb0}
+\hypertarget{Combined_8h_a4db4a3cb70d7b58351ff75716a01c75f}{\index{Combined.\-h@{Combined.\-h}!N\-Y@{N\-Y}}
+\index{N\-Y@{N\-Y}!Combined.h@{Combined.\-h}}
+\subsubsection[{N\-Y}]{\setlength{\rightskip}{0pt plus 5cm}float N\-Y}}\label{Combined_8h_a4db4a3cb70d7b58351ff75716a01c75f}
+\hypertarget{Combined_8h_ae781ad24081adde82cb31b7d1b9c2840}{\index{Combined.\-h@{Combined.\-h}!On\-Front\-Screen@{On\-Front\-Screen}}
+\index{On\-Front\-Screen@{On\-Front\-Screen}!Combined.h@{Combined.\-h}}
+\subsubsection[{On\-Front\-Screen}]{\setlength{\rightskip}{0pt plus 5cm}bool On\-Front\-Screen}}\label{Combined_8h_ae781ad24081adde82cb31b7d1b9c2840}
+\hypertarget{Combined_8h_a3f9ba84e57633826faedf04a831e6f14}{\index{Combined.\-h@{Combined.\-h}!players\-Ready@{players\-Ready}}
+\index{players\-Ready@{players\-Ready}!Combined.h@{Combined.\-h}}
+\subsubsection[{players\-Ready}]{\setlength{\rightskip}{0pt plus 5cm}bool players\-Ready}}\label{Combined_8h_a3f9ba84e57633826faedf04a831e6f14}
+\hypertarget{Combined_8h_a852bcaf15ef9b08c80dfa899078baa3d}{\index{Combined.\-h@{Combined.\-h}!P\-O\-S\-X@{P\-O\-S\-X}}
+\index{P\-O\-S\-X@{P\-O\-S\-X}!Combined.h@{Combined.\-h}}
+\subsubsection[{P\-O\-S\-X}]{\setlength{\rightskip}{0pt plus 5cm}int P\-O\-S\-X}}\label{Combined_8h_a852bcaf15ef9b08c80dfa899078baa3d}
+\hypertarget{Combined_8h_ab911c8aec787739bcd40d1d3d620ad44}{\index{Combined.\-h@{Combined.\-h}!P\-O\-S\-Y@{P\-O\-S\-Y}}
+\index{P\-O\-S\-Y@{P\-O\-S\-Y}!Combined.h@{Combined.\-h}}
+\subsubsection[{P\-O\-S\-Y}]{\setlength{\rightskip}{0pt plus 5cm}int P\-O\-S\-Y}}\label{Combined_8h_ab911c8aec787739bcd40d1d3d620ad44}
+\hypertarget{Combined_8h_a3cbb8283dc5b7ef7beb65f3fb29bb005}{\index{Combined.\-h@{Combined.\-h}!presentf@{presentf}}
+\index{presentf@{presentf}!Combined.h@{Combined.\-h}}
+\subsubsection[{presentf}]{\setlength{\rightskip}{0pt plus 5cm}int presentf}}\label{Combined_8h_a3cbb8283dc5b7ef7beb65f3fb29bb005}
+\hypertarget{Combined_8h_ac00ddfad6bf42de42b604b2802c8c196}{\index{Combined.\-h@{Combined.\-h}!P\-X@{P\-X}}
+\index{P\-X@{P\-X}!Combined.h@{Combined.\-h}}
+\subsubsection[{P\-X}]{\setlength{\rightskip}{0pt plus 5cm}float P\-X}}\label{Combined_8h_ac00ddfad6bf42de42b604b2802c8c196}
+\hypertarget{Combined_8h_a1b4116c60dd87af0d4ad0fd77039a6de}{\index{Combined.\-h@{Combined.\-h}!P\-Y@{P\-Y}}
+\index{P\-Y@{P\-Y}!Combined.h@{Combined.\-h}}
+\subsubsection[{P\-Y}]{\setlength{\rightskip}{0pt plus 5cm}float P\-Y}}\label{Combined_8h_a1b4116c60dd87af0d4ad0fd77039a6de}
+\hypertarget{Combined_8h_ae18def5b96b0f06a2c222a2de2717540}{\index{Combined.\-h@{Combined.\-h}!rankingtodisplay@{rankingtodisplay}}
+\index{rankingtodisplay@{rankingtodisplay}!Combined.h@{Combined.\-h}}
+\subsubsection[{rankingtodisplay}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$std\-::string$>$ rankingtodisplay}}\label{Combined_8h_ae18def5b96b0f06a2c222a2de2717540}
+\hypertarget{Combined_8h_a95d8d8f65d91e10851b9ff39f6cbf7c7}{\index{Combined.\-h@{Combined.\-h}!shipcol@{shipcol}}
+\index{shipcol@{shipcol}!Combined.h@{Combined.\-h}}
+\subsubsection[{shipcol}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ shipcol}}\label{Combined_8h_a95d8d8f65d91e10851b9ff39f6cbf7c7}
+\hypertarget{Combined_8h_a1da4dc3c912e7e4425429425f845f584}{\index{Combined.\-h@{Combined.\-h}!shipfir@{shipfir}}
+\index{shipfir@{shipfir}!Combined.h@{Combined.\-h}}
+\subsubsection[{shipfir}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ shipfir}}\label{Combined_8h_a1da4dc3c912e7e4425429425f845f584}
+\hypertarget{Combined_8h_a6c78a7d40895a8be0d3bab1521d67983}{\index{Combined.\-h@{Combined.\-h}!shipmid@{shipmid}}
+\index{shipmid@{shipmid}!Combined.h@{Combined.\-h}}
+\subsubsection[{shipmid}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ shipmid}}\label{Combined_8h_a6c78a7d40895a8be0d3bab1521d67983}
+\hypertarget{Combined_8h_a46f9167a739d03509048c6d6e1ebe49e}{\index{Combined.\-h@{Combined.\-h}!Single\-Mode@{Single\-Mode}}
+\index{Single\-Mode@{Single\-Mode}!Combined.h@{Combined.\-h}}
+\subsubsection[{Single\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}bool Single\-Mode}}\label{Combined_8h_a46f9167a739d03509048c6d6e1ebe49e}
+\hypertarget{Combined_8h_afa2359f3b4e5b8fc6e705b3fde21c96c}{\index{Combined.\-h@{Combined.\-h}!Smoke\-Points@{Smoke\-Points}}
+\index{Smoke\-Points@{Smoke\-Points}!Combined.h@{Combined.\-h}}
+\subsubsection[{Smoke\-Points}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Smoke\-Point}$>$ Smoke\-Points}}\label{Combined_8h_afa2359f3b4e5b8fc6e705b3fde21c96c}
+\hypertarget{Combined_8h_ac3088331dd2de53cc9db5369396e58d0}{\index{Combined.\-h@{Combined.\-h}!Smoke\-Points\-Missile@{Smoke\-Points\-Missile}}
+\index{Smoke\-Points\-Missile@{Smoke\-Points\-Missile}!Combined.h@{Combined.\-h}}
+\subsubsection[{Smoke\-Points\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Smoke\-Point}$>$ Smoke\-Points\-Missile}}\label{Combined_8h_ac3088331dd2de53cc9db5369396e58d0}
+\hypertarget{Combined_8h_ad051cf6c128057061fbb6de14ea63d2e}{\index{Combined.\-h@{Combined.\-h}!Space\-Bar\-Free@{Space\-Bar\-Free}}
+\index{Space\-Bar\-Free@{Space\-Bar\-Free}!Combined.h@{Combined.\-h}}
+\subsubsection[{Space\-Bar\-Free}]{\setlength{\rightskip}{0pt plus 5cm}int Space\-Bar\-Free}}\label{Combined_8h_ad051cf6c128057061fbb6de14ea63d2e}
+\hypertarget{Combined_8h_ab6dce01e09422547498010a3e2d101d9}{\index{Combined.\-h@{Combined.\-h}!Stars@{Stars}}
+\index{Stars@{Stars}!Combined.h@{Combined.\-h}}
+\subsubsection[{Stars}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Points}$>$ Stars}}\label{Combined_8h_ab6dce01e09422547498010a3e2d101d9}
+\hypertarget{Combined_8h_a53ce171bed6a3fd33d31e7c459592aac}{\index{Combined.\-h@{Combined.\-h}!titleptr@{titleptr}}
+\index{titleptr@{titleptr}!Combined.h@{Combined.\-h}}
+\subsubsection[{titleptr}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char$\ast$ titleptr}}\label{Combined_8h_a53ce171bed6a3fd33d31e7c459592aac}
+\hypertarget{Combined_8h_a33fbcbc90b1d9c65d170911abe24c691}{\index{Combined.\-h@{Combined.\-h}!viewtotake@{viewtotake}}
+\index{viewtotake@{viewtotake}!Combined.h@{Combined.\-h}}
+\subsubsection[{viewtotake}]{\setlength{\rightskip}{0pt plus 5cm}bool viewtotake}}\label{Combined_8h_a33fbcbc90b1d9c65d170911abe24c691}

@@ -1,0 +1,454 @@
+\hypertarget{CompCombined_8cpp}{\section{Comp\-Combined.\-cpp File Reference}
+\label{CompCombined_8cpp}\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}Comp\-Combined.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{CompCombined_8cpp_add308eea0c1bcd20693e880d06e080ad}{sound\-\_\-play1} (void $\ast$x)
+\item 
+void $\ast$ \hyperlink{CompCombined_8cpp_a2e680a4731f04df1eccb24940d929077}{sound\-\_\-play2} (void $\ast$x)
+\item 
+\hyperlink{classImage}{Image} $\ast$ \hyperlink{CompCombined_8cpp_ad4bf0ccd1bff2e08fce89273ef99316c}{load\-B\-M\-P} (const char $\ast$filename)
+\item 
+G\-Luint \hyperlink{CompCombined_8cpp_a00b9d31e0bf71cdb98bdbd3aa30b31b0}{load\-Texture} (\hyperlink{classImage}{Image} $\ast$image)
+\item 
+void \hyperlink{CompCombined_8cpp_a17a53fe9e683b81bdc7618f88b8b8502}{init\-Rendering} ()
+\item 
+std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \hyperlink{CompCombined_8cpp_a48e705b989d9fd1336b495b9cc61fdf5}{load\-O\-B\-J} (char $\ast$path)
+\item 
+void \hyperlink{CompCombined_8cpp_a39ccf856b8d29a28a25eeb4f8fae59a4}{Process\-Keys} ()
+\item 
+void \hyperlink{CompCombined_8cpp_adb204205e9da0b007a775e68d1ef6bd5}{special\-Keys} (int key, int x, int y)
+\item 
+void \hyperlink{CompCombined_8cpp_a1000d9aa74bc8bc509aa295457823a76}{special\-Keys\-Up} (int key, int x, int y)
+\item 
+void \hyperlink{CompCombined_8cpp_a7fccc9dc8048323648486d3414f55394}{handle\-Keypress} (unsigned char key, int x, int y)
+\item 
+void \hyperlink{CompCombined_8cpp_a6cc5605e9cbad54041c939a068c637d7}{handle\-Keypress\-Up} (unsigned char key, int x, int y)
+\item 
+void \hyperlink{CompCombined_8cpp_a1c7e2d01ef4aef43a00bfe4a4bd45c92}{mouseclick} (int button, int state, int x, int y)
+\item 
+void \hyperlink{CompCombined_8cpp_a4d4b66d5ff304c83fd9351e2762d367f}{Show\-Object} (std\-::vector$<$ \hyperlink{structFaces}{Faces} $>$ \&facevect)
+\item 
+void \hyperlink{CompCombined_8cpp_acea317eb8c111e0e4c4a3aea7e3ca6f1}{Show\-Bullet} (\hyperlink{classBullet}{Bullet} \&b)
+\item 
+void \hyperlink{CompCombined_8cpp_ad5611186310c00e711adaec9cb277f7e}{Show\-Missile} (\hyperlink{classBullet}{Bullet} \&b)
+\item 
+void \hyperlink{CompCombined_8cpp_a42b655f0fad4eae31b3c6314fce2fe96}{Show\-Ship} (\hyperlink{classShip}{Ship} \&shiptodisplay)
+\item 
+void \hyperlink{CompCombined_8cpp_ac8836caa62bb9c69b545610407da9777}{Show\-Alien} (\hyperlink{classAlien}{Alien} \&alientodisplay)
+\item 
+void \hyperlink{CompCombined_8cpp_a58191bf148e063b4be8ccf407a044aa2}{Show\-Borders} ()
+\item 
+void \hyperlink{CompCombined_8cpp_a537fa332b04f47fc8789b21197418391}{Show\-Title} ()
+\item 
+void \hyperlink{CompCombined_8cpp_a3aa78c4f642bf9ae5bf7c8a5fc0c2654}{Show\-Ip} ()
+\item 
+void \hyperlink{CompCombined_8cpp_ae2d024a10b3a7919cee57e5715cc3173}{Show\-Lives} ()
+\item 
+void \hyperlink{CompCombined_8cpp_ac42ba46b184fcb718874c7ad9756dfa7}{Show\-Scores} ()
+\item 
+void \hyperlink{CompCombined_8cpp_afb3cebe6710b6c6efa8d510c2e36b16d}{Show\-All\-Text} ()
+\item 
+void \hyperlink{CompCombined_8cpp_ad9e2543cd509d6ee4fdf869717e9e69b}{Show\-Board} (\hyperlink{classBoard}{Board} \&boardtodisplay)
+\item 
+void \hyperlink{CompCombined_8cpp_a28b37ee5bd6d3f6e42a7a30e57fc615c}{new\-Speed} (float dest\mbox{[}3\mbox{]})
+\item 
+\hyperlink{structExpl}{Expl} \hyperlink{CompCombined_8cpp_a4a568818a40e23625c029c15ef002337}{new\-Explosion} (float x, float y, float z)
+\item 
+void \hyperlink{CompCombined_8cpp_a739da4e68602acd343a8e3f2416b125d}{Add\-New\-Explosion} (float x, float y, float z)
+\item 
+void \hyperlink{CompCombined_8cpp_a5baf2cb4f97d976f636c7f6774abfaa3}{Update\-Fire\-Explosions} ()
+\item 
+void \hyperlink{CompCombined_8cpp_a0c8461c0530e82a99d5c4f454664a432}{Show\-Fire\-Point} (\hyperlink{structFirePoint}{Fire\-Point} \&ptodisplay)
+\item 
+void \hyperlink{CompCombined_8cpp_a5f97e400230cb599e6ddfac7e4992594}{Show\-All\-Fire\-Points} ()
+\item 
+void \hyperlink{CompCombined_8cpp_a7eada9476cc3c7eaaf9ca4999436a32e}{Show\-Explosion} (\hyperlink{structExpl}{Expl} \&exptodisplay)
+\item 
+void \hyperlink{CompCombined_8cpp_af1906333c898457418b40a9776e99609}{Update\-Explosion} (\hyperlink{structExpl}{Expl} \&exptoupdate)
+\item 
+void \hyperlink{CompCombined_8cpp_a81d1237271db8fb1ee03ec09a76191fa}{Update\-All\-Explosions} ()
+\item 
+void \hyperlink{CompCombined_8cpp_a022953a791f229bde63677521e2ce152}{Show\-Smoke\-Point} (\hyperlink{structSmokePoint}{Smoke\-Point} \&p)
+\item 
+\hyperlink{structSmokePoint}{Smoke\-Point} \hyperlink{CompCombined_8cpp_ad0a45b8bf9955d04ff98ba403a959285}{New\-Smoke\-Point} (float x, float y)
+\item 
+void \hyperlink{CompCombined_8cpp_aa4512f3fa4c21e88ce3768daec8b5378}{Update\-Smoke\-Point} (\hyperlink{structSmokePoint}{Smoke\-Point} \&p)
+\item 
+void \hyperlink{CompCombined_8cpp_a8a0629f718bdbcfe7f683fd2621fbb23}{Update\-All\-Smoke\-Points} (std\-::vector$<$ \hyperlink{structSmokePoint}{Smoke\-Point} $>$ \&v)
+\item 
+void \hyperlink{CompCombined_8cpp_a90c1acf46c51ed781aed876b20371e89}{Display\-Smoke\-Points} (std\-::vector$<$ \hyperlink{structSmokePoint}{Smoke\-Point} $>$ \&v)
+\item 
+void \hyperlink{CompCombined_8cpp_a1751fcf05c802a5041ee11b1241d788f}{Display\-Explosions} (std\-::vector$<$ \hyperlink{structExpl}{Expl} $>$ \&v)
+\item 
+void $\ast$ \hyperlink{CompCombined_8cpp_a05ba8e900cc9d19c09814ae189b9fe04}{networkmainhelper} (void $\ast$inp)
+\item 
+void \hyperlink{CompCombined_8cpp_a91cdc7a754ffb9e042b9cbfc64727511}{Show\-Game\-Over} ()
+\item 
+void \hyperlink{CompCombined_8cpp_a4ea013001a5fb47853d0fab8f8de35cd}{display} (void)
+\item 
+void $\ast$ \hyperlink{CompCombined_8cpp_a0d28bde53a56570632d16ed2efd23bf6}{Update\-Game\-Thread} (void $\ast$x)
+\item 
+void \hyperlink{CompCombined_8cpp_ad04a0171ba856ee91baad9bfd650d26e}{mousepos} (int x, int y)
+\item 
+int \hyperlink{CompCombined_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+G\-Luint \hyperlink{CompCombined_8cpp_a52c13b1b02a8dc4f543da3796c0ae55c}{\-\_\-texture\-Id}
+\item 
+G\-Luint \hyperlink{CompCombined_8cpp_a54c572b9d67417d91b7eb464cc5c6f54}{\-\_\-texture\-Game\-Over}
+\item 
+G\-Luint \hyperlink{CompCombined_8cpp_ab7e8a70aa7279a33befe10e8dfe96a1e}{\-\_\-texture\-High\-Score}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{CompCombined_8cpp_a739da4e68602acd343a8e3f2416b125d}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Add\-New\-Explosion@{Add\-New\-Explosion}}
+\index{Add\-New\-Explosion@{Add\-New\-Explosion}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Add\-New\-Explosion}]{\setlength{\rightskip}{0pt plus 5cm}void Add\-New\-Explosion (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a739da4e68602acd343a8e3f2416b125d}
+\hypertarget{CompCombined_8cpp_a4ea013001a5fb47853d0fab8f8de35cd}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!display@{display}}
+\index{display@{display}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{display}]{\setlength{\rightskip}{0pt plus 5cm}void display (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a4ea013001a5fb47853d0fab8f8de35cd}
+\hypertarget{CompCombined_8cpp_a1751fcf05c802a5041ee11b1241d788f}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Display\-Explosions@{Display\-Explosions}}
+\index{Display\-Explosions@{Display\-Explosions}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Display\-Explosions}]{\setlength{\rightskip}{0pt plus 5cm}void Display\-Explosions (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Expl} $>$ \&}]{v}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a1751fcf05c802a5041ee11b1241d788f}
+\hypertarget{CompCombined_8cpp_a90c1acf46c51ed781aed876b20371e89}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Display\-Smoke\-Points@{Display\-Smoke\-Points}}
+\index{Display\-Smoke\-Points@{Display\-Smoke\-Points}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Display\-Smoke\-Points}]{\setlength{\rightskip}{0pt plus 5cm}void Display\-Smoke\-Points (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Smoke\-Point} $>$ \&}]{v}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a90c1acf46c51ed781aed876b20371e89}
+\hypertarget{CompCombined_8cpp_a7fccc9dc8048323648486d3414f55394}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!handle\-Keypress@{handle\-Keypress}}
+\index{handle\-Keypress@{handle\-Keypress}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{handle\-Keypress}]{\setlength{\rightskip}{0pt plus 5cm}void handle\-Keypress (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{key, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a7fccc9dc8048323648486d3414f55394}
+\hypertarget{CompCombined_8cpp_a6cc5605e9cbad54041c939a068c637d7}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!handle\-Keypress\-Up@{handle\-Keypress\-Up}}
+\index{handle\-Keypress\-Up@{handle\-Keypress\-Up}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{handle\-Keypress\-Up}]{\setlength{\rightskip}{0pt plus 5cm}void handle\-Keypress\-Up (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{key, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a6cc5605e9cbad54041c939a068c637d7}
+\hypertarget{CompCombined_8cpp_a17a53fe9e683b81bdc7618f88b8b8502}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!init\-Rendering@{init\-Rendering}}
+\index{init\-Rendering@{init\-Rendering}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{init\-Rendering}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Rendering (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a17a53fe9e683b81bdc7618f88b8b8502}
+\hypertarget{CompCombined_8cpp_ad4bf0ccd1bff2e08fce89273ef99316c}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!load\-B\-M\-P@{load\-B\-M\-P}}
+\index{load\-B\-M\-P@{load\-B\-M\-P}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{load\-B\-M\-P}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Image}$\ast$ load\-B\-M\-P (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_ad4bf0ccd1bff2e08fce89273ef99316c}
+\hypertarget{CompCombined_8cpp_a48e705b989d9fd1336b495b9cc61fdf5}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!load\-O\-B\-J@{load\-O\-B\-J}}
+\index{load\-O\-B\-J@{load\-O\-B\-J}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{load\-O\-B\-J}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Faces}$>$ load\-O\-B\-J (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a48e705b989d9fd1336b495b9cc61fdf5}
+\hypertarget{CompCombined_8cpp_a00b9d31e0bf71cdb98bdbd3aa30b31b0}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!load\-Texture@{load\-Texture}}
+\index{load\-Texture@{load\-Texture}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{load\-Texture}]{\setlength{\rightskip}{0pt plus 5cm}G\-Luint load\-Texture (
+\begin{DoxyParamCaption}
+\item[{{\bf Image} $\ast$}]{image}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a00b9d31e0bf71cdb98bdbd3aa30b31b0}
+\hypertarget{CompCombined_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!main@{main}}
+\index{main@{main}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+\hypertarget{CompCombined_8cpp_a1c7e2d01ef4aef43a00bfe4a4bd45c92}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!mouseclick@{mouseclick}}
+\index{mouseclick@{mouseclick}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{mouseclick}]{\setlength{\rightskip}{0pt plus 5cm}void mouseclick (
+\begin{DoxyParamCaption}
+\item[{int}]{button, }
+\item[{int}]{state, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a1c7e2d01ef4aef43a00bfe4a4bd45c92}
+\hypertarget{CompCombined_8cpp_ad04a0171ba856ee91baad9bfd650d26e}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!mousepos@{mousepos}}
+\index{mousepos@{mousepos}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{mousepos}]{\setlength{\rightskip}{0pt plus 5cm}void mousepos (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_ad04a0171ba856ee91baad9bfd650d26e}
+\hypertarget{CompCombined_8cpp_a05ba8e900cc9d19c09814ae189b9fe04}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!networkmainhelper@{networkmainhelper}}
+\index{networkmainhelper@{networkmainhelper}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{networkmainhelper}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ networkmainhelper (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{inp}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a05ba8e900cc9d19c09814ae189b9fe04}
+\hypertarget{CompCombined_8cpp_a4a568818a40e23625c029c15ef002337}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!new\-Explosion@{new\-Explosion}}
+\index{new\-Explosion@{new\-Explosion}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{new\-Explosion}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expl} new\-Explosion (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a4a568818a40e23625c029c15ef002337}
+\hypertarget{CompCombined_8cpp_ad0a45b8bf9955d04ff98ba403a959285}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!New\-Smoke\-Point@{New\-Smoke\-Point}}
+\index{New\-Smoke\-Point@{New\-Smoke\-Point}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{New\-Smoke\-Point}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Smoke\-Point} New\-Smoke\-Point (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_ad0a45b8bf9955d04ff98ba403a959285}
+\hypertarget{CompCombined_8cpp_a28b37ee5bd6d3f6e42a7a30e57fc615c}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!new\-Speed@{new\-Speed}}
+\index{new\-Speed@{new\-Speed}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{new\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}void new\-Speed (
+\begin{DoxyParamCaption}
+\item[{float}]{dest\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a28b37ee5bd6d3f6e42a7a30e57fc615c}
+\hypertarget{CompCombined_8cpp_a39ccf856b8d29a28a25eeb4f8fae59a4}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Process\-Keys@{Process\-Keys}}
+\index{Process\-Keys@{Process\-Keys}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Process\-Keys}]{\setlength{\rightskip}{0pt plus 5cm}void Process\-Keys (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a39ccf856b8d29a28a25eeb4f8fae59a4}
+\hypertarget{CompCombined_8cpp_ac8836caa62bb9c69b545610407da9777}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-Alien@{Show\-Alien}}
+\index{Show\-Alien@{Show\-Alien}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-Alien}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Alien (
+\begin{DoxyParamCaption}
+\item[{{\bf Alien} \&}]{alientodisplay}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_ac8836caa62bb9c69b545610407da9777}
+\hypertarget{CompCombined_8cpp_a5f97e400230cb599e6ddfac7e4992594}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-All\-Fire\-Points@{Show\-All\-Fire\-Points}}
+\index{Show\-All\-Fire\-Points@{Show\-All\-Fire\-Points}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-All\-Fire\-Points}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-All\-Fire\-Points (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a5f97e400230cb599e6ddfac7e4992594}
+\hypertarget{CompCombined_8cpp_afb3cebe6710b6c6efa8d510c2e36b16d}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-All\-Text@{Show\-All\-Text}}
+\index{Show\-All\-Text@{Show\-All\-Text}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-All\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-All\-Text (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_afb3cebe6710b6c6efa8d510c2e36b16d}
+\hypertarget{CompCombined_8cpp_ad9e2543cd509d6ee4fdf869717e9e69b}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-Board@{Show\-Board}}
+\index{Show\-Board@{Show\-Board}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-Board}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Board (
+\begin{DoxyParamCaption}
+\item[{{\bf Board} \&}]{boardtodisplay}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_ad9e2543cd509d6ee4fdf869717e9e69b}
+\hypertarget{CompCombined_8cpp_a58191bf148e063b4be8ccf407a044aa2}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-Borders@{Show\-Borders}}
+\index{Show\-Borders@{Show\-Borders}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-Borders}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Borders (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a58191bf148e063b4be8ccf407a044aa2}
+\hypertarget{CompCombined_8cpp_acea317eb8c111e0e4c4a3aea7e3ca6f1}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-Bullet@{Show\-Bullet}}
+\index{Show\-Bullet@{Show\-Bullet}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-Bullet}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Bullet (
+\begin{DoxyParamCaption}
+\item[{{\bf Bullet} \&}]{b}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_acea317eb8c111e0e4c4a3aea7e3ca6f1}
+\hypertarget{CompCombined_8cpp_a7eada9476cc3c7eaaf9ca4999436a32e}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-Explosion@{Show\-Explosion}}
+\index{Show\-Explosion@{Show\-Explosion}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-Explosion}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Explosion (
+\begin{DoxyParamCaption}
+\item[{{\bf Expl} \&}]{exptodisplay}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a7eada9476cc3c7eaaf9ca4999436a32e}
+\hypertarget{CompCombined_8cpp_a0c8461c0530e82a99d5c4f454664a432}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-Fire\-Point@{Show\-Fire\-Point}}
+\index{Show\-Fire\-Point@{Show\-Fire\-Point}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-Fire\-Point}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Fire\-Point (
+\begin{DoxyParamCaption}
+\item[{{\bf Fire\-Point} \&}]{ptodisplay}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a0c8461c0530e82a99d5c4f454664a432}
+\hypertarget{CompCombined_8cpp_a91cdc7a754ffb9e042b9cbfc64727511}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-Game\-Over@{Show\-Game\-Over}}
+\index{Show\-Game\-Over@{Show\-Game\-Over}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-Game\-Over}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Game\-Over (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a91cdc7a754ffb9e042b9cbfc64727511}
+\hypertarget{CompCombined_8cpp_a3aa78c4f642bf9ae5bf7c8a5fc0c2654}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-Ip@{Show\-Ip}}
+\index{Show\-Ip@{Show\-Ip}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-Ip}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Ip (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a3aa78c4f642bf9ae5bf7c8a5fc0c2654}
+\hypertarget{CompCombined_8cpp_ae2d024a10b3a7919cee57e5715cc3173}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-Lives@{Show\-Lives}}
+\index{Show\-Lives@{Show\-Lives}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-Lives}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Lives (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_ae2d024a10b3a7919cee57e5715cc3173}
+\hypertarget{CompCombined_8cpp_ad5611186310c00e711adaec9cb277f7e}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-Missile@{Show\-Missile}}
+\index{Show\-Missile@{Show\-Missile}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-Missile}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Missile (
+\begin{DoxyParamCaption}
+\item[{{\bf Bullet} \&}]{b}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_ad5611186310c00e711adaec9cb277f7e}
+\hypertarget{CompCombined_8cpp_a4d4b66d5ff304c83fd9351e2762d367f}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-Object@{Show\-Object}}
+\index{Show\-Object@{Show\-Object}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-Object}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Object (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Faces} $>$ \&}]{facevect}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a4d4b66d5ff304c83fd9351e2762d367f}
+\hypertarget{CompCombined_8cpp_ac42ba46b184fcb718874c7ad9756dfa7}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-Scores@{Show\-Scores}}
+\index{Show\-Scores@{Show\-Scores}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-Scores}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Scores (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_ac42ba46b184fcb718874c7ad9756dfa7}
+\hypertarget{CompCombined_8cpp_a42b655f0fad4eae31b3c6314fce2fe96}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-Ship@{Show\-Ship}}
+\index{Show\-Ship@{Show\-Ship}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-Ship}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Ship (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship} \&}]{shiptodisplay}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a42b655f0fad4eae31b3c6314fce2fe96}
+\hypertarget{CompCombined_8cpp_a022953a791f229bde63677521e2ce152}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-Smoke\-Point@{Show\-Smoke\-Point}}
+\index{Show\-Smoke\-Point@{Show\-Smoke\-Point}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-Smoke\-Point}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Smoke\-Point (
+\begin{DoxyParamCaption}
+\item[{{\bf Smoke\-Point} \&}]{p}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a022953a791f229bde63677521e2ce152}
+\hypertarget{CompCombined_8cpp_a537fa332b04f47fc8789b21197418391}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Show\-Title@{Show\-Title}}
+\index{Show\-Title@{Show\-Title}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Show\-Title}]{\setlength{\rightskip}{0pt plus 5cm}void Show\-Title (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a537fa332b04f47fc8789b21197418391}
+\hypertarget{CompCombined_8cpp_add308eea0c1bcd20693e880d06e080ad}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!sound\-\_\-play1@{sound\-\_\-play1}}
+\index{sound\-\_\-play1@{sound\-\_\-play1}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{sound\-\_\-play1}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ sound\-\_\-play1 (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{x}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_add308eea0c1bcd20693e880d06e080ad}
+\hypertarget{CompCombined_8cpp_a2e680a4731f04df1eccb24940d929077}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!sound\-\_\-play2@{sound\-\_\-play2}}
+\index{sound\-\_\-play2@{sound\-\_\-play2}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{sound\-\_\-play2}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ sound\-\_\-play2 (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{x}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a2e680a4731f04df1eccb24940d929077}
+\hypertarget{CompCombined_8cpp_adb204205e9da0b007a775e68d1ef6bd5}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!special\-Keys@{special\-Keys}}
+\index{special\-Keys@{special\-Keys}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{special\-Keys}]{\setlength{\rightskip}{0pt plus 5cm}void special\-Keys (
+\begin{DoxyParamCaption}
+\item[{int}]{key, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_adb204205e9da0b007a775e68d1ef6bd5}
+\hypertarget{CompCombined_8cpp_a1000d9aa74bc8bc509aa295457823a76}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!special\-Keys\-Up@{special\-Keys\-Up}}
+\index{special\-Keys\-Up@{special\-Keys\-Up}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{special\-Keys\-Up}]{\setlength{\rightskip}{0pt plus 5cm}void special\-Keys\-Up (
+\begin{DoxyParamCaption}
+\item[{int}]{key, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a1000d9aa74bc8bc509aa295457823a76}
+\hypertarget{CompCombined_8cpp_a81d1237271db8fb1ee03ec09a76191fa}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Update\-All\-Explosions@{Update\-All\-Explosions}}
+\index{Update\-All\-Explosions@{Update\-All\-Explosions}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Update\-All\-Explosions}]{\setlength{\rightskip}{0pt plus 5cm}void Update\-All\-Explosions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a81d1237271db8fb1ee03ec09a76191fa}
+\hypertarget{CompCombined_8cpp_a8a0629f718bdbcfe7f683fd2621fbb23}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Update\-All\-Smoke\-Points@{Update\-All\-Smoke\-Points}}
+\index{Update\-All\-Smoke\-Points@{Update\-All\-Smoke\-Points}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Update\-All\-Smoke\-Points}]{\setlength{\rightskip}{0pt plus 5cm}void Update\-All\-Smoke\-Points (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Smoke\-Point} $>$ \&}]{v}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a8a0629f718bdbcfe7f683fd2621fbb23}
+\hypertarget{CompCombined_8cpp_af1906333c898457418b40a9776e99609}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Update\-Explosion@{Update\-Explosion}}
+\index{Update\-Explosion@{Update\-Explosion}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Update\-Explosion}]{\setlength{\rightskip}{0pt plus 5cm}void Update\-Explosion (
+\begin{DoxyParamCaption}
+\item[{{\bf Expl} \&}]{exptoupdate}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_af1906333c898457418b40a9776e99609}
+\hypertarget{CompCombined_8cpp_a5baf2cb4f97d976f636c7f6774abfaa3}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Update\-Fire\-Explosions@{Update\-Fire\-Explosions}}
+\index{Update\-Fire\-Explosions@{Update\-Fire\-Explosions}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Update\-Fire\-Explosions}]{\setlength{\rightskip}{0pt plus 5cm}void Update\-Fire\-Explosions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a5baf2cb4f97d976f636c7f6774abfaa3}
+\hypertarget{CompCombined_8cpp_a0d28bde53a56570632d16ed2efd23bf6}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Update\-Game\-Thread@{Update\-Game\-Thread}}
+\index{Update\-Game\-Thread@{Update\-Game\-Thread}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Update\-Game\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Update\-Game\-Thread (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{x}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_a0d28bde53a56570632d16ed2efd23bf6}
+\hypertarget{CompCombined_8cpp_aa4512f3fa4c21e88ce3768daec8b5378}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!Update\-Smoke\-Point@{Update\-Smoke\-Point}}
+\index{Update\-Smoke\-Point@{Update\-Smoke\-Point}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{Update\-Smoke\-Point}]{\setlength{\rightskip}{0pt plus 5cm}void Update\-Smoke\-Point (
+\begin{DoxyParamCaption}
+\item[{{\bf Smoke\-Point} \&}]{p}
+\end{DoxyParamCaption}
+)}}\label{CompCombined_8cpp_aa4512f3fa4c21e88ce3768daec8b5378}
+
+
+\subsection{Variable Documentation}
+\hypertarget{CompCombined_8cpp_a54c572b9d67417d91b7eb464cc5c6f54}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!\-\_\-texture\-Game\-Over@{\-\_\-texture\-Game\-Over}}
+\index{\-\_\-texture\-Game\-Over@{\-\_\-texture\-Game\-Over}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{\-\_\-texture\-Game\-Over}]{\setlength{\rightskip}{0pt plus 5cm}G\-Luint \-\_\-texture\-Game\-Over}}\label{CompCombined_8cpp_a54c572b9d67417d91b7eb464cc5c6f54}
+\hypertarget{CompCombined_8cpp_ab7e8a70aa7279a33befe10e8dfe96a1e}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!\-\_\-texture\-High\-Score@{\-\_\-texture\-High\-Score}}
+\index{\-\_\-texture\-High\-Score@{\-\_\-texture\-High\-Score}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{\-\_\-texture\-High\-Score}]{\setlength{\rightskip}{0pt plus 5cm}G\-Luint \-\_\-texture\-High\-Score}}\label{CompCombined_8cpp_ab7e8a70aa7279a33befe10e8dfe96a1e}
+\hypertarget{CompCombined_8cpp_a52c13b1b02a8dc4f543da3796c0ae55c}{\index{Comp\-Combined.\-cpp@{Comp\-Combined.\-cpp}!\-\_\-texture\-Id@{\-\_\-texture\-Id}}
+\index{\-\_\-texture\-Id@{\-\_\-texture\-Id}!CompCombined.cpp@{Comp\-Combined.\-cpp}}
+\subsubsection[{\-\_\-texture\-Id}]{\setlength{\rightskip}{0pt plus 5cm}G\-Luint \-\_\-texture\-Id}}\label{CompCombined_8cpp_a52c13b1b02a8dc4f543da3796c0ae55c}

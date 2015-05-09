@@ -1,0 +1,1059 @@
+\contentsline {chapter}{\numberline {1}Class Index}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Class List}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}Class Documentation}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Alien Class Reference}{5}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Constructor \& Destructor Documentation}{6}{subsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.1.1}Alien}{6}{subsubsection.3.1.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Member Function Documentation}{6}{subsection.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.2.1}Get\discretionary {-}{}{}Angle}{6}{subsubsection.3.1.2.1}
+\contentsline {subsubsection}{\numberline {3.1.2.2}Get\discretionary {-}{}{}Bullets}{6}{subsubsection.3.1.2.2}
+\contentsline {subsubsection}{\numberline {3.1.2.3}Get\discretionary {-}{}{}Color}{6}{subsubsection.3.1.2.3}
+\contentsline {subsubsection}{\numberline {3.1.2.4}Get\discretionary {-}{}{}Level}{6}{subsubsection.3.1.2.4}
+\contentsline {subsubsection}{\numberline {3.1.2.5}Get\discretionary {-}{}{}Lives}{6}{subsubsection.3.1.2.5}
+\contentsline {subsubsection}{\numberline {3.1.2.6}Get\discretionary {-}{}{}Missiles}{6}{subsubsection.3.1.2.6}
+\contentsline {subsubsection}{\numberline {3.1.2.7}Get\discretionary {-}{}{}Summary}{6}{subsubsection.3.1.2.7}
+\contentsline {subsubsection}{\numberline {3.1.2.8}Get\discretionary {-}{}{}Type}{6}{subsubsection.3.1.2.8}
+\contentsline {subsubsection}{\numberline {3.1.2.9}Get\discretionary {-}{}{}X\discretionary {-}{}{}Pos}{6}{subsubsection.3.1.2.9}
+\contentsline {subsubsection}{\numberline {3.1.2.10}Get\discretionary {-}{}{}Y\discretionary {-}{}{}Pos}{6}{subsubsection.3.1.2.10}
+\contentsline {subsubsection}{\numberline {3.1.2.11}Reduce\discretionary {-}{}{}Missile}{6}{subsubsection.3.1.2.11}
+\contentsline {subsubsection}{\numberline {3.1.2.12}Set\discretionary {-}{}{}Angle}{6}{subsubsection.3.1.2.12}
+\contentsline {subsubsection}{\numberline {3.1.2.13}Set\discretionary {-}{}{}Bullets}{6}{subsubsection.3.1.2.13}
+\contentsline {subsubsection}{\numberline {3.1.2.14}Set\discretionary {-}{}{}Color}{6}{subsubsection.3.1.2.14}
+\contentsline {subsubsection}{\numberline {3.1.2.15}Set\discretionary {-}{}{}Color\discretionary {-}{}{}Float}{6}{subsubsection.3.1.2.15}
+\contentsline {subsubsection}{\numberline {3.1.2.16}Set\discretionary {-}{}{}Color\discretionary {-}{}{}Float2}{6}{subsubsection.3.1.2.16}
+\contentsline {subsubsection}{\numberline {3.1.2.17}Set\discretionary {-}{}{}Level}{6}{subsubsection.3.1.2.17}
+\contentsline {subsubsection}{\numberline {3.1.2.18}Set\discretionary {-}{}{}Lives}{6}{subsubsection.3.1.2.18}
+\contentsline {subsubsection}{\numberline {3.1.2.19}Set\discretionary {-}{}{}Missiles}{6}{subsubsection.3.1.2.19}
+\contentsline {subsubsection}{\numberline {3.1.2.20}Set\discretionary {-}{}{}Type}{6}{subsubsection.3.1.2.20}
+\contentsline {subsubsection}{\numberline {3.1.2.21}Set\discretionary {-}{}{}X\discretionary {-}{}{}Pos}{6}{subsubsection.3.1.2.21}
+\contentsline {subsubsection}{\numberline {3.1.2.22}Set\discretionary {-}{}{}Y\discretionary {-}{}{}Pos}{6}{subsubsection.3.1.2.22}
+\contentsline {subsection}{\numberline {3.1.3}Member Data Documentation}{6}{subsection.3.1.3}
+\contentsline {subsubsection}{\numberline {3.1.3.1}Alien\discretionary {-}{}{}Type}{7}{subsubsection.3.1.3.1}
+\contentsline {subsubsection}{\numberline {3.1.3.2}Angle}{7}{subsubsection.3.1.3.2}
+\contentsline {subsubsection}{\numberline {3.1.3.3}Color\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}{7}{subsubsection.3.1.3.3}
+\contentsline {subsubsection}{\numberline {3.1.3.4}Level}{7}{subsubsection.3.1.3.4}
+\contentsline {subsubsection}{\numberline {3.1.3.5}Number\discretionary {-}{}{}Bullets}{7}{subsubsection.3.1.3.5}
+\contentsline {subsubsection}{\numberline {3.1.3.6}Number\discretionary {-}{}{}Missiles}{7}{subsubsection.3.1.3.6}
+\contentsline {subsubsection}{\numberline {3.1.3.7}Present\discretionary {-}{}{}Lives}{7}{subsubsection.3.1.3.7}
+\contentsline {subsubsection}{\numberline {3.1.3.8}X\discretionary {-}{}{}Pos}{7}{subsubsection.3.1.3.8}
+\contentsline {subsubsection}{\numberline {3.1.3.9}Y\discretionary {-}{}{}Pos}{7}{subsubsection.3.1.3.9}
+\contentsline {section}{\numberline {3.2}Board Class Reference}{7}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Constructor \& Destructor Documentation}{10}{subsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.1.1}Board}{10}{subsubsection.3.2.1.1}
+\contentsline {subsubsection}{\numberline {3.2.1.2}Board}{10}{subsubsection.3.2.1.2}
+\contentsline {subsubsection}{\numberline {3.2.1.3}Board}{10}{subsubsection.3.2.1.3}
+\contentsline {subsubsection}{\numberline {3.2.1.4}Board}{10}{subsubsection.3.2.1.4}
+\contentsline {subsection}{\numberline {3.2.2}Member Function Documentation}{10}{subsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.2.1}Add\discretionary {-}{}{}Random\discretionary {-}{}{}Alien}{10}{subsubsection.3.2.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2.2}Add\discretionary {-}{}{}Random\discretionary {-}{}{}Alien}{10}{subsubsection.3.2.2.2}
+\contentsline {subsubsection}{\numberline {3.2.2.3}Add\discretionary {-}{}{}Random\discretionary {-}{}{}Ship}{10}{subsubsection.3.2.2.3}
+\contentsline {subsubsection}{\numberline {3.2.2.4}Add\discretionary {-}{}{}Random\discretionary {-}{}{}Ship}{10}{subsubsection.3.2.2.4}
+\contentsline {subsubsection}{\numberline {3.2.2.5}Apply\discretionary {-}{}{}All\discretionary {-}{}{}Alien\discretionary {-}{}{}Instructions}{10}{subsubsection.3.2.2.5}
+\contentsline {subsubsection}{\numberline {3.2.2.6}Apply\discretionary {-}{}{}All\discretionary {-}{}{}Alien\discretionary {-}{}{}Instructions}{10}{subsubsection.3.2.2.6}
+\contentsline {subsubsection}{\numberline {3.2.2.7}Apply\discretionary {-}{}{}All\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}{10}{subsubsection.3.2.2.7}
+\contentsline {subsubsection}{\numberline {3.2.2.8}Apply\discretionary {-}{}{}All\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}{10}{subsubsection.3.2.2.8}
+\contentsline {subsubsection}{\numberline {3.2.2.9}Apply\discretionary {-}{}{}Ins\discretionary {-}{}{}To\discretionary {-}{}{}Bullets}{10}{subsubsection.3.2.2.9}
+\contentsline {subsubsection}{\numberline {3.2.2.10}Apply\discretionary {-}{}{}Ins\discretionary {-}{}{}To\discretionary {-}{}{}Bullets}{10}{subsubsection.3.2.2.10}
+\contentsline {subsubsection}{\numberline {3.2.2.11}Apply\discretionary {-}{}{}Ins\discretionary {-}{}{}To\discretionary {-}{}{}Ship}{10}{subsubsection.3.2.2.11}
+\contentsline {subsubsection}{\numberline {3.2.2.12}Apply\discretionary {-}{}{}Ins\discretionary {-}{}{}To\discretionary {-}{}{}Ship}{10}{subsubsection.3.2.2.12}
+\contentsline {subsubsection}{\numberline {3.2.2.13}Apply\discretionary {-}{}{}Instruction6}{10}{subsubsection.3.2.2.13}
+\contentsline {subsubsection}{\numberline {3.2.2.14}Apply\discretionary {-}{}{}Instruction6}{10}{subsubsection.3.2.2.14}
+\contentsline {subsubsection}{\numberline {3.2.2.15}Apply\discretionary {-}{}{}Instructions}{10}{subsubsection.3.2.2.15}
+\contentsline {subsubsection}{\numberline {3.2.2.16}Apply\discretionary {-}{}{}Instructions}{10}{subsubsection.3.2.2.16}
+\contentsline {subsubsection}{\numberline {3.2.2.17}Apply\discretionary {-}{}{}Instructions\discretionary {-}{}{}To\discretionary {-}{}{}Ship\discretionary {-}{}{}A\discretionary {-}{}{}I}{10}{subsubsection.3.2.2.17}
+\contentsline {subsubsection}{\numberline {3.2.2.18}Apply\discretionary {-}{}{}Player\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.18}
+\contentsline {subsubsection}{\numberline {3.2.2.19}Apply\discretionary {-}{}{}Player\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.19}
+\contentsline {subsubsection}{\numberline {3.2.2.20}Apply\discretionary {-}{}{}Ship\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.20}
+\contentsline {subsubsection}{\numberline {3.2.2.21}Apply\discretionary {-}{}{}Ship\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.21}
+\contentsline {subsubsection}{\numberline {3.2.2.22}Apply\discretionary {-}{}{}Single\discretionary {-}{}{}Alien\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.22}
+\contentsline {subsubsection}{\numberline {3.2.2.23}Apply\discretionary {-}{}{}Single\discretionary {-}{}{}Alien\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.23}
+\contentsline {subsubsection}{\numberline {3.2.2.24}Apply\discretionary {-}{}{}Single\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.24}
+\contentsline {subsubsection}{\numberline {3.2.2.25}Apply\discretionary {-}{}{}Single\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.25}
+\contentsline {subsubsection}{\numberline {3.2.2.26}Check\discretionary {-}{}{}Alien\discretionary {-}{}{}Hit\discretionary {-}{}{}Ship}{11}{subsubsection.3.2.2.26}
+\contentsline {subsubsection}{\numberline {3.2.2.27}Check\discretionary {-}{}{}Alien\discretionary {-}{}{}Hit\discretionary {-}{}{}Ship}{11}{subsubsection.3.2.2.27}
+\contentsline {subsubsection}{\numberline {3.2.2.28}Check\discretionary {-}{}{}Bullet\discretionary {-}{}{}Hit\discretionary {-}{}{}Alien}{11}{subsubsection.3.2.2.28}
+\contentsline {subsubsection}{\numberline {3.2.2.29}Check\discretionary {-}{}{}Bullet\discretionary {-}{}{}Hit\discretionary {-}{}{}Alien}{11}{subsubsection.3.2.2.29}
+\contentsline {subsubsection}{\numberline {3.2.2.30}Check\discretionary {-}{}{}Bullet\discretionary {-}{}{}Hit\discretionary {-}{}{}Ship}{11}{subsubsection.3.2.2.30}
+\contentsline {subsubsection}{\numberline {3.2.2.31}Check\discretionary {-}{}{}Bullet\discretionary {-}{}{}Hit\discretionary {-}{}{}Ship}{11}{subsubsection.3.2.2.31}
+\contentsline {subsubsection}{\numberline {3.2.2.32}Check\discretionary {-}{}{}Game\discretionary {-}{}{}Over}{11}{subsubsection.3.2.2.32}
+\contentsline {subsubsection}{\numberline {3.2.2.33}Check\discretionary {-}{}{}Game\discretionary {-}{}{}Over}{11}{subsubsection.3.2.2.33}
+\contentsline {subsubsection}{\numberline {3.2.2.34}Generate\discretionary {-}{}{}Aliens\discretionary {-}{}{}Information}{11}{subsubsection.3.2.2.34}
+\contentsline {subsubsection}{\numberline {3.2.2.35}Generate\discretionary {-}{}{}Aliens\discretionary {-}{}{}Information}{11}{subsubsection.3.2.2.35}
+\contentsline {subsubsection}{\numberline {3.2.2.36}Generate\discretionary {-}{}{}All\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.36}
+\contentsline {subsubsection}{\numberline {3.2.2.37}Generate\discretionary {-}{}{}All\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.37}
+\contentsline {subsubsection}{\numberline {3.2.2.38}Generate\discretionary {-}{}{}All\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.38}
+\contentsline {subsubsection}{\numberline {3.2.2.39}Generate\discretionary {-}{}{}All\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.39}
+\contentsline {subsubsection}{\numberline {3.2.2.40}Generate\discretionary {-}{}{}Only\discretionary {-}{}{}Player\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.40}
+\contentsline {subsubsection}{\numberline {3.2.2.41}Generate\discretionary {-}{}{}Only\discretionary {-}{}{}Player\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.41}
+\contentsline {subsubsection}{\numberline {3.2.2.42}Generate\discretionary {-}{}{}Player\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.42}
+\contentsline {subsubsection}{\numberline {3.2.2.43}Generate\discretionary {-}{}{}Player\discretionary {-}{}{}Bullet\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.43}
+\contentsline {subsubsection}{\numberline {3.2.2.44}Generate\discretionary {-}{}{}Player\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.44}
+\contentsline {subsubsection}{\numberline {3.2.2.45}Generate\discretionary {-}{}{}Player\discretionary {-}{}{}Instructions}{11}{subsubsection.3.2.2.45}
+\contentsline {subsubsection}{\numberline {3.2.2.46}Generate\discretionary {-}{}{}Player\discretionary {-}{}{}Position\discretionary {-}{}{}Instructions}{12}{subsubsection.3.2.2.46}
+\contentsline {subsubsection}{\numberline {3.2.2.47}Generate\discretionary {-}{}{}Player\discretionary {-}{}{}Position\discretionary {-}{}{}Instructions}{12}{subsubsection.3.2.2.47}
+\contentsline {subsubsection}{\numberline {3.2.2.48}Generate\discretionary {-}{}{}Ship\discretionary {-}{}{}Ins\discretionary {-}{}{}For\discretionary {-}{}{}A\discretionary {-}{}{}I}{12}{subsubsection.3.2.2.48}
+\contentsline {subsubsection}{\numberline {3.2.2.49}Generating\discretionary {-}{}{}Count}{12}{subsubsection.3.2.2.49}
+\contentsline {subsubsection}{\numberline {3.2.2.50}Generating\discretionary {-}{}{}Count}{12}{subsubsection.3.2.2.50}
+\contentsline {subsubsection}{\numberline {3.2.2.51}Get\discretionary {-}{}{}Neg\discretionary {-}{}{}X\discretionary {-}{}{}Dimension}{12}{subsubsection.3.2.2.51}
+\contentsline {subsubsection}{\numberline {3.2.2.52}Get\discretionary {-}{}{}Neg\discretionary {-}{}{}X\discretionary {-}{}{}Dimension}{12}{subsubsection.3.2.2.52}
+\contentsline {subsubsection}{\numberline {3.2.2.53}Get\discretionary {-}{}{}Neg\discretionary {-}{}{}Y\discretionary {-}{}{}Dimension}{12}{subsubsection.3.2.2.53}
+\contentsline {subsubsection}{\numberline {3.2.2.54}Get\discretionary {-}{}{}Neg\discretionary {-}{}{}Y\discretionary {-}{}{}Dimension}{12}{subsubsection.3.2.2.54}
+\contentsline {subsubsection}{\numberline {3.2.2.55}Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Alien}{12}{subsubsection.3.2.2.55}
+\contentsline {subsubsection}{\numberline {3.2.2.56}Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Alien}{12}{subsubsection.3.2.2.56}
+\contentsline {subsubsection}{\numberline {3.2.2.57}Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Bullet}{12}{subsubsection.3.2.2.57}
+\contentsline {subsubsection}{\numberline {3.2.2.58}Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Bullet}{12}{subsubsection.3.2.2.58}
+\contentsline {subsubsection}{\numberline {3.2.2.59}Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Player\discretionary {-}{}{}Name}{12}{subsubsection.3.2.2.59}
+\contentsline {subsubsection}{\numberline {3.2.2.60}Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Player\discretionary {-}{}{}Score}{12}{subsubsection.3.2.2.60}
+\contentsline {subsubsection}{\numberline {3.2.2.61}Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Player\discretionary {-}{}{}Score}{12}{subsubsection.3.2.2.61}
+\contentsline {subsubsection}{\numberline {3.2.2.62}Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Ship}{12}{subsubsection.3.2.2.62}
+\contentsline {subsubsection}{\numberline {3.2.2.63}Get\discretionary {-}{}{}Nth\discretionary {-}{}{}Ship}{12}{subsubsection.3.2.2.63}
+\contentsline {subsubsection}{\numberline {3.2.2.64}Get\discretionary {-}{}{}Number\discretionary {-}{}{}Aliens}{12}{subsubsection.3.2.2.64}
+\contentsline {subsubsection}{\numberline {3.2.2.65}Get\discretionary {-}{}{}Number\discretionary {-}{}{}Aliens}{12}{subsubsection.3.2.2.65}
+\contentsline {subsubsection}{\numberline {3.2.2.66}Get\discretionary {-}{}{}Number\discretionary {-}{}{}Bullets}{12}{subsubsection.3.2.2.66}
+\contentsline {subsubsection}{\numberline {3.2.2.67}Get\discretionary {-}{}{}Number\discretionary {-}{}{}Bullets}{12}{subsubsection.3.2.2.67}
+\contentsline {subsubsection}{\numberline {3.2.2.68}Get\discretionary {-}{}{}Number\discretionary {-}{}{}Ships}{12}{subsubsection.3.2.2.68}
+\contentsline {subsubsection}{\numberline {3.2.2.69}Get\discretionary {-}{}{}Number\discretionary {-}{}{}Ships}{12}{subsubsection.3.2.2.69}
+\contentsline {subsubsection}{\numberline {3.2.2.70}Get\discretionary {-}{}{}Pos\discretionary {-}{}{}X\discretionary {-}{}{}Dimension}{12}{subsubsection.3.2.2.70}
+\contentsline {subsubsection}{\numberline {3.2.2.71}Get\discretionary {-}{}{}Pos\discretionary {-}{}{}X\discretionary {-}{}{}Dimension}{12}{subsubsection.3.2.2.71}
+\contentsline {subsubsection}{\numberline {3.2.2.72}Get\discretionary {-}{}{}Pos\discretionary {-}{}{}Y\discretionary {-}{}{}Dimension}{12}{subsubsection.3.2.2.72}
+\contentsline {subsubsection}{\numberline {3.2.2.73}Get\discretionary {-}{}{}Pos\discretionary {-}{}{}Y\discretionary {-}{}{}Dimension}{12}{subsubsection.3.2.2.73}
+\contentsline {subsubsection}{\numberline {3.2.2.74}Get\discretionary {-}{}{}Ranking}{13}{subsubsection.3.2.2.74}
+\contentsline {subsubsection}{\numberline {3.2.2.75}Get\discretionary {-}{}{}Ranking}{13}{subsubsection.3.2.2.75}
+\contentsline {subsubsection}{\numberline {3.2.2.76}Get\discretionary {-}{}{}String\discretionary {-}{}{}Points}{13}{subsubsection.3.2.2.76}
+\contentsline {subsubsection}{\numberline {3.2.2.77}Get\discretionary {-}{}{}String\discretionary {-}{}{}Points}{13}{subsubsection.3.2.2.77}
+\contentsline {subsubsection}{\numberline {3.2.2.78}Get\discretionary {-}{}{}Summary}{13}{subsubsection.3.2.2.78}
+\contentsline {subsubsection}{\numberline {3.2.2.79}Get\discretionary {-}{}{}Summary}{13}{subsubsection.3.2.2.79}
+\contentsline {subsubsection}{\numberline {3.2.2.80}Get\discretionary {-}{}{}Vector\discretionary {-}{}{}Aliens}{13}{subsubsection.3.2.2.80}
+\contentsline {subsubsection}{\numberline {3.2.2.81}Get\discretionary {-}{}{}Vector\discretionary {-}{}{}Aliens}{13}{subsubsection.3.2.2.81}
+\contentsline {subsubsection}{\numberline {3.2.2.82}Get\discretionary {-}{}{}Vector\discretionary {-}{}{}Bullets}{13}{subsubsection.3.2.2.82}
+\contentsline {subsubsection}{\numberline {3.2.2.83}Get\discretionary {-}{}{}Vector\discretionary {-}{}{}Bullets}{13}{subsubsection.3.2.2.83}
+\contentsline {subsubsection}{\numberline {3.2.2.84}Get\discretionary {-}{}{}Vector\discretionary {-}{}{}Points}{13}{subsubsection.3.2.2.84}
+\contentsline {subsubsection}{\numberline {3.2.2.85}Get\discretionary {-}{}{}Vector\discretionary {-}{}{}Points}{13}{subsubsection.3.2.2.85}
+\contentsline {subsubsection}{\numberline {3.2.2.86}Get\discretionary {-}{}{}Vector\discretionary {-}{}{}Ships}{13}{subsubsection.3.2.2.86}
+\contentsline {subsubsection}{\numberline {3.2.2.87}Get\discretionary {-}{}{}Vector\discretionary {-}{}{}Ships}{13}{subsubsection.3.2.2.87}
+\contentsline {subsubsection}{\numberline {3.2.2.88}Insert\discretionary {-}{}{}Alien}{13}{subsubsection.3.2.2.88}
+\contentsline {subsubsection}{\numberline {3.2.2.89}Insert\discretionary {-}{}{}Alien}{13}{subsubsection.3.2.2.89}
+\contentsline {subsubsection}{\numberline {3.2.2.90}Insert\discretionary {-}{}{}Bullet}{13}{subsubsection.3.2.2.90}
+\contentsline {subsubsection}{\numberline {3.2.2.91}Insert\discretionary {-}{}{}Bullet}{13}{subsubsection.3.2.2.91}
+\contentsline {subsubsection}{\numberline {3.2.2.92}Insert\discretionary {-}{}{}Ship}{13}{subsubsection.3.2.2.92}
+\contentsline {subsubsection}{\numberline {3.2.2.93}Insert\discretionary {-}{}{}Ship}{13}{subsubsection.3.2.2.93}
+\contentsline {subsubsection}{\numberline {3.2.2.94}Max\discretionary {-}{}{}Distance}{13}{subsubsection.3.2.2.94}
+\contentsline {subsubsection}{\numberline {3.2.2.95}Max\discretionary {-}{}{}Distance}{13}{subsubsection.3.2.2.95}
+\contentsline {subsubsection}{\numberline {3.2.2.96}Move\discretionary {-}{}{}Nth\discretionary {-}{}{}Ship}{13}{subsubsection.3.2.2.96}
+\contentsline {subsubsection}{\numberline {3.2.2.97}Move\discretionary {-}{}{}Nth\discretionary {-}{}{}Ship}{13}{subsubsection.3.2.2.97}
+\contentsline {subsubsection}{\numberline {3.2.2.98}Remove\discretionary {-}{}{}Nth\discretionary {-}{}{}Alien}{13}{subsubsection.3.2.2.98}
+\contentsline {subsubsection}{\numberline {3.2.2.99}Remove\discretionary {-}{}{}Nth\discretionary {-}{}{}Alien}{13}{subsubsection.3.2.2.99}
+\contentsline {subsubsection}{\numberline {3.2.2.100}Remove\discretionary {-}{}{}Nth\discretionary {-}{}{}Bullet}{13}{subsubsection.3.2.2.100}
+\contentsline {subsubsection}{\numberline {3.2.2.101}Remove\discretionary {-}{}{}Nth\discretionary {-}{}{}Bullet}{13}{subsubsection.3.2.2.101}
+\contentsline {subsubsection}{\numberline {3.2.2.102}Remove\discretionary {-}{}{}Nth\discretionary {-}{}{}Ship}{14}{subsubsection.3.2.2.102}
+\contentsline {subsubsection}{\numberline {3.2.2.103}Remove\discretionary {-}{}{}Nth\discretionary {-}{}{}Ship}{14}{subsubsection.3.2.2.103}
+\contentsline {subsubsection}{\numberline {3.2.2.104}Set\discretionary {-}{}{}Neg\discretionary {-}{}{}X\discretionary {-}{}{}Dimension}{14}{subsubsection.3.2.2.104}
+\contentsline {subsubsection}{\numberline {3.2.2.105}Set\discretionary {-}{}{}Neg\discretionary {-}{}{}X\discretionary {-}{}{}Dimension}{14}{subsubsection.3.2.2.105}
+\contentsline {subsubsection}{\numberline {3.2.2.106}Set\discretionary {-}{}{}Neg\discretionary {-}{}{}Y\discretionary {-}{}{}Dimension}{14}{subsubsection.3.2.2.106}
+\contentsline {subsubsection}{\numberline {3.2.2.107}Set\discretionary {-}{}{}Neg\discretionary {-}{}{}Y\discretionary {-}{}{}Dimension}{14}{subsubsection.3.2.2.107}
+\contentsline {subsubsection}{\numberline {3.2.2.108}Set\discretionary {-}{}{}Nth\discretionary {-}{}{}Alien}{14}{subsubsection.3.2.2.108}
+\contentsline {subsubsection}{\numberline {3.2.2.109}Set\discretionary {-}{}{}Nth\discretionary {-}{}{}Alien}{14}{subsubsection.3.2.2.109}
+\contentsline {subsubsection}{\numberline {3.2.2.110}Set\discretionary {-}{}{}Nth\discretionary {-}{}{}Bullet}{14}{subsubsection.3.2.2.110}
+\contentsline {subsubsection}{\numberline {3.2.2.111}Set\discretionary {-}{}{}Nth\discretionary {-}{}{}Bullet}{14}{subsubsection.3.2.2.111}
+\contentsline {subsubsection}{\numberline {3.2.2.112}Set\discretionary {-}{}{}Nth\discretionary {-}{}{}Ship}{14}{subsubsection.3.2.2.112}
+\contentsline {subsubsection}{\numberline {3.2.2.113}Set\discretionary {-}{}{}Nth\discretionary {-}{}{}Ship}{14}{subsubsection.3.2.2.113}
+\contentsline {subsubsection}{\numberline {3.2.2.114}Set\discretionary {-}{}{}Pos\discretionary {-}{}{}X\discretionary {-}{}{}Dimension}{14}{subsubsection.3.2.2.114}
+\contentsline {subsubsection}{\numberline {3.2.2.115}Set\discretionary {-}{}{}Pos\discretionary {-}{}{}X\discretionary {-}{}{}Dimension}{14}{subsubsection.3.2.2.115}
+\contentsline {subsubsection}{\numberline {3.2.2.116}Set\discretionary {-}{}{}Pos\discretionary {-}{}{}Y\discretionary {-}{}{}Dimension}{14}{subsubsection.3.2.2.116}
+\contentsline {subsubsection}{\numberline {3.2.2.117}Set\discretionary {-}{}{}Pos\discretionary {-}{}{}Y\discretionary {-}{}{}Dimension}{14}{subsubsection.3.2.2.117}
+\contentsline {subsubsection}{\numberline {3.2.2.118}Set\discretionary {-}{}{}Vector\discretionary {-}{}{}Aliens}{14}{subsubsection.3.2.2.118}
+\contentsline {subsubsection}{\numberline {3.2.2.119}Set\discretionary {-}{}{}Vector\discretionary {-}{}{}Aliens}{14}{subsubsection.3.2.2.119}
+\contentsline {subsubsection}{\numberline {3.2.2.120}Set\discretionary {-}{}{}Vector\discretionary {-}{}{}Bullets}{14}{subsubsection.3.2.2.120}
+\contentsline {subsubsection}{\numberline {3.2.2.121}Set\discretionary {-}{}{}Vector\discretionary {-}{}{}Bullets}{14}{subsubsection.3.2.2.121}
+\contentsline {subsubsection}{\numberline {3.2.2.122}Set\discretionary {-}{}{}Vector\discretionary {-}{}{}Ships}{14}{subsubsection.3.2.2.122}
+\contentsline {subsubsection}{\numberline {3.2.2.123}Set\discretionary {-}{}{}Vector\discretionary {-}{}{}Ships}{14}{subsubsection.3.2.2.123}
+\contentsline {subsubsection}{\numberline {3.2.2.124}Split\discretionary {-}{}{}String}{14}{subsubsection.3.2.2.124}
+\contentsline {subsubsection}{\numberline {3.2.2.125}Split\discretionary {-}{}{}String}{14}{subsubsection.3.2.2.125}
+\contentsline {subsubsection}{\numberline {3.2.2.126}Update\discretionary {-}{}{}Aliens}{14}{subsubsection.3.2.2.126}
+\contentsline {subsubsection}{\numberline {3.2.2.127}Update\discretionary {-}{}{}Aliens}{14}{subsubsection.3.2.2.127}
+\contentsline {subsubsection}{\numberline {3.2.2.128}Update\discretionary {-}{}{}All\discretionary {-}{}{}Bullets}{14}{subsubsection.3.2.2.128}
+\contentsline {subsubsection}{\numberline {3.2.2.129}Update\discretionary {-}{}{}All\discretionary {-}{}{}Bullets}{14}{subsubsection.3.2.2.129}
+\contentsline {subsubsection}{\numberline {3.2.2.130}Update\discretionary {-}{}{}Bullets\discretionary {-}{}{}Without\discretionary {-}{}{}Killing}{15}{subsubsection.3.2.2.130}
+\contentsline {subsubsection}{\numberline {3.2.2.131}Update\discretionary {-}{}{}Bullets\discretionary {-}{}{}Without\discretionary {-}{}{}Killing}{15}{subsubsection.3.2.2.131}
+\contentsline {subsubsection}{\numberline {3.2.2.132}Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}{15}{subsubsection.3.2.2.132}
+\contentsline {subsubsection}{\numberline {3.2.2.133}Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}{15}{subsubsection.3.2.2.133}
+\contentsline {subsection}{\numberline {3.2.3}Member Data Documentation}{15}{subsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.2.3.1}Dimension\discretionary {-}{}{}Neg\discretionary {-}{}{}X}{15}{subsubsection.3.2.3.1}
+\contentsline {subsubsection}{\numberline {3.2.3.2}Dimension\discretionary {-}{}{}Neg\discretionary {-}{}{}Y}{15}{subsubsection.3.2.3.2}
+\contentsline {subsubsection}{\numberline {3.2.3.3}Dimension\discretionary {-}{}{}Pos\discretionary {-}{}{}X}{15}{subsubsection.3.2.3.3}
+\contentsline {subsubsection}{\numberline {3.2.3.4}Dimension\discretionary {-}{}{}Pos\discretionary {-}{}{}Y}{15}{subsubsection.3.2.3.4}
+\contentsline {subsubsection}{\numberline {3.2.3.5}Vector\discretionary {-}{}{}Aliens}{15}{subsubsection.3.2.3.5}
+\contentsline {subsubsection}{\numberline {3.2.3.6}Vector\discretionary {-}{}{}Bullets}{15}{subsubsection.3.2.3.6}
+\contentsline {subsubsection}{\numberline {3.2.3.7}Vector\discretionary {-}{}{}Ships}{15}{subsubsection.3.2.3.7}
+\contentsline {section}{\numberline {3.3}Bullet Class Reference}{15}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Constructor \& Destructor Documentation}{16}{subsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.1.1}Bullet}{16}{subsubsection.3.3.1.1}
+\contentsline {subsection}{\numberline {3.3.2}Member Function Documentation}{16}{subsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.2.1}Get\discretionary {-}{}{}Angle}{16}{subsubsection.3.3.2.1}
+\contentsline {subsubsection}{\numberline {3.3.2.2}Get\discretionary {-}{}{}Color\discretionary {-}{}{}Of\discretionary {-}{}{}Bullet}{16}{subsubsection.3.3.2.2}
+\contentsline {subsubsection}{\numberline {3.3.2.3}Get\discretionary {-}{}{}Ship\discretionary {-}{}{}Id}{16}{subsubsection.3.3.2.3}
+\contentsline {subsubsection}{\numberline {3.3.2.4}Get\discretionary {-}{}{}Speed}{16}{subsubsection.3.3.2.4}
+\contentsline {subsubsection}{\numberline {3.3.2.5}Get\discretionary {-}{}{}Summary}{16}{subsubsection.3.3.2.5}
+\contentsline {subsubsection}{\numberline {3.3.2.6}Get\discretionary {-}{}{}Time\discretionary {-}{}{}Created}{16}{subsubsection.3.3.2.6}
+\contentsline {subsubsection}{\numberline {3.3.2.7}Get\discretionary {-}{}{}Type\discretionary {-}{}{}A\discretionary {-}{}{}I}{16}{subsubsection.3.3.2.7}
+\contentsline {subsubsection}{\numberline {3.3.2.8}Get\discretionary {-}{}{}Type\discretionary {-}{}{}Player}{16}{subsubsection.3.3.2.8}
+\contentsline {subsubsection}{\numberline {3.3.2.9}Get\discretionary {-}{}{}Vel\discretionary {-}{}{}X}{16}{subsubsection.3.3.2.9}
+\contentsline {subsubsection}{\numberline {3.3.2.10}Get\discretionary {-}{}{}Vel\discretionary {-}{}{}Y}{16}{subsubsection.3.3.2.10}
+\contentsline {subsubsection}{\numberline {3.3.2.11}Get\discretionary {-}{}{}X\discretionary {-}{}{}Pos}{16}{subsubsection.3.3.2.11}
+\contentsline {subsubsection}{\numberline {3.3.2.12}Get\discretionary {-}{}{}Y\discretionary {-}{}{}Pos}{16}{subsubsection.3.3.2.12}
+\contentsline {subsubsection}{\numberline {3.3.2.13}Reset\discretionary {-}{}{}Bullet\discretionary {-}{}{}State}{16}{subsubsection.3.3.2.13}
+\contentsline {subsubsection}{\numberline {3.3.2.14}Set\discretionary {-}{}{}Color\discretionary {-}{}{}Float}{17}{subsubsection.3.3.2.14}
+\contentsline {subsubsection}{\numberline {3.3.2.15}Set\discretionary {-}{}{}Color\discretionary {-}{}{}Of\discretionary {-}{}{}Bullet}{17}{subsubsection.3.3.2.15}
+\contentsline {subsubsection}{\numberline {3.3.2.16}Set\discretionary {-}{}{}Color\discretionary {-}{}{}Of\discretionary {-}{}{}Bulletfloat}{17}{subsubsection.3.3.2.16}
+\contentsline {subsubsection}{\numberline {3.3.2.17}Set\discretionary {-}{}{}Ship\discretionary {-}{}{}I\discretionary {-}{}{}D}{17}{subsubsection.3.3.2.17}
+\contentsline {subsubsection}{\numberline {3.3.2.18}Set\discretionary {-}{}{}Time\discretionary {-}{}{}Created}{17}{subsubsection.3.3.2.18}
+\contentsline {subsubsection}{\numberline {3.3.2.19}Set\discretionary {-}{}{}Type\discretionary {-}{}{}A\discretionary {-}{}{}I}{17}{subsubsection.3.3.2.19}
+\contentsline {subsubsection}{\numberline {3.3.2.20}Set\discretionary {-}{}{}Type\discretionary {-}{}{}Player}{17}{subsubsection.3.3.2.20}
+\contentsline {subsubsection}{\numberline {3.3.2.21}Set\discretionary {-}{}{}Vel\discretionary {-}{}{}X}{17}{subsubsection.3.3.2.21}
+\contentsline {subsubsection}{\numberline {3.3.2.22}Set\discretionary {-}{}{}Vel\discretionary {-}{}{}Y}{17}{subsubsection.3.3.2.22}
+\contentsline {subsubsection}{\numberline {3.3.2.23}Set\discretionary {-}{}{}X\discretionary {-}{}{}Pos}{17}{subsubsection.3.3.2.23}
+\contentsline {subsubsection}{\numberline {3.3.2.24}Set\discretionary {-}{}{}Y\discretionary {-}{}{}Pos}{17}{subsubsection.3.3.2.24}
+\contentsline {subsection}{\numberline {3.3.3}Member Data Documentation}{17}{subsection.3.3.3}
+\contentsline {subsubsection}{\numberline {3.3.3.1}Color\discretionary {-}{}{}Of\discretionary {-}{}{}Bullet}{17}{subsubsection.3.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.3.2}Ship\discretionary {-}{}{}Id}{17}{subsubsection.3.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3.3}Time\discretionary {-}{}{}Created}{17}{subsubsection.3.3.3.3}
+\contentsline {subsubsection}{\numberline {3.3.3.4}Type\discretionary {-}{}{}A\discretionary {-}{}{}I}{17}{subsubsection.3.3.3.4}
+\contentsline {subsubsection}{\numberline {3.3.3.5}Type\discretionary {-}{}{}Player}{17}{subsubsection.3.3.3.5}
+\contentsline {subsubsection}{\numberline {3.3.3.6}Vel\discretionary {-}{}{}X}{17}{subsubsection.3.3.3.6}
+\contentsline {subsubsection}{\numberline {3.3.3.7}Vel\discretionary {-}{}{}Y}{17}{subsubsection.3.3.3.7}
+\contentsline {subsubsection}{\numberline {3.3.3.8}X\discretionary {-}{}{}Pos}{17}{subsubsection.3.3.3.8}
+\contentsline {subsubsection}{\numberline {3.3.3.9}Y\discretionary {-}{}{}Pos}{17}{subsubsection.3.3.3.9}
+\contentsline {section}{\numberline {3.4}Color Class Reference}{17}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Constructor \& Destructor Documentation}{18}{subsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.1.1}Color}{18}{subsubsection.3.4.1.1}
+\contentsline {subsubsection}{\numberline {3.4.1.2}Color}{18}{subsubsection.3.4.1.2}
+\contentsline {subsection}{\numberline {3.4.2}Member Function Documentation}{18}{subsection.3.4.2}
+\contentsline {subsubsection}{\numberline {3.4.2.1}Get\discretionary {-}{}{}B}{18}{subsubsection.3.4.2.1}
+\contentsline {subsubsection}{\numberline {3.4.2.2}Get\discretionary {-}{}{}G}{18}{subsubsection.3.4.2.2}
+\contentsline {subsubsection}{\numberline {3.4.2.3}Get\discretionary {-}{}{}R}{18}{subsubsection.3.4.2.3}
+\contentsline {subsubsection}{\numberline {3.4.2.4}Set\discretionary {-}{}{}B}{18}{subsubsection.3.4.2.4}
+\contentsline {subsubsection}{\numberline {3.4.2.5}Set\discretionary {-}{}{}G}{18}{subsubsection.3.4.2.5}
+\contentsline {subsubsection}{\numberline {3.4.2.6}Set\discretionary {-}{}{}R}{18}{subsubsection.3.4.2.6}
+\contentsline {subsubsection}{\numberline {3.4.2.7}Set\discretionary {-}{}{}R\discretionary {-}{}{}G\discretionary {-}{}{}B}{18}{subsubsection.3.4.2.7}
+\contentsline {subsubsection}{\numberline {3.4.2.8}Set\discretionary {-}{}{}R\discretionary {-}{}{}G\discretionary {-}{}{}B\discretionary {-}{}{}Float}{18}{subsubsection.3.4.2.8}
+\contentsline {subsection}{\numberline {3.4.3}Member Data Documentation}{18}{subsection.3.4.3}
+\contentsline {subsubsection}{\numberline {3.4.3.1}B}{19}{subsubsection.3.4.3.1}
+\contentsline {subsubsection}{\numberline {3.4.3.2}G}{19}{subsubsection.3.4.3.2}
+\contentsline {subsubsection}{\numberline {3.4.3.3}R}{19}{subsubsection.3.4.3.3}
+\contentsline {section}{\numberline {3.5}debris\discretionary {-}{}{}Data Struct Reference}{19}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Member Data Documentation}{19}{subsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.1.1}color}{19}{subsubsection.3.5.1.1}
+\contentsline {subsubsection}{\numberline {3.5.1.2}orientation}{19}{subsubsection.3.5.1.2}
+\contentsline {subsubsection}{\numberline {3.5.1.3}orientation\discretionary {-}{}{}Speed}{19}{subsubsection.3.5.1.3}
+\contentsline {subsubsection}{\numberline {3.5.1.4}position}{19}{subsubsection.3.5.1.4}
+\contentsline {subsubsection}{\numberline {3.5.1.5}scale}{19}{subsubsection.3.5.1.5}
+\contentsline {subsubsection}{\numberline {3.5.1.6}speed}{19}{subsubsection.3.5.1.6}
+\contentsline {section}{\numberline {3.6}Expl Struct Reference}{19}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Member Data Documentation}{20}{subsection.3.6.1}
+\contentsline {subsubsection}{\numberline {3.6.1.1}angle}{20}{subsubsection.3.6.1.1}
+\contentsline {subsubsection}{\numberline {3.6.1.2}debris}{20}{subsubsection.3.6.1.2}
+\contentsline {subsubsection}{\numberline {3.6.1.3}fuel}{20}{subsubsection.3.6.1.3}
+\contentsline {subsubsection}{\numberline {3.6.1.4}particles}{20}{subsubsection.3.6.1.4}
+\contentsline {section}{\numberline {3.7}Faces Struct Reference}{20}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}Member Data Documentation}{20}{subsection.3.7.1}
+\contentsline {subsubsection}{\numberline {3.7.1.1}p1}{20}{subsubsection.3.7.1.1}
+\contentsline {subsubsection}{\numberline {3.7.1.2}p2}{20}{subsubsection.3.7.1.2}
+\contentsline {subsubsection}{\numberline {3.7.1.3}p3}{20}{subsubsection.3.7.1.3}
+\contentsline {section}{\numberline {3.8}Fire\discretionary {-}{}{}Point Struct Reference}{20}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}Member Data Documentation}{21}{subsection.3.8.1}
+\contentsline {subsubsection}{\numberline {3.8.1.1}color}{21}{subsubsection.3.8.1.1}
+\contentsline {subsubsection}{\numberline {3.8.1.2}life}{21}{subsubsection.3.8.1.2}
+\contentsline {subsubsection}{\numberline {3.8.1.3}position}{21}{subsubsection.3.8.1.3}
+\contentsline {subsubsection}{\numberline {3.8.1.4}radius}{21}{subsubsection.3.8.1.4}
+\contentsline {section}{\numberline {3.9}Game\discretionary {-}{}{}Play Struct Reference}{21}{section.3.9}
+\contentsline {subsection}{\numberline {3.9.1}Member Data Documentation}{21}{subsection.3.9.1}
+\contentsline {subsubsection}{\numberline {3.9.1.1}Is\discretionary {-}{}{}Active}{21}{subsubsection.3.9.1.1}
+\contentsline {subsubsection}{\numberline {3.9.1.2}Last\discretionary {-}{}{}Bullet\discretionary {-}{}{}Time}{21}{subsubsection.3.9.1.2}
+\contentsline {subsubsection}{\numberline {3.9.1.3}Last\discretionary {-}{}{}Missile\discretionary {-}{}{}Time}{21}{subsubsection.3.9.1.3}
+\contentsline {subsubsection}{\numberline {3.9.1.4}Player\discretionary {-}{}{}Board}{21}{subsubsection.3.9.1.4}
+\contentsline {subsubsection}{\numberline {3.9.1.5}Player\discretionary {-}{}{}Id}{21}{subsubsection.3.9.1.5}
+\contentsline {section}{\numberline {3.10}Graph Struct Reference}{21}{section.3.10}
+\contentsline {subsection}{\numberline {3.10.1}Member Data Documentation}{22}{subsection.3.10.1}
+\contentsline {subsubsection}{\numberline {3.10.1.1}s1}{22}{subsubsection.3.10.1.1}
+\contentsline {subsubsection}{\numberline {3.10.1.2}x1}{22}{subsubsection.3.10.1.2}
+\contentsline {section}{\numberline {3.11}I\discretionary {-}{}{}D\discretionary {-}{}{}Score Struct Reference}{22}{section.3.11}
+\contentsline {subsection}{\numberline {3.11.1}Constructor \& Destructor Documentation}{22}{subsection.3.11.1}
+\contentsline {subsubsection}{\numberline {3.11.1.1}I\discretionary {-}{}{}D\discretionary {-}{}{}Score}{22}{subsubsection.3.11.1.1}
+\contentsline {subsubsection}{\numberline {3.11.1.2}I\discretionary {-}{}{}D\discretionary {-}{}{}Score}{22}{subsubsection.3.11.1.2}
+\contentsline {subsubsection}{\numberline {3.11.1.3}I\discretionary {-}{}{}D\discretionary {-}{}{}Score}{22}{subsubsection.3.11.1.3}
+\contentsline {subsection}{\numberline {3.11.2}Member Data Documentation}{22}{subsection.3.11.2}
+\contentsline {subsubsection}{\numberline {3.11.2.1}I\discretionary {-}{}{}D}{22}{subsubsection.3.11.2.1}
+\contentsline {subsubsection}{\numberline {3.11.2.2}name}{22}{subsubsection.3.11.2.2}
+\contentsline {subsubsection}{\numberline {3.11.2.3}name}{22}{subsubsection.3.11.2.3}
+\contentsline {subsubsection}{\numberline {3.11.2.4}Score}{22}{subsubsection.3.11.2.4}
+\contentsline {section}{\numberline {3.12}Image Class Reference}{22}{section.3.12}
+\contentsline {subsection}{\numberline {3.12.1}Constructor \& Destructor Documentation}{23}{subsection.3.12.1}
+\contentsline {subsubsection}{\numberline {3.12.1.1}Image}{23}{subsubsection.3.12.1.1}
+\contentsline {subsubsection}{\numberline {3.12.1.2}$\sim $\discretionary {-}{}{}Image}{23}{subsubsection.3.12.1.2}
+\contentsline {subsection}{\numberline {3.12.2}Member Data Documentation}{23}{subsection.3.12.2}
+\contentsline {subsubsection}{\numberline {3.12.2.1}height}{23}{subsubsection.3.12.2.1}
+\contentsline {subsubsection}{\numberline {3.12.2.2}pixels}{23}{subsubsection.3.12.2.2}
+\contentsline {subsubsection}{\numberline {3.12.2.3}width}{23}{subsubsection.3.12.2.3}
+\contentsline {section}{\numberline {3.13}I\discretionary {-}{}{}P\discretionary {-}{}{}Message Struct Reference}{23}{section.3.13}
+\contentsline {subsection}{\numberline {3.13.1}Member Data Documentation}{23}{subsection.3.13.1}
+\contentsline {subsubsection}{\numberline {3.13.1.1}ip}{23}{subsubsection.3.13.1.1}
+\contentsline {subsubsection}{\numberline {3.13.1.2}message}{23}{subsubsection.3.13.1.2}
+\contentsline {subsubsection}{\numberline {3.13.1.3}sockid}{23}{subsubsection.3.13.1.3}
+\contentsline {section}{\numberline {3.14}particle\discretionary {-}{}{}Data Struct Reference}{24}{section.3.14}
+\contentsline {subsection}{\numberline {3.14.1}Member Data Documentation}{24}{subsection.3.14.1}
+\contentsline {subsubsection}{\numberline {3.14.1.1}color}{24}{subsubsection.3.14.1.1}
+\contentsline {subsubsection}{\numberline {3.14.1.2}position}{24}{subsubsection.3.14.1.2}
+\contentsline {subsubsection}{\numberline {3.14.1.3}speed}{24}{subsubsection.3.14.1.3}
+\contentsline {section}{\numberline {3.15}Points Struct Reference}{24}{section.3.15}
+\contentsline {subsection}{\numberline {3.15.1}Member Data Documentation}{24}{subsection.3.15.1}
+\contentsline {subsubsection}{\numberline {3.15.1.1}x}{24}{subsubsection.3.15.1.1}
+\contentsline {subsubsection}{\numberline {3.15.1.2}y}{24}{subsubsection.3.15.1.2}
+\contentsline {subsubsection}{\numberline {3.15.1.3}z}{24}{subsubsection.3.15.1.3}
+\contentsline {section}{\numberline {3.16}Ship Class Reference}{24}{section.3.16}
+\contentsline {subsection}{\numberline {3.16.1}Constructor \& Destructor Documentation}{26}{subsection.3.16.1}
+\contentsline {subsubsection}{\numberline {3.16.1.1}Ship}{26}{subsubsection.3.16.1.1}
+\contentsline {subsubsection}{\numberline {3.16.1.2}Ship}{26}{subsubsection.3.16.1.2}
+\contentsline {subsection}{\numberline {3.16.2}Member Function Documentation}{26}{subsection.3.16.2}
+\contentsline {subsubsection}{\numberline {3.16.2.1}Add\discretionary {-}{}{}Kills}{26}{subsubsection.3.16.2.1}
+\contentsline {subsubsection}{\numberline {3.16.2.2}Add\discretionary {-}{}{}Life}{26}{subsubsection.3.16.2.2}
+\contentsline {subsubsection}{\numberline {3.16.2.3}Add\discretionary {-}{}{}Missile}{26}{subsubsection.3.16.2.3}
+\contentsline {subsubsection}{\numberline {3.16.2.4}Add\discretionary {-}{}{}Number\discretionary {-}{}{}Bullets}{26}{subsubsection.3.16.2.4}
+\contentsline {subsubsection}{\numberline {3.16.2.5}Get\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Control\discretionary {-}{}{}Level}{26}{subsubsection.3.16.2.5}
+\contentsline {subsubsection}{\numberline {3.16.2.6}Get\discretionary {-}{}{}Angle}{26}{subsubsection.3.16.2.6}
+\contentsline {subsubsection}{\numberline {3.16.2.7}Get\discretionary {-}{}{}Color}{26}{subsubsection.3.16.2.7}
+\contentsline {subsubsection}{\numberline {3.16.2.8}Get\discretionary {-}{}{}Id}{26}{subsubsection.3.16.2.8}
+\contentsline {subsubsection}{\numberline {3.16.2.9}Get\discretionary {-}{}{}Kills}{26}{subsubsection.3.16.2.9}
+\contentsline {subsubsection}{\numberline {3.16.2.10}Get\discretionary {-}{}{}Lives}{26}{subsubsection.3.16.2.10}
+\contentsline {subsubsection}{\numberline {3.16.2.11}Get\discretionary {-}{}{}Multiplier}{26}{subsubsection.3.16.2.11}
+\contentsline {subsubsection}{\numberline {3.16.2.12}Get\discretionary {-}{}{}Name}{26}{subsubsection.3.16.2.12}
+\contentsline {subsubsection}{\numberline {3.16.2.13}Get\discretionary {-}{}{}Number\discretionary {-}{}{}Bullets}{26}{subsubsection.3.16.2.13}
+\contentsline {subsubsection}{\numberline {3.16.2.14}Get\discretionary {-}{}{}Number\discretionary {-}{}{}Missiles}{26}{subsubsection.3.16.2.14}
+\contentsline {subsubsection}{\numberline {3.16.2.15}Get\discretionary {-}{}{}Score}{26}{subsubsection.3.16.2.15}
+\contentsline {subsubsection}{\numberline {3.16.2.16}Get\discretionary {-}{}{}Summary}{26}{subsubsection.3.16.2.16}
+\contentsline {subsubsection}{\numberline {3.16.2.17}Get\discretionary {-}{}{}X\discretionary {-}{}{}Pos}{27}{subsubsection.3.16.2.17}
+\contentsline {subsubsection}{\numberline {3.16.2.18}Get\discretionary {-}{}{}Y\discretionary {-}{}{}Pos}{27}{subsubsection.3.16.2.18}
+\contentsline {subsubsection}{\numberline {3.16.2.19}If\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Control}{27}{subsubsection.3.16.2.19}
+\contentsline {subsubsection}{\numberline {3.16.2.20}If\discretionary {-}{}{}Human\discretionary {-}{}{}Control}{27}{subsubsection.3.16.2.20}
+\contentsline {subsubsection}{\numberline {3.16.2.21}Increment\discretionary {-}{}{}Multiplier}{27}{subsubsection.3.16.2.21}
+\contentsline {subsubsection}{\numberline {3.16.2.22}Increment\discretionary {-}{}{}Score}{27}{subsubsection.3.16.2.22}
+\contentsline {subsubsection}{\numberline {3.16.2.23}Reduce\discretionary {-}{}{}Life}{27}{subsubsection.3.16.2.23}
+\contentsline {subsubsection}{\numberline {3.16.2.24}Reduce\discretionary {-}{}{}Missile}{27}{subsubsection.3.16.2.24}
+\contentsline {subsubsection}{\numberline {3.16.2.25}Reset\discretionary {-}{}{}Kills}{27}{subsubsection.3.16.2.25}
+\contentsline {subsubsection}{\numberline {3.16.2.26}Reset\discretionary {-}{}{}Multiplier}{27}{subsubsection.3.16.2.26}
+\contentsline {subsubsection}{\numberline {3.16.2.27}Reset\discretionary {-}{}{}Number\discretionary {-}{}{}Bullets}{27}{subsubsection.3.16.2.27}
+\contentsline {subsubsection}{\numberline {3.16.2.28}Set\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Control\discretionary {-}{}{}Level}{27}{subsubsection.3.16.2.28}
+\contentsline {subsubsection}{\numberline {3.16.2.29}Set\discretionary {-}{}{}Angle}{27}{subsubsection.3.16.2.29}
+\contentsline {subsubsection}{\numberline {3.16.2.30}Set\discretionary {-}{}{}Color\discretionary {-}{}{}Float}{27}{subsubsection.3.16.2.30}
+\contentsline {subsubsection}{\numberline {3.16.2.31}Set\discretionary {-}{}{}Color\discretionary {-}{}{}Float\discretionary {-}{}{}Inp}{27}{subsubsection.3.16.2.31}
+\contentsline {subsubsection}{\numberline {3.16.2.32}Set\discretionary {-}{}{}Color\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}{27}{subsubsection.3.16.2.32}
+\contentsline {subsubsection}{\numberline {3.16.2.33}Set\discretionary {-}{}{}Id}{27}{subsubsection.3.16.2.33}
+\contentsline {subsubsection}{\numberline {3.16.2.34}Set\discretionary {-}{}{}Kills}{27}{subsubsection.3.16.2.34}
+\contentsline {subsubsection}{\numberline {3.16.2.35}Set\discretionary {-}{}{}Lives}{27}{subsubsection.3.16.2.35}
+\contentsline {subsubsection}{\numberline {3.16.2.36}Set\discretionary {-}{}{}Multiplier}{27}{subsubsection.3.16.2.36}
+\contentsline {subsubsection}{\numberline {3.16.2.37}Set\discretionary {-}{}{}Name}{27}{subsubsection.3.16.2.37}
+\contentsline {subsubsection}{\numberline {3.16.2.38}Set\discretionary {-}{}{}Number\discretionary {-}{}{}Bullets}{27}{subsubsection.3.16.2.38}
+\contentsline {subsubsection}{\numberline {3.16.2.39}Set\discretionary {-}{}{}Number\discretionary {-}{}{}Missiles}{27}{subsubsection.3.16.2.39}
+\contentsline {subsubsection}{\numberline {3.16.2.40}Set\discretionary {-}{}{}Score}{27}{subsubsection.3.16.2.40}
+\contentsline {subsubsection}{\numberline {3.16.2.41}Set\discretionary {-}{}{}X\discretionary {-}{}{}Pos}{27}{subsubsection.3.16.2.41}
+\contentsline {subsubsection}{\numberline {3.16.2.42}Set\discretionary {-}{}{}Y\discretionary {-}{}{}Pos}{27}{subsubsection.3.16.2.42}
+\contentsline {subsection}{\numberline {3.16.3}Member Data Documentation}{27}{subsection.3.16.3}
+\contentsline {subsubsection}{\numberline {3.16.3.1}A\discretionary {-}{}{}I\discretionary {-}{}{}Level}{27}{subsubsection.3.16.3.1}
+\contentsline {subsubsection}{\numberline {3.16.3.2}Angle}{28}{subsubsection.3.16.3.2}
+\contentsline {subsubsection}{\numberline {3.16.3.3}Color\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}{28}{subsubsection.3.16.3.3}
+\contentsline {subsubsection}{\numberline {3.16.3.4}Id}{28}{subsubsection.3.16.3.4}
+\contentsline {subsubsection}{\numberline {3.16.3.5}Kills}{28}{subsubsection.3.16.3.5}
+\contentsline {subsubsection}{\numberline {3.16.3.6}Lives}{28}{subsubsection.3.16.3.6}
+\contentsline {subsubsection}{\numberline {3.16.3.7}Multiplier}{28}{subsubsection.3.16.3.7}
+\contentsline {subsubsection}{\numberline {3.16.3.8}Name}{28}{subsubsection.3.16.3.8}
+\contentsline {subsubsection}{\numberline {3.16.3.9}Number\discretionary {-}{}{}Bullets}{28}{subsubsection.3.16.3.9}
+\contentsline {subsubsection}{\numberline {3.16.3.10}Number\discretionary {-}{}{}Missiles}{28}{subsubsection.3.16.3.10}
+\contentsline {subsubsection}{\numberline {3.16.3.11}Score}{28}{subsubsection.3.16.3.11}
+\contentsline {subsubsection}{\numberline {3.16.3.12}X\discretionary {-}{}{}Pos}{28}{subsubsection.3.16.3.12}
+\contentsline {subsubsection}{\numberline {3.16.3.13}Y\discretionary {-}{}{}Pos}{28}{subsubsection.3.16.3.13}
+\contentsline {section}{\numberline {3.17}Smoke\discretionary {-}{}{}Point Struct Reference}{28}{section.3.17}
+\contentsline {subsection}{\numberline {3.17.1}Member Data Documentation}{28}{subsection.3.17.1}
+\contentsline {subsubsection}{\numberline {3.17.1.1}color}{28}{subsubsection.3.17.1.1}
+\contentsline {subsubsection}{\numberline {3.17.1.2}initpos}{28}{subsubsection.3.17.1.2}
+\contentsline {subsubsection}{\numberline {3.17.1.3}life}{28}{subsubsection.3.17.1.3}
+\contentsline {subsubsection}{\numberline {3.17.1.4}position}{28}{subsubsection.3.17.1.4}
+\contentsline {subsubsection}{\numberline {3.17.1.5}radius}{28}{subsubsection.3.17.1.5}
+\contentsline {subsubsection}{\numberline {3.17.1.6}speed}{29}{subsubsection.3.17.1.6}
+\contentsline {section}{\numberline {3.18}sortclass Struct Reference}{29}{section.3.18}
+\contentsline {subsection}{\numberline {3.18.1}Member Function Documentation}{29}{subsection.3.18.1}
+\contentsline {subsubsection}{\numberline {3.18.1.1}operator()}{29}{subsubsection.3.18.1.1}
+\contentsline {subsubsection}{\numberline {3.18.1.2}operator()}{29}{subsubsection.3.18.1.2}
+\contentsline {subsubsection}{\numberline {3.18.1.3}operator()}{29}{subsubsection.3.18.1.3}
+\contentsline {section}{\numberline {3.19}Test Class Reference}{29}{section.3.19}
+\contentsline {subsection}{\numberline {3.19.1}Constructor \& Destructor Documentation}{30}{subsection.3.19.1}
+\contentsline {subsubsection}{\numberline {3.19.1.1}Test}{30}{subsubsection.3.19.1.1}
+\contentsline {subsubsection}{\numberline {3.19.1.2}$\sim $\discretionary {-}{}{}Test}{30}{subsubsection.3.19.1.2}
+\contentsline {subsection}{\numberline {3.19.2}Member Function Documentation}{30}{subsection.3.19.2}
+\contentsline {subsubsection}{\numberline {3.19.2.1}is\discretionary {-}{}{}Passed}{30}{subsubsection.3.19.2.1}
+\contentsline {subsubsection}{\numberline {3.19.2.2}Print\discretionary {-}{}{}Pass\discretionary {-}{}{}Fail}{30}{subsubsection.3.19.2.2}
+\contentsline {subsubsection}{\numberline {3.19.2.3}Verify\discretionary {-}{}{}False}{30}{subsubsection.3.19.2.3}
+\contentsline {subsubsection}{\numberline {3.19.2.4}Verify\discretionary {-}{}{}True}{30}{subsubsection.3.19.2.4}
+\contentsline {subsection}{\numberline {3.19.3}Member Data Documentation}{30}{subsection.3.19.3}
+\contentsline {subsubsection}{\numberline {3.19.3.1}description}{30}{subsubsection.3.19.3.1}
+\contentsline {subsubsection}{\numberline {3.19.3.2}is\discretionary {-}{}{}Pass}{30}{subsubsection.3.19.3.2}
+\contentsline {subsubsection}{\numberline {3.19.3.3}verbose}{30}{subsubsection.3.19.3.3}
+\contentsline {chapter}{\numberline {4}File Documentation}{31}{chapter.4}
+\contentsline {section}{\numberline {4.1}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp File Reference}{31}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Macro Definition Documentation}{32}{subsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.1.1}angularvelocity}{32}{subsubsection.4.1.1.1}
+\contentsline {subsubsection}{\numberline {4.1.1.2}maximumdistance}{32}{subsubsection.4.1.1.2}
+\contentsline {subsubsection}{\numberline {4.1.1.3}min\discretionary {-}{}{}Angleof\discretionary {-}{}{}Rotation}{32}{subsubsection.4.1.1.3}
+\contentsline {subsubsection}{\numberline {4.1.1.4}min\discretionary {-}{}{}Distancefor\discretionary {-}{}{}Rotation}{32}{subsubsection.4.1.1.4}
+\contentsline {subsubsection}{\numberline {4.1.1.5}theta}{32}{subsubsection.4.1.1.5}
+\contentsline {subsection}{\numberline {4.1.2}Function Documentation}{32}{subsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.2.1}Closest\discretionary {-}{}{}Alien\discretionary {-}{}{}Enemy}{32}{subsubsection.4.1.2.1}
+\contentsline {subsubsection}{\numberline {4.1.2.2}Closest\discretionary {-}{}{}Ship\discretionary {-}{}{}Enemy}{32}{subsubsection.4.1.2.2}
+\contentsline {subsubsection}{\numberline {4.1.2.3}Distance}{32}{subsubsection.4.1.2.3}
+\contentsline {subsubsection}{\numberline {4.1.2.4}Distance}{32}{subsubsection.4.1.2.4}
+\contentsline {subsubsection}{\numberline {4.1.2.5}Distance}{32}{subsubsection.4.1.2.5}
+\contentsline {subsubsection}{\numberline {4.1.2.6}Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Alien}{32}{subsubsection.4.1.2.6}
+\contentsline {subsubsection}{\numberline {4.1.2.7}Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Ship}{32}{subsubsection.4.1.2.7}
+\contentsline {subsubsection}{\numberline {4.1.2.8}In\discretionary {-}{}{}Arc}{32}{subsubsection.4.1.2.8}
+\contentsline {subsubsection}{\numberline {4.1.2.9}In\discretionary {-}{}{}Arc}{32}{subsubsection.4.1.2.9}
+\contentsline {subsubsection}{\numberline {4.1.2.10}Move\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of}{32}{subsubsection.4.1.2.10}
+\contentsline {subsubsection}{\numberline {4.1.2.11}Move\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of}{32}{subsubsection.4.1.2.11}
+\contentsline {subsubsection}{\numberline {4.1.2.12}relative\discretionary {-}{}{}Angle}{32}{subsubsection.4.1.2.12}
+\contentsline {subsubsection}{\numberline {4.1.2.13}relative\discretionary {-}{}{}Angle}{32}{subsubsection.4.1.2.13}
+\contentsline {subsubsection}{\numberline {4.1.2.14}relative\discretionary {-}{}{}Angle}{32}{subsubsection.4.1.2.14}
+\contentsline {subsubsection}{\numberline {4.1.2.15}relative\discretionary {-}{}{}Angle}{32}{subsubsection.4.1.2.15}
+\contentsline {subsubsection}{\numberline {4.1.2.16}relative\discretionary {-}{}{}Angleto\discretionary {-}{}{}Missile}{32}{subsubsection.4.1.2.16}
+\contentsline {subsubsection}{\numberline {4.1.2.17}relative\discretionary {-}{}{}Angleto\discretionary {-}{}{}Missile}{32}{subsubsection.4.1.2.17}
+\contentsline {subsubsection}{\numberline {4.1.2.18}Turn\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of}{33}{subsubsection.4.1.2.18}
+\contentsline {subsubsection}{\numberline {4.1.2.19}Turn\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of}{33}{subsubsection.4.1.2.19}
+\contentsline {subsubsection}{\numberline {4.1.2.20}Update\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Board}{33}{subsubsection.4.1.2.20}
+\contentsline {subsubsection}{\numberline {4.1.2.21}Update\discretionary {-}{}{}Alien}{33}{subsubsection.4.1.2.21}
+\contentsline {subsubsection}{\numberline {4.1.2.22}Update\discretionary {-}{}{}Alien\discretionary {-}{}{}Missile}{33}{subsubsection.4.1.2.22}
+\contentsline {subsubsection}{\numberline {4.1.2.23}Update\discretionary {-}{}{}Missile}{33}{subsubsection.4.1.2.23}
+\contentsline {subsubsection}{\numberline {4.1.2.24}Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}{33}{subsubsection.4.1.2.24}
+\contentsline {subsubsection}{\numberline {4.1.2.25}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile}{33}{subsubsection.4.1.2.25}
+\contentsline {subsubsection}{\numberline {4.1.2.26}Update\discretionary {-}{}{}Velocity}{33}{subsubsection.4.1.2.26}
+\contentsline {subsubsection}{\numberline {4.1.2.27}Update\discretionary {-}{}{}Velocity}{33}{subsubsection.4.1.2.27}
+\contentsline {section}{\numberline {4.2}A\discretionary {-}{}{}I.\discretionary {-}{}{}h File Reference}{33}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Macro Definition Documentation}{34}{subsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.1.1}A\discretionary {-}{}{}L\discretionary {-}{}{}I\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}M\discretionary {-}{}{}I\discretionary {-}{}{}S\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E}{34}{subsubsection.4.2.1.1}
+\contentsline {subsubsection}{\numberline {4.2.1.2}A\discretionary {-}{}{}N\discretionary {-}{}{}G\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}O\discretionary {-}{}{}F\discretionary {-}{}{}V\discretionary {-}{}{}I\discretionary {-}{}{}E\discretionary {-}{}{}W}{34}{subsubsection.4.2.1.2}
+\contentsline {subsubsection}{\numberline {4.2.1.3}angularvelocity}{34}{subsubsection.4.2.1.3}
+\contentsline {subsubsection}{\numberline {4.2.1.4}min\discretionary {-}{}{}Angleof\discretionary {-}{}{}Rotation}{34}{subsubsection.4.2.1.4}
+\contentsline {subsubsection}{\numberline {4.2.1.5}min\discretionary {-}{}{}Distancefor\discretionary {-}{}{}Rotation}{34}{subsubsection.4.2.1.5}
+\contentsline {subsubsection}{\numberline {4.2.1.6}N\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}H\discretionary {-}{}{}I\discretionary {-}{}{}P}{34}{subsubsection.4.2.1.6}
+\contentsline {subsubsection}{\numberline {4.2.1.7}R\discretionary {-}{}{}I\discretionary {-}{}{}G\discretionary {-}{}{}H\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}N\discretionary {-}{}{}G\discretionary {-}{}{}L\discretionary {-}{}{}E}{34}{subsubsection.4.2.1.7}
+\contentsline {subsubsection}{\numberline {4.2.1.8}theta}{35}{subsubsection.4.2.1.8}
+\contentsline {subsection}{\numberline {4.2.2}Enumeration Type Documentation}{35}{subsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.2.1}What\discretionary {-}{}{}It\discretionary {-}{}{}Should\discretionary {-}{}{}Do}{35}{subsubsection.4.2.2.1}
+\contentsline {subsection}{\numberline {4.2.3}Function Documentation}{35}{subsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.3.1}Alien\discretionary {-}{}{}In\discretionary {-}{}{}Arc}{35}{subsubsection.4.2.3.1}
+\contentsline {subsubsection}{\numberline {4.2.3.2}Alien\discretionary {-}{}{}Is\discretionary {-}{}{}In\discretionary {-}{}{}View\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}{35}{subsubsection.4.2.3.2}
+\contentsline {subsubsection}{\numberline {4.2.3.3}Closest\discretionary {-}{}{}Alien\discretionary {-}{}{}Enemy}{35}{subsubsection.4.2.3.3}
+\contentsline {subsubsection}{\numberline {4.2.3.4}Closest\discretionary {-}{}{}Ship\discretionary {-}{}{}Enemy}{35}{subsubsection.4.2.3.4}
+\contentsline {subsubsection}{\numberline {4.2.3.5}Decide\discretionary {-}{}{}Action\discretionary {-}{}{}For\discretionary {-}{}{}Alien}{35}{subsubsection.4.2.3.5}
+\contentsline {subsubsection}{\numberline {4.2.3.6}Decide\discretionary {-}{}{}Action\discretionary {-}{}{}For\discretionary {-}{}{}Ship}{35}{subsubsection.4.2.3.6}
+\contentsline {subsubsection}{\numberline {4.2.3.7}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Missile}{35}{subsubsection.4.2.3.7}
+\contentsline {subsubsection}{\numberline {4.2.3.8}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Ship}{35}{subsubsection.4.2.3.8}
+\contentsline {subsubsection}{\numberline {4.2.3.9}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Alien}{35}{subsubsection.4.2.3.9}
+\contentsline {subsubsection}{\numberline {4.2.3.10}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}{35}{subsubsection.4.2.3.10}
+\contentsline {subsubsection}{\numberline {4.2.3.11}Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Alien}{35}{subsubsection.4.2.3.11}
+\contentsline {subsubsection}{\numberline {4.2.3.12}Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Ship}{35}{subsubsection.4.2.3.12}
+\contentsline {subsubsection}{\numberline {4.2.3.13}Fire\discretionary {-}{}{}Bullet\discretionary {-}{}{}For\discretionary {-}{}{}Alien}{35}{subsubsection.4.2.3.13}
+\contentsline {subsubsection}{\numberline {4.2.3.14}Fire\discretionary {-}{}{}Bullet\discretionary {-}{}{}For\discretionary {-}{}{}Ship}{35}{subsubsection.4.2.3.14}
+\contentsline {subsubsection}{\numberline {4.2.3.15}Fire\discretionary {-}{}{}Missile\discretionary {-}{}{}For\discretionary {-}{}{}Alien}{35}{subsubsection.4.2.3.15}
+\contentsline {subsubsection}{\numberline {4.2.3.16}Fire\discretionary {-}{}{}Missile\discretionary {-}{}{}For\discretionary {-}{}{}Ship}{35}{subsubsection.4.2.3.16}
+\contentsline {subsubsection}{\numberline {4.2.3.17}Move\discretionary {-}{}{}Alien\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}{35}{subsubsection.4.2.3.17}
+\contentsline {subsubsection}{\numberline {4.2.3.18}Move\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}{35}{subsubsection.4.2.3.18}
+\contentsline {subsubsection}{\numberline {4.2.3.19}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Missile}{35}{subsubsection.4.2.3.19}
+\contentsline {subsubsection}{\numberline {4.2.3.20}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Aliento\discretionary {-}{}{}Missile\discretionary {-}{}{}Position}{36}{subsubsection.4.2.3.20}
+\contentsline {subsubsection}{\numberline {4.2.3.21}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Of\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Ship}{36}{subsubsection.4.2.3.21}
+\contentsline {subsubsection}{\numberline {4.2.3.22}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Alien}{36}{subsubsection.4.2.3.22}
+\contentsline {subsubsection}{\numberline {4.2.3.23}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}{36}{subsubsection.4.2.3.23}
+\contentsline {subsubsection}{\numberline {4.2.3.24}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Shipto\discretionary {-}{}{}Missile\discretionary {-}{}{}Position}{36}{subsubsection.4.2.3.24}
+\contentsline {subsubsection}{\numberline {4.2.3.25}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Arc}{36}{subsubsection.4.2.3.25}
+\contentsline {subsubsection}{\numberline {4.2.3.26}Ship\discretionary {-}{}{}Is\discretionary {-}{}{}In\discretionary {-}{}{}View\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}{36}{subsubsection.4.2.3.26}
+\contentsline {subsubsection}{\numberline {4.2.3.27}Turn\discretionary {-}{}{}Alien\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}{36}{subsubsection.4.2.3.27}
+\contentsline {subsubsection}{\numberline {4.2.3.28}Turn\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}{36}{subsubsection.4.2.3.28}
+\contentsline {subsubsection}{\numberline {4.2.3.29}Update\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Board}{36}{subsubsection.4.2.3.29}
+\contentsline {subsubsection}{\numberline {4.2.3.30}Update\discretionary {-}{}{}Alien}{36}{subsubsection.4.2.3.30}
+\contentsline {subsubsection}{\numberline {4.2.3.31}Update\discretionary {-}{}{}Alien\discretionary {-}{}{}Missile}{36}{subsubsection.4.2.3.31}
+\contentsline {subsubsection}{\numberline {4.2.3.32}Update\discretionary {-}{}{}Alien\discretionary {-}{}{}Missile\discretionary {-}{}{}Velocity}{36}{subsubsection.4.2.3.32}
+\contentsline {subsubsection}{\numberline {4.2.3.33}Update\discretionary {-}{}{}Missile}{36}{subsubsection.4.2.3.33}
+\contentsline {subsubsection}{\numberline {4.2.3.34}Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}{36}{subsubsection.4.2.3.34}
+\contentsline {subsubsection}{\numberline {4.2.3.35}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile}{36}{subsubsection.4.2.3.35}
+\contentsline {subsubsection}{\numberline {4.2.3.36}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile\discretionary {-}{}{}Velocity}{36}{subsubsection.4.2.3.36}
+\contentsline {subsection}{\numberline {4.2.4}Variable Documentation}{36}{subsection.4.2.4}
+\contentsline {subsubsection}{\numberline {4.2.4.1}N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}X}{36}{subsubsection.4.2.4.1}
+\contentsline {subsubsection}{\numberline {4.2.4.2}N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}Y}{36}{subsubsection.4.2.4.2}
+\contentsline {subsubsection}{\numberline {4.2.4.3}P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}X}{36}{subsubsection.4.2.4.3}
+\contentsline {subsubsection}{\numberline {4.2.4.4}P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}Y}{36}{subsubsection.4.2.4.4}
+\contentsline {section}{\numberline {4.3}A\discretionary {-}{}{}Ialien.\discretionary {-}{}{}cpp File Reference}{36}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Function Documentation}{37}{subsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.1.1}Decide\discretionary {-}{}{}Action\discretionary {-}{}{}For\discretionary {-}{}{}Alien}{37}{subsubsection.4.3.1.1}
+\contentsline {subsubsection}{\numberline {4.3.1.2}Fire\discretionary {-}{}{}Bullet\discretionary {-}{}{}For\discretionary {-}{}{}Alien}{37}{subsubsection.4.3.1.2}
+\contentsline {subsubsection}{\numberline {4.3.1.3}Fire\discretionary {-}{}{}Missile\discretionary {-}{}{}For\discretionary {-}{}{}Alien}{37}{subsubsection.4.3.1.3}
+\contentsline {subsubsection}{\numberline {4.3.1.4}Move\discretionary {-}{}{}Alien\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}{37}{subsubsection.4.3.1.4}
+\contentsline {subsubsection}{\numberline {4.3.1.5}Turn\discretionary {-}{}{}Alien\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}{37}{subsubsection.4.3.1.5}
+\contentsline {section}{\numberline {4.4}A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp File Reference}{37}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Function Documentation}{37}{subsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.1.1}Alien\discretionary {-}{}{}In\discretionary {-}{}{}Arc}{37}{subsubsection.4.4.1.1}
+\contentsline {subsubsection}{\numberline {4.4.1.2}Alien\discretionary {-}{}{}Is\discretionary {-}{}{}In\discretionary {-}{}{}View\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}{37}{subsubsection.4.4.1.2}
+\contentsline {subsubsection}{\numberline {4.4.1.3}Closest\discretionary {-}{}{}Alien\discretionary {-}{}{}Enemy}{37}{subsubsection.4.4.1.3}
+\contentsline {subsubsection}{\numberline {4.4.1.4}Closest\discretionary {-}{}{}Ship\discretionary {-}{}{}Enemy}{37}{subsubsection.4.4.1.4}
+\contentsline {subsubsection}{\numberline {4.4.1.5}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Missile}{38}{subsubsection.4.4.1.5}
+\contentsline {subsubsection}{\numberline {4.4.1.6}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Ship}{38}{subsubsection.4.4.1.6}
+\contentsline {subsubsection}{\numberline {4.4.1.7}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Alien}{38}{subsubsection.4.4.1.7}
+\contentsline {subsubsection}{\numberline {4.4.1.8}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}{38}{subsubsection.4.4.1.8}
+\contentsline {subsubsection}{\numberline {4.4.1.9}Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Alien}{38}{subsubsection.4.4.1.9}
+\contentsline {subsubsection}{\numberline {4.4.1.10}Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Ship}{38}{subsubsection.4.4.1.10}
+\contentsline {subsubsection}{\numberline {4.4.1.11}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Missile}{38}{subsubsection.4.4.1.11}
+\contentsline {subsubsection}{\numberline {4.4.1.12}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Aliento\discretionary {-}{}{}Missile\discretionary {-}{}{}Position}{38}{subsubsection.4.4.1.12}
+\contentsline {subsubsection}{\numberline {4.4.1.13}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Of\discretionary {-}{}{}Alien\discretionary {-}{}{}From\discretionary {-}{}{}Ship}{38}{subsubsection.4.4.1.13}
+\contentsline {subsubsection}{\numberline {4.4.1.14}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Alien}{38}{subsubsection.4.4.1.14}
+\contentsline {subsubsection}{\numberline {4.4.1.15}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}{38}{subsubsection.4.4.1.15}
+\contentsline {subsubsection}{\numberline {4.4.1.16}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Shipto\discretionary {-}{}{}Missile\discretionary {-}{}{}Position}{38}{subsubsection.4.4.1.16}
+\contentsline {subsubsection}{\numberline {4.4.1.17}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Arc}{38}{subsubsection.4.4.1.17}
+\contentsline {subsubsection}{\numberline {4.4.1.18}Ship\discretionary {-}{}{}Is\discretionary {-}{}{}In\discretionary {-}{}{}View\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}{38}{subsubsection.4.4.1.18}
+\contentsline {section}{\numberline {4.5}A\discretionary {-}{}{}I\discretionary {-}{}{}Missile.\discretionary {-}{}{}cpp File Reference}{38}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Function Documentation}{38}{subsection.4.5.1}
+\contentsline {subsubsection}{\numberline {4.5.1.1}Update\discretionary {-}{}{}Alien\discretionary {-}{}{}Missile}{38}{subsubsection.4.5.1.1}
+\contentsline {subsubsection}{\numberline {4.5.1.2}Update\discretionary {-}{}{}Alien\discretionary {-}{}{}Missile\discretionary {-}{}{}Velocity}{38}{subsubsection.4.5.1.2}
+\contentsline {subsubsection}{\numberline {4.5.1.3}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile}{38}{subsubsection.4.5.1.3}
+\contentsline {subsubsection}{\numberline {4.5.1.4}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile\discretionary {-}{}{}Velocity}{38}{subsubsection.4.5.1.4}
+\contentsline {section}{\numberline {4.6}A\discretionary {-}{}{}I\discretionary {-}{}{}O\discretionary {-}{}{}P.\discretionary {-}{}{}cpp File Reference}{38}{section.4.6}
+\contentsline {section}{\numberline {4.7}A\discretionary {-}{}{}I\discretionary {-}{}{}Player.\discretionary {-}{}{}cpp File Reference}{39}{section.4.7}
+\contentsline {subsection}{\numberline {4.7.1}Function Documentation}{39}{subsection.4.7.1}
+\contentsline {subsubsection}{\numberline {4.7.1.1}Decide\discretionary {-}{}{}Action\discretionary {-}{}{}For\discretionary {-}{}{}Ship}{39}{subsubsection.4.7.1.1}
+\contentsline {subsubsection}{\numberline {4.7.1.2}Fire\discretionary {-}{}{}Bullet\discretionary {-}{}{}For\discretionary {-}{}{}Ship}{39}{subsubsection.4.7.1.2}
+\contentsline {subsubsection}{\numberline {4.7.1.3}Fire\discretionary {-}{}{}Missile\discretionary {-}{}{}For\discretionary {-}{}{}Ship}{39}{subsubsection.4.7.1.3}
+\contentsline {subsubsection}{\numberline {4.7.1.4}Move\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}{39}{subsubsection.4.7.1.4}
+\contentsline {subsubsection}{\numberline {4.7.1.5}Turn\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Alien}{39}{subsubsection.4.7.1.5}
+\contentsline {section}{\numberline {4.8}A\discretionary {-}{}{}I\discretionary {-}{}{}Update.\discretionary {-}{}{}cpp File Reference}{39}{section.4.8}
+\contentsline {subsection}{\numberline {4.8.1}Function Documentation}{39}{subsection.4.8.1}
+\contentsline {subsubsection}{\numberline {4.8.1.1}Update\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Board}{39}{subsubsection.4.8.1.1}
+\contentsline {subsubsection}{\numberline {4.8.1.2}Update\discretionary {-}{}{}Alien}{39}{subsubsection.4.8.1.2}
+\contentsline {subsubsection}{\numberline {4.8.1.3}Update\discretionary {-}{}{}Missile}{39}{subsubsection.4.8.1.3}
+\contentsline {subsubsection}{\numberline {4.8.1.4}Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}{39}{subsubsection.4.8.1.4}
+\contentsline {section}{\numberline {4.9}Alien.\discretionary {-}{}{}cpp File Reference}{39}{section.4.9}
+\contentsline {section}{\numberline {4.10}Alien.\discretionary {-}{}{}h File Reference}{40}{section.4.10}
+\contentsline {section}{\numberline {4.11}All\discretionary {-}{}{}Tests.\discretionary {-}{}{}cpp File Reference}{40}{section.4.11}
+\contentsline {subsection}{\numberline {4.11.1}Function Documentation}{40}{subsection.4.11.1}
+\contentsline {subsubsection}{\numberline {4.11.1.1}main}{40}{subsubsection.4.11.1.1}
+\contentsline {subsubsection}{\numberline {4.11.1.2}Run\discretionary {-}{}{}All\discretionary {-}{}{}Tests}{40}{subsubsection.4.11.1.2}
+\contentsline {section}{\numberline {4.12}All\discretionary {-}{}{}Tests.\discretionary {-}{}{}h File Reference}{40}{section.4.12}
+\contentsline {subsection}{\numberline {4.12.1}Function Documentation}{40}{subsection.4.12.1}
+\contentsline {subsubsection}{\numberline {4.12.1.1}Run\discretionary {-}{}{}All\discretionary {-}{}{}Tests}{40}{subsubsection.4.12.1.1}
+\contentsline {section}{\numberline {4.13}backupcoop.\discretionary {-}{}{}cpp File Reference}{40}{section.4.13}
+\contentsline {subsection}{\numberline {4.13.1}Macro Definition Documentation}{41}{subsection.4.13.1}
+\contentsline {subsubsection}{\numberline {4.13.1.1}to\discretionary {-}{}{}Digit}{41}{subsubsection.4.13.1.1}
+\contentsline {subsection}{\numberline {4.13.2}Function Documentation}{41}{subsection.4.13.2}
+\contentsline {subsubsection}{\numberline {4.13.2.1}Convert\discretionary {-}{}{}Bool}{41}{subsubsection.4.13.2.1}
+\contentsline {subsubsection}{\numberline {4.13.2.2}Extract\discretionary {-}{}{}Bool}{41}{subsubsection.4.13.2.2}
+\contentsline {subsubsection}{\numberline {4.13.2.3}My\discretionary {-}{}{}Function}{41}{subsubsection.4.13.2.3}
+\contentsline {subsubsection}{\numberline {4.13.2.4}Pair\discretionary {-}{}{}Compare}{41}{subsubsection.4.13.2.4}
+\contentsline {subsubsection}{\numberline {4.13.2.5}Random\discretionary {-}{}{}Float}{41}{subsubsection.4.13.2.5}
+\contentsline {subsubsection}{\numberline {4.13.2.6}To\discretionary {-}{}{}Four}{41}{subsubsection.4.13.2.6}
+\contentsline {section}{\numberline {4.14}Board.\discretionary {-}{}{}cpp File Reference}{41}{section.4.14}
+\contentsline {subsection}{\numberline {4.14.1}Macro Definition Documentation}{41}{subsection.4.14.1}
+\contentsline {subsubsection}{\numberline {4.14.1.1}to\discretionary {-}{}{}Digit}{41}{subsubsection.4.14.1.1}
+\contentsline {subsection}{\numberline {4.14.2}Function Documentation}{41}{subsection.4.14.2}
+\contentsline {subsubsection}{\numberline {4.14.2.1}Convert\discretionary {-}{}{}Bool}{41}{subsubsection.4.14.2.1}
+\contentsline {subsubsection}{\numberline {4.14.2.2}Extract\discretionary {-}{}{}Bool}{42}{subsubsection.4.14.2.2}
+\contentsline {subsubsection}{\numberline {4.14.2.3}My\discretionary {-}{}{}Function}{42}{subsubsection.4.14.2.3}
+\contentsline {subsubsection}{\numberline {4.14.2.4}Pair\discretionary {-}{}{}Compare}{42}{subsubsection.4.14.2.4}
+\contentsline {subsubsection}{\numberline {4.14.2.5}Random\discretionary {-}{}{}Float}{42}{subsubsection.4.14.2.5}
+\contentsline {subsubsection}{\numberline {4.14.2.6}To\discretionary {-}{}{}Four}{42}{subsubsection.4.14.2.6}
+\contentsline {section}{\numberline {4.15}Board.\discretionary {-}{}{}h File Reference}{42}{section.4.15}
+\contentsline {subsection}{\numberline {4.15.1}Function Documentation}{42}{subsection.4.15.1}
+\contentsline {subsubsection}{\numberline {4.15.1.1}Random\discretionary {-}{}{}Float}{42}{subsubsection.4.15.1.1}
+\contentsline {section}{\numberline {4.16}Bullet.\discretionary {-}{}{}cpp File Reference}{42}{section.4.16}
+\contentsline {section}{\numberline {4.17}Bullet.\discretionary {-}{}{}h File Reference}{42}{section.4.17}
+\contentsline {subsection}{\numberline {4.17.1}Macro Definition Documentation}{43}{subsection.4.17.1}
+\contentsline {subsubsection}{\numberline {4.17.1.1}P\discretionary {-}{}{}I}{43}{subsubsection.4.17.1.1}
+\contentsline {section}{\numberline {4.18}Color.\discretionary {-}{}{}cpp File Reference}{43}{section.4.18}
+\contentsline {section}{\numberline {4.19}Color.\discretionary {-}{}{}h File Reference}{43}{section.4.19}
+\contentsline {section}{\numberline {4.20}Combined.\discretionary {-}{}{}cpp File Reference}{43}{section.4.20}
+\contentsline {subsection}{\numberline {4.20.1}Function Documentation}{44}{subsection.4.20.1}
+\contentsline {subsubsection}{\numberline {4.20.1.1}Add\discretionary {-}{}{}New\discretionary {-}{}{}Explosion}{44}{subsubsection.4.20.1.1}
+\contentsline {subsubsection}{\numberline {4.20.1.2}display}{44}{subsubsection.4.20.1.2}
+\contentsline {subsubsection}{\numberline {4.20.1.3}Display\discretionary {-}{}{}Explosions}{44}{subsubsection.4.20.1.3}
+\contentsline {subsubsection}{\numberline {4.20.1.4}Display\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}{44}{subsubsection.4.20.1.4}
+\contentsline {subsubsection}{\numberline {4.20.1.5}handle\discretionary {-}{}{}Keypress}{44}{subsubsection.4.20.1.5}
+\contentsline {subsubsection}{\numberline {4.20.1.6}handle\discretionary {-}{}{}Keypress\discretionary {-}{}{}Up}{44}{subsubsection.4.20.1.6}
+\contentsline {subsubsection}{\numberline {4.20.1.7}init\discretionary {-}{}{}Rendering}{44}{subsubsection.4.20.1.7}
+\contentsline {subsubsection}{\numberline {4.20.1.8}load\discretionary {-}{}{}B\discretionary {-}{}{}M\discretionary {-}{}{}P}{44}{subsubsection.4.20.1.8}
+\contentsline {subsubsection}{\numberline {4.20.1.9}load\discretionary {-}{}{}O\discretionary {-}{}{}B\discretionary {-}{}{}J}{44}{subsubsection.4.20.1.9}
+\contentsline {subsubsection}{\numberline {4.20.1.10}load\discretionary {-}{}{}Texture}{44}{subsubsection.4.20.1.10}
+\contentsline {subsubsection}{\numberline {4.20.1.11}main}{45}{subsubsection.4.20.1.11}
+\contentsline {subsubsection}{\numberline {4.20.1.12}mouseclick}{45}{subsubsection.4.20.1.12}
+\contentsline {subsubsection}{\numberline {4.20.1.13}mousepos}{45}{subsubsection.4.20.1.13}
+\contentsline {subsubsection}{\numberline {4.20.1.14}networkmainhelper}{45}{subsubsection.4.20.1.14}
+\contentsline {subsubsection}{\numberline {4.20.1.15}new\discretionary {-}{}{}Explosion}{45}{subsubsection.4.20.1.15}
+\contentsline {subsubsection}{\numberline {4.20.1.16}New\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}{45}{subsubsection.4.20.1.16}
+\contentsline {subsubsection}{\numberline {4.20.1.17}new\discretionary {-}{}{}Speed}{45}{subsubsection.4.20.1.17}
+\contentsline {subsubsection}{\numberline {4.20.1.18}Process\discretionary {-}{}{}Keys}{45}{subsubsection.4.20.1.18}
+\contentsline {subsubsection}{\numberline {4.20.1.19}Show\discretionary {-}{}{}Alien}{45}{subsubsection.4.20.1.19}
+\contentsline {subsubsection}{\numberline {4.20.1.20}Show\discretionary {-}{}{}All\discretionary {-}{}{}Fire\discretionary {-}{}{}Points}{45}{subsubsection.4.20.1.20}
+\contentsline {subsubsection}{\numberline {4.20.1.21}Show\discretionary {-}{}{}All\discretionary {-}{}{}Text}{45}{subsubsection.4.20.1.21}
+\contentsline {subsubsection}{\numberline {4.20.1.22}Show\discretionary {-}{}{}Board}{45}{subsubsection.4.20.1.22}
+\contentsline {subsubsection}{\numberline {4.20.1.23}Show\discretionary {-}{}{}Borders}{45}{subsubsection.4.20.1.23}
+\contentsline {subsubsection}{\numberline {4.20.1.24}Show\discretionary {-}{}{}Bullet}{45}{subsubsection.4.20.1.24}
+\contentsline {subsubsection}{\numberline {4.20.1.25}Show\discretionary {-}{}{}Explosion}{45}{subsubsection.4.20.1.25}
+\contentsline {subsubsection}{\numberline {4.20.1.26}Show\discretionary {-}{}{}Fire\discretionary {-}{}{}Point}{45}{subsubsection.4.20.1.26}
+\contentsline {subsubsection}{\numberline {4.20.1.27}Show\discretionary {-}{}{}Game\discretionary {-}{}{}Over}{45}{subsubsection.4.20.1.27}
+\contentsline {subsubsection}{\numberline {4.20.1.28}Show\discretionary {-}{}{}Ip}{45}{subsubsection.4.20.1.28}
+\contentsline {subsubsection}{\numberline {4.20.1.29}Show\discretionary {-}{}{}Lives}{45}{subsubsection.4.20.1.29}
+\contentsline {subsubsection}{\numberline {4.20.1.30}Show\discretionary {-}{}{}Missile}{45}{subsubsection.4.20.1.30}
+\contentsline {subsubsection}{\numberline {4.20.1.31}Show\discretionary {-}{}{}Object}{45}{subsubsection.4.20.1.31}
+\contentsline {subsubsection}{\numberline {4.20.1.32}Show\discretionary {-}{}{}Scores}{45}{subsubsection.4.20.1.32}
+\contentsline {subsubsection}{\numberline {4.20.1.33}Show\discretionary {-}{}{}Ship}{45}{subsubsection.4.20.1.33}
+\contentsline {subsubsection}{\numberline {4.20.1.34}Show\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}{45}{subsubsection.4.20.1.34}
+\contentsline {subsubsection}{\numberline {4.20.1.35}Show\discretionary {-}{}{}Title}{45}{subsubsection.4.20.1.35}
+\contentsline {subsubsection}{\numberline {4.20.1.36}sound\discretionary {-}{}{}\_\discretionary {-}{}{}play1}{45}{subsubsection.4.20.1.36}
+\contentsline {subsubsection}{\numberline {4.20.1.37}sound\discretionary {-}{}{}\_\discretionary {-}{}{}play2}{45}{subsubsection.4.20.1.37}
+\contentsline {subsubsection}{\numberline {4.20.1.38}special\discretionary {-}{}{}Keys}{45}{subsubsection.4.20.1.38}
+\contentsline {subsubsection}{\numberline {4.20.1.39}special\discretionary {-}{}{}Keys\discretionary {-}{}{}Up}{46}{subsubsection.4.20.1.39}
+\contentsline {subsubsection}{\numberline {4.20.1.40}Update\discretionary {-}{}{}All\discretionary {-}{}{}Explosions}{46}{subsubsection.4.20.1.40}
+\contentsline {subsubsection}{\numberline {4.20.1.41}Update\discretionary {-}{}{}All\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}{46}{subsubsection.4.20.1.41}
+\contentsline {subsubsection}{\numberline {4.20.1.42}Update\discretionary {-}{}{}Explosion}{46}{subsubsection.4.20.1.42}
+\contentsline {subsubsection}{\numberline {4.20.1.43}Update\discretionary {-}{}{}Fire\discretionary {-}{}{}Explosions}{46}{subsubsection.4.20.1.43}
+\contentsline {subsubsection}{\numberline {4.20.1.44}Update\discretionary {-}{}{}Game\discretionary {-}{}{}Thread}{46}{subsubsection.4.20.1.44}
+\contentsline {subsubsection}{\numberline {4.20.1.45}Update\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}{46}{subsubsection.4.20.1.45}
+\contentsline {subsection}{\numberline {4.20.2}Variable Documentation}{46}{subsection.4.20.2}
+\contentsline {subsubsection}{\numberline {4.20.2.1}\discretionary {-}{}{}\_\discretionary {-}{}{}texture\discretionary {-}{}{}Game\discretionary {-}{}{}Over}{46}{subsubsection.4.20.2.1}
+\contentsline {subsubsection}{\numberline {4.20.2.2}\discretionary {-}{}{}\_\discretionary {-}{}{}texture\discretionary {-}{}{}High\discretionary {-}{}{}Score}{46}{subsubsection.4.20.2.2}
+\contentsline {subsubsection}{\numberline {4.20.2.3}\discretionary {-}{}{}\_\discretionary {-}{}{}texture\discretionary {-}{}{}Id}{46}{subsubsection.4.20.2.3}
+\contentsline {section}{\numberline {4.21}Combined.\discretionary {-}{}{}h File Reference}{46}{section.4.21}
+\contentsline {subsection}{\numberline {4.21.1}Macro Definition Documentation}{48}{subsection.4.21.1}
+\contentsline {subsubsection}{\numberline {4.21.1.1}N\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}B\discretionary {-}{}{}R\discretionary {-}{}{}I\discretionary {-}{}{}S}{48}{subsubsection.4.21.1.1}
+\contentsline {subsubsection}{\numberline {4.21.1.2}N\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}C\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}S}{48}{subsubsection.4.21.1.2}
+\contentsline {subsection}{\numberline {4.21.2}Function Documentation}{48}{subsection.4.21.2}
+\contentsline {subsubsection}{\numberline {4.21.2.1}Add\discretionary {-}{}{}New\discretionary {-}{}{}Explosion}{48}{subsubsection.4.21.2.1}
+\contentsline {subsubsection}{\numberline {4.21.2.2}display}{48}{subsubsection.4.21.2.2}
+\contentsline {subsubsection}{\numberline {4.21.2.3}Display\discretionary {-}{}{}Explosions}{48}{subsubsection.4.21.2.3}
+\contentsline {subsubsection}{\numberline {4.21.2.4}Display\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}{48}{subsubsection.4.21.2.4}
+\contentsline {subsubsection}{\numberline {4.21.2.5}handle\discretionary {-}{}{}Keypress}{48}{subsubsection.4.21.2.5}
+\contentsline {subsubsection}{\numberline {4.21.2.6}handle\discretionary {-}{}{}Keypress\discretionary {-}{}{}Up}{49}{subsubsection.4.21.2.6}
+\contentsline {subsubsection}{\numberline {4.21.2.7}load\discretionary {-}{}{}O\discretionary {-}{}{}B\discretionary {-}{}{}J}{49}{subsubsection.4.21.2.7}
+\contentsline {subsubsection}{\numberline {4.21.2.8}mouseclick}{49}{subsubsection.4.21.2.8}
+\contentsline {subsubsection}{\numberline {4.21.2.9}networkmainhelper}{49}{subsubsection.4.21.2.9}
+\contentsline {subsubsection}{\numberline {4.21.2.10}new\discretionary {-}{}{}Explosion}{49}{subsubsection.4.21.2.10}
+\contentsline {subsubsection}{\numberline {4.21.2.11}New\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}{49}{subsubsection.4.21.2.11}
+\contentsline {subsubsection}{\numberline {4.21.2.12}Process\discretionary {-}{}{}Keys}{49}{subsubsection.4.21.2.12}
+\contentsline {subsubsection}{\numberline {4.21.2.13}Show\discretionary {-}{}{}All\discretionary {-}{}{}Text}{49}{subsubsection.4.21.2.13}
+\contentsline {subsubsection}{\numberline {4.21.2.14}Show\discretionary {-}{}{}Board}{49}{subsubsection.4.21.2.14}
+\contentsline {subsubsection}{\numberline {4.21.2.15}Show\discretionary {-}{}{}Borders}{49}{subsubsection.4.21.2.15}
+\contentsline {subsubsection}{\numberline {4.21.2.16}Show\discretionary {-}{}{}Bullet}{49}{subsubsection.4.21.2.16}
+\contentsline {subsubsection}{\numberline {4.21.2.17}Show\discretionary {-}{}{}Explosion}{49}{subsubsection.4.21.2.17}
+\contentsline {subsubsection}{\numberline {4.21.2.18}Show\discretionary {-}{}{}Ip}{49}{subsubsection.4.21.2.18}
+\contentsline {subsubsection}{\numberline {4.21.2.19}Show\discretionary {-}{}{}Lives}{49}{subsubsection.4.21.2.19}
+\contentsline {subsubsection}{\numberline {4.21.2.20}Show\discretionary {-}{}{}Missile}{49}{subsubsection.4.21.2.20}
+\contentsline {subsubsection}{\numberline {4.21.2.21}Show\discretionary {-}{}{}Object}{49}{subsubsection.4.21.2.21}
+\contentsline {subsubsection}{\numberline {4.21.2.22}Show\discretionary {-}{}{}Scores}{49}{subsubsection.4.21.2.22}
+\contentsline {subsubsection}{\numberline {4.21.2.23}Show\discretionary {-}{}{}Ship}{49}{subsubsection.4.21.2.23}
+\contentsline {subsubsection}{\numberline {4.21.2.24}Show\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}{49}{subsubsection.4.21.2.24}
+\contentsline {subsubsection}{\numberline {4.21.2.25}Show\discretionary {-}{}{}Title}{49}{subsubsection.4.21.2.25}
+\contentsline {subsubsection}{\numberline {4.21.2.26}special\discretionary {-}{}{}Keys}{49}{subsubsection.4.21.2.26}
+\contentsline {subsubsection}{\numberline {4.21.2.27}special\discretionary {-}{}{}Keys\discretionary {-}{}{}Up}{49}{subsubsection.4.21.2.27}
+\contentsline {subsubsection}{\numberline {4.21.2.28}Update\discretionary {-}{}{}All\discretionary {-}{}{}Explosions}{49}{subsubsection.4.21.2.28}
+\contentsline {subsubsection}{\numberline {4.21.2.29}Update\discretionary {-}{}{}All\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}{49}{subsubsection.4.21.2.29}
+\contentsline {subsubsection}{\numberline {4.21.2.30}Update\discretionary {-}{}{}Fire\discretionary {-}{}{}Explosions}{49}{subsubsection.4.21.2.30}
+\contentsline {subsubsection}{\numberline {4.21.2.31}Update\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}{49}{subsubsection.4.21.2.31}
+\contentsline {subsection}{\numberline {4.21.3}Variable Documentation}{49}{subsection.4.21.3}
+\contentsline {subsubsection}{\numberline {4.21.3.1}alien1col}{49}{subsubsection.4.21.3.1}
+\contentsline {subsubsection}{\numberline {4.21.3.2}alien1gun}{50}{subsubsection.4.21.3.2}
+\contentsline {subsubsection}{\numberline {4.21.3.3}alien1mid}{50}{subsubsection.4.21.3.3}
+\contentsline {subsubsection}{\numberline {4.21.3.4}alien1top}{50}{subsubsection.4.21.3.4}
+\contentsline {subsubsection}{\numberline {4.21.3.5}alien2body}{50}{subsubsection.4.21.3.5}
+\contentsline {subsubsection}{\numberline {4.21.3.6}alien2eye}{50}{subsubsection.4.21.3.6}
+\contentsline {subsubsection}{\numberline {4.21.3.7}alien2gun}{50}{subsubsection.4.21.3.7}
+\contentsline {subsubsection}{\numberline {4.21.3.8}alien2top}{50}{subsubsection.4.21.3.8}
+\contentsline {subsubsection}{\numberline {4.21.3.9}bulletmid}{50}{subsubsection.4.21.3.9}
+\contentsline {subsubsection}{\numberline {4.21.3.10}Bullets\discretionary {-}{}{}To\discretionary {-}{}{}Add}{50}{subsubsection.4.21.3.10}
+\contentsline {subsubsection}{\numberline {4.21.3.11}bullettop}{50}{subsubsection.4.21.3.11}
+\contentsline {subsubsection}{\numberline {4.21.3.12}doneonce}{50}{subsubsection.4.21.3.12}
+\contentsline {subsubsection}{\numberline {4.21.3.13}Explosions}{50}{subsubsection.4.21.3.13}
+\contentsline {subsubsection}{\numberline {4.21.3.14}Fire\discretionary {-}{}{}Points}{50}{subsubsection.4.21.3.14}
+\contentsline {subsubsection}{\numberline {4.21.3.15}Game\discretionary {-}{}{}Active}{50}{subsubsection.4.21.3.15}
+\contentsline {subsubsection}{\numberline {4.21.3.16}Game\discretionary {-}{}{}Over}{50}{subsubsection.4.21.3.16}
+\contentsline {subsubsection}{\numberline {4.21.3.17}highscorestodisplay}{50}{subsubsection.4.21.3.17}
+\contentsline {subsubsection}{\numberline {4.21.3.18}I\discretionary {-}{}{}D}{50}{subsubsection.4.21.3.18}
+\contentsline {subsubsection}{\numberline {4.21.3.19}Instructions}{50}{subsubsection.4.21.3.19}
+\contentsline {subsubsection}{\numberline {4.21.3.20}I\discretionary {-}{}{}P\discretionary {-}{}{}Address}{50}{subsubsection.4.21.3.20}
+\contentsline {subsubsection}{\numberline {4.21.3.21}Is\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Sound\discretionary {-}{}{}Bullet}{50}{subsubsection.4.21.3.21}
+\contentsline {subsubsection}{\numberline {4.21.3.22}Is\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Sound\discretionary {-}{}{}Expl}{50}{subsubsection.4.21.3.22}
+\contentsline {subsubsection}{\numberline {4.21.3.23}is\discretionary {-}{}{}Offline}{50}{subsubsection.4.21.3.23}
+\contentsline {subsubsection}{\numberline {4.21.3.24}Keys}{50}{subsubsection.4.21.3.24}
+\contentsline {subsubsection}{\numberline {4.21.3.25}missileend}{50}{subsubsection.4.21.3.25}
+\contentsline {subsubsection}{\numberline {4.21.3.26}missilemid}{50}{subsubsection.4.21.3.26}
+\contentsline {subsubsection}{\numberline {4.21.3.27}missiletop}{50}{subsubsection.4.21.3.27}
+\contentsline {subsubsection}{\numberline {4.21.3.28}Multi\discretionary {-}{}{}Mode}{50}{subsubsection.4.21.3.28}
+\contentsline {subsubsection}{\numberline {4.21.3.29}N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}X}{50}{subsubsection.4.21.3.29}
+\contentsline {subsubsection}{\numberline {4.21.3.30}N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}Y}{51}{subsubsection.4.21.3.30}
+\contentsline {subsubsection}{\numberline {4.21.3.31}newg}{51}{subsubsection.4.21.3.31}
+\contentsline {subsubsection}{\numberline {4.21.3.32}New\discretionary {-}{}{}High\discretionary {-}{}{}Score}{51}{subsubsection.4.21.3.32}
+\contentsline {subsubsection}{\numberline {4.21.3.33}N\discretionary {-}{}{}X}{51}{subsubsection.4.21.3.33}
+\contentsline {subsubsection}{\numberline {4.21.3.34}N\discretionary {-}{}{}Y}{51}{subsubsection.4.21.3.34}
+\contentsline {subsubsection}{\numberline {4.21.3.35}On\discretionary {-}{}{}Front\discretionary {-}{}{}Screen}{51}{subsubsection.4.21.3.35}
+\contentsline {subsubsection}{\numberline {4.21.3.36}players\discretionary {-}{}{}Ready}{51}{subsubsection.4.21.3.36}
+\contentsline {subsubsection}{\numberline {4.21.3.37}P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}X}{51}{subsubsection.4.21.3.37}
+\contentsline {subsubsection}{\numberline {4.21.3.38}P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}Y}{51}{subsubsection.4.21.3.38}
+\contentsline {subsubsection}{\numberline {4.21.3.39}presentf}{51}{subsubsection.4.21.3.39}
+\contentsline {subsubsection}{\numberline {4.21.3.40}P\discretionary {-}{}{}X}{51}{subsubsection.4.21.3.40}
+\contentsline {subsubsection}{\numberline {4.21.3.41}P\discretionary {-}{}{}Y}{51}{subsubsection.4.21.3.41}
+\contentsline {subsubsection}{\numberline {4.21.3.42}rankingtodisplay}{51}{subsubsection.4.21.3.42}
+\contentsline {subsubsection}{\numberline {4.21.3.43}shipcol}{51}{subsubsection.4.21.3.43}
+\contentsline {subsubsection}{\numberline {4.21.3.44}shipfir}{51}{subsubsection.4.21.3.44}
+\contentsline {subsubsection}{\numberline {4.21.3.45}shipmid}{51}{subsubsection.4.21.3.45}
+\contentsline {subsubsection}{\numberline {4.21.3.46}Single\discretionary {-}{}{}Mode}{51}{subsubsection.4.21.3.46}
+\contentsline {subsubsection}{\numberline {4.21.3.47}Smoke\discretionary {-}{}{}Points}{51}{subsubsection.4.21.3.47}
+\contentsline {subsubsection}{\numberline {4.21.3.48}Smoke\discretionary {-}{}{}Points\discretionary {-}{}{}Missile}{51}{subsubsection.4.21.3.48}
+\contentsline {subsubsection}{\numberline {4.21.3.49}Space\discretionary {-}{}{}Bar\discretionary {-}{}{}Free}{51}{subsubsection.4.21.3.49}
+\contentsline {subsubsection}{\numberline {4.21.3.50}Stars}{51}{subsubsection.4.21.3.50}
+\contentsline {subsubsection}{\numberline {4.21.3.51}titleptr}{51}{subsubsection.4.21.3.51}
+\contentsline {subsubsection}{\numberline {4.21.3.52}viewtotake}{51}{subsubsection.4.21.3.52}
+\contentsline {section}{\numberline {4.22}Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}cpp File Reference}{51}{section.4.22}
+\contentsline {subsection}{\numberline {4.22.1}Function Documentation}{53}{subsection.4.22.1}
+\contentsline {subsubsection}{\numberline {4.22.1.1}Add\discretionary {-}{}{}New\discretionary {-}{}{}Explosion}{53}{subsubsection.4.22.1.1}
+\contentsline {subsubsection}{\numberline {4.22.1.2}display}{53}{subsubsection.4.22.1.2}
+\contentsline {subsubsection}{\numberline {4.22.1.3}Display\discretionary {-}{}{}Explosions}{53}{subsubsection.4.22.1.3}
+\contentsline {subsubsection}{\numberline {4.22.1.4}Display\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}{53}{subsubsection.4.22.1.4}
+\contentsline {subsubsection}{\numberline {4.22.1.5}handle\discretionary {-}{}{}Keypress}{53}{subsubsection.4.22.1.5}
+\contentsline {subsubsection}{\numberline {4.22.1.6}handle\discretionary {-}{}{}Keypress\discretionary {-}{}{}Up}{53}{subsubsection.4.22.1.6}
+\contentsline {subsubsection}{\numberline {4.22.1.7}init\discretionary {-}{}{}Rendering}{53}{subsubsection.4.22.1.7}
+\contentsline {subsubsection}{\numberline {4.22.1.8}load\discretionary {-}{}{}B\discretionary {-}{}{}M\discretionary {-}{}{}P}{53}{subsubsection.4.22.1.8}
+\contentsline {subsubsection}{\numberline {4.22.1.9}load\discretionary {-}{}{}O\discretionary {-}{}{}B\discretionary {-}{}{}J}{53}{subsubsection.4.22.1.9}
+\contentsline {subsubsection}{\numberline {4.22.1.10}load\discretionary {-}{}{}Texture}{53}{subsubsection.4.22.1.10}
+\contentsline {subsubsection}{\numberline {4.22.1.11}main}{53}{subsubsection.4.22.1.11}
+\contentsline {subsubsection}{\numberline {4.22.1.12}mouseclick}{53}{subsubsection.4.22.1.12}
+\contentsline {subsubsection}{\numberline {4.22.1.13}mousepos}{53}{subsubsection.4.22.1.13}
+\contentsline {subsubsection}{\numberline {4.22.1.14}networkmainhelper}{53}{subsubsection.4.22.1.14}
+\contentsline {subsubsection}{\numberline {4.22.1.15}new\discretionary {-}{}{}Explosion}{53}{subsubsection.4.22.1.15}
+\contentsline {subsubsection}{\numberline {4.22.1.16}New\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}{53}{subsubsection.4.22.1.16}
+\contentsline {subsubsection}{\numberline {4.22.1.17}new\discretionary {-}{}{}Speed}{53}{subsubsection.4.22.1.17}
+\contentsline {subsubsection}{\numberline {4.22.1.18}Process\discretionary {-}{}{}Keys}{53}{subsubsection.4.22.1.18}
+\contentsline {subsubsection}{\numberline {4.22.1.19}Show\discretionary {-}{}{}Alien}{53}{subsubsection.4.22.1.19}
+\contentsline {subsubsection}{\numberline {4.22.1.20}Show\discretionary {-}{}{}All\discretionary {-}{}{}Fire\discretionary {-}{}{}Points}{53}{subsubsection.4.22.1.20}
+\contentsline {subsubsection}{\numberline {4.22.1.21}Show\discretionary {-}{}{}All\discretionary {-}{}{}Text}{53}{subsubsection.4.22.1.21}
+\contentsline {subsubsection}{\numberline {4.22.1.22}Show\discretionary {-}{}{}Board}{53}{subsubsection.4.22.1.22}
+\contentsline {subsubsection}{\numberline {4.22.1.23}Show\discretionary {-}{}{}Borders}{53}{subsubsection.4.22.1.23}
+\contentsline {subsubsection}{\numberline {4.22.1.24}Show\discretionary {-}{}{}Bullet}{53}{subsubsection.4.22.1.24}
+\contentsline {subsubsection}{\numberline {4.22.1.25}Show\discretionary {-}{}{}Explosion}{53}{subsubsection.4.22.1.25}
+\contentsline {subsubsection}{\numberline {4.22.1.26}Show\discretionary {-}{}{}Fire\discretionary {-}{}{}Point}{53}{subsubsection.4.22.1.26}
+\contentsline {subsubsection}{\numberline {4.22.1.27}Show\discretionary {-}{}{}Game\discretionary {-}{}{}Over}{53}{subsubsection.4.22.1.27}
+\contentsline {subsubsection}{\numberline {4.22.1.28}Show\discretionary {-}{}{}Ip}{54}{subsubsection.4.22.1.28}
+\contentsline {subsubsection}{\numberline {4.22.1.29}Show\discretionary {-}{}{}Lives}{54}{subsubsection.4.22.1.29}
+\contentsline {subsubsection}{\numberline {4.22.1.30}Show\discretionary {-}{}{}Missile}{54}{subsubsection.4.22.1.30}
+\contentsline {subsubsection}{\numberline {4.22.1.31}Show\discretionary {-}{}{}Object}{54}{subsubsection.4.22.1.31}
+\contentsline {subsubsection}{\numberline {4.22.1.32}Show\discretionary {-}{}{}Scores}{54}{subsubsection.4.22.1.32}
+\contentsline {subsubsection}{\numberline {4.22.1.33}Show\discretionary {-}{}{}Ship}{54}{subsubsection.4.22.1.33}
+\contentsline {subsubsection}{\numberline {4.22.1.34}Show\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}{54}{subsubsection.4.22.1.34}
+\contentsline {subsubsection}{\numberline {4.22.1.35}Show\discretionary {-}{}{}Title}{54}{subsubsection.4.22.1.35}
+\contentsline {subsubsection}{\numberline {4.22.1.36}sound\discretionary {-}{}{}\_\discretionary {-}{}{}play1}{54}{subsubsection.4.22.1.36}
+\contentsline {subsubsection}{\numberline {4.22.1.37}sound\discretionary {-}{}{}\_\discretionary {-}{}{}play2}{54}{subsubsection.4.22.1.37}
+\contentsline {subsubsection}{\numberline {4.22.1.38}special\discretionary {-}{}{}Keys}{54}{subsubsection.4.22.1.38}
+\contentsline {subsubsection}{\numberline {4.22.1.39}special\discretionary {-}{}{}Keys\discretionary {-}{}{}Up}{54}{subsubsection.4.22.1.39}
+\contentsline {subsubsection}{\numberline {4.22.1.40}Update\discretionary {-}{}{}All\discretionary {-}{}{}Explosions}{54}{subsubsection.4.22.1.40}
+\contentsline {subsubsection}{\numberline {4.22.1.41}Update\discretionary {-}{}{}All\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}{54}{subsubsection.4.22.1.41}
+\contentsline {subsubsection}{\numberline {4.22.1.42}Update\discretionary {-}{}{}Explosion}{54}{subsubsection.4.22.1.42}
+\contentsline {subsubsection}{\numberline {4.22.1.43}Update\discretionary {-}{}{}Fire\discretionary {-}{}{}Explosions}{54}{subsubsection.4.22.1.43}
+\contentsline {subsubsection}{\numberline {4.22.1.44}Update\discretionary {-}{}{}Game\discretionary {-}{}{}Thread}{54}{subsubsection.4.22.1.44}
+\contentsline {subsubsection}{\numberline {4.22.1.45}Update\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}{54}{subsubsection.4.22.1.45}
+\contentsline {subsection}{\numberline {4.22.2}Variable Documentation}{54}{subsection.4.22.2}
+\contentsline {subsubsection}{\numberline {4.22.2.1}\discretionary {-}{}{}\_\discretionary {-}{}{}texture\discretionary {-}{}{}Game\discretionary {-}{}{}Over}{54}{subsubsection.4.22.2.1}
+\contentsline {subsubsection}{\numberline {4.22.2.2}\discretionary {-}{}{}\_\discretionary {-}{}{}texture\discretionary {-}{}{}High\discretionary {-}{}{}Score}{54}{subsubsection.4.22.2.2}
+\contentsline {subsubsection}{\numberline {4.22.2.3}\discretionary {-}{}{}\_\discretionary {-}{}{}texture\discretionary {-}{}{}Id}{54}{subsubsection.4.22.2.3}
+\contentsline {section}{\numberline {4.23}Comp\discretionary {-}{}{}Combined.\discretionary {-}{}{}h File Reference}{55}{section.4.23}
+\contentsline {subsection}{\numberline {4.23.1}Macro Definition Documentation}{57}{subsection.4.23.1}
+\contentsline {subsubsection}{\numberline {4.23.1.1}N\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}B\discretionary {-}{}{}R\discretionary {-}{}{}I\discretionary {-}{}{}S}{57}{subsubsection.4.23.1.1}
+\contentsline {subsubsection}{\numberline {4.23.1.2}N\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}C\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}S}{57}{subsubsection.4.23.1.2}
+\contentsline {subsection}{\numberline {4.23.2}Function Documentation}{57}{subsection.4.23.2}
+\contentsline {subsubsection}{\numberline {4.23.2.1}Add\discretionary {-}{}{}New\discretionary {-}{}{}Explosion}{57}{subsubsection.4.23.2.1}
+\contentsline {subsubsection}{\numberline {4.23.2.2}display}{57}{subsubsection.4.23.2.2}
+\contentsline {subsubsection}{\numberline {4.23.2.3}Display\discretionary {-}{}{}Explosions}{57}{subsubsection.4.23.2.3}
+\contentsline {subsubsection}{\numberline {4.23.2.4}Display\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}{57}{subsubsection.4.23.2.4}
+\contentsline {subsubsection}{\numberline {4.23.2.5}handle\discretionary {-}{}{}Keypress}{57}{subsubsection.4.23.2.5}
+\contentsline {subsubsection}{\numberline {4.23.2.6}handle\discretionary {-}{}{}Keypress\discretionary {-}{}{}Up}{57}{subsubsection.4.23.2.6}
+\contentsline {subsubsection}{\numberline {4.23.2.7}load\discretionary {-}{}{}O\discretionary {-}{}{}B\discretionary {-}{}{}J}{57}{subsubsection.4.23.2.7}
+\contentsline {subsubsection}{\numberline {4.23.2.8}mouseclick}{57}{subsubsection.4.23.2.8}
+\contentsline {subsubsection}{\numberline {4.23.2.9}networkmainhelper}{57}{subsubsection.4.23.2.9}
+\contentsline {subsubsection}{\numberline {4.23.2.10}new\discretionary {-}{}{}Explosion}{57}{subsubsection.4.23.2.10}
+\contentsline {subsubsection}{\numberline {4.23.2.11}New\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}{57}{subsubsection.4.23.2.11}
+\contentsline {subsubsection}{\numberline {4.23.2.12}Process\discretionary {-}{}{}Keys}{57}{subsubsection.4.23.2.12}
+\contentsline {subsubsection}{\numberline {4.23.2.13}Show\discretionary {-}{}{}All\discretionary {-}{}{}Text}{57}{subsubsection.4.23.2.13}
+\contentsline {subsubsection}{\numberline {4.23.2.14}Show\discretionary {-}{}{}Board}{57}{subsubsection.4.23.2.14}
+\contentsline {subsubsection}{\numberline {4.23.2.15}Show\discretionary {-}{}{}Borders}{57}{subsubsection.4.23.2.15}
+\contentsline {subsubsection}{\numberline {4.23.2.16}Show\discretionary {-}{}{}Bullet}{57}{subsubsection.4.23.2.16}
+\contentsline {subsubsection}{\numberline {4.23.2.17}Show\discretionary {-}{}{}Explosion}{57}{subsubsection.4.23.2.17}
+\contentsline {subsubsection}{\numberline {4.23.2.18}Show\discretionary {-}{}{}Ip}{58}{subsubsection.4.23.2.18}
+\contentsline {subsubsection}{\numberline {4.23.2.19}Show\discretionary {-}{}{}Lives}{58}{subsubsection.4.23.2.19}
+\contentsline {subsubsection}{\numberline {4.23.2.20}Show\discretionary {-}{}{}Missile}{58}{subsubsection.4.23.2.20}
+\contentsline {subsubsection}{\numberline {4.23.2.21}Show\discretionary {-}{}{}Object}{58}{subsubsection.4.23.2.21}
+\contentsline {subsubsection}{\numberline {4.23.2.22}Show\discretionary {-}{}{}Scores}{58}{subsubsection.4.23.2.22}
+\contentsline {subsubsection}{\numberline {4.23.2.23}Show\discretionary {-}{}{}Ship}{58}{subsubsection.4.23.2.23}
+\contentsline {subsubsection}{\numberline {4.23.2.24}Show\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}{58}{subsubsection.4.23.2.24}
+\contentsline {subsubsection}{\numberline {4.23.2.25}Show\discretionary {-}{}{}Title}{58}{subsubsection.4.23.2.25}
+\contentsline {subsubsection}{\numberline {4.23.2.26}special\discretionary {-}{}{}Keys}{58}{subsubsection.4.23.2.26}
+\contentsline {subsubsection}{\numberline {4.23.2.27}special\discretionary {-}{}{}Keys\discretionary {-}{}{}Up}{58}{subsubsection.4.23.2.27}
+\contentsline {subsubsection}{\numberline {4.23.2.28}Update\discretionary {-}{}{}All\discretionary {-}{}{}Explosions}{58}{subsubsection.4.23.2.28}
+\contentsline {subsubsection}{\numberline {4.23.2.29}Update\discretionary {-}{}{}All\discretionary {-}{}{}Smoke\discretionary {-}{}{}Points}{58}{subsubsection.4.23.2.29}
+\contentsline {subsubsection}{\numberline {4.23.2.30}Update\discretionary {-}{}{}Fire\discretionary {-}{}{}Explosions}{58}{subsubsection.4.23.2.30}
+\contentsline {subsubsection}{\numberline {4.23.2.31}Update\discretionary {-}{}{}Smoke\discretionary {-}{}{}Point}{58}{subsubsection.4.23.2.31}
+\contentsline {subsection}{\numberline {4.23.3}Variable Documentation}{58}{subsection.4.23.3}
+\contentsline {subsubsection}{\numberline {4.23.3.1}alien1col}{58}{subsubsection.4.23.3.1}
+\contentsline {subsubsection}{\numberline {4.23.3.2}alien1gun}{58}{subsubsection.4.23.3.2}
+\contentsline {subsubsection}{\numberline {4.23.3.3}alien1mid}{58}{subsubsection.4.23.3.3}
+\contentsline {subsubsection}{\numberline {4.23.3.4}alien1top}{58}{subsubsection.4.23.3.4}
+\contentsline {subsubsection}{\numberline {4.23.3.5}alien2body}{58}{subsubsection.4.23.3.5}
+\contentsline {subsubsection}{\numberline {4.23.3.6}alien2eye}{58}{subsubsection.4.23.3.6}
+\contentsline {subsubsection}{\numberline {4.23.3.7}alien2gun}{58}{subsubsection.4.23.3.7}
+\contentsline {subsubsection}{\numberline {4.23.3.8}alien2top}{58}{subsubsection.4.23.3.8}
+\contentsline {subsubsection}{\numberline {4.23.3.9}bulletmid}{58}{subsubsection.4.23.3.9}
+\contentsline {subsubsection}{\numberline {4.23.3.10}Bullets\discretionary {-}{}{}To\discretionary {-}{}{}Add}{58}{subsubsection.4.23.3.10}
+\contentsline {subsubsection}{\numberline {4.23.3.11}bullettop}{58}{subsubsection.4.23.3.11}
+\contentsline {subsubsection}{\numberline {4.23.3.12}doneonce}{58}{subsubsection.4.23.3.12}
+\contentsline {subsubsection}{\numberline {4.23.3.13}Explosions}{58}{subsubsection.4.23.3.13}
+\contentsline {subsubsection}{\numberline {4.23.3.14}Fire\discretionary {-}{}{}Points}{59}{subsubsection.4.23.3.14}
+\contentsline {subsubsection}{\numberline {4.23.3.15}Game\discretionary {-}{}{}Active}{59}{subsubsection.4.23.3.15}
+\contentsline {subsubsection}{\numberline {4.23.3.16}Game\discretionary {-}{}{}Over}{59}{subsubsection.4.23.3.16}
+\contentsline {subsubsection}{\numberline {4.23.3.17}highscorestodisplay}{59}{subsubsection.4.23.3.17}
+\contentsline {subsubsection}{\numberline {4.23.3.18}I\discretionary {-}{}{}D}{59}{subsubsection.4.23.3.18}
+\contentsline {subsubsection}{\numberline {4.23.3.19}Instructions}{59}{subsubsection.4.23.3.19}
+\contentsline {subsubsection}{\numberline {4.23.3.20}I\discretionary {-}{}{}P\discretionary {-}{}{}Address}{59}{subsubsection.4.23.3.20}
+\contentsline {subsubsection}{\numberline {4.23.3.21}Is\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Sound\discretionary {-}{}{}Bullet}{59}{subsubsection.4.23.3.21}
+\contentsline {subsubsection}{\numberline {4.23.3.22}Is\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Sound\discretionary {-}{}{}Expl}{59}{subsubsection.4.23.3.22}
+\contentsline {subsubsection}{\numberline {4.23.3.23}is\discretionary {-}{}{}Offline}{59}{subsubsection.4.23.3.23}
+\contentsline {subsubsection}{\numberline {4.23.3.24}Keys}{59}{subsubsection.4.23.3.24}
+\contentsline {subsubsection}{\numberline {4.23.3.25}missileend}{59}{subsubsection.4.23.3.25}
+\contentsline {subsubsection}{\numberline {4.23.3.26}missilemid}{59}{subsubsection.4.23.3.26}
+\contentsline {subsubsection}{\numberline {4.23.3.27}missiletop}{59}{subsubsection.4.23.3.27}
+\contentsline {subsubsection}{\numberline {4.23.3.28}N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}X}{59}{subsubsection.4.23.3.28}
+\contentsline {subsubsection}{\numberline {4.23.3.29}N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}Y}{59}{subsubsection.4.23.3.29}
+\contentsline {subsubsection}{\numberline {4.23.3.30}newg}{59}{subsubsection.4.23.3.30}
+\contentsline {subsubsection}{\numberline {4.23.3.31}New\discretionary {-}{}{}High\discretionary {-}{}{}Score}{59}{subsubsection.4.23.3.31}
+\contentsline {subsubsection}{\numberline {4.23.3.32}N\discretionary {-}{}{}X}{59}{subsubsection.4.23.3.32}
+\contentsline {subsubsection}{\numberline {4.23.3.33}N\discretionary {-}{}{}Y}{59}{subsubsection.4.23.3.33}
+\contentsline {subsubsection}{\numberline {4.23.3.34}players\discretionary {-}{}{}Ready}{59}{subsubsection.4.23.3.34}
+\contentsline {subsubsection}{\numberline {4.23.3.35}P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}X}{59}{subsubsection.4.23.3.35}
+\contentsline {subsubsection}{\numberline {4.23.3.36}P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}Y}{59}{subsubsection.4.23.3.36}
+\contentsline {subsubsection}{\numberline {4.23.3.37}presentf}{59}{subsubsection.4.23.3.37}
+\contentsline {subsubsection}{\numberline {4.23.3.38}P\discretionary {-}{}{}X}{59}{subsubsection.4.23.3.38}
+\contentsline {subsubsection}{\numberline {4.23.3.39}P\discretionary {-}{}{}Y}{59}{subsubsection.4.23.3.39}
+\contentsline {subsubsection}{\numberline {4.23.3.40}rankingtodisplay}{59}{subsubsection.4.23.3.40}
+\contentsline {subsubsection}{\numberline {4.23.3.41}shipcol}{59}{subsubsection.4.23.3.41}
+\contentsline {subsubsection}{\numberline {4.23.3.42}shipfir}{60}{subsubsection.4.23.3.42}
+\contentsline {subsubsection}{\numberline {4.23.3.43}shipmid}{60}{subsubsection.4.23.3.43}
+\contentsline {subsubsection}{\numberline {4.23.3.44}Smoke\discretionary {-}{}{}Points}{60}{subsubsection.4.23.3.44}
+\contentsline {subsubsection}{\numberline {4.23.3.45}Smoke\discretionary {-}{}{}Points\discretionary {-}{}{}Missile}{60}{subsubsection.4.23.3.45}
+\contentsline {subsubsection}{\numberline {4.23.3.46}Space\discretionary {-}{}{}Bar\discretionary {-}{}{}Free}{60}{subsubsection.4.23.3.46}
+\contentsline {subsubsection}{\numberline {4.23.3.47}Stars}{60}{subsubsection.4.23.3.47}
+\contentsline {subsubsection}{\numberline {4.23.3.48}titleptr}{60}{subsubsection.4.23.3.48}
+\contentsline {subsubsection}{\numberline {4.23.3.49}viewtotake}{60}{subsubsection.4.23.3.49}
+\contentsline {section}{\numberline {4.24}Competitive\discretionary {-}{}{}Board.\discretionary {-}{}{}cpp File Reference}{60}{section.4.24}
+\contentsline {subsection}{\numberline {4.24.1}Macro Definition Documentation}{60}{subsection.4.24.1}
+\contentsline {subsubsection}{\numberline {4.24.1.1}to\discretionary {-}{}{}Digit}{60}{subsubsection.4.24.1.1}
+\contentsline {subsection}{\numberline {4.24.2}Function Documentation}{60}{subsection.4.24.2}
+\contentsline {subsubsection}{\numberline {4.24.2.1}Convert\discretionary {-}{}{}Bool}{60}{subsubsection.4.24.2.1}
+\contentsline {subsubsection}{\numberline {4.24.2.2}Extract\discretionary {-}{}{}Bool}{60}{subsubsection.4.24.2.2}
+\contentsline {subsubsection}{\numberline {4.24.2.3}My\discretionary {-}{}{}Function}{60}{subsubsection.4.24.2.3}
+\contentsline {subsubsection}{\numberline {4.24.2.4}Pair\discretionary {-}{}{}Compare}{60}{subsubsection.4.24.2.4}
+\contentsline {subsubsection}{\numberline {4.24.2.5}Random\discretionary {-}{}{}Float}{60}{subsubsection.4.24.2.5}
+\contentsline {subsubsection}{\numberline {4.24.2.6}To\discretionary {-}{}{}Four}{60}{subsubsection.4.24.2.6}
+\contentsline {section}{\numberline {4.25}Competitive\discretionary {-}{}{}Board.\discretionary {-}{}{}h File Reference}{61}{section.4.25}
+\contentsline {subsection}{\numberline {4.25.1}Function Documentation}{61}{subsection.4.25.1}
+\contentsline {subsubsection}{\numberline {4.25.1.1}Random\discretionary {-}{}{}Float}{61}{subsubsection.4.25.1.1}
+\contentsline {section}{\numberline {4.26}Comp\discretionary {-}{}{}Highscore.\discretionary {-}{}{}cpp File Reference}{61}{section.4.26}
+\contentsline {subsection}{\numberline {4.26.1}Function Documentation}{61}{subsection.4.26.1}
+\contentsline {subsubsection}{\numberline {4.26.1.1}To\discretionary {-}{}{}Four1}{61}{subsubsection.4.26.1.1}
+\contentsline {subsubsection}{\numberline {4.26.1.2}Update\discretionary {-}{}{}High\discretionary {-}{}{}Scores}{62}{subsubsection.4.26.1.2}
+\contentsline {subsection}{\numberline {4.26.2}Variable Documentation}{62}{subsection.4.26.2}
+\contentsline {subsubsection}{\numberline {4.26.2.1}sortobject}{62}{subsubsection.4.26.2.1}
+\contentsline {section}{\numberline {4.27}Comp\discretionary {-}{}{}Highscore.\discretionary {-}{}{}h File Reference}{62}{section.4.27}
+\contentsline {subsection}{\numberline {4.27.1}Function Documentation}{62}{subsection.4.27.1}
+\contentsline {subsubsection}{\numberline {4.27.1.1}Update\discretionary {-}{}{}High\discretionary {-}{}{}Scores}{62}{subsubsection.4.27.1.1}
+\contentsline {subsection}{\numberline {4.27.2}Variable Documentation}{62}{subsection.4.27.2}
+\contentsline {subsubsection}{\numberline {4.27.2.1}I\discretionary {-}{}{}D}{62}{subsubsection.4.27.2.1}
+\contentsline {subsubsection}{\numberline {4.27.2.2}New\discretionary {-}{}{}High\discretionary {-}{}{}Score}{62}{subsubsection.4.27.2.2}
+\contentsline {section}{\numberline {4.28}Highscore.\discretionary {-}{}{}cpp File Reference}{62}{section.4.28}
+\contentsline {subsection}{\numberline {4.28.1}Function Documentation}{63}{subsection.4.28.1}
+\contentsline {subsubsection}{\numberline {4.28.1.1}To\discretionary {-}{}{}Four1}{63}{subsubsection.4.28.1.1}
+\contentsline {subsubsection}{\numberline {4.28.1.2}Update\discretionary {-}{}{}High\discretionary {-}{}{}Scores}{63}{subsubsection.4.28.1.2}
+\contentsline {subsection}{\numberline {4.28.2}Variable Documentation}{63}{subsection.4.28.2}
+\contentsline {subsubsection}{\numberline {4.28.2.1}sortobject}{63}{subsubsection.4.28.2.1}
+\contentsline {section}{\numberline {4.29}Highscore.\discretionary {-}{}{}h File Reference}{63}{section.4.29}
+\contentsline {subsection}{\numberline {4.29.1}Function Documentation}{63}{subsection.4.29.1}
+\contentsline {subsubsection}{\numberline {4.29.1.1}Update\discretionary {-}{}{}High\discretionary {-}{}{}Scores}{63}{subsubsection.4.29.1.1}
+\contentsline {subsection}{\numberline {4.29.2}Variable Documentation}{63}{subsection.4.29.2}
+\contentsline {subsubsection}{\numberline {4.29.2.1}I\discretionary {-}{}{}D}{63}{subsubsection.4.29.2.1}
+\contentsline {subsubsection}{\numberline {4.29.2.2}New\discretionary {-}{}{}High\discretionary {-}{}{}Score}{63}{subsubsection.4.29.2.2}
+\contentsline {section}{\numberline {4.30}Image.\discretionary {-}{}{}cpp File Reference}{63}{section.4.30}
+\contentsline {section}{\numberline {4.31}Image.\discretionary {-}{}{}h File Reference}{64}{section.4.31}
+\contentsline {subsection}{\numberline {4.31.1}Function Documentation}{64}{subsection.4.31.1}
+\contentsline {subsubsection}{\numberline {4.31.1.1}load\discretionary {-}{}{}B\discretionary {-}{}{}M\discretionary {-}{}{}P}{64}{subsubsection.4.31.1.1}
+\contentsline {section}{\numberline {4.32}mousepos.\discretionary {-}{}{}cpp File Reference}{64}{section.4.32}
+\contentsline {subsection}{\numberline {4.32.1}Function Documentation}{64}{subsection.4.32.1}
+\contentsline {subsubsection}{\numberline {4.32.1.1}glut\discretionary {-}{}{}Passive\discretionary {-}{}{}Motion\discretionary {-}{}{}Func}{64}{subsubsection.4.32.1.1}
+\contentsline {subsubsection}{\numberline {4.32.1.2}mousepos}{64}{subsubsection.4.32.1.2}
+\contentsline {section}{\numberline {4.33}O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}h File Reference}{64}{section.4.33}
+\contentsline {subsection}{\numberline {4.33.1}Macro Definition Documentation}{65}{subsection.4.33.1}
+\contentsline {subsubsection}{\numberline {4.33.1.1}A\discretionary {-}{}{}L\discretionary {-}{}{}I\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}M\discretionary {-}{}{}I\discretionary {-}{}{}S\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E}{65}{subsubsection.4.33.1.1}
+\contentsline {subsubsection}{\numberline {4.33.1.2}A\discretionary {-}{}{}N\discretionary {-}{}{}G\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}O\discretionary {-}{}{}F\discretionary {-}{}{}V\discretionary {-}{}{}I\discretionary {-}{}{}E\discretionary {-}{}{}W}{65}{subsubsection.4.33.1.2}
+\contentsline {subsubsection}{\numberline {4.33.1.3}angularvelocity}{65}{subsubsection.4.33.1.3}
+\contentsline {subsubsection}{\numberline {4.33.1.4}min\discretionary {-}{}{}Angleof\discretionary {-}{}{}Rotation}{65}{subsubsection.4.33.1.4}
+\contentsline {subsubsection}{\numberline {4.33.1.5}min\discretionary {-}{}{}Distancefor\discretionary {-}{}{}Rotation}{65}{subsubsection.4.33.1.5}
+\contentsline {subsubsection}{\numberline {4.33.1.6}N\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}H\discretionary {-}{}{}I\discretionary {-}{}{}P}{65}{subsubsection.4.33.1.6}
+\contentsline {subsubsection}{\numberline {4.33.1.7}R\discretionary {-}{}{}I\discretionary {-}{}{}G\discretionary {-}{}{}H\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}N\discretionary {-}{}{}G\discretionary {-}{}{}L\discretionary {-}{}{}E}{65}{subsubsection.4.33.1.7}
+\contentsline {subsubsection}{\numberline {4.33.1.8}theta}{65}{subsubsection.4.33.1.8}
+\contentsline {subsection}{\numberline {4.33.2}Function Documentation}{65}{subsection.4.33.2}
+\contentsline {subsubsection}{\numberline {4.33.2.1}O\discretionary {-}{}{}P\discretionary {-}{}{}Closest\discretionary {-}{}{}Ship\discretionary {-}{}{}Enemy}{65}{subsubsection.4.33.2.1}
+\contentsline {subsubsection}{\numberline {4.33.2.2}O\discretionary {-}{}{}P\discretionary {-}{}{}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}{65}{subsubsection.4.33.2.2}
+\contentsline {subsubsection}{\numberline {4.33.2.3}O\discretionary {-}{}{}P\discretionary {-}{}{}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Ship}{65}{subsubsection.4.33.2.3}
+\contentsline {subsubsection}{\numberline {4.33.2.4}O\discretionary {-}{}{}P\discretionary {-}{}{}Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Ship}{66}{subsubsection.4.33.2.4}
+\contentsline {subsubsection}{\numberline {4.33.2.5}O\discretionary {-}{}{}P\discretionary {-}{}{}Fire\discretionary {-}{}{}Bullet\discretionary {-}{}{}For\discretionary {-}{}{}Ship}{66}{subsubsection.4.33.2.5}
+\contentsline {subsubsection}{\numberline {4.33.2.6}O\discretionary {-}{}{}P\discretionary {-}{}{}Move\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}{66}{subsubsection.4.33.2.6}
+\contentsline {subsubsection}{\numberline {4.33.2.7}O\discretionary {-}{}{}P\discretionary {-}{}{}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Ship}{66}{subsubsection.4.33.2.7}
+\contentsline {subsubsection}{\numberline {4.33.2.8}O\discretionary {-}{}{}P\discretionary {-}{}{}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}{66}{subsubsection.4.33.2.8}
+\contentsline {subsubsection}{\numberline {4.33.2.9}O\discretionary {-}{}{}P\discretionary {-}{}{}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Shipto\discretionary {-}{}{}Missile\discretionary {-}{}{}Position}{66}{subsubsection.4.33.2.9}
+\contentsline {subsubsection}{\numberline {4.33.2.10}O\discretionary {-}{}{}P\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Arc}{66}{subsubsection.4.33.2.10}
+\contentsline {subsubsection}{\numberline {4.33.2.11}O\discretionary {-}{}{}P\discretionary {-}{}{}Turn\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}{66}{subsubsection.4.33.2.11}
+\contentsline {subsubsection}{\numberline {4.33.2.12}O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Board}{66}{subsubsection.4.33.2.12}
+\contentsline {subsubsection}{\numberline {4.33.2.13}O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Missile}{66}{subsubsection.4.33.2.13}
+\contentsline {subsubsection}{\numberline {4.33.2.14}O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}{66}{subsubsection.4.33.2.14}
+\contentsline {subsubsection}{\numberline {4.33.2.15}O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile}{66}{subsubsection.4.33.2.15}
+\contentsline {subsubsection}{\numberline {4.33.2.16}O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile\discretionary {-}{}{}Velocity}{66}{subsubsection.4.33.2.16}
+\contentsline {subsection}{\numberline {4.33.3}Variable Documentation}{66}{subsection.4.33.3}
+\contentsline {subsubsection}{\numberline {4.33.3.1}N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}X}{66}{subsubsection.4.33.3.1}
+\contentsline {subsubsection}{\numberline {4.33.3.2}N\discretionary {-}{}{}E\discretionary {-}{}{}G\discretionary {-}{}{}Y}{66}{subsubsection.4.33.3.2}
+\contentsline {subsubsection}{\numberline {4.33.3.3}P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}X}{66}{subsubsection.4.33.3.3}
+\contentsline {subsubsection}{\numberline {4.33.3.4}P\discretionary {-}{}{}O\discretionary {-}{}{}S\discretionary {-}{}{}Y}{66}{subsubsection.4.33.3.4}
+\contentsline {section}{\numberline {4.34}O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}Icomputation.\discretionary {-}{}{}cpp File Reference}{66}{section.4.34}
+\contentsline {subsection}{\numberline {4.34.1}Function Documentation}{67}{subsection.4.34.1}
+\contentsline {subsubsection}{\numberline {4.34.1.1}O\discretionary {-}{}{}P\discretionary {-}{}{}Closest\discretionary {-}{}{}Ship\discretionary {-}{}{}Enemy}{67}{subsubsection.4.34.1.1}
+\contentsline {subsubsection}{\numberline {4.34.1.2}O\discretionary {-}{}{}P\discretionary {-}{}{}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}{67}{subsubsection.4.34.1.2}
+\contentsline {subsubsection}{\numberline {4.34.1.3}O\discretionary {-}{}{}P\discretionary {-}{}{}Distance\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Ship}{67}{subsubsection.4.34.1.3}
+\contentsline {subsubsection}{\numberline {4.34.1.4}O\discretionary {-}{}{}P\discretionary {-}{}{}Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Ship}{67}{subsubsection.4.34.1.4}
+\contentsline {subsubsection}{\numberline {4.34.1.5}O\discretionary {-}{}{}P\discretionary {-}{}{}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Of\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Ship}{67}{subsubsection.4.34.1.5}
+\contentsline {subsubsection}{\numberline {4.34.1.6}O\discretionary {-}{}{}P\discretionary {-}{}{}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Ship\discretionary {-}{}{}From\discretionary {-}{}{}Missile}{67}{subsubsection.4.34.1.6}
+\contentsline {subsubsection}{\numberline {4.34.1.7}O\discretionary {-}{}{}P\discretionary {-}{}{}Relative\discretionary {-}{}{}Angle\discretionary {-}{}{}Shipto\discretionary {-}{}{}Missile\discretionary {-}{}{}Position}{67}{subsubsection.4.34.1.7}
+\contentsline {subsubsection}{\numberline {4.34.1.8}O\discretionary {-}{}{}P\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Arc}{67}{subsubsection.4.34.1.8}
+\contentsline {section}{\numberline {4.35}O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Missile.\discretionary {-}{}{}cpp File Reference}{67}{section.4.35}
+\contentsline {subsection}{\numberline {4.35.1}Function Documentation}{67}{subsection.4.35.1}
+\contentsline {subsubsection}{\numberline {4.35.1.1}O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile}{67}{subsubsection.4.35.1.1}
+\contentsline {subsubsection}{\numberline {4.35.1.2}O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile\discretionary {-}{}{}Velocity}{67}{subsubsection.4.35.1.2}
+\contentsline {section}{\numberline {4.36}O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Player.\discretionary {-}{}{}cpp File Reference}{67}{section.4.36}
+\contentsline {subsection}{\numberline {4.36.1}Function Documentation}{67}{subsection.4.36.1}
+\contentsline {subsubsection}{\numberline {4.36.1.1}O\discretionary {-}{}{}P\discretionary {-}{}{}Fire\discretionary {-}{}{}Bullet\discretionary {-}{}{}For\discretionary {-}{}{}Ship}{67}{subsubsection.4.36.1.1}
+\contentsline {subsubsection}{\numberline {4.36.1.2}O\discretionary {-}{}{}P\discretionary {-}{}{}Move\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}{67}{subsubsection.4.36.1.2}
+\contentsline {subsubsection}{\numberline {4.36.1.3}O\discretionary {-}{}{}P\discretionary {-}{}{}Turn\discretionary {-}{}{}Ship\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of\discretionary {-}{}{}Ship}{68}{subsubsection.4.36.1.3}
+\contentsline {section}{\numberline {4.37}O\discretionary {-}{}{}P\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Update.\discretionary {-}{}{}cpp File Reference}{68}{section.4.37}
+\contentsline {subsection}{\numberline {4.37.1}Function Documentation}{68}{subsection.4.37.1}
+\contentsline {subsubsection}{\numberline {4.37.1.1}O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Board}{68}{subsubsection.4.37.1.1}
+\contentsline {subsubsection}{\numberline {4.37.1.2}O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Missile}{68}{subsubsection.4.37.1.2}
+\contentsline {subsubsection}{\numberline {4.37.1.3}O\discretionary {-}{}{}P\discretionary {-}{}{}Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}{68}{subsubsection.4.37.1.3}
+\contentsline {section}{\numberline {4.38}Original\discretionary {-}{}{}A\discretionary {-}{}{}I.\discretionary {-}{}{}cpp File Reference}{68}{section.4.38}
+\contentsline {subsection}{\numberline {4.38.1}Macro Definition Documentation}{69}{subsection.4.38.1}
+\contentsline {subsubsection}{\numberline {4.38.1.1}angularvelocity}{69}{subsubsection.4.38.1.1}
+\contentsline {subsubsection}{\numberline {4.38.1.2}maximumdistance}{69}{subsubsection.4.38.1.2}
+\contentsline {subsubsection}{\numberline {4.38.1.3}min\discretionary {-}{}{}Angleof\discretionary {-}{}{}Rotation}{69}{subsubsection.4.38.1.3}
+\contentsline {subsubsection}{\numberline {4.38.1.4}min\discretionary {-}{}{}Distancefor\discretionary {-}{}{}Rotation}{69}{subsubsection.4.38.1.4}
+\contentsline {subsubsection}{\numberline {4.38.1.5}theta}{69}{subsubsection.4.38.1.5}
+\contentsline {subsection}{\numberline {4.38.2}Function Documentation}{69}{subsection.4.38.2}
+\contentsline {subsubsection}{\numberline {4.38.2.1}Closest\discretionary {-}{}{}Alien\discretionary {-}{}{}Enemy}{69}{subsubsection.4.38.2.1}
+\contentsline {subsubsection}{\numberline {4.38.2.2}Closest\discretionary {-}{}{}Ship\discretionary {-}{}{}Enemy}{69}{subsubsection.4.38.2.2}
+\contentsline {subsubsection}{\numberline {4.38.2.3}Distance}{69}{subsubsection.4.38.2.3}
+\contentsline {subsubsection}{\numberline {4.38.2.4}Distance}{69}{subsubsection.4.38.2.4}
+\contentsline {subsubsection}{\numberline {4.38.2.5}Distance}{69}{subsubsection.4.38.2.5}
+\contentsline {subsubsection}{\numberline {4.38.2.6}Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Alien}{69}{subsubsection.4.38.2.6}
+\contentsline {subsubsection}{\numberline {4.38.2.7}Find\discretionary {-}{}{}Nearest\discretionary {-}{}{}Ship}{69}{subsubsection.4.38.2.7}
+\contentsline {subsubsection}{\numberline {4.38.2.8}In\discretionary {-}{}{}Arc}{69}{subsubsection.4.38.2.8}
+\contentsline {subsubsection}{\numberline {4.38.2.9}In\discretionary {-}{}{}Arc}{69}{subsubsection.4.38.2.9}
+\contentsline {subsubsection}{\numberline {4.38.2.10}Move\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of}{69}{subsubsection.4.38.2.10}
+\contentsline {subsubsection}{\numberline {4.38.2.11}Move\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of}{69}{subsubsection.4.38.2.11}
+\contentsline {subsubsection}{\numberline {4.38.2.12}relative\discretionary {-}{}{}Angle}{69}{subsubsection.4.38.2.12}
+\contentsline {subsubsection}{\numberline {4.38.2.13}relative\discretionary {-}{}{}Angle}{69}{subsubsection.4.38.2.13}
+\contentsline {subsubsection}{\numberline {4.38.2.14}relative\discretionary {-}{}{}Angle}{70}{subsubsection.4.38.2.14}
+\contentsline {subsubsection}{\numberline {4.38.2.15}relative\discretionary {-}{}{}Angle}{70}{subsubsection.4.38.2.15}
+\contentsline {subsubsection}{\numberline {4.38.2.16}relative\discretionary {-}{}{}Angleto\discretionary {-}{}{}Missile}{70}{subsubsection.4.38.2.16}
+\contentsline {subsubsection}{\numberline {4.38.2.17}relative\discretionary {-}{}{}Angleto\discretionary {-}{}{}Missile}{70}{subsubsection.4.38.2.17}
+\contentsline {subsubsection}{\numberline {4.38.2.18}Turn\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of}{70}{subsubsection.4.38.2.18}
+\contentsline {subsubsection}{\numberline {4.38.2.19}Turn\discretionary {-}{}{}In\discretionary {-}{}{}Direction\discretionary {-}{}{}Of}{70}{subsubsection.4.38.2.19}
+\contentsline {subsubsection}{\numberline {4.38.2.20}Update\discretionary {-}{}{}A\discretionary {-}{}{}I\discretionary {-}{}{}Board}{70}{subsubsection.4.38.2.20}
+\contentsline {subsubsection}{\numberline {4.38.2.21}Update\discretionary {-}{}{}Alien}{70}{subsubsection.4.38.2.21}
+\contentsline {subsubsection}{\numberline {4.38.2.22}Update\discretionary {-}{}{}Alien\discretionary {-}{}{}Missile}{70}{subsubsection.4.38.2.22}
+\contentsline {subsubsection}{\numberline {4.38.2.23}Update\discretionary {-}{}{}Missile}{70}{subsubsection.4.38.2.23}
+\contentsline {subsubsection}{\numberline {4.38.2.24}Update\discretionary {-}{}{}Player\discretionary {-}{}{}A\discretionary {-}{}{}I}{70}{subsubsection.4.38.2.24}
+\contentsline {subsubsection}{\numberline {4.38.2.25}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Missile}{70}{subsubsection.4.38.2.25}
+\contentsline {subsubsection}{\numberline {4.38.2.26}Update\discretionary {-}{}{}Velocity}{70}{subsubsection.4.38.2.26}
+\contentsline {subsubsection}{\numberline {4.38.2.27}Update\discretionary {-}{}{}Velocity}{70}{subsubsection.4.38.2.27}
+\contentsline {section}{\numberline {4.39}port.\discretionary {-}{}{}h File Reference}{70}{section.4.39}
+\contentsline {subsection}{\numberline {4.39.1}Macro Definition Documentation}{70}{subsection.4.39.1}
+\contentsline {subsubsection}{\numberline {4.39.1.1}S\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}V\discretionary {-}{}{}I\discretionary {-}{}{}C\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}T}{70}{subsubsection.4.39.1.1}
+\contentsline {section}{\numberline {4.40}Ship.\discretionary {-}{}{}cpp File Reference}{70}{section.4.40}
+\contentsline {section}{\numberline {4.41}Ship.\discretionary {-}{}{}h File Reference}{70}{section.4.41}
+\contentsline {section}{\numberline {4.42}Ship\discretionary {-}{}{}Test.\discretionary {-}{}{}cpp File Reference}{71}{section.4.42}
+\contentsline {subsection}{\numberline {4.42.1}Function Documentation}{71}{subsection.4.42.1}
+\contentsline {subsubsection}{\numberline {4.42.1.1}Run\discretionary {-}{}{}All\discretionary {-}{}{}Ship\discretionary {-}{}{}Tests}{71}{subsubsection.4.42.1.1}
+\contentsline {subsubsection}{\numberline {4.42.1.2}Setting\discretionary {-}{}{}Ship\discretionary {-}{}{}Tests}{71}{subsubsection.4.42.1.2}
+\contentsline {subsubsection}{\numberline {4.42.1.3}Ship\discretionary {-}{}{}Initialisation\discretionary {-}{}{}Tests}{71}{subsubsection.4.42.1.3}
+\contentsline {subsubsection}{\numberline {4.42.1.4}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Tests}{71}{subsubsection.4.42.1.4}
+\contentsline {section}{\numberline {4.43}Ship\discretionary {-}{}{}Test.\discretionary {-}{}{}h File Reference}{71}{section.4.43}
+\contentsline {subsection}{\numberline {4.43.1}Function Documentation}{71}{subsection.4.43.1}
+\contentsline {subsubsection}{\numberline {4.43.1.1}Run\discretionary {-}{}{}All\discretionary {-}{}{}Ship\discretionary {-}{}{}Tests}{71}{subsubsection.4.43.1.1}
+\contentsline {subsubsection}{\numberline {4.43.1.2}Setting\discretionary {-}{}{}Ship\discretionary {-}{}{}Tests}{71}{subsubsection.4.43.1.2}
+\contentsline {subsubsection}{\numberline {4.43.1.3}Ship\discretionary {-}{}{}Initialisation\discretionary {-}{}{}Tests}{71}{subsubsection.4.43.1.3}
+\contentsline {subsubsection}{\numberline {4.43.1.4}Update\discretionary {-}{}{}Ship\discretionary {-}{}{}Tests}{71}{subsubsection.4.43.1.4}
+\contentsline {section}{\numberline {4.44}Test.\discretionary {-}{}{}cpp File Reference}{71}{section.4.44}
+\contentsline {section}{\numberline {4.45}Test.\discretionary {-}{}{}h File Reference}{72}{section.4.45}
+\contentsline {section}{\numberline {4.46}testmera.\discretionary {-}{}{}cpp File Reference}{72}{section.4.46}
+\contentsline {subsection}{\numberline {4.46.1}Function Documentation}{72}{subsection.4.46.1}
+\contentsline {subsubsection}{\numberline {4.46.1.1}main}{72}{subsubsection.4.46.1.1}
+\contentsline {subsubsection}{\numberline {4.46.1.2}Update\discretionary {-}{}{}High\discretionary {-}{}{}Scores}{72}{subsubsection.4.46.1.2}
+\contentsline {subsection}{\numberline {4.46.2}Variable Documentation}{72}{subsection.4.46.2}
+\contentsline {subsubsection}{\numberline {4.46.2.1}sortobject}{72}{subsubsection.4.46.2.1}
+\contentsline {section}{\numberline {4.47}udp.\discretionary {-}{}{}cpp File Reference}{72}{section.4.47}
+\contentsline {subsection}{\numberline {4.47.1}Function Documentation}{73}{subsection.4.47.1}
+\contentsline {subsubsection}{\numberline {4.47.1.1}Add\discretionary {-}{}{}Players}{73}{subsubsection.4.47.1.1}
+\contentsline {subsubsection}{\numberline {4.47.1.2}Find\discretionary {-}{}{}Index}{73}{subsubsection.4.47.1.2}
+\contentsline {subsubsection}{\numberline {4.47.1.3}Get\discretionary {-}{}{}I\discretionary {-}{}{}P}{73}{subsubsection.4.47.1.3}
+\contentsline {subsubsection}{\numberline {4.47.1.4}Get\discretionary {-}{}{}Num\discretionary {-}{}{}Players}{73}{subsubsection.4.47.1.4}
+\contentsline {subsubsection}{\numberline {4.47.1.5}Is\discretionary {-}{}{}Baap}{73}{subsubsection.4.47.1.5}
+\contentsline {subsubsection}{\numberline {4.47.1.6}Length\discretionary {-}{}{}Num}{73}{subsubsection.4.47.1.6}
+\contentsline {subsubsection}{\numberline {4.47.1.7}networkmain}{73}{subsubsection.4.47.1.7}
+\contentsline {subsubsection}{\numberline {4.47.1.8}Out\discretionary {-}{}{}Message}{73}{subsubsection.4.47.1.8}
+\contentsline {subsubsection}{\numberline {4.47.1.9}Receive\discretionary {-}{}{}Data}{74}{subsubsection.4.47.1.9}
+\contentsline {subsubsection}{\numberline {4.47.1.10}Remove\discretionary {-}{}{}Player}{74}{subsubsection.4.47.1.10}
+\contentsline {subsubsection}{\numberline {4.47.1.11}Send\discretionary {-}{}{}Message}{74}{subsubsection.4.47.1.11}
+\contentsline {subsubsection}{\numberline {4.47.1.12}Send\discretionary {-}{}{}Message\discretionary {-}{}{}To\discretionary {-}{}{}All}{74}{subsubsection.4.47.1.12}
+\contentsline {subsubsection}{\numberline {4.47.1.13}To\discretionary {-}{}{}Arr}{74}{subsubsection.4.47.1.13}
+\contentsline {subsubsection}{\numberline {4.47.1.14}To\discretionary {-}{}{}Str}{74}{subsubsection.4.47.1.14}
+\contentsline {subsection}{\numberline {4.47.2}Variable Documentation}{74}{subsection.4.47.2}
+\contentsline {subsubsection}{\numberline {4.47.2.1}Connect}{74}{subsubsection.4.47.2.1}
+\contentsline {subsubsection}{\numberline {4.47.2.2}First}{74}{subsubsection.4.47.2.2}
+\contentsline {subsubsection}{\numberline {4.47.2.3}Instructions}{74}{subsubsection.4.47.2.3}
+\contentsline {subsubsection}{\numberline {4.47.2.4}ipadr}{74}{subsubsection.4.47.2.4}
+\contentsline {subsubsection}{\numberline {4.47.2.5}I\discretionary {-}{}{}Pdata}{74}{subsubsection.4.47.2.5}
+\contentsline {subsubsection}{\numberline {4.47.2.6}is\discretionary {-}{}{}Offline}{74}{subsubsection.4.47.2.6}
+\contentsline {subsubsection}{\numberline {4.47.2.7}Last\discretionary {-}{}{}Time}{74}{subsubsection.4.47.2.7}
+\contentsline {subsubsection}{\numberline {4.47.2.8}no\discretionary {-}{}{}I\discretionary {-}{}{}P}{74}{subsubsection.4.47.2.8}
+\contentsline {subsubsection}{\numberline {4.47.2.9}players\discretionary {-}{}{}Ready}{74}{subsubsection.4.47.2.9}
+\contentsline {subsubsection}{\numberline {4.47.2.10}sid}{74}{subsubsection.4.47.2.10}
+\contentsline {subsubsection}{\numberline {4.47.2.11}Time\discretionary {-}{}{}Stamp}{74}{subsubsection.4.47.2.11}
+\contentsline {section}{\numberline {4.48}udp.\discretionary {-}{}{}h File Reference}{74}{section.4.48}
+\contentsline {subsection}{\numberline {4.48.1}Macro Definition Documentation}{75}{subsection.4.48.1}
+\contentsline {subsubsection}{\numberline {4.48.1.1}B\discretionary {-}{}{}U\discretionary {-}{}{}F\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}Z\discretionary {-}{}{}E}{75}{subsubsection.4.48.1.1}
+\contentsline {subsection}{\numberline {4.48.2}Function Documentation}{75}{subsection.4.48.2}
+\contentsline {subsubsection}{\numberline {4.48.2.1}Add\discretionary {-}{}{}Players}{75}{subsubsection.4.48.2.1}
+\contentsline {subsubsection}{\numberline {4.48.2.2}Find\discretionary {-}{}{}Index}{75}{subsubsection.4.48.2.2}
+\contentsline {subsubsection}{\numberline {4.48.2.3}Get\discretionary {-}{}{}I\discretionary {-}{}{}P}{75}{subsubsection.4.48.2.3}
+\contentsline {subsubsection}{\numberline {4.48.2.4}Get\discretionary {-}{}{}Num\discretionary {-}{}{}Players}{75}{subsubsection.4.48.2.4}
+\contentsline {subsubsection}{\numberline {4.48.2.5}Is\discretionary {-}{}{}Baap}{75}{subsubsection.4.48.2.5}
+\contentsline {subsubsection}{\numberline {4.48.2.6}Length\discretionary {-}{}{}Num}{75}{subsubsection.4.48.2.6}
+\contentsline {subsubsection}{\numberline {4.48.2.7}networkmain}{75}{subsubsection.4.48.2.7}
+\contentsline {subsubsection}{\numberline {4.48.2.8}Out\discretionary {-}{}{}Message}{75}{subsubsection.4.48.2.8}
+\contentsline {subsubsection}{\numberline {4.48.2.9}Remove\discretionary {-}{}{}Player}{75}{subsubsection.4.48.2.9}
+\contentsline {subsubsection}{\numberline {4.48.2.10}Send\discretionary {-}{}{}Message}{75}{subsubsection.4.48.2.10}
+\contentsline {subsubsection}{\numberline {4.48.2.11}Send\discretionary {-}{}{}Message\discretionary {-}{}{}To\discretionary {-}{}{}All}{75}{subsubsection.4.48.2.11}
+\contentsline {subsubsection}{\numberline {4.48.2.12}To\discretionary {-}{}{}Arr}{75}{subsubsection.4.48.2.12}
+\contentsline {subsubsection}{\numberline {4.48.2.13}To\discretionary {-}{}{}Str}{75}{subsubsection.4.48.2.13}
+\contentsline {chapter}{Index}{76}{section*.104}
